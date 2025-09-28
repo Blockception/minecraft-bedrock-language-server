@@ -1,4 +1,4 @@
-import { Commands } from "@blockception/shared";
+import { Commands } from "@blockception/shared/dist";
 import { TemplateProcessor } from "../../../templates/processor";
 import { Context } from "../../context/context";
 import { getFolders } from "../../templates/folders";

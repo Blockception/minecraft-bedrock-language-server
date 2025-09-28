@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared";
+import { Languages } from "@blockception/shared/dist";
 import { Connection, SignatureHelp, SignatureHelpParams } from "vscode-languageserver";
 import { ExtensionContext } from "../extension";
 import { IExtendedLogger } from "../logger/logger";

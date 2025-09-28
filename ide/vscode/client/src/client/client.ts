@@ -1,7 +1,7 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from "vscode-languageclient/node";
 import { Manager } from "../manager/manager";
 import { resolveCodeLens } from "./middleware";
-import { Languages } from "@blockception/shared";
+import { Languages } from "@blockception/shared/dist";
 
 import * as path from "path";
 import * as vscode from "vscode";

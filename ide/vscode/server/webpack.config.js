@@ -31,7 +31,7 @@ const config = {
   entry: "./server/src/server.ts", // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
   output: {
     // the bundle is stored in the 'out' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
-    path: path.resolve(__dirname, "out"),
+    path: path.resolve(__dirname, "..", "dist"),
     filename: "server.js",
     libraryTarget: "commonjs2",
     devtoolModuleFilenameTemplate: "../[resource-path]",

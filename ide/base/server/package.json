@@ -1,0 +1,13 @@
+{
+  "name": "lsp-server",
+  "version": "1.0.0",
+  "description": "",
+  "license": "BSD-3-Clause",
+  "author": "",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {}
+}

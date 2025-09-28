@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared";
+import { Languages } from "@blockception/shared/dist";
 import { Context } from "../context/context";
 import { CompletionContext } from "./context";
 

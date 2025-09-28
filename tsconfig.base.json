@@ -7,7 +7,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "esModuleInterop": true,
-    "outDir": "./lib",
+    "outDir": "./dist",
     "baseUrl": ".",
     "paths": {
       "bc-minecraft-bedrock-command": ["packages/bedrock-commands/src"],
@@ -17,6 +17,8 @@
       "bc-minecraft-bedrock-vanilla-data": ["packages/bedrock-vanilla-data/src"],
       "bc-minecraft-molang": ["packages/molang/src"],
       "bc-minecraft-project": ["packages/project/src"],
+      "@blockception/packages-shared": ["packages/shared/src"],
+      "@blockception/shared": ["ide/shared/src"],
       "blockceptionvscodeminecraftbedrockdevelopmentextension": ["ide/vscode/client/src"]
     }
   }

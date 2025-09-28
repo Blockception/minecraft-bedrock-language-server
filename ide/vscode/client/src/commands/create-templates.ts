@@ -1,6 +1,6 @@
 import { commands, ExtensionContext, InputBoxOptions, Uri, window, workspace } from "vscode";
 import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
-import { Commands } from "@blockception/shared";
+import { Commands } from "@blockception/shared/dist";
 import { Manager } from "../manager/manager";
 
 interface IDExample {

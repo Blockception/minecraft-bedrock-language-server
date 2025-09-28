@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared";
+import { Languages } from "@blockception/shared/dist";
 import { Pack } from "bc-minecraft-bedrock-project";
 import {
   CancellationToken,

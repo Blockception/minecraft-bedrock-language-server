@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared";
+import { Languages } from "@blockception/shared/dist";
 import {
   BulkRegistration, Connection, Range,
   SemanticTokensParams,

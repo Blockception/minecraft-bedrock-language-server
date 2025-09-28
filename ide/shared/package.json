@@ -1,9 +1,9 @@
 {
-  "name": "@blockception/shared",
+  "name": "@blockception/ide-shared",
   "version": "0.0.1",
   "license": "ISC",
-  "main": "out/index.js",
-  "typings": "out/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "compile": "npm run build",

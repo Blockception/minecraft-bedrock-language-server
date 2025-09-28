@@ -8,7 +8,7 @@ import {
   window,
   workspace,
 } from "vscode";
-import { Commands } from "@blockception/shared";
+import { Commands } from "@blockception/shared/dist";
 import { GithubFiles } from "bc-minecraft-bedrock-vanilla-data/lib/src/Lib/Vanilla/sources";
 import path from "path";
 

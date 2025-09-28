@@ -1,6 +1,6 @@
 import { commands, ExtensionContext, window } from "vscode";
 import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient";
-import { Commands } from "@blockception/shared";
+import { Commands } from "@blockception/shared/dist";
 import { Manager } from "../manager/manager";
 
 export function activate(context: ExtensionContext): void {

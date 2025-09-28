@@ -1,4 +1,4 @@
-import { Commands } from "@blockception/shared";
+import { Commands } from "@blockception/shared/dist";
 import { Context } from "../context/context";
 import { diagnoseProject, rescanProject } from "./commands/diagnose-project";
 import { appendToFile } from "./commands/files";

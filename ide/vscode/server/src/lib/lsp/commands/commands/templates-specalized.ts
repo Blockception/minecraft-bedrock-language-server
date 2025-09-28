@@ -1,4 +1,4 @@
-import { Commands } from "@blockception/shared";
+import { Commands } from "@blockception/shared/dist";
 import { Pack } from "bc-minecraft-bedrock-project";
 import { Context } from "../../context/context";
 import { IExtensionContext } from "../../extension";

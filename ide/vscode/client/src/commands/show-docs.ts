@@ -1,5 +1,5 @@
 import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from "vscode";
-import { Commands } from "@blockception/shared";
+import { Commands } from "@blockception/shared/dist";
 import { Console } from "../console/console";
 
 import path from "path";
