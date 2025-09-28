@@ -1,51 +1,47 @@
 {
   "compilerOptions": {
-    "target": "es2019",
-    "moduleResolution": "node",
-    "declaration": true,
-    "strict": true,
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "bc-minecraft-bedrock-command": [
-        "packages/bedrock-commands/src"
-      ],
-      "bc-minecraft-bedrock-diagnoser": [
-        "packages/bedrock-diagnoser/src"
-      ],
-      "bc-minecraft-bedrock-project": [
-        "packages/bedrock-project/src"
-      ],
-      "bc-minecraft-bedrock-types": [
-        "packages/bedrock-types/src"
-      ],
-      "bc-minecraft-bedrock-vanilla-data": [
-        "packages/bedrock-vanilla-data/src"
-      ],
-      "bc-minecraft-molang": [
-        "packages/molang/src"
-      ],
-      "bc-minecraft-project": [
-        "packages/project/src"
-      ],
-      "bc-minecraft-lsp-client": [
-        "ide/base/client/src"
-      ],
-      "bc-minecraft-lsp": [
-        "ide/base/server/src"
-      ],
-      "@blockception/packages-shared": [
-        "packages/shared/src"
-      ],
-      "@blockception/shared": [
-        "ide/shared/src"
-      ],
-      "blockceptionvscodeminecraftbedrockdevelopmentextension": [
-        "ide/vscode/client/src"
-      ]
-    }
-  }
+    "incremental": true,
+    "composite": true,
+  },
+  "references": [
+    {
+      "path": "tsconfig.json"
+    },
+    {
+      "path": "./ide/base/client/tsconfig.json"
+    },
+    {
+      "path": "./ide/base/server/tsconfig.json"
+    },
+    {
+      "path": "./ide/shared/tsconfig.json"
+    },
+    {
+      "path": "./ide/vscode/tsconfig.json"
+    },
+    {
+      "path": "./packages/bedrock-commands/tsconfig.json"
+    },
+    {
+      "path": "./packages/bedrock-diagnoser/tsconfig.json"
+    },
+    {
+      "path": "./packages/bedrock-project/tsconfig.json"
+    },
+    {
+      "path": "./packages/bedrock-types/tsconfig.json"
+    },
+    {
+      "path": "./packages/bedrock-vanilla-data/tsconfig.json"
+    },
+    {
+      "path": "./packages/molang/tsconfig.json"
+    },
+    {
+      "path": "./packages/project/tsconfig.json"
+    },
+    {
+      "path": "./packages/shared/tsconfig.json"
+    },
+  ]
 }

@@ -1,5 +1,0 @@
-{
-  "include": ["packages/*/src", "packages/*/test", "ide/*/src", "ide/*/test"],
-  "exclude": ["node_modules", "**/__tests__/*"],
-  "extends": ["./tsconfig.base.json"]
-}
