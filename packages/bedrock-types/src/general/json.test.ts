@@ -1,4 +1,4 @@
-import { Json } from ".";
+import { Json } from "./json";
 
 describe("Json", () => {
   const isObject = ['{"rawtext":[{"text":"example"}]}', '{"rawtext":[{"text":"example}]}'];

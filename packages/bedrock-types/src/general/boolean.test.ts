@@ -1,4 +1,4 @@
-import { Boolean } from ".";
+import { Boolean } from "./boolean";
 
 describe("Boolean", () => {
   const tests = [

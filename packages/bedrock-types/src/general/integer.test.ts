@@ -1,4 +1,4 @@
-import { Integer } from ".";
+import { Integer } from "./integer";
 
 describe("Integer", () => {
   const valid = ["-123456", "123456"];

@@ -1,4 +1,4 @@
-import { String } from ".";
+import { String } from "./string";
 
 describe("String", () => {
   const valid = ["foo", "bar", '"im valid now"'];
