@@ -1,7 +1,6 @@
-/* --------------------------------------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- * ------------------------------------------------------------------------------------------ */
-import { setupServer } from "bc-minecraft-lsp";
+import { setupServer } from 'bc-minecraft-lsp';
+import { Version } from './constant';
 
-setupServer();
+setupServer({
+  version: Version,
+});

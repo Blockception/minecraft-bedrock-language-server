@@ -1,16 +1,15 @@
-import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from "vscode";
-import { Commands } from "@blockception/shared/dist";
-import { GithubFiles } from "bc-minecraft-bedrock-vanilla-data/lib/src/Lib/Vanilla/sources";
-import path from "path";
+import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from 'vscode';
+import { Commands } from '@blockception/shared/dist';
+import { Vanilla } from 'bc-minecraft-bedrock-vanilla-data';
+import path from 'path';
 
 export function activate(context: ExtensionContext): void {
   async function showVanillaFile() {
     const base = context.storageUri || context.globalStorageUri;
-    const storage_path = path.join(base.fsPath, "vanilla");
+    const storage_path = path.join(base.fsPath, 'vanilla');
     const command = new ShowVanillaFileCommand(storage_path);
 
-    const source = GithubFiles.source;
-    const files = GithubFiles.files;
+    const { source, files } = Vanilla.GithubFiles;
 
     if (files.length === 0) {
       return;
@@ -55,7 +54,7 @@ class ShowVanillaFileCommand {
 
       return diff <= day_diff_2;
     } catch (err) {
-      console.log("trouble during checking of file", err);
+      console.log('trouble during checking of file', err);
       return false;
     }
   }
@@ -63,36 +62,36 @@ class ShowVanillaFileCommand {
   async download(uri: string, filepath: string): Promise<void> {
     const progressOptions = {
       location: ProgressLocation.Notification,
-      title: "Downloading vanilla file",
+      title: 'Downloading vanilla file',
       cancellable: false,
     };
 
     return window.withProgress(progressOptions, async (progress) => {
       const options: RequestInit = {
-        method: "GET",
-        redirect: "error",
+        method: 'GET',
+        redirect: 'error',
       };
 
       progress.report({
-        message: "Downloading vanilla file",
+        message: 'Downloading vanilla file',
         increment: 0,
       });
 
       await fetch(uri, options)
         .then((data) => data.text())
         .then((text) => {
-          return workspace.fs.writeFile(Uri.file(filepath), Buffer.from(text, "utf8"));
+          return workspace.fs.writeFile(Uri.file(filepath), Buffer.from(text, 'utf8'));
         })
         .catch((err) => {
           window.showErrorMessage(
-            "Failed to download vanilla file\n",
-            uri + "\n",
-            filepath + "\n",
-            JSON.stringify(err)
+            'Failed to download vanilla file\n',
+            uri + '\n',
+            filepath + '\n',
+            JSON.stringify(err),
           );
         })
         .finally(() => {
-          console.log("Downloaded vanilla file", filepath);
+          console.log('Downloaded vanilla file', filepath);
         });
 
       progress.report({ increment: 100 });
@@ -116,7 +115,7 @@ class ShowVanillaFileCommand {
       const doc = await workspace.openTextDocument(Uri.file(filepath));
       await window.showTextDocument(doc);
     } catch (err) {
-      window.showErrorMessage("Failed to open vanilla file", filepath, JSON.stringify(err));
+      window.showErrorMessage('Failed to open vanilla file', filepath, JSON.stringify(err));
     }
   }
 }

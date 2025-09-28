@@ -16,7 +16,7 @@
   "license": "BSD-3-Clause",
   "type": "commonjs",
   "main": "./dist/index.js",
-  "typings": "dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "files": [
     "./dist",
     "../../../LICENSE"

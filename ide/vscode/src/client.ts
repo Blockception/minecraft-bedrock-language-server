@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import {  } from 'bc-minecraft-lsp-client';
+import { Commands, setupClient, } from 'bc-minecraft-lsp-client';
 
 export function activate(context: vscode.ExtensionContext): void {
   Commands.activate(context);

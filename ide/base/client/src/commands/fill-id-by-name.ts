@@ -9,7 +9,8 @@ import {
   workspace,
 } from "vscode";
 import { Commands } from "@blockception/shared/dist";
-import { GithubFiles } from "bc-minecraft-bedrock-vanilla-data/lib/src/Lib/Vanilla/sources";
+import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
+
 import path from "path";
 
 export function activate(context: ExtensionContext): void {
@@ -18,7 +19,7 @@ export function activate(context: ExtensionContext): void {
     const storage_path = path.join(base.fsPath, "vanilla");
     const command = new FillIdByNameCommand(storage_path);
 
-    return command.process("resource_pack/texts/en_US.lang", GithubFiles.source);
+    return command.process("resource_pack/texts/en_US.lang", Vanilla.GithubFiles.source);
   }
 
   context.subscriptions.push(commands.registerCommand(Commands.FillIdByName, FillIdByName));
