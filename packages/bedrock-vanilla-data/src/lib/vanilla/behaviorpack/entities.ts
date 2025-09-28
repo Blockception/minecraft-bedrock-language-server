@@ -1,7 +1,7 @@
 /** Notice: Auto generated file, do not edit */
 
 
-import { Entity } from '../../types/behaviorpack/Entity';
+import { Entity } from '../../types/behaviorpack/entity';
 
 
 

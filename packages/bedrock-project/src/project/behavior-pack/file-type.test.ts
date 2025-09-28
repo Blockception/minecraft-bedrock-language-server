@@ -1,5 +1,5 @@
 import path from "path";
-import { BehaviorPack } from "../../main";
+import { BehaviorPack } from "../..";
 
 const FileType = BehaviorPack.FileType;
 

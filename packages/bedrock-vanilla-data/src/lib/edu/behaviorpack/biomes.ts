@@ -1,7 +1,7 @@
 /** Notice: Auto generated file, do not edit */
 
 
-import { Biome } from '../../types/BehaviorPack/Biome';
+import { Biome } from '../../types/behaviorpack/biome';
 
 
 

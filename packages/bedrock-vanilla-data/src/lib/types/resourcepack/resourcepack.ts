@@ -1,14 +1,14 @@
-import { Animation } from "./Animation";
-import { AnimationController } from "./AnimationController";
-import { Entity } from "./Entity";
-import { Fog } from "./Fog";
-import { Material } from "./Material";
-import { Model } from "./Model";
-import { Particle } from "./Particle";
-import { RenderController } from "./RenderController";
-import { Sound } from "./Sound";
-import { Texture } from "./Texture";
-import { TextureAtlas } from "./TextureAtlas";
+import { Animation } from "./animation";
+import { AnimationController } from "./animation_controller";
+import { Entity } from "./entity";
+import { Fog } from "./fog";
+import { Material } from "./material";
+import { Model } from "./model";
+import { Particle } from "./particle";
+import { RenderController } from "./render_controller";
+import { Sound } from "./sound";
+import { Texture } from "./texture";
+import { TextureAtlas } from "./texture_atlas";
 
 /**The interface that stores vanilla resource pack data*/
 export interface ResourcePack {

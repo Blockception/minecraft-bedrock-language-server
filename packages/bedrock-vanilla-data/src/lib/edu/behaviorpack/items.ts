@@ -1,7 +1,7 @@
 /** Notice: Auto generated file, do not edit */
 
 
-import { Item } from '../../types/behaviorpack/Item';
+import { Item } from '../../types/behaviorpack/item';
 
 
 

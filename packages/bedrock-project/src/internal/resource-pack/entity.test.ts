@@ -1,5 +1,5 @@
 import { Json } from "../json";
-import { Internal } from "../../main";
+import { Internal } from "../..";
 
 describe("RP Entity", () => {
   const data = `{

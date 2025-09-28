@@ -1,10 +1,10 @@
-import { Biome } from './Biome';
-import { Block } from "./Block";
-import { Entity } from "./Entity";
-import { Feature } from "./Feature";
-import { Item } from "./Item";
-import { LootTable } from "./LootTable";
-import { Trading } from "./Trading";
+import { Biome } from './biome';
+import { Block } from "./block";
+import { Entity } from "./entity";
+import { Feature } from "./feature";
+import { Item } from "./item";
+import { LootTable } from "./loottable";
+import { Trading } from "./trading";
 
 /**The interface that stores vanilla behavior pack data*/
 export interface BehaviorPack {

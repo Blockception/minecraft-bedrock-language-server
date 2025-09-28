@@ -1,7 +1,7 @@
 /** Notice: Auto generated file, do not edit */
 
 
-import { Animation } from '../../types/resourcepack/Animation';
+import { Animation } from '../../types/resourcepack/animation';
 
 
 

@@ -1,7 +1,6 @@
-import { MinecraftDataSet } from "./lib/types/minecraft_data_set";
-import { Vanilla, Edu, Types, General as G } from "./lib";
-import { Identifiable } from "./Lib/types/identifiable";
-export { MinecraftDataSet, Vanilla, Edu, Types };
+import { Edu, General as G, Types, Vanilla } from "./lib";
+import { Identifiable, MinecraftDataSet } from "./lib/types";
+export { Edu, MinecraftDataSet, Types, Vanilla };
 
 /**The minecraft vanilla data of RP and BP data*/
 export namespace MinecraftData {

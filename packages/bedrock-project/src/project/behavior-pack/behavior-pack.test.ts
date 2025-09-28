@@ -1,5 +1,5 @@
 import { MCProject } from "bc-minecraft-project";
-import { BehaviorPack } from "../../../src/main";
+import { BehaviorPack } from "../..";
 import { Manifest } from "../../../src/internal/types";
 
 describe("BehaviorPack", () => {
