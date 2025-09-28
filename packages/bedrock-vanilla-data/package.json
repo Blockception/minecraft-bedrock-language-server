@@ -6,10 +6,6 @@
   "types": "./lib/src/main.d.ts",
   "scripts": {
     "compile": "tsc -b",
-    "build": "npm run clean && npm run compile",
-    "test": "jest",
-    "lint": "eslint",
-    "clean": "rimraf lib",
     "pretest": "npm run compile",
     "prepublishOnly": "npm test && npm run compile",
     "preversion": "",
