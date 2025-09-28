@@ -8,6 +8,17 @@
     "outDir": "./lib",
     "strict": true,
     "resolveJsonModule": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "bc-minecraft-bedrock-command": ["packages/bedrock-commands/src"],
+      "bc-minecraft-bedrock-diagnoser": ["packages/bedrock-diagnoser/src"],
+      "bc-minecraft-bedrock-project": ["packages/bedrock-project/src"],
+      "bc-minecraft-bedrock-types": ["packages/bedrock-types/src"],
+      "bc-minecraft-bedrock-vanilla-data": ["packages/bedrock-vanilla-data/src"],
+      "bc-minecraft-molang": ["packages/molang/src"],
+      "bc-minecraft-project": ["packages/project/src"],
+      "blockceptionvscodeminecraftbedrockdevelopmentextension": ["ide/vscode/client/src"]
+    }
   }
 }
