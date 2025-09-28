@@ -1,0 +1,6 @@
+{
+  "diagnoser.add": {
+    "prefix": "diagnoser.add",
+    "body": ["diagnoser.add(value, \"\", DiagnosticSeverity.error, \"code.example\");"]
+  }
+}

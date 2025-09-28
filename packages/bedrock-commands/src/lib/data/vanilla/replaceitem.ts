@@ -1,0 +1,76 @@
+import { ParameterType } from "../../types/parameter-type";
+import { CommandInfo } from "../command-info";
+
+/**The replaceitem command */
+export const replaceitem: CommandInfo[] = [
+  {
+    name: "replaceitem",
+    documentation: "Replaces items in inventories.",
+    permission_level: 1,
+    parameters: [
+      { text: "replaceitem", type: ParameterType.keyword, required: true },
+      { text: "block", type: ParameterType.keyword, required: true },
+      { text: "position x", type: ParameterType.coordinate, required: true },
+      { text: "position y", type: ParameterType.coordinate, required: true },
+      { text: "position z", type: ParameterType.coordinate, required: true },
+      { text: "slot.container", type: ParameterType.keyword, required: true },
+      { text: "slot id", type: ParameterType.integer, required: true },
+      { text: "item name", type: ParameterType.item, required: true },
+      { text: "amount", type: ParameterType.integer, required: false },
+      { text: "data", type: ParameterType.integer, required: false },
+      { text: "components", type: ParameterType.jsonItem, required: false },
+    ],
+  },
+  {
+    name: "replaceitem",
+    documentation: "Replaces items in inventories.",
+    permission_level: 1,
+    parameters: [
+      { text: "replaceitem", type: ParameterType.keyword, required: true },
+      { text: "block", type: ParameterType.keyword, required: true },
+      { text: "position x", type: ParameterType.coordinate, required: true },
+      { text: "position y", type: ParameterType.coordinate, required: true },
+      { text: "position z", type: ParameterType.coordinate, required: true },
+      { text: "slot.container", type: ParameterType.keyword, required: true },
+      { text: "slot id", type: ParameterType.integer, required: true },
+      { text: "old item handling", type: ParameterType.replaceMode, required: true },
+      { text: "item name", type: ParameterType.item, required: true },
+      { text: "amount", type: ParameterType.integer, required: false },
+      { text: "data", type: ParameterType.integer, required: false },
+      { text: "components", type: ParameterType.jsonItem, required: false },
+    ],
+  },
+  {
+    name: "replaceitem",
+    documentation: "Replaces items in inventories.",
+    permission_level: 1,
+    parameters: [
+      { text: "replaceitem", type: ParameterType.keyword, required: true },
+      { text: "entity", type: ParameterType.keyword, required: true },
+      { text: "target", type: ParameterType.selector, required: true },
+      { text: "slot type", type: ParameterType.slotType, required: true },
+      { text: "slot id", type: ParameterType.integer, required: true },
+      { text: "item name", type: ParameterType.item, required: true },
+      { text: "amount", type: ParameterType.integer, required: false },
+      { text: "data", type: ParameterType.integer, required: false },
+      { text: "components", type: ParameterType.jsonItem, required: false },
+    ],
+  },
+  {
+    name: "replaceitem",
+    documentation: "Replaces items in inventories.",
+    permission_level: 1,
+    parameters: [
+      { text: "replaceitem", type: ParameterType.keyword, required: true },
+      { text: "entity", type: ParameterType.keyword, required: true },
+      { text: "target", type: ParameterType.selector, required: true },
+      { text: "slot type", type: ParameterType.slotType, required: true },
+      { text: "slot id", type: ParameterType.integer, required: true },
+      { text: "old item handling", type: ParameterType.replaceMode, required: true },
+      { text: "item name", type: ParameterType.item, required: true },
+      { text: "amount", type: ParameterType.integer, required: false },
+      { text: "data", type: ParameterType.integer, required: false },
+      { text: "components", type: ParameterType.jsonItem, required: false },
+    ],
+  },
+];

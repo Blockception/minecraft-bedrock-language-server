@@ -1,0 +1,8 @@
+src
+tsconfig.json
+tslint.json
+.prettierrc
+test/
+*.test.*
+.vscode
+.gitattributes

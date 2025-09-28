@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Test behavior pack",
+    "name": "Test Behavior Pack",
+    "uuid": "e8fa3382-c67a-4f5f-b9c0-16069f3b9051",
+    "version": [0, 0, 1],
+    "min_engine_version": [1, 21, 70]
+  },
+  "modules": [
+    {
+      "description": "Test behavior pack",
+      "type": "data",
+      "uuid": "879789fa-dd4f-4800-a337-70813e735b61",
+      "version": [0, 0, 1]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "d46161d1-67d8-4ff4-89d5-af3cc1941e13",
+      "version": [0, 0, 1]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`LootTable process $s 1`] = `
+{
+  "documentation": "example",
+  "id": "loot_tables/blocks/example.json",
+  "location": {
+    "position": 0,
+    "uri": "F:\\Temp2\\world\\behavior_packs\\EW-BP\\loot_tables\\blocks\\example.json",
+  },
+}
+`;
+
+exports[`LootTable process $s 2`] = `
+{
+  "documentation": "example",
+  "id": "loot_tables/blocks/example.json",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/loot_tables/blocks/example.json",
+  },
+}
+`;
+
+exports[`LootTable process $s 3`] = `
+{
+  "documentation": "example",
+  "id": "loot_tables/blocks example.json",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/loot_tables/blocks example.json",
+  },
+}
+`;

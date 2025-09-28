@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "watch",
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "label": "npm watch 'vscode-plugin'",
+      "icon": {
+        "id": "gear"
+      }, 
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": ["$tsc-watch"]
+    },
+    {
+      "type": "npm",
+      "script": "compile",
+      "isBackground": false,
+      "group": "build",
+      "label": "npm compile 'vscode-plugin'",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": ["$tsc"],
+      "icon": {
+        "id": "tasklist"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "isBackground": false,
+      "icon": { "id": "verified", "color": "terminal.ansiGreen" },
+      "detail": "Run the tests",
+      "group": "test",
+      "label": "npm test 'vscode-plugin'",
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "type": "shell",
+      "label": "Format workspace",
+      "command": "Powershell.exe -executionpolicy remotesigned -File ./scripts/format_documents.ps1",
+      "problemMatcher": "$tsc"
+    },
+    {
+      "type": "shell",
+      "label": "build extension",
+      "command": "./scripts/build.bat",
+      "group": "build",
+      "problemMatcher": "$tsc"
+    }
+  ]
+}

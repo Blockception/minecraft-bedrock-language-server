@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Models can process new format 1`] = `
+[
+  {
+    "bones": {
+      "defined": Set {
+        "root",
+        "body",
+        "right_arm",
+      },
+    },
+    "documentation": "Model: geometry.example",
+    "id": "geometry.example",
+    "location": {
+      "position": 110,
+      "uri": "foo.json",
+    },
+    "locators": {
+      "defined": Set {
+        "lead",
+      },
+    },
+    "root_bone_uses_binding": false,
+  },
+]
+`;
+
+exports[`Models can process old format 1`] = `
+[
+  {
+    "bones": {
+      "defined": Set {
+        "head",
+        "eye",
+      },
+    },
+    "documentation": "Model: geometry.example.v1.8",
+    "id": "geometry.example.v1.8",
+    "location": {
+      "position": 34,
+      "uri": "foo.json",
+    },
+    "locators": {
+      "defined": Set {},
+    },
+    "root_bone_uses_binding": false,
+  },
+]
+`;

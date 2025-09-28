@@ -1,0 +1,15 @@
+src
+tsconfig.json
+tslint.json
+.prettierrc
+test/
+*.test.*
+./lib/**/*.test.d.ts
+./lib/**/*.test.js
+./lib/**/*.test.js.map
+./lib/*.test.d.ts
+./lib/*.test.js
+./lib/*.test.js.map
+*.test.js
+*.test.js.map
+*.test.d.ts

@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "isBackground": false,
+      "group": "build",
+      "label": "npm compile 'bc-minecraft-bedrock-diagnoser'",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "type": "npm",
+      "script": "watch",
+      "isBackground": false,
+      "label": "npm watch 'bc-minecraft-bedrock-diagnoser'",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "isBackground": false,
+      "icon": { "id": "verified", "color": "terminal.ansiGreen" },
+      "detail": "Run the tests",
+      "group": "test",
+      "label": "npm test 'bc-minecraft-bedrock-diagnoser'",
+      "problemMatcher": ["$tsc", "$tsc-watch",
+        {
+          "pattern": {
+            "regexp": "^[ \t]*at .*\\(([\\w\\\\\\.]+):(\\d+):(\\d+)\\)[ \t]*$",
+            "file": 1,
+            "line": 2,
+            "column": 3
+          }
+        }
+      ]
+    }
+  ]
+}

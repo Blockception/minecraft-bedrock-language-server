@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "bc:sample",
+      "materials": {
+        "default": "sample"
+      },
+      "textures": {
+        "default": "textures/entity/sample/sample"
+      },
+      "geometry": {
+        "default": "geometry.sample"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg_sample"
+      },
+      "scripts": {
+        "pre_animation": []
+      },
+      "animations": {},
+      "animation_controllers": [],
+      "render_controllers": ["controller.render.sample"],
+      "enable_attachables": true,
+      "held_item_ignores_lighting": true
+    }
+  }
+}

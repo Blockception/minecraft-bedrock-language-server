@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`MCDefinition load file2 1`] = `
+{
+  "family": {
+    "defined": [
+      "npc",
+      "Npc",
+      "enemy",
+    ],
+    "excluded": [
+      "nemesis",
+    ],
+  },
+  "name": {
+    "defined": [
+      "Steve",
+    ],
+    "excluded": [
+      "Creeper",
+    ],
+  },
+  "objective": {
+    "defined": [
+      "counter",
+    ],
+    "excluded": [
+      "Foo",
+    ],
+  },
+  "tag": {
+    "defined": [
+      "tag_number1",
+    ],
+    "excluded": [
+      "FoLolOl",
+    ],
+  },
+}
+`;
+
+exports[`MCDefinition loadSync file1 1`] = `
+{
+  "family": {
+    "defined": [
+      "npc",
+      "Npc",
+      "enemy",
+    ],
+    "excluded": [
+      "nemesis",
+    ],
+  },
+  "name": {
+    "defined": [
+      "Steve",
+    ],
+    "excluded": [
+      "Creeper",
+    ],
+  },
+  "objective": {
+    "defined": [
+      "counter",
+    ],
+    "excluded": [
+      "Foo",
+    ],
+  },
+  "tag": {
+    "defined": [
+      "tag_number1",
+    ],
+    "excluded": [
+      "FoLolOl",
+    ],
+  },
+}
+`;
+
+exports[`MCDefinition parse1 1`] = `
+{
+  "tag": {
+    "defined": [
+      "allowed",
+    ],
+    "excluded": [
+      "denied",
+    ],
+  },
+}
+`;

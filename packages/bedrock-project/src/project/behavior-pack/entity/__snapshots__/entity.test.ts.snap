@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Entity Families 1`] = `
+{
+  "animations": {
+    "defined": Set {
+      "controller",
+      "something",
+    },
+    "using": Set {
+      "controller.animation.chicken",
+      "controller.i.dont.exist",
+    },
+  },
+  "documentation": "BP Entity: blockception:sheep",
+  "events": {
+    "defined": Set {
+      "self:to",
+    },
+  },
+  "families": {
+    "defined": Set {
+      "mob",
+      "animal",
+    },
+  },
+  "groups": {
+    "defined": Set {
+      "self:group1",
+    },
+  },
+  "id": "blockception:sheep",
+  "location": {
+    "position": 98,
+    "uri": "C:\\temp.json",
+  },
+  "molang": MolangSet {
+    "assigned": Set {},
+    "cache": MolangSyntaxCache {
+      "_data": Map {},
+    },
+    "functions": Set {},
+    "using": Set {},
+  },
+  "properties": [],
+  "runtime_identifier": "",
+}
+`;

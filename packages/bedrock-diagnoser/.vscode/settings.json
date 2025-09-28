@@ -1,0 +1,34 @@
+{
+  "editor.insertSpaces": true,
+  "typescript.preferences.quoteStyle": "single",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "npm.packageManager": "npm",
+
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.insertSpaces": true
+  },
+
+  "[markdown]": {
+    "editor.wordWrap": "off"
+  },
+  "cSpell.words": [
+    "behaviorpack",
+    "entityid",
+    "gamemode",
+    "hasitem",
+    "selectorattribute",
+    "selectorattributes",
+    "slotid",
+    "slottype"
+  ],
+  "typescript.tsserver.enableTracing": false,
+  "typescript.tsserver.watchOptions": "vscode",
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true
+}

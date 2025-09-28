@@ -1,0 +1,32 @@
+name: 🥄 Scraping data
+env:
+  FORCE_COLOR: true
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 */7 * *"
+
+jobs:
+  build:
+    runs-on: windows-latest
+    name: 🥄 Scraper
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: 🏗️ Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: 🔨 Build
+        run: dotnet build scraper/Scraper/Scraper.csproj
+
+      - name: 🥄 Scrape
+        run: dotnet run --project scraper/Scraper/Scraper.csproj
+
+      - name: 🗒️ Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: Scraped data update

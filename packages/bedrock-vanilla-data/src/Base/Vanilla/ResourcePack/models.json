@@ -1,0 +1,10 @@
+[
+  {
+    "id": "minecraft:geometry.full_block",
+    "bones": []
+  },
+  {
+    "id": "minecraft:geometry.cross",
+    "bones": []
+  }
+]

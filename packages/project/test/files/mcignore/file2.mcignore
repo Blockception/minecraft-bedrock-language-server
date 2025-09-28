@@ -1,0 +1,4 @@
+OutputFolder
+Temp
+Template/something
+!BP/**/*.json

@@ -1,0 +1,18 @@
+{
+  "name": "@blockception/shared",
+  "version": "0.0.1",
+  "license": "ISC",
+  "main": "out/index.js",
+  "typings": "out/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "compile": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.15.30"
+  }
+}

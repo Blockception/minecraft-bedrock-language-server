@@ -1,0 +1,54 @@
+{
+  "name": "bc-minecraft-bedrock-types",
+  "version": "1.22.1-16",
+  "description": "The typescript library that provides default types for minecraft bedrock",
+  "main": "./lib/main.js",
+  "types": "./lib/main.d.ts",
+  "scripts": {
+    "compile": "tsc -b",
+    "build": "npm run clean && npm run compile",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "test": "jest",
+    "lint": "eslint",
+    "clean": "tsc -b --clean",
+    "pretest": "npm run compile",
+    "prepublishOnly": "npm test && npm run compile",
+    "preversion": "",
+    "postversion": "git push && git push --tags",
+    "version": "git add -A src",
+    "watch": "tsc -w"
+  },
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.js.map",
+    "lib/**/*.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/BC-Minecraft-Bedrock-Types.git"
+  },
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "types"
+  ],
+  "author": "BlockceptionLtd",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.1",
+    "eslint": "^9.35.0",
+    "eslint-plugin-jest": "^29.0.1",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.42.0"
+  }
+}

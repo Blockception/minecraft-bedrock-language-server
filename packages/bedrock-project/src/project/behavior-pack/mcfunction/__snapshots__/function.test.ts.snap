@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Function "empty/temp build/air_1" from F:/Temp2/world/behavior_packs/EW-BP/functions/empty/temp build/air_1.mcfunction 1`] = `
+{
+  "documentation": "Mcfunction: "empty/temp build/air_1"",
+  "id": ""empty/temp build/air_1"",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/functions/empty/temp build/air_1.mcfunction",
+  },
+}
+`;
+
+exports[`Function empty/air_1 from F:/Temp2/world/behavior_packs/EW-BP/functions/empty/air_1.mcfunction 1`] = `
+{
+  "documentation": "Mcfunction: empty/air_1",
+  "id": "empty/air_1",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/functions/empty/air_1.mcfunction",
+  },
+}
+`;
+
+exports[`Function empty/air_1 from F:\\Temp2\\world\\behavior_packs\\EW-BP\\functions\\empty\\air_1.mcfunction 1`] = `
+{
+  "documentation": "Mcfunction: empty/air_1",
+  "id": "empty/air_1",
+  "location": {
+    "position": 0,
+    "uri": "F:\\Temp2\\world\\behavior_packs\\EW-BP\\functions\\empty\\air_1.mcfunction",
+  },
+}
+`;
+
+exports[`Function empty/temp/air_1 from F:/Temp2/world/behavior_packs/EW-BP/functions/empty/temp/air_1.mcfunction 1`] = `
+{
+  "documentation": "Mcfunction: empty/temp/air_1",
+  "id": "empty/temp/air_1",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/functions/empty/temp/air_1.mcfunction",
+  },
+}
+`;

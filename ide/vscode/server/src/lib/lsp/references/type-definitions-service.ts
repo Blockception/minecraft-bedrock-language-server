@@ -1,0 +1,65 @@
+import { Languages } from "@blockception/shared";
+import { CancellationToken, Connection, Definition, DefinitionLink, TypeDefinitionParams, WorkDoneProgressReporter } from "vscode-languageserver";
+import { ExtensionContext } from "../extension";
+import { IExtendedLogger } from "../logger/logger";
+import { BaseService } from "../services/base";
+import { CapabilityBuilder } from "../services/capabilities";
+import { IService } from "../services/service";
+
+import { getCurrentWord } from './function';
+
+export class TypeDefinitionService extends BaseService implements Partial<IService> {
+  name: string = "type-definitions";
+
+  constructor(logger: IExtendedLogger, extension: ExtensionContext) {
+    super(logger.withPrefix("[type-definitions]"), extension);
+  }
+
+  onInitialize(capabilities: CapabilityBuilder): void {
+    capabilities.set("typeDefinitionProvider", {
+      workDoneProgress: true,
+      documentSelector: [
+        { language: Languages.JsonCIdentifier },
+        { language: Languages.JsonIdentifier },
+        { language: Languages.McFunctionIdentifier },
+        { language: Languages.McLanguageIdentifier },
+        { language: Languages.McMolangIdentifier },
+        { language: Languages.McOtherIdentifier },
+        { language: Languages.McProjectIdentifier },
+      ],
+    });
+  }
+
+  setupHandlers(connection: Connection): void {
+    this.addDisposable(connection.onTypeDefinition(this.onTypeDefinition.bind(this)));
+  }
+
+  private async onTypeDefinition(
+    params: TypeDefinitionParams,
+    token: CancellationToken,
+    workDoneProgress: WorkDoneProgressReporter
+  ): Promise<Definition | DefinitionLink[] | undefined | null> {
+    const document = this.extension.documents.get(params.textDocument.uri);
+    if (!document) return undefined;
+
+    const cursor = document.offsetAt(params.position);
+    const w = getCurrentWord(document, cursor);
+    if (w.text === "") {
+      return;
+    }
+
+    workDoneProgress.begin("searching references");
+
+    const locations = await this.extension.database.findReference(
+      w.text,
+      this.extension.documents,
+      { defined: true, usage: true },
+      token,
+      workDoneProgress
+    );
+
+    workDoneProgress.done();
+
+    return locations;
+  }
+}

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Files test testing file: {/test-bp/animation_controllers/controller.npc.json} expect specific errors 1`] = `[]`;
+
+exports[`Files test testing file: {/test-bp/animations/animation.item.json} expect specific errors 1`] = `[]`;
+
+exports[`Files test testing file: {/test-bp/entities/sample.json} expect specific errors 1`] = `
+[
+  {
+    "code": "behaviorpack.entity.component_group.missing",
+    "message": "Event is calling component group: attack_cooldown, but the component group was not found",
+    "position": "events/add_missng_component_groups/attack_cooldown",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`Files test testing file: {/test-bp/functions/test.mcfunction} expect specific errors 1`] = `[]`;
+
+exports[`Files test testing file: {/test-bp/items/apple.json} expect specific errors 1`] = `[]`;
+
+exports[`Files test testing file: {/test-bp/manifest.json} expect specific errors 1`] = `
+[
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "header/version/0",
+    "severity": 2,
+  },
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "modules/version/0",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`Files test testing file: {/test-bp/manifest.json} expect specific errors 2`] = `
+[
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "header/version/0",
+    "severity": 2,
+  },
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "modules/version/0",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`Files test testing file: {/test-rp/entity/sample.entity.json} expect specific errors 1`] = `
+[
+  {
+    "code": "resourcepack.models.missing",
+    "message": "Cannot find resourcepack models definition: "geometry.sample"",
+    "position": ""geometry.sample"",
+    "severity": 3,
+  },
+  {
+    "code": "behaviorpack.item.components.texture_not_found",
+    "message": "Texture reference "spawn_egg_sample" was not defined in item_texture.json",
+    "position": "description/spawn_egg/spawn_egg_sample",
+    "severity": 3,
+  },
+  {
+    "code": "resourcepack.texture.missing",
+    "message": "Cannot find file: textures/entity/sample/sample",
+    "position": "bc:sample/textures/entity/sample/sample",
+    "severity": 3,
+  },
+]
+`;
+
+exports[`Files test testing file: {/test-rp/manifest.json} expect specific errors 1`] = `
+[
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "header/version/0",
+    "severity": 2,
+  },
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "modules/version/0",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`Files test testing file: {/test-rp/manifest.json} expect specific errors 2`] = `
+[
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "header/version/0",
+    "severity": 2,
+  },
+  {
+    "code": "minecraft.manifest.version.minimum",
+    "message": "By convention, the version numbering needs to be atleast [1, 0, 0]",
+    "position": "modules/version/0",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`Files test testing file: {/test-rp/render_controllers/sample.render_controllers.json} expect specific errors 1`] = `[]`;

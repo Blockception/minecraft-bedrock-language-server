@@ -1,0 +1,13 @@
+{
+  "include": ["./src"],
+  "exclude": ["node_modules", "**/__tests__/*", "*.test.ts"],
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./lib",
+    "strict": true,
+    "resolveJsonModule": true,
+    "sourceMap": true
+  }
+}

@@ -1,0 +1,7 @@
+diagnose=true
+diagnose.objectives=true
+diagnose.tags=false
+diagnose.mcfunctions=true
+
+## This is a comment
+world.area_used=0 0 0 1000 256 1000

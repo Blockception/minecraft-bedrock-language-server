@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[` 1`] = `
+{
+  "diagnostics.json": "true",
+  "diagnostics.objectives": "true",
+  "diagnostics.tags": "false",
+}
+`;
+
+exports[`MCAttributes load file2 1`] = `
+{
+  "diagnose": "true",
+  "diagnose.mcfunctions": "true",
+  "diagnose.objectives": "true",
+  "diagnose.tags": "false",
+  "world.area_used": "0 0 0 1000 256 1000",
+}
+`;
+
+exports[`MCAttributes loadSync file1 1`] = `
+{
+  "diagnose": "true",
+  "diagnose.mcfunctions": "true",
+  "diagnose.objectives": "true",
+  "diagnose.tags": "false",
+  "world.area_used": "0 0 0 1000 256 1000",
+}
+`;

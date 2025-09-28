@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`MCProject load file2 1`] = `
+{
+  "attributes": {
+    "diagnose": "true",
+    "diagnose.mcfunctions": "true",
+    "diagnose.objectives": "true",
+    "diagnose.tags": "false",
+    "world.area_used": "0 0 0 1000 256 1000",
+  },
+  "definitions": {
+    "family": {
+      "defined": [
+        "npc",
+        "Npc",
+        "enemy",
+      ],
+      "excluded": [
+        "nemesis",
+      ],
+    },
+    "name": {
+      "defined": [
+        "Steve",
+      ],
+      "excluded": [
+        "Creeper",
+      ],
+    },
+    "objective": {
+      "defined": [
+        "counter",
+      ],
+      "excluded": [
+        "Foo",
+      ],
+    },
+    "tag": {
+      "defined": [
+        "tag_number1",
+      ],
+      "excluded": [
+        "FoLolOl",
+      ],
+    },
+  },
+  "ignores": {
+    "patterns": [
+      "OutputFolder",
+      "Temp",
+      "Template/something",
+      "!BP/**/*.json",
+    ],
+  },
+}
+`;
+
+exports[`MCProject load not existing 1`] = `
+{
+  "attributes": {},
+  "definitions": {},
+  "ignores": {
+    "patterns": [],
+  },
+}
+`;
+
+exports[`MCProject loadSync not existing 1`] = `
+{
+  "attributes": {},
+  "definitions": {},
+  "ignores": {
+    "patterns": [],
+  },
+}
+`;
+
+exports[`MCProject loadSync p1 1`] = `
+{
+  "attributes": {
+    "diagnose": "true",
+    "diagnose.mcfunctions": "true",
+    "diagnose.objectives": "true",
+    "diagnose.tags": "false",
+    "world.area_used": "0 0 0 1000 256 1000",
+  },
+  "definitions": {
+    "family": {
+      "defined": [
+        "npc",
+        "Npc",
+        "enemy",
+      ],
+      "excluded": [
+        "nemesis",
+      ],
+    },
+    "name": {
+      "defined": [
+        "Steve",
+      ],
+      "excluded": [
+        "Creeper",
+      ],
+    },
+    "objective": {
+      "defined": [
+        "counter",
+      ],
+      "excluded": [
+        "Foo",
+      ],
+    },
+    "tag": {
+      "defined": [
+        "tag_number1",
+      ],
+      "excluded": [
+        "FoLolOl",
+      ],
+    },
+  },
+  "ignores": {
+    "patterns": [
+      "OutputFolder",
+      "Temp",
+      "Template/something",
+      "!BP/**/*.json",
+    ],
+  },
+}
+`;

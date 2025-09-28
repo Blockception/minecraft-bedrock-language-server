@@ -1,0 +1,20 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "bc:sample",
+      "spawn_category": "creature",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {},
+    "components": {},
+    "events": {
+      "add_missng_component_groups": {
+        "add": {
+          "component_groups": ["attack_cooldown"]
+        }
+      }
+    }
+  }
+}

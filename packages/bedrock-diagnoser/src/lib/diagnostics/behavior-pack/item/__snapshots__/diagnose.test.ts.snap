@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ItemDefinition can be parsed correctly: minecraft:stick 1`] = `
+{
+  "id": "stick",
+  "namespace": "minecraft",
+  "variant": "",
+}
+`;
+
+exports[`ItemDefinition can be parsed correctly: namespace:item 1`] = `
+{
+  "id": "item",
+  "namespace": "namespace",
+  "variant": "",
+}
+`;
+
+exports[`ItemDefinition can be parsed correctly: namespace:item:variant 1`] = `
+{
+  "id": "item",
+  "namespace": "namespace",
+  "variant": "variant",
+}
+`;
+
+exports[`ItemDefinition can be parsed correctly: stick 1`] = `
+{
+  "id": "stick",
+  "namespace": "minecraft",
+  "variant": "",
+}
+`;
+
+exports[`ItemDefinition can be parsed correctly: stick:0 1`] = `
+{
+  "id": "stick",
+  "namespace": "minecraft",
+  "variant": "0",
+}
+`;

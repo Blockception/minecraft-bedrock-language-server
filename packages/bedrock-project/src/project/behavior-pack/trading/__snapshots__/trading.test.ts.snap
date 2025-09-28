@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Trading process: $s 1`] = `
+{
+  "documentation": "example",
+  "id": "trading/blocks/example.json",
+  "location": {
+    "position": 0,
+    "uri": "F:\\Temp2\\world\\behavior_packs\\EW-BP\\trading\\blocks\\example.json",
+  },
+}
+`;
+
+exports[`Trading process: $s 2`] = `
+{
+  "documentation": "example",
+  "id": "trading/blocks/example.json",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/trading/blocks/example.json",
+  },
+}
+`;
+
+exports[`Trading process: $s 3`] = `
+{
+  "documentation": "example",
+  "id": "trading/blocks example.json",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/trading/blocks example.json",
+  },
+}
+`;

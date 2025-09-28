@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "array",
+  "title": "Items",
+  "items": {
+    "title": "Item",
+    "required": ["id", "max_damage"],
+    "properties": {
+      "id": {
+        "type": "string",
+        "title": "ID"
+      },
+      "max_damage": {
+        "type": "number",
+        "minimum": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+#Tags
+tag=tag_number1
+tag=!FoLolOl
+
+#Families
+family=npc
+family=Npc
+family=!nemesis
+family=enemy
+
+#Objectives
+objective=counter
+objective=!Foo
+
+#Names
+name=Steve
+name=!Creeper

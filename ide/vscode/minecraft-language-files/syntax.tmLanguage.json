@@ -1,0 +1,60 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Minecraft Language",
+  "scopeName": "source.bc.minecraft.language",
+  "foldingStartMarker": "^\\#\\#[ \t]*region",
+  "foldingStopMarker": "^\\#\\#[ \t]*endregion",
+  "patterns": [{ "include": "#strings" }, { "include": "#comments" }, { "include": "#characters" }],
+  "fileTypes": ["lang"],
+  "repository": {
+    "strings": {
+      "patterns": [
+        { "name": "support.type.property-name", "match": "^[^#=]+(?=\\=)" },
+        { "name": "keyword.operator", "match": "=" },
+        { "name": "constant.regexp", "match": "%[0-9]+$s" },
+        { "name": "constant.numeric", "match": "%[0-9]+$d" },
+        { "name": "keyword.control", "match": "%[0-9]+" },
+        { "name": "constant.regexp", "match": "%s" },
+        { "name": "constant.numeric", "match": "%d" }
+      ]
+    },
+    "characters": {
+      "patterns": [
+        { "name": "constant.rgb-value", "match": "§0[^§]*" },
+        { "name": "header", "match": "§1[^§]*" },
+        { "name": "comment", "match": "§2[^§]*" },
+        { "name": "entity.other.attribute-name", "match": "§3[^§]*" },
+        { "name": "invalid", "match": "§4[^§]*" },
+        { "name": "variable.parameter", "match": "§5[^§]*" },
+        { "name": "constant.character.escape", "match": "§6[^§]*" },
+        { "name": "variable.other", "match": "§7[^§]*" },
+        { "name": "punctuation.tag.js", "match": "§8[^§]*" },
+        { "name": "keyword.operator.new", "match": "§9[^§]*" },
+        { "name": "meta.preprocessor.numeric", "match": "§a[^§]*" },
+        { "name": "entity.other.attribute-name", "match": "§b[^§]*" },
+        { "name": "string.regexp", "match": "§c[^§]*" },
+        { "name": "keyword.control", "match": "§d[^§]*" },
+        { "name": "keyword.operator.or.regexp", "match": "§e[^§]*" },
+        { "name": "constant.character.escape", "match": "§g[^§]*" },
+        { "name": "constant.rgb-value", "match": "§f[^§]*" },
+        { "name": "strong", "match": "§h[^§]*" },
+        { "name": "constant.rgb-value", "match": "§i[^§]*" },
+        { "name": "constant.regexp", "match": "§j[^§]*" },
+        { "name": "markup.deleted", "match": "§k[^§]*" },
+        { "name": "markup.bold", "match": "§l[^§]*" },
+        { "name": "invalid.deprecated", "match": "§m[^§]*" },
+        { "name": "string.html", "match": "§n[^§]*" },
+        { "name": "markup.italic", "match": "§o[^§]*" },
+        { "name": "constant.character.escape", "match": "§p[^§]*" },
+        { "name": "entity.name.class", "match": "§q[^§]*" },
+        { "name": "entity.other.attribute-name", "match": "§s[^§]*" },
+        { "name": "keyword.operator.new", "match": "§t[^§]*" },
+        { "name": "keyword.control", "match": "§u[^§]*" },
+        { "name": "keyword.control", "match": "§r" }
+      ]
+    },
+    "comments": {
+      "patterns": [{ "name": "comment.line", "begin": "##", "end": "$" }]
+    }
+  }
+}

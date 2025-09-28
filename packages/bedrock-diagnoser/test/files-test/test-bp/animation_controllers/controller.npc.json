@@ -1,0 +1,23 @@
+{
+  "format_version": "1.19.60",
+  "animation_controllers": {
+    "controller.animation.state": {
+      "states": {
+        "default": {
+          "transitions": [{ "state1": "query.property('state:active')" }]
+        },
+        "state1": {
+          "animations": [
+            { "anim.dance0": "query.property('npc:variant') == 0" },
+            { "anim.dance1": "query.property('npc:variant') == 1" },
+            { "anim.dance2": "query.property('npc:variant') == 2" },
+            { "anim.dance3": "query.property('npc:variant') == 3" },
+            { "anim.dance4": "query.property('npc:variant') == 4" },
+            { "anim.dance5": "query.property('npc:variant') == 5" }
+          ],
+          "transitions": [{ "default": "!query.property('state:active')" }]
+        }
+      }
+    }
+  }
+}

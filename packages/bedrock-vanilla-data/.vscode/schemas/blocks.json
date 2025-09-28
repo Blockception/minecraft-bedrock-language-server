@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "array",
+  "title": "Blocks",
+  "items": {
+    "type": "object",
+    "title": "Block",
+    "additionalProperties": false,
+    "required": ["id", "properties"],
+    "properties": {
+      "id": { "title": "ID", "type": "string", "pattern": "^minecraft:[a-zA-Z0-9_]*$" },
+      "properties": {
+        "title": "States",
+        "type": "array",
+        "items": {
+          "type": "string",
+          "title": "State"
+        }
+      }
+    }
+  }
+}

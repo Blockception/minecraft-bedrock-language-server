@@ -1,0 +1,8 @@
+{
+  "name": "minecraft-bedrock-language-server",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "ide/*"
+  ]
+}

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`MCIgnore load file2 1`] = `
+{
+  "patterns": [
+    "OutputFolder",
+    "Temp",
+    "Template/something",
+    "!BP/**/*.json",
+  ],
+}
+`;
+
+exports[`MCIgnore loadSync file1 1`] = `
+{
+  "patterns": [
+    "OutputFolder",
+    "Temp",
+    "Template/something",
+    "!BP/**/*.json",
+  ],
+}
+`;
+
+exports[`MCIgnore parse1 1`] = `
+{
+  "patterns": [
+    "OutputFolder",
+    "Temp",
+    "Template/something",
+    "!BP/**/*.json",
+  ],
+}
+`;

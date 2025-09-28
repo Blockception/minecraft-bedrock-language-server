@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "build",
+      "isBackground": false,
+      "group": "build",
+      "label": "npm compile 'bc-minecraft-bedrock-vanilla-data'",
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "type": "npm",
+      "script": "test",
+      "isBackground": false,
+      "icon": { "id": "verified", "color": "terminal.ansiGreen" },
+      "detail": "Run the tests",
+      "group": "test",
+      "label": "npm test 'bc-minecraft-bedrock-vanilla-data'",
+      "problemMatcher": ["$tsc"]
+    }
+  ]
+}

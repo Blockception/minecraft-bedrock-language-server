@@ -1,0 +1,14 @@
+src
+tsconfig.json
+tslint.json
+.prettierrc
+lib/test/**
+test/
+*.test.*
+**/*.test.d.ts
+**/*.test.js
+**/*.test.js.map
+*.test.d.ts
+*.test.js
+*.test.js.map
+__snapshots__/**

@@ -1,0 +1,18 @@
+{
+  "editor.insertSpaces": true,
+  "typescript.preferences.quoteStyle": "single",
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "json.schemas": [
+    { "fileMatch": ["src/**/blocks.json"], "url": "./.vscode/schemas/blocks.json" },
+    { "fileMatch": ["src/**/items.json"], "url": "./.vscode/schemas/items.json" }
+  ]
+}

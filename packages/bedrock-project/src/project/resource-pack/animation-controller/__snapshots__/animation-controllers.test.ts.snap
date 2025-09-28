@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Resourcepack - Animation Controller process 1`] = `
+[
+  {
+    "animations": {
+      "defined": Set {},
+      "using": Set {
+        "base_pose",
+      },
+    },
+    "documentation": "RP Animation Controller: 'controller.animation.example.base_pose'",
+    "id": "controller.animation.example.base_pose",
+    "location": {
+      "position": 71,
+      "uri": "example",
+    },
+    "molang": MolangSet {
+      "assigned": Set {},
+      "cache": MolangSyntaxCache {
+        "_data": Map {},
+      },
+      "functions": Set {},
+      "using": Set {},
+    },
+    "particles": {
+      "defined": Set {},
+      "using": Set {},
+    },
+    "sounds": {
+      "defined": Set {},
+      "using": Set {},
+    },
+  },
+]
+`;

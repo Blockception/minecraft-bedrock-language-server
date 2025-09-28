@@ -1,0 +1,64 @@
+{
+  "name": "bc-minecraft-bedrock-project",
+  "version": "1.21.101",
+  "description": "The typescript library responsible for reading/parsing minecraft bedrock data",
+  "main": "./lib/src/main.js",
+  "types": "./lib/src/main.d.ts",
+  "scripts": {
+    "compile": "tsc -b",
+    "build": "npm run clean && npm run compile",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "test": "jest",
+    "lint": "eslint",
+    "clean": "rimraf lib",
+    "pretest": "npm run compile",
+    "prepublishOnly": "npm test && npm run compile",
+    "preversion": "",
+    "postversion": "git push && git push --tags",
+    "version": "git add -A src",
+    "watch": "tsc -b -w"
+  },
+  "files": [
+    "lib/src/**/*.js",
+    "lib/src/**/*.js.map",
+    "lib/src/**/*.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/BC-Minecraft-Bedrock-Project.git"
+  },
+  "keywords": [
+    "ts",
+    "library",
+    "minecraft",
+    "bedrock",
+    "project"
+  ],
+  "author": "Blockception Ltd",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Project/issues"
+  },
+  "homepage": "https://github.com/Blockception/BC-Minecraft-Bedrock-Project#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.1",
+    "eslint": "^9.35.0",
+    "eslint-plugin-jest": "^29.0.1",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.42.0"
+  },
+  "dependencies": {
+    "bc-minecraft-bedrock-command": "^1.21.100-3",
+    "bc-minecraft-bedrock-types": "^1.22.1-16",
+    "bc-minecraft-bedrock-vanilla-data": "^1.21.80-11",
+    "bc-minecraft-molang": "^1.21.100-12",
+    "bc-minecraft-project": "^1.21.73-8",
+    "jsonc": "^2.0.0"
+  }
+}

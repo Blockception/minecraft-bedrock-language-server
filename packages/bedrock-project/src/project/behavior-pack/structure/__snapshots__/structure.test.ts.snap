@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Structure "empty/air_1" from F:/Temp2/world/behavior_packs/EW-BP/structures/empty/air_1.mcstructure 1`] = `
+{
+  "documentation": "McStructure: "empty/air_1"",
+  "id": ""empty/air_1"",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/structures/empty/air_1.mcstructure",
+  },
+}
+`;
+
+exports[`Structure "empty/air_1" from F:\\Temp2\\world\\behavior_packs\\EW-BP\\structures\\empty\\air_1.mcstructure 1`] = `
+{
+  "documentation": "McStructure: "empty/air_1"",
+  "id": ""empty/air_1"",
+  "location": {
+    "position": 0,
+    "uri": "F:\\Temp2\\world\\behavior_packs\\EW-BP\\structures\\empty\\air_1.mcstructure",
+  },
+}
+`;
+
+exports[`Structure "empty/temp/air_1" from F:/Temp2/world/behavior_packs/EW-BP/structures/empty/temp/air_1.mcstructure 1`] = `
+{
+  "documentation": "McStructure: "empty/temp/air_1"",
+  "id": ""empty/temp/air_1"",
+  "location": {
+    "position": 0,
+    "uri": "F:/Temp2/world/behavior_packs/EW-BP/structures/empty/temp/air_1.mcstructure",
+  },
+}
+`;

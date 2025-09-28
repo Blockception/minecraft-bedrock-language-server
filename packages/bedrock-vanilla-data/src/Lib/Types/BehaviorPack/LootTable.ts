@@ -1,0 +1,4 @@
+/**
+ *
+ */
+export type LootTable = string;
