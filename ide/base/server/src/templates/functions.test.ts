@@ -15,7 +15,7 @@ const TestContext: FunctionContext = {
   },
 };
 
-const TestProcessor = new TemplateFunctions(TestContext, {} as IExtensionContext);
+const TestProcessor = new TemplateFunctions("1.0.0", TestContext, {} as IExtensionContext);
 
 describe("TestProcessor", () => {
   TestProcessor.getPack = () => {

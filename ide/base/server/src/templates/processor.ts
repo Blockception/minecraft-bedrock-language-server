@@ -34,7 +34,7 @@ export class TemplateProcessor {
       templateID: templateId,
     };
 
-    this.processor = new TemplateFunctions(fcontext, context);
+    this.processor = new TemplateFunctions(context.config.version, fcontext, context);
   }
 
   /**
