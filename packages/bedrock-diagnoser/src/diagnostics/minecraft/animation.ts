@@ -1,18 +1,18 @@
-import { BehaviorPack, DataSetConnector, ResourcePack } from "bc-minecraft-bedrock-project";
-import { Script } from "bc-minecraft-bedrock-project/lib/src/internal/types";
-import { Types } from "bc-minecraft-bedrock-types";
-import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
+import { BehaviorPack, DataSetConnector, ResourcePack } from 'bc-minecraft-bedrock-project';
+import { Script } from 'bc-minecraft-bedrock-project/src/internal/types';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Vanilla } from 'bc-minecraft-bedrock-vanilla-data';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 // Vanilla animations and controllers that aren't played via the typical means; the controllers aren't under scripts.animate and the animations aren't in controllers. Vanilla player stuff so no point in flagging it
 const whitelist = [
-  "controller.animation.player.base",
-  "controller.animation.player.hudplayer",
-  "animation.player.look_at_target.inverted",
-  "controller.animation.persona.blink",
-  "animation.humanoid.fishing_rod",
-  "animation.player.first_person.attack_rotation_item",
-  "animation.player.first_person.crossbow_hold",
+  'controller.animation.player.base',
+  'controller.animation.player.hudplayer',
+  'animation.player.look_at_target.inverted',
+  'controller.animation.persona.blink',
+  'animation.humanoid.fishing_rod',
+  'animation.player.first_person.attack_rotation_item',
+  'animation.player.first_person.crossbow_hold',
 ];
 
 export interface AnimationUsage {
@@ -24,10 +24,13 @@ export interface AnimationUsage {
 export function minecraft_animation_used(
   data: AnimationUsage,
   diagnoser: DiagnosticsBuilder,
-  controllers: DataSetConnector<
-    ResourcePack.AnimationController.AnimationController | BehaviorPack.AnimationController.AnimationController,
-    ResourcePack.ResourcePack
-  >
+  controllers: Pick<
+    DataSetConnector<
+      ResourcePack.AnimationController.AnimationController | BehaviorPack.AnimationController.AnimationController,
+      ResourcePack.ResourcePack
+    >,
+    'get'
+  >,
 ): void {
   // Scripts, animation controller use a reference name to an animation
   const refsUsed: Record<string, boolean> = {};
@@ -35,7 +38,7 @@ export function minecraft_animation_used(
 
   const controllersUsed = Object.values(animation_controllers)
     .concat(Object.values(animations))
-    .filter((id) => id.startsWith("controller."));
+    .filter((id) => id.startsWith('controller.'));
 
   // Check against vanilla controllers
   Vanilla.ResourcePack.AnimationControllers.forEach((controller) => {
@@ -71,7 +74,7 @@ export function minecraft_animation_used(
       `${ref}/${id}`,
       `Animation: ${id} is not being used, could be removed`,
       DiagnosticSeverity.info,
-      `minecraft.animation.unused`
+      `minecraft.animation.unused`,
     );
   });
 }

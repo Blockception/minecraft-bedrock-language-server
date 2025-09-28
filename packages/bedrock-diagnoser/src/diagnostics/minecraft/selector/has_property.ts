@@ -1,7 +1,7 @@
-import { Entity } from "bc-minecraft-bedrock-project/lib/src/project/behavior-pack";
+import { Entity } from "bc-minecraft-bedrock-project/src/project/behavior-pack";
 import { Types } from "bc-minecraft-bedrock-types";
-import { CompactJson } from "bc-minecraft-bedrock-types/lib/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/lib/minecraft/selector";
+import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
+import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
 import { DiagnosticSeverity, DiagnosticsBuilder } from "../../../types";
 import { NoopDiagnoser } from "../../../types/noop";
 import { general_range_float_diagnose, general_range_integer_diagnose } from "../../general";

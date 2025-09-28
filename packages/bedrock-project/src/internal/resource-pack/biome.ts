@@ -1,4 +1,4 @@
-import { ComponentContainer } from 'bc-minecraft-bedrock-types/lib/minecraft/components';
+import { ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import { FormatVersion } from "../types/format-version";
 
 /** */

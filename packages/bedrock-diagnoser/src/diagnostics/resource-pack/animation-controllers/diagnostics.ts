@@ -1,5 +1,5 @@
 import { ProjectItem } from "bc-minecraft-bedrock-project";
-import { Definition } from "bc-minecraft-bedrock-types/lib/types/definition";
+import { Definition } from "bc-minecraft-bedrock-types/src/types/definition";
 import { MolangDataSetKey } from "bc-minecraft-molang";
 import { Errors } from "../..";
 import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from "../../../types";

@@ -1,5 +1,5 @@
 import { Internal } from "bc-minecraft-bedrock-project";
-import { FormatVersion } from "bc-minecraft-bedrock-types/lib/minecraft";
+import { FormatVersion } from "bc-minecraft-bedrock-types/src/minecraft";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
 import { Json } from "../../json";
 import { diagnose_molang_syntax_current_document } from "../../molang";

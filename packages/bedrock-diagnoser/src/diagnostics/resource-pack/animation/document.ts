@@ -1,5 +1,5 @@
 import { Internal } from "bc-minecraft-bedrock-project";
-import { BoneAnimation } from "bc-minecraft-bedrock-project/lib/src/internal/resource-pack";
+import { BoneAnimation } from "bc-minecraft-bedrock-project/src/internal/resource-pack";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
 import { Json } from "../../json/json";
 import { diagnose_molang_syntax_current_document } from "../../molang";

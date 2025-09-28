@@ -1,5 +1,5 @@
-import { Location } from "bc-minecraft-bedrock-types/lib/types";
-import { MolangSet } from "bc-minecraft-molang/lib/src/molang";
+import { Location } from "bc-minecraft-bedrock-types/src/types";
+import { MolangSet } from "bc-minecraft-molang";
 import { MCProject } from "bc-minecraft-project";
 import { TextProjectContext } from "../../test/utility";
 import { Manifest } from "../internal/types";

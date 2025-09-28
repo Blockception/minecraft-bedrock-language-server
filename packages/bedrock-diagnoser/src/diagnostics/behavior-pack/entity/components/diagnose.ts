@@ -1,6 +1,6 @@
 import { Internal, TextDocument } from "bc-minecraft-bedrock-project";
-import { FormatVersion } from "bc-minecraft-bedrock-types/lib/minecraft";
-import { ComponentBehavior } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { FormatVersion } from "bc-minecraft-bedrock-types/src/minecraft";
+import { ComponentBehavior } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../../types";
 import { Context } from "../../../../utility/components";
 import { component_error, ComponentCheck, components_check } from "../../../../utility/components/checks";
@@ -479,7 +479,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
   },
   "minecraft:behavior.transport_items": (name, component, context, diagnoser) => {
     component.source_container_types?.forEach((reference: any) => {
-      let element = typeof reference == "string" ? reference : reference.name;
+      const element = typeof reference == "string" ? reference : reference.name;
       if (typeof reference !== "string") return;
 
       if (
@@ -495,7 +495,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
     });
 
     component.destination_container_types?.forEach((reference: any) => {
-      let element = typeof reference == "string" ? reference : reference.name;
+      const element = typeof reference == "string" ? reference : reference.name;
       if (typeof reference !== "string") return;
 
       if (

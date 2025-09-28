@@ -1,4 +1,4 @@
-import { GeneralInfo } from 'bc-minecraft-bedrock-project/lib/src/project/general/types';
+import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
 import { Kinds } from "../../../constants";
 import { Context } from "../../context/context";
 import { CompletionContext } from "../context";

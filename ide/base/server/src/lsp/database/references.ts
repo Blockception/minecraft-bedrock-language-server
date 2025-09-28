@@ -1,6 +1,6 @@
 import { BehaviorPack, Defined, ResourcePack, Using } from "bc-minecraft-bedrock-project";
-import { GeneralInfo } from "bc-minecraft-bedrock-project/lib/src/project/general/types";
-import { DocumentLocation, Identifiable, Locatable } from "bc-minecraft-bedrock-types/lib/types";
+import { GeneralInfo } from "bc-minecraft-bedrock-project/src/project/general/types";
+import { DocumentLocation, Identifiable, Locatable } from "bc-minecraft-bedrock-types/src/types";
 import { MolangSet } from "bc-minecraft-molang";
 import { CancellationToken, Location } from "vscode-languageserver";
 import { getIdentifier } from "../../minecraft/molang";

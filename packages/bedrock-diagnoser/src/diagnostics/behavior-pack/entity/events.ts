@@ -1,6 +1,6 @@
 import { Internal } from "bc-minecraft-bedrock-project";
-import { EntityProperty } from "bc-minecraft-bedrock-project/lib/src/project/behavior-pack/entity";
-import { ComponentContainer, ComponentGroups } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { EntityProperty } from "bc-minecraft-bedrock-project/src/project/behavior-pack/entity";
+import { ComponentContainer, ComponentGroups } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticSeverity, DiagnosticsBuilder, DocumentDiagnosticsBuilder } from "../../../types";
 import { commandsCheck } from "../mcfunction";
 import { behaviorpack_entity_components_filters } from "./components/filters";

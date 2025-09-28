@@ -1,4 +1,4 @@
-import { MolangSet } from "bc-minecraft-molang/lib/src/molang";
+import { MolangSet } from "bc-minecraft-molang";
 import { TextDocument } from "../../types";
 
 /**

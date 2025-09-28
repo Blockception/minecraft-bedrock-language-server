@@ -1,4 +1,7 @@
-import { ComponentBehavior } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { Internal } from "bc-minecraft-bedrock-project";
+import { FormatVersion } from "bc-minecraft-bedrock-types/src/minecraft";
+import { ComponentBehavior } from "bc-minecraft-bedrock-types/src/minecraft/components";
+import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../../types";
 import { Context } from "../../../../utility/components";
 import { component_error, ComponentCheck, components_check } from "../../../../utility/components/checks";
@@ -6,9 +9,6 @@ import { diagnose_block_culling_geo_and_rules } from "../../../resource-pack/blo
 import { model_is_defined } from "../../../resource-pack/model/diagnose";
 import { behaviorpack_loot_table_diagnose } from "../../loot-table";
 import { is_block_defined } from "../diagnose";
-import { Internal } from "bc-minecraft-bedrock-project";
-import { FormatVersion } from "bc-minecraft-bedrock-types/lib/minecraft";
-import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
 
 /**
  *

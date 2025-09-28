@@ -1,4 +1,4 @@
-import { FileType } from "bc-minecraft-bedrock-project/lib/src/project/behavior-pack";
+import { FileType } from "bc-minecraft-bedrock-project/src/project/behavior-pack";
 import { DocumentDiagnosticsBuilder } from "../../types/diagnostics-builder";
 
 import * as AnimationController from "./animation-controllers/document";

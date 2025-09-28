@@ -1,4 +1,4 @@
-import { Location } from "bc-minecraft-bedrock-types/lib/types";
+import { Location } from "bc-minecraft-bedrock-types/src/types";
 import { MCProject } from "bc-minecraft-project";
 import { BehaviorPackCollection } from ".";
 import { Manifest } from "../../internal/types";

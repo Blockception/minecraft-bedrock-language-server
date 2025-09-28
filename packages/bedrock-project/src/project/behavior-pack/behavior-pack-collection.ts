@@ -1,22 +1,22 @@
-import { MCProject } from "bc-minecraft-project";
-import { Manifest } from "../../internal/types";
-import { DataSetConnector, PackCollection } from "../../types";
-import { BehaviorPack } from "./behavior-pack";
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../../internal/types';
+import { DataSetConnector, PackCollection } from '../../types';
+import { BehaviorPack } from './behavior-pack';
 
-import * as Animation from "./animation";
-import * as AnimationController from "./animation-controller";
-import * as Biome from "./biome";
-import * as Block from "./block";
-import * as Entity from "./entity";
-import * as Feature from "./feature";
-import * as FeatureRule from "./feature_rule";
-import * as Item from "./item";
+import * as Animation from './animation';
+import * as AnimationController from './animation-controller';
+import * as Biome from './biome';
+import * as Block from './block';
+import * as Entity from './entity';
+import * as Feature from './feature';
+import * as FeatureRule from './feature_rule';
+import * as Item from './item';
 import * as ItemCatalog from './item_catalog';
-import * as LootTable from "./loot-table";
-import * as Function from "./mcfunction";
-import * as Recipe from "./recipe";
-import * as Structure from "./structure";
-import * as Trading from "./trading";
+import * as LootTable from './loot-table';
+import * as Function from './mcfunction';
+import * as Recipe from './recipe';
+import * as Structure from './structure';
+import * as Trading from './trading';
 
 /** */
 export class BehaviorPackCollection extends PackCollection<BehaviorPack> {
@@ -38,7 +38,7 @@ export class BehaviorPackCollection extends PackCollection<BehaviorPack> {
   readonly functions: DataSetConnector<Function.Function, BehaviorPack>;
   /**The collection of items*/
   readonly items: DataSetConnector<Item.Item, BehaviorPack>;
-   /**The collection of items*/
+  /**The collection of items*/
   readonly items_groups: DataSetConnector<ItemCatalog.Group, BehaviorPack>;
   /**The collection of loot tables*/
   readonly loot_tables: DataSetConnector<LootTable.LootTable, BehaviorPack>;

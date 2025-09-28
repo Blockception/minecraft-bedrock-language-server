@@ -1,5 +1,5 @@
-import { FormatVersion, Version } from "bc-minecraft-bedrock-types/lib/minecraft";
-import { Versions } from "bc-minecraft-bedrock-vanilla-data/lib/src/Lib";
+import { FormatVersion, Version } from "bc-minecraft-bedrock-types/src/minecraft";
+import { Versions } from "bc-minecraft-bedrock-vanilla-data/src/Lib";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../types";
 
 interface FormatVersionContainer {
@@ -40,7 +40,7 @@ export function diagnoseFormatVersion(data: FormatVersionContainer, diagnoser: D
   let v;
   try {
     v = FormatVersion.parse(data.format_version);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
 
   } catch (err) {
     return diagnoser.add(

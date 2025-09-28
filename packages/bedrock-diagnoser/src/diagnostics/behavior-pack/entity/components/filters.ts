@@ -1,4 +1,4 @@
-import { ComponentBehavior, ComponentContainer } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { ComponentBehavior, ComponentContainer } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticsBuilder } from "../../../..";
 import { minecraft_diagnose_filters } from "../../../minecraft/filter/diagnose";
 

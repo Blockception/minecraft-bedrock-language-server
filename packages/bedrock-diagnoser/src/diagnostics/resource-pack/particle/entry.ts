@@ -1,5 +1,5 @@
 import { Internal } from "bc-minecraft-bedrock-project";
-import { getUsedComponents } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { getUsedComponents } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { DocumentDiagnosticsBuilder } from "../../../types";
 import { Context } from "../../../utility/components";

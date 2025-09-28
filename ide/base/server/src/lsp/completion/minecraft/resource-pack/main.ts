@@ -1,4 +1,4 @@
-import { FileType } from "bc-minecraft-bedrock-project/lib/src/project/resource-pack";
+import { FileType } from "bc-minecraft-bedrock-project/src/project/resource-pack";
 import { Context } from "../../../context/context";
 import { JsonCompletionContext } from "../../context";
 

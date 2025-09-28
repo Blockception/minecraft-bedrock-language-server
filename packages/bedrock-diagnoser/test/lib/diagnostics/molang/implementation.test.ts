@@ -1,4 +1,4 @@
-import { MolangSet, NodeType } from "bc-minecraft-molang/lib/src/molang";
+import { MolangSet, NodeType } from "bc-minecraft-molang";
 import { diagnose_molang_implementation, MolangMetadata } from "../../../../src/lib/diagnostics/molang/diagnostics";
 import { Metadata } from "../../../../src/lib/types";
 import { TestDiagnoser } from "../../../diagnoser";

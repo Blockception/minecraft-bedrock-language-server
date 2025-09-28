@@ -1,5 +1,5 @@
 import { TextDocument } from "bc-minecraft-bedrock-project";
-import { OffsetWord } from "bc-minecraft-bedrock-types/lib/types";
+import { OffsetWord } from "bc-minecraft-bedrock-types/src/types";
 import { MolangData, MolangFunction } from "bc-minecraft-molang";
 import {
   ExpressionNode,
@@ -7,7 +7,7 @@ import {
   MolangSet,
   MolangSyntaxError,
   NodeType,
-} from "bc-minecraft-molang/lib/src/molang";
+} from "bc-minecraft-molang";
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../types";
 import { Json } from "../json";
 
@@ -81,7 +81,7 @@ export function diagnose_molang_syntax_set(set: MolangSet, diagnoser: Diagnostic
   set.functions.forEach((fn) => diagnose_molang_function(fn, diagnoser));
 
   // Check syntax
-  for (let exps of set.cache.expressions()) {
+  for (const exps of set.cache.expressions()) {
     exps.forEach((exp) => {
       diagnose_molang_syntax(exp, diagnoser);
       diagnose_molang_syntax_optimizations(exp, diagnoser);

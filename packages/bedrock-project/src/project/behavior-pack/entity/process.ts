@@ -1,5 +1,5 @@
 import { Types } from "bc-minecraft-bedrock-types";
-import { ComponentContainer } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { ComponentContainer } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import * as internal from "../../../internal/behavior-pack/entity";
 import { Json } from "../../../internal/json";
 import { Documentation, TextDocument } from "../../../types";

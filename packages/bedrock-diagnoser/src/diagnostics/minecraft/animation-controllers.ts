@@ -1,7 +1,7 @@
 import { BehaviorPack, Defined, Internal, References, ResourcePack, Using } from "bc-minecraft-bedrock-project";
-import { State } from "bc-minecraft-bedrock-project/lib/src/internal/behavior-pack";
+import { State } from "bc-minecraft-bedrock-project/src/internal/behavior-pack";
 import { Types } from "bc-minecraft-bedrock-types";
-import { Conditional } from "bc-minecraft-bedrock-types/lib/types";
+import { Conditional } from "bc-minecraft-bedrock-types/src/types";
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../types";
 import { diagnose_molang_implementation, MolangMetadata, User } from "../molang/diagnostics";
 

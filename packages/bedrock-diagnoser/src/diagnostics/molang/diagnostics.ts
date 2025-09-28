@@ -1,6 +1,6 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/types";
+import { Identifiable } from "bc-minecraft-bedrock-types/src/types";
 import { MolangDataSetKey } from "bc-minecraft-molang";
-import { MolangSet, ResourceReferenceNode, VariableNode } from "bc-minecraft-molang/lib/src/molang";
+import { MolangSet, ResourceReferenceNode, VariableNode } from "bc-minecraft-molang";
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../types";
 import { XSet } from "../../extensions";
 
@@ -39,7 +39,7 @@ export function diagnose_molang_implementation(
   getAssignedIds(assigned, resource.molang);
   getAssignedIds(assigned, user.molang);
 
-  for (let res of resource.molang.using.values()) {
+  for (const res of resource.molang.using.values()) {
     if (res.scope === "this") return;
     const identifier = `${res.scope}.${res.names.join(".")}`;
     if (assigned.has(identifier)) continue;

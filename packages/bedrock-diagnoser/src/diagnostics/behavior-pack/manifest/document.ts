@@ -1,4 +1,4 @@
-import { Manifest } from "bc-minecraft-bedrock-project/lib/src/internal/types";
+import { Manifest } from "bc-minecraft-bedrock-project/src/internal/types";
 import { Types } from "bc-minecraft-bedrock-types";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
 import { Json } from "../../json/json";

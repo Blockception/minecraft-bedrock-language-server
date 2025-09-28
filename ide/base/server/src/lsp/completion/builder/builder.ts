@@ -1,5 +1,5 @@
 import { Defined } from 'bc-minecraft-bedrock-project';
-import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/lib/types";
+import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/src/types";
 import { CancellationToken, CompletionItem, CompletionItemKind, WorkDoneProgressReporter } from "vscode-languageserver";
 
 export type GenerateFunction<T> = (item: T) => string;

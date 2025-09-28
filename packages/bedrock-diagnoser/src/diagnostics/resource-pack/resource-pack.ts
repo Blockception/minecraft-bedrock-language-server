@@ -1,5 +1,5 @@
 import { DocumentDiagnosticsBuilder } from "../../types";
-import { FileType } from "bc-minecraft-bedrock-project/lib/src/project/resource-pack";
+import { FileType } from "bc-minecraft-bedrock-project/src/project/resource-pack";
 
 import * as Animation from "./animation/document";
 import * as AnimationController from "./animation-controllers/document";

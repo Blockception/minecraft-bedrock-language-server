@@ -1,4 +1,4 @@
-import { Script } from "bc-minecraft-bedrock-project/lib/src/internal/types";
+import { Script } from "bc-minecraft-bedrock-project/src/internal/types";
 import { Types } from "bc-minecraft-bedrock-types";
 import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
 

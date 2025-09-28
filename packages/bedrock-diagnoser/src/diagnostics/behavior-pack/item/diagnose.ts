@@ -4,7 +4,7 @@ import { Errors } from "../..";
 import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
 import { check_definition_value, education_enabled } from "../../definitions";
 import { behaviorpack_entityid_diagnose } from "../entity";
-import { Integer } from "bc-minecraft-bedrock-types/lib/general";
+import { Integer } from "bc-minecraft-bedrock-types/src/general";
 
 interface Item extends Types.OffsetWord {
   data?: number;

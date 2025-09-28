@@ -3,7 +3,7 @@ import { TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { Context } from "../../context/context";
 import { TextDocument } from "../../documents/text-document";
 import { CommandContext } from "../context";
-import { WorldPack } from 'bc-minecraft-bedrock-project/lib/src/project/world/world-pack';
+import { WorldPack } from 'bc-minecraft-bedrock-project/src/project/world/world-pack';
 
 export async function addAllItems(context: Context<CommandContext>): Promise<void> {
   const { logger, arguments: args } = context;

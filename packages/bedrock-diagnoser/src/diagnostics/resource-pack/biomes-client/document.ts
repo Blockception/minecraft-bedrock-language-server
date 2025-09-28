@@ -1,7 +1,7 @@
 import { Internal } from "bc-minecraft-bedrock-project";
 import { DocumentDiagnosticsBuilder } from "../../../types";
 import { Json } from "../../json";
-import { getUsedComponents } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { getUsedComponents } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { Context } from "../../../utility/components";
 import { resourcepack_diagnose_biome_components } from "./components";
 import { diagnose_molang_syntax_current_document } from "../../molang";

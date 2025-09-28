@@ -1,6 +1,6 @@
 import { Internal } from "bc-minecraft-bedrock-project";
-import { FormatVersion } from "bc-minecraft-bedrock-types/lib/minecraft";
-import { ComponentBehavior } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { FormatVersion } from "bc-minecraft-bedrock-types/src/minecraft";
+import { ComponentBehavior } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../../types";
 import { Context } from "../../../../utility/components";
 import { component_error, ComponentCheck, components_check } from "../../../../utility/components/checks";

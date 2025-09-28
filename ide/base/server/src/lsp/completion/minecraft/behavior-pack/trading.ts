@@ -1,4 +1,4 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/lib/types";
+import { Identifiable } from "bc-minecraft-bedrock-types/src/types";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { Kinds } from "../../../../constants";
 import { IsEducationEnabled } from "../../../../project/attributes";

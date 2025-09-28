@@ -1,6 +1,6 @@
 import { Types } from "bc-minecraft-bedrock-types";
-import { CompactJson, CompactJsonReader } from "bc-minecraft-bedrock-types/lib/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/lib/minecraft/selector";
+import { CompactJson, CompactJsonReader } from "bc-minecraft-bedrock-types/src/minecraft/json";
+import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
 import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
 import { behaviorpack_item_diagnose } from "../../behavior-pack/item/diagnose";
 import { general_integer_diagnose, general_range_integer_diagnose } from "../../general";

@@ -1,12 +1,12 @@
-import { ComponentBehavior, ComponentContainer } from "bc-minecraft-bedrock-types/minecraft/components";
-import { DocumentDiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { Context } from "./components";
+import { ComponentBehavior, ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
+import { DocumentDiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { Context } from './components';
 
 export type ComponentCheck<T> = (
   name: string,
   component: any,
   context: Context<T>,
-  diagnoser: DocumentDiagnosticsBuilder
+  diagnoser: DocumentDiagnosticsBuilder,
 ) => void;
 
 export function component_error<T>(message: string, code: string | number): ComponentCheck<T> {
@@ -25,7 +25,7 @@ export function components_check<T>(
   data: ComponentBehavior | undefined,
   context: Context<T>,
   diagnoser: DocumentDiagnosticsBuilder,
-  component_test: Record<string, ComponentCheck<T>>
+  component_test: Record<string, ComponentCheck<T>>,
 ): void {
   if (data === undefined) return;
 
@@ -43,7 +43,7 @@ function comp_container_check<T>(
   container: ComponentContainer | undefined,
   context: Context<T>,
   diagnoser: DocumentDiagnosticsBuilder,
-  component_test: Record<string, ComponentCheck<T>>
+  component_test: Record<string, ComponentCheck<T>>,
 ): void {
   if (container === undefined) return;
 
@@ -59,10 +59,10 @@ function comp_container_check<T>(
           `the diagnoser encountered an error checking the '${key}' component: ${JSON.stringify(
             { message: err.message, stack: err.stack, ...err },
             undefined,
-            2
+            2,
           )}`,
           DiagnosticSeverity.error,
-          "diagnostics.components.internal.error"
+          'diagnostics.components.internal.error',
         );
       }
     }

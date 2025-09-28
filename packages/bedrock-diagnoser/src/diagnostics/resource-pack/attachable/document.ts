@@ -1,6 +1,6 @@
 import { Internal, ResourcePack } from "bc-minecraft-bedrock-project";
-import { getUsingResources } from "bc-minecraft-bedrock-project/lib/src/internal/resource-pack/resources";
-import { harvestMolang } from "bc-minecraft-bedrock-project/lib/src/project/molang";
+import { getUsingResources } from "bc-minecraft-bedrock-project/src/internal/resource-pack/resources";
+import { harvestMolang } from "bc-minecraft-bedrock-project/src/project/molang";
 import { Types } from "bc-minecraft-bedrock-types";
 import { DocumentDiagnosticsBuilder, Metadata } from "../../../types";
 import { behaviorpack_item_diagnose } from "../../behavior-pack/item";

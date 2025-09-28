@@ -1,5 +1,5 @@
 import { BehaviorPack } from "bc-minecraft-bedrock-project";
-import { Manifest } from "bc-minecraft-bedrock-project/lib/src/internal/types";
+import { Manifest } from "bc-minecraft-bedrock-project/src/internal/types";
 import { MCProject } from "bc-minecraft-project";
 import path from "path";
 import { IExtensionContext } from "../lsp/extension";

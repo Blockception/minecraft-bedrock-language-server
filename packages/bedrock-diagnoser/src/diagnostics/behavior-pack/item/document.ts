@@ -1,12 +1,12 @@
 import { Internal } from "bc-minecraft-bedrock-project";
-import { getUsedComponents } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { getUsedComponents } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
 import { Context } from "../../../utility/components";
 import { Json } from "../../json";
 import { behaviorpack_item_components_dependencies } from "./components/dependencies";
 import { behaviorpack_diagnose_item_components } from "./components/diagnose";
 import { no_other_duplicates } from "../../packs/duplicate-check";
-import { FormatVersion } from "bc-minecraft-bedrock-types/lib/minecraft";
+import { FormatVersion } from "bc-minecraft-bedrock-types/src/minecraft";
 import { diagnose_molang_syntax_current_document } from "../../molang";
 
 /**Diagnoses the given document as an item
