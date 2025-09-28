@@ -11,7 +11,8 @@
   "files": [
     "lib/src/**/*.js",
     "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts"
+    "lib/src/**/*.d.ts",
+    "../../LICENSE"
   ],
   "scripts": {
     "compile": "tsc -b",
@@ -36,7 +37,7 @@
     "bedrock",
     "command"
   ],
-  "author": "BlockceptionLtd",
+  "author": "Blockception Ltd",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"

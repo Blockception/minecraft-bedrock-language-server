@@ -36,7 +36,8 @@
   },
   "homepage": "https://github.com/Blockception/BC-Minecraft-Project#readme",
   "files": [
-    "lib/src/**/*"
+    "lib/src/**/*",
+    "../../LICENSE"
   ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",

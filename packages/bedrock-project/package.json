@@ -21,7 +21,8 @@
   "files": [
     "lib/src/**/*.js",
     "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts"
+    "lib/src/**/*.d.ts",
+    "../../LICENSE"
   ],
   "repository": {
     "type": "git",

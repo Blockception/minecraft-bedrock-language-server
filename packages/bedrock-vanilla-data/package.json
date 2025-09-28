@@ -32,7 +32,8 @@
   "files": [
     "lib/src/**/*.js",
     "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts"
+    "lib/src/**/*.d.ts",
+    "../../LICENSE"
   ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",
