@@ -16,7 +16,7 @@
   "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
   "license": "BSD-3-Clause",
   "main": "./dist/index.js",
-  "typings": "dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
   "type": "module",
   "files": [
     "./dist",
