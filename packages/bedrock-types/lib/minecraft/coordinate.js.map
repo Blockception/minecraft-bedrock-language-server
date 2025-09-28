@@ -1,1 +1,0 @@
-{"version":3,"file":"coordinate.js","sourceRoot":"","sources":["../../src/minecraft/coordinate.ts"],"names":[],"mappings":";;;AAAA,MAAM;AACN,IAAiB,UAAU,CAU1B;AAVD,WAAiB,UAAU;IACzB,iDAAiD;IACpC,kBAAO,GAAW,sBAAsB,CAAC;IAEtD;;mEAE+D;IAC/D,SAAgB,EAAE,CAAC,IAAY;QAC7B,OAAO,WAAA,OAAO,CAAC,IAAI,CAAC,IAAI,CAAC,CAAC;IAC5B,CAAC;IAFe,aAAE,KAEjB,CAAA;AACH,CAAC,EAVgB,UAAU,0BAAV,UAAU,QAU1B"}

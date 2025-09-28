@@ -1,1 +1,0 @@
-{"version":3,"file":"save.js","sourceRoot":"","sources":["../../src/modes/save.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,QAAQ,GAAmB;IACtC,IAAI,EAAE,MAAM;IACZ,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,MAAM,EAAE,aAAa,EAAE,mBAAmB,EAAE;QACpD,EAAE,IAAI,EAAE,QAAQ,EAAE,aAAa,EAAE,iBAAiB,EAAE;KACrD;CACF,CAAC"}

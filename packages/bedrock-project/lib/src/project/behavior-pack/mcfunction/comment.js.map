@@ -1,1 +1,0 @@
-{"version":3,"file":"comment.js","sourceRoot":"","sources":["../../../../../src/project/behavior-pack/mcfunction/comment.ts"],"names":[],"mappings":";;AAAA,gCAMC;AAND,SAAgB,UAAU,CAAC,IAAY;IACrC,MAAM,KAAK,GAAG,IAAI,CAAC,OAAO,CAAC,GAAG,CAAC,CAAC;IAEhC,IAAI,KAAK,GAAG,CAAC;QAAE,OAAO,EAAE,CAAC;IAEzB,OAAO,IAAI,CAAC,KAAK,CAAC,KAAK,GAAG,CAAC,EAAE,IAAI,CAAC,MAAM,CAAC,CAAC;AAC5C,CAAC"}

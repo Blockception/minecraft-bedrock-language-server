@@ -1,1 +1,0 @@
-{"version":3,"file":"flatten.js","sourceRoot":"","sources":["../../../../src/molang/syntax/flatten.ts"],"names":[],"mappings":";;AAGA,0BAKC;AAPD,iCAA8B;AAE9B,SAAgB,OAAO,CAAC,IAAoB;IAC1C,MAAM,KAAK,GAAqB,EAAE,CAAC;IACnC,IAAA,WAAI,EAAC,IAAI,EAAE,CAAC,CAAC,EAAE,EAAE,CAAC,KAAK,CAAC,IAAI,CAAC,CAAC,CAAC,CAAC,CAAC;IAEjC,OAAO,KAAK,CAAC;AACf,CAAC"}

@@ -1,1 +1,0 @@
-{"version":3,"file":"ride-rules.js","sourceRoot":"","sources":["../../src/modes/ride-rules.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,aAAa,GAAmB;IAC3C,IAAI,EAAE,YAAY;IAClB,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,gBAAgB,EAAE,aAAa,EAAE,kCAAkC,EAAE;QAC7E,EAAE,IAAI,EAAE,gBAAgB,EAAE,aAAa,EAAE,8BAA8B,EAAE;QACzE,EAAE,IAAI,EAAE,aAAa,EAAE,aAAa,EAAE,cAAc,EAAE;KACvD;CACF,CAAC"}

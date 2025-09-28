@@ -1,4 +1,0 @@
-/**
- *
- */
-export type Particle = string;
