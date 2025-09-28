@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "module": "node20",
+    "moduleResolution": "node",
     "declaration": true,
     "strict": true,
     "resolveJsonModule": true,
@@ -9,7 +9,6 @@
     "esModuleInterop": true,
     "outDir": "./dist",
     "baseUrl": ".",
-    "moduleResolution": "node16",
     "paths": {
       "bc-minecraft-bedrock-command": [
         "packages/bedrock-commands/src"
