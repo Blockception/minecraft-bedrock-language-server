@@ -33,10 +33,10 @@
         "packages/project/src"
       ],
       "bc-minecraft-lsp-client": [
-        "ide/shared/base/client/src"
+        "ide/base/client/src"
       ],
       "bc-minecraft-lsp": [
-        "ide/shared/base/server/src"
+        "ide/base/server/src"
       ],
       "@blockception/packages-shared": [
         "packages/shared/src"
