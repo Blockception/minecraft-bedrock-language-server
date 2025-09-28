@@ -2,10 +2,34 @@
   "name": "bc-minecraft-bedrock-vanilla-data",
   "version": "1.21.80-11",
   "description": "A Typescript library for dealing provides vanilla minecraft data",
-  "main": "./lib/src/main.js",
-  "types": "./lib/src/main.d.ts",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
+  "license": "BSD-3-Clause",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "./dist",
+    "../../../LICENSE"
+  ],
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "vanilla",
+    "data"
+  ],
   "scripts": {
-    "compile": "tsc -b",
+    "compile": "tsc -b ./tsconfig.json",
     "pretest": "npm run compile",
     "prepublishOnly": "npm test && npm run compile",
     "preversion": "",
@@ -13,28 +37,6 @@
     "version": "git add -A src",
     "watch": "tsc -w -p ./src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Blockception/BC-Minecraft-Bedrock-Vanilla-Data.git"
-  },
-  "keywords": [
-    "minecraft",
-    "bedrock",
-    "vanilla",
-    "data"
-  ],
-  "author": "Blockception Ltd",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Vanilla-Data/issues"
-  },
-  "homepage": "https://github.com/Blockception/BC-Minecraft-Bedrock-Vanilla-Data#readme",
-  "files": [
-    "lib/src/**/*.js",
-    "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts",
-    "../../LICENSE"
-  ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/eslint__js": "^8.42.3",

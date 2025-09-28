@@ -2,20 +2,33 @@
   "name": "bc-minecraft-bedrock-command",
   "version": "1.21.100-3",
   "description": "A typescript package library that handles commands for minecraft bedrock",
-  "main": "./lib/src/main.js",
-  "types": "./lib/src/main.d.ts",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
+  "license": "BSD-3-Clause",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "lib/src/**/*.js",
-    "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts",
-    "../../LICENSE"
+    "./dist",
+    "../../../LICENSE"
+  ],
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "command"
   ],
   "scripts": {
-    "compile": "tsc -b",
+    "compile": "tsc -b ./tsconfig.json",
     "build": "npm run clean && npm run compile",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "test": "jest --config ../../jest.config.ts",
@@ -28,21 +41,6 @@
     "version": "git add -A src",
     "watch": "tsc -w -p ./src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Blockception/BC-Minecraft-Bedrock-Command.git"
-  },
-  "keywords": [
-    "minecraft",
-    "bedrock",
-    "command"
-  ],
-  "author": "Blockception Ltd",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
-  },
-  "homepage": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command#readme",
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/eslint__js": "^8.42.3",

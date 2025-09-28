@@ -2,10 +2,28 @@
   "name": "bc-minecraft-bedrock-diagnoser",
   "version": "1.21.100-13",
   "description": "A typescript package library that provides diagnostics for minecraft bedrock projects",
-  "main": "./lib/src/main.js",
-  "types": "./lib/src/main.d.ts",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
+  "license": "BSD-3-Clause",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "./dist",
+    "../../../LICENSE"
+  ],
   "scripts": {
-    "compile": "tsc -b",
+    "compile": "tsc -b ./tsconfig.json",
     "build": "npm run clean && npm run compile",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "pretest": "npm run compile",
@@ -15,28 +33,6 @@
     "version": "git add -A src",
     "watch": "tsc -w"
   },
-  "files": [
-    "lib/src/**/*.js",
-    "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts",
-    "../../LICENSE"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser.git"
-  },
-  "keywords": [
-    "diagnoser",
-    "diagnostics",
-    "minecraft",
-    "bedrock"
-  ],
-  "author": "Blockception Ltd",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/issues"
-  },
-  "homepage": "https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser#readme",
   "dependencies": {
     "bc-minecraft-bedrock-command": "^1.21.100-3",
     "bc-minecraft-bedrock-project": "^1.21.101",

@@ -2,10 +2,33 @@
   "name": "bc-minecraft-bedrock-types",
   "version": "1.22.1-16",
   "description": "The typescript library that provides default types for minecraft bedrock",
-  "main": "./lib/main.js",
-  "types": "./lib/main.d.ts",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
+  "license": "BSD-3-Clause",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "./dist",
+    "../../../LICENSE"
+  ],
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "types"
+  ],
   "scripts": {
-    "compile": "tsc -b",
+    "compile": "tsc -b ./tsconfig.json",
     "build": "npm run clean && npm run compile",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "test": "jest --config ../../jest.config.ts",
@@ -18,27 +41,6 @@
     "version": "git add -A src",
     "watch": "tsc -w"
   },
-  "files": [
-    "lib/**/*.js",
-    "lib/**/*.js.map",
-    "lib/**/*.d.ts",
-    "../../LICENSE"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Blockception/BC-Minecraft-Bedrock-Types.git"
-  },
-  "keywords": [
-    "minecraft",
-    "bedrock",
-    "types"
-  ],
-  "author": "Blockception Ltd",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
-  },
-  "homepage": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command#readme",
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/eslint__js": "^8.42.3",

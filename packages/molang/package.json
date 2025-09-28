@@ -2,10 +2,34 @@
   "name": "bc-minecraft-molang",
   "version": "1.21.100-12",
   "description": "The library designed to deal with minecraft bedrock molang",
-  "main": "./lib/src/main.js",
-  "types": "./lib/src/main.d.ts",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
+  "license": "BSD-3-Clause",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "./dist",
+    "../../../LICENSE"
+  ],
+  "keywords": [
+    "ts",
+    "library",
+    "minecraft",
+    "molang"
+  ],
   "scripts": {
-    "compile": "tsc -b",
+    "compile": "tsc -b ./tsconfig.json",
     "build": "npm run clean && npm run compile",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "test": "jest --config ../../jest.config.ts",
@@ -18,28 +42,6 @@
     "version": "git add -A src",
     "watch": "tsc -w -p ./src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Blockception/BC-Minecraft-Molang.git"
-  },
-  "keywords": [
-    "ts",
-    "library",
-    "minecraft",
-    "molang"
-  ],
-  "author": "Blockception Ltd",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/Blockception/BC-Minecraft-Molang/issues"
-  },
-  "homepage": "https://github.com/Blockception/BC-Minecraft-Molang#readme",
-  "files": [
-    "lib/src/**/*.js",
-    "lib/src/**/*.js.map",
-    "lib/src/**/*.d.ts",
-    "../../LICENSE"
-  ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/eslint__js": "^8.42.3",

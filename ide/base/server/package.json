@@ -1,15 +1,63 @@
 {
   "name": "bc-minecraft-lsp",
   "version": "1.0.0",
-  "author": "Blockception Ltd",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
   "license": "BSD-3-Clause",
   "type": "commonjs",
   "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
+    "./dist",
     "../../../LICENSE"
   ],
   "scripts": {
-    "test": "jest"
+    "compile": "tsc -b ./tsconfig.json",
+    "test": "jest --config ../../../jest.config.ts",
+    "lint": "eslint --config ../../../eslint.config.mjs ."
   },
-  "devDependencies": {}
+  "dependencies": {
+    "@blockception/shared": "^0.0.1",
+    "@daanv2/queue-processor": "^2.2.1",
+    "@types/vscode": "^1.103.0",
+    "bc-minecraft-bedrock-command": "^1.21.100-3",
+    "bc-minecraft-bedrock-diagnoser": "^1.21.100-13",
+    "bc-minecraft-bedrock-project": "^1.21.101",
+    "bc-minecraft-bedrock-types": "^1.22.1-16",
+    "bc-minecraft-bedrock-vanilla-data": "^1.21.80-11",
+    "bc-minecraft-molang": "^1.21.100-12",
+    "bc-minecraft-project": "^1.21.73-8",
+    "bc-vscode-words": "^1.3.16",
+    "comment-json": "^4.2.5",
+    "fast-glob": "^3.3.3",
+    "fastest-levenshtein": "^1.0.16",
+    "jsonc-parser": "^3.3.1",
+    "node": "^24.1.0",
+    "picomatch": "^4.0.3",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12",
+    "vscode-uri": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.30",
+    "@types/picomatch": "^4.0.2",
+    "json-loader": "^0.5.7",
+    "ts-jest": "^29.3.4",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
 }

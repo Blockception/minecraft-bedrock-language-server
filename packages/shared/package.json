@@ -1,9 +1,26 @@
 {
   "name": "@blockception/packages-shared",
   "version": "1.0.0",
-  "license": "ISC",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
+  "license": "BSD-3-Clause",
   "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "./dist",
+    "../../../LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "compile": "npm run build",

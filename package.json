@@ -1,11 +1,15 @@
 {
   "name": "minecraft-bedrock-language-server",
   "private": true,
-  "author": "Blockception Ltd",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
   "license": "BSD-3-Clause",
   "workspaces": [
     "packages/*",
-    "ide/*"
+    "ide/*",
+    "ide/**/*"
   ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",

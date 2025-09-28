@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "bc-minecraft-lsp-client": "1.0.0",
-    "bc-minecraft-lsp": "1.0.0",
+    "bc-minecraft-lsp": "1.0.0"
   },
   "maintainers": [
     {
@@ -80,21 +80,14 @@
     "type": "git"
   },
   "scripts": {
-    "compile:shared": "tsc -b ./shared/tsconfig.json",
-    "compile:client": "tsc -b ./client/tsconfig.json",
-    "compile:server": "tsc -b ./server/tsconfig.json",
-    "compile": "npm run compile:shared && npm run compile:client && npm run compile:server && tsc -b",
+    "compile": "tsc -b ./tsconfig.json",
     "lint": "eslint",
     "postversion": "git push && git push --tags",
-    "preversion": "cd client && npm version patch && cd ../server && npm version patch && cd ..",
-    "test-compile": "tsc -p ./",
-    "test": "cd client && npm run test && cd ../server && npm run test && cd ..",
-    "update": "cd client && npm run update && cd ../server && npm run update && cd .. && npm update && npm audit fix",
     "version": "git add -A .",
     "vscode:prepublish": "npm run compile && npm run webpack",
     "watch": "tsc -b -w",
-    "webpack:client": "webpack --mode production --config ./client/webpack.config.js",
-    "webpack:server": "webpack --mode production --config ./server/webpack.config.js",
+    "webpack:client": "webpack --mode production --config ./webpack.client.config.js",
+    "webpack:server": "webpack --mode production --config ./webpack.server.config.js",
     "webpack": "npm run webpack:client && npm run webpack:server"
   },
   "contributes": {

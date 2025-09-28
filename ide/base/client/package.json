@@ -1,15 +1,36 @@
 {
   "name": "bc-minecraft-lsp-client",
   "version": "1.0.0",
-  "author": "Blockception Ltd",
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+  },
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
   "license": "BSD-3-Clause",
   "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
+    "./dist",
     "../../../LICENSE"
   ],
   "scripts": {
-    "test": "jest"
+    "compile": "tsc -b ./tsconfig.json",
+    "test": "jest --config ../../../jest.config.ts",
+    "lint": "eslint --config ../../../eslint.config.mjs ."
   },
-  "devDependencies": {}
+  "dependencies": {
+    "@types/vscode": "^1.104.0",
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2"
+  }
 }
