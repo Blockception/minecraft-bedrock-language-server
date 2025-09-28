@@ -1,8 +1,8 @@
+import { Internal } from "bc-minecraft-bedrock-project";
 import { ComponentBehavior } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../../types";
 import { Context } from "../../../../utility/components";
 import { ComponentCheck, components_check } from "../../../../utility/components/checks";
-import { Internal } from "bc-minecraft-bedrock-project";
 import { is_block_defined } from "../../../behavior-pack/block";
 
 /**

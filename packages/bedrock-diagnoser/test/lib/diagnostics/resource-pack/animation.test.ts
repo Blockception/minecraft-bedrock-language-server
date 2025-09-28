@@ -1,6 +1,6 @@
 import { TextDocument } from 'bc-minecraft-bedrock-project/src/types';
 import path from 'path';
-import { ResourcePack } from "../../../../src/lib/diagnostics/resource-pack/resource-pack";
+import { ResourcePack } from "../../../../src/diagnostics/resource-pack/resource-pack";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("ResourcePack", () => {

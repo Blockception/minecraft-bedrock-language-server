@@ -1,11 +1,10 @@
 import { Types } from "bc-minecraft-bedrock-types";
 import { Definition } from "bc-minecraft-bedrock-types/src/types/definition";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { MolangDataSetKey } from "bc-minecraft-molang";
 import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from "../../types";
+import { MolangMetadata } from "../molang";
 import { diagnose_animation_controller_implementation } from "./animation-controllers/diagnostics";
 import { diagnose_animation_implementation } from "./animation/diagnostics";
-import { MolangMetadata } from "../molang";
 
 const whiteList = ["animation.humanoid.fishing_rod"];
 

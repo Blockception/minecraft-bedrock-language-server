@@ -1,10 +1,7 @@
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { MolangDataSetKey } from "bc-minecraft-molang";
-import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from "../../../types";
-import { education_enabled } from "../../definitions";
-import { diagnose_molang_implementation, MolangMetadata } from "../../molang/diagnostics";
-import { Errors } from "../..";
 import { ProjectItem } from "bc-minecraft-bedrock-project";
+import { Errors } from "../..";
+import { DiagnosticsBuilder, EntityAnimationMolangCarrier, WithMetadata } from "../../../types";
+import { diagnose_molang_implementation, MolangMetadata } from "../../molang/diagnostics";
 
 /**
  *

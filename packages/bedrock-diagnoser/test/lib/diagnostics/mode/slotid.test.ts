@@ -1,5 +1,5 @@
 import { Command } from 'bc-minecraft-bedrock-command';
-import { mode_slotid_diagnose } from '../../../../src/lib/diagnostics/mode/diagnose';
+import { mode_slotid_diagnose } from '../../../../src/diagnostics/mode/diagnose';
 import { TestDiagnoser} from '../../../diagnoser';
 
 describe("Mode SlotID", () => {

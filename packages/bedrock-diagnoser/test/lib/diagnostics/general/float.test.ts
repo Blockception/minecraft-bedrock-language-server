@@ -1,4 +1,4 @@
-import { general_float_diagnose } from "../../../../src/lib/diagnostics/general/float";
+import { general_float_diagnose } from "../../../../src/diagnostics/general/float";
 import { Types } from "bc-minecraft-bedrock-types";
 import { TestDiagnoser } from "../../../diagnoser";
 

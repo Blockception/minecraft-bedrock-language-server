@@ -1,5 +1,5 @@
 import { ProjectData, TextDocument } from "bc-minecraft-bedrock-project";
-import { diagnose_structure_implementation } from '../../../../src/lib/diagnostics/behavior-pack/structure';
+import { diagnose_structure_implementation } from '../../../../src/diagnostics/behavior-pack/structure';
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("BehaviorPack", () => {

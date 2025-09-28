@@ -1,8 +1,8 @@
-import { CommandInfo } from "../../data";
-import { ParameterType } from "../parameter-type";
-import { getBestMatches, getCommandData } from "./functions";
-import { Parameter } from "./parameter";
-import { GetParameters, ParameterBuilder } from "./parse";
+import { CommandInfo } from '../../data';
+import { ParameterType } from '../parameter-type';
+import { getBestMatches, getCommandData } from './functions';
+import { Parameter } from './parameter';
+import { GetParameters, ParameterBuilder } from './parse';
 
 /**A class that helps interpreting written commands.*/
 export class Command {
@@ -22,7 +22,7 @@ export class Command {
   /**Gets the keyword of this command (first parameter)
    *@returns The keyword or "" is command is empty*/
   getKeyword(): string {
-    if (this.parameters.length <= 0) return "";
+    if (this.parameters.length <= 0) return '';
 
     return this.parameters[0].text;
   }
@@ -62,6 +62,8 @@ export class Command {
         return out;
       }
     }
+
+    return undefined;
   }
 
   /**Finds the parameter index the cursor is at

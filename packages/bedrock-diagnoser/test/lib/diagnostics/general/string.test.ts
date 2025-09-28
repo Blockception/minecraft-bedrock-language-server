@@ -1,4 +1,4 @@
-import { general_string_diagnose } from "../../../../src/lib/diagnostics/general";
+import { general_string_diagnose } from "../../../../src/diagnostics/general";
 import { Types } from "bc-minecraft-bedrock-types";
 import { TestDiagnoser } from "../../../diagnoser";
 

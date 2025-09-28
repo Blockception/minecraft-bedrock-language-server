@@ -1,23 +1,28 @@
 {
   "compilerOptions": {
-    "incremental": true,
     "composite": true,
-    "moduleResolution": "node",
-    "types": [],
-    "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "module": "node20",
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "declaration": true,
-    "stripInternal": true,
-    "sourceMap": true,
-    "declarationMap": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "target": "es5",
+    "noUnusedParameters": false,
+    "sourceMap": true,
+    "strict": true,
+    "stripInternal": true,
+    "target": "es2015",
+    "types": [
+      "node",
+      "jest"
+    ],
     "lib": [
       "es2015"
     ],
+    "downlevelIteration": true
   },
   "references": [
     {

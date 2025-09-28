@@ -1,5 +1,5 @@
 import { Types } from "bc-minecraft-bedrock-types";
-import { minecraft_xp_diagnose } from "../../../../src/lib/diagnostics/minecraft/xp";
+import { minecraft_xp_diagnose } from "../../../../src/diagnostics/minecraft/xp";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("XP", () => {

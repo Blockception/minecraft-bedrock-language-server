@@ -1,8 +1,6 @@
 import { Identifiable } from "bc-minecraft-bedrock-types/src/types";
-import { MolangDataSetKey } from "bc-minecraft-molang";
-import { MolangSet, ResourceReferenceNode, VariableNode } from "bc-minecraft-molang";
+import { MolangDataSetKey, MolangSet } from "bc-minecraft-molang";
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../types";
-import { XSet } from "../../extensions";
 
 /**
  * The user of the resource, the user should have the nessecary things defined for the resource to use

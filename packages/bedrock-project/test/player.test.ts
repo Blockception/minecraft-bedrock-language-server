@@ -1,27 +1,26 @@
-import { jsonc } from "jsonc";
-import { Internal } from "../src/main";
-import { References } from "../src/types/references";
+import { jsonc } from 'jsonc';
+import { Internal, References } from '../src';
 
 export namespace VanillaPlayer {
-  export const Goes: string[] = ["cape", "humanoid.custom"];
+  export const Goes: string[] = ['cape', 'humanoid.custom'];
   export const Variables = References.wrap(
-    ["attack_time", "gliding_speed_value", "hand_bob", "player_x_rotation"],
+    ['attack_time', 'gliding_speed_value', 'hand_bob', 'player_x_rotation'],
     [
-      "is_holding_right",
-      "is_blinking",
-      "last_blink_time",
-      "hand_bob",
-      "helmet_layer_visible",
-      "leg_layer_visible",
-      "boot_layer_visible",
-      "chest_layer_visible",
-      "attack_body_rot_y",
-      "tcos0",
-      "first_person_rotation_factor",
-      "hand_bob",
-      "map_angle",
-      "item_use_normalized",
-    ]
+      'is_holding_right',
+      'is_blinking',
+      'last_blink_time',
+      'hand_bob',
+      'helmet_layer_visible',
+      'leg_layer_visible',
+      'boot_layer_visible',
+      'chest_layer_visible',
+      'attack_body_rot_y',
+      'tcos0',
+      'first_person_rotation_factor',
+      'hand_bob',
+      'map_angle',
+      'item_use_normalized',
+    ],
   );
 
   export const Data = `{
@@ -130,28 +129,28 @@ export namespace VanillaPlayer {
   export const DataOBject = jsonc.parse(Data);
 }
 
-describe("data test", () => {
-  describe("VanillaPlayer", () => {
+describe('data test', () => {
+  describe('VanillaPlayer', () => {
     const obj = VanillaPlayer.DataOBject;
 
-    it("Not undefined", () => {
+    it('Not undefined', () => {
       expect(obj).toBeDefined();
     });
 
     const temp = <Internal.ResourcePack.Entity>obj;
 
-    it("Has format version", () => {
+    it('Has format version', () => {
       expect(temp.format_version).toBeDefined();
     });
 
-    it("Has description", () => {
-      const desc = temp["minecraft:client_entity"].description;
+    it('Has description', () => {
+      const desc = temp['minecraft:client_entity'].description;
 
       expect(desc).toBeDefined();
       expect(desc.identifier).toBeDefined();
     });
 
-    it("Is resourpack entity", () => {
+    it('Is resourpack entity', () => {
       expect(Internal.ResourcePack.Entity.is(temp)).toBeTruthy();
     });
   });

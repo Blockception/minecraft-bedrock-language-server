@@ -1,8 +1,6 @@
 import {
-  diagnose_molang_syntax_current_document,
-  diagnose_molang_syntax_line,
-  diagnose_molang_syntax_text,
-} from "../../../../src/lib/diagnostics/molang";
+  diagnose_molang_syntax_text
+} from "../../../../src/diagnostics/molang";
 import { TestDiagnoser } from "../../../diagnoser";
 
 interface TestCase {

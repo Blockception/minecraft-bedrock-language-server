@@ -1,4 +1,4 @@
-import { Command } from "../src/main";
+import { Command } from "../src";
 
 describe("checking valid context", () => {
   const lines = valid().split("\n").filter((item) => item.trim().length > 0);

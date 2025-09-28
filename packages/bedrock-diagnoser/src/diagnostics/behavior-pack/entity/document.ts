@@ -1,9 +1,9 @@
 import { Internal, References } from "bc-minecraft-bedrock-project";
 import { EntityProperty as DefinedEP } from "bc-minecraft-bedrock-project/src/internal/behavior-pack/entity";
 import { EntityProperty as ProjectEP } from "bc-minecraft-bedrock-project/src/project/behavior-pack/entity";
+import { harvestMolang } from "bc-minecraft-bedrock-project/src/project/molang";
 import { Types } from "bc-minecraft-bedrock-types";
 import { getUsedComponents } from "bc-minecraft-bedrock-types/src/minecraft/components";
-import { MolangSet } from "bc-minecraft-molang";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder, Metadata } from "../../../types";
 import { Context } from "../../../utility/components";
 import { Json } from "../../json";
@@ -17,7 +17,6 @@ import { behaviorpack_entity_components_check } from "./components";
 import { behaviorpack_entity_components_dependencies } from "./components/dependencies";
 import { behaviorpack_entity_check_events } from "./events";
 import { diagnose_entity_properties_definition } from "./properties";
-import { harvestMolang } from "bc-minecraft-bedrock-project/src/project/molang";
 
 /**Diagnoses the given document as an bp entity
  * @param doc The text document to diagnose

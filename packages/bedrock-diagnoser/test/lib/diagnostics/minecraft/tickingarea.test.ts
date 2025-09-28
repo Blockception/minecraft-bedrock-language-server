@@ -1,7 +1,7 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
 import { Types } from "bc-minecraft-bedrock-types";
 import { Location } from "bc-minecraft-bedrock-types/src/types";
-import { minecraft_tickingarea_diagnose } from "../../../../src/lib/diagnostics/minecraft/tickingarea";
+import { minecraft_tickingarea_diagnose } from "../../../../src/diagnostics/minecraft/tickingarea";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("Tickingarea", () => {

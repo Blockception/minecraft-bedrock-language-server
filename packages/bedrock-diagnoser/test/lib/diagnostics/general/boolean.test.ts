@@ -1,4 +1,4 @@
-import { general_boolean_diagnose } from "../../../../src/lib/diagnostics/general/boolean";
+import { general_boolean_diagnose } from "../../../../src/diagnostics/general/boolean";
 import { Types } from "bc-minecraft-bedrock-types";
 import { TestDiagnoser } from "../../../diagnoser";
 

@@ -6,7 +6,7 @@ import {
   DiagnosticSeverity,
   DocumentDiagnosticsBuilder,
   ManagedDiagnosticsBuilder,
-} from "../src/lib/types";
+} from "../src/types";
 import { TestProjectData } from "./testprojectdata";
 
 export interface Error {

@@ -1,7 +1,7 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
 import { Types } from "bc-minecraft-bedrock-types";
 import { Location } from "bc-minecraft-bedrock-types/src/types";
-import { minecraft_objectives_diagnose } from '../../../../src/lib/diagnostics/minecraft';
+import { minecraft_objectives_diagnose } from '../../../../src/diagnostics/minecraft';
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("Objective", () => {

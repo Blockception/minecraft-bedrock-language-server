@@ -1,4 +1,4 @@
-import { Command } from "../src/main";
+import { Command } from "../src";
 
 describe("subcommand", () => {
   test("function subcommand should be retrievable", () => {

@@ -1,7 +1,7 @@
 import { Internal, ResourcePack } from "bc-minecraft-bedrock-project";
 import { getUsingResources } from "bc-minecraft-bedrock-project/src/internal/resource-pack/resources";
+import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
 import { Types } from "bc-minecraft-bedrock-types";
-import { MolangSet } from "bc-minecraft-molang";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder, Metadata } from "../../../types";
 import { behaviorpack_entityid_diagnose } from "../../behavior-pack/entity";
 import { Json } from "../../json/json";
@@ -16,7 +16,6 @@ import { particle_is_defined } from "../particle/diagnose";
 import { render_controller_diagnose_implementation } from "../render-controller/diagnostics";
 import { diagnose_resourcepack_sounds } from "../sounds/diagnostics";
 import { texture_files_diagnose } from "../texture-atlas/entry";
-import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
 
 /**
  * Diagnoses the given document as an RP entity

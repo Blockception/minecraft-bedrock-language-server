@@ -1,6 +1,6 @@
 import { Types } from "bc-minecraft-bedrock-types";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { minecraft_effect_diagnose } from "../../../../src/lib/diagnostics/minecraft/effect";
+import { minecraft_effect_diagnose } from "../../../../src/diagnostics/minecraft/effect";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("Effect", () => {

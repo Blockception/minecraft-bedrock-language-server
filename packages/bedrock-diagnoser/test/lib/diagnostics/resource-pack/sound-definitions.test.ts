@@ -1,6 +1,6 @@
 import { TextDocument } from "bc-minecraft-bedrock-project";
 import path from 'path';
-import { ResourcePack } from "../../../../src/lib/diagnostics/resource-pack/resource-pack";
+import { ResourcePack } from "../../../../src/diagnostics/resource-pack/resource-pack";
 import { TestDiagnoser } from "../../../diagnoser";
 
 const example_data = {

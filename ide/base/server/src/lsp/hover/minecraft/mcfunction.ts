@@ -170,7 +170,7 @@ function GetString(type: ParameterType): string | undefined {
 }
 
 function getDocumentation<T extends Identifiable & Locatable>(
-  query: string,
+  _query: string,
   range: Range,
   collection: IDataSet<T>,
   additional: string

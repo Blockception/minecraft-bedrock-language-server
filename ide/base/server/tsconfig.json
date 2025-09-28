@@ -4,6 +4,9 @@
   "exclude": ["node_modules", "**/__tests__/*", "*.test.ts", "./test"],
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "downlevelIteration": true,
+    "target": "es2015",
+    "esModuleInterop": true
   }
 }

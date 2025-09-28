@@ -1,6 +1,6 @@
 import { TextDocument } from "bc-minecraft-bedrock-project";
 import path from 'path';
-import { diagnose_mcfunction_commands_document } from "../../../../../../src/lib/diagnostics/behavior-pack/mcfunction";
+import { diagnose_mcfunction_commands_document } from "../../../../../../src/diagnostics/behavior-pack/mcfunction";
 import { TestDiagnoser } from "../../../../../diagnoser";
 
 describe("BehaviorPack", () => {

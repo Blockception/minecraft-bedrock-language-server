@@ -1,4 +1,4 @@
-import { Command } from "../src/main";
+import { Command } from "../src";
 
 describe("Command", () => {
   it("parse 1 - simple test", () => {

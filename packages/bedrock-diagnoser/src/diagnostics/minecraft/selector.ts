@@ -1,11 +1,11 @@
-import { ParameterInfo } from "bc-minecraft-bedrock-command";
-import { Text } from "bc-minecraft-bedrock-project";
-import { Minecraft, Types } from "bc-minecraft-bedrock-types";
-import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { check_definition_value } from "../definitions";
-import { Attribute } from "./selector/attributes";
+import { ParameterInfo } from 'bc-minecraft-bedrock-command';
+import { Text } from 'bc-minecraft-bedrock-project';
+import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
+import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { check_definition_value } from '../definitions';
+import { Attribute } from './selector/attributes';
+import { Selector } from 'bc-minecraft-bedrock-types/src/minecraft/selector';
 
 /**
  *
@@ -17,12 +17,12 @@ import { Attribute } from "./selector/attributes";
 export function minecraft_selector_diagnose(
   pattern: ParameterInfo,
   value: Types.OffsetWord,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ) {
   const sel = value.text;
 
   //Is a selector?
-  if (sel.startsWith("@")) {
+  if (sel.startsWith('@')) {
     minecraft_selector_diagnose_hard(value, diagnoser, pattern);
     return;
   }
@@ -32,16 +32,16 @@ export function minecraft_selector_diagnose(
 
   //Fake players have been banned
   if (pattern.options?.allowFakePlayers === false) {
-    diagnoser.add(value, "No fake players / names allowed", DiagnosticSeverity.error, "minecraft.selector.invalid");
+    diagnoser.add(value, 'No fake players / names allowed', DiagnosticSeverity.error, 'minecraft.selector.invalid');
     return;
   }
 
   if (pattern.options?.playerOnly === true) {
     diagnoser.add(
       value,
-      "Only players selector allowed to be used",
+      'Only players selector allowed to be used',
       DiagnosticSeverity.error,
-      "minecraft.selector.invalid"
+      'minecraft.selector.invalid',
     );
     return;
   }
@@ -59,7 +59,7 @@ export function minecraft_selector_diagnose(
     value,
     `Cannot find fake entity definition or name for: ${name}`,
     DiagnosticSeverity.warning,
-    "minecraft.fakeentity.missing"
+    'minecraft.fakeentity.missing',
   );
 }
 
@@ -72,12 +72,12 @@ export function minecraft_selector_diagnose(
 function minecraft_selector_diagnose_hard(
   value: Types.OffsetWord,
   diagnoser: DiagnosticsBuilder,
-  pattern: ParameterInfo
+  pattern: ParameterInfo,
 ): boolean {
   const selector = Minecraft.Selector.Selector.parse(value.text, value.offset);
 
   if (selector === undefined) {
-    diagnoser.add(value, "Invalid selector", DiagnosticSeverity.error, "minecraft.selector.invalid");
+    diagnoser.add(value, 'Invalid selector', DiagnosticSeverity.error, 'minecraft.selector.invalid');
     return false;
   }
   let result = true;
@@ -85,14 +85,14 @@ function minecraft_selector_diagnose_hard(
   //If the selector is only meant to be aimed at player warn the user
   if (pattern.options?.playerOnly === true) {
     switch (selector.selectorType) {
-      case "@e":
-      case "@v":
+      case '@e':
+      case '@v':
         result = false;
         diagnoser.add(
           value,
-          "Selector is meant to target only players",
+          'Selector is meant to target only players',
           DiagnosticSeverity.info,
-          "minecraft.selector.playeronly"
+          'minecraft.selector.playeronly',
         );
         break;
     }
@@ -104,7 +104,7 @@ function minecraft_selector_diagnose_hard(
       value,
       `Unknown selector type: ${selector.type}`,
       DiagnosticSeverity.error,
-      "minecraft.selector.type.invalid"
+      'minecraft.selector.type.invalid',
     );
   }
 
@@ -119,7 +119,7 @@ function minecraft_selector_diagnose_hard(
         name,
         attributes as CompactJson.IKeyNode[],
         selector,
-        diagnoser
+        diagnoser,
       );
     }
   }
@@ -139,7 +139,7 @@ export function minecraft_selector_attribute_diagnose_hard(
   attribute: string,
   attributes: CompactJson.IKeyNode[],
   selector: Selector,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   return Attribute.diagnose(attribute, attributes as Minecraft.Json.CompactJson.IKeyNode[], selector, diagnoser);
 }

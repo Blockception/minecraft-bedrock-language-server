@@ -1,8 +1,7 @@
 import { ProjectItem } from "bc-minecraft-bedrock-project";
 import { Definition } from "bc-minecraft-bedrock-types/src/types/definition";
-import { MolangDataSetKey } from "bc-minecraft-molang";
 import { Errors } from "../..";
-import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from "../../../types";
+import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../../types";
 import { forEach } from "../../../utility/references";
 import { general_animation_controllers_implementation } from "../../minecraft/animation-controllers";
 import { MolangMetadata, User } from "../../molang";

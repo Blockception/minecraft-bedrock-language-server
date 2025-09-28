@@ -74,7 +74,7 @@ type BaseCompletionBuilder = Pick<CompletionBuilder, "add" | "isCancelled" | "ge
 export class BaseBuilder implements BaseCompletionBuilder {
   private _items: CompletionItem[];
   private _token: CancellationToken;
-  private _workDoneProgress: WorkDoneProgressReporter;
+  protected _workDoneProgress: WorkDoneProgressReporter;
 
   constructor(token: CancellationToken, workDoneProgress: WorkDoneProgressReporter, items?: CompletionItem[]) {
     this._token = token;

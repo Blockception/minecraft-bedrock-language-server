@@ -1,5 +1,5 @@
-import { CommandData } from "../src/lib/data/command-data";
-import { CommandContainer } from "../src/main";
+import { CommandData } from "../src/data/command-data";
+import { CommandContainer } from "../src";
 
 describe("Data/Commands", () => {
   const { VanillaCommands, EduCommands } = CommandData;

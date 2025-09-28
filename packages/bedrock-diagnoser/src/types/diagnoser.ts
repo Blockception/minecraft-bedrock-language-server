@@ -11,7 +11,6 @@ import { WorldPack } from "../diagnostics/world-pack/world-pack";
 import { DocumentDiagnosticsBuilder } from "./diagnostics-builder";
 
 import path from "path";
-import { diagnose_format_version } from '../diagnostics/general';
 
 /**The object that is responsible for diagnosing minecraft bedrock files*/
 export class Diagnoser<T extends TextDocument = TextDocument> {
