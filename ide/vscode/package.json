@@ -81,6 +81,7 @@
   },
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
+    "clean": "tsc -b --clean",
     "lint": "eslint",
     "postversion": "git push && git push --tags",
     "version": "git add -A .",

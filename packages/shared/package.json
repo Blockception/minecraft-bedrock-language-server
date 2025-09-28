@@ -24,6 +24,7 @@
   "scripts": {
     "build": "tsc",
     "compile": "npm run build",
+    "clean": "tsc -b --clean",
     "test": "jest"
   },
   "devDependencies": {

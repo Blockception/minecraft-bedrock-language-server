@@ -30,6 +30,7 @@
   ],
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
+    "clean": "tsc -b --clean",
     "pretest": "npm run compile",
     "prepublishOnly": "npm test && npm run compile",
     "preversion": "",

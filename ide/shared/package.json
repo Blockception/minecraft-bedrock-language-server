@@ -23,7 +23,8 @@
   "scripts": {
     "build": "tsc",
     "compile": "npm run build",
-    "test": "jest"
+    "test": "jest",
+    "clean": "tsc -b --clean"
   },
   "devDependencies": {
     "typescript": "^5.8.3",

@@ -23,7 +23,8 @@
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
     "test": "jest --config ../../../jest.config.ts",
-    "lint": "eslint --config ../../../eslint.config.mjs ."
+    "lint": "eslint --config ../../../eslint.config.mjs .",
+    "clean": "tsc -b --clean"
   },
   "dependencies": {
     "@blockception/shared": "^0.0.1",

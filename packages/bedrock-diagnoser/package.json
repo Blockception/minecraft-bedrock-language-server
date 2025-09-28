@@ -25,6 +25,7 @@
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
     "build": "npm run clean && npm run compile",
+    "clean": "tsc -b --clean",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "pretest": "npm run compile",
     "prepublishOnly": "npm test && npm run compile",
