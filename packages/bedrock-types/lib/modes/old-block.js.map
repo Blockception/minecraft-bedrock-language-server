@@ -1,0 +1,1 @@
+{"version":3,"file":"old-block.js","sourceRoot":"","sources":["../../src/modes/old-block.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,YAAY,GAAmB;IAC1C,IAAI,EAAE,WAAW;IACjB,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,SAAS,EAAE,aAAa,EAAE,wBAAwB,EAAE;QAC5D,EAAE,IAAI,EAAE,SAAS,EAAE,aAAa,EAAE,8CAA8C,EAAE;QAClF,EAAE,IAAI,EAAE,MAAM,EAAE,aAAa,EAAE,oCAAoC,EAAE;KACtE;CACF,CAAC"}

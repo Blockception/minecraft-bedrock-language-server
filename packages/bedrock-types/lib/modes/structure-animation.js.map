@@ -1,0 +1,1 @@
+{"version":3,"file":"structure-animation.js","sourceRoot":"","sources":["../../src/modes/structure-animation.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,sBAAsB,GAAmB;IACpD,IAAI,EAAE,qBAAqB;IAC3B,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,gBAAgB,EAAE,aAAa,EAAE,0CAA0C,EAAE;QACrF,EAAE,IAAI,EAAE,gBAAgB,EAAE,aAAa,EAAE,0CAA0C,EAAE;KACtF;CACF,CAAC"}

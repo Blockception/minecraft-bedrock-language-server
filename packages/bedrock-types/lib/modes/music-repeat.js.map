@@ -1,0 +1,1 @@
+{"version":3,"file":"music-repeat.js","sourceRoot":"","sources":["../../src/modes/music-repeat.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,eAAe,GAAmB;IAC7C,IAAI,EAAE,cAAc;IACpB,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,MAAM,EAAE,aAAa,EAAE,uBAAuB,EAAE;QACxD,EAAE,IAAI,EAAE,WAAW,EAAE,aAAa,EAAE,iCAAiC,EAAE;KACxE;CACF,CAAC"}

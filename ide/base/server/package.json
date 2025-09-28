@@ -1,11 +1,13 @@
 {
-  "name": "lsp-server",
+  "name": "bc-minecraft-lsp",
   "version": "1.0.0",
-  "description": "",
+  "author": "Blockception Ltd",
   "license": "BSD-3-Clause",
-  "author": "",
   "type": "commonjs",
   "main": "./dist/index.js",
+  "files": [
+    "../../../LICENSE"
+  ],
   "scripts": {
     "test": "jest"
   },

@@ -1,0 +1,11 @@
+import { TextDocument } from "bc-minecraft-bedrock-project";
+import { ExpressionNode, FunctionCallNode, MolangSet } from "bc-minecraft-molang/lib/src/molang";
+import { DiagnosticsBuilder, DocumentDiagnosticsBuilder } from "../../types";
+export declare function diagnose_molang_syntax_current_document(diagnoser: DocumentDiagnosticsBuilder, obj?: string | Record<string, any>): MolangSet;
+export declare function diagnose_molang_syntax_document(doc: TextDocument, diagnoser: DiagnosticsBuilder, obj?: string | Record<string, any>): MolangSet;
+export declare function diagnose_molang_syntax_text(text: string, diagnoser: DiagnosticsBuilder, obj?: string | Record<string, any>): MolangSet;
+export declare function diagnose_molang_syntax_line(line: string, diagnoser: DiagnosticsBuilder): MolangSet;
+export declare function diagnose_molang_syntax_set(set: MolangSet, diagnoser: DiagnosticsBuilder): MolangSet;
+export declare function diagnose_molang_syntax(expression: ExpressionNode, diagnoser: DiagnosticsBuilder): void;
+export declare function diagnose_molang_syntax_optimizations(expression: ExpressionNode, diagnoser: DiagnosticsBuilder): void;
+export declare function diagnose_molang_function(fn: FunctionCallNode, diagnoser: DiagnosticsBuilder): void;

@@ -1,0 +1,1 @@
+{"version":3,"file":"handtype.js","sourceRoot":"","sources":["../../src/modes/handtype.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,YAAY,GAAmB;IAC1C,IAAI,EAAE,UAAU;IAChB,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,UAAU,EAAE,aAAa,EAAE,eAAe,EAAE;QACpD,EAAE,IAAI,EAAE,SAAS,EAAE,aAAa,EAAE,cAAc,EAAE;KACnD;CACF,CAAC"}

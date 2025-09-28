@@ -1,0 +1,1 @@
+export * as Tick from "./tick/index";

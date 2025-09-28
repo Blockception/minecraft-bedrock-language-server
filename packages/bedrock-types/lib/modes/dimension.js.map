@@ -1,0 +1,1 @@
+{"version":3,"file":"dimension.js","sourceRoot":"","sources":["../../src/modes/dimension.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,aAAa,GAAmB;IAC3C,IAAI,EAAE,WAAW;IACjB,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,QAAQ,EAAE,aAAa,EAAE,sBAAsB,EAAE;QACzD,EAAE,IAAI,EAAE,WAAW,EAAE,aAAa,EAAE,yBAAyB,EAAE;QAC/D,EAAE,IAAI,EAAE,SAAS,EAAE,aAAa,EAAE,mBAAmB,EAAE;KACxD;CACF,CAAC"}

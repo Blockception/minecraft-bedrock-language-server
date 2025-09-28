@@ -1,0 +1,1 @@
+{"version":3,"file":"state.js","sourceRoot":"","sources":["../../../../../src/internal/general/controllers/state.ts"],"names":[],"mappings":";;;AAcA,MAAM;AACN,IAAiB,KAAK,CAWrB;AAXD,WAAiB,KAAK;IACpB;;;;OAIG;IACH,SAAgB,EAAE,CAAC,KAAU;QAC3B,IAAI,OAAO,KAAK,KAAK,QAAQ;YAAE,OAAO,IAAI,CAAC;QAE3C,OAAO,KAAK,CAAC;IACf,CAAC;IAJe,QAAE,KAIjB,CAAA;AACH,CAAC,EAXgB,KAAK,qBAAL,KAAK,QAWrB"}

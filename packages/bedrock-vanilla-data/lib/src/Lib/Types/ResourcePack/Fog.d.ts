@@ -1,0 +1,4 @@
+/**
+ *
+ */
+export type Fog = string;

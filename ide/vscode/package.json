@@ -65,6 +65,10 @@
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1"
   },
+  "dependencies": {
+    "bc-minecraft-lsp-client": "1.0.0",
+    "bc-minecraft-lsp": "1.0.0",
+  },
   "maintainers": [
     {
       "name": "Blockception Ltd",

@@ -17,6 +17,8 @@
       "bc-minecraft-bedrock-vanilla-data": ["packages/bedrock-vanilla-data/src"],
       "bc-minecraft-molang": ["packages/molang/src"],
       "bc-minecraft-project": ["packages/project/src"],
+      "bc-minecraft-lsp-client": ["ide/shared/base/client/src"],
+      "bc-minecraft-lsp": ["ide/shared/base/server/src"],
       "@blockception/packages-shared": ["packages/shared/src"],
       "@blockception/shared": ["ide/shared/src"],
       "blockceptionvscodeminecraftbedrockdevelopmentextension": ["ide/vscode/client/src"]

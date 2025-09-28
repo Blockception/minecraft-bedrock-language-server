@@ -1,0 +1,11 @@
+import { ComponentBehavior } from "bc-minecraft-bedrock-types/lib/minecraft/components";
+import { DocumentDiagnosticsBuilder } from "../../../../types";
+import { Context } from "../../../../utility/components";
+import { Internal } from "bc-minecraft-bedrock-project";
+/**
+ *
+ * @param container
+ * @param context
+ * @param diagnoser
+ */
+export declare function behaviorpack_diagnose_block_components(container: ComponentBehavior, context: Context<Internal.BehaviorPack.Block>, diagnoser: DocumentDiagnosticsBuilder): void;

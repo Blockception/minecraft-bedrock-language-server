@@ -1,0 +1,1 @@
+{"version":3,"file":"classroommode.js","sourceRoot":"","sources":["../../../../../src/lib/data/edu/classroommode.ts"],"names":[],"mappings":";;;AAAA,+DAA2D;AAG3D,gCAAgC;AACnB,QAAA,aAAa,GAAkB;IAC1C;QACE,IAAI,EAAE,eAAe;QACrB,aAAa,EAAE,uDAAuD;QACtE,gBAAgB,EAAE,CAAC;QACnB,UAAU,EAAE,CAAC,EAAE,IAAI,EAAE,eAAe,EAAE,IAAI,EAAE,8BAAa,CAAC,OAAO,EAAE,QAAQ,EAAE,IAAI,EAAE,CAAC;KACrF;CACF,CAAA"}

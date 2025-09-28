@@ -1,0 +1,1 @@
+{"version":3,"file":"noop.js","sourceRoot":"","sources":["../../../../src/lib/types/noop.ts"],"names":[],"mappings":";;;AAIA,MAAa,aAAa;IAIxB,YAAY,IAA2B;QACrC,IAAI,CAAC,OAAO,GAAG,IAAI,CAAC,OAAO,CAAC;QAC5B,IAAI,CAAC,OAAO,GAAG,IAAI,CAAC,OAAO,CAAC;IAC9B,CAAC;IAED,GAAG;QACD,YAAY;IACd,CAAC;CACF;AAZD,sCAYC"}

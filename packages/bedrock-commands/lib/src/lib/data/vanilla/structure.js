@@ -1,0 +1,98 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.structure = void 0;
+const parameter_type_1 = require("../../types/parameter-type");
+/**The structure command */
+exports.structure = [
+    {
+        name: "structure",
+        documentation: "Saves or loads a structure in the world.",
+        permission_level: 1,
+        parameters: [
+            { text: "structure", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "delete", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "name", type: parameter_type_1.ParameterType.structure, required: true },
+        ],
+    },
+    {
+        name: "structure",
+        documentation: "Saves or loads a structure in the world.",
+        permission_level: 1,
+        parameters: [
+            { text: "structure", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "load", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "name", type: parameter_type_1.ParameterType.structure, required: true },
+            { text: "to x", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to y", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to z", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "rotation yaw", type: parameter_type_1.ParameterType.rotation, required: false },
+            { text: "rotation pitch", type: parameter_type_1.ParameterType.rotation, required: false },
+            { text: "mirror", type: parameter_type_1.ParameterType.mirror, required: false },
+            { text: "animation mode", type: parameter_type_1.ParameterType.structureAnimationMode, required: false },
+            { text: "animation seconds", type: parameter_type_1.ParameterType.float, required: false },
+            { text: "include entities", type: parameter_type_1.ParameterType.boolean, required: false },
+            { text: "include blocks", type: parameter_type_1.ParameterType.boolean, required: false },
+            { text: "waterlogged", type: parameter_type_1.ParameterType.boolean, required: false },
+            { text: "integrity", type: parameter_type_1.ParameterType.float, required: false },
+            { text: "seed", type: parameter_type_1.ParameterType.string, required: false },
+        ],
+    },
+    {
+        name: "structure",
+        documentation: "Saves or loads a structure in the world.",
+        permission_level: 1,
+        parameters: [
+            { text: "structure", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "load", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "name", type: parameter_type_1.ParameterType.structure, required: true },
+            { text: "to x", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to y", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to z", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "rotation yaw", type: parameter_type_1.ParameterType.rotation, required: false },
+            { text: "rotation pitch", type: parameter_type_1.ParameterType.rotation, required: false },
+            { text: "mirror", type: parameter_type_1.ParameterType.mirror, required: false },
+            { text: "include entities", type: parameter_type_1.ParameterType.boolean, required: false },
+            { text: "include blocks", type: parameter_type_1.ParameterType.boolean, required: false },
+            { text: "waterlogged", type: parameter_type_1.ParameterType.boolean, required: false },
+            { text: "integrity", type: parameter_type_1.ParameterType.float, required: false },
+            { text: "seed", type: parameter_type_1.ParameterType.string, required: false },
+        ],
+    },
+    {
+        name: "structure",
+        documentation: "Saves or loads a structure in the world.",
+        permission_level: 1,
+        parameters: [
+            { text: "structure", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "save", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "name", type: parameter_type_1.ParameterType.structure, required: true },
+            { text: "from x", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "from y", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "from z", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to x", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to y", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to z", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "includeEntities", type: parameter_type_1.ParameterType.boolean, required: false },
+            { text: "saveMode", type: parameter_type_1.ParameterType.saveMode, required: false },
+            { text: "includeBlocks", type: parameter_type_1.ParameterType.boolean, required: false },
+        ],
+    },
+    {
+        name: "structure",
+        documentation: "Saves or loads a structure in the world.",
+        permission_level: 1,
+        parameters: [
+            { text: "structure", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "save", type: parameter_type_1.ParameterType.keyword, required: true },
+            { text: "name", type: parameter_type_1.ParameterType.structure, required: true },
+            { text: "from x", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "from y", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "from z", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to x", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to y", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "to z", type: parameter_type_1.ParameterType.coordinate, required: true },
+            { text: "save mode", type: parameter_type_1.ParameterType.saveMode, required: false },
+        ],
+    },
+];
+//# sourceMappingURL=structure.js.map

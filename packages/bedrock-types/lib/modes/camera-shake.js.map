@@ -1,0 +1,1 @@
+{"version":3,"file":"camera-shake.js","sourceRoot":"","sources":["../../src/modes/camera-shake.ts"],"names":[],"mappings":";;;AAEA,MAAM;AACO,QAAA,eAAe,GAAmB;IAC7C,IAAI,EAAE,cAAc;IACpB,KAAK,EAAE;QACL,EAAE,IAAI,EAAE,YAAY,EAAE,aAAa,EAAE,4CAA4C,EAAE;QACnF,EAAE,IAAI,EAAE,YAAY,EAAE,aAAa,EAAE,mCAAmC,EAAE;KAC3E;CACF,CAAC"}
