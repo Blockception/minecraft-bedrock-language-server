@@ -30,7 +30,6 @@
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
     "build": "npm run clean && npm run compile",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "test": "jest --config ../../jest.config.ts",
     "lint": "eslint --config ../../eslint.config.mjs .",
     "clean": "tsc -b --clean",

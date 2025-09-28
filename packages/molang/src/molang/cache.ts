@@ -1,5 +1,5 @@
-import { OffsetWord } from "bc-minecraft-bedrock-types/lib/types";
-import { ExpressionNode, parseMolang } from "./syntax";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { ExpressionNode, parseMolang } from './syntax';
 
 export class MolangSyntaxCache {
   private _data: Map<string, ExpressionNode[]>;
@@ -8,7 +8,7 @@ export class MolangSyntaxCache {
     this._data = new Map();
   }
 
-  build(code: OffsetWord): ExpressionNode[] | undefined {
+  build(code: Types.OffsetWord): ExpressionNode[] | undefined {
     const exp = this._data.get(code.text);
     if (exp === undefined) {
       const r = parseMolang(code);

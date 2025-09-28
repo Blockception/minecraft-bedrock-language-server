@@ -1,5 +1,4 @@
 import { Languages } from "@blockception/shared/dist";
-import { Command } from "bc-minecraft-bedrock-command";
 import { CodeAction, CodeActionKind, Diagnostic, TextDocumentEdit, TextEdit } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../builder";
 

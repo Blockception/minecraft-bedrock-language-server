@@ -1,4 +1,4 @@
-import { Modes } from "../main";
+import { Modes } from "..";
 import { Mode, ModeCollection } from "./mode-collection";
 
 describe("Mode", () => {
