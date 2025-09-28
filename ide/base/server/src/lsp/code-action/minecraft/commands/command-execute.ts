@@ -1,6 +1,7 @@
-import { Languages } from "@blockception/shared/dist";
-import { CodeAction, CodeActionKind, Diagnostic, TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { CodeActionBuilder } from "../../builder";
+import { Languages } from '@blockception/shared/dist';
+import { CodeAction, CodeActionKind, Diagnostic, TextDocumentEdit, TextEdit } from 'vscode-languageserver';
+import { CodeActionBuilder } from '../../builder';
+import { Command } from 'bc-minecraft-bedrock-command';
 
 /**
  * Code action for `minecraft.commands.execute.deprecated`
@@ -30,13 +31,13 @@ export function codeaction_execute_deprecated(builder: CodeActionBuilder, diag: 
   if (command.parameters.length < 4) return;
   const [keyword, selector, x, y, z, detect] = command.parameters;
 
-  if (keyword.text !== "execute") return;
-  if (!selector.text.startsWith("@")) return;
+  if (keyword.text !== 'execute') return;
+  if (!selector.text.startsWith('@')) return;
 
   // execute <selector> <x> <y> <z>
 
   // execute as @a at @s positioned x y z
-  if (detect.text === "detect") return;
+  if (detect.text === 'detect') return;
   let newCommand = `execute as ${selector.text} at @s positioned ${x.text} ${y.text} ${z.text} run`;
 
   //Get full range
@@ -49,7 +50,7 @@ export function codeaction_execute_deprecated(builder: CodeActionBuilder, diag: 
   const docEdit = TextDocumentEdit.create(id, [edit]);
 
   //Optimize
-  newCommand = newCommand.replace("positioned ~ ~ ~ run", "run");
+  newCommand = newCommand.replace('positioned ~ ~ ~ run', 'run');
 
   const action: CodeAction = {
     title: `Upgrade to new execute command: '${newCommand}'`,

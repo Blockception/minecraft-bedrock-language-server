@@ -1,10 +1,9 @@
-import { PackType } from "bc-minecraft-bedrock-project";
-import { MCProject } from "bc-minecraft-project";
-import { randomUUID } from "crypto";
-import { ToolIdentification } from "@blockception/shared/dist";
-import { Fs, Vscode } from "../util";
-import { Version } from "../constants";
-import { IExtensionContext } from "../lsp/extension";
+import { ToolIdentification } from '@blockception/shared/dist';
+import { PackType } from 'bc-minecraft-bedrock-project';
+import { MCProject } from 'bc-minecraft-project';
+import { randomUUID } from 'crypto';
+import { IExtensionContext } from '../lsp/extension';
+import { Fs, Vscode } from '../util';
 
 type ReplaceFunction = (...args: any[]) => string;
 
@@ -20,8 +19,10 @@ export interface FunctionContext {
 export class TemplateFunctions {
   public _fcontent: FunctionContext;
   public _context: IExtensionContext;
+  readonly _version: string;
 
-  constructor(fcontent: FunctionContext, context: IExtensionContext) {
+  constructor(version: string, fcontent: FunctionContext, context: IExtensionContext) {
+    this._version = version;
     this._fcontent = fcontent;
     this._context = context;
   }
@@ -29,7 +30,7 @@ export class TemplateFunctions {
   get(attribute: keyof typeof this.data): ReplaceFunction | undefined {
     const callbackfn = this.data[attribute];
 
-    if (typeof callbackfn === "function") {
+    if (typeof callbackfn === 'function') {
       return callbackfn.bind(this) as any;
     }
 
@@ -40,7 +41,7 @@ export class TemplateFunctions {
     return template.replace(/\$\{{([^{}]*)}}/gim, (sub: string, ...args: any[]) => {
       const command = (args[0] as string).trim();
 
-      let parts = command.split(":");
+      let parts = command.split(':');
       if (parts.length > 0) {
         sub = parts[0];
         parts = parts.slice(1).map((item) => item.trim());
@@ -48,7 +49,7 @@ export class TemplateFunctions {
 
       const fn = this.get(sub);
 
-      return fn ? fn(...parts) : "";
+      return fn ? fn(...parts) : '';
     });
   }
 
@@ -61,7 +62,7 @@ export class TemplateFunctions {
   }
 
   getAttribute(attr: string): string {
-    return this._fcontent.attributes[attr] || "";
+    return this._fcontent.attributes[attr] || '';
   }
 
   public data: Record<string, ReplaceFunction> = {
@@ -70,39 +71,39 @@ export class TemplateFunctions {
 
     folder: () => Fs.FromVscode(this._fcontent.folder),
 
-    id: () => this.getAttribute("id"),
-    "id.safe": () => safeID(this.getAttribute("id")),
-    "id.safe.nonamespace": () => safeIDWithoutNamespace(this.getAttribute("id")),
+    id: () => this.getAttribute('id'),
+    'id.safe': () => safeID(this.getAttribute('id')),
+    'id.safe.nonamespace': () => safeIDWithoutNamespace(this.getAttribute('id')),
 
     pack: () => this._fcontent.pack,
-    "pack.type": () => PackType.toString(this.getPack()?.type),
-    "pack.type.short": () => PackType.toStringShort(this.getPack()?.type),
+    'pack.type': () => PackType.toString(this.getPack()?.type),
+    'pack.type.short': () => PackType.toStringShort(this.getPack()?.type),
 
-    "project.attributes": (attribute: string) => this.getProject().attributes[attribute],
+    'project.attributes': (attribute: string) => this.getProject().attributes[attribute],
 
-    "template.id": () => this._fcontent.templateID,
+    'template.id': () => this._fcontent.templateID,
 
-    "time.now": () => new Date().toUTCString(),
+    'time.now': () => new Date().toUTCString(),
 
     tool: () => ToolIdentification,
-    "tool.version": () => Version,
+    'tool.version': () => this._version,
 
     uuid: () => randomUUID(),
   };
 }
 
-export function safeID(ID: string, replace: string = "_"): string {
+export function safeID(ID: string, replace: string = '_'): string {
   ID = ID.replace(/[:]/gi, replace);
   return ID;
 }
 
-export function safeIDWithoutNamespace(ID: string, replace: string = "_"): string {
+export function safeIDWithoutNamespace(ID: string, replace: string = '_'): string {
   ID = WithoutNamespace(ID);
   return safeID(ID, replace);
 }
 
 export function WithoutNamespace(id: string): string {
-  const Index = id.indexOf(":");
+  const Index = id.indexOf(':');
   if (Index > 0) id = id.substring(Index + 1);
 
   return id;

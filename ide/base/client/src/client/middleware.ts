@@ -1,5 +1,5 @@
 import { CancellationToken, CodeLens, Position, Uri, workspace } from "vscode";
-import { Command, ResolveCodeLensSignature } from "vscode-languageclient";
+import { Command, ResolveCodeLensSignature } from "vscode-languageclient/node";
 import { GetPosition } from "../code/document-location";
 
 export function resolveCodeLens(

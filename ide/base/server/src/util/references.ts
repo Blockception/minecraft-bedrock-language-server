@@ -1,6 +1,6 @@
-import {  } from "bc-minecraft-bedrock-types";
-import { Location } from "vscode-languageserver";
-import { IDocumentManager } from "../lsp/documents/manager";
+import { Location } from 'vscode-languageserver';
+import { IDocumentManager } from '../lsp/documents/manager';
+import { DocumentLocation, Identifiable, Locatable } from 'bc-minecraft-bedrock-types/src/types';
 
 export namespace References {
   /**
@@ -10,11 +10,11 @@ export namespace References {
    * @returns A list of locations
    */
   export function convertLocation(
-    items: ((Types.Locatable & Types.Identifiable) | Location | undefined)[],
-    documents: IDocumentManager
+    items: ((Locatable & Identifiable) | Location | undefined)[],
+    documents: IDocumentManager,
   ): Location[] {
-    function mapItem(item: (Types.Locatable & Types.Identifiable) | Location | undefined): Location | undefined {
-      if (Location.is(item) || item === undefined) return item as (Location | undefined);
+    function mapItem(item: (Locatable & Identifiable) | Location | undefined): Location | undefined {
+      if (Location.is(item) || item === undefined) return item as Location | undefined;
 
       const document = documents.get(item.location.uri);
       if (!document) return;

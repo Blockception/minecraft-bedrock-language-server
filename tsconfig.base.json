@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "module": "commonjs",
+    "module": "node20",
     "declaration": true,
     "strict": true,
     "resolveJsonModule": true,
@@ -9,19 +9,44 @@
     "esModuleInterop": true,
     "outDir": "./dist",
     "baseUrl": ".",
+    "moduleResolution": "node16",
     "paths": {
-      "bc-minecraft-bedrock-command": ["packages/bedrock-commands/src"],
-      "bc-minecraft-bedrock-diagnoser": ["packages/bedrock-diagnoser/src"],
-      "bc-minecraft-bedrock-project": ["packages/bedrock-project/src"],
-      "bc-minecraft-bedrock-types": ["packages/bedrock-types/src"],
-      "bc-minecraft-bedrock-vanilla-data": ["packages/bedrock-vanilla-data/src"],
-      "bc-minecraft-molang": ["packages/molang/src"],
-      "bc-minecraft-project": ["packages/project/src"],
-      "bc-minecraft-lsp-client": ["ide/shared/base/client/src"],
-      "bc-minecraft-lsp": ["ide/shared/base/server/src"],
-      "@blockception/packages-shared": ["packages/shared/src"],
-      "@blockception/shared": ["ide/shared/src"],
-      "blockceptionvscodeminecraftbedrockdevelopmentextension": ["ide/vscode/client/src"]
+      "bc-minecraft-bedrock-command": [
+        "packages/bedrock-commands/src"
+      ],
+      "bc-minecraft-bedrock-diagnoser": [
+        "packages/bedrock-diagnoser/src"
+      ],
+      "bc-minecraft-bedrock-project": [
+        "packages/bedrock-project/src"
+      ],
+      "bc-minecraft-bedrock-types": [
+        "packages/bedrock-types/src"
+      ],
+      "bc-minecraft-bedrock-vanilla-data": [
+        "packages/bedrock-vanilla-data/src"
+      ],
+      "bc-minecraft-molang": [
+        "packages/molang/src"
+      ],
+      "bc-minecraft-project": [
+        "packages/project/src"
+      ],
+      "bc-minecraft-lsp-client": [
+        "ide/shared/base/client/src"
+      ],
+      "bc-minecraft-lsp": [
+        "ide/shared/base/server/src"
+      ],
+      "@blockception/packages-shared": [
+        "packages/shared/src"
+      ],
+      "@blockception/shared": [
+        "ide/shared/src"
+      ],
+      "blockceptionvscodeminecraftbedrockdevelopmentextension": [
+        "ide/vscode/client/src"
+      ]
     }
   }
 }
