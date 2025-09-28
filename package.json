@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "ide/*"
+    "ide/*",
+    "shared"
   ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",
