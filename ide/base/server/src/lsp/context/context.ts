@@ -1,4 +1,4 @@
-import { IExtensionContext } from "../extension";
+import { IExtensionContext } from '../extension';
 
 export type Context<T> = Readonly<T> & IExtensionContext;
 
@@ -14,6 +14,7 @@ export namespace Context {
     overrides = overrides || {};
 
     return {
+      config: base.config,
       capabilities: base.capabilities,
       connection: base.connection,
       database: base.database,

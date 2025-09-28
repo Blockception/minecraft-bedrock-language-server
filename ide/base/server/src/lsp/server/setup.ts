@@ -18,19 +18,16 @@ import { ServiceManager } from '../services/collection';
 import { SignatureService } from '../signatures/service';
 import { DocumentSymbolService } from '../symbols/document-service';
 import { WorkspaceSymbolService } from '../symbols/workspace-service';
+import { LSPConfig } from '../config/config';
 
-export interface ServerConfig {
-  version: string;
-}
-
-export function setupServer(config: Readonly<ServerConfig>) {
+export function setupServer(config: LSPConfig) {
   // Create a connection for the server, using Node's IPC as a transport.
   // Also include all preview / proposed LSP features.
   const connection = createConnection(ProposedFeatures.all);
 
   const logger = new ExtendedLogger(connection.console);
   const manager = new ServiceManager(logger);
-  const extension = new ExtensionContext(connection, manager, logger, {} as IDocumentManager, {} as Database);
+  const extension = new ExtensionContext(config, connection, manager, logger, {} as IDocumentManager, {} as Database);
   const documents = new DocumentManager(logger, extension);
   const database = new Database(logger, documents);
   extension.documents = documents;

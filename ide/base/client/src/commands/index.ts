@@ -6,7 +6,7 @@ import * as ShowVanillaFile from "./show-vanilla-file";
 import * as ShowDocs from "./show-docs";
 import * as FillIdByName from "./fill-id-by-name";
 
-export function activate(context: ExtensionContext): void {
+export function setupCommands(context: ExtensionContext): void {
   Create.activate(context);
   Errors.activate(context);
   Language.activate(context);

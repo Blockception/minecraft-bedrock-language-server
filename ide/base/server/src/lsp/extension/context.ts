@@ -1,15 +1,17 @@
-import { ClientCapabilities, Connection } from "vscode-languageserver";
-import { Database } from "../database/database";
-import { IDocumentManager } from "../documents/manager";
-import { IExtendedLogger } from "../logger/logger";
-import { ServiceManager } from "../services/collection";
-import { ExtensionCapabilities } from "./capabilities";
-import { Settings } from "./settings";
-import { State } from "./state";
+import { ClientCapabilities, Connection } from 'vscode-languageserver';
+import { Database } from '../database/database';
+import { IDocumentManager } from '../documents/manager';
+import { IExtendedLogger } from '../logger/logger';
+import { ServiceManager } from '../services/collection';
+import { ExtensionCapabilities } from './capabilities';
+import { Settings } from './settings';
+import { State } from './state';
+import { LSPConfig } from '../config/config';
 
 export interface IExtensionContext {
   capabilities: ExtensionCapabilities;
   connection: Connection;
+  config: LSPConfig;
   database: Database;
   documents: IDocumentManager;
   logger: IExtendedLogger;
@@ -21,6 +23,7 @@ export interface IExtensionContext {
 export class ExtensionContext implements IExtensionContext {
   public capabilities: ExtensionCapabilities;
   public connection: Connection;
+  public config: LSPConfig;
   public database: Database;
   public documents: IDocumentManager;
   public logger: IExtendedLogger;
@@ -29,12 +32,14 @@ export class ExtensionContext implements IExtensionContext {
   public state: State;
 
   constructor(
+    config: LSPConfig,
     connection: Connection,
     services: ServiceManager,
     logger: IExtendedLogger,
     documents: IDocumentManager,
-    database: Database
+    database: Database,
   ) {
+    this.config = config;
     this.capabilities = ExtensionCapabilities.empty();
     this.connection = connection;
     this.database = database;
