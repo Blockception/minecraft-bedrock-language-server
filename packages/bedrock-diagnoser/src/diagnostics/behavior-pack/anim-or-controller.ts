@@ -4,7 +4,6 @@ import { AnimationCarrier } from "../minecraft/animation-controllers";
 import { MolangMetadata, User } from "../molang";
 import { diagnose_animation_implementation } from "./animation";
 import { diagnose_animation_controller_implementation } from "./animation-controllers/diagnostics";
-import { MolangDataSetKey } from "bc-minecraft-molang";
 
 /**
  * @param id
