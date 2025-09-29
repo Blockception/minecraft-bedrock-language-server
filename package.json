@@ -7,9 +7,18 @@
   },
   "license": "BSD-3-Clause",
   "workspaces": [
-    "packages/*",
-    "ide/*",
-    "ide/**/*"
+    "packages/shared",
+    "packages/project",
+    "packages/bedrock-vanilla-data",
+    "packages/bedrock-types",
+    "packages/bedrock-commands",
+    "packages/molang",
+    "packages/bedrock-project",
+    "packages/bedrock-diagnoser",
+    "ide/shared",
+    "ide/base/server",
+    "ide/base/client",
+    "ide/vscode"
   ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",
