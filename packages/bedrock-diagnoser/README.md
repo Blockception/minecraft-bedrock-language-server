@@ -1,8 +1,11 @@
 # BC-Minecraft-Bedrock-Diagnoser
 
-[![Npm Package & Publish](https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/actions/workflows/npm-publish.yml)
-[![Npm Test](https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/actions/workflows/npm-test.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/actions/workflows/npm-test.yml)
-[![tagged-release](https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/actions/workflows/tagged-release.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/actions/workflows/tagged-release.yml)
+<p align="center">
+	<a href="https://www.npmjs.com/package/bc-minecraft-bedrock-diagnoser">
+		<img alt="npm" src="https://img.shields.io/npm/v/bc-minecraft-bedrock-diagnoser">
+		<img alt="npm" src="https://img.shields.io/npm/dt/bc-minecraft-bedrock-diagnoser">
+	</a>
+</p>
 
 A typescript package library that provides diagnostics for minecraft bedrock projects
 

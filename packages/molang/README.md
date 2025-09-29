@@ -1,8 +1,11 @@
 # BC-Minecraft-Molang
 
-[![Npm Package & Publish](https://github.com/Blockception/BC-Minecraft-Molang/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Molang/actions/workflows/npm-publish.yml)
-[![npm-unit-test](https://github.com/Blockception/BC-Minecraft-Molang/actions/workflows/npm-test.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Molang/actions/workflows/npm-test.yml)
-[![tagged-release](https://github.com/Blockception/BC-Minecraft-Molang/actions/workflows/tagged-release.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Molang/actions/workflows/tagged-release.yml)
+<p align="center">
+	<a href="https://www.npmjs.com/package/bc-minecraft-molang">
+		<img alt="npm" src="https://img.shields.io/npm/v/bc-minecraft-molang">
+		<img alt="npm" src="https://img.shields.io/npm/dt/bc-minecraft-molang">
+	</a>
+</p>
 
 The typescript library for dealing with minecraft bedrock molang
 

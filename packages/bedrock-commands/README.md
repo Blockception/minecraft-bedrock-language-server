@@ -1,9 +1,11 @@
 # BC-Minecraft-Bedrock-Commands
 
-[![Npm Package & Publish](https://github.com/Blockception/BC-Minecraft-Bedrock-Command/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Bedrock-Command/actions/workflows/npm-publish.yml)
-[![Npm Test](https://github.com/Blockception/BC-Minecraft-Bedrock-Command/actions/workflows/npm-test.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Bedrock-Command/actions/workflows/npm-test.yml)
-[![tagged-release](https://github.com/Blockception/BC-Minecraft-Bedrock-Command/actions/workflows/tagged-release.yml/badge.svg)](https://github.com/Blockception/BC-Minecraft-Bedrock-Command/actions/workflows/tagged-release.yml)
-![npm](https://img.shields.io/npm/v/bc-minecraft-bedrock-command)
+<p align="center">
+	<a href="https://www.npmjs.com/package/bc-minecraft-bedrock-command">
+		<img alt="npm" src="https://img.shields.io/npm/v/bc-minecraft-bedrock-command">
+		<img alt="npm" src="https://img.shields.io/npm/dt/bc-minecraft-bedrock-command">
+	</a>
+</p>
 
 A typescript package library that handles commands for minecraft bedrock
 

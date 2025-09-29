@@ -30,7 +30,7 @@ Automatic JSON validation is applied if the files follow a given pattern for nam
 For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or the world folder: `resource_packs`.  
 For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or the world folder: `behavior_packs`.
 
-[Full list of JSON validation](https://github.com/Blockception/VSCode-Bedrock-Development-Extension/blob/main/documentation/Json%20Validation.md)
+[Full list of JSON validation](https://github.com/Blockception/minecraft-bedrock-language-server/blob/main/documentation/Json%20Validation.md)
 
 ---
 
@@ -105,16 +105,15 @@ All third party code and libraries this plugin uses are listed [**here**](./LICE
 Special thanks to these awesome people for helping out these projects 😄
 
 **Vscode plugin**  
+<a href="https://github.com/Blockception/minecraft-bedrock-language-server/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Blockception/minecraft-bedrock-language-server" />
+</a>  
 <a href="https://github.com/Blockception/VSCode-Bedrock-Development-Extension/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Blockception/VSCode-Bedrock-Development-Extension" />
 </a>  
 **Schemas**  
 <a href="https://github.com/Blockception/Minecraft-bedrock-json-schemas/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Blockception/Minecraft-bedrock-json-schemas" />
-</a>  
-**Diagnoser**  
-<a href="https://github.com/Blockception/BC-Minecraft-Bedrock-Diagnoser/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Blockception/BC-Minecraft-Bedrock-Diagnoser" />
-</a>  
+</a>
 
 Made with [contrib.rocks](https://contrib.rocks).
