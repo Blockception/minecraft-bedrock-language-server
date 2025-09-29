@@ -1,5 +1,5 @@
 import { FormatVersion, Version } from "bc-minecraft-bedrock-types/src/minecraft";
-import { Versions } from "bc-minecraft-bedrock-vanilla-data/src/Lib";
+import { Versions } from "bc-minecraft-bedrock-vanilla-data/src/lib";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../types";
 
 interface FormatVersionContainer {
