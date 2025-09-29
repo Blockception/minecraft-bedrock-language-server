@@ -30,7 +30,7 @@ jobs:
         run: npm ci
 
       - name: 🛠️ Build projects
-        run: npm ci
+        run: npm run compile
 
       - name: 📋 Run Tests
         run: npm run test:all
