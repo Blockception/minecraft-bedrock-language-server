@@ -24,6 +24,8 @@
     "build": "tsc",
     "compile": "npm run build",
     "test": "jest",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "eslint --config ../../eslint.config.mjs .",
     "clean": "tsc -b --clean"
   },
   "devDependencies": {

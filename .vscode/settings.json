@@ -5,12 +5,26 @@
   },
   "npm.packageManager": "npm",
 
-  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.workingDirectories": [
+    { "directory": "packages/shared" },
+    { "directory": "packages/project" },
+    { "directory": "packages/bedrock-vanilla-data" },
+    { "directory": "packages/bedrock-types" },
+    { "directory": "packages/bedrock-commands" },
+    { "directory": "packages/molang" },
+    { "directory": "packages/bedrock-project" },
+    { "directory": "packages/bedrock-diagnoser" },
+    { "directory": "ide/shared" },
+    { "directory": "ide/base/server" },
+    { "directory": "ide/base/client" },
+    { "directory": "ide/vscode" },
+  ],
   "eslint.run": "onSave",
   "eslint.lintTask.enable": true,
 
   "typescript.preferences.quoteStyle": "single",
-  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "typescript.tsserver.log": "verbose",
 
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
