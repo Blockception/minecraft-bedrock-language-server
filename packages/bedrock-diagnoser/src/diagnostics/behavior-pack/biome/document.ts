@@ -41,7 +41,7 @@ export function diagnose_biome_document(diagnoser: DocumentDiagnosticsBuilder): 
           "behaviorpack.biome.min_version"
         );
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       
     } catch (err) {
       // Leaving empty as the base diagnoser should flag an invalid format version
     }

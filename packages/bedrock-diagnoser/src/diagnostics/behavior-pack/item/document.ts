@@ -89,7 +89,7 @@ export function diagnose_item_document(diagnoser: DocumentDiagnosticsBuilder): v
         "behaviorpack.item.custom_component_v2.min_version"
       );
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
   } catch (err) {
     // Leaving empty as the base diagnoser should flag an invalid format version
   }

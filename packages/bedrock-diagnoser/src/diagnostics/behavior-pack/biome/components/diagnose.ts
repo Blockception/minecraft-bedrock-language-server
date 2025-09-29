@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { ComponentBehavior } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../../types";
 import { Context } from "../../../../utility/components";

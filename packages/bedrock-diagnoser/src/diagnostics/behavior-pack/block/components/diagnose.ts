@@ -90,7 +90,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
           DiagnosticSeverity.error,
           "behaviorpack.block.components.material_instances_x_geometry"
         );
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       
     } catch (err) {
       // Leaving empty as the base diagnoser should flag an invalid format version
     }
@@ -119,7 +119,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
           DiagnosticSeverity.error,
           "behaviorpack.block.components.material_instances_x_geometry"
         );
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       
     } catch (err) {
       // Leaving empty as the base diagnoser should flag an invalid format version
     }
@@ -156,7 +156,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
           DiagnosticSeverity.warning,
           "behaviorpack.block.components.custom_components_deprecation"
         );
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       
     } catch (err) {
       // Leaving empty as the base diagnoser should flag an invalid format version
     }
@@ -193,7 +193,7 @@ function minimum_version_required(
         "behaviorpack.block.components." + name.split(":")[1]
       );
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
   } catch (err) {
     // Leaving empty as the base diagnoser should flag an invalid format version
   }

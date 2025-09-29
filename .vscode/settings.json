@@ -17,7 +17,7 @@
     { "directory": "ide/shared" },
     { "directory": "ide/base/server" },
     { "directory": "ide/base/client" },
-    { "directory": "ide/vscode" },
+    { "directory": "ide/vscode" }
   ],
   "eslint.run": "onSave",
   "eslint.lintTask.enable": true,

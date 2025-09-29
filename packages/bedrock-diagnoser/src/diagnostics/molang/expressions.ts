@@ -180,7 +180,7 @@ export function diagnose_molang_syntax(expression: ExpressionNode, diagnoser: Di
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+ 
 export function diagnose_molang_syntax_optimizations(expression: ExpressionNode, diagnoser: DiagnosticsBuilder) {
   // TODO: optimizations
 }

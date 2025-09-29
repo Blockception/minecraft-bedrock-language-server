@@ -691,7 +691,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
           "behaviorpack.entity.component.entity_sensor"
         );
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       
     } catch (err) {
       // Leaving empty as the base diagnoser should flag an invalid format version
     }
@@ -1062,7 +1062,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
           "behaviorpack.entity.component.fall_damage"
         );
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+       
     } catch (err) {
       // Leaving empty as the base diagnoser should flag an invalid format version
     }

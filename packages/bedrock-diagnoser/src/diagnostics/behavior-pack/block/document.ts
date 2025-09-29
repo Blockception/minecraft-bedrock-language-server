@@ -72,7 +72,7 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
         "behaviorpack.block.namespace_group"
       );
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
   } catch (err) {
     // Leaving empty as the base diagnoser should flag an invalid format version
   }

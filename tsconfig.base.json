@@ -15,13 +15,8 @@
     "strict": true,
     "stripInternal": true,
     "target": "es2015",
-    "types": [
-      "node",
-      "jest"
-    ],
-    "lib": [
-      "es2015"
-    ],
+    "types": ["node", "jest"],
+    "lib": ["es2015"],
     "downlevelIteration": true
   },
   "references": [
@@ -63,6 +58,6 @@
     },
     {
       "path": "./packages/shared/tsconfig.json"
-    },
+    }
   ]
 }

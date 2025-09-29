@@ -27,7 +27,7 @@ type CollectionFieldsDataSet<T> = {
 };
 
 type FieldKeysDataSet<T> = {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   [K in keyof T]: T[K] extends DataSet<infer _U> ? K : never;
 };
 

@@ -164,7 +164,7 @@ function diagnose_unlocking(
         DiagnosticSeverity.error,
         "behaviorpack.recipes.unlocking_required"
       );
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+     
   } catch (err) {
     // Leaving empty as the base diagnoser should flag an invalid format version
   }

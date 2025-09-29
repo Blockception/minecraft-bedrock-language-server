@@ -1,9 +1,10 @@
 import eslint from '@eslint/js';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+export default defineConfig([
+  globalIgnores(["dist"]),
   {
-    files: ['**/*.ts'],
     ignores: [
       'coverage/',
       'coverage/*',
@@ -23,17 +24,16 @@ export default tseslint.config(
       'node_modules/',
       'node_modules/*',
     ],
-    extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
+    files: ['**/*.ts'],
+    extends: [eslint.configs.recommended, tseslint.configs.recommended],
     plugins: {
       jest: {},
     },
-  },
-  {
     rules: {
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-noused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
       'no-case-declarations': 'off',
     },
   },
-);
+]);

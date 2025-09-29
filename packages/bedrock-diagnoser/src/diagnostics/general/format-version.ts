@@ -40,7 +40,7 @@ export function diagnoseFormatVersion(data: FormatVersionContainer, diagnoser: D
   let v;
   try {
     v = FormatVersion.parse(data.format_version);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   } catch (err) {
     return diagnoser.add(
       'Format version is not a valid number',
