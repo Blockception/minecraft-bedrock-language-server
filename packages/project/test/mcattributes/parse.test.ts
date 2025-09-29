@@ -1,4 +1,4 @@
-import { MCAttributes } from "../../src/main";
+import { MCAttributes } from "../../src";
 import { TestFilesFolder } from "../utillity";
 import * as path from "path";
 

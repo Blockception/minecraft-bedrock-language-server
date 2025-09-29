@@ -1,4 +1,4 @@
-import { General } from '../../src/main';
+import { General } from '../../src';
 
 describe("General", () => {
   describe("getQueries", () => {

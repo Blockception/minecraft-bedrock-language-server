@@ -1,4 +1,4 @@
-import { MCIgnore } from "../../src/main";
+import { MCIgnore } from "../../src";
 
 const Text1 = `OutputFolder
 Temp

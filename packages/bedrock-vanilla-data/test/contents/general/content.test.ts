@@ -1,4 +1,4 @@
-import { MinecraftData } from "../../../src/main";
+import { MinecraftData } from "../../../src";
 
 describe("Lib", () => {
   it("entity 1", () => {

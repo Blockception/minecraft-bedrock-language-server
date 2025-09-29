@@ -1,4 +1,4 @@
-import { MCProject } from "../../src/main";
+import { MCProject } from "../../src";
 import { TestFilesFolder } from "../utillity";
 import * as path from "path";
 

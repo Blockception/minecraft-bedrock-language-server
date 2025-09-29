@@ -1,4 +1,4 @@
-import { MCAttributes } from "../../src/main";
+import { MCAttributes } from "../../src";
 
 const Text1 = `diagnostics.objectives=true
 diagnostics.tags=false

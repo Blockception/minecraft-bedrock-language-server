@@ -1,6 +1,6 @@
-import { fail } from "assert";
-import { assert } from "console";
-import { Identifiable } from "../src/Lib/Types/Identifiable";
+import { fail } from 'assert';
+import { assert } from 'console';
+import { Identifiable } from '../src/lib/types';
 
 export function Test_Identifiable(data: Identifiable) {
   if (Identifiable.is(data)) {
@@ -12,7 +12,7 @@ export function Test_Identifiable(data: Identifiable) {
 
 export function Check_Identifiable(data: (Identifiable | string)[]): void {
   data.forEach((item) => {
-    assert(count(data, item) === 1, "found duplicate items");
+    assert(count(data, item) === 1, 'found duplicate items');
   });
 }
 
@@ -29,10 +29,10 @@ export function Check_IsFunction<T extends Identifiable>(items: T[], check: (val
 function count(data: (Identifiable | string)[], id: Identifiable | string): number {
   let out = 0;
 
-  const find = typeof id === "string" ? id : id.id;
+  const find = typeof id === 'string' ? id : id.id;
 
   data.forEach((item) => {
-    if (typeof item !== "string") item = item.id;
+    if (typeof item !== 'string') item = item.id;
 
     if (item === find) out++;
   });

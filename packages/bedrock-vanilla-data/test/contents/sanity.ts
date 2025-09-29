@@ -1,4 +1,4 @@
-import { MinecraftData } from "../../src/main";
+import { MinecraftData } from "../../src";
 
 describe("Sanity", () => {
   it("No undefined", () => {

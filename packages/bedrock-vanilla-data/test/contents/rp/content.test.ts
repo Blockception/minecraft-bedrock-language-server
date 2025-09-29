@@ -1,57 +1,57 @@
-import { assert } from "console";
-import { Entity } from "../../../src/Lib/Types/ResourcePack/Entity";
-import { MinecraftData } from "../../../src/main";
-import { Check_Identifiable, Check_IsFunction, Test_Identifiable } from "../../identifiable";
+import { assert } from 'console';
+import { Entity } from '../../../src/lib/types/resourcepack';
+import { MinecraftData } from '../../../src';
+import { Check_Identifiable, Check_IsFunction, Test_Identifiable } from '../../identifiable';
 
-describe("rp content", () => {
-  it("animation controllers", () => {
+describe('rp content', () => {
+  it('animation controllers', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.animation_controllers);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.animation_controllers);
 
-    expect(MinecraftData.ResourcePack.getAnimationController("controller.animation.wolf.shaking")).toBeDefined();
+    expect(MinecraftData.ResourcePack.getAnimationController('controller.animation.wolf.shaking')).toBeDefined();
   });
 
-  it("animations", () => {
+  it('animations', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.animations);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.animations);
   });
 
-  it("entities", () => {
+  it('entities', () => {
     test_entity(MinecraftData.edu.ResourcePack.entities);
     test_entity(MinecraftData.vanilla.ResourcePack.entities);
   });
 
-  it("fogs", () => {
+  it('fogs', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.fogs);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.fogs);
   });
 
-  it("materials", () => {
+  it('materials', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.materials);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.materials);
   });
 
-  it("models", () => {
+  it('models', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.models);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.models);
   });
 
-  it("particles", () => {
+  it('particles', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.particles);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.particles);
   });
 
-  it("render_controllers", () => {
+  it('render_controllers', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.render_controllers);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.render_controllers);
   });
 
-  it("sounds", () => {
+  it('sounds', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.sounds);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.sounds);
   });
 
-  it("textures", () => {
+  it('textures', () => {
     Check_Identifiable(MinecraftData.edu.ResourcePack.textures);
     Check_Identifiable(MinecraftData.vanilla.ResourcePack.textures);
   });

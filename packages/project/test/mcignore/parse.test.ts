@@ -1,5 +1,5 @@
 import { TestFilesFolder } from "../utillity";
-import { MCIgnore } from "../../src/main";
+import { MCIgnore } from "../../src";
 import * as path from "path";
 
 const Text1 = `OutputFolder

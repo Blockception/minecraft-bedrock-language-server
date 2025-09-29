@@ -1,4 +1,4 @@
-import { MCDefinition } from "../../src/main";
+import { MCDefinition } from "../../src";
 
 const Text1 = `tag=allowed
 tag=!denied

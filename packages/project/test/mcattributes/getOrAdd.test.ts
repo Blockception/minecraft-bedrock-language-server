@@ -1,4 +1,4 @@
-import { MCAttributes } from '../../src/main';
+import { MCAttributes } from '../../src';
 
 describe("MCAttributes", () => {
   it("given two mcattributes, can be merged", () => {

@@ -1,14 +1,14 @@
 import { Pack, PackType, TextDocument } from "bc-minecraft-bedrock-project";
-import { DiagnoserContext, ManagedDiagnosticsBuilder } from "./diagnoser-context";
-import { DiagnosticSeverity } from "./severity";
-import { format_diagnose_path } from "../diagnostics/format";
 import { MCIgnore } from "bc-minecraft-project";
-import { diagnose_language_document } from "../diagnostics/minecraft";
 import { BehaviorPack } from "../diagnostics/behavior-pack";
+import { format_diagnose_path } from "../diagnostics/format";
+import { diagnose_language_document } from "../diagnostics/minecraft";
 import { ResourcePack } from "../diagnostics/resource-pack";
 import { SkinPack } from "../diagnostics/skin-pack/skin-pack";
 import { WorldPack } from "../diagnostics/world-pack/world-pack";
+import { DiagnoserContext, ManagedDiagnosticsBuilder } from "./diagnoser-context";
 import { DocumentDiagnosticsBuilder } from "./diagnostics-builder";
+import { DiagnosticSeverity } from "./severity";
 
 import path from "path";
 

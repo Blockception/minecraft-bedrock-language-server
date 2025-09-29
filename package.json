@@ -39,7 +39,8 @@
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "lint": "npm run lint --workspaces",
     "postlint": "npm run format",
-    "test": "npm run test --workspaces",
+    "test": "npm run test:all",
+    "test:all": "npx jest --coverage",
     "clean": "npm run clean --workspaces"
   }
 }

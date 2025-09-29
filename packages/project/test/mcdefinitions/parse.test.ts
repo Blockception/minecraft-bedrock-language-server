@@ -1,6 +1,6 @@
 import { TestFilesFolder } from "../utillity";
 import * as path from "path";
-import { MCDefinition } from "../../src/main";
+import { MCDefinition } from "../../src";
 
 const Text1 = `tag=allowed
 tag=!denied`;

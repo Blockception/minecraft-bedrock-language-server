@@ -162,7 +162,7 @@ function convertParameter(comm: string, param: CommandParameter, receiver: Param
 
 function fixName(name: string): string {
   const n = "ABCDEFGHIJKLMNOPQRSTUVWYX";
-  for (let c of n.split("")) {
+  for (const c of n.split("")) {
     name = name.replaceAll(c, " " + c.toLowerCase());
   }
   name = name.replaceAll("_", " ");

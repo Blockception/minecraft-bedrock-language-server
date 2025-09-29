@@ -1,12 +1,10 @@
-import { assert } from "console";
-import { Block } from "../../../src/Lib/Types/BehaviorPack";
-import { Entity } from "../../../src/Lib/Types/BehaviorPack/Entity";
-import { Item } from "../../../src/Lib/Types/BehaviorPack/Item";
-import { MinecraftData } from "../../../src/main";
-import { Check_Identifiable, Check_IsFunction, Test_Identifiable } from "../../identifiable";
+import { assert } from 'console';
+import { Block, Entity, Item } from '../../../src/lib/types/behaviorpack';
+import { MinecraftData } from '../../../src';
+import { Check_Identifiable, Check_IsFunction, Test_Identifiable } from '../../identifiable';
 
-describe("bp content", () => {
-  it("blocks", () => {
+describe('bp content', () => {
+  it('blocks', () => {
     test_block(MinecraftData.edu.BehaviorPack.blocks);
     test_block(MinecraftData.vanilla.BehaviorPack.blocks);
 
@@ -14,7 +12,7 @@ describe("bp content", () => {
     Check_IsFunction(MinecraftData.vanilla.BehaviorPack.blocks, Block.is);
   });
 
-  it("entities", () => {
+  it('entities', () => {
     test_entity(MinecraftData.edu.BehaviorPack.entities);
     test_entity(MinecraftData.vanilla.BehaviorPack.entities);
 
@@ -22,7 +20,7 @@ describe("bp content", () => {
     Check_IsFunction(MinecraftData.vanilla.BehaviorPack.entities, Entity.is);
   });
 
-  it("items", () => {
+  it('items', () => {
     test_item(MinecraftData.edu.BehaviorPack.items);
     test_item(MinecraftData.vanilla.BehaviorPack.items);
 
@@ -30,12 +28,12 @@ describe("bp content", () => {
     Check_IsFunction(MinecraftData.vanilla.BehaviorPack.items, Item.is);
   });
 
-  it("loot_tables", () => {
+  it('loot_tables', () => {
     Check_Identifiable(MinecraftData.edu.BehaviorPack.loot_tables);
     Check_Identifiable(MinecraftData.vanilla.BehaviorPack.loot_tables);
   });
 
-  it("trading", () => {
+  it('trading', () => {
     Check_Identifiable(MinecraftData.edu.BehaviorPack.trading);
     Check_Identifiable(MinecraftData.vanilla.BehaviorPack.trading);
   });
@@ -48,7 +46,7 @@ function test_block(Blocks: Block[]) {
     Test_Identifiable(block);
 
     block.properties.forEach((property) => {
-      assert(typeof property === "string", `${block.id} -> ${property} is not a string`);
+      assert(typeof property === 'string', `${block.id} -> ${property} is not a string`);
     });
   });
 }

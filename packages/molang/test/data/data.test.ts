@@ -1,4 +1,4 @@
-import { MolangData } from "../../src/main";
+import { MolangData } from "../../src";
 
 describe("Data sanity check", () => {
   it("Animations is defined", () => expect(MolangData.Animations).toBeDefined());

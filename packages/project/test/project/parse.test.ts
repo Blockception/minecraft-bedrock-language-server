@@ -1,6 +1,6 @@
 import { TestFilesFolder } from "../utillity";
 import * as path from "path";
-import { MCProject } from "../../src/main";
+import { MCProject } from "../../src";
 
 describe("MCProject", () => {
   it("loadSync p1", () => {
