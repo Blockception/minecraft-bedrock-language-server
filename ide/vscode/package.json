@@ -82,7 +82,8 @@
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
     "clean": "tsc -b --clean",
-    "lint": "eslint",
+    "test": "jest --config ../../jest.config.ts",
+    "lint": "eslint --config ../../eslint.config.mjs .",
     "postversion": "git push && git push --tags",
     "version": "git add -A .",
     "vscode:prepublish": "npm run compile && npm run webpack",

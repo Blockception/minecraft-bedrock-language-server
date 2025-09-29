@@ -46,7 +46,7 @@ export namespace DocumentDiagnosticsBuilder {
     diagnoser: DiagnosticsBuilder<T>,
     document: T
   ): DocumentDiagnosticsBuilder<T> {
-    let diag = diagnoser as DocumentDiagnosticsBuilder<T>;
+    const diag = diagnoser as DocumentDiagnosticsBuilder<T>;
     diag.document = document;
     return diag;
   }

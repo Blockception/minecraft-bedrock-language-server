@@ -28,6 +28,7 @@
   ],
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "test": "jest --config ../../jest.config.ts",
     "lint": "eslint --config ../../eslint.config.mjs .",
     "clean": "tsc -b --clean",

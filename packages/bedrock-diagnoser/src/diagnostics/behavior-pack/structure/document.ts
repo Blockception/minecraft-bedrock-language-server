@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { DocumentDiagnosticsBuilder } from "../../../types";
 import { diagnose_molang_syntax_current_document } from "../../molang";
 

@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import { Internal } from "bc-minecraft-bedrock-project";
 import { DocumentDiagnosticsBuilder } from "../../../types";
 import { Json } from "../../json";

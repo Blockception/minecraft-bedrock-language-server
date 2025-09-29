@@ -42,7 +42,7 @@ export function diagnose_feature_document(diagnoser: DocumentDiagnosticsBuilder)
     diagnoser
   );
 
-  let components = feature as Record<keyof Internal.BehaviorPack.Feature, any>;
+  const components = feature as Record<keyof Internal.BehaviorPack.Feature, any>;
 
   if (components["minecraft:aggregate_feature"])
     components["minecraft:aggregate_feature"].features?.forEach((id: string) => {

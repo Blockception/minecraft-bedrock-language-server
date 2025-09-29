@@ -29,10 +29,12 @@
   ],
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "test": "jest --config ../../jest.config.ts",
+    "lint": "eslint --config ../../eslint.config.mjs .",
     "clean": "tsc -b --clean",
     "pretest": "npm run compile",
     "prepublishOnly": "npm test && npm run compile",
-    "preversion": "",
     "postversion": "git push && git push --tags",
     "version": "git add -A src",
     "watch": "tsc -w -p ./src"
