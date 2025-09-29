@@ -1,15 +1,15 @@
-import { Commands } from "@blockception/ide-shared";
-import { Pack } from "bc-minecraft-bedrock-project";
-import { Context } from "../../context/context";
-import { IExtensionContext } from "../../extension";
-import { TemplateBuilder } from "../../templates/builder";
-import { EnsureFolders, Folders, getFolders } from "../../templates/folders";
-import { CommandContext } from "../context";
-import { CommandManager } from "../manager";
-import { createCommand, mustExecute } from "./functions";
+import { Commands } from '@blockception/ide-shared';
+import { Pack } from 'bc-minecraft-bedrock-project';
+import { Context } from '../../context/context';
+import { IExtensionContext } from '../../extension';
+import { TemplateBuilder } from '../../templates/builder';
+import { EnsureFolders, Folders, getFolders } from '../../templates/folders';
+import { CommandContext } from '../context';
+import { CommandManager } from '../manager';
+import { createCommand, mustExecute } from './functions';
 
-import * as Language from "../../templates/language";
-import * as Project from "./project";
+import * as Language from '../../templates/language';
+import * as Project from './project';
 
 export function setupCreate(manager: CommandManager) {
   //General
@@ -23,7 +23,7 @@ export function setupCreate(manager: CommandManager) {
         mustExecute(Commands.Create.Behaviorpack.Entity, context, ensured.BehaviorPack()),
         mustExecute(Commands.Create.Resourcepack.Entity, context, ensured.ResourcePack()),
       ]).then(() => {});
-    })
+    }),
   );
   manager.add(
     Commands.Create.General.Manifests,
@@ -35,7 +35,7 @@ export function setupCreate(manager: CommandManager) {
         mustExecute(Commands.Create.Resourcepack.Manifests, context, ensured.ResourcePack()),
         mustExecute(Commands.Create.World.Manifests, context, ensured.WorldFolder()),
       ]).then(() => {});
-    })
+    }),
   );
 
   //Project
@@ -51,7 +51,7 @@ export function setupCreate(manager: CommandManager) {
  */
 async function FunctionWithID(
   context: Context<CommandContext>,
-  callback: (context: Context<CommandContext>, id: string, folders: Folders, builder: TemplateBuilder) => void
+  callback: (context: Context<CommandContext>, id: string, folders: Folders, builder: TemplateBuilder) => void,
 ): Promise<void> {
   const folders = getFolders(context);
   const ids = context.arguments;
@@ -70,7 +70,7 @@ async function FunctionWithID(
 
 function createAll(
   context: IExtensionContext,
-  callback: (Folder: Pack, Builder: TemplateBuilder) => void
+  callback: (Folder: Pack, Builder: TemplateBuilder) => void,
 ): Promise<void> {
   const builder = new TemplateBuilder(context);
   const pd = context.database.ProjectData;

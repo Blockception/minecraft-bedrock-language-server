@@ -1,1 +1,1 @@
-export const VARIABLE = "foo";
+export const VARIABLE = 'foo';

@@ -1,9 +1,9 @@
-import { BehaviorPack, PackType, ResourcePack } from "bc-minecraft-bedrock-project";
-import { Vanilla } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../constants";
-import { getIdentifier, getScopeDefined } from "../../../../minecraft/molang";
-import { Context } from "../../../context/context";
-import { CompletionContext } from "../../context";
+import { BehaviorPack, PackType, ResourcePack } from 'bc-minecraft-bedrock-project';
+import { Vanilla } from 'bc-minecraft-bedrock-vanilla-data';
+import { Kinds } from '../../../../constants';
+import { getIdentifier, getScopeDefined } from '../../../../minecraft/molang';
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const packType = PackType.detect(context.document.uri);
@@ -32,7 +32,7 @@ export function provideResourcePackCompletion(context: Context<CompletionContext
     case ResourcePack.FileType.render_controller:
       const builder = context.builder.withDefaults({ kind: Kinds.Completion.Materials });
       context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
-        getScopeDefined(entity.molang, "material").forEach((item) => {
+        getScopeDefined(entity.molang, 'material').forEach((item) => {
           const label = getIdentifier(item, prefixed);
           builder.add({
             label,

@@ -1,12 +1,12 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types/identifiable";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../constants";
-import { IsEducationEnabled } from "../../../../project/attributes";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { Kinds } from '../../../../constants';
+import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
-import { JsonPathCompletion } from "../../builder";
+import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
 
-import * as Molang from "../molang";
+import * as Molang from '../molang';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The render controller: ${item.id}`;
@@ -15,12 +15,12 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   context.builder.generate(
     context.database.ProjectData.resourcePacks.render_controllers,
     generateDoc,
-    Kinds.Completion.RenderController
+    Kinds.Completion.RenderController,
   );
   context.builder.generate(
     MinecraftData.vanilla.ResourcePack.render_controllers,
     generateV,
-    Kinds.Completion.RenderController
+    Kinds.Completion.RenderController,
   );
 
   //Education data
@@ -28,7 +28,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
     context.builder.generate(
       MinecraftData.edu.ResourcePack.render_controllers,
       generateV,
-      Kinds.Completion.RenderController
+      Kinds.Completion.RenderController,
     );
 }
 
@@ -38,7 +38,7 @@ export function provideJsonCompletion(context: Context<CompletionContext>): void
 
 const jsonRenderController = new JsonPathCompletion(
   {
-    match: (path) => path.endsWith("geometry"),
+    match: (path) => path.endsWith('geometry'),
     onCompletion: (c) => Molang.Geometry.provideResourcePackCompletion(c, true),
   },
   {
@@ -48,5 +48,5 @@ const jsonRenderController = new JsonPathCompletion(
   {
     match: /\/textures\/(\d+)/,
     onCompletion: Molang.Texture.provideCompletion,
-  }
+  },
 );

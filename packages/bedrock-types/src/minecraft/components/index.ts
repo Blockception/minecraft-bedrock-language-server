@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./interfaces";
-export * from "./used";
+export * from './interfaces';
+export * from './used';

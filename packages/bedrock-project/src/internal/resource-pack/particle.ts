@@ -1,4 +1,4 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 /** */
 export interface Particle extends Readonly<FormatVersion> {
@@ -35,13 +35,13 @@ export namespace Particle {
    */
   export function is(value: any): value is Particle {
     if (
-      typeof value === "object" &&
-      typeof value.format_version === "string" &&
-      typeof value["particle_effect"] === "object"
+      typeof value === 'object' &&
+      typeof value.format_version === 'string' &&
+      typeof value['particle_effect'] === 'object'
     ) {
-      const desc = value["particle_effect"].description;
+      const desc = value['particle_effect'].description;
 
-      if (typeof desc === "object" && typeof desc.identifier === "string") {
+      if (typeof desc === 'object' && typeof desc.identifier === 'string') {
         return true;
       }
     }

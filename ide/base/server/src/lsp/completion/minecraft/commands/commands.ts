@@ -1,9 +1,9 @@
-import { CommandData, CommandInfo } from "bc-minecraft-bedrock-command";
-import { Kinds } from "../../../../constants";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from "../../../context/context";
-import { CompletionBuilder } from "../../builder/builder";
-import { CompletionContext } from "../../context";
+import { CommandData, CommandInfo } from 'bc-minecraft-bedrock-command';
+import { Kinds } from '../../../../constants';
+import { IsEducationEnabled } from '../../../../project/attributes';
+import { Context } from '../../../context/context';
+import { CompletionBuilder } from '../../builder/builder';
+import { CompletionContext } from '../../context';
 
 /**
  *

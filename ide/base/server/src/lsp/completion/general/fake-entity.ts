@@ -1,8 +1,8 @@
-import { GeneralInfo } from "bc-minecraft-bedrock-project/src/project/general/types";
-import { Kinds } from "../../../constants";
-import { getFilename } from "../../../util";
-import { Context } from "../../context/context";
-import { CommandCompletionContext } from "../context";
+import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
+import { Kinds } from '../../../constants';
+import { getFilename } from '../../../util';
+import { Context } from '../../context/context';
+import { CommandCompletionContext } from '../context';
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const generateDoc = (fakeEntities: GeneralInfo) => {

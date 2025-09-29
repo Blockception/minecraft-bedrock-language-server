@@ -1,5 +1,5 @@
-import { CancellationToken, HoverParams, WorkDoneProgressReporter } from "vscode-languageserver";
-import { TextDocument } from "../documents";
+import { CancellationToken, HoverParams, WorkDoneProgressReporter } from 'vscode-languageserver';
+import { TextDocument } from '../documents';
 
 export interface HoverContext {
   document: TextDocument;

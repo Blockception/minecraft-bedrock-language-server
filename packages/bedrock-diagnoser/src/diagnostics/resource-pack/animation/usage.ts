@@ -1,5 +1,5 @@
-import { DiagnosticsBuilder } from "../../../types";
-import { AnimationUsage, minecraft_animation_used } from "../../minecraft/animation";
+import { DiagnosticsBuilder } from '../../../types';
+import { AnimationUsage, minecraft_animation_used } from '../../minecraft/animation';
 
 /**
  * Checks if the animations and animation controllers which are defined are used

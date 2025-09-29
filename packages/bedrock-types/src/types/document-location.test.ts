@@ -21,7 +21,7 @@ const jsonData = `{
 }
 `;
 
-const identifierKey = "identifier";
+const identifierKey = 'identifier';
 const identifierPos = Position.create(4, 7);
 const identifierOffset = jsonData.indexOf(identifierKey);
 
@@ -31,14 +31,14 @@ const jsonWrapper = {
   },
 };
 
-describe("DocumentLocation", () => {
-  it("Const Check", () => {
+describe('DocumentLocation', () => {
+  it('Const Check', () => {
     const p = jsonData.slice(identifierOffset, identifierKey.length + identifierOffset);
 
     expect(p).toEqual(p);
   });
 
-  it("toOffset - number", () => {
+  it('toOffset - number', () => {
     //Rolled 10d20 = 72
     for (let I = 0; I < 1000; I += 72) {
       const offset = DocumentLocation.toOffset(I, jsonData);
@@ -47,7 +47,7 @@ describe("DocumentLocation", () => {
     }
   });
 
-  it("toOffset - number2", () => {
+  it('toOffset - number2', () => {
     //Rolled 10d20 = 72
     for (let I = 0; I < 1000; I += 72) {
       const offset = DocumentLocation.toOffset(I, jsonWrapper);
@@ -56,31 +56,31 @@ describe("DocumentLocation", () => {
     }
   });
 
-  it("toOffset - JsonPath", () => {
-    const offset = DocumentLocation.toOffset("minecraft:entity/description/identifier", jsonData);
+  it('toOffset - JsonPath', () => {
+    const offset = DocumentLocation.toOffset('minecraft:entity/description/identifier', jsonData);
 
     expect(offset).toEqual(identifierOffset);
   });
 
-  it("toOffset - Position", () => {
+  it('toOffset - Position', () => {
     const offset = DocumentLocation.toOffset({ character: 7, line: 4 }, jsonData);
 
     expect(offset).toEqual(identifierOffset);
   });
 
-  it("toPosition - JsonPath", () => {
-    const P = DocumentLocation.toPosition("minecraft:entity/description/identifier", jsonData);
+  it('toPosition - JsonPath', () => {
+    const P = DocumentLocation.toPosition('minecraft:entity/description/identifier', jsonData);
 
     expect(P).toEqual(identifierPos);
   });
 
-  it("toPosition - JsonPath", () => {
+  it('toPosition - JsonPath', () => {
     const P = DocumentLocation.toPosition(identifierPos, jsonData);
 
     expect(P).toEqual(identifierPos);
   });
 
-  it("toPosition - offset", () => {
+  it('toPosition - offset', () => {
     const P = DocumentLocation.toPosition(identifierOffset, jsonData);
 
     expect(P).toEqual(identifierPos);

@@ -1,6 +1,6 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MolangSet, NodeType } from "bc-minecraft-molang";
-import { TextDocument } from "../../types";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MolangSet, NodeType } from 'bc-minecraft-molang';
+import { TextDocument } from '../../types';
 
 interface Resources {
   materials?: Types.Definition;
@@ -11,7 +11,7 @@ interface Resources {
 export function getUsingResources(receiver: MolangSet, source: Resources, document: TextDocument) {
   Types.Definition.forEach(source.geometry, (reference) => {
     receiver.assigned.add({
-      scope: "geometry",
+      scope: 'geometry',
       names: [reference],
       position: document.getText().indexOf(`"${reference}"`),
       type: NodeType.ResourceReference,
@@ -19,7 +19,7 @@ export function getUsingResources(receiver: MolangSet, source: Resources, docume
   });
   Types.Definition.forEach(source.materials, (reference) => {
     receiver.assigned.add({
-      scope: "material",
+      scope: 'material',
       names: [reference],
       position: document.getText().indexOf(`"${reference}"`),
       type: NodeType.ResourceReference,
@@ -27,7 +27,7 @@ export function getUsingResources(receiver: MolangSet, source: Resources, docume
   });
   Types.Definition.forEach(source.materials, (reference) => {
     receiver.assigned.add({
-      scope: "texture",
+      scope: 'texture',
       names: [reference],
       position: document.getText().indexOf(`"${reference}"`),
       type: NodeType.ResourceReference,

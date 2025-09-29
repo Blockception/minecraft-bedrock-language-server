@@ -1,17 +1,17 @@
-import { DataCache } from "./data-cache";
+import { DataCache } from './data-cache';
 
 interface TestData {
   id: string;
 }
 
-const data = [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }, { id: "5" }];
+const data = [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }, { id: '5' }];
 
-describe("data-cache", () => {
+describe('data-cache', () => {
   jest.setTimeout(10_000);
 
   const defaultTimespan = DataCache.timespan(0, 5, 0);
 
-  test("when set within 5 seconds, should be able to get, after 5 seconds its gone", async () => {
+  test('when set within 5 seconds, should be able to get, after 5 seconds its gone', async () => {
     const cache = new DataCache<string, TestData>(defaultTimespan);
 
     data.forEach((i) => cache.set(i.id, i));
@@ -31,7 +31,7 @@ describe("data-cache", () => {
     });
   });
 
-  test("when getOrSet within 5 seconds, should be able to get, after 5 seconds its gone", async () => {
+  test('when getOrSet within 5 seconds, should be able to get, after 5 seconds its gone', async () => {
     const cache = new DataCache<string, TestData>(defaultTimespan);
 
     data.forEach((i) => {

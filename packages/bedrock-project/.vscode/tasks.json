@@ -18,7 +18,9 @@
       "detail": "Run the tests",
       "group": "test",
       "label": "npm test 'bc-minecraft-bedrock-project'",
-      "problemMatcher": ["$tsc", "$tsc-watch",
+      "problemMatcher": [
+        "$tsc",
+        "$tsc-watch",
         {
           "pattern": {
             "regexp": "^[ \t]*at .*\\(([\\w\\\\\\.]+):(\\d+):(\\d+)\\)[ \t]*$",

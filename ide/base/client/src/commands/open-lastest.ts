@@ -1,8 +1,8 @@
-import { readdirSync, statSync } from "fs";
-import { commands, ExtensionContext, languages, Uri, window } from "vscode";
-import { Commands } from "@blockception/ide-shared";
+import { readdirSync, statSync } from 'fs';
+import { commands, ExtensionContext, languages, Uri, window } from 'vscode';
+import { Commands } from '@blockception/ide-shared';
 
-import path from "path";
+import path from 'path';
 
 export function activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.Errors.OpenLastest, openLastestError));
@@ -18,28 +18,28 @@ function openLastestError(): void {
       return;
     }
 
-    if (APPDATA.endsWith("Roaming")) {
-      APPDATA = path.join(APPDATA, "..");
+    if (APPDATA.endsWith('Roaming')) {
+      APPDATA = path.join(APPDATA, '..');
     }
 
-    APPDATA = path.join(APPDATA, "Local", "Packages");
+    APPDATA = path.join(APPDATA, 'Local', 'Packages');
     const Childern = readdirSync(APPDATA);
 
     for (let I = 0; I < Childern.length; I++) {
       const Child = Childern[I];
-      if (Child.includes("Microsoft.MinecraftUWP")) {
+      if (Child.includes('Microsoft.MinecraftUWP')) {
         const folder = path.join(APPDATA, Child);
         findLastestLog(folder);
       }
     }
   } catch (error) {
-    window.showErrorMessage("error retrieving errors", JSON.stringify(error));
+    window.showErrorMessage('error retrieving errors', JSON.stringify(error));
   }
 }
 
 function findLastestLog(folder: string): void {
-  const LogFolder = path.join(folder, "LocalState", "logs");
-  let Lastest = "";
+  const LogFolder = path.join(folder, 'LocalState', 'logs');
+  let Lastest = '';
   let LastestTime = 0;
 
   const Childern = readdirSync(LogFolder);
@@ -47,22 +47,22 @@ function findLastestLog(folder: string): void {
   for (let I = 0; I < Childern.length; I++) {
     const Child = Childern[I];
 
-    if (Child.startsWith("ContentLog_") && Child.endsWith(".txt")) {
+    if (Child.startsWith('ContentLog_') && Child.endsWith('.txt')) {
       const filepath = path.join(LogFolder, Child);
       const stat = statSync(filepath);
 
-      if (Lastest === "" || stat.mtimeMs > LastestTime) {
+      if (Lastest === '' || stat.mtimeMs > LastestTime) {
         Lastest = filepath;
         LastestTime = stat.mtimeMs;
       }
     }
   }
 
-  if (Lastest !== "") {
+  if (Lastest !== '') {
     const uri = Uri.file(Lastest);
 
     window.showTextDocument(uri).then((ed) => {
-      languages.setTextDocumentLanguage(ed.document, "log");
+      languages.setTextDocumentLanguage(ed.document, 'log');
     });
   } else {
     window.showInformationMessage("Couldn't find content logs");

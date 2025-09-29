@@ -1,6 +1,6 @@
-import { Context } from "../../context/context";
-import { CommandContext } from "../context";
-import { getWorkspace } from "../util";
+import { Context } from '../../context/context';
+import { CommandContext } from '../context';
+import { getWorkspace } from '../util';
 
 /**
  * @see {Commands.DiagnoseProject}

@@ -1,9 +1,9 @@
-import { TemplateBuilder } from "./builder";
-import { Pack, Util } from "bc-minecraft-bedrock-project";
-import { generate_bp, generate_rp, generate_wp, TextEditBuilder } from "../commands/commands/language";
-import { LanguageContent, LanguageNames } from "./definitions/languages";
+import { TemplateBuilder } from './builder';
+import { Pack, Util } from 'bc-minecraft-bedrock-project';
+import { generate_bp, generate_rp, generate_wp, TextEditBuilder } from '../commands/commands/language';
+import { LanguageContent, LanguageNames } from './definitions/languages';
 
-import * as path from "path";
+import * as path from 'path';
 
 /**
  *
@@ -13,17 +13,17 @@ import * as path from "path";
 export function create_language_files(
   pack: Pack | string,
   builder: TemplateBuilder,
-  additional?: (builder: TextEditBuilder) => void
+  additional?: (builder: TextEditBuilder) => void,
 ): void {
-  if (typeof pack === "string") {
+  if (typeof pack === 'string') {
     const nPack = builder.context.database.ProjectData.get(pack);
 
     if (nPack === undefined) return;
     pack = nPack;
   }
 
-  const baseFolder = path.join(pack.folder, "texts");
-  internalCreate(baseFolder, builder, "languages.json", JSON.stringify(LanguageNames, undefined, 2));
+  const baseFolder = path.join(pack.folder, 'texts');
+  internalCreate(baseFolder, builder, 'languages.json', JSON.stringify(LanguageNames, undefined, 2));
 
   let content = LanguageContent;
   const textBuilder = new TextEditBuilder(undefined);

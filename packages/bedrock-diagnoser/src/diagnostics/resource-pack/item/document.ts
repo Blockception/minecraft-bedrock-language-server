@@ -1,5 +1,5 @@
-import { DocumentDiagnosticsBuilder } from "../../../types";
-import { diagnose_molang_syntax_current_document } from "../../molang";
+import { DocumentDiagnosticsBuilder } from '../../../types';
+import { diagnose_molang_syntax_current_document } from '../../molang';
 
 /**
  * Diagnoses the given document as an rp item

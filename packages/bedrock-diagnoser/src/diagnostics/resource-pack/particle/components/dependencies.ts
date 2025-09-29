@@ -1,6 +1,6 @@
-import { Internal } from "bc-minecraft-bedrock-project";
-import { DiagnosticsBuilder } from "../../../../types";
-import { components_dependencies, Context, DependedMap } from "../../../../utility/components";
+import { Internal } from 'bc-minecraft-bedrock-project';
+import { DiagnosticsBuilder } from '../../../../types';
+import { components_dependencies, Context, DependedMap } from '../../../../utility/components';
 
 //Map of components that are depended on all other specified components
 const component_dependents_all: DependedMap = {};
@@ -15,7 +15,7 @@ const component_dependents_any: DependedMap = {};
 export function resourcepack_particle_components_dependencies(
   particle: Internal.ResourcePack.Particle,
   context: Context<Internal.ResourcePack.Particle>,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): void {
-  components_dependencies("particle", context, diagnoser, component_dependents_all, component_dependents_any);
+  components_dependencies('particle', context, diagnoser, component_dependents_all, component_dependents_any);
 }

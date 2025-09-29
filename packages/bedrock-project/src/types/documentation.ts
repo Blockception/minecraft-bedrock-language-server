@@ -1,5 +1,5 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { TextDocument } from "./text-document";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { TextDocument } from './text-document';
 
 /** */
 export namespace Documentation {
@@ -10,7 +10,7 @@ export namespace Documentation {
   export function setDoc(
     receiver: Types.Documentated,
     doc: TextDocument,
-    ifDefault: string | (() => string) | undefined = undefined
+    ifDefault: string | (() => string) | undefined = undefined,
   ): void {
     receiver.documentation = getDoc(doc, ifDefault);
   }
@@ -21,7 +21,7 @@ export namespace Documentation {
   export function getDoc(
     doc: TextDocument,
     ifDefault: string | (() => string) | undefined = undefined,
-    offset?: number
+    offset?: number,
   ): string | undefined {
     let documentation: string | undefined;
 
@@ -40,13 +40,13 @@ export namespace Documentation {
     documentation = getDocumentation(doc, 0);
     if (documentation) return documentation;
 
-    if (ifDefault) return typeof ifDefault === "string" ? ifDefault : ifDefault();
+    if (ifDefault) return typeof ifDefault === 'string' ? ifDefault : ifDefault();
     return undefined;
   }
 
   function getDocumentation(doc: TextDocument, startoffset: number, maxDist?: number): string | undefined {
     const text = doc.getText();
-    let index = text.indexOf("\n", startoffset + 1);
+    let index = text.indexOf('\n', startoffset + 1);
     if (index < 0) index = text.length;
 
     let line = text.slice(startoffset, index);
@@ -55,13 +55,13 @@ export namespace Documentation {
     startoffset += length - line.length;
 
     //Comment
-    if (doc.uri.endsWith(".mcfunction") || doc.uri.endsWith(".lang")) {
+    if (doc.uri.endsWith('.mcfunction') || doc.uri.endsWith('.lang')) {
       //Mcfunction comment
-      index = line.indexOf("#");
+      index = line.indexOf('#');
       if (validIndex(index, maxDist)) {
         let comment = line.slice(index + 1).trim();
 
-        while (comment.startsWith("#")) {
+        while (comment.startsWith('#')) {
           comment = comment.slice(1);
         }
 
@@ -70,8 +70,8 @@ export namespace Documentation {
     }
 
     //Json comments
-    if (doc.uri.endsWith(".json")) {
-      index = line.indexOf("//");
+    if (doc.uri.endsWith('.json')) {
+      index = line.indexOf('//');
       if (validIndex(index, maxDist)) {
         return line.slice(index + 2).trim();
       }
@@ -90,7 +90,7 @@ function findPreviousLine(doc: TextDocument, offset: number): number {
   const text = doc.getText();
 
   for (; offset > 0; offset--) {
-    if (text[offset] === "\n") {
+    if (text[offset] === '\n') {
       count++;
 
       if (count == 2) return offset;

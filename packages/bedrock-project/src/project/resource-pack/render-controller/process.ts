@@ -1,8 +1,8 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import * as Internal from "../../../internal/resource-pack/render-controller";
-import { Documentation, TextDocument } from "../../../types";
-import { harvestMolang } from "../../molang";
-import { RenderController } from "./render-controller";
+import { Types } from 'bc-minecraft-bedrock-types';
+import * as Internal from '../../../internal/resource-pack/render-controller';
+import { Documentation, TextDocument } from '../../../types';
+import { harvestMolang } from '../../molang';
+import { RenderController } from './render-controller';
 
 /** */
 export function process(doc: TextDocument): RenderController[] | undefined {

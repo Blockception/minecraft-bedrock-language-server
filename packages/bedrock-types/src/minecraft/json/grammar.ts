@@ -12,24 +12,24 @@ export function findCommaOrEnd(text: string): number {
     const c = text.charAt(index);
 
     if (instr) {
-      if (c === '"' && text.charAt(index - 1) !== "\\") {
+      if (c === '"' && text.charAt(index - 1) !== '\\') {
         instr = false;
       }
     } else if (c === '"') {
       instr = true;
     } else {
       switch (c) {
-        case "[":
-        case "{":
-        case "(":
+        case '[':
+        case '{':
+        case '(':
           depth++;
           break;
-        case "]":
-        case "}":
-        case ")":
+        case ']':
+        case '}':
+        case ')':
           depth--;
           break;
-        case ",":
+        case ',':
           if (depth === 0) {
             return index;
           }
@@ -44,16 +44,16 @@ export function findCommaOrEnd(text: string): number {
 
 export function trimBraces(text: string): string {
   switch (text.charAt(0)) {
-    case "[":
-    case "{":
-    case "(":
+    case '[':
+    case '{':
+    case '(':
       text = text.slice(1);
   }
 
   switch (text.charAt(text.length - 1)) {
-    case "]":
-    case "}":
-    case ")":
+    case ']':
+    case '}':
+    case ')':
       text = text.slice(0, text.length - 1);
   }
 

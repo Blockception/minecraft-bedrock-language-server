@@ -10,10 +10,10 @@ import {
   ApplyWorkspaceEditResult,
   Range,
   Connection,
-} from "vscode-languageserver";
-import { Fs, Vscode } from "../util";
-import { IExtendedLogger } from "../lsp/logger/logger";
-import { exists } from "../io/io";
+} from 'vscode-languageserver';
+import { Fs, Vscode } from '../util';
+import { IExtendedLogger } from '../lsp/logger/logger';
+import { exists } from '../io/io';
 
 /**
  *
@@ -49,13 +49,13 @@ export class FileBuilder {
    * @returns
    */
   create(uri: string, content: string): void {
-    if (uri.startsWith("file:\\")) uri = uri.replace(/\\/gi, "/");
+    if (uri.startsWith('file:\\')) uri = uri.replace(/\\/gi, '/');
 
     const path = Fs.FromVscode(uri);
     uri = Vscode.fromFs(path);
 
     if (exists(path, this._logger)) {
-      this._logger.info("Creation of file skipped because it already exists: " + path);
+      this._logger.info('Creation of file skipped because it already exists: ' + path);
       return;
     }
 
@@ -64,7 +64,7 @@ export class FileBuilder {
       range: Range.create(0, 0, 0, 0),
     };
 
-    this._logger.info("Creating file: " + path);
+    this._logger.info('Creating file: ' + path);
     const Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
     this._receiver.push(CreateFile.create(uri, this.options), TextDocumentEdit.create(Version, [Content]));
   }
@@ -79,10 +79,10 @@ export class FileBuilder {
     const keys = Object.getOwnPropertyNames(response);
 
     if (keys.length === 1) {
-      this._logger.error("Workspace edit was not applied, possibly of already existing data");
+      this._logger.error('Workspace edit was not applied, possibly of already existing data');
       return;
     }
 
-    this._logger.error("Workspace edit failed", response);
+    this._logger.error('Workspace edit failed', response);
   }
 }

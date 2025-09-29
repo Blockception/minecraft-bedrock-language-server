@@ -1,23 +1,25 @@
 import {
-  Connection, CreateFilesParams,
+  Connection,
+  CreateFilesParams,
   DeleteFilesParams,
-  RenameFilesParams, TextDocumentChangeEvent
-} from "vscode-languageserver";
-import { Glob } from "../../files/glob";
-import { DiagnoserService } from "../diagnostics/service";
-import { ContentType } from "../documents/manager";
-import { TextDocument } from "../documents/text-document";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { IService } from "../services/service";
+  RenameFilesParams,
+  TextDocumentChangeEvent,
+} from 'vscode-languageserver';
+import { Glob } from '../../files/glob';
+import { DiagnoserService } from '../diagnostics/service';
+import { ContentType } from '../documents/manager';
+import { TextDocument } from '../documents/text-document';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { IService } from '../services/service';
 
 export class DocumentProcessor extends BaseService implements Partial<IService> {
-  name: string = "document processor";
+  name: string = 'document processor';
   private _diagnoser: DiagnoserService;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext, diagnoser: DiagnoserService) {
-    super(logger.withPrefix("[doc pros]"), extension);
+    super(logger.withPrefix('[doc pros]'), extension);
     this._diagnoser = diagnoser;
   }
 
@@ -32,7 +34,7 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
     this.addDisposable(
       connection.workspace.onDidCreateFiles(this.onDidCreateFiles.bind(this)),
       connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)),
-      connection.workspace.onDidRenameFiles(this.onDidRenameFiles.bind(this))
+      connection.workspace.onDidRenameFiles(this.onDidRenameFiles.bind(this)),
     );
   }
 
@@ -41,7 +43,7 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
     if (doc === undefined) return;
 
     this.process(doc);
-    return this.diagnose(doc)
+    return this.diagnose(doc);
   }
 
   get(uri: string): TextDocument;
@@ -79,13 +81,13 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
   }
 
   private onDidDeleteFiles(params: DeleteFilesParams) {
-    this.logger.debug("received deleted files", params);
+    this.logger.debug('received deleted files', params);
 
     params.files.forEach((file) => this.delete(file.uri));
   }
 
   private onDidCreateFiles(params: CreateFilesParams) {
-    this.logger.debug("received created files", params);
+    this.logger.debug('received created files', params);
 
     params.files.forEach((file) => {
       const doc = this.extension.documents.get(file.uri);
@@ -96,7 +98,7 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
   }
 
   private onDidRenameFiles(params: RenameFilesParams) {
-    this.logger.debug("received files rename", params);
+    this.logger.debug('received files rename', params);
 
     params.files.forEach((file) => this.delete(file.oldUri));
     params.files.forEach((file) => {

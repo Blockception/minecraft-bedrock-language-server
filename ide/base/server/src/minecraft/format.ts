@@ -1,5 +1,5 @@
-import { Pack, Util } from "bc-minecraft-bedrock-project";
-import { Glob } from "../files/glob";
+import { Pack, Util } from 'bc-minecraft-bedrock-project';
+import { Glob } from '../files/glob';
 
 export namespace MinecraftFormat {
   /**
@@ -9,7 +9,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetManifests(folder: string, ignores: string[]): string[] {
-    return Glob.getFiles(["manifest.json", "**/manifest.json"], ignores, folder, true);
+    return Glob.getFiles(['manifest.json', '**/manifest.json'], ignores, folder, true);
   }
 
   /**
@@ -20,9 +20,9 @@ export namespace MinecraftFormat {
    */
   export function GetBehaviorPackFiles(folder: string, ignores: string[]): string[] {
     return Glob.getFiles(
-      ["**/*.{json,jsonc,json5}", "*.{json,jsonc,json5}", "*.mcfunction", "**/*.mcfunction", "**/*.lang", "*.lang"],
+      ['**/*.{json,jsonc,json5}', '*.{json,jsonc,json5}', '*.mcfunction', '**/*.mcfunction', '**/*.lang', '*.lang'],
       ignores,
-      folder
+      folder,
     );
   }
 
@@ -33,7 +33,7 @@ export namespace MinecraftFormat {
    * @returns
    */
   export function GetResourcePackFiles(folder: string, ignores: string[]): string[] {
-    return Glob.getFiles(["**/*.{json,jsonc,json5}", "*.{json,jsonc,json5}", "**/*.lang", "*.lang"], ignores, folder);
+    return Glob.getFiles(['**/*.{json,jsonc,json5}', '*.{json,jsonc,json5}', '**/*.lang', '*.lang'], ignores, folder);
   }
 
   /**
@@ -63,7 +63,7 @@ export namespace MinecraftFormat {
    * @param ignores The glob patterns to ignore
    */
   export function GetAudioFiles(folder: string, ignores: string[]) {
-    return Glob.getFiles(["sounds/**/*.ogg", "sounds/*.ogg", "sounds/**/*.fsb", "sounds/*.fsb"], ignores, folder);
+    return Glob.getFiles(['sounds/**/*.ogg', 'sounds/*.ogg', 'sounds/**/*.fsb', 'sounds/*.fsb'], ignores, folder);
   }
 
   /**
@@ -73,9 +73,9 @@ export namespace MinecraftFormat {
    */
   export function GetTextureFiles(folder: string, ignores: string[]) {
     return Glob.getFiles(
-      ["textures/**/*.png", "textures/*.png", "textures/**/*.tga", "textures/*.tga"],
+      ['textures/**/*.png', 'textures/*.png', 'textures/**/*.tga', 'textures/*.tga'],
       ignores,
-      folder
+      folder,
     );
   }
 
@@ -85,6 +85,6 @@ export namespace MinecraftFormat {
    * @param ignores The glob patterns to ignore
    */
   export function GetStructureFiles(folder: string, ignores: string[]) {
-    return Glob.getFiles(["**/*.mcstructure", "*.mcstructure"], ignores, folder);
+    return Glob.getFiles(['**/*.mcstructure', '*.mcstructure'], ignores, folder);
   }
 }

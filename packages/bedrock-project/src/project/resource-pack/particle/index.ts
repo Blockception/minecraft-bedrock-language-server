@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./particle";
-export * from "./process";
+export * from './particle';
+export * from './process';

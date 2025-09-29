@@ -1,5 +1,4 @@
- 
-import { DiagnosticsBuilder } from "../../../types";
+import { DiagnosticsBuilder } from '../../../types';
 
 /**
  *

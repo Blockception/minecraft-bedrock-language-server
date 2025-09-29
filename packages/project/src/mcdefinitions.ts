@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import * as fs from 'fs';
 
 /**A single definition for MCDefinitions*/
 export interface Definition {
@@ -15,7 +15,7 @@ export namespace Definition {
    * @param container The container to add to
    * @param value The value to add, if its start with '!' its added to the exclude list*/
   export function add(container: Definition, value: string): void {
-    if (value.startsWith("!")) {
+    if (value.startsWith('!')) {
       container.excluded.push(value.substring(1, value.length));
     } else {
       container.defined.push(value);
@@ -27,7 +27,7 @@ export namespace Definition {
    * @param key The key each item will be receiving
    * @returns A text rep of the object for files*/
   export function toString(container: Definition, key: string): string {
-    let result = "";
+    let result = '';
 
     result += `## ${key}\n`;
     for (let I = 0; I < container.defined.length; I++) {
@@ -38,7 +38,7 @@ export namespace Definition {
       result += `${key}=!${container.excluded[I]}\n`;
     }
 
-    result += "\n";
+    result += '\n';
 
     return result;
   }
@@ -77,7 +77,7 @@ export interface MCDefinition {
 /**The namespace that provides functions for the MCDefinition interface*/
 export namespace MCDefinition {
   /**The default filename of MCdefinitions*/
-  export const filename = ".mcdefinitions";
+  export const filename = '.mcdefinitions';
 
   /**Converts the given contents as if its file contents and returns a MCDefinition object
    * @param content The contents of the given files*/
@@ -87,13 +87,13 @@ export namespace MCDefinition {
 
     parts.forEach((property) => {
       //Remove comment
-      const cindex = property.indexOf("#");
+      const cindex = property.indexOf('#');
 
       if (cindex >= 0) {
         property = property.substring(0, cindex);
       }
 
-      const index = property.indexOf("=");
+      const index = property.indexOf('=');
 
       if (index >= 0) {
         const name = property.substring(0, index).toLowerCase();
@@ -126,7 +126,7 @@ export namespace MCDefinition {
    * @param data The MCDefinition to convert
    * @returns A text rep of the object*/
   export function toString(data: MCDefinition): string {
-    let Out = "";
+    let Out = '';
 
     for (const key in data) {
       const item = data[key];
@@ -152,7 +152,7 @@ export namespace MCDefinition {
    * @param exclude Whetever or not the exclude the value*/
   export function appendSync(filepath: string, key: string, value: string, exclude: boolean = false): void {
     if (exclude) {
-      value = "!" + value;
+      value = '!' + value;
     }
 
     fs.appendFileSync(filepath, `${key}=${value}\n`);

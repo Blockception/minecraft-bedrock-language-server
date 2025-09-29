@@ -1,12 +1,12 @@
-import { Token } from "./tokens";
+import { Token } from './tokens';
 
 /** Variable scope types in Molang */
-export type VariableScope = "this" | "temp" | "t" | "variable" | "v" | "context" | "c" | "array";
+export type VariableScope = 'this' | 'temp' | 't' | 'variable' | 'v' | 'context' | 'c' | 'array';
 
 /** Function namespace types in Molang */
-export type FunctionScope = "math" | "query" | "q";
+export type FunctionScope = 'math' | 'query' | 'q';
 
-export type ResourceScope = "texture" | "material" | "geometry";
+export type ResourceScope = 'texture' | 'material' | 'geometry';
 
 /** Types of syntax nodes */
 export enum NodeType {
@@ -25,13 +25,13 @@ export enum NodeType {
   Variable,
 }
 
-function createfn<T extends ExpressionNode>(type: T["type"]): (data: Omit<T, "type">) => T {
-  return function (data: Omit<T, "type">): T {
+function createfn<T extends ExpressionNode>(type: T['type']): (data: Omit<T, 'type'>) => T {
+  return function (data: Omit<T, 'type'>): T {
     return { ...data, type: type } as T;
   };
 }
 
-function isfn<T extends ExpressionNode>(type: T["type"]) {
+function isfn<T extends ExpressionNode>(type: T['type']) {
   return function (data: T): data is T {
     return data?.type === type;
   };
@@ -255,14 +255,14 @@ export namespace ExpressionNode {
   }
 
   export function getIdentifier(
-    node: Pick<ResourceReferenceNode | VariableNode | FunctionCallNode, "scope" | "names">,
-    prefixed: boolean = true
+    node: Pick<ResourceReferenceNode | VariableNode | FunctionCallNode, 'scope' | 'names'>,
+    prefixed: boolean = true,
   ): string {
     if (prefixed) {
-      return `${node.scope}.${node.names.join(".")}`;
+      return `${node.scope}.${node.names.join('.')}`;
     }
 
-    return node.names.join(".");
+    return node.names.join('.');
   }
 
   export function getLastEndPosition(node: ExpressionNode): number {

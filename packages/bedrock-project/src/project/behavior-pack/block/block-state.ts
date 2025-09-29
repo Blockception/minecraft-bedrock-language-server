@@ -8,9 +8,9 @@ interface BaseBlockState<T extends string, U> {
   values: U[];
 }
 
-export type BlockStateInt = BaseBlockState<"int", number>;
-export type BlockStateBool = BaseBlockState<"bool", boolean>;
-export type BlockStateString = BaseBlockState<"string", string>;
+export type BlockStateInt = BaseBlockState<'int', number>;
+export type BlockStateBool = BaseBlockState<'bool', boolean>;
+export type BlockStateString = BaseBlockState<'string', string>;
 export type BlockState = BlockStateInt | BlockStateBool | BlockStateString;
 
 /** */
@@ -21,8 +21,8 @@ export namespace BlockState {
    * @returns
    */
   export function is(value: any): value is BlockState {
-    if (value && typeof value.name === "string" && typeof value.type === "string") {
-      if (typeof value.type === "string") {
+    if (value && typeof value.name === 'string' && typeof value.type === 'string') {
+      if (typeof value.type === 'string') {
         if (Array.isArray(value.values)) return true;
       }
     }
@@ -40,24 +40,24 @@ export namespace BlockState {
     const f = typeof values[0];
 
     switch (f) {
-      case "boolean":
+      case 'boolean':
         return {
           name: name,
-          type: "bool",
+          type: 'bool',
           values: values as boolean[],
         };
 
       default:
-      case "string":
+      case 'string':
         return {
           name: name,
-          type: "string",
+          type: 'string',
           values: values as string[],
         };
-      case "number":
+      case 'number':
         return {
           name: name,
-          type: "int",
+          type: 'int',
           values: values as number[],
         };
     }

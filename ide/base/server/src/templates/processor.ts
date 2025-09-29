@@ -1,11 +1,11 @@
-import { FileBuilder } from "../files/file-builder";
-import { Fs, Vscode } from "../util";
-import { FunctionContext, TemplateFunctions } from "./functions";
-import { TemplateFallback } from "./fallback";
-import { IExtensionContext } from "../lsp/extension";
+import { FileBuilder } from '../files/file-builder';
+import { Fs, Vscode } from '../util';
+import { FunctionContext, TemplateFunctions } from './functions';
+import { TemplateFallback } from './fallback';
+import { IExtensionContext } from '../lsp/extension';
 
-import path from "path";
-import * as fs from "fs";
+import path from 'path';
+import * as fs from 'fs';
 import { exists } from '../io/io';
 
 export class TemplateProcessor {
@@ -20,7 +20,7 @@ export class TemplateProcessor {
     content: string,
     templateId: string,
     folder: string,
-    attributes: Record<string, string>
+    attributes: Record<string, string>,
   ) {
     this._content = content;
     this._context = context;
@@ -30,7 +30,7 @@ export class TemplateProcessor {
       filename: filename,
       folder: folder,
       attributes: attributes,
-      pack: this._context.database.ProjectData.get(folder)?.folder || "",
+      pack: this._context.database.ProjectData.get(folder)?.folder || '',
       templateID: templateId,
     };
 
@@ -58,10 +58,10 @@ export class TemplateProcessor {
 
 const errorFallback = {
   filename: () => {
-    throw new Error("No fallback filename provided");
+    throw new Error('No fallback filename provided');
   },
   content: () => {
-    throw new Error("No fallback content provided");
+    throw new Error('No fallback content provided');
   },
 };
 
@@ -81,16 +81,16 @@ export namespace TemplateProcessor {
     template: string,
     folder: string,
     attributes: Record<string, string> = {},
-    fallback?: TemplateFallback
+    fallback?: TemplateFallback,
   ): TemplateProcessor {
     fallback = fallback || errorFallback;
     const ws = context.database.WorkspaceData.getFolder(folder);
     if (ws === undefined) {
-      throw new Error("No workspace found");
+      throw new Error('No workspace found');
     }
 
     const project = context.database.WorkspaceData.getProject(ws, context.settings);
-    const attr = template.replace("-", ".");
+    const attr = template.replace('-', '.');
     const filename = project.attributes[`template.${attr}.filename`] || fallback.filename();
     const file = project.attributes[`template.${attr}.file`];
     let content = undefined;
@@ -98,11 +98,11 @@ export namespace TemplateProcessor {
     if (file) {
       const filepath = path.resolve(Fs.FromVscode(ws), file);
       if (exists(filepath, context.logger)) {
-        content = fs.readFileSync(file, "utf8");
+        content = fs.readFileSync(file, 'utf8');
       }
     }
 
-    if (content === undefined || content === "") {
+    if (content === undefined || content === '') {
       content = fallback.content();
     }
 

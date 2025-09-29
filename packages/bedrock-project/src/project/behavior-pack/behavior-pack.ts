@@ -1,23 +1,23 @@
-import { MCProject } from "bc-minecraft-project";
-import { Manifest } from "../../internal/types";
-import { Container, DataSet, Pack, TextDocument } from "../../types";
-import { PackType } from "../pack-type";
-import { FileType } from "./file-type";
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../../internal/types';
+import { Container, DataSet, Pack, TextDocument } from '../../types';
+import { PackType } from '../pack-type';
+import { FileType } from './file-type';
 
-import * as Animation from "./animation";
-import * as AnimationController from "./animation-controller";
-import * as Biome from "./biome";
-import * as Block from "./block";
-import * as Entity from "./entity";
-import * as Feature from "./feature";
-import * as FeatureRule from "./feature_rule";
-import * as Item from "./item";
-import * as ItemCatalog from "./item_catalog";
-import * as LootTable from "./loot-table";
-import * as Function from "./mcfunction";
-import * as Recipe from "./recipe";
-import * as Structure from "./structure";
-import * as Trading from "./trading";
+import * as Animation from './animation';
+import * as AnimationController from './animation-controller';
+import * as Biome from './biome';
+import * as Block from './block';
+import * as Entity from './entity';
+import * as Feature from './feature';
+import * as FeatureRule from './feature_rule';
+import * as Item from './item';
+import * as ItemCatalog from './item_catalog';
+import * as LootTable from './loot-table';
+import * as Function from './mcfunction';
+import * as Recipe from './recipe';
+import * as Structure from './structure';
+import * as Trading from './trading';
 
 type CollectFieldsOfType<T> = {
   [K in keyof T]: T[K] extends DataSet<infer U> ? U : never;
@@ -27,7 +27,6 @@ type CollectionFieldsDataSet<T> = {
 };
 
 type FieldKeysDataSet<T> = {
-   
   [K in keyof T]: T[K] extends DataSet<infer _U> ? K : never;
 };
 
@@ -78,7 +77,7 @@ export class BehaviorPack implements Container, Pack {
   constructor(folder: string, context: MCProject | string, manifest: Manifest) {
     this.folder = folder;
     this.manifest = manifest;
-    this.context = typeof context === "object" ? context : MCProject.loadSync(context);
+    this.context = typeof context === 'object' ? context : MCProject.loadSync(context);
 
     this.animations = new DataSet();
     this.animation_controllers = new DataSet();
@@ -318,27 +317,27 @@ export namespace BehaviorPack {
    * @returns
    */
   export function is(value: any): value is BehaviorPack {
-    if (typeof value === "object") {
+    if (typeof value === 'object') {
       const temp = <BehaviorPack>value;
       //Order is determined buy likely / unlikely it is that it missing
-      if (typeof temp.functions !== "object") return false;
-      if (typeof temp.items !== "object") return false;
-      if (typeof temp.loot_tables !== "object") return false;
-      if (typeof temp.structures !== "object") return false;
-      if (typeof temp.trading !== "object") return false;
+      if (typeof temp.functions !== 'object') return false;
+      if (typeof temp.items !== 'object') return false;
+      if (typeof temp.loot_tables !== 'object') return false;
+      if (typeof temp.structures !== 'object') return false;
+      if (typeof temp.trading !== 'object') return false;
 
-      if (typeof temp.animations !== "object") return false;
-      if (typeof temp.animation_controllers !== "object") return false;
-      if (typeof temp.blocks !== "object") return false;
-      if (typeof temp.entities !== "object") return false;
-      if (typeof temp.features !== "object") return false;
-      if (typeof temp.features_rules !== "object") return false;
-      if (typeof temp.item_groups !== "object") return false;
-      if (typeof temp.biomes !== "object") return false;
-      if (typeof temp.recipes !== "object") return false;
+      if (typeof temp.animations !== 'object') return false;
+      if (typeof temp.animation_controllers !== 'object') return false;
+      if (typeof temp.blocks !== 'object') return false;
+      if (typeof temp.entities !== 'object') return false;
+      if (typeof temp.features !== 'object') return false;
+      if (typeof temp.features_rules !== 'object') return false;
+      if (typeof temp.item_groups !== 'object') return false;
+      if (typeof temp.biomes !== 'object') return false;
+      if (typeof temp.recipes !== 'object') return false;
 
-      if (typeof temp.context !== "object") return false;
-      if (typeof temp.folder !== "string") return false;
+      if (typeof temp.context !== 'object') return false;
+      if (typeof temp.folder !== 'string') return false;
 
       return true;
     }

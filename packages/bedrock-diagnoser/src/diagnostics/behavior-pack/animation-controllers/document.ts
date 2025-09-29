@@ -1,10 +1,10 @@
-import { Internal } from "bc-minecraft-bedrock-project";
-import { DocumentDiagnosticsBuilder } from "../../../types";
-import { Json } from "../../json";
-import { general_animation_controllers } from "../../minecraft/animation-controllers";
-import { diagnose_molang_syntax_current_document } from "../../molang";
-import { no_other_duplicates } from "../../packs/duplicate-check";
-import { json_commandsCheck } from "../mcfunction/commands";
+import { Internal } from 'bc-minecraft-bedrock-project';
+import { DocumentDiagnosticsBuilder } from '../../../types';
+import { Json } from '../../json';
+import { general_animation_controllers } from '../../minecraft/animation-controllers';
+import { diagnose_molang_syntax_current_document } from '../../molang';
+import { no_other_duplicates } from '../../packs/duplicate-check';
+import { json_commandsCheck } from '../mcfunction/commands';
 
 /**
  * Diagnoses the given document as an animation controller
@@ -22,10 +22,10 @@ export function diagnose_animation_controller_document(diagnoser: DocumentDiagno
   Object.entries(controllers.animation_controllers).forEach(([id, controller]) => {
     // check that no other exists with this id
     no_other_duplicates(
-      "behaviorpack.animation_controllers",
+      'behaviorpack.animation_controllers',
       diagnoser.context.getProjectData().projectData.behaviorPacks.animation_controllers,
       id,
-      diagnoser
+      diagnoser,
     );
 
     Object.values(controller.states).forEach((state) => {

@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from "./parameter-type";
+export * from './parameter-type';

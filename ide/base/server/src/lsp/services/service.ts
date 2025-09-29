@@ -1,5 +1,5 @@
-import { BulkRegistration, Connection, InitializeParams } from "vscode-languageserver";
-import { CapabilityBuilder } from "./capabilities";
+import { BulkRegistration, Connection, InitializeParams } from 'vscode-languageserver';
+import { CapabilityBuilder } from './capabilities';
 
 /**
  * Represents a service that can be registered and initialized

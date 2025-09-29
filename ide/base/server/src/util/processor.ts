@@ -1,6 +1,6 @@
-import { QueueProcessor } from "@daanv2/queue-processor";
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types";
-import { CancellationToken, WorkDoneProgressReporter } from "vscode-languageserver";
+import { QueueProcessor } from '@daanv2/queue-processor';
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types';
+import { CancellationToken, WorkDoneProgressReporter } from 'vscode-languageserver';
 
 export namespace Processor {
   /**
@@ -15,7 +15,7 @@ export namespace Processor {
     data: T[],
     callbackFn: (item: T, index: number, col: T[]) => void | Promise<void>,
     token?: CancellationToken,
-    reporter?: Pick<WorkDoneProgressReporter, "report">
+    reporter?: Pick<WorkDoneProgressReporter, 'report'>,
   ): Promise<void> {
     token = token || CancellationToken.None;
     reporter = reporter || { report: () => {} };
@@ -32,7 +32,7 @@ export namespace Processor {
     data: T[],
     callbackFn: (item: T, index: number, col: T[]) => U | Promise<U>,
     token?: CancellationToken,
-    reporter?: WorkDoneProgressReporter
+    reporter?: WorkDoneProgressReporter,
   ): Promise<U[]> {
     token = token || CancellationToken.None;
     reporter = reporter || {

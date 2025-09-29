@@ -1,8 +1,8 @@
-import { Internal } from "bc-minecraft-bedrock-project";
-import { DocumentDiagnosticsBuilder } from "../../../types";
-import { Json } from "../../json/json";
-import { general_animation_controllers } from "../../minecraft/animation-controllers";
-import { diagnose_molang_syntax_current_document } from "../../molang";
+import { Internal } from 'bc-minecraft-bedrock-project';
+import { DocumentDiagnosticsBuilder } from '../../../types';
+import { Json } from '../../json/json';
+import { general_animation_controllers } from '../../minecraft/animation-controllers';
+import { diagnose_molang_syntax_current_document } from '../../molang';
 
 /**
  * Diagnoses the given document as an animation controller

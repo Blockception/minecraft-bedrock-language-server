@@ -1,6 +1,6 @@
-import { DocumentDiagnosticsBuilder } from "../../types/diagnostics-builder";
+import { DocumentDiagnosticsBuilder } from '../../types/diagnostics-builder';
 
-import * as Manifest from "./manifest/entry";
+import * as Manifest from './manifest/entry';
 
 /** The namespace that deals with Skin-pack diagnostics */
 export namespace SkinPack {
@@ -10,7 +10,7 @@ export namespace SkinPack {
    * @returns `true` or `false` whenever or not it was successful*/
   export function diagnose_document(diagnoser: DocumentDiagnosticsBuilder): boolean {
     //retrieve filter doc type
-    if (diagnoser.document.uri.endsWith("manifest.json")) {
+    if (diagnoser.document.uri.endsWith('manifest.json')) {
       Manifest.Diagnose(diagnoser);
       return true;
     }

@@ -1,26 +1,26 @@
-import { Languages } from "@blockception/ide-shared";
-import { Pack } from "bc-minecraft-bedrock-project";
+import { Languages } from '@blockception/ide-shared';
+import { Pack } from 'bc-minecraft-bedrock-project';
 import {
   CancellationToken,
   Connection,
   TextDocumentChangeEvent,
   WorkspaceFolder,
-  WorkspaceFoldersChangeEvent
-} from "vscode-languageserver";
-import { Processor, Tokens } from "../../util";
-import { TextDocument } from "../documents/text-document";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { IService } from "../services/service";
-import { PackProcessor } from "./pack-processor";
+  WorkspaceFoldersChangeEvent,
+} from 'vscode-languageserver';
+import { Processor, Tokens } from '../../util';
+import { TextDocument } from '../documents/text-document';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { IService } from '../services/service';
+import { PackProcessor } from './pack-processor';
 
 export class WorkspaceProcessor extends BaseService implements Partial<IService> {
-  name: string = "workspace processor";
+  name: string = 'workspace processor';
   private _packProcessor: PackProcessor;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext, packProcessor: PackProcessor) {
-    super(logger.withPrefix("[ws pros]"), extension);
+    super(logger.withPrefix('[ws pros]'), extension);
 
     this._packProcessor = packProcessor;
   }
@@ -72,8 +72,8 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
     this.extension.state.workspaces.traversed = false;
     const reporter = await this.extension.connection.window.createWorkDoneProgress();
     token = Tokens.combine(token, reporter.token);
-    reporter.begin("Traversing all", 0, "", true);
-    this.logger.info("traversing all workspaces");
+    reporter.begin('Traversing all', 0, '', true);
+    this.logger.info('traversing all workspaces');
 
     const workspaces = (await this.get()) ?? [];
 
@@ -89,22 +89,22 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
       await this.diagnose(ws, token);
     }
 
-    this.logger.info("Traversing done", {
-      ms: Date.now() - start
+    this.logger.info('Traversing done', {
+      ms: Date.now() - start,
     });
     reporter.done();
   }
 
   async process(workspace: WorkspaceFolder, token?: CancellationToken): Promise<void> {
     const reporter = await this.extension.connection.window.createWorkDoneProgress();
-    reporter.begin(`Processing workspace: ${workspace.name}`, 0, "", true);
+    reporter.begin(`Processing workspace: ${workspace.name}`, 0, '', true);
     this.logger.info(`processing workspace ${workspace.name}`, workspace);
     const packs = await this._packProcessor.discover(workspace.uri);
 
     token = Tokens.combine(token, reporter.token);
 
     return Processor.forEach(packs, (pack) => this._packProcessor.process(pack, token), token, reporter).finally(() =>
-      reporter.done()
+      reporter.done(),
     );
   }
 
@@ -119,17 +119,14 @@ export class WorkspaceProcessor extends BaseService implements Partial<IService>
 
   async diagnose(workspace: WorkspaceFolder, token?: CancellationToken) {
     const reporter = await this.extension.connection.window.createWorkDoneProgress();
-    reporter.begin(`Diagnosing workspace: ${workspace.name}`, 0, "", true);
+    reporter.begin(`Diagnosing workspace: ${workspace.name}`, 0, '', true);
     this.logger.info(`diagnosing workspace ${workspace.name}`, workspace);
     const packs = await this.packs(workspace);
 
     token = Tokens.combine(token, reporter.token);
-    return Processor.forEach(
-      packs,
-      async (pack) => this._packProcessor.diagnose(pack, token),
-      token,
-      reporter
-    ).finally(() => reporter.done());
+    return Processor.forEach(packs, async (pack) => this._packProcessor.diagnose(pack, token), token, reporter).finally(
+      () => reporter.done(),
+    );
   }
 
   async packs(workspace: WorkspaceFolder): Promise<Pack[]> {

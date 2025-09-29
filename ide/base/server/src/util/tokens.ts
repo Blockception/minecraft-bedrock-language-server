@@ -1,4 +1,4 @@
-import { CancellationToken, Emitter } from "vscode-languageserver";
+import { CancellationToken, Emitter } from 'vscode-languageserver';
 
 export namespace Tokens {
   export function combine(first?: CancellationToken, second?: CancellationToken): CancellationToken {
@@ -9,7 +9,10 @@ export namespace Tokens {
 class CombineToken implements CancellationToken {
   private _onCancellationRequested: Emitter<any>;
 
-  constructor(private first?: CancellationToken, private second?: CancellationToken) {
+  constructor(
+    private first?: CancellationToken,
+    private second?: CancellationToken,
+  ) {
     this.isCancellationRequested = first?.isCancellationRequested || second?.isCancellationRequested || false;
 
     this._onCancellationRequested = new Emitter();

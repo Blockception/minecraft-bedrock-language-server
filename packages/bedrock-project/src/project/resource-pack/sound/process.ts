@@ -1,8 +1,8 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Json } from "../../../internal/json";
-import * as internal from "../../../internal/resource-pack/sound-definitions";
-import { Documentation, TextDocument } from "../../../types";
-import { Sound } from "./sound";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Json } from '../../../internal/json';
+import * as internal from '../../../internal/resource-pack/sound-definitions';
+import { Documentation, TextDocument } from '../../../types';
+import { Sound } from './sound';
 
 /**
  *

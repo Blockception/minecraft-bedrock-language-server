@@ -1,9 +1,9 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../constants";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from "../../../context/context";
-import { CompletionContext } from "../../context";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { Kinds } from '../../../../constants';
+import { IsEducationEnabled } from '../../../../project/attributes';
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The trading table: ${item.id}`;

@@ -1,19 +1,19 @@
-import { ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
-import { Modes } from "bc-minecraft-bedrock-types";
-import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from "../../../context/context";
-import { CommandCompletionContext, CompletionContext } from "../../context";
+import { ParameterType, ParameterTypeDocumentation } from 'bc-minecraft-bedrock-command';
+import { Modes } from 'bc-minecraft-bedrock-types';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Context } from '../../../context/context';
+import { CommandCompletionContext, CompletionContext } from '../../context';
 
 /**These are here to stop circular dependency */
-import * as General from "../../general";
-import * as BehaviorPack from "../behavior-pack";
-import * as ItemComponents from "../json/item-components";
-import * as RawText from "../json/rawtext";
-import * as ModeCompletions from "../modes/modes";
-import * as SlotId from "../modes/slot-id";
-import * as ResourcePack from "../resource-pack";
-import * as Selectors from "../selectors/selector";
-import * as Command from "./commands";
+import * as General from '../../general';
+import * as BehaviorPack from '../behavior-pack';
+import * as ItemComponents from '../json/item-components';
+import * as RawText from '../json/rawtext';
+import * as ModeCompletions from '../modes/modes';
+import * as SlotId from '../modes/slot-id';
+import * as ResourcePack from '../resource-pack';
+import * as Selectors from '../selectors/selector';
+import * as Command from './commands';
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const { parameter, builder } = context;
@@ -23,13 +23,13 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
     //Accepted values
     if (parameter.options.acceptedValues) {
       parameter.options.acceptedValues.forEach((value) => {
-        builder.add({ label: value, documentation: "accepted values", kind: CompletionItemKind.EnumMember });
+        builder.add({ label: value, documentation: 'accepted values', kind: CompletionItemKind.EnumMember });
       });
     }
 
     //Wildcard
     if (parameter.options.wildcard) {
-      builder.add({ label: "*", documentation: "wild card", kind: CompletionItemKind.Constant });
+      builder.add({ label: '*', documentation: 'wild card', kind: CompletionItemKind.Constant });
     }
   }
 
@@ -40,14 +40,14 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
       const doc = ParameterTypeDocumentation[parameter.type];
       if (!doc) return;
 
-      if (typeof item.documentation === "string" || item.documentation === undefined) {
+      if (typeof item.documentation === 'string' || item.documentation === undefined) {
         item.documentation = {
-          kind: "markdown",
-          value: item.documentation ?? "",
+          kind: 'markdown',
+          value: item.documentation ?? '',
         };
       }
 
-      item.documentation.value += "\n" + doc;
+      item.documentation.value += '\n' + doc;
     }),
   };
 
@@ -58,7 +58,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
 function toCompletion(context: CommandCompletionContext): void {
   context.builder.add({
     label: context.parameter.text,
-    documentation: "The keyword: " + context.parameter.text,
+    documentation: 'The keyword: ' + context.parameter.text,
     kind: CompletionItemKind.Keyword,
   });
 }

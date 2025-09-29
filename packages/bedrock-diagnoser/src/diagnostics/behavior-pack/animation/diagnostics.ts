@@ -1,8 +1,8 @@
-import { ProjectItem } from "bc-minecraft-bedrock-project";
-import { Errors } from "../..";
-import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../../types";
-import { diagnose_molang_implementation, MolangMetadata, User } from "../../molang/diagnostics";
-import { filter_not_defined } from "../../resources/using";
+import { ProjectItem } from 'bc-minecraft-bedrock-project';
+import { Errors } from '../..';
+import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../../types';
+import { diagnose_molang_implementation, MolangMetadata, User } from '../../molang/diagnostics';
+import { filter_not_defined } from '../../resources/using';
 
 /**
  *
@@ -13,12 +13,12 @@ import { filter_not_defined } from "../../resources/using";
 export function diagnose_animation_implementation(
   anim_id: string,
   user: User,
-  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>
+  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
 ): void {
   //Project has animation
   const anim = diagnoser.context.getProjectData().behaviors.animations.get(anim_id, diagnoser.project);
   if (anim === undefined) {
-    return Errors.missing("behaviors", "animations", anim_id, diagnoser);
+    return Errors.missing('behaviors', 'animations', anim_id, diagnoser);
   }
   if (!ProjectItem.is(anim)) {
     return; // Skip anything but a project defined item
@@ -33,7 +33,7 @@ export function diagnose_animation_implementation(
       `${user.id}/${anim.item.id}`,
       `Entity does not have event ${undef}`,
       DiagnosticSeverity.warning,
-      "behaviorpack.entity.event.missing"
+      'behaviorpack.entity.event.missing',
     );
   }
 }

@@ -40,7 +40,6 @@ export function diagnoseFormatVersion(data: FormatVersionContainer, diagnoser: D
   let v;
   try {
     v = FormatVersion.parse(data.format_version);
-   
   } catch (err) {
     return diagnoser.add(
       'Format version is not a valid number',

@@ -1,15 +1,15 @@
-import { MCProject } from "bc-minecraft-project";
-import { getProject } from "../../../project/mcprojects";
-import { Fs } from "../../../util";
-import { Context } from "../../context/context";
-import { CommandContext } from "../context";
-import { getWorkspace } from "../util";
+import { MCProject } from 'bc-minecraft-project';
+import { getProject } from '../../../project/mcprojects';
+import { Fs } from '../../../util';
+import { Context } from '../../context/context';
+import { CommandContext } from '../context';
+import { getWorkspace } from '../util';
 
 export async function createMcProject(context: Context<CommandContext>) {
   const workspaceProcessor = getWorkspace(context);
   const ws = await workspaceProcessor.get();
   if (ws === null) {
-    throw new Error("trouble loading the workspaces");
+    throw new Error('trouble loading the workspaces');
   }
 
   for (let I = 0; I < ws.length; I++) {

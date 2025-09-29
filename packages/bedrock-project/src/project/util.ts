@@ -1,8 +1,8 @@
-import { Pack } from "../types";
-import { BehaviorPack } from "./behavior-pack";
-import { PackType } from "./pack-type";
-import { ResourcePack } from "./resource-pack";
-import { WorldPack } from "./world";
+import { Pack } from '../types';
+import { BehaviorPack } from './behavior-pack';
+import { PackType } from './pack-type';
+import { ResourcePack } from './resource-pack';
+import { WorldPack } from './world';
 
 /**
  *

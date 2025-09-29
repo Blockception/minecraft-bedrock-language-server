@@ -1,6 +1,6 @@
-import { getJsonPath } from "../../../minecraft/json/path";
-import { Context } from "../../context/context";
-import { CompletionContext } from "../context";
+import { getJsonPath } from '../../../minecraft/json/path';
+import { Context } from '../../context/context';
+import { CompletionContext } from '../context';
 
 type JsonPathMatchFn = (path: string) => boolean;
 
@@ -21,7 +21,7 @@ export namespace JsonPathMatch {
    */
   export function create(
     match: string | RegExp | JsonPathMatchFn,
-    onCompletion: (context: Context<CompletionContext>) => void
+    onCompletion: (context: Context<CompletionContext>) => void,
   ) {
     return {
       match: match,
@@ -51,12 +51,12 @@ export class JsonPathCompletion {
 
     this._items.forEach((item) => {
       switch (typeof item.match) {
-        case "string":
+        case 'string':
           if (path.endsWith(item.match)) {
             item.onCompletion(context);
           }
           break;
-        case "function":
+        case 'function':
           if (item.match(path)) {
             item.onCompletion(context);
           }

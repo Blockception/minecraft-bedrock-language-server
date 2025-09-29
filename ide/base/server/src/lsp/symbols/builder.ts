@@ -1,6 +1,6 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Position } from "bc-minecraft-bedrock-types/src/types/position";
-import { CancellationToken, Range, SymbolInformation, SymbolKind } from "vscode-languageserver";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Position } from 'bc-minecraft-bedrock-types/src/types/position';
+import { CancellationToken, Range, SymbolInformation, SymbolKind } from 'vscode-languageserver';
 
 type forEachCarrier<T> = { forEach: (callbackfn: (value: T) => void, thisArg?: any) => void };
 
@@ -14,7 +14,7 @@ export class SymbolBuilder {
 
   constructor(query: string | undefined = undefined, token: CancellationToken) {
     this.token = token;
-    if (query === "") query = undefined;
+    if (query === '') query = undefined;
 
     this.query = query;
     this.items = [];
@@ -32,8 +32,8 @@ export class SymbolBuilder {
       name,
       kind ?? this.kind,
       range ?? this.range,
-      uri ?? "",
-      containerName ?? this.containerName
+      uri ?? '',
+      containerName ?? this.containerName,
     );
 
     this.items.push(item);

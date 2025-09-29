@@ -1,13 +1,13 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { parseMolang } from "../../src/molang/syntax/parse";
-import { valid_syntaxes } from "../data/dataset-valid";
-import { ExpressionNode, NodeType } from "../../src/molang/syntax/nodes";
-import { invalid_syntaxes } from "../data/dataset-invalid";
-import { MolangSyntaxError } from "../../src/molang";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { parseMolang } from '../../src/molang/syntax/parse';
+import { valid_syntaxes } from '../data/dataset-valid';
+import { ExpressionNode, NodeType } from '../../src/molang/syntax/nodes';
+import { invalid_syntaxes } from '../data/dataset-invalid';
+import { MolangSyntaxError } from '../../src/molang';
 
-describe("molang - syntax", () => {
-  describe("should be able to parse and match the syntax tree generated", () => {
-    test.each(valid_syntaxes)("%#. %s", (s) => {
+describe('molang - syntax', () => {
+  describe('should be able to parse and match the syntax tree generated', () => {
+    test.each(valid_syntaxes)('%#. %s', (s) => {
       const n = parseMolang(Types.OffsetWord.create(s, 0));
       n.forEach(cleanupNodes);
       expect(n).toMatchSnapshot();
@@ -16,8 +16,8 @@ describe("molang - syntax", () => {
     });
   });
 
-  describe("should throw an error", () => {
-    test.each(invalid_syntaxes)("%#. %s", (s) => {
+  describe('should throw an error', () => {
+    test.each(invalid_syntaxes)('%#. %s', (s) => {
       expect(() => parseMolang(Types.OffsetWord.create(s, 0))).toThrow(MolangSyntaxError);
     });
   });
@@ -54,8 +54,8 @@ function cleanupNodes(node: ExpressionNode) {
 
 function validateNode(node: ExpressionNode): void {
   expect(node).toBeDefined();
-  expect(node).toHaveProperty("type");
-  expect(node).toHaveProperty("position");
+  expect(node).toHaveProperty('type');
+  expect(node).toHaveProperty('position');
 
   switch (node.type) {
     case NodeType.StatementSequence:

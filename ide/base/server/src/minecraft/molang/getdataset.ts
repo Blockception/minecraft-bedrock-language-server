@@ -1,5 +1,5 @@
-import { BehaviorPack, PackType, ResourcePack } from "bc-minecraft-bedrock-project";
-import { MolangData } from "bc-minecraft-molang";
+import { BehaviorPack, PackType, ResourcePack } from 'bc-minecraft-bedrock-project';
+import { MolangData } from 'bc-minecraft-molang';
 
 /** */
 export function GetDataSet(uri: string, packType: PackType | undefined = undefined) {
@@ -33,8 +33,8 @@ export function GetRPDataSet(uri: string): typeof MolangData.Blocks | undefined 
     case ResourcePack.FileType.block:
       return MolangData.Blocks;
 
-      case ResourcePack.FileType.entity:
-        return MolangData.Entities;
+    case ResourcePack.FileType.entity:
+      return MolangData.Entities;
 
     case ResourcePack.FileType.render_controller:
       return MolangData.RenderControllers;

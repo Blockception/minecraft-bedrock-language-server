@@ -1,15 +1,15 @@
-import { GeneralInfo } from "bc-minecraft-bedrock-project/src/project/general/types";
-import { Kinds } from "../../../constants";
-import { getFilename } from "../../../util";
-import { Context } from "../../context/context";
-import { CompletionContext } from "../context";
+import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
+import { Kinds } from '../../../constants';
+import { getFilename } from '../../../util';
+import { Context } from '../../context/context';
+import { CompletionContext } from '../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;
   const data = context.document.configuration();
 
   const generateDoc = (item: GeneralInfo | string) => {
-    if (typeof item === "string") {
+    if (typeof item === 'string') {
       return `The objective: ${item}`;
     }
 

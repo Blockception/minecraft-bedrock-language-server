@@ -1,47 +1,48 @@
-import { Languages } from "@blockception/ide-shared";
+import { Languages } from '@blockception/ide-shared';
 import {
-  BulkRegistration, CancellationToken, Connection, DocumentFormattingParams,
+  BulkRegistration,
+  CancellationToken,
+  Connection,
+  DocumentFormattingParams,
   DocumentFormattingRequest,
   DocumentRangeFormattingParams,
-  TextEdit, WorkDoneProgressReporter
-} from "vscode-languageserver";
-import { Context } from "../context/context";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { IService } from "../services/service";
-import { FormatContext } from "./context";
-import { formatLangauge, formatLangaugeRange } from "./language";
-import { formatMcfunction, formatMcfunctionRange } from "./mcfunction";
+  TextEdit,
+  WorkDoneProgressReporter,
+} from 'vscode-languageserver';
+import { Context } from '../context/context';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { IService } from '../services/service';
+import { FormatContext } from './context';
+import { formatLangauge, formatLangaugeRange } from './language';
+import { formatMcfunction, formatMcfunctionRange } from './mcfunction';
 
 export class FormatService extends BaseService implements Partial<IService> {
-  name: string = "workspace processor";
+  name: string = 'workspace processor';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[formatter]"), extension);
+    super(logger.withPrefix('[formatter]'), extension);
   }
 
   dynamicRegister(register: BulkRegistration): void {
     // Tell the client that this server supports code formatting.
     register.add(DocumentFormattingRequest.type, {
-      documentSelector: [
-        { language: Languages.McFunctionIdentifier },
-        { language: Languages.McLanguageIdentifier },
-      ],
+      documentSelector: [{ language: Languages.McFunctionIdentifier }, { language: Languages.McLanguageIdentifier }],
     });
   }
 
   setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.onDocumentFormatting(this.onDocumentFormatting.bind(this)),
-      connection.onDocumentRangeFormatting(this.onDocumentRangeFormatting.bind(this))
+      connection.onDocumentRangeFormatting(this.onDocumentRangeFormatting.bind(this)),
     );
   }
 
   async onDocumentFormatting(
     params: DocumentFormattingParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<TextEdit[] | undefined | null> {
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return null;
@@ -55,7 +56,7 @@ export class FormatService extends BaseService implements Partial<IService> {
       },
       {
         logger: this.logger,
-      }
+      },
     );
 
     switch (document.languageId) {
@@ -76,7 +77,7 @@ export class FormatService extends BaseService implements Partial<IService> {
   async onDocumentRangeFormatting(
     params: DocumentRangeFormattingParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<TextEdit[] | undefined | null> {
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return undefined;
@@ -90,7 +91,7 @@ export class FormatService extends BaseService implements Partial<IService> {
       },
       {
         logger: this.logger,
-      }
+      },
     );
 
     switch (document.languageId) {

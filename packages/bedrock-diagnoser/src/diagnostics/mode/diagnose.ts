@@ -1,9 +1,9 @@
-import { Command } from "bc-minecraft-bedrock-command";
-import { Modes, Types } from "bc-minecraft-bedrock-types";
-import { ModeHandler } from "bc-minecraft-bedrock-types/src/modes/mode-handler";
-import { SlotTypeMode } from "bc-minecraft-bedrock-types/src/modes/slot-type";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { education_enabled } from "../definitions";
+import { Command } from 'bc-minecraft-bedrock-command';
+import { Modes, Types } from 'bc-minecraft-bedrock-types';
+import { ModeHandler } from 'bc-minecraft-bedrock-types/src/modes/mode-handler';
+import { SlotTypeMode } from 'bc-minecraft-bedrock-types/src/modes/slot-type';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { education_enabled } from '../definitions';
 
 export const mode_camera_shake_diagnose = mode_generic_diagnose(Modes.CameraShake);
 export const mode_cause_type_diagnose = mode_generic_diagnose(Modes.CauseType);
@@ -56,7 +56,7 @@ function mode_generic_diagnose(Mode: ModeHandler): ModeDiagnose {
       value,
       `value: '${value.text}' is not defined in mode: '${name}'`,
       DiagnosticSeverity.error,
-      `minecraft.mode.${name}.invalid`
+      `minecraft.mode.${name}.invalid`,
     );
     return false;
   };
@@ -69,9 +69,9 @@ function mode_generic_diagnose(Mode: ModeHandler): ModeDiagnose {
 export function mode_slotid_diagnose(
   value: Types.OffsetWord,
   Com: Command | string,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
-  if (typeof Com !== "string") {
+  if (typeof Com !== 'string') {
     //Get the slot type
     const index = Com.parameters.indexOf(value) - 1;
     //if the index is negative, the parameter then was not found
@@ -87,9 +87,9 @@ export function mode_slotid_diagnose(
   if (m.eduOnly === true && education_enabled(diagnoser) === false) {
     diagnoser.add(
       value.offset,
-      "This is an education only mode, and education is disabled",
+      'This is an education only mode, and education is disabled',
       DiagnosticSeverity.error,
-      "minecraft.mode.edu"
+      'minecraft.mode.edu',
     );
     return false;
   }
@@ -102,7 +102,7 @@ export function mode_slotid_diagnose(
         value.offset,
         `The value is ${n} not in the range of ${m.range.min} to ${m.range.max}`,
         DiagnosticSeverity.error,
-        "minecraft.mode.range"
+        'minecraft.mode.range',
       );
       return false;
     }

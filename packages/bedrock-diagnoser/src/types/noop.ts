@@ -1,6 +1,6 @@
-import { TextDocument } from "bc-minecraft-bedrock-project";
-import { MCProject } from "bc-minecraft-project";
-import { DiagnosticsBuilder, DiagnosticsBuilderContent } from "./diagnostics-builder";
+import { TextDocument } from 'bc-minecraft-bedrock-project';
+import { MCProject } from 'bc-minecraft-project';
+import { DiagnosticsBuilder, DiagnosticsBuilderContent } from './diagnostics-builder';
 
 export class NoopDiagnoser<T extends TextDocument> implements DiagnosticsBuilder<T> {
   context: DiagnosticsBuilderContent<T>;

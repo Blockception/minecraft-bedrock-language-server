@@ -1,22 +1,28 @@
-import { CancellationToken, Connection, SymbolInformation, WorkDoneProgressReporter, WorkspaceSymbolParams } from "vscode-languageserver";
-import { Kinds } from "../../constants";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { SymbolBuilder } from "./builder";
-import { convertBehaviorPacks, convertResourcePack } from "./functions";
+import {
+  CancellationToken,
+  Connection,
+  SymbolInformation,
+  WorkDoneProgressReporter,
+  WorkspaceSymbolParams,
+} from 'vscode-languageserver';
+import { Kinds } from '../../constants';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { SymbolBuilder } from './builder';
+import { convertBehaviorPacks, convertResourcePack } from './functions';
 
 export class WorkspaceSymbolService extends BaseService implements Partial<IService> {
-  readonly name: string = "workspace-symbols";
+  readonly name: string = 'workspace-symbols';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[workspace-symbols]"), extension);
+    super(logger.withPrefix('[workspace-symbols]'), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    capabilities.set("workspaceSymbolProvider", {
+    capabilities.set('workspaceSymbolProvider', {
       resolveProvider: true,
       workDoneProgress: true,
     });
@@ -29,14 +35,14 @@ export class WorkspaceSymbolService extends BaseService implements Partial<IServ
   async onWorkspaceSymbol(
     params: WorkspaceSymbolParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<SymbolInformation[]> {
     const builder = new SymbolBuilder(params.query, token);
     const data = this.extension.database.ProjectData;
-    workDoneProgress.begin("workspace symbols", 0, "", true);
+    workDoneProgress.begin('workspace symbols', 0, '', true);
 
     //General items
-    builder.containerName = "minecraft";
+    builder.containerName = 'minecraft';
     builder.generate(data.general.fakeEntities, Kinds.Symbol.FakeEntity);
     builder.generate(data.general.objectives, Kinds.Symbol.Objectives);
     builder.generate(data.general.structures, Kinds.Symbol.Structure);

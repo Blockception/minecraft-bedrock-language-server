@@ -1,6 +1,6 @@
 import { Defined } from 'bc-minecraft-bedrock-project';
-import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/src/types";
-import { CancellationToken, CompletionItem, CompletionItemKind, WorkDoneProgressReporter } from "vscode-languageserver";
+import { Documentated, Identifiable } from 'bc-minecraft-bedrock-types/src/types';
+import { CancellationToken, CompletionItem, CompletionItemKind, WorkDoneProgressReporter } from 'vscode-languageserver';
 
 export type GenerateFunction<T> = (item: T) => string;
 
@@ -41,18 +41,18 @@ export interface CompletionBuilder {
    */
   generate<T extends Identifiable | string>(
     dataset: IForEach<T> | Defined | undefined,
-    generatefn: GenerateFunction<T>
+    generatefn: GenerateFunction<T>,
   ): CompletionItem[];
   generate<T extends Identifiable | string>(
     dataset: IForEach<T> | Defined | undefined,
     generatefn: GenerateFunction<T>,
-    kind: CompletionItemKind
+    kind: CompletionItemKind,
   ): CompletionItem[];
   generate<T extends Identifiable | string>(
     dataset: IForEach<T> | Defined | undefined,
     generatefn: GenerateFunction<T>,
     kind: CompletionItemKind | undefined,
-    query: string | undefined
+    query: string | undefined,
   ): CompletionItem[];
 
   /**
@@ -69,7 +69,7 @@ export interface CompletionBuilder {
   withDefaults(base: Partial<CompletionItem>): CompletionBuilder;
 }
 
-type BaseCompletionBuilder = Pick<CompletionBuilder, "add" | "isCancelled" | "getItems">;
+type BaseCompletionBuilder = Pick<CompletionBuilder, 'add' | 'isCancelled' | 'getItems'>;
 
 export class BaseBuilder implements BaseCompletionBuilder {
   private _items: CompletionItem[];
@@ -85,8 +85,8 @@ export class BaseBuilder implements BaseCompletionBuilder {
   /** @inheritdoc */
   add(item: CompletionItem): CompletionItem {
     if (item.documentation) {
-      if (typeof item.documentation === "string") {
-        item.documentation = { kind: "markdown", value: item.documentation };
+      if (typeof item.documentation === 'string') {
+        item.documentation = { kind: 'markdown', value: item.documentation };
       }
     }
 
@@ -117,7 +117,7 @@ export class EventedBuilder implements BaseCompletionBuilder {
   constructor(
     builder: BaseCompletionBuilder,
     before: (item: CompletionItem) => void,
-    after: (item: CompletionItem) => void
+    after: (item: CompletionItem) => void,
   ) {
     this._builder = builder;
     this._before = before;
@@ -166,7 +166,7 @@ export class WrappedBuilder implements CompletionBuilder {
   generateItem<T extends Identifiable & Documentated>(
     item: T,
     generatefn: (item: T) => string,
-    kind: CompletionItemKind = CompletionItemKind.Keyword
+    kind: CompletionItemKind = CompletionItemKind.Keyword,
   ): CompletionItem {
     const citem = {
       label: item.id,
@@ -182,7 +182,7 @@ export class WrappedBuilder implements CompletionBuilder {
     dataset: IForEach<T | string> | undefined,
     generatefn: (item: T) => string,
     kind: CompletionItemKind = CompletionItemKind.Keyword,
-    query: string | undefined = undefined
+    query: string | undefined = undefined,
   ): CompletionItem[] {
     const out: CompletionItem[] = [];
     if (dataset === undefined) return out;
@@ -193,7 +193,7 @@ export class WrappedBuilder implements CompletionBuilder {
       if (filterFn(item) === false) return;
 
       switch (typeof item) {
-        case "string":
+        case 'string':
           out.push(this.builder.add({ label: item, documentation: item, kind: kind }));
           break;
         default:
@@ -208,7 +208,7 @@ export class WrappedBuilder implements CompletionBuilder {
     if (query === undefined) return () => true;
 
     return (item: Identifiable | string) => {
-      if (typeof item === "string") return item.includes(query);
+      if (typeof item === 'string') return item.includes(query);
       return item.id.includes(query);
     };
   }
@@ -230,8 +230,8 @@ export class WrappedBuilder implements CompletionBuilder {
             if (item[key] === undefined) item[key] = value;
           });
         },
-        noop
-      )
+        noop,
+      ),
     );
   }
 }

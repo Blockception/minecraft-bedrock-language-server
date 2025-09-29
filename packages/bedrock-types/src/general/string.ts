@@ -4,7 +4,7 @@ export namespace String {
    * @param value The valued to compare to
    * @returns True or false if the text represents an string*/
   export function is(value: string): boolean {
-    if (value.includes(" ")) {
+    if (value.includes(' ')) {
       if (value.startsWith('"') && value.endsWith('"')) return true;
 
       return false;

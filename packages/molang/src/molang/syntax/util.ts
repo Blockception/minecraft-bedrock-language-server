@@ -2,13 +2,13 @@ import { Token, TokenType } from './tokens';
 
 /**
  * Gets a slice tokens from ( to ) (or for {}, [])
- * @param tokens 
- * @param startIndex 
- * @returns 
+ * @param tokens
+ * @param startIndex
+ * @returns
  */
 export function getMatchingTokenSlice(tokens: Token[], startIndex: number): Token[] {
   if (startIndex >= tokens.length) {
-    throw new Error("Start index is out of bounds");
+    throw new Error('Start index is out of bounds');
   }
 
   const startToken = tokens[startIndex];
@@ -54,8 +54,8 @@ export function getMatchingTokenSlice(tokens: Token[], startIndex: number): Toke
   // Validate that we found the matching closing token
   if (endIndex === -1) {
     const tokenName =
-      startToken.type === TokenType.OpenBrace ? "{" : startToken.type === TokenType.OpenParen ? "(" : "[";
-    const closingName = targetType === TokenType.CloseBrace ? "}" : targetType === TokenType.CloseParen ? ")" : "]";
+      startToken.type === TokenType.OpenBrace ? '{' : startToken.type === TokenType.OpenParen ? '(' : '[';
+    const closingName = targetType === TokenType.CloseBrace ? '}' : targetType === TokenType.CloseParen ? ')' : ']';
     throw new Error(`Couldn't find the matching closing ${closingName} for ${tokenName} at index ${startIndex}`);
   }
 

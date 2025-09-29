@@ -1,8 +1,8 @@
-import { Commands } from "@blockception/ide-shared";
-import { MCAttributes, MCDefinition } from "bc-minecraft-project";
-import { CodeAction, CodeActionKind, Command, Diagnostic } from "vscode-languageserver";
-import { CodeActionBuilder } from "../builder";
-import { Vscode } from "../../../util";
+import { Commands } from '@blockception/ide-shared';
+import { MCAttributes, MCDefinition } from 'bc-minecraft-project';
+import { CodeAction, CodeActionKind, Command, Diagnostic } from 'vscode-languageserver';
+import { CodeActionBuilder } from '../builder';
+import { Vscode } from '../../../util';
 
 /**
  * Adds a given type and value to the definition
@@ -49,9 +49,9 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
   if (!document) return;
 
   const ws = builder.context.database.WorkspaceData.getFolder(document.uri);
-  const key = diag.code ?? "";
+  const key = diag.code ?? '';
 
-  if (typeof key === "undefined" || key === "") return;
+  if (typeof key === 'undefined' || key === '') return;
 
   if (!ws) {
     builder.context.logger.error(`Couldn't find workspace for: ${document.uri}`);

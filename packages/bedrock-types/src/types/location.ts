@@ -1,4 +1,4 @@
-import { DocumentLocation } from "./document-location";
+import { DocumentLocation } from './document-location';
 
 /**An object that describe a location in a document*/
 export interface Location {
@@ -17,8 +17,8 @@ export namespace Location {
    * @returns
    */
   export function is(value: any): value is Location {
-    if (typeof value === "object") {
-      if (typeof value.uri === "string" && typeof value.position !== "undefined") return true;
+    if (typeof value === 'object') {
+      if (typeof value.uri === 'string' && typeof value.position !== 'undefined') return true;
     }
 
     return false;
@@ -39,6 +39,6 @@ export namespace Location {
    * @returns
    */
   export function empty() {
-    return create("");
+    return create('');
   }
 }

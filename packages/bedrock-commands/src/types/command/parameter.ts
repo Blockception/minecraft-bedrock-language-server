@@ -8,7 +8,7 @@ export class Parameter {
   /**Creates a new instance of the parameter
    * @param text The text to assign
    * @param offset The offset to assign*/
-  constructor(text: string = "", offset: number = 0) {
+  constructor(text: string = '', offset: number = 0) {
     this.offset = offset;
     this.text = text;
   }
@@ -20,7 +20,7 @@ export namespace Parameter {
    * @param value The value to evaluate
    * @returns true or false if the object implements the Parameter object or not*/
   export function is(value: any): value is Parameter {
-    if (value && typeof value.offset === "number" && typeof value.text === "string") return true;
+    if (value && typeof value.offset === 'number' && typeof value.text === 'string') return true;
 
     return false;
   }

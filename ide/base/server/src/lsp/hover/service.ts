@@ -1,26 +1,26 @@
-import { Languages } from "@blockception/ide-shared";
-import { CancellationToken, Connection, Hover, HoverParams, WorkDoneProgressReporter } from "vscode-languageserver";
-import { Context } from "../context/context";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { HoverContext } from "./context";
+import { Languages } from '@blockception/ide-shared';
+import { CancellationToken, Connection, Hover, HoverParams, WorkDoneProgressReporter } from 'vscode-languageserver';
+import { Context } from '../context/context';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { HoverContext } from './context';
 
-import * as Json from "./minecraft/json";
-import * as Mcfunction from "./minecraft/mcfunction";
-import * as Molang from "./minecraft/molang";
+import * as Json from './minecraft/json';
+import * as Mcfunction from './minecraft/mcfunction';
+import * as Molang from './minecraft/molang';
 
 export class HoverService extends BaseService implements Partial<IService> {
-  name: string = "hover";
+  name: string = 'hover';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[hover]"), extension);
+    super(logger.withPrefix('[hover]'), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    capabilities.set("hoverProvider", {
+    capabilities.set('hoverProvider', {
       workDoneProgress: true,
     });
   }
@@ -32,7 +32,7 @@ export class HoverService extends BaseService implements Partial<IService> {
   private async onHoverRequest(
     params: HoverParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<Hover | undefined | null> {
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return undefined;
@@ -40,7 +40,7 @@ export class HoverService extends BaseService implements Partial<IService> {
     const context = Context.create<HoverContext>(
       this.extension,
       { document, params, token, workDoneProgress },
-      { logger: this.logger }
+      { logger: this.logger },
     );
 
     switch (document.languageId) {

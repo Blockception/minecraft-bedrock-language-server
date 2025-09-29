@@ -1,9 +1,9 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { check_definition_value } from "../definitions";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { check_definition_value } from '../definitions';
 
 export function minecraft_objectives_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
-  if (diagnoser.project.attributes["diagnostic.objective"] === "false") {
+  if (diagnoser.project.attributes['diagnostic.objective'] === 'false') {
     return true;
   }
 
@@ -15,7 +15,7 @@ export function minecraft_objectives_diagnose(value: Types.OffsetWord, diagnoser
       value,
       `Illegal character found in objective: '${id}'.`,
       DiagnosticSeverity.error,
-      "minecraft.objective.invalid"
+      'minecraft.objective.invalid',
     );
   }
 
@@ -35,7 +35,7 @@ export function minecraft_objectives_diagnose(value: Types.OffsetWord, diagnoser
     value,
     `Cannot find objective definition: ${id}`,
     DiagnosticSeverity.error,
-    "minecraft.objective.missing"
+    'minecraft.objective.missing',
   );
   return false;
 }

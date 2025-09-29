@@ -1,6 +1,6 @@
-import { TextDocument } from "../../documents/text-document";
-import { BaseSemanticTokensBuilder } from "./base";
-import { JsonSemanticTokensBuilder } from "./json";
+import { TextDocument } from '../../documents/text-document';
+import { BaseSemanticTokensBuilder } from './base';
+import { JsonSemanticTokensBuilder } from './json';
 
 /**
  *

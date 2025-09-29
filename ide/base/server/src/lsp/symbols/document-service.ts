@@ -1,4 +1,4 @@
-import { GeneralInfo } from "bc-minecraft-bedrock-project/src/project/general/types";
+import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
 import {
   CancellationToken,
   Connection,
@@ -7,26 +7,26 @@ import {
   SymbolInformation,
   SymbolKind,
   WorkDoneProgressReporter,
-} from "vscode-languageserver";
-import { Kinds } from "../../constants";
-import { getFilename, Vscode } from "../../util";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { SymbolBuilder } from "./builder";
+} from 'vscode-languageserver';
+import { Kinds } from '../../constants';
+import { getFilename, Vscode } from '../../util';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { SymbolBuilder } from './builder';
 
 export class DocumentSymbolService extends BaseService implements Partial<IService> {
-  readonly name: string = "document-symbols";
+  readonly name: string = 'document-symbols';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[document-symbols]"), extension);
+    super(logger.withPrefix('[document-symbols]'), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    capabilities.set("documentSymbolProvider", {
-      label: "minecraft",
+    capabilities.set('documentSymbolProvider', {
+      label: 'minecraft',
       workDoneProgress: true,
     });
   }
@@ -38,12 +38,12 @@ export class DocumentSymbolService extends BaseService implements Partial<IServi
   async onDocumentSymbol(
     params: DocumentSymbolParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<SymbolInformation[] | DocumentSymbol[]> {
     const builder = new SymbolBuilder(undefined, token);
     const data = this.extension.database.ProjectData;
     const uri = Vscode.fromFs(params.textDocument.uri);
-    workDoneProgress.begin("document symbols", 0, "", true);
+    workDoneProgress.begin('document symbols', 0, '', true);
 
     const check = (obj: GeneralInfo) => {
       if (obj.location.uri === uri) {
@@ -66,10 +66,10 @@ export class DocumentSymbolService extends BaseService implements Partial<IServi
     builder.kind = Kinds.Symbol.Tickingarea;
     data.general.tickingAreas.forEach(check);
 
-    if (uri.endsWith(".json")) return builder.items;
+    if (uri.endsWith('.json')) return builder.items;
 
     const filename = getFilename(uri);
-    if (filename !== "") builder.new(filename, SymbolKind.Class);
+    if (filename !== '') builder.new(filename, SymbolKind.Class);
 
     workDoneProgress.done();
     return builder.items;

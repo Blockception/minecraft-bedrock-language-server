@@ -1,7 +1,7 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { DataSetBase } from "./data-set";
-import { Pack } from "./pack";
-import { TextDocument } from "./text-document";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DataSetBase } from './data-set';
+import { Pack } from './pack';
+import { TextDocument } from './text-document';
 
 /**The class PackCollection description*/
 export class PackCollection<T extends Pack> {
@@ -38,7 +38,7 @@ export class PackCollection<T extends Pack> {
    * @returns
    */
   get(doc: TextDocument | string): T | undefined {
-    const uri = typeof doc === "string" ? doc : doc.uri;
+    const uri = typeof doc === 'string' ? doc : doc.uri;
 
     for (let I = 0; I < this.packs.length; I++) {
       const current = this.packs[I];

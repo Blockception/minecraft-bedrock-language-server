@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import * as fs from 'fs';
 
 /**The interface that collects ignore patterns*/
 export interface MCIgnore {
@@ -9,7 +9,7 @@ export interface MCIgnore {
 /**The namespace that provides functions for MCIgnore interfaces*/
 export namespace MCIgnore {
   /**The default filename of a MCIgnore filename*/
-  export const filename = ".mcignore";
+  export const filename = '.mcignore';
 
   /**Creates an empty version of MCIgnore
    * @returns An empty MCIgnore object*/
@@ -48,7 +48,7 @@ export namespace MCIgnore {
       patterns: content
         .split(/(\r\n|\n)/)
         .map((item) => item.trim())
-        .filter((item) => item !== ""),
+        .filter((item) => item !== ''),
     };
   }
 
@@ -56,7 +56,7 @@ export namespace MCIgnore {
    * @param data The MCIgnore data to convert
    * @returns A string represerntation of the contents of a MCIgnore*/
   export function toString(data: MCIgnore): string {
-    return data.patterns.join("\n");
+    return data.patterns.join('\n');
   }
 
   /** Loads the content of the given file into a MCIgnore

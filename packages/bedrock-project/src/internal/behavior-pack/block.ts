@@ -1,9 +1,9 @@
-import { ComponentContainer } from "bc-minecraft-bedrock-types/src/minecraft/components";
-import { FormatVersion } from "../types/format-version";
+import { ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
+import { FormatVersion } from '../types/format-version';
 
 export interface Block extends Readonly<FormatVersion> {
   format_version: string;
-  "minecraft:block": {
+  'minecraft:block': {
     description: {
       identifier: string;
       register_to_creative_menu?: boolean;
@@ -29,13 +29,13 @@ export namespace Block {
    * @returns
    */
   export function is(value: any): value is Block {
-    if (value && typeof value.format_version === "string" && typeof value["minecraft:block"] === "object") {
-      const b = value["minecraft:block"];
+    if (value && typeof value.format_version === 'string' && typeof value['minecraft:block'] === 'object') {
+      const b = value['minecraft:block'];
 
       if (
-        typeof b.description === "object" &&
-        typeof b.description.identifier === "string" &&
-        typeof b.components === "object"
+        typeof b.description === 'object' &&
+        typeof b.description.identifier === 'string' &&
+        typeof b.components === 'object'
       ) {
         return true;
       }

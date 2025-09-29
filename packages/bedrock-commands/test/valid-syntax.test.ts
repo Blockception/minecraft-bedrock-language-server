@@ -1,9 +1,11 @@
-import { Command } from "../src";
+import { Command } from '../src';
 
-describe("checking valid context", () => {
-  const lines = valid().split("\n").filter((item) => item.trim().length > 0);
+describe('checking valid context', () => {
+  const lines = valid()
+    .split('\n')
+    .filter((item) => item.trim().length > 0);
 
-  test.each(lines)("should be valid syntax: %p", (line) => {
+  test.each(lines)('should be valid syntax: %p', (line) => {
     const comm = Command.parse(line, 0);
     const data = comm.getCommandData(true);
     expect(data).not.toHaveLength(0);

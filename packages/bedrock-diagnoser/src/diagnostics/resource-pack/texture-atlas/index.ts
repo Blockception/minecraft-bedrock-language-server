@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./entry";
-export * from "./flipbook";
+export * from './entry';
+export * from './flipbook';

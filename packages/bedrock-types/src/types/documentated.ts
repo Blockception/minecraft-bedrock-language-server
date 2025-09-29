@@ -10,7 +10,7 @@ export namespace Documentated {
    * @param value The value to examinate
    * @returns*/
   export function is(value: any): value is Documentated {
-    if (value && typeof value.documentation === "string") {
+    if (value && typeof value.documentation === 'string') {
       return true;
     }
 
@@ -21,7 +21,7 @@ export namespace Documentated {
    * @param data The data carrier.
    * @param create The function that creates a documentation*/
   export function getOrCreate<T extends Documentated>(data: T, create: (data: T) => string): string {
-    if (typeof data.documentation === "string") {
+    if (typeof data.documentation === 'string') {
       return data.documentation;
     }
 

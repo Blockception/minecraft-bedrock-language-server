@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./loot-table";
-export * from "./process";
+export * from './loot-table';
+export * from './process';

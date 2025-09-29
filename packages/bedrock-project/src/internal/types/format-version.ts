@@ -12,7 +12,7 @@ export namespace FormatVersion {
    * @returns
    */
   export function is(value: any): value is FormatVersion {
-    if (value && typeof value.format_version === "string") return true;
+    if (value && typeof value.format_version === 'string') return true;
 
     return false;
   }
@@ -46,12 +46,12 @@ export namespace FormatVersion {
         case 0:
           break;
       }
-    } else if (typeof value === "object" && typeof value.format_version === "string") {
+    } else if (typeof value === 'object' && typeof value.format_version === 'string') {
       value = value.format_version;
     }
 
-    if (typeof value === "string") {
-      const s = value.split(".");
+    if (typeof value === 'string') {
+      const s = value.split('.');
       const max = Math.min(s.length, 3);
 
       switch (max) {

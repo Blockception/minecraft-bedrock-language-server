@@ -1,8 +1,8 @@
-import { MolangType, traverse } from "../../src/molang";
+import { MolangType, traverse } from '../../src/molang';
 import { VanillaPlayer } from '../vanilla-player';
 
-describe("Traverse", () => {
-  it("rp", () => {
+describe('Traverse', () => {
+  it('rp', () => {
     const obj = VanillaPlayer.DataObject;
     let count = 0;
 
@@ -13,14 +13,14 @@ describe("Traverse", () => {
     expect(count).toBeGreaterThan(20);
   });
 
-  it("anim", () => {
+  it('anim', () => {
     const obj = {
-      "animation.billy_robot.temp_deactivate": {
+      'animation.billy_robot.temp_deactivate': {
         animation_length: 4.5,
         loop: false,
         timeline: {
-          "0.0": ["/effect @s instant_health 1 3 true", "/tag @s remove vulnerable"],
-          "4.0": ["@s self:activate", "variable.temp=query.variant;"],
+          '0.0': ['/effect @s instant_health 1 3 true', '/tag @s remove vulnerable'],
+          '4.0': ['@s self:activate', 'variable.temp=query.variant;'],
         },
       },
     };
@@ -29,7 +29,7 @@ describe("Traverse", () => {
     let events = 0;
     let molang = 0;
 
-    traverse(obj, (value, type,) => {
+    traverse(obj, (value, type) => {
       switch (type) {
         case MolangType.command:
           commands++;

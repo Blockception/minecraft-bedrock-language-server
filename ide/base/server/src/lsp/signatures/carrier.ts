@@ -1,4 +1,4 @@
-import { SignatureInformation } from "vscode-languageserver";
+import { SignatureInformation } from 'vscode-languageserver';
 
 /**
  *

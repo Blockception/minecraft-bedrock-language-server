@@ -1,7 +1,7 @@
-import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from "../../context/context";
-import { CompletionBuilder } from "../builder/builder";
-import { CommandCompletionContext } from "../context";
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Context } from '../../context/context';
+import { CompletionBuilder } from '../builder/builder';
+import { CommandCompletionContext } from '../context';
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const builder = context.builder;
@@ -13,7 +13,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
 export function provideCreateCompletion(
   context: CommandCompletionContext | CompletionBuilder,
   minimum?: number,
-  maximum?: number
+  maximum?: number,
 ): void {
   minimum = minimum ?? 0;
   maximum = maximum ?? 10;
@@ -25,6 +25,6 @@ export function provideCreateCompletion(
 
   for (let I = minimum; I < maximum; I += steps) {
     const text = I.toPrecision(3);
-    receiver.add({ label: text, documentation: "The float number: " + text, kind: CompletionItemKind.Constant });
+    receiver.add({ label: text, documentation: 'The float number: ' + text, kind: CompletionItemKind.Constant });
   }
 }

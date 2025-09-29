@@ -1,10 +1,10 @@
-import { ResourcePack } from "bc-minecraft-bedrock-project";
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types/identifiable";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { CompletionItemKind } from "vscode-languageserver";
-import { Kinds } from "../../../../constants";
-import { MinecraftFormat } from "../../../../minecraft/format";
-import { IsEducationEnabled } from "../../../../project/attributes";
+import { ResourcePack } from 'bc-minecraft-bedrock-project';
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Kinds } from '../../../../constants';
+import { MinecraftFormat } from '../../../../minecraft/format';
+import { IsEducationEnabled } from '../../../../project/attributes';
 import { getExtension } from '../../../../util';
 import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
@@ -33,7 +33,7 @@ export function provideSoundFileCompletion(context: Context<CompletionContext>):
   const files = MinecraftFormat.GetAudioFiles(RP.folder, RP.context.ignores.patterns);
 
   files.forEach((filepath) => {
-    const index = filepath.indexOf("sounds");
+    const index = filepath.indexOf('sounds');
     if (index <= 0) {
       return;
     }

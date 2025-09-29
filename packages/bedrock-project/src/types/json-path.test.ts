@@ -1,4 +1,4 @@
-import { JsonPath } from "./json-path";
+import { JsonPath } from './json-path';
 
 const entity = `{
   "format_version": "1.16.0",
@@ -24,20 +24,20 @@ const entity = `{
   }
 }`;
 
-describe("JsonPath", () => {
+describe('JsonPath', () => {
   const paths: { path: string; result: string }[] = [
-    { path: "minecraft:entity", result: "minecraft:entity" },
-    { path: "minecraft:entity/description", result: "description" },
-    { path: "minecraft:entity/description/identifier", result: "identifier" },
-    { path: "minecraft:entity\\description", result: "description" },
-    { path: "minecraft:entity\\description/identifier", result: "identifier" },
+    { path: 'minecraft:entity', result: 'minecraft:entity' },
+    { path: 'minecraft:entity/description', result: 'description' },
+    { path: 'minecraft:entity/description/identifier', result: 'identifier' },
+    { path: 'minecraft:entity\\description', result: 'description' },
+    { path: 'minecraft:entity\\description/identifier', result: 'identifier' },
   ];
 
-  paths.forEach(item=>{
+  paths.forEach((item) => {
     it(`should parse ${item.path} to location of ${item.result}`, () => {
       const offset = JsonPath.resolve(entity, item.path);
       const actual = entity.indexOf(item.result);
       expect(offset).toEqual(actual);
     });
-  })
+  });
 });

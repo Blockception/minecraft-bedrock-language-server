@@ -1,4 +1,4 @@
-import { OffsetWord } from "bc-vscode-words";
+import { OffsetWord } from 'bc-vscode-words';
 
 const MolangWordsRegexp = /(['"][^'"]+['"]|[A-Za-z_]+|[/.!+\-*&[]{}()><=:;?|]+|@[a-z]|[0-9.]+)/gi;
 const MolangSetWordsRegexp = /([a-zA-Z]+\.([A-Za-z_]*))/gi;

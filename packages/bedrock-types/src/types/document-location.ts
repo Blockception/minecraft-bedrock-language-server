@@ -1,7 +1,7 @@
-import { JsonPath } from "./json-path";
-import { OffsetWord } from "./offset-word";
-import { Position } from "./position";
-import { Range } from "./range";
+import { JsonPath } from './json-path';
+import { OffsetWord } from './offset-word';
+import { Position } from './position';
+import { Range } from './range';
 
 /**The type of a document location */
 export type DocumentLocation = Position | OffsetWord | JsonPath | number;
@@ -10,7 +10,7 @@ export type DocumentLocation = Position | OffsetWord | JsonPath | number;
 export type TextOrDoc = string | { getText(): string };
 
 function ToText(value: TextOrDoc): string {
-  return typeof value === "string" ? value : value.getText();
+  return typeof value === 'string' ? value : value.getText();
 }
 
 /**
@@ -23,21 +23,21 @@ export namespace DocumentLocation {
 
   export function toOffset(data: DocumentLocation, text?: TextOrDoc): number {
     switch (typeof data) {
-      case "number":
+      case 'number':
         return data;
 
       //Json path
-      case "string":
-        if (text === undefined) throw new Error("text or document must be provided");
+      case 'string':
+        if (text === undefined) throw new Error('text or document must be provided');
         return JsonPath.resolve(text, data);
 
       //Position
-      case "object":
+      case 'object':
         if (OffsetWord.is(data)) {
           return data.offset;
         }
 
-        if (text === undefined) throw new Error("text or document must be provided");
+        if (text === undefined) throw new Error('text or document must be provided');
         return Position.toOffset(data, ToText(text));
 
       default:
@@ -53,15 +53,15 @@ export namespace DocumentLocation {
    */
   export function toPosition(data: DocumentLocation, text: TextOrDoc): Position {
     switch (typeof data) {
-      case "number":
+      case 'number':
         return Position.toPosition(data, ToText(text));
 
       //Json path
-      case "string":
+      case 'string':
         return Position.toPosition(JsonPath.resolve(text, data), ToText(text));
 
       //Position
-      case "object":
+      case 'object':
         if (OffsetWord.is(data)) {
           return Position.toPosition(data.offset, data.text);
         }
@@ -81,8 +81,8 @@ export namespace DocumentLocation {
       const t = data.text;
       return Range.create(Position.toPosition(data.offset, t), Position.toPosition(data.offset + t.length, t));
     }
-    if (text === undefined) throw new Error("requires text or document");
-    if (length === undefined) throw new Error("requires length");
+    if (text === undefined) throw new Error('requires text or document');
+    if (length === undefined) throw new Error('requires length');
 
     const startindex = toOffset(data, text);
     const endindex = startindex + length;

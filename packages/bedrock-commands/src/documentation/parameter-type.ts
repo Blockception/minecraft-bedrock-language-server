@@ -1,5 +1,5 @@
-import { ModeHandler, Modes } from "bc-minecraft-bedrock-types";
-import { ParameterType } from "../types/parameter-type";
+import { ModeHandler, Modes } from 'bc-minecraft-bedrock-types';
+import { ParameterType } from '../types/parameter-type';
 
 export const ParameterTypeDocumentation: Partial<Record<ParameterType, string>> = {
   [ParameterType.animation]: `## Animation
@@ -223,7 +223,6 @@ The identifier of a ticking area.`,
   [ParameterType.time]: `## Time
 A value representing the time of the game.`,
 
-
   [ParameterType.timeInTicks]: `## Time in ticks
 A value representing the time of the game (20D, 3S, 15T, 4).`,
 
@@ -246,5 +245,5 @@ function sumMode(mode: ModeHandler): string {
   return mode.modes
     .slice(0, 20)
     .map((m) => ` - \`${m.name}\``)
-    .join("\r\n");
+    .join('\r\n');
 }

@@ -1,11 +1,11 @@
-import { TextDocument } from "./text-document";
+import { TextDocument } from './text-document';
 
 /** */
 export type JsonPath = string;
 
 /** */
 export namespace JsonPath {
-  export const seperator = "/";
+  export const seperator = '/';
 
   /**
    *
@@ -13,7 +13,7 @@ export namespace JsonPath {
    * @param path
    */
   export function resolve(text: string | TextDocument, path: JsonPath): number {
-    if (typeof text === "object") text = text.getText();
+    if (typeof text === 'object') text = text.getText();
 
     const s = path.split(/[\\/]/);
     let index = 0;
@@ -21,7 +21,7 @@ export namespace JsonPath {
     for (let I = 0; I < s.length; I++) {
       const elem = s[I];
 
-      if (!Number.isInteger(elem) && elem !== "") {
+      if (!Number.isInteger(elem) && elem !== '') {
         const t = text.indexOf(elem, index);
         if (t > -1) index = t;
       }
@@ -45,6 +45,6 @@ export namespace JsonPath {
    * @returns
    */
   export function is(value: any): value is JsonPath {
-    return typeof value === "string";
+    return typeof value === 'string';
   }
 }

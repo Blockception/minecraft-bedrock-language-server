@@ -1,15 +1,15 @@
-import { FileType } from "bc-minecraft-bedrock-project/src/project/behavior-pack";
-import { Context } from "../../../context/context";
-import { JsonCompletionContext } from "../../context";
+import { FileType } from 'bc-minecraft-bedrock-project/src/project/behavior-pack';
+import { Context } from '../../../context/context';
+import { JsonCompletionContext } from '../../context';
 
-import * as Manifests from "../../general/manifests";
-import * as AnimationControllers from "./animation-controllers";
-import * as Animations from "./animations";
-import * as Blocks from "./blocks";
-import * as Entities from "./entity/main";
-import * as Items from "./items";
-import * as LootTables from "./loot-tables";
-import * as Trading from "./trading";
+import * as Manifests from '../../general/manifests';
+import * as AnimationControllers from './animation-controllers';
+import * as Animations from './animations';
+import * as Blocks from './blocks';
+import * as Entities from './entity/main';
+import * as Items from './items';
+import * as LootTables from './loot-tables';
+import * as Trading from './trading';
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   switch (FileType.detect(context.document.uri)) {

@@ -1,11 +1,11 @@
-import { PackType } from "bc-minecraft-bedrock-project";
-import { Data, ResourceReferenceNode, VariableNode } from "bc-minecraft-molang";
-import { CompletionItemKind } from "vscode-languageserver";
-import { getIdentifier, getScopeDefined } from "../../../../minecraft/molang";
-import { GetDataSet } from "../../../../minecraft/molang/getdataset";
-import { Context } from "../../../context/context";
-import { CompletionBuilder } from "../../builder/builder";
-import { CompletionContext } from "../../context";
+import { PackType } from 'bc-minecraft-bedrock-project';
+import { Data, ResourceReferenceNode, VariableNode } from 'bc-minecraft-molang';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { getIdentifier, getScopeDefined } from '../../../../minecraft/molang';
+import { GetDataSet } from '../../../../minecraft/molang/getdataset';
+import { Context } from '../../../context/context';
+import { CompletionBuilder } from '../../builder/builder';
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const packType = PackType.detect(context.document.uri);
@@ -19,7 +19,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 
     case PackType.resource_pack:
       context.database.ProjectData.resourcePacks.entities.forEach((entity) =>
-        generateDU(getScopeDefined(entity.molang, "temp", "t"), context.builder, entity.id)
+        generateDU(getScopeDefined(entity.molang, 'temp', 't'), context.builder, entity.id),
       );
   }
 }
@@ -27,7 +27,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 function Generate(
   data: Data,
   builder: CompletionBuilder,
-  kinds: CompletionItemKind = CompletionItemKind.Variable
+  kinds: CompletionItemKind = CompletionItemKind.Variable,
 ): void {
   builder.add({
     label: data.id,
@@ -40,7 +40,7 @@ function generateDU(
   data: (ResourceReferenceNode | VariableNode)[],
   builder: CompletionBuilder,
   ownerid: string,
-  kinds: CompletionItemKind = CompletionItemKind.Variable
+  kinds: CompletionItemKind = CompletionItemKind.Variable,
 ): void {
   data.forEach((item) => {
     const identifier = getIdentifier(item);

@@ -1,8 +1,8 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types/identifiable";
-import { Kinds } from "../../../../constants";
-import { Context } from "../../../context/context";
-import { JsonPathCompletion } from "../../builder";
-import { CompletionContext } from "../../context";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { Kinds } from '../../../../constants';
+import { Context } from '../../../context/context';
+import { JsonPathCompletion } from '../../builder';
+import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The bp animation: ${item.id}`;

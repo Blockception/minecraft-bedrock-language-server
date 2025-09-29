@@ -1,8 +1,8 @@
-import { Internal } from "bc-minecraft-bedrock-project";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
-import { education_enabled } from "../../definitions";
-import { Json } from "../../json/json";
+import { Internal } from 'bc-minecraft-bedrock-project';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { education_enabled } from '../../definitions';
+import { Json } from '../../json/json';
 
 /**
  * Diagnoses the given document as a `sound_definitions` file
@@ -18,18 +18,18 @@ export function diagnose_sound_definitions_document(diagnoser: DocumentDiagnosti
 
   const sounds = definitions.sound_definitions;
   const sound_files = diagnoser.context
-    .getFiles(pack.folder, ["**/sounds/**/*.{fsb,wav,ogg}"], pack.context.ignores)
-    .map((item) => item.replace(/\\/gi, "/"));
+    .getFiles(pack.folder, ['**/sounds/**/*.{fsb,wav,ogg}'], pack.context.ignores)
+    .map((item) => item.replace(/\\/gi, '/'));
 
   //For each sound definition
   Object.entries(sounds).forEach(([sound_id, sound]) => {
     //For each file reference
     sound.sounds.forEach((soundSpec) => {
-      if (typeof soundSpec === "string") {
+      if (typeof soundSpec === 'string') {
         sound_files_diagnose(sound_id, soundSpec, sound_files, diagnoser);
       } else {
         const name = soundSpec.name;
-        if (typeof name === "string") {
+        if (typeof name === 'string') {
           sound_files_diagnose(sound_id, name, sound_files, diagnoser);
         }
       }
@@ -41,7 +41,7 @@ export function sound_files_diagnose(
   owner: string,
   file: string,
   files: string[],
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): void {
   for (let i = 0; i < files.length; i++) {
     if (files[i].includes(file)) {
@@ -56,6 +56,6 @@ export function sound_files_diagnose(
     `${owner}/${file}`,
     `Cannot find sound file: ${file}`,
     DiagnosticSeverity.error,
-    "resourcepack.sound.missing"
+    'resourcepack.sound.missing',
   );
 }

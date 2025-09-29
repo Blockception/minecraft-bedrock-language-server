@@ -1,4 +1,4 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 /** */
 export interface Animation {
@@ -7,10 +7,10 @@ export interface Animation {
   /** */
   anim_time_update?: number | string;
   /** */
-  loop?: boolean | "hold_on_last_frame";
+  loop?: boolean | 'hold_on_last_frame';
 
   /** */
-  bones?: Record<"string", BoneAnimation>;
+  bones?: Record<'string', BoneAnimation>;
   /** */
   particle_effects?: Record<string, EffectLocator | EffectLocator[]>;
   /** */
@@ -27,7 +27,7 @@ export namespace Animation {
    * @returns
    */
   export function is(value: any): value is Animation {
-    return typeof value === "object";
+    return typeof value === 'object';
   }
 }
 
@@ -51,7 +51,7 @@ export namespace Animations {
    * @returns
    */
   export function is(value: any): value is Animations {
-    if (value && typeof value.format_version === "string" && typeof value.animations === "object") return true;
+    if (value && typeof value.format_version === 'string' && typeof value.animations === 'object') return true;
 
     return false;
   }

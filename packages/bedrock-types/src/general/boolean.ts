@@ -5,10 +5,10 @@ export namespace Boolean {
    * @returns True or false if the text represents a boolean*/
   export function is(value: string | boolean): boolean {
     switch (value) {
-      case "false":
-      case "False":
-      case "true":
-      case "True":
+      case 'false':
+      case 'False':
+      case 'true':
+      case 'True':
       case false:
       case true:
         return true;
@@ -23,9 +23,9 @@ export namespace Boolean {
    * @returns True or false if the text represents a boolean*/
   export function parse(value: string | boolean): boolean {
     switch (value) {
-      case "True":
-      case "true":
-      case "1":
+      case 'True':
+      case 'true':
+      case '1':
       case true:
         return true;
 

@@ -1,8 +1,8 @@
-import { ProjectItem } from "bc-minecraft-bedrock-project";
-import { Definition } from "bc-minecraft-bedrock-types/src/types/definition";
-import { Errors } from "../..";
-import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from "../../../types";
-import { diagnose_molang_implementation, MolangMetadata } from "../../molang";
+import { ProjectItem } from 'bc-minecraft-bedrock-project';
+import { Definition } from 'bc-minecraft-bedrock-types/src/types/definition';
+import { Errors } from '../..';
+import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from '../../../types';
+import { diagnose_molang_implementation, MolangMetadata } from '../../molang';
 
 /**
  *
@@ -19,12 +19,12 @@ export function diagnose_animation_implementation(
   user: EntityAnimationMolangCarrier,
   diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
   particles?: Definition,
-  sounds?: Definition
+  sounds?: Definition,
 ): void {
   //Project has animation
   const anim_item = diagnoser.context.getProjectData().resources.animations.get(id, diagnoser.project);
   if (anim_item === undefined) {
-    return Errors.missing("behaviors", "animations", id, diagnoser);
+    return Errors.missing('behaviors', 'animations', id, diagnoser);
   }
   if (!ProjectItem.is(anim_item)) {
     return; // Skip anything but a project defined item
@@ -41,7 +41,7 @@ export function diagnose_animation_implementation(
       `animations/${id}`,
       `Animation: ${id} uses particle: '${particle}', but no definition has been found`,
       DiagnosticSeverity.warning,
-      "resourcepack.particle.missing"
+      'resourcepack.particle.missing',
     );
   });
 
@@ -53,7 +53,7 @@ export function diagnose_animation_implementation(
       `animations/${id}`,
       `Animation: ${id} uses sound: '${sound}', but no definition has been found`,
       DiagnosticSeverity.warning,
-      "resourcepack.sound.missing"
+      'resourcepack.sound.missing',
     );
   });
 }

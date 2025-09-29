@@ -1,9 +1,9 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Json } from "../../../internal";
-import * as Internal from "../../../internal/behavior-pack";
-import { Documentation, TextDocument, Using } from "../../../types";
-import { harvestMolang } from "../../molang";
-import { Animation } from "./animation";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Json } from '../../../internal';
+import * as Internal from '../../../internal/behavior-pack';
+import { Documentation, TextDocument, Using } from '../../../types';
+import { harvestMolang } from '../../molang';
+import { Animation } from './animation';
 
 /** */
 export function process(doc: TextDocument): Animation[] | undefined {
@@ -23,13 +23,13 @@ export function process(doc: TextDocument): Animation[] | undefined {
         molang: harvestMolang(content, anim),
         documentation: Documentation.getDoc(
           doc,
-          () => `BP Animation: \`${id}\`, loop: ${anim.loop ?? false}, length: ${anim.animation_length ?? "unknown"}`
+          () => `BP Animation: \`${id}\`, loop: ${anim.loop ?? false}, length: ${anim.animation_length ?? 'unknown'}`,
         ),
         events: Using.wrap(
           Object.values(anim.timeline ?? {})
-            .flatMap((keyframe) => (typeof keyframe == "string" ? [keyframe] : keyframe))
-            .filter((entry) => entry.startsWith("@s "))
-            .map((entry) => entry.slice(3))
+            .flatMap((keyframe) => (typeof keyframe == 'string' ? [keyframe] : keyframe))
+            .filter((entry) => entry.startsWith('@s '))
+            .map((entry) => entry.slice(3)),
         ),
       };
     });

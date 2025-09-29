@@ -1,4 +1,4 @@
-import { URI } from "vscode-uri";
+import { URI } from 'vscode-uri';
 
 //Format that vscode sends:
 //file:///f%3A/folder/behavior_packs/temp-bp/blocks/example.block.json
@@ -11,22 +11,22 @@ export namespace Vscode {
    */
   export function fromFs(path: string): string {
     if (isVscode(path)) {
-      return path.replace(/\\/gi, "//");
+      return path.replace(/\\/gi, '//');
     }
 
     return URI.file(path).toString();
   }
 
   export function join(path: string, ...combine: string[]): string {
-    if (path.endsWith("/")) {
+    if (path.endsWith('/')) {
       path = path.slice(0, -1);
     }
 
     for (const c of combine) {
-      if (c.startsWith("/")) {
+      if (c.startsWith('/')) {
         path += c;
       } else {
-        path += "/" + c;
+        path += '/' + c;
       }
     }
 

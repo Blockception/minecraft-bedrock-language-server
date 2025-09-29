@@ -1,5 +1,5 @@
 /*	Auto generated	*/
 
-export * from "./bones";
-export * from "./diagnose";
-export * from "./entry";
+export * from './bones';
+export * from './diagnose';
+export * from './entry';

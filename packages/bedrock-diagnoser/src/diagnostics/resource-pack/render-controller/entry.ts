@@ -1,8 +1,8 @@
-import { Internal } from "bc-minecraft-bedrock-project";
-import { DocumentDiagnosticsBuilder } from "../../../types";
-import { Json } from "../../json";
-import { diagnose_molang_syntax_current_document } from "../../molang";
-import { BoneUsage, model_bones_must_exist } from "../model";
+import { Internal } from 'bc-minecraft-bedrock-project';
+import { DocumentDiagnosticsBuilder } from '../../../types';
+import { Json } from '../../json';
+import { diagnose_molang_syntax_current_document } from '../../molang';
+import { BoneUsage, model_bones_must_exist } from '../model';
 
 /**
  * Diagnoses the given document as a render controller

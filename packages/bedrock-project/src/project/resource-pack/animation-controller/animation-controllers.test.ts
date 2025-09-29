@@ -1,6 +1,6 @@
-import { process } from "./process";
+import { process } from './process';
 
-describe("Resourcepack - Animation Controller", () => {
+describe('Resourcepack - Animation Controller', () => {
   const data = `{
     "format_version": "1.8.0",
     "animation_controllers": {
@@ -8,8 +8,8 @@ describe("Resourcepack - Animation Controller", () => {
     }
   }`;
 
-  test("process", () => {
-    const controllers = process({ getText: () => data, uri: "example" });
+  test('process', () => {
+    const controllers = process({ getText: () => data, uri: 'example' });
     expect(controllers).toMatchSnapshot();
   });
 });

@@ -1,7 +1,7 @@
-import { Text } from "bc-minecraft-bedrock-project";
-import { CodeAction, CodeActionKind, CodeActionParams, Command, Range } from "vscode-languageserver";
-import { Context } from "../context/context";
-import { CodeActionContext } from "./context";
+import { Text } from 'bc-minecraft-bedrock-project';
+import { CodeAction, CodeActionKind, CodeActionParams, Command, Range } from 'vscode-languageserver';
+import { Context } from '../context/context';
+import { CodeActionContext } from './context';
 
 /** */
 export class CodeActionBuilder {

@@ -1,4 +1,4 @@
-import { ExpressionNode } from "./nodes";
+import { ExpressionNode } from './nodes';
 
 export function walk(exp: ExpressionNode, callback: (node: ExpressionNode) => void): void {
   const objs: ExpressionNode[] = [exp];

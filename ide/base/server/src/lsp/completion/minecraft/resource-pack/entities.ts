@@ -1,17 +1,17 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types/identifiable";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../constants";
-import { IsEducationEnabled } from "../../../../project/attributes";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { Kinds } from '../../../../constants';
+import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
-import { JsonPathCompletion } from "../../builder/json-path";
+import { JsonPathCompletion } from '../../builder/json-path';
 import { CompletionContext } from '../../context';
-import { Material } from "../molang";
+import { Material } from '../molang';
 
-import * as AnimationControllers from "./animation-controllers";
-import * as Animations from "./animations";
-import * as Models from "./models";
-import * as RenderControllers from "./render-controllers";
-import * as Textures from "./textures";
+import * as AnimationControllers from './animation-controllers';
+import * as Animations from './animations';
+import * as Models from './models';
+import * as RenderControllers from './render-controllers';
+import * as Textures from './textures';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The rp entity: ${item.id}`;
@@ -34,43 +34,45 @@ export function provideJsonCompletion(context: Context<CompletionContext>): void
 
 const entityRpJsonCompletion = new JsonPathCompletion(
   {
-    match: (path) => path.includes("minecraft:client_entity/description/animations/"),
+    match: (path) => path.includes('minecraft:client_entity/description/animations/'),
     onCompletion: (c) => {
       Animations.provideCompletion(c);
       AnimationControllers.provideCompletion(c);
     },
   },
   {
-    match: (path) => path.includes("minecraft:client_entity/description/materials/"),
+    match: (path) => path.includes('minecraft:client_entity/description/materials/'),
     onCompletion: Material.provideCompletion,
   },
   {
-    match: (path) => path.includes("minecraft:client_entity/description/animation_controllers/"),
+    match: (path) => path.includes('minecraft:client_entity/description/animation_controllers/'),
     onCompletion: AnimationControllers.provideCompletion,
   },
   {
-    match: (path) => path.includes("minecraft:client_entity/description/geometry/"),
+    match: (path) => path.includes('minecraft:client_entity/description/geometry/'),
     onCompletion: Models.provideCompletion,
   },
   {
-    match: (path) => path.includes("minecraft:client_entity/description/render_controllers/"),
+    match: (path) => path.includes('minecraft:client_entity/description/render_controllers/'),
     onCompletion: RenderControllers.provideCompletion,
   },
   {
-    match: (path) => path.includes("minecraft:client_entity/description/textures/"),
+    match: (path) => path.includes('minecraft:client_entity/description/textures/'),
     onCompletion: Textures.provideCompletion,
   },
   {
-    match: (path) => path.includes("minecraft:client_entity/description/scripts/animate/"),
+    match: (path) => path.includes('minecraft:client_entity/description/scripts/animate/'),
     onCompletion: (context: Context<CompletionContext>) => {
-      const data = context.database.ProjectData.resourcePacks.entities.find((entity) => entity.location.uri === context.document.uri);
+      const data = context.database.ProjectData.resourcePacks.entities.find(
+        (entity) => entity.location.uri === context.document.uri,
+      );
       if (data === undefined) return;
 
       context.builder.generate(
         data.animations.defined,
         (item) => `The rp entity animation: ${item}`,
-        Kinds.Completion.Animation
+        Kinds.Completion.Animation,
       );
     },
-  }
+  },
 );

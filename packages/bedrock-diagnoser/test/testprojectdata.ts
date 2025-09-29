@@ -1,7 +1,7 @@
-import { ProjectData, TextDocument } from "bc-minecraft-bedrock-project";
-import { Manifest } from "bc-minecraft-bedrock-project/src/internal/types";
-import { MCProject } from "bc-minecraft-project";
-import { DiagnosticsBuilderContent } from "../src/types";
+import { ProjectData, TextDocument } from 'bc-minecraft-bedrock-project';
+import { Manifest } from 'bc-minecraft-bedrock-project/src/internal/types';
+import { MCProject } from 'bc-minecraft-project';
+import { DiagnosticsBuilderContent } from '../src/types';
 import { MinecraftData } from 'bc-minecraft-bedrock-project';
 
 export namespace TestProjectData {
@@ -10,13 +10,13 @@ export namespace TestProjectData {
   }
 
   export function createContext<T extends TextDocument = TextDocument>(
-    files: Map<string, string> | undefined = undefined
+    files: Map<string, string> | undefined = undefined,
   ): DiagnosticsBuilderContent<T> {
     const context = new InternalTest<T>(undefined, files);
     const data = context.getProjectData().projectData;
 
-    data.behaviorPacks.add("behavior_pack", MCProject.createEmpty(), {} as Manifest);
-    data.resourcePacks.add("resource_pack", MCProject.createEmpty(), {} as Manifest);
+    data.behaviorPacks.add('behavior_pack', MCProject.createEmpty(), {} as Manifest);
+    data.resourcePacks.add('resource_pack', MCProject.createEmpty(), {} as Manifest);
 
     return context;
   }

@@ -1,5 +1,5 @@
-import { ExpressionNode } from "./nodes";
-import { walk } from "./walk";
+import { ExpressionNode } from './nodes';
+import { walk } from './walk';
 
 export function flatten(node: ExpressionNode): ExpressionNode[] {
   const nodes: ExpressionNode[] = [];

@@ -1,7 +1,7 @@
-import { Command, CommandData, Parameter, ParameterInfo, ParameterType } from "bc-minecraft-bedrock-command";
-import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
-import { education_enabled } from "../../definitions";
+import { Command, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { education_enabled } from '../../definitions';
 
 import {
   general_boolean_diagnose,
@@ -9,7 +9,7 @@ import {
   general_integer_diagnose,
   general_keyword_diagnose,
   general_string_diagnose,
-} from "../../general";
+} from '../../general';
 import {
   minecraft_check_command,
   minecraft_coordinate_diagnose,
@@ -19,9 +19,9 @@ import {
   minecraft_tag_diagnose,
   minecraft_tickingarea_diagnose,
   minecraft_xp_diagnose,
-} from "../../minecraft";
-import { minecraft_jsonitem_diagnose } from "../../minecraft/json-item";
-import { minecraft_jsonrawtext_diagnose } from "../../minecraft/json-rawtext";
+} from '../../minecraft';
+import { minecraft_jsonitem_diagnose } from '../../minecraft/json-item';
+import { minecraft_jsonrawtext_diagnose } from '../../minecraft/json-rawtext';
 import {
   mode_camera_shake_diagnose,
   mode_cause_type_diagnose,
@@ -53,21 +53,21 @@ import {
   mode_structure_animation_diagnose,
   mode_teleport_rules_diagnose,
   mode_time_diagnose,
-} from "../../mode/diagnose";
-import { animation_reference_diagnose } from "../../resource-pack/anim-or-controller";
-import { particle_is_defined } from "../../resource-pack/particle/diagnose";
-import { resourcepack_sound_definitions_diagnose } from "../../resource-pack/sounds-definitions/diagnose";
-import { behaviorpack_check_command_blockstates } from "../block-state/diagnose";
-import { behaviorpack_check_blockdescriptor } from "../block/diagnose";
+} from '../../mode/diagnose';
+import { animation_reference_diagnose } from '../../resource-pack/anim-or-controller';
+import { particle_is_defined } from '../../resource-pack/particle/diagnose';
+import { resourcepack_sound_definitions_diagnose } from '../../resource-pack/sounds-definitions/diagnose';
+import { behaviorpack_check_command_blockstates } from '../block-state/diagnose';
+import { behaviorpack_check_blockdescriptor } from '../block/diagnose';
 import {
   behaviorpack_entity_spawnegg_diagnose,
   behaviorpack_entityid_diagnose,
   command_entity_event_diagnose,
-} from "../entity/diagnose";
-import { behaviorpack_item_diagnose } from "../item/diagnose";
-import { behaviorpack_loot_table_short_diagnose } from "../loot-table/diagnose";
-import { diagnose_structure_implementation } from "../structure/diagnose";
-import { mcfunction_is_defined } from "./diagnose";
+} from '../entity/diagnose';
+import { behaviorpack_item_diagnose } from '../item/diagnose';
+import { behaviorpack_loot_table_short_diagnose } from '../loot-table/diagnose';
+import { diagnose_structure_implementation } from '../structure/diagnose';
+import { mcfunction_is_defined } from './diagnose';
 
 /**
  *
@@ -77,14 +77,14 @@ import { mcfunction_is_defined } from "./diagnose";
 export function diagnose_mcfunction_commands_document(diagnoser: DocumentDiagnosticsBuilder): void {
   const edu = education_enabled(diagnoser);
   const text = diagnoser.document.getText();
-  const lines = text.split("\n");
+  const lines = text.split('\n');
 
   for (let I = 0; I < lines.length; I++) {
     const line = lines[I].trim();
 
-    if (line === "") continue;
+    if (line === '') continue;
     //If the line is a whole comment then skip
-    if (line.startsWith("#")) continue;
+    if (line.startsWith('#')) continue;
 
     const offset = text.indexOf(line);
     let comm: Command | undefined = Command.parse(line, offset);
@@ -105,12 +105,12 @@ export function diagnose_mcfunction_commands_document(diagnoser: DocumentDiagnos
  * @param diagnoser
  */
 export function json_commandsCheck(prop: string | string[], diagnoser: DocumentDiagnosticsBuilder): void {
-  if (typeof prop === "string") {
+  if (typeof prop === 'string') {
     prop = [prop];
   }
 
   prop.forEach((p) => {
-    if (p.startsWith("/")) {
+    if (p.startsWith('/')) {
       commandsCheck(p.substring(1), diagnoser);
     }
   });
@@ -158,7 +158,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
         command.parameters[0].offset,
         `Unknown syntax for: "${keyCommand}"`,
         DiagnosticSeverity.error,
-        `minecraft.commands.${keyCommand}.syntax`
+        `minecraft.commands.${keyCommand}.syntax`,
       );
     }
 
@@ -169,7 +169,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
           command.parameters[0].offset,
           `Unknown edu syntax for: "${keyCommand}"`,
           DiagnosticSeverity.error,
-          `minecraft.commands.${keyCommand}.syntax`
+          `minecraft.commands.${keyCommand}.syntax`,
         );
       }
 
@@ -177,7 +177,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
         command.parameters[0].offset,
         `This is a edu command, but education is not turned on:\nYou can turn it on by setting \`education.enable=true\` in the settings`,
         DiagnosticSeverity.error,
-        `project.settings`
+        `project.settings`,
       );
     }
 
@@ -189,15 +189,15 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
 
   //is syntax obsolete
   const obsolete = data.obsolete;
-  if (typeof obsolete !== "undefined") {
+  if (typeof obsolete !== 'undefined') {
     const keyword = command.parameters[0];
 
-    if (typeof obsolete === "boolean") {
+    if (typeof obsolete === 'boolean') {
       diagnoser.add(
         keyword,
         `The syntax for this command is marked as obsolete`,
         DiagnosticSeverity.warning,
-        `minecraft.commands.${keyword.text}.obsolete`
+        `minecraft.commands.${keyword.text}.obsolete`,
       );
     } else {
       let { message } = obsolete;
@@ -262,7 +262,7 @@ const ParameterDiagnostics: Record<number, DiagnoseCommand> = {
   [ParameterType.float]: general_float_diagnose,
   [ParameterType.integer]: general_integer_diagnose,
   [ParameterType.item]: (item, diagnoser) => {
-    if (item.text.endsWith("_spawn_egg")) {
+    if (item.text.endsWith('_spawn_egg')) {
       behaviorpack_entity_spawnegg_diagnose(item, diagnoser);
     } else {
       behaviorpack_item_diagnose(item, diagnoser);
@@ -300,14 +300,14 @@ function mcfunction_diagnoseparameter(
   data: Parameter,
   diagnoser: DocumentDiagnosticsBuilder,
   Com: Command,
-  edu: boolean
+  edu: boolean,
 ): void | boolean {
   if (pattern === undefined || data === undefined) return;
 
   if (pattern.options) {
     //If wildcard is allowed and the text is an wildcard, then skip diagnose
     if (pattern.options.wildcard === true) {
-      if (data.text === "*") return;
+      if (data.text === '*') return;
     }
 
     //If accepted values is filled in and the text is a match, then skip diagnose
@@ -352,7 +352,7 @@ function mcfunction_diagnoseparameter(
         data.offset,
         `Unknown parameter type: ${pattern.type}:${ParameterType[pattern.type]}`,
         DiagnosticSeverity.warning,
-        "debugger.error"
+        'debugger.error',
       );
       return false;
   }

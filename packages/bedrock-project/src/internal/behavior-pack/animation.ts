@@ -1,4 +1,4 @@
-import { FormatVersion } from "../types";
+import { FormatVersion } from '../types';
 
 /** */
 export interface Animation {
@@ -18,7 +18,7 @@ export namespace Animation {
    * @returns
    */
   export function is(value: any): value is Animation {
-    return typeof value === "object";
+    return typeof value === 'object';
   }
 }
 
@@ -42,7 +42,7 @@ export namespace Animations {
    * @returns
    */
   export function is(value: any): value is Animations {
-    if (value && typeof value.format_version === "string" && typeof value.animations === "object") return true;
+    if (value && typeof value.format_version === 'string' && typeof value.animations === 'object') return true;
 
     return false;
   }

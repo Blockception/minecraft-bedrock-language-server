@@ -1,6 +1,6 @@
-import { Command } from "./command";
-import { CommandData, CommandInfo } from "../../data";
-import { ParameterType } from "../parameter-type";
+import { Command } from './command';
+import { CommandData, CommandInfo } from '../../data';
+import { ParameterType } from '../parameter-type';
 import { General, Minecraft, Modes } from 'bc-minecraft-bedrock-types';
 
 /**Gets the best matching commandInfo data, if multiple are returned, it unclear or somewhere not fully specified
@@ -72,7 +72,7 @@ export function isMatch(command: Command, data: CommandInfo, edu: boolean = fals
         break;
 
       case ParameterType.effect:
-        if (commandText === "clear") return false;
+        if (commandText === 'clear') return false;
         break;
 
       case ParameterType.executeSubcommand:
@@ -162,7 +162,7 @@ export function checkRequiredParameterLength(command: Command, data: CommandInfo
 export function getCommandData(
   name: string,
   edu: boolean = false,
-  type: ParameterType = ParameterType.command
+  type: ParameterType = ParameterType.command,
 ): CommandInfo[] {
   const out: CommandInfo[] = [];
 

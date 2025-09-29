@@ -1,9 +1,9 @@
-import { References } from "bc-minecraft-bedrock-project";
-import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../types";
-import { AnimationCarrier } from "../minecraft/animation-controllers";
-import { MolangMetadata, User } from "../molang";
-import { diagnose_animation_implementation } from "./animation";
-import { diagnose_animation_controller_implementation } from "./animation-controllers/diagnostics";
+import { References } from 'bc-minecraft-bedrock-project';
+import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
+import { AnimationCarrier } from '../minecraft/animation-controllers';
+import { MolangMetadata, User } from '../molang';
+import { diagnose_animation_implementation } from './animation';
+import { diagnose_animation_controller_implementation } from './animation-controllers/diagnostics';
 
 /**
  * @param id
@@ -15,7 +15,7 @@ import { diagnose_animation_controller_implementation } from "./animation-contro
 export function diagnose_animation_or_controller_implementation(
   id: string,
   user: User & Partial<AnimationCarrier<References>>,
-  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>
+  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
 ): void {
   switch (is_animation_or_controller(id, diagnoser)) {
     case anim_or_contr.animation:
@@ -29,7 +29,7 @@ export function diagnose_animation_or_controller_implementation(
         id,
         `Cannot find animation / animation controller: ${id}`,
         DiagnosticSeverity.error,
-        "behaviorpack.animation_or_controller.missing"
+        'behaviorpack.animation_or_controller.missing',
       );
   }
 }

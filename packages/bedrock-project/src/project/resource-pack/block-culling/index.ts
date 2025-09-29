@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./culling";
-export * from "./process";
+export * from './culling';
+export * from './process';

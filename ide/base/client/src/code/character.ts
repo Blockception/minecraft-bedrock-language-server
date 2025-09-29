@@ -1,16 +1,16 @@
 /** */
 export namespace Character {
-  export const Character_a: number = "a".charCodeAt(0);
-  export const Character_z: number = "z".charCodeAt(0);
-  export const Character_A: number = "A".charCodeAt(0);
-  export const Character_Z: number = "Z".charCodeAt(0);
-  export const Character_0: number = "0".charCodeAt(0);
-  export const Character_9: number = "9".charCodeAt(0);
+  export const Character_a: number = 'a'.charCodeAt(0);
+  export const Character_z: number = 'z'.charCodeAt(0);
+  export const Character_A: number = 'A'.charCodeAt(0);
+  export const Character_Z: number = 'Z'.charCodeAt(0);
+  export const Character_0: number = '0'.charCodeAt(0);
+  export const Character_9: number = '9'.charCodeAt(0);
 
-  export const Character_underscore: number = "_".charCodeAt(0);
-  export const Character_dash: number = "-".charCodeAt(0);
-  export const Character_forwardslash: number = "/".charCodeAt(0);
-  export const Character_column: number = ":".charCodeAt(0);
+  export const Character_underscore: number = '_'.charCodeAt(0);
+  export const Character_dash: number = '-'.charCodeAt(0);
+  export const Character_forwardslash: number = '/'.charCodeAt(0);
+  export const Character_column: number = ':'.charCodeAt(0);
 
   /** */
   export function IsLetter(char: string): boolean {

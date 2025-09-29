@@ -9,10 +9,10 @@ npm install -g vsce
 npm install
 ```
 
-
 ## Building
 
 Run the following script to build the extension
+
 ```cmd
   npm run compile
 ```
@@ -20,6 +20,7 @@ Run the following script to build the extension
 ## Local Running the plugin
 
 In vscode, goto `Run and Debug`
+
 - Make sure the plugin has been built
 - Select: `Client + Server (vscode-plugin)`
 - And press play

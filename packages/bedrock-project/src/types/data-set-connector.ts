@@ -1,8 +1,8 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { DataSet } from "./data-set";
-import { IDataSet } from "./i-data-set";
-import { Pack } from "./pack";
-import { PackCollection } from "./pack-collection";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DataSet } from './data-set';
+import { IDataSet } from './i-data-set';
+import { Pack } from './pack';
+import { PackCollection } from './pack-collection';
 
 /**
  * The class DataSetConnector description

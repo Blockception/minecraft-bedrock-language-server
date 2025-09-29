@@ -1,9 +1,9 @@
-import { Json } from "../json";
-import { Animation } from "./animation";
+import { Json } from '../json';
+import { Animation } from './animation';
 
-describe("BP Animation", () => {
+describe('BP Animation', () => {
   const correct_animations: string[] = [
-    "{}",
+    '{}',
     `{
       "animation_length": 3.0,
       "loop": false,
@@ -14,16 +14,16 @@ describe("BP Animation", () => {
   ];
 
   correct_animations.forEach((anim, index) => {
-    describe("correct " + index, () => {
+    describe('correct ' + index, () => {
       const obj = Json.To<Animation>(anim);
 
-      it("not undefined", () => {
+      it('not undefined', () => {
         expect(obj).toBeDefined();
       });
 
       if (!obj) return;
 
-      it("is animation", () => {
+      it('is animation', () => {
         expect(Animation.is(obj)).toBeTruthy();
       });
     });

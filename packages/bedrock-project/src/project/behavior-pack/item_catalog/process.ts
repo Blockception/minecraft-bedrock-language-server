@@ -1,8 +1,8 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import * as Internal from "../../../internal/behavior-pack/item_catalog";
-import { Json } from "../../../internal/json";
-import { TextDocument } from "../../../types";
-import { Group } from "./item_catalog";
+import { Types } from 'bc-minecraft-bedrock-types';
+import * as Internal from '../../../internal/behavior-pack/item_catalog';
+import { Json } from '../../../internal/json';
+import { TextDocument } from '../../../types';
+import { Group } from './item_catalog';
 
 /**
  *
@@ -16,7 +16,7 @@ export function process(doc: TextDocument): Group[] | undefined {
 
   if (!Internal.ItemCatalog.is(imp)) return undefined;
 
-  return imp["minecraft:crafting_items_catalog"].categories
+  return imp['minecraft:crafting_items_catalog'].categories
     .flatMap((category) => category.groups)
     .map((entry) => {
       const id = entry.group_identifier?.name;
@@ -24,7 +24,7 @@ export function process(doc: TextDocument): Group[] | undefined {
       return {
         id: id,
         documentation: `Item Group: ` + id,
-        items: entry.items.map((item) => (typeof item === "string" ? item : item.name)),
+        items: entry.items.map((item) => (typeof item === 'string' ? item : item.name)),
         location: Types.Location.create(uri, content.indexOf(id)),
       };
     })

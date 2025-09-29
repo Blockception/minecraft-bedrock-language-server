@@ -1,2 +1,2 @@
 /*	Auto generated	*/
-export * from "./harvest";
+export * from './harvest';

@@ -1,35 +1,35 @@
-import { Json } from "./json";
+import { Json } from './json';
 
-describe("Json", () => {
-  describe("To", () => {
+describe('Json', () => {
+  describe('To', () => {
     const data = `{"id":"controller.example","documentation":"example"}`;
     const obj = Json.To<TestInterface>(data);
 
-    it("not undefined", () => {
+    it('not undefined', () => {
       expect(obj).toBeDefined();
     });
 
     if (!obj) return;
 
-    it("Validation", () => {
-      expect(obj.documentation).toEqual("example");
-      expect(obj.id).toEqual("controller.example");
+    it('Validation', () => {
+      expect(obj.documentation).toEqual('example');
+      expect(obj.id).toEqual('controller.example');
     });
   });
 
-  describe("To Doc", () => {
+  describe('To Doc', () => {
     const data = `{"id":"controller.example","documentation":"example"}`;
-    const obj = Json.To<TestInterface>({ getText: () => data, uri: "example" });
+    const obj = Json.To<TestInterface>({ getText: () => data, uri: 'example' });
 
-    it("not undefined", () => {
+    it('not undefined', () => {
       expect(obj).toBeDefined();
     });
 
     if (!obj) return;
 
-    it("Validation", () => {
-      expect(obj.documentation).toEqual("example");
-      expect(obj.id).toEqual("controller.example");
+    it('Validation', () => {
+      expect(obj.documentation).toEqual('example');
+      expect(obj.id).toEqual('controller.example');
     });
   });
 });

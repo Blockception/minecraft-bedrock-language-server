@@ -1,8 +1,8 @@
-import { ServerRequestHandler } from "vscode-languageserver";
+import { ServerRequestHandler } from 'vscode-languageserver';
 
 export function warpReporter<P, R, PR, E>(
   title: string,
-  call: ServerRequestHandler<P, R, PR, E>
+  call: ServerRequestHandler<P, R, PR, E>,
 ): ServerRequestHandler<P, R, PR, E> {
   return async function (params, token, workDoneProgress, resultProgress) {
     try {

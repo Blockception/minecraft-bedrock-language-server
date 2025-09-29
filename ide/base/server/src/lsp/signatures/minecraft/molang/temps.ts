@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver";
+import { SignatureHelp } from 'vscode-languageserver';
 
 /**
  *
@@ -6,7 +6,7 @@ import { SignatureHelp } from "vscode-languageserver";
  * @param doc
  */
 export function provideSignature(fn: string | undefined): SignatureHelp | undefined {
-    TempSignature.activeParameter = fn ? 1 : 0;
+  TempSignature.activeParameter = fn ? 1 : 0;
   return TempSignature;
 }
 
@@ -15,10 +15,10 @@ const TempSignature: SignatureHelp = {
   activeSignature: 0,
   signatures: [
     {
-      label: "Temps",
+      label: 'Temps',
       parameters: [
-        { label: "temp.", documentation: "The temp to use." },
-        { label: "<temp>", documentation: "The data to access" },
+        { label: 'temp.', documentation: 'The temp to use.' },
+        { label: '<temp>', documentation: 'The data to access' },
       ],
     },
   ],

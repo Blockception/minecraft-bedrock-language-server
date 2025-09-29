@@ -1,7 +1,7 @@
-import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from "../../context/context";
-import { CompletionBuilder } from "../builder/builder";
-import { CommandCompletionContext } from "../context";
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Context } from '../../context/context';
+import { CompletionBuilder } from '../builder/builder';
+import { CommandCompletionContext } from '../context';
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const builder = context.builder;
@@ -22,11 +22,11 @@ export function provideRangeCompletion(context: CommandCompletionContext): void 
 
   if (steps < 1) steps = 1;
 
-  builder.add({ label: `..${minimum}`, documentation: "" });
-  builder.add({ label: `${maximum}..`, documentation: "" });
+  builder.add({ label: `..${minimum}`, documentation: '' });
+  builder.add({ label: `${maximum}..`, documentation: '' });
 
   for (let I = minimum; I <= maximum; I += steps) {
-    builder.add({ label: `${I}..${I + steps}`, documentation: "" });
+    builder.add({ label: `${I}..${I + steps}`, documentation: '' });
   }
 }
 
@@ -42,7 +42,7 @@ export function provideCreateCompletion(receiver: CompletionBuilder, minimum?: n
   for (let I = minimum; I < maximum; I += steps) {
     receiver.add({
       label: I.toString(),
-      documentation: "The integer number: " + I.toString(),
+      documentation: 'The integer number: ' + I.toString(),
       kind: CompletionItemKind.Constant,
     });
   }

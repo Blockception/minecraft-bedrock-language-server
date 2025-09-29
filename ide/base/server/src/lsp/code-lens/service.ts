@@ -1,22 +1,28 @@
-import { CancellationToken, CodeLens, CodeLensParams, Connection, WorkDoneProgressReporter } from "vscode-languageserver";
-import { Context } from "../context/context";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { CodeLensContext } from "./context";
-import { internalRequest } from "./on-request";
+import {
+  CancellationToken,
+  CodeLens,
+  CodeLensParams,
+  Connection,
+  WorkDoneProgressReporter,
+} from 'vscode-languageserver';
+import { Context } from '../context/context';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { CodeLensContext } from './context';
+import { internalRequest } from './on-request';
 
 export class CodeLensService extends BaseService implements Partial<IService> {
-  name: string = "code-lens";
+  name: string = 'code-lens';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[code-lens]"), extension);
+    super(logger.withPrefix('[code-lens]'), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    capabilities.set("codeLensProvider", {
+    capabilities.set('codeLensProvider', {
       resolveProvider: true,
       workDoneProgress: true,
     });
@@ -25,7 +31,7 @@ export class CodeLensService extends BaseService implements Partial<IService> {
   setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.onCodeLens(this.onCodeLens.bind(this)),
-      connection.onCodeLensResolve(this.onCodeLensResolve.bind(this))
+      connection.onCodeLensResolve(this.onCodeLensResolve.bind(this)),
     );
   }
 
@@ -36,13 +42,13 @@ export class CodeLensService extends BaseService implements Partial<IService> {
   private async onCodeLens(
     params: CodeLensParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<CodeLens[] | undefined | null> {
     if (this.extension.settings.Plugin.CodeLens === false) return;
 
     const document = this.extension.documents.get(params.textDocument.uri);
     if (document === undefined) return;
-    this.logger.info("checking code lens", params);
+    this.logger.info('checking code lens', params);
 
     const context = Context.create<CodeLensContext>(
       this.extension,
@@ -53,7 +59,7 @@ export class CodeLensService extends BaseService implements Partial<IService> {
       },
       {
         logger: this.logger,
-      }
+      },
     );
 
     return internalRequest(context, params);

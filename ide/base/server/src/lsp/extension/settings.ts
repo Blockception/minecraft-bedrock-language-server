@@ -52,20 +52,20 @@ export namespace Settings {
     const temp = value;
 
     if (temp.Education && temp.Diagnostics && temp.Plugin) {
-      if (typeof temp.Education.Enable !== "boolean") return false;
+      if (typeof temp.Education.Enable !== 'boolean') return false;
 
-      if (typeof temp.Diagnostics.Enable !== "boolean") return false;
-      if (typeof temp.Diagnostics.Lang !== "boolean") return false;
-      if (typeof temp.Diagnostics.Json !== "boolean") return false;
-      if (typeof temp.Diagnostics.Mcfunctions !== "boolean") return false;
-      if (typeof temp.Diagnostics.Objectives !== "boolean") return false;
-      if (typeof temp.Diagnostics.Tags !== "boolean") return false;
+      if (typeof temp.Diagnostics.Enable !== 'boolean') return false;
+      if (typeof temp.Diagnostics.Lang !== 'boolean') return false;
+      if (typeof temp.Diagnostics.Json !== 'boolean') return false;
+      if (typeof temp.Diagnostics.Mcfunctions !== 'boolean') return false;
+      if (typeof temp.Diagnostics.Objectives !== 'boolean') return false;
+      if (typeof temp.Diagnostics.Tags !== 'boolean') return false;
 
-      if (typeof temp.Plugin.CodeLens !== "boolean") return false;
+      if (typeof temp.Plugin.CodeLens !== 'boolean') return false;
 
-      if (typeof temp.Completion.JSON !== "boolean") return false;
-      if (typeof temp.Completion.Lang.Comments !== "boolean") return false;
-      if (typeof temp.Completion.Lang.Dynamic !== "boolean") return false;
+      if (typeof temp.Completion.JSON !== 'boolean') return false;
+      if (typeof temp.Completion.Lang.Comments !== 'boolean') return false;
+      if (typeof temp.Completion.Lang.Dynamic !== 'boolean') return false;
 
       return true;
     }

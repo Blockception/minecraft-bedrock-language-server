@@ -1,6 +1,6 @@
-import { PackType } from "../../project/pack-type";
-import { TextDocument } from "../../types";
-import { Json } from "../json";
+import { PackType } from '../../project/pack-type';
+import { TextDocument } from '../../types';
+import { Json } from '../json';
 
 /**
  *
@@ -59,13 +59,13 @@ export interface ManifestModule {
 /** */
 export namespace ManifestModule {
   /** */
-  export const TypeResource = "resources";
+  export const TypeResource = 'resources';
   /** */
-  export const TypeData = "data";
+  export const TypeData = 'data';
   /** */
-  export const TypeWorld = "world_template";
+  export const TypeWorld = 'world_template';
   /** */
-  export const TypeSkinPack = "skin_pack";
+  export const TypeSkinPack = 'skin_pack';
 }
 
 /** */
@@ -82,9 +82,9 @@ export interface ManifestMetadata {
 /** */
 export namespace Manifest {
   export function is(value: any): value is Manifest {
-    if (typeof value === "object") {
-      if (typeof value.format_version !== "number") return false;
-      if (typeof value.header !== "object") return false;
+    if (typeof value === 'object') {
+      if (typeof value.format_version !== 'number') return false;
+      if (typeof value.header !== 'object') return false;
 
       return true;
     }
@@ -200,7 +200,7 @@ export namespace Manifest {
    */
   export function getManifest(
     uri: string,
-    getDocument: (uri: string) => TextDocument | undefined
+    getDocument: (uri: string) => TextDocument | undefined,
   ): Manifest | undefined {
     const doc = getDocument(uri);
     if (doc) return Json.To<Manifest>(doc);

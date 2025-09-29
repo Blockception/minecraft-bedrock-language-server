@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver";
+import { SignatureHelp } from 'vscode-languageserver';
 
 /**
  *
@@ -11,12 +11,12 @@ export function provideSignature(fn: string | undefined): SignatureHelp | undefi
     activeSignature: 0,
     signatures: [
       {
-        label: "Variable",
+        label: 'Variable',
         parameters: [
-          { label: "variable.", documentation: "The variable to use." },
-          { label: "<variable>", documentation: "The variable to access" },
+          { label: 'variable.', documentation: 'The variable to use.' },
+          { label: '<variable>', documentation: 'The variable to access' },
         ],
       },
     ],
-  }
+  };
 }

@@ -1,6 +1,6 @@
-import FastGlob from "fast-glob";
-import pm from "picomatch";
-import { Fs, Vscode } from "../util";
+import FastGlob from 'fast-glob';
+import pm from 'picomatch';
+import { Fs, Vscode } from '../util';
 
 /**
  *
@@ -42,7 +42,7 @@ export namespace Glob {
     source: string | string[],
     ignores: string[] | undefined = undefined,
     cwd: string | undefined = undefined,
-    baseNameMatch: boolean | undefined = undefined
+    baseNameMatch: boolean | undefined = undefined,
   ): string[] {
     if (cwd) cwd = folderPath(cwd);
 
@@ -59,13 +59,13 @@ export namespace Glob {
    * @param folder
    */
   export function folderPath(folder: string): string {
-    return Fs.FromVscode(folder).replace(/\\/gi, "/");
+    return Fs.FromVscode(folder).replace(/\\/gi, '/');
   }
 
   /**Ensures the source is glob friendly
    * @param source*/
   export function ensureSources(source: string | string[]): string | string[] {
-    if (typeof source == "string") {
+    if (typeof source == 'string') {
       return internalEnsureSource(source);
     }
 
@@ -80,11 +80,11 @@ export namespace Glob {
 
   function internalEnsureSource(source: string): string {
     source = decodeURI(source);
-    source = source.replace(/%3A/gi, ":");
-    source = source.replace(/\\/gi, "/");
+    source = source.replace(/%3A/gi, ':');
+    source = source.replace(/\\/gi, '/');
 
-    if (source.startsWith("file:///")) source = source.substring(8);
-    else if (source.startsWith("file://")) source = source.substring(7);
+    if (source.startsWith('file:///')) source = source.substring(8);
+    else if (source.startsWith('file://')) source = source.substring(7);
 
     return source;
   }

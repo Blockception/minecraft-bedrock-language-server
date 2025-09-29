@@ -1,10 +1,10 @@
-import { Hover, Range } from "vscode-languageserver";
-import { getCurrentString } from "../../../minecraft/json/functions";
-import { IsMolang } from "../../../minecraft/molang/functions";
-import { Context } from "../../context/context";
-import { HoverContext } from "../context";
+import { Hover, Range } from 'vscode-languageserver';
+import { getCurrentString } from '../../../minecraft/json/functions';
+import { IsMolang } from '../../../minecraft/molang/functions';
+import { Context } from '../../context/context';
+import { HoverContext } from '../context';
 
-import * as Molang from "./molang";
+import * as Molang from './molang';
 
 export function provideHover(context: Context<HoverContext>): Hover | undefined {
   const { document, params, database } = context;
@@ -32,7 +32,7 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
 
   if (reference?.documentation) {
     return {
-      contents: { kind: "markdown", value: reference.documentation, language: "en-gb" },
+      contents: { kind: 'markdown', value: reference.documentation, language: 'en-gb' },
       range: R,
     };
   }

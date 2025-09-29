@@ -1,12 +1,12 @@
-import { mkdirSync, writeFileSync } from "fs";
-import { Fs } from "../../../util";
-import { Context } from "../../context/context";
-import { IExtendedLogger } from "../../logger/logger";
-import { CommandContext } from "../context";
-import { getWorkspace } from "../util";
+import { mkdirSync, writeFileSync } from 'fs';
+import { Fs } from '../../../util';
+import { Context } from '../../context/context';
+import { IExtendedLogger } from '../../logger/logger';
+import { CommandContext } from '../context';
+import { getWorkspace } from '../util';
 import { exists } from '../../../io/io';
 
-import path from "path";
+import path from 'path';
 
 export async function storeProject(context: Context<CommandContext>) {
   const { logger, database } = context;
@@ -17,14 +17,14 @@ export async function storeProject(context: Context<CommandContext>) {
   }
 
   const folder = Fs.FromVscode(ws[0].uri);
-  const outputfolder = path.join(folder, ".minecraft");
+  const outputfolder = path.join(folder, '.minecraft');
 
   if (!exists(outputfolder, context.logger)) mkdirSync(outputfolder);
 
-  database.ProjectData.behaviorPacks.packs.forEach(createGenerator(logger, "bp_pack", outputfolder));
-  database.ProjectData.resourcePacks.packs.forEach(createGenerator(logger, "rp_pack", outputfolder));
-  database.WorkspaceData.forEach(createGenerator(logger, "workspace", outputfolder));
-  database.ProjectData.general.forEach(createGenerator(logger, "general", outputfolder));
+  database.ProjectData.behaviorPacks.packs.forEach(createGenerator(logger, 'bp_pack', outputfolder));
+  database.ProjectData.resourcePacks.packs.forEach(createGenerator(logger, 'rp_pack', outputfolder));
+  database.WorkspaceData.forEach(createGenerator(logger, 'workspace', outputfolder));
+  database.ProjectData.general.forEach(createGenerator(logger, 'general', outputfolder));
 }
 
 function createGenerator<T>(logger: IExtendedLogger, type: string, outputfolder: string) {
@@ -50,7 +50,7 @@ function convert(data: any, receiver: Record<string, any>) {
     const name = names[I];
     const value = data[name];
 
-    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
       receiver[name] = value;
     } else if (value.forEach) {
       const values: any[] = [];
@@ -58,7 +58,7 @@ function convert(data: any, receiver: Record<string, any>) {
       value.forEach((item: any) => values.push(item));
 
       receiver[name] = values;
-    } else if (typeof value === "object") {
+    } else if (typeof value === 'object') {
       receiver[name] = value;
     }
   }

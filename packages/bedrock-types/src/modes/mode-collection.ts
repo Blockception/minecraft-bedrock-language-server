@@ -54,7 +54,7 @@ export namespace ModeCollection {
    * @returns
    */
   export function get(Collection: ModeCollection, index: string | number): Mode | undefined {
-    if (typeof index === "string") {
+    if (typeof index === 'string') {
       const M = Collection.modes;
 
       for (let I = 0; I < M.length; I++) {
@@ -78,7 +78,7 @@ export namespace Mode {
    * @returns
    */
   export function is(value: any): value is Mode {
-    if (typeof value === "object" && typeof value.name === "string" && typeof value.documentation === "string") {
+    if (typeof value === 'object' && typeof value.name === 'string' && typeof value.documentation === 'string') {
       return true;
     }
 

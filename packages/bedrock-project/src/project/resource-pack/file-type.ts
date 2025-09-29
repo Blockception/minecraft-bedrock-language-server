@@ -1,4 +1,4 @@
-import path from "path";
+import path from 'path';
 
 /** */
 export enum FileType {
@@ -67,31 +67,31 @@ export namespace FileType {
     const filename = path.basename(uri);
 
     switch (filename) {
-      case "biomes_client.json":
+      case 'biomes_client.json':
         return FileType.biomes_client;
 
-      case "blocks.json":
+      case 'blocks.json':
         return FileType.block;
 
-      case "flipbook_textures.json":
+      case 'flipbook_textures.json':
         return FileType.texture_flipbook_atlas;
 
-      case "item_texture.json":
+      case 'item_texture.json':
         return FileType.texture_item_atlas;
 
-      case "manifest.json":
+      case 'manifest.json':
         return FileType.manifest;
 
-      case "music_definitions.json":
+      case 'music_definitions.json':
         return FileType.music_definitions;
 
-      case "sound_definitions.json":
+      case 'sound_definitions.json':
         return FileType.sounds_definitions;
 
-      case "sounds.json":
+      case 'sounds.json':
         return FileType.sounds;
 
-      case "terrain_texture.json":
+      case 'terrain_texture.json':
         return FileType.texture_terrain_atlas;
     }
 

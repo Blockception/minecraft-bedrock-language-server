@@ -1,8 +1,8 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import * as Internal from "../../../internal/behavior-pack/feature";
-import { Json } from "../../../internal/json";
-import { Documentation, TextDocument } from "../../../types";
-import { Feature } from "./feature";
+import { Types } from 'bc-minecraft-bedrock-types';
+import * as Internal from '../../../internal/behavior-pack/feature';
+import { Json } from '../../../internal/json';
+import { Documentation, TextDocument } from '../../../types';
+import { Feature } from './feature';
 
 /**
  *
@@ -16,10 +16,10 @@ export function process(doc: TextDocument): Feature | undefined {
 
   if (!Internal.Feature.is(imp)) return undefined;
 
-  const key = Object.keys(imp).find((x) => !x.startsWith("format_version"));
+  const key = Object.keys(imp).find((x) => !x.startsWith('format_version'));
   if (key === undefined) return;
   const container = imp[key as keyof Internal.Feature];
-  if (container === undefined || typeof container === "string") return;
+  if (container === undefined || typeof container === 'string') return;
   const id = container.description.identifier;
 
   return {

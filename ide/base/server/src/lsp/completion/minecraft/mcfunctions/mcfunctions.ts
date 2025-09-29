@@ -1,11 +1,11 @@
-import { Command } from "bc-minecraft-bedrock-command";
-import { CompletionItemKind } from "vscode-languageserver";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from "../../../context/context";
-import { CommandCompletionContext, CompletionContext } from "../../context";
+import { Command } from 'bc-minecraft-bedrock-command';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { IsEducationEnabled } from '../../../../project/attributes';
+import { Context } from '../../../context/context';
+import { CommandCompletionContext, CompletionContext } from '../../context';
 
-import * as CCommand from "../commands/commands";
-import * as Parameter from "../commands/parameters";
+import * as CCommand from '../commands/commands';
+import * as Parameter from '../commands/parameters';
 
 /**
  *
@@ -18,7 +18,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const lineIndex = position.line;
   const line = document.getLine(lineIndex);
 
-  const commandIndex = line.indexOf("#");
+  const commandIndex = line.indexOf('#');
 
   if (commandIndex >= 0) {
     if (position.character > commandIndex) return;
@@ -26,15 +26,15 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 
   if (lineIndex === 0 && position.character < 3) {
     context.builder.add({
-      label: "# <mcfunction_documentation_here>",
-      documentation: "mcfunction documentation",
+      label: '# <mcfunction_documentation_here>',
+      documentation: 'mcfunction documentation',
       kind: CompletionItemKind.Snippet,
     });
     context.builder.add({
-      label: "# region",
-      documentation: "mcfunction documentation",
+      label: '# region',
+      documentation: 'mcfunction documentation',
       kind: CompletionItemKind.Snippet,
-      insertText: "# region\n# endregion",
+      insertText: '# region\n# endregion',
     });
   }
 

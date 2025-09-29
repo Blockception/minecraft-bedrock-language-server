@@ -1,5 +1,5 @@
-import { MCIgnore } from "bc-minecraft-project";
-import { TextDocument } from "./text-document";
+import { MCIgnore } from 'bc-minecraft-project';
+import { TextDocument } from './text-document';
 
 /**The context of a project, used to retrieve files*/
 export interface Documents<T extends TextDocument> {

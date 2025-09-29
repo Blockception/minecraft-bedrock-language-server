@@ -1,5 +1,5 @@
 import { CompactJson } from '../json';
-import { Selector } from ".";
+import { Selector } from '.';
 
 interface TestData {
   selector: string;
@@ -8,37 +8,37 @@ interface TestData {
   contains: string[];
 }
 
-describe("Selector - Parse", () => {
+describe('Selector - Parse', () => {
   const data = [
     {
-      selector: "@a[tag=Sometag,scores={foo=1..}]",
+      selector: '@a[tag=Sometag,scores={foo=1..}]',
       offset: 0,
-      type: "@a",
-      contains: ["tag", "scores"],
+      type: '@a',
+      contains: ['tag', 'scores'],
     },
     {
-      selector: "@a[tag=Sometag,scores={foo=1..}]",
+      selector: '@a[tag=Sometag,scores={foo=1..}]',
       offset: 0,
-      type: "@a",
-      contains: ["tag", "scores"],
+      type: '@a',
+      contains: ['tag', 'scores'],
     },
     {
-      selector: "@a[x=~0.5,y=50,z=~50,r=50,rm=3,tag=something]",
+      selector: '@a[x=~0.5,y=50,z=~50,r=50,rm=3,tag=something]',
       offset: 0,
-      type: "@a",
-      contains: ["x", "y", "z", "r", "rm", "tag"],
+      type: '@a',
+      contains: ['x', 'y', 'z', 'r', 'rm', 'tag'],
     },
     {
-      selector: "@e[family=]",
+      selector: '@e[family=]',
       offset: 5,
-      type: "@e",
-      contains: ["family"],
+      type: '@e',
+      contains: ['family'],
     },
     {
-      selector: "@a[x =~0.5, y=50, z =~50,r =50, rm =3,tag =something,tag =!foo]",
+      selector: '@a[x =~0.5, y=50, z =~50,r =50, rm =3,tag =something,tag =!foo]',
       offset: 5,
-      type: "@a",
-      contains: ["x", "y", "z", "r", "rm", "tag"],
+      type: '@a',
+      contains: ['x', 'y', 'z', 'r', 'rm', 'tag'],
     },
   ];
 

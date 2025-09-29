@@ -1,13 +1,13 @@
-import { OffsetWord } from "bc-vscode-words";
-import { Kinds } from "../../../../constants";
-import { Context } from "../../../context/context";
-import { CompletionContext } from "../../context";
-import { Boolean } from "../../general";
-import { IsEditingValue } from "./attribute-values";
-import { GetCurrentAttribute } from "./attributes";
+import { OffsetWord } from 'bc-vscode-words';
+import { Kinds } from '../../../../constants';
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
+import { Boolean } from '../../general';
+import { IsEditingValue } from './attribute-values';
+import { GetCurrentAttribute } from './attributes';
 
-import * as Float from "../../general/float";
-import * as Integer from "../../general/integer";
+import * as Float from '../../general/float';
+import * as Integer from '../../general/integer';
 
 export function provideCompletion(context: Context<CompletionContext>, selector: OffsetWord, pos: number): void {
   const builder = context.builder;
@@ -23,9 +23,9 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
           ...context,
           builder: builder.withEvents((item) => {
             const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
-            if (typeof item.documentation === "string" || item.documentation === undefined) {
+            if (typeof item.documentation === 'string' || item.documentation === undefined) {
               item.documentation = {
-                kind: "markdown",
+                kind: 'markdown',
                 value: `${item.documentation}\n${msg}`.trim(),
               };
             } else {
@@ -35,16 +35,16 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
         };
 
         switch (property.type) {
-          case "bool":
+          case 'bool':
             Boolean.provideCompletion(ncontext);
             break;
-          case "int":
+          case 'int':
             Integer.provideCreateCompletion(ncontext.builder, property.range[0], property.range[1]);
             break;
-          case "float":
+          case 'float':
             Float.provideCreateCompletion(ncontext.builder, property.range[0], property.range[1]);
             break;
-          case "enum":
+          case 'enum':
             property.values.forEach((item) => ncontext.builder.add({ label: item, kind: Kinds.Completion.Property }));
             break;
         }

@@ -1,4 +1,3 @@
-
 # Minecraft Bedrock Language Server Monorepo
 
 Welcome to the Blockception Minecraft Bedrock Language Server monorepo! This repository contains all core packages, tools, and extensions for Minecraft Bedrock Edition development, including the language server, diagnostics, project helpers, and more.
@@ -139,12 +138,12 @@ We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) and
 
 - See the [documentation/](documentation/) folder for guides, API docs, and tutorials.
 - Key docs:
-	- [Commands](documentation/Commands.md)
-	- [Debugging](documentation/Debugging.md)
-	- [Json Validation](documentation/Json%20Validation.md)
-	- [Style Guide](documentation/Style%20Guide.md)
-	- [Completion](documentation/completion/Mcfunctions.md)
-	- [Project Attributes](documentation/project/MCAttributes.md)
+  - [Commands](documentation/Commands.md)
+  - [Debugging](documentation/Debugging.md)
+  - [Json Validation](documentation/Json%20Validation.md)
+  - [Style Guide](documentation/Style%20Guide.md)
+  - [Completion](documentation/completion/Mcfunctions.md)
+  - [Project Attributes](documentation/project/MCAttributes.md)
 
 ---
 

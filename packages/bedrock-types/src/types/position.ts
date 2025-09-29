@@ -14,7 +14,7 @@ export namespace Position {
    * @returns
    */
   export function is(value: any): value is Position {
-    if (value && typeof value.line === "number" && typeof value.character === "number") return true;
+    if (value && typeof value.line === 'number' && typeof value.character === 'number') return true;
 
     return false;
   }
@@ -29,7 +29,7 @@ export namespace Position {
     return { line: line, character: character };
   }
 
-  const NewLine = "\n".charCodeAt(0);
+  const NewLine = '\n'.charCodeAt(0);
 
   /**Converts the position to an offset
    * @param position
@@ -37,7 +37,7 @@ export namespace Position {
    * @returns
    */
   export function toOffset(position: Position, text: string | { offsetAt(position: Position): number }): number {
-    if (typeof text === "object") return text.offsetAt(position);
+    if (typeof text === 'object') return text.offsetAt(position);
 
     //Line count
     let count = 0;
@@ -67,7 +67,7 @@ export namespace Position {
    * @returns
    */
   export function toPosition(offset: number, text: string | { positionAt(offset: number): Position }): Position {
-    if (typeof text === "object") return text.positionAt(offset);
+    if (typeof text === 'object') return text.positionAt(offset);
 
     //Line count
     let count = 0;

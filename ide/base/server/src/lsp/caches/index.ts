@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./data-cache";
+export * from './data-cache';

@@ -1,5 +1,5 @@
-import * as vsp from "vscode-languageserver";
-import * as vs from "vscode-languageserver-textdocument";
+import * as vsp from 'vscode-languageserver';
+import * as vs from 'vscode-languageserver-textdocument';
 
 export interface Range extends vs.Range, vsp.Range {}
 
@@ -18,7 +18,7 @@ export namespace Range {
       range = range.range;
     }
 
-    if (typeof position === "number") {
+    if (typeof position === 'number') {
       //number check, assumes it on the same line
       if (range.start.character > position) return false;
       if (range.end.character < position) return false;

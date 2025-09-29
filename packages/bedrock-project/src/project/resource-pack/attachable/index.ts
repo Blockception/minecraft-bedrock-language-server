@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./attachable";
-export * from "./process";
+export * from './attachable';
+export * from './process';

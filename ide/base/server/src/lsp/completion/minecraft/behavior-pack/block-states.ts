@@ -1,20 +1,20 @@
-import { BehaviorPack } from "bc-minecraft-bedrock-project";
-import { Location } from "bc-minecraft-bedrock-types/src/types";
-import { MinecraftData, Types } from "bc-minecraft-bedrock-vanilla-data";
-import { MolangSet } from "bc-minecraft-molang";
-import { CompletionItemKind } from "vscode-languageserver";
-import { Kinds } from "../../../../constants";
-import { GetPossibleBlockID } from "../../../../minecraft/commands";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from "../../../context/context";
-import { CommandCompletionContext } from "../../context";
-import { IsEditingValue } from "../selectors/attribute-values";
+import { BehaviorPack } from 'bc-minecraft-bedrock-project';
+import { Location } from 'bc-minecraft-bedrock-types/src/types';
+import { MinecraftData, Types } from 'bc-minecraft-bedrock-vanilla-data';
+import { MolangSet } from 'bc-minecraft-molang';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Kinds } from '../../../../constants';
+import { GetPossibleBlockID } from '../../../../minecraft/commands';
+import { IsEducationEnabled } from '../../../../project/attributes';
+import { Context } from '../../../context/context';
+import { CommandCompletionContext } from '../../context';
+import { IsEditingValue } from '../selectors/attribute-values';
 
 export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const block = GetPossibleBlockID(context.command, context.parameterIndex);
   const edu = IsEducationEnabled(context.document);
 
-  if (!(context.current?.text.startsWith("[") ?? false)) {
+  if (!(context.current?.text.startsWith('[') ?? false)) {
     if (block) {
       let b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined;
 
@@ -23,7 +23,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
         provideDefaultCompletion(b, context);
     }
 
-    context.builder.add({ label: "[]", documentation: "Block states", kind: CompletionItemKind.Snippet });
+    context.builder.add({ label: '[]', documentation: 'Block states', kind: CompletionItemKind.Snippet });
     return;
   }
 
@@ -42,7 +42,7 @@ function provideDefaultCompletion(b: BehaviorPack.Block.Block, context: CommandC
   const pars = b.states.map((state) => `"${state.name}":${stateValue(state, state.values[0])}`);
 
   context.builder.add({
-    label: `[${pars.join(",")}]`,
+    label: `[${pars.join(',')}]`,
     documentation: `Default blockstates for: ${b.id}`,
     kind: Kinds.Completion.Block,
   });
@@ -90,7 +90,7 @@ function vanillaBlockToBlock(block: Types.BehaviorPack.Block | undefined): Behav
 }
 
 function stateValue(state: BehaviorPack.Block.BlockState, value: string | number | boolean) {
-  if (state.type === "string") return `"${value}"`;
+  if (state.type === 'string') return `"${value}"`;
 
   return value;
 }

@@ -1,5 +1,5 @@
-import { jsonc } from "jsonc";
-import { TextDocument } from "../types";
+import { jsonc } from 'jsonc';
+import { TextDocument } from '../types';
 
 /**The namespace that provided json code*/
 export namespace Json {
@@ -13,23 +13,23 @@ export namespace Json {
     try {
       let content;
 
-      if (typeof doc === "object") {
+      if (typeof doc === 'object') {
         file = doc.uri;
         content = doc.getText();
       } else {
         content = doc;
       }
 
-      if (content !== "") out = <T>jsonc.parse(content);
+      if (content !== '') out = <T>jsonc.parse(content);
     } catch (err: any) {
-      let message = "";
+      let message = '';
 
       if (file) {
         message = `Cannot cast file to json: ${file}\n`;
       }
 
       if (err.message) {
-        message += "message: " + err.message;
+        message += 'message: ' + err.message;
       } else {
         message += JSON.stringify(err);
       }

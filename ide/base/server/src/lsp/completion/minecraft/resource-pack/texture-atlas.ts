@@ -11,10 +11,10 @@ export function provideJsonCompletion(context: Context<CompletionContext>): void
 const atlasJsonCompletion = new JsonPathCompletion(
   {
     match: (path) => path.endsWith('flipbook_texture'),
-    onCompletion: Textures.provideCompletion
+    onCompletion: Textures.provideCompletion,
   },
   {
     match: /\/textures\/(\d+)$/,
-    onCompletion: Textures.provideCompletion
-  }
+    onCompletion: Textures.provideCompletion,
+  },
 );

@@ -1,10 +1,10 @@
-import { Documentated, Identifiable } from "bc-minecraft-bedrock-types/src/types";
-import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { CompletionItemKind, MarkupContent } from "vscode-languageserver";
-import { TemplateCommands } from "../../../commands/commands/templates";
-import { Context } from "../../../context/context";
-import { CompletionContext } from "../../context";
-import { Boolean } from "../../general";
+import { Documentated, Identifiable } from 'bc-minecraft-bedrock-types/src/types';
+import { MCAttributes, MCDefinition, MCIgnore } from 'bc-minecraft-project';
+import { CompletionItemKind, MarkupContent } from 'vscode-languageserver';
+import { TemplateCommands } from '../../../commands/commands/templates';
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
+import { Boolean } from '../../general';
 
 export function provideCompletion(context: Context<CompletionContext>) {
   const filename = context.document.filename();
@@ -31,68 +31,68 @@ function provideAttributes(context: Context<CompletionContext>) {
   const { builder, document, position } = context;
   const line = document.getLine(position.line);
 
-  const index = line.indexOf("=");
+  const index = line.indexOf('=');
   if (index > -1 && index < position.character) {
     Boolean.provideCompletion(context);
     return;
   }
 
-  builder.add({ label: "## ", documentation: "Comment", kind: CompletionItemKind.Snippet });
+  builder.add({ label: '## ', documentation: 'Comment', kind: CompletionItemKind.Snippet });
   builder.add({
-    label: "education.enable",
-    documentation: "Disable or enable education edition for this project",
+    label: 'education.enable',
+    documentation: 'Disable or enable education edition for this project',
     kind: CompletionItemKind.Property,
-    insertText: "education.enable=",
+    insertText: 'education.enable=',
   });
   builder.add({
-    label: "diagnostic.enable",
-    documentation: "Disable or enable diagnostics for this project",
+    label: 'diagnostic.enable',
+    documentation: 'Disable or enable diagnostics for this project',
     kind: CompletionItemKind.Property,
-    insertText: "diagnostic.enable=",
+    insertText: 'diagnostic.enable=',
   });
   builder.add({
-    label: "diagnostic.json",
-    documentation: "Disable or enable diagnostics for json in this project",
+    label: 'diagnostic.json',
+    documentation: 'Disable or enable diagnostics for json in this project',
     kind: CompletionItemKind.Property,
-    insertText: "diagnostic.json=",
+    insertText: 'diagnostic.json=',
   });
   builder.add({
-    label: "diagnostic.lang",
-    documentation: "Disable or enable diagnostics for language in this project",
+    label: 'diagnostic.lang',
+    documentation: 'Disable or enable diagnostics for language in this project',
     kind: CompletionItemKind.Property,
-    insertText: "diagnostic.lang=",
+    insertText: 'diagnostic.lang=',
   });
   builder.add({
-    label: "diagnostic.mcfunction",
-    documentation: "Disable or enable diagnostics for mcfunction in this project",
+    label: 'diagnostic.mcfunction',
+    documentation: 'Disable or enable diagnostics for mcfunction in this project',
     kind: CompletionItemKind.Property,
-    insertText: "diagnostic.mcfunction=",
+    insertText: 'diagnostic.mcfunction=',
   });
   builder.add({
-    label: "diagnostic.objective",
-    documentation: "Disable or enable diagnostics for objectives in this project",
+    label: 'diagnostic.objective',
+    documentation: 'Disable or enable diagnostics for objectives in this project',
     kind: CompletionItemKind.Property,
-    insertText: "diagnostic.objective=",
+    insertText: 'diagnostic.objective=',
   });
   builder.add({
-    label: "diagnostic.tag",
-    documentation: "Disable or enable diagnostics for tags in this project",
+    label: 'diagnostic.tag',
+    documentation: 'Disable or enable diagnostics for tags in this project',
     kind: CompletionItemKind.Property,
-    insertText: "diagnostic.tag=",
+    insertText: 'diagnostic.tag=',
   });
 
   const templates = TemplateCommands.map((v) => v.templateId());
   templates.forEach((temp) => {
-    temp = temp.replace("-", ".");
+    temp = temp.replace('-', '.');
     builder.add({
       label: `template.${temp}.filename`,
-      documentation: "The filename of the template",
+      documentation: 'The filename of the template',
       kind: CompletionItemKind.Property,
       insertText: `template.${temp}.filename=`,
     });
     builder.add({
       label: `template.${temp}.file`,
-      documentation: "The file of the content of the file",
+      documentation: 'The file of the content of the file',
       kind: CompletionItemKind.File,
       insertText: `template.${temp}.file=`,
     });
@@ -110,131 +110,131 @@ function provideDefinitions(context: Context<CompletionContext>): void {
   const projectData = database.ProjectData;
   const line = document.getLine(position.line);
 
-  const index = line.indexOf("=");
+  const index = line.indexOf('=');
   if (index > -1 && index < position.character) {
     const definition = line.substring(0, index);
 
     switch (definition) {
-      case "block":
+      case 'block':
         return projectData.behaviorPacks.blocks.forEach((block) => add(context, block));
 
-      case "entity":
+      case 'entity':
         return projectData.behaviorPacks.entities.forEach((entity) => add(context, entity));
 
-      case "family":
+      case 'family':
         return projectData.behaviorPacks.entities.forEach((entity) =>
-          entity.families.defined.forEach((family) => add(context, family))
+          entity.families.defined.forEach((family) => add(context, family)),
         );
 
-      case "function":
+      case 'function':
         return projectData.behaviorPacks.functions.forEach((funct) => add(context, funct));
 
-      case "item":
+      case 'item':
         return projectData.behaviorPacks.items.forEach((item) => add(context, item));
 
-      case "loot_table":
+      case 'loot_table':
         return projectData.behaviorPacks.loot_tables.forEach((loot_table) => add(context, loot_table));
 
-      case "name":
+      case 'name':
         return projectData.general.fakeEntities.forEach((entity) => add(context, entity));
 
-      case "objective":
+      case 'objective':
         return projectData.general.objectives.forEach((obj) => add(context, obj));
 
-      case "structure":
+      case 'structure':
         return projectData.behaviorPacks.structures.forEach((structure) => add(context, structure));
 
-      case "tag":
+      case 'tag':
         return projectData.general.tags.forEach((tag) => add(context, tag));
 
-      case "tickingarea":
+      case 'tickingarea':
         return projectData.general.tickingAreas.forEach((tickingarea) => add(context, tickingarea));
     }
 
     return;
   }
 
-  builder.add({ label: "## ", documentation: "Comment", kind: CompletionItemKind.Snippet });
+  builder.add({ label: '## ', documentation: 'Comment', kind: CompletionItemKind.Snippet });
   builder.add({
-    label: "block",
-    documentation: "Include or excluded a block definition",
+    label: 'block',
+    documentation: 'Include or excluded a block definition',
     kind: CompletionItemKind.Property,
-    insertText: "block=",
+    insertText: 'block=',
   });
   builder.add({
-    label: "entity",
-    documentation: "Include or excluded a entity definition",
+    label: 'entity',
+    documentation: 'Include or excluded a entity definition',
     kind: CompletionItemKind.Property,
-    insertText: "entity=",
+    insertText: 'entity=',
   });
   builder.add({
-    label: "family",
-    documentation: "Include or excluded a family definition",
+    label: 'family',
+    documentation: 'Include or excluded a family definition',
     kind: CompletionItemKind.Property,
-    insertText: "family=",
+    insertText: 'family=',
   });
   builder.add({
-    label: "function",
-    documentation: "Include or excluded a function definition",
+    label: 'function',
+    documentation: 'Include or excluded a function definition',
     kind: CompletionItemKind.Property,
-    insertText: "function=",
+    insertText: 'function=',
   });
   builder.add({
-    label: "item",
-    documentation: "Include or excluded a item definition",
+    label: 'item',
+    documentation: 'Include or excluded a item definition',
     kind: CompletionItemKind.Property,
-    insertText: "item=",
+    insertText: 'item=',
   });
   builder.add({
-    label: "loot_table",
-    documentation: "Include or excluded a loot_table definition",
+    label: 'loot_table',
+    documentation: 'Include or excluded a loot_table definition',
     kind: CompletionItemKind.Property,
-    insertText: "loot_table=",
+    insertText: 'loot_table=',
   });
   builder.add({
-    label: "name",
-    documentation: "Include or excluded a name definition",
+    label: 'name',
+    documentation: 'Include or excluded a name definition',
     kind: CompletionItemKind.Property,
-    insertText: "name=",
+    insertText: 'name=',
   });
   builder.add({
-    label: "objective",
-    documentation: "Include or excluded a objective definition",
+    label: 'objective',
+    documentation: 'Include or excluded a objective definition',
     kind: CompletionItemKind.Property,
-    insertText: "objective=",
+    insertText: 'objective=',
   });
   builder.add({
-    label: "structure",
-    documentation: "Include or excluded a structure definition",
+    label: 'structure',
+    documentation: 'Include or excluded a structure definition',
     kind: CompletionItemKind.Property,
-    insertText: "structure=",
+    insertText: 'structure=',
   });
   builder.add({
-    label: "tag",
-    documentation: "Include or excluded a tag definition",
+    label: 'tag',
+    documentation: 'Include or excluded a tag definition',
     kind: CompletionItemKind.Property,
-    insertText: "tag=",
+    insertText: 'tag=',
   });
   builder.add({
-    label: "tickingarea",
-    documentation: "Include or excluded a tickingarea definition",
+    label: 'tickingarea',
+    documentation: 'Include or excluded a tickingarea definition',
     kind: CompletionItemKind.Property,
-    insertText: "tickingarea=",
+    insertText: 'tickingarea=',
   });
 }
 
 function add(context: Context<CompletionContext>, value: (Identifiable & Documentated) | string) {
   let label: string;
-  const documentation: MarkupContent = { kind: "markdown", value: "" };
+  const documentation: MarkupContent = { kind: 'markdown', value: '' };
 
-  if (typeof value === "string") {
+  if (typeof value === 'string') {
     label = value;
     documentation.value = value;
   } else {
     label = value.id;
-    documentation.value = value.documentation ?? "";
+    documentation.value = value.documentation ?? '';
   }
 
   context.builder.add({ label: label, documentation, kind: CompletionItemKind.Value }).sortText = label;
-  context.builder.add({ label: "!" + label, documentation, kind: CompletionItemKind.Value }).sortText = `${label}2`;
+  context.builder.add({ label: '!' + label, documentation, kind: CompletionItemKind.Value }).sortText = `${label}2`;
 }

@@ -1,7 +1,7 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Documentation } from "../../../types";
-import { TextDocument } from "../../../types";
-import { Trading } from "./trading";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Documentation } from '../../../types';
+import { TextDocument } from '../../../types';
+import { Trading } from './trading';
 
 /**
  *
@@ -10,10 +10,10 @@ import { Trading } from "./trading";
  */
 export function process(doc: TextDocument): Trading | undefined {
   const uri = doc.uri;
-  const index = uri.indexOf("trading");
+  const index = uri.indexOf('trading');
 
   if (index < 0) return undefined;
-  const id = uri.substring(index, uri.length).replace(/\\/g, "/");
+  const id = uri.substring(index, uri.length).replace(/\\/g, '/');
 
   return {
     id: id,

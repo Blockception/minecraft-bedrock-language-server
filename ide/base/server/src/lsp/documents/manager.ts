@@ -1,37 +1,37 @@
-import { CancellationToken, Connection, TextDocuments, TextDocumentSyncKind } from "vscode-languageserver";
-import { URI } from "vscode-uri";
-import { Processor } from "../../util";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { ProgressBar } from "../progress";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { TextDocumentFactory } from "./factory";
-import { readDocument } from "./io";
-import { identifyDocument } from "./languageId";
-import { TextDocument } from "./text-document";
+import { CancellationToken, Connection, TextDocuments, TextDocumentSyncKind } from 'vscode-languageserver';
+import { URI } from 'vscode-uri';
+import { Processor } from '../../util';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { ProgressBar } from '../progress';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { TextDocumentFactory } from './factory';
+import { readDocument } from './io';
+import { identifyDocument } from './languageId';
+import { TextDocument } from './text-document';
 
-import * as vscode from "vscode-languageserver-textdocument";
+import * as vscode from 'vscode-languageserver-textdocument';
 
 export type ContentType = string | vscode.TextDocument | undefined;
 export type IDocumentManager = Pick<
   DocumentManager,
-  "get" | "forEach" | "onDidChangeContent" | "onDidClose" | "onDidOpen" | "onDidSave"
+  'get' | 'forEach' | 'onDidChangeContent' | 'onDidClose' | 'onDidOpen' | 'onDidSave'
 >;
 
 export class DocumentManager
   extends BaseService
   implements
     Partial<IService>,
-    Pick<TextDocuments<TextDocument>, "onDidChangeContent" | "onDidClose" | "onDidOpen" | "onDidSave">
+    Pick<TextDocuments<TextDocument>, 'onDidChangeContent' | 'onDidClose' | 'onDidOpen' | 'onDidSave'>
 {
-  public readonly name: string = "documents";
+  public readonly name: string = 'documents';
   private _documents: TextDocuments<TextDocument>;
   private _factory: TextDocumentFactory;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[documents]"), extension);
+    super(logger.withPrefix('[documents]'), extension);
 
     this._factory = new TextDocumentFactory(logger, extension);
     this._documents = new TextDocuments(this._factory);
@@ -56,13 +56,13 @@ export class DocumentManager
 
   onInitialize(capabilities: CapabilityBuilder): void {
     const filters = [
-      { pattern: { glob: "**/*.{mcfunction}", options: { ignoreCase: true } } },
-      { pattern: { glob: "**/*.{json,jsonc}", options: { ignoreCase: true } } },
-      { pattern: { glob: "**/*.{.mcignore,.mcattributes,.mcdefinitions}", options: { ignoreCase: true } } },
+      { pattern: { glob: '**/*.{mcfunction}', options: { ignoreCase: true } } },
+      { pattern: { glob: '**/*.{json,jsonc}', options: { ignoreCase: true } } },
+      { pattern: { glob: '**/*.{.mcignore,.mcattributes,.mcdefinitions}', options: { ignoreCase: true } } },
     ];
 
-    capabilities.set("textDocumentSync", TextDocumentSyncKind.Incremental);
-    capabilities.set("workspace", {
+    capabilities.set('textDocumentSync', TextDocumentSyncKind.Incremental);
+    capabilities.set('workspace', {
       workspaceFolders: {
         changeNotifications: true,
         supported: true,
@@ -89,14 +89,14 @@ export class DocumentManager
    */
   get(uri: string, content?: ContentType, languageID?: string): TextDocument | undefined {
     const u = URI.parse(uri);
-    if (languageID === undefined || languageID === "") {
+    if (languageID === undefined || languageID === '') {
       languageID = identifyDocument(u);
     }
 
-    if (typeof content === "string") {
+    if (typeof content === 'string') {
       return this._factory.create(u.toString(), languageID, 1, content);
     }
-    if (typeof content !== "undefined") {
+    if (typeof content !== 'undefined') {
       return this._factory.extend(content);
     }
 
@@ -123,7 +123,7 @@ export class DocumentManager
     uris: string[],
     callback: (doc: TextDocument) => void,
     reporter: ProgressBar,
-    token: CancellationToken
+    token: CancellationToken,
   ): void | Promise<void> {
     reporter.addMaximum(uris.length);
 
@@ -143,7 +143,7 @@ export class DocumentManager
         reporter.addValue();
         reporter.sendProgress();
       },
-      token
+      token,
     );
   }
 }

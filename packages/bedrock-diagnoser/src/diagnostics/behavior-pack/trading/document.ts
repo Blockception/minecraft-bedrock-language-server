@@ -1,16 +1,16 @@
-import { DocumentDiagnosticsBuilder } from "../../../types";
-import { Json } from "../../json/json";
-import { minecraft_get_item } from "../../minecraft/items";
-import { diagnose_molang_syntax_current_document } from "../../molang";
-import { behaviorpack_item_diagnose } from "../item/diagnose";
-import { behaviorpack_loot_table_function_diagnose, LootFunction } from "../loot-table/functions";
+import { DocumentDiagnosticsBuilder } from '../../../types';
+import { Json } from '../../json/json';
+import { minecraft_get_item } from '../../minecraft/items';
+import { diagnose_molang_syntax_current_document } from '../../molang';
+import { behaviorpack_item_diagnose } from '../item/diagnose';
+import { behaviorpack_loot_table_function_diagnose, LootFunction } from '../loot-table/functions';
 
 /**Diagnoses the given document as an trading table
  * @param doc The text document to diagnose
  * @param diagnoser The diagnoser builder to receive the errors*/
 export function diagnose_trading_document(diagnoser: DocumentDiagnosticsBuilder): void {
   const table = Json.LoadReport<TradeTable>(diagnoser);
-  if (typeof table !== "object") return;
+  if (typeof table !== 'object') return;
   diagnose_molang_syntax_current_document(diagnoser, table);
 
   //Foreach tier

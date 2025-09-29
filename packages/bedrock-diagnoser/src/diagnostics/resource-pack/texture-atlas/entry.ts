@@ -1,8 +1,8 @@
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import path from "path";
-import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
-import { education_enabled } from "../../definitions";
-import { Json } from "../../json/json";
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import path from 'path';
+import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { education_enabled } from '../../definitions';
+import { Json } from '../../json/json';
 
 /**Diagnoses the given document as a texture atlas
  * @param doc The text document to diagnose
@@ -17,18 +17,18 @@ export function diagnose_atlas_document(diagnoser: DocumentDiagnosticsBuilder): 
 
   const texture_data = definitions.texture_data;
   const texture_files = diagnoser.context
-    .getFiles(pack.folder, ["**/textures/**/*.{tga,png,jpg,jpeg}"], pack.context.ignores)
-    .map((item) => item.replace(/\\/gi, "/"));
+    .getFiles(pack.folder, ['**/textures/**/*.{tga,png,jpg,jpeg}'], pack.context.ignores)
+    .map((item) => item.replace(/\\/gi, '/'));
 
   //Check if files exists
   const check_file_spec: (texture_id: string, item: DetailedTextureSpec) => void = (texture_id, item) => {
-    if (typeof item.path === "string") {
+    if (typeof item.path === 'string') {
       texture_files_diagnose(texture_id, item.path, texture_files, diagnoser);
     }
 
     if (item.variations) {
       item.variations.forEach((subitem) => {
-        if (typeof subitem.path === "string") {
+        if (typeof subitem.path === 'string') {
           texture_files_diagnose(texture_id, subitem.path, texture_files, diagnoser);
         }
       });
@@ -38,12 +38,12 @@ export function diagnose_atlas_document(diagnoser: DocumentDiagnosticsBuilder): 
   Object.entries(texture_data).forEach(([texture_id, data]) => {
     const textures = data.textures;
     //If texture
-    if (typeof textures === "string") {
+    if (typeof textures === 'string') {
       texture_files_diagnose(texture_id, textures, texture_files, diagnoser);
       //If array of items
     } else if (Array.isArray(textures)) {
       textures.forEach((texture) => {
-        if (typeof texture === "string") {
+        if (typeof texture === 'string') {
           texture_files_diagnose(texture_id, texture, texture_files, diagnoser);
         } else {
           check_file_spec(texture_id, texture);
@@ -59,12 +59,12 @@ export function texture_files_diagnose(
   owner: string,
   file: string,
   files: string[],
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): void {
   files = files.map((location) =>
-    location.includes(".") ? location.slice(0, -path.extname(location).length) : location
+    location.includes('.') ? location.slice(0, -path.extname(location).length) : location,
   );
-  if (file.includes(".")) file = file.slice(0, -path.extname(file).length);
+  if (file.includes('.')) file = file.slice(0, -path.extname(file).length);
   for (let I = 0; I < files.length; I++) {
     if (files[I].endsWith(file)) {
       //Found then return
@@ -78,7 +78,7 @@ export function texture_files_diagnose(
     `${owner}/${file}`,
     `Cannot find file: ${file}`,
     DiagnosticSeverity.error,
-    "resourcepack.texture.missing"
+    'resourcepack.texture.missing',
   );
 }
 
@@ -90,7 +90,7 @@ interface TextureAtlas {
 
 namespace TextureAtlas {
   export function is(value: any): value is TextureAtlas {
-    if (typeof value === "object" && typeof value.texture_data === "object") return true;
+    if (typeof value === 'object' && typeof value.texture_data === 'object') return true;
 
     return false;
   }

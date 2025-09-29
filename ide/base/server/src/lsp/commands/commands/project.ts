@@ -1,25 +1,25 @@
-import { Commands } from "@blockception/ide-shared";
-import { Vscode } from "../../../util";
-import { Context } from "../../context/context";
-import { TemplateBuilder } from "../../templates/builder";
-import { Folders } from "../../templates/folders";
-import { create_language_files } from "../../templates/language";
-import { CommandContext } from "../context";
-import { mustExecute } from "./functions";
-import { TextEditBuilder } from "./language";
+import { Commands } from '@blockception/ide-shared';
+import { Vscode } from '../../../util';
+import { Context } from '../../context/context';
+import { TemplateBuilder } from '../../templates/builder';
+import { Folders } from '../../templates/folders';
+import { create_language_files } from '../../templates/language';
+import { CommandContext } from '../context';
+import { mustExecute } from './functions';
+import { TextEditBuilder } from './language';
 
 export async function create_world_project(
   context: Context<CommandContext>,
   id: string,
   folders: Folders,
-  builder: TemplateBuilder
+  builder: TemplateBuilder,
 ): Promise<void> {
-  const folder = Vscode.join(folders.WorkSpace(), "world");
+  const folder = Vscode.join(folders.WorkSpace(), 'world');
 
   const nfolders = {
     WorkSpace: () => folders.WorkSpace(),
-    BehaviorPack: () => Vscode.join(folder, "behavior_packs", id + "-bp"),
-    ResourcePack: () => Vscode.join(folder, "resource_packs", id + "-rp"),
+    BehaviorPack: () => Vscode.join(folder, 'behavior_packs', id + '-bp'),
+    ResourcePack: () => Vscode.join(folder, 'resource_packs', id + '-rp'),
     WorldFolder: () => folder,
   };
 
@@ -45,7 +45,7 @@ export async function create_behaviorpack(
   context: Context<CommandContext>,
   id: string,
   folders: Folders,
-  builder: TemplateBuilder
+  builder: TemplateBuilder,
 ): Promise<void> {
   const folder = Vscode.join(folders.WorkSpace(), `${id}-bp`);
   const nfolders = {
@@ -69,7 +69,7 @@ export async function create_resourcepack(
   context: Context<CommandContext>,
   id: string,
   folders: Folders,
-  builder: TemplateBuilder
+  builder: TemplateBuilder,
 ): Promise<void> {
   const folder = Vscode.join(folders.WorkSpace(), `${id}-rp`);
   const nfolders = {
@@ -84,16 +84,16 @@ export async function create_resourcepack(
 }
 
 function languageWP(text: TextEditBuilder): void {
-  text.Add("pack.name", "Example wp pack name");
-  text.Add("pack.description", "The text that describes this world example pack");
+  text.Add('pack.name', 'Example wp pack name');
+  text.Add('pack.description', 'The text that describes this world example pack');
 }
 
 function languageBP(text: TextEditBuilder): void {
-  text.Add("pack.name", "Example wp pack name");
-  text.Add("pack.description", "The behaviors for the project");
+  text.Add('pack.name', 'Example wp pack name');
+  text.Add('pack.description', 'The behaviors for the project');
 }
 
 function languageRP(text: TextEditBuilder): void {
-  text.Add("pack.name", "Example resource pack name");
-  text.Add("pack.description", "The resources for the project");
+  text.Add('pack.name', 'Example resource pack name');
+  text.Add('pack.description', 'The resources for the project');
 }

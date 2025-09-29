@@ -1,14 +1,14 @@
-import { ParameterType } from "bc-minecraft-bedrock-command";
-import { ProjectData } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-types";
-import { CancellationToken, Location, WorkDoneProgressReporter } from "vscode-languageserver";
-import { Processor, References } from "../../util";
-import { InternalContext } from "../diagnostics/context";
-import { IDocumentManager } from "../documents/manager";
-import { IExtendedLogger } from "../logger/logger";
-import { IService } from "../services/service";
-import { Options, ReferenceBuilder } from "./references";
-import { WorkspaceData } from "./workspace-data";
+import { ParameterType } from 'bc-minecraft-bedrock-command';
+import { ProjectData } from 'bc-minecraft-bedrock-project';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { CancellationToken, Location, WorkDoneProgressReporter } from 'vscode-languageserver';
+import { Processor, References } from '../../util';
+import { InternalContext } from '../diagnostics/context';
+import { IDocumentManager } from '../documents/manager';
+import { IExtendedLogger } from '../logger/logger';
+import { IService } from '../services/service';
+import { Options, ReferenceBuilder } from './references';
+import { WorkspaceData } from './workspace-data';
 
 type BaseObject = Types.BaseObject;
 
@@ -17,14 +17,14 @@ export interface forEachfn<T extends Types.BaseObject> {
 }
 
 export class Database implements Partial<IService> {
-  readonly name: string = "database";
+  readonly name: string = 'database';
   public logger: IExtendedLogger;
   public ProjectData: ProjectData;
   public WorkspaceData: WorkspaceData;
   public context: InternalContext;
 
   constructor(logger: IExtendedLogger, documents: IDocumentManager) {
-    this.logger = logger.withPrefix("[database]");
+    this.logger = logger.withPrefix('[database]');
 
     this.context = new InternalContext(this.logger, documents, () => this.ProjectData);
     this.WorkspaceData = new WorkspaceData();
@@ -35,7 +35,7 @@ export class Database implements Partial<IService> {
    *
    */
   clear(): void {
-    this.logger.info("clearing database");
+    this.logger.info('clearing database');
     this.WorkspaceData.clear();
     this.ProjectData = new ProjectData(this.context);
   }
@@ -58,7 +58,7 @@ export class Database implements Partial<IService> {
     documents: IDocumentManager,
     options?: Options,
     token?: CancellationToken,
-    workDoneProgress?: WorkDoneProgressReporter
+    workDoneProgress?: WorkDoneProgressReporter,
   ): Promise<Location[]> {
     const builder = new ReferenceBuilder(documents, { defined: true, usage: false, ...(options || {}) }, token);
     await this.forEach((item) => builder.findReference(item, id), token, workDoneProgress);
@@ -75,7 +75,7 @@ export class Database implements Partial<IService> {
     id: string,
     types: ParameterType[] | undefined = undefined,
     token?: CancellationToken,
-    workDoneProgress?: WorkDoneProgressReporter
+    workDoneProgress?: WorkDoneProgressReporter,
   ): Promise<BaseObject[]> {
     if (types) return this.internalTypeSearch(id, types, token, workDoneProgress);
 
@@ -85,7 +85,7 @@ export class Database implements Partial<IService> {
   private async internalSearchAll(
     id: string,
     token?: CancellationToken,
-    workDoneProgress?: WorkDoneProgressReporter
+    workDoneProgress?: WorkDoneProgressReporter,
   ): Promise<Types.BaseObject[]> {
     const result: BaseObject[] = [];
 
@@ -94,7 +94,7 @@ export class Database implements Partial<IService> {
         if (item.id === id) result.push(item);
       },
       token,
-      workDoneProgress
+      workDoneProgress,
     );
 
     return result;
@@ -104,7 +104,7 @@ export class Database implements Partial<IService> {
     id: string,
     types: ParameterType[],
     token?: CancellationToken,
-    workDoneProgress?: WorkDoneProgressReporter
+    workDoneProgress?: WorkDoneProgressReporter,
   ): BaseObject[] {
     const out: BaseObject[] = [];
     const addIfIDMatch = (item: BaseObject) => {
@@ -185,7 +185,7 @@ export class Database implements Partial<IService> {
   forEach(
     callbackfn: (item: BaseObject) => void,
     token?: CancellationToken,
-    workDoneProgress?: WorkDoneProgressReporter
+    workDoneProgress?: WorkDoneProgressReporter,
   ): Promise<void> | void {
     const packs = [
       [this.ProjectData.general],
@@ -198,7 +198,7 @@ export class Database implements Partial<IService> {
       packs,
       (pack_col) => Processor.forEach<forEachfn<BaseObject>>(pack_col, (pack) => pack.forEach(callbackfn), token),
       token,
-      workDoneProgress
+      workDoneProgress,
     );
   }
 }

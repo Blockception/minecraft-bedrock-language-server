@@ -1,24 +1,24 @@
-import { FileType } from "bc-minecraft-bedrock-project/src/project/behavior-pack";
-import { DocumentDiagnosticsBuilder } from "../../types/diagnostics-builder";
+import { FileType } from 'bc-minecraft-bedrock-project/src/project/behavior-pack';
+import { DocumentDiagnosticsBuilder } from '../../types/diagnostics-builder';
 
-import * as AnimationController from "./animation-controllers/document";
-import * as Animation from "./animation/document";
-import * as Biome from "./biome/document";
-import * as Block from "./block/document";
-import * as Entity from "./entity/document";
-import * as FeatureRule from "./feature-rule/document";
-import * as Feature from "./feature/document";
-import * as Tick from "./functions/tick/document";
-import * as Item from "./item/document";
-import * as ItemCatalog from "./item-catalog/document";
-import * as LootTable from "./loot-table/document";
-import * as Manifest from "./manifest/document";
-import * as Mcfunction from "./mcfunction/document";
-import * as Recipe from "./recipe/document";
-import * as Script from "./script/document";
-import * as SpawnRule from "./spawn-rule/document";
-import * as Structure from "./structure/document";
-import * as Trading from "./trading/document";
+import * as AnimationController from './animation-controllers/document';
+import * as Animation from './animation/document';
+import * as Biome from './biome/document';
+import * as Block from './block/document';
+import * as Entity from './entity/document';
+import * as FeatureRule from './feature-rule/document';
+import * as Feature from './feature/document';
+import * as Tick from './functions/tick/document';
+import * as Item from './item/document';
+import * as ItemCatalog from './item-catalog/document';
+import * as LootTable from './loot-table/document';
+import * as Manifest from './manifest/document';
+import * as Mcfunction from './mcfunction/document';
+import * as Recipe from './recipe/document';
+import * as Script from './script/document';
+import * as SpawnRule from './spawn-rule/document';
+import * as Structure from './structure/document';
+import * as Trading from './trading/document';
 
 export namespace BehaviorPack {
   /**
@@ -49,7 +49,7 @@ export namespace BehaviorPack {
         break;
 
       case FileType.function:
-        if (uri.endsWith("tick.json")) {
+        if (uri.endsWith('tick.json')) {
           Tick.diagnose_tick_document(diagnoser);
         } else {
           Mcfunction.diagnose_mcfunction_document(diagnoser);
@@ -101,7 +101,7 @@ export namespace BehaviorPack {
         break;
 
       case FileType.biome:
-        Biome.diagnose_biome_document(diagnoser); 
+        Biome.diagnose_biome_document(diagnoser);
         break;
 
       default:

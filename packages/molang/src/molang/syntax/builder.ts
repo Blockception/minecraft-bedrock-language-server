@@ -1,4 +1,4 @@
-import { ExpressionNode, NodeType, StatementSequenceNode } from "./nodes";
+import { ExpressionNode, NodeType, StatementSequenceNode } from './nodes';
 
 export class SyntaxBuilder {
   result: StatementSequenceNode;
@@ -33,10 +33,10 @@ export class SyntaxBuilder {
         this.operators[node.operator] = true;
         return;
       case NodeType.NullishCoalescing:
-        this.operators["??"] = true;
+        this.operators['??'] = true;
         return;
       case NodeType.Conditional:
-        this.operators["?"] = true;
+        this.operators['?'] = true;
         return;
     }
   }

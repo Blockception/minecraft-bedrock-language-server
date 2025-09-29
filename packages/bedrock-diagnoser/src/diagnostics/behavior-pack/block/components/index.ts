@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./dependencies";
-export * from "./diagnose";
+export * from './dependencies';
+export * from './diagnose';

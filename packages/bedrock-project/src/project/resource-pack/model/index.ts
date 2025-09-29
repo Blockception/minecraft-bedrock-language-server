@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./model";
-export * from "./process";
+export * from './model';
+export * from './process';

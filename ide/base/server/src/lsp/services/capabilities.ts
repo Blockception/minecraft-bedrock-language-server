@@ -1,6 +1,6 @@
-import { InitializeResult } from "vscode-languageserver";
+import { InitializeResult } from 'vscode-languageserver';
 
-type Capabilities = InitializeResult["capabilities"];
+type Capabilities = InitializeResult['capabilities'];
 
 export class CapabilityBuilder {
   private base: Capabilities;
@@ -17,7 +17,7 @@ export class CapabilityBuilder {
    * Tell the client that this server supports code completion.
    * @param data
    */
-  addCompletion(data: Capabilities["completionProvider"]) {
+  addCompletion(data: Capabilities['completionProvider']) {
     return (this.base.completionProvider = {
       ...this.base.completionProvider,
       ...data,

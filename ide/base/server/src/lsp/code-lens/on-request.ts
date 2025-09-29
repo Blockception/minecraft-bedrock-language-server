@@ -1,12 +1,12 @@
-import { Languages } from "@blockception/ide-shared";
-import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-types";
-import { CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";
-import { Processor } from "../../util";
-import { Context } from "../context/context";
-import { TextDocument } from "../documents";
-import { CodeLensBuilder } from "./builder";
-import { CodeLensContext } from "./context";
+import { Languages } from '@blockception/ide-shared';
+import { DataSet, ProjectData } from 'bc-minecraft-bedrock-project';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { CodeLens, CodeLensParams, Position, Range } from 'vscode-languageserver';
+import { Processor } from '../../util';
+import { Context } from '../context/context';
+import { TextDocument } from '../documents';
+import { CodeLensBuilder } from './builder';
+import { CodeLensContext } from './context';
 
 /**
  *
@@ -15,7 +15,7 @@ import { CodeLensContext } from "./context";
  */
 export async function internalRequest(
   context: Context<CodeLensContext>,
-  params: CodeLensParams
+  params: CodeLensParams,
 ): Promise<CodeLens[] | null | undefined> {
   const document = context.documents.get(params.textDocument.uri);
   if (!document) return undefined;
@@ -58,7 +58,7 @@ function forEach<T extends Types.BaseObject>(config: LensConfig<T>, doc: TextDoc
 }
 
 interface LensConfig<T extends Types.Identifiable & Types.Locatable> {
-  data: Pick<DataSet<T>, "forEach">;
+  data: Pick<DataSet<T>, 'forEach'>;
 
   regex?: (id: string, doc: TextDocument) => RegExp;
 }
@@ -68,11 +68,11 @@ function isJson(doc: TextDocument) {
 }
 
 function defaultRegex(id: string) {
-  return new RegExp(`\\b${id}\\b`, "g");
+  return new RegExp(`\\b${id}\\b`, 'g');
 }
 
 function selectorThing(id: string, doc: TextDocument) {
-  return isJson(doc) ? new RegExp(`\\b(${id}=|=${id})\\b`, "g") : defaultRegex(id);
+  return isJson(doc) ? new RegExp(`\\b(${id}=|=${id})\\b`, 'g') : defaultRegex(id);
 }
 
 function config(pd: ProjectData) {

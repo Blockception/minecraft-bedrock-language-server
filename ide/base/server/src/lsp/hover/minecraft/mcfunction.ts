@@ -1,12 +1,12 @@
-import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from "bc-minecraft-bedrock-command";
-import { IDataSet } from "bc-minecraft-bedrock-project";
-import { Documentated, Identifiable, Locatable } from "bc-minecraft-bedrock-types/src/types";
-import { Hover, Range } from "vscode-languageserver";
-import { IsEducationEnabled } from "../../../project/attributes";
-import { Context } from "../../context/context";
-import { HoverContext } from "../context";
+import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from 'bc-minecraft-bedrock-command';
+import { IDataSet } from 'bc-minecraft-bedrock-project';
+import { Documentated, Identifiable, Locatable } from 'bc-minecraft-bedrock-types/src/types';
+import { Hover, Range } from 'vscode-languageserver';
+import { IsEducationEnabled } from '../../../project/attributes';
+import { Context } from '../../context/context';
+import { HoverContext } from '../context';
 
-import * as RawText from "./json-raw-text";
+import * as RawText from './json-raw-text';
 
 export function provideHover(context: Context<HoverContext>): Hover | undefined {
   const { params, document } = context;
@@ -37,10 +37,10 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
       const parameter = command.parameters[index];
 
       if (parameter) {
-        const pdoc = ParameterTypeDocumentation[parameterInfo.type] ?? "";
+        const pdoc = ParameterTypeDocumentation[parameterInfo.type] ?? '';
         const r = Range.create(
           document.positionAt(parameter.offset),
-          document.positionAt(parameter.offset + parameter.text.length)
+          document.positionAt(parameter.offset + parameter.text.length),
         );
 
         if (index == 0) {
@@ -67,7 +67,7 @@ function GetHoverContent(
   parameter: ParameterInfo,
   range: Range,
   text: string,
-  additional: string
+  additional: string,
 ): Hover | undefined {
   const { database } = context;
 
@@ -101,69 +101,69 @@ function GetHoverContent(
   }
 
   const title = parameter.text;
-  const doc = `## ${title}\n${GetString(parameter.type) ?? ""}\n${additional}`;
+  const doc = `## ${title}\n${GetString(parameter.type) ?? ''}\n${additional}`;
 
-  return { contents: { kind: "markdown", value: doc }, range: range };
+  return { contents: { kind: 'markdown', value: doc }, range: range };
 }
 
 function GetString(type: ParameterType): string | undefined {
   switch (type) {
     case ParameterType.boolean:
-      return "A boolean value (true or false)";
+      return 'A boolean value (true or false)';
 
     case ParameterType.command:
-      return "A sub command to execute";
+      return 'A sub command to execute';
 
     case ParameterType.coordinate:
-      return "A coordinate";
+      return 'A coordinate';
 
     case ParameterType.effect:
-      return "A effect identifier";
+      return 'A effect identifier';
 
     case ParameterType.event:
-      return "A event";
+      return 'A event';
 
     case ParameterType.float:
-      return "A float number";
+      return 'A float number';
 
     case ParameterType.gamemode:
-      return "A minecraft gamemode";
+      return 'A minecraft gamemode';
 
     case ParameterType.integer:
-      return "An integer number";
+      return 'An integer number';
 
     case ParameterType.item:
-      return "An item identifier";
+      return 'An item identifier';
 
     case ParameterType.jsonItem:
-      return "The json schema for items";
+      return 'The json schema for items';
 
     case ParameterType.locateFeature:
-      return "A locate feature";
+      return 'A locate feature';
 
     case ParameterType.operation:
-      return "A scoreboard math operation";
+      return 'A scoreboard math operation';
 
     case ParameterType.replaceMode:
-      return "A replace mode";
+      return 'A replace mode';
 
     case ParameterType.selector:
-      return "A selector that target all players, entities or fake players";
+      return 'A selector that target all players, entities or fake players';
 
     case ParameterType.slotID:
-      return "A slot id";
+      return 'A slot id';
 
     case ParameterType.slotType:
-      return "A slot type";
+      return 'A slot type';
 
     case ParameterType.string:
-      return "A string";
+      return 'A string';
 
     case ParameterType.unknown:
-      return "no idea, I quit";
+      return 'no idea, I quit';
 
     case ParameterType.xp:
-      return "A xp number";
+      return 'A xp number';
   }
 
   return undefined;
@@ -173,7 +173,7 @@ function getDocumentation<T extends Identifiable & Locatable>(
   _query: string,
   range: Range,
   collection: IDataSet<T>,
-  additional: string
+  additional: string,
 ): Hover | undefined {
   let out: Hover | undefined = undefined;
 
@@ -182,11 +182,11 @@ function getDocumentation<T extends Identifiable & Locatable>(
     if (Documentated.is(item) && item.documentation) {
       doc = item.documentation;
     } else {
-      doc = item.id + "\n" + item.location.uri;
+      doc = item.id + '\n' + item.location.uri;
     }
 
-    doc += "\n" + additional;
-    out = { contents: { kind: "markdown", value: doc }, range: range };
+    doc += '\n' + additional;
+    out = { contents: { kind: 'markdown', value: doc }, range: range };
   });
 
   return out;

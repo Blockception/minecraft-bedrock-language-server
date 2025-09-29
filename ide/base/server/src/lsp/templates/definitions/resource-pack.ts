@@ -76,7 +76,7 @@ export const block_culling: string = `{
       }
     ]
   }
-}`
+}`;
 
 export const biomes_client: string = `{
   "biomes" : {

@@ -1,32 +1,32 @@
-import { assert } from "console";
-import { SyntaxBuilder } from "./builder";
-import { MolangSyntaxError } from "./errors";
-import { ExpressionNode, NodeType, StatementSequenceNode } from "./nodes";
-import { TokenType } from "./tokens";
+import { assert } from 'console';
+import { SyntaxBuilder } from './builder';
+import { MolangSyntaxError } from './errors';
+import { ExpressionNode, NodeType, StatementSequenceNode } from './nodes';
+import { TokenType } from './tokens';
 
 export function processOperators(builder: SyntaxBuilder) {
-  if (builder.hasOperator("??")) processNullishCoalescing(builder); // ??
+  if (builder.hasOperator('??')) processNullishCoalescing(builder); // ??
 
   // Process unary operators (highest precedence)
   processUnaryOperators(builder); // ?, !, return or -u
 
-  ifOperator(builder, "==");
-  ifOperator(builder, "!=");
-  ifOperator(builder, "<");
-  ifOperator(builder, "<=");
-  ifOperator(builder, ">");
-  ifOperator(builder, ">=");
+  ifOperator(builder, '==');
+  ifOperator(builder, '!=');
+  ifOperator(builder, '<');
+  ifOperator(builder, '<=');
+  ifOperator(builder, '>');
+  ifOperator(builder, '>=');
 
-  ifOperator(builder, "||");
-  ifOperator(builder, "&&");
+  ifOperator(builder, '||');
+  ifOperator(builder, '&&');
 
-  ifOperator(builder, "*");
-  ifOperator(builder, "/");
-  ifOperator(builder, "%");
-  ifOperator(builder, "+");
-  ifOperator(builder, "-");
+  ifOperator(builder, '*');
+  ifOperator(builder, '/');
+  ifOperator(builder, '%');
+  ifOperator(builder, '+');
+  ifOperator(builder, '-');
 
-  if (builder.hasOperator("?")) processTernaryOperators(builder); // <cond> ? <true> : <false>
+  if (builder.hasOperator('?')) processTernaryOperators(builder); // <cond> ? <true> : <false>
 
   // Process assignments last (right-to-left associativity)
   processAssignments(builder); // =
@@ -64,11 +64,11 @@ function processNullishCoalescing(builder: SyntaxBuilder) {
 
     // Find left operand
     if (i === 0) {
-      throw new MolangSyntaxError("Nullish coalescing operator missing left operand", current.position, "??");
+      throw new MolangSyntaxError('Nullish coalescing operator missing left operand', current.position, '??');
     }
     // Find right operand
     if (i === statements.length - 1) {
-      throw new MolangSyntaxError("Nullish coalescing operator missing right operand", current.position, "??");
+      throw new MolangSyntaxError('Nullish coalescing operator missing right operand', current.position, '??');
     }
 
     // Update the nullish coalescing node
@@ -128,7 +128,7 @@ function processTernaryOperators(builder: SyntaxBuilder) {
 
     // Find condition (left operand)
     if (i === 0) {
-      throw new MolangSyntaxError("Ternary operator missing condition", current.position, "?");
+      throw new MolangSyntaxError('Ternary operator missing condition', current.position, '?');
     }
 
     const startIndex = i - 1;
@@ -151,7 +151,7 @@ function processTernaryOperators(builder: SyntaxBuilder) {
     }
 
     if (colonIndex === -1) {
-      throw new MolangSyntaxError("Ternary operator missing colon", current.position, "?");
+      throw new MolangSyntaxError('Ternary operator missing colon', current.position, '?');
     }
 
     // Extract true and false expressions
@@ -165,10 +165,10 @@ function processTernaryOperators(builder: SyntaxBuilder) {
     }
 
     if (!trueExpr) {
-      throw new MolangSyntaxError("Ternary operator missing true expression", current.position, "?");
+      throw new MolangSyntaxError('Ternary operator missing true expression', current.position, '?');
     }
     if (!falseExpr) {
-      throw new MolangSyntaxError("Ternary operator missing false expression", current.position, "?");
+      throw new MolangSyntaxError('Ternary operator missing false expression', current.position, '?');
     }
 
     // Update the conditional expression node
@@ -209,11 +209,11 @@ function processAssignments(builder: SyntaxBuilder) {
 
     // Find left operand
     if (i === 0) {
-      throw new MolangSyntaxError("Assignment operator missing left operand", current.position, "=");
+      throw new MolangSyntaxError('Assignment operator missing left operand', current.position, '=');
     }
     // Find right operand
     if (i === statements.length - 1) {
-      throw new MolangSyntaxError("Assignment operator missing right operand", current.position, "=");
+      throw new MolangSyntaxError('Assignment operator missing right operand', current.position, '=');
     }
 
     // Update the assignment node
@@ -231,7 +231,7 @@ function processAssignments(builder: SyntaxBuilder) {
  * @returns
  */
 function wrapIf(nodes: ExpressionNode[]): ExpressionNode {
-  assert(nodes.length >= 1, "expected contents to the node");
+  assert(nodes.length >= 1, 'expected contents to the node');
   if (nodes.length === 1) return nodes[0];
 
   return StatementSequenceNode.create({
@@ -258,7 +258,7 @@ function processUnaryOperators(builder: SyntaxBuilder) {
       throw new MolangSyntaxError(
         `Unary operator '${current.operator}' missing operand`,
         current.position,
-        current.operator
+        current.operator,
       );
     }
     // Update the unary operation node

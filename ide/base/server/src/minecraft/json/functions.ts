@@ -23,14 +23,14 @@ export function getCurrentElement(text: string, cursor: number): TextRange | und
     const c = text.charAt(index);
 
     if (c === '"') {
-      if (text.charAt(index - 1) === "\\") {
+      if (text.charAt(index - 1) === '\\') {
         continue;
       }
 
       inString = true;
       startIndex = index + 1;
       break;
-    } else if (c === "," || c === ":") {
+    } else if (c === ',' || c === ':') {
       startIndex = index + 1;
       break;
     }
@@ -46,13 +46,13 @@ export function getCurrentElement(text: string, cursor: number): TextRange | und
     const c = text.charAt(index);
 
     if (c === '"') {
-      if (text.charAt(index - 1) === "\\") {
+      if (text.charAt(index - 1) === '\\') {
         continue;
       }
 
       endIndex = index;
       break;
-    } else if (inString == false && (c === "," || c === ":")) {
+    } else if (inString == false && (c === ',' || c === ':')) {
       endIndex = index;
       break;
     }
@@ -77,7 +77,7 @@ export function getCurrentString(text: string, cursor: number): TextRange | unde
   for (let index = cursor - 1; index > -1; index--) {
     const c = text.charAt(index);
     if (c === '"') {
-      if (text.charAt(index - 1) === "\\") {
+      if (text.charAt(index - 1) === '\\') {
         continue;
       }
 
@@ -95,7 +95,7 @@ export function getCurrentString(text: string, cursor: number): TextRange | unde
   for (let index = startIndex; index < text.length; index++) {
     const c = text.charAt(index);
     if (c === '"') {
-      if (text.charAt(index - 1) === "\\") {
+      if (text.charAt(index - 1) === '\\') {
         continue;
       }
 
@@ -149,7 +149,7 @@ export function getCurrentStringValue(text: string, property: string, cursor: nu
 
 export function getEndOfPropertyKey(text: string, property: string, start: number): number {
   if (!property.startsWith('"') && !property.endsWith('"')) {
-    property = `"${property}"`
+    property = `"${property}"`;
   }
 
   let startIndex = start;
@@ -158,10 +158,10 @@ export function getEndOfPropertyKey(text: string, property: string, start: numbe
   for (; startIndex > 0; startIndex--) {
     // Have we found the colon?
     const s = text.slice(startIndex, startIndex + property.length);
-    if (s.startsWith(":")) {
+    if (s.startsWith(':')) {
       // Record that position, and we can move the index back equal to the length of the property.
       lastColon = startIndex;
-      startIndex -= (property.length - 1);
+      startIndex -= property.length - 1;
       continue;
     }
 
@@ -185,7 +185,7 @@ export function getStartString(Text: string, cursor: number): number {
     const c = Text.charAt(Index);
 
     if (c === '"') {
-      if (Text.charAt(Index - 1) === "\\") {
+      if (Text.charAt(Index - 1) === '\\') {
         continue;
       }
 
@@ -206,9 +206,9 @@ export function isProperty(Text: string, startIndex: number): boolean {
   for (let Index = startIndex; Index > -1; Index--) {
     const c = Text.charAt(Index);
 
-    if (c === ":") {
+    if (c === ':') {
       return true;
-    } else if (c.trim() === "") continue;
+    } else if (c.trim() === '') continue;
     else break;
   }
 

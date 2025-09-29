@@ -1,16 +1,21 @@
-import { Identification } from "@blockception/ide-shared";
-import { BulkRegistration, Connection, DidChangeConfigurationNotification, DidChangeConfigurationParams } from "vscode-languageserver";
-import { getProject } from "../../project/mcprojects";
-import { ExtensionContext, Settings } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { IService } from "../services/service";
+import { Identification } from '@blockception/ide-shared';
+import {
+  BulkRegistration,
+  Connection,
+  DidChangeConfigurationNotification,
+  DidChangeConfigurationParams,
+} from 'vscode-languageserver';
+import { getProject } from '../../project/mcprojects';
+import { ExtensionContext, Settings } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { IService } from '../services/service';
 
 export class ConfigurationService extends BaseService implements Partial<IService> {
-  name: string = "configuration";
+  name: string = 'configuration';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[configuration]"), extension);
+    super(logger.withPrefix('[configuration]'), extension);
   }
 
   setupHandlers(connection: Connection): void {
@@ -19,12 +24,12 @@ export class ConfigurationService extends BaseService implements Partial<IServic
 
   dynamicRegister(register: BulkRegistration): void {
     register.add(DidChangeConfigurationNotification.type, {
-      section: "BC-MC",
+      section: 'BC-MC',
     });
   }
 
   async updateSettings(params?: DidChangeConfigurationParams) {
-    this.logger.info("updating settings", params);
+    this.logger.info('updating settings', params);
     const settings =
       params?.settings ??
       (await this.extension.connection.workspace.getConfiguration(Identification.SettingsConfigurationIdentifier));

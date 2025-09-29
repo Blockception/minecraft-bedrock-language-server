@@ -1,10 +1,10 @@
-import { Range } from "vscode-languageserver";
-import { Position } from "vscode-languageserver-textdocument";
-import { ExtensionContext } from "../extension";
-import { TextDocument, WrappedTextDocument } from "./text-document";
+import { Range } from 'vscode-languageserver';
+import { Position } from 'vscode-languageserver-textdocument';
+import { ExtensionContext } from '../extension';
+import { TextDocument, WrappedTextDocument } from './text-document';
 
-import * as JSONC from "comment-json";
-import * as vscode from "vscode-languageserver-textdocument";
+import * as JSONC from 'comment-json';
+import * as vscode from 'vscode-languageserver-textdocument';
 
 /** A class that help */
 export class JsonDocument extends WrappedTextDocument {
@@ -32,7 +32,7 @@ export class JsonDocument extends WrappedTextDocument {
         const text = this.getText();
 
         let object;
-        if (text !== "") {
+        if (text !== '') {
           object = JSONC.parse(text, undefined, true);
         }
 
@@ -74,7 +74,7 @@ export class JsonDocument extends WrappedTextDocument {
    * @param value The value of the property to find
    */
   public getRange(name: string, value: string): Range | undefined {
-    const regx = new RegExp(`"${name}"s*:s*"${value}'"`, "m");
+    const regx = new RegExp(`"${name}"s*:s*"${value}'"`, 'm');
 
     return findRangeRegX(this, regx);
   }
@@ -97,7 +97,7 @@ export class JsonDocument extends WrappedTextDocument {
    * @param Name The name of the property to find
    */
   public getRangeOfObject(Name: string): Range | undefined {
-    const regx = new RegExp('"' + Name + '"s*:', "m");
+    const regx = new RegExp('"' + Name + '"s*:', 'm');
 
     return findRangeRegX(this, regx);
   }
@@ -108,7 +108,7 @@ export class JsonDocument extends WrappedTextDocument {
    * @returns
    */
   public getStartOfObject(Name: string): Position | undefined {
-    const regx = new RegExp('"' + Name + '"s*:', "m");
+    const regx = new RegExp('"' + Name + '"s*:', 'm');
 
     return findLocationReg(this, regx);
   }

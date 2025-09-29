@@ -1,7 +1,7 @@
-import { Modes } from "..";
-import { Mode, ModeCollection } from "./mode-collection";
+import { Modes } from '..';
+import { Mode, ModeCollection } from './mode-collection';
 
-describe("Mode", () => {
+describe('Mode', () => {
   const tests = [
     Modes.CameraShake,
     Modes.Clone,
@@ -26,10 +26,10 @@ describe("Mode", () => {
     Modes.TeleportRules,
   ];
 
-  describe.each(tests)("$name", (mode) => {
-    it("SanityCheck should pass", () => SanityCheckMode(mode));
-    it("is should be true", () => expect(ModeCollection.is(mode)).toBeTruthy());
-    it("Values check", () => values(mode));
+  describe.each(tests)('$name', (mode) => {
+    it('SanityCheck should pass', () => SanityCheckMode(mode));
+    it('is should be true', () => expect(ModeCollection.is(mode)).toBeTruthy());
+    it('Values check', () => values(mode));
   });
 });
 
@@ -38,7 +38,7 @@ function SanityCheckMode(mode: ModeCollection): void {
     expect.objectContaining({
       name: expect.any(String),
       modes: expect.anything(),
-    })
+    }),
   );
 
   mode.modes.forEach((m) => {
@@ -46,7 +46,7 @@ function SanityCheckMode(mode: ModeCollection): void {
       expect.objectContaining({
         name: expect.any(String),
         documentation: expect.any(String),
-      })
+      }),
     );
   });
 }

@@ -1,6 +1,6 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Location } from "bc-minecraft-bedrock-types/src/types";
-import { DataSet } from "../../src/types";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Location } from 'bc-minecraft-bedrock-types/src/types';
+import { DataSet } from '../../src/types';
 
 type TestObject = Types.BaseObject;
 
@@ -8,23 +8,23 @@ namespace TestObject {
   export function create(
     id: string,
     uri: string,
-    position: Types.DocumentLocation | undefined = undefined
+    position: Types.DocumentLocation | undefined = undefined,
   ): TestObject {
     return {
       id: id,
       location: Location.create(uri, position),
-      documentation: "custom object: " + id,
+      documentation: 'custom object: ' + id,
     };
   }
 }
 
-const dataID = "example.id";
-const dataUri = "c:\\project\\bp\\loot_tables\\example.data.json";
-const dataFolder = "c:\\project\\bp\\loot_tables";
+const dataID = 'example.id';
+const dataUri = 'c:\\project\\bp\\loot_tables\\example.data.json';
+const dataFolder = 'c:\\project\\bp\\loot_tables';
 const dataItem = TestObject.create(dataID, dataUri);
 
-describe("DataSet", () => {
-  it("set", () => {
+describe('DataSet', () => {
+  it('set', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -33,7 +33,7 @@ describe("DataSet", () => {
     expect(set.count()).toEqual(1);
   });
 
-  it("get", () => {
+  it('get', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -43,11 +43,11 @@ describe("DataSet", () => {
     expect(d).toEqual(dataItem);
   });
 
-  it("get duplicate", () => {
+  it('get duplicate', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
-    set.set(TestObject.create(dataID, "I am different", 0));
+    set.set(TestObject.create(dataID, 'I am different', 0));
 
     const d = set.get(dataID);
 
@@ -55,7 +55,7 @@ describe("DataSet", () => {
     expect(d?.id).toEqual(dataItem.id);
   });
 
-  it("has", () => {
+  it('has', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -63,7 +63,7 @@ describe("DataSet", () => {
     expect(set.has(dataID)).toBeTruthy();
   });
 
-  it("duplicate sets", () => {
+  it('duplicate sets', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -80,7 +80,7 @@ describe("DataSet", () => {
     expect(set.count()).toEqual(1);
   });
 
-  it("clear", () => {
+  it('clear', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -93,7 +93,7 @@ describe("DataSet", () => {
     expect(set.has(dataID)).toBeFalsy();
   });
 
-  it("count", () => {
+  it('count', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -103,14 +103,14 @@ describe("DataSet", () => {
     expect(set.count()).toEqual(1);
 
     //duplicate sets
-    set.set(TestObject.create("a", "b"));
-    set.set(TestObject.create("c", "b"));
-    set.set(TestObject.create("d", "b"));
+    set.set(TestObject.create('a', 'b'));
+    set.set(TestObject.create('c', 'b'));
+    set.set(TestObject.create('d', 'b'));
 
     expect(set.count()).toEqual(4);
   });
 
-  it("delete1", () => {
+  it('delete1', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -120,7 +120,7 @@ describe("DataSet", () => {
     expect(set.has(dataItem)).toBeFalsy();
   });
 
-  it("delete2", () => {
+  it('delete2', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -130,7 +130,7 @@ describe("DataSet", () => {
     expect(set.has(dataItem)).toBeFalsy();
   });
 
-  it("deleteFile", () => {
+  it('deleteFile', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -140,7 +140,7 @@ describe("DataSet", () => {
     expect(set.has(dataItem)).toBeFalsy();
   });
 
-  it("deleteFolder", () => {
+  it('deleteFolder', () => {
     const set = new DataSet<TestObject>();
 
     set.set(dataItem);
@@ -150,19 +150,19 @@ describe("DataSet", () => {
     expect(set.has(dataItem)).toBeFalsy();
   });
 
-  it("foreach", () => {
+  it('foreach', () => {
     const set = new DataSet<TestObject>();
 
-    set.set(TestObject.create("a", "b"));
-    set.set(TestObject.create("c", "b"));
-    set.set(TestObject.create("d", "b"));
-    set.set(TestObject.create("e", "b"));
+    set.set(TestObject.create('a', 'b'));
+    set.set(TestObject.create('c', 'b'));
+    set.set(TestObject.create('d', 'b'));
+    set.set(TestObject.create('e', 'b'));
 
     let count = 0;
 
     set.forEach((p) => {
       if (p) count++;
-      else throw new Error("Item was undefined");
+      else throw new Error('Item was undefined');
     });
 
     expect(count).toEqual(4);

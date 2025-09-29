@@ -20,7 +20,7 @@ export namespace BlockState {
    * @returns
    */
   export function parse(data: string): BlockState | undefined {
-    const index = data.indexOf("=");
+    const index = data.indexOf('=');
 
     if (index > -1) {
       const k = data.slice(0, index);
@@ -78,7 +78,7 @@ export namespace Block {
    * @returns
    */
   export function getId(blockDescription: string): string {
-    const index = blockDescription.indexOf("[");
+    const index = blockDescription.indexOf('[');
 
     if (index > -1) {
       return blockDescription.slice(0, index);
@@ -94,15 +94,15 @@ export namespace Block {
    */
   export function getStates(blockDescription: string): BlockState[] {
     const out: BlockState[] = [];
-    let startIndex = blockDescription.indexOf("[");
+    let startIndex = blockDescription.indexOf('[');
 
     if (startIndex > -1) {
       startIndex++;
-      let endIndex = blockDescription.indexOf("]", startIndex + 1);
+      let endIndex = blockDescription.indexOf(']', startIndex + 1);
 
       if (endIndex < startIndex) endIndex = blockDescription.length;
 
-      const parts = blockDescription.slice(startIndex, endIndex).split(",");
+      const parts = blockDescription.slice(startIndex, endIndex).split(',');
 
       for (let I = 0; I < parts.length; I++) {
         const b = BlockState.parse(parts[I]);
@@ -122,16 +122,16 @@ export namespace Block {
 
     const out: BlockState[] = [];
     let id: string;
-    let startIndex = blockDescription.indexOf("[");
+    let startIndex = blockDescription.indexOf('[');
 
     if (startIndex > -1) {
       id = blockDescription.slice(0, startIndex);
       startIndex++;
-      let endIndex = blockDescription.indexOf("]", startIndex + 1);
+      let endIndex = blockDescription.indexOf(']', startIndex + 1);
 
       if (endIndex < startIndex) endIndex = blockDescription.length;
 
-      const parts = blockDescription.slice(startIndex, endIndex).split(",");
+      const parts = blockDescription.slice(startIndex, endIndex).split(',');
 
       for (let I = 0; I < parts.length; I++) {
         const b = BlockState.parse(parts[I]);

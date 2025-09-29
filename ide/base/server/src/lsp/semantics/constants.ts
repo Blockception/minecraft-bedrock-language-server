@@ -5,49 +5,49 @@
  */
 export const SemanticTokens = [
   /**For identifiers that declare or reference a namespace, module or package.*/
-  "namespace",
+  'namespace',
   /**For identifiers that declare of reference a class type.*/
-  "class",
+  'class',
   /**For identifiers that declare of reference an enumeration type.*/
-  "enum",
+  'enum',
   /**For identifiers that declare of reference an struct type.*/
-  "struct",
+  'struct',
   /**For identifiers that declare of reference an interface type.*/
-  "interface",
+  'interface',
   /**For identifiers that declare of reference a type parameter.*/
-  "typeParameter",
+  'typeParameter',
   /**For identifiers that declare of reference a type that is not covered above.*/
-  "type",
+  'type',
   /**For identifiers that declare of reference a function or method parameters.*/
-  "parameter",
+  'parameter',
   /**For identifiers that declare of reference a local or global variable.*/
-  "variable",
+  'variable',
   /**For identifiers that declare of reference a member property, member field or member variable.*/
-  "property",
+  'property',
   /**For identifiers that declare of enumeration property, constant or member.*/
-  "enumMember",
+  'enumMember',
   /**For identifiers that declare of enumeration property.*/
-  "event",
+  'event',
   /**For identifiers that declare a function.*/
-  "function",
+  'function',
   /**For identifiers that declare a member function or method.*/
-  "method",
+  'method',
   /**For identifiers that declare a macro.*/
-  "macro",
+  'macro',
   /**For identifiers that declare a label.*/
-  "label",
+  'label',
   /**For tokens that represent a comment.*/
-  "comment",
+  'comment',
   /**For tokens that represent a string literal.*/
-  "string",
+  'string',
   /**For tokens that represent a language keyword.*/
-  "keyword",
+  'keyword',
   /**For tokens that represent a number literal.*/
-  "number",
+  'number',
   /**For tokens that represent a regular expression literal.*/
-  "regexp",
+  'regexp',
   /**For tokens that represent an operator.*/
-  "operator",
+  'operator',
 ];
 
 /**
@@ -105,25 +105,25 @@ export enum SemanticTokensEnum {
  */
 export const SemanticModifiers = [
   /**For declarations of symbols.*/
-  "declaration",
+  'declaration',
   /**For definitions of symbols, e.g. in header files.*/
-  "definition",
+  'definition',
   /**For readonly variables and member fields a.k.a. constants.*/
-  "readonly",
+  'readonly',
   /**For class members a.k.a static members.*/
-  "static",
+  'static',
   /**For symbols that should no longer be used.*/
-  "deprecated",
+  'deprecated',
   /**For types and member functions that are abstract.*/
-  "abstract",
+  'abstract',
   /**For functions that are marked async.*/
-  "async",
+  'async',
   /**For variable references where the variable is assigned to.*/
-  "modification",
+  'modification',
   /**For occurrences of symbols in documentation.*/
-  "documentation",
+  'documentation',
   /**For symbols that are part of the standard library.*/
-  "defaultLibrary",
+  'defaultLibrary',
 ];
 
 /**

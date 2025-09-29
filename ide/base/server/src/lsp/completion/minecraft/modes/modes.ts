@@ -1,8 +1,8 @@
-import { ModeUtil } from "bc-minecraft-bedrock-types";
-import { ModeHandler } from "bc-minecraft-bedrock-types/src/modes/mode-handler";
-import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from "../../../context/context";
-import { CompletionContext } from "../../context";
+import { ModeUtil } from 'bc-minecraft-bedrock-types';
+import { ModeHandler } from 'bc-minecraft-bedrock-types/src/modes/mode-handler';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
 
 const expections: Record<string, (context: Context<CompletionContext>) => void> = {};
 
@@ -27,7 +27,7 @@ export function provideCompletion(mode: string, context: Context<CompletionConte
 export function provideModeCompletion(
   mode: ModeHandler | undefined,
   context: Context<CompletionContext>,
-  kind: CompletionItemKind = CompletionItemKind.Property
+  kind: CompletionItemKind = CompletionItemKind.Property,
 ) {
   if (!mode) return;
 
@@ -35,7 +35,7 @@ export function provideModeCompletion(
     let documentation = m.documentation;
 
     if (m.eduOnly) {
-      documentation += "\nThis mode is only available in Education Edition";
+      documentation += '\nThis mode is only available in Education Edition';
     }
 
     context.builder.add({ label: m.name, documentation, kind });
@@ -45,7 +45,7 @@ export function provideModeCompletion(
 export function provideModeCompletionTest(
   mode: ModeHandler | undefined,
   context: Context<CompletionContext>,
-  kind: CompletionItemKind = CompletionItemKind.Property
+  kind: CompletionItemKind = CompletionItemKind.Property,
 ) {
   if (!mode) return;
 
@@ -53,7 +53,7 @@ export function provideModeCompletionTest(
     let documentation = m.documentation;
 
     if (m.eduOnly) {
-      documentation += "\nThis mode is only available in Education Edition";
+      documentation += '\nThis mode is only available in Education Edition';
     }
 
     context.builder.add({ label: m.name, documentation, kind });

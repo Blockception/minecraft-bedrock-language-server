@@ -1,4 +1,4 @@
-import { Types } from "bc-minecraft-bedrock-types";
+import { Types } from 'bc-minecraft-bedrock-types';
 
 /**
  *
@@ -23,8 +23,8 @@ export namespace MolangFunction {
    * @returns
    */
   export function is(value: any): value is MolangFunction {
-    if (typeof value === "object") {
-      if (typeof value.id === "string") return true;
+    if (typeof value === 'object') {
+      if (typeof value.id === 'string') return true;
     }
 
     return false;
@@ -40,7 +40,7 @@ export interface MolangParameter extends Types.Identifiable, Types.Documentated 
   /**
    *
    */
-  type?: "boolean" | "float" | "string";
+  type?: 'boolean' | 'float' | 'string';
 }
 
 /**
@@ -53,8 +53,8 @@ export namespace MolangParameter {
    * @returns
    */
   export function is(value: any): value is MolangParameter {
-    if (typeof value === "object") {
-      if (typeof value.id === "string") return true;
+    if (typeof value === 'object') {
+      if (typeof value.id === 'string') return true;
     }
 
     return false;

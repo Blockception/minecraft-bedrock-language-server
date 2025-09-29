@@ -1,9 +1,9 @@
-import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { Defined, DefinitionItem } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-types";
-import { Errors } from "../..";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
-import { check_definition_value, education_enabled } from "../../definitions";
+import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
+import { Defined, DefinitionItem } from 'bc-minecraft-bedrock-project';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Errors } from '../..';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
+import { check_definition_value, education_enabled } from '../../definitions';
 
 /**
  * Checks if the entities exists in the project or in vanilla, if not then a bug is reported
@@ -12,15 +12,15 @@ import { check_definition_value, education_enabled } from "../../definitions";
  * @returns True if the entity exists
  */
 export function behaviorpack_entityid_diagnose(id: Types.OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
-  let strId = typeof id === "string" ? id : id.text;
-  let event = "";
-  if (strId.includes("<")) {
-    event = strId.replace(strId.split("<")[0], "").slice(1, -1);
-    strId = strId.split("<")[0];
+  let strId = typeof id === 'string' ? id : id.text;
+  let event = '';
+  if (strId.includes('<')) {
+    event = strId.replace(strId.split('<')[0], '').slice(1, -1);
+    strId = strId.split('<')[0];
   }
 
   //No namespace?
-  if (!strId.includes(":")) strId = "minecraft:" + strId;
+  if (!strId.includes(':')) strId = 'minecraft:' + strId;
 
   //Defined in McProject
   if (check_definition_value(diagnoser.project.definitions.entity, strId, diagnoser)) {
@@ -29,7 +29,7 @@ export function behaviorpack_entityid_diagnose(id: Types.OffsetWord | string, di
 
   const entityItem = diagnoser.context.getProjectData().behaviors.entities.get(strId, diagnoser.project);
   if (entityItem === undefined) {
-    Errors.missing("behaviors", "entities", strId, diagnoser, id);
+    Errors.missing('behaviors', 'entities', strId, diagnoser, id);
     return false;
   }
   if (DefinitionItem.is(entityItem)) {
@@ -51,7 +51,7 @@ export function behaviorpack_entityid_diagnose(id: Types.OffsetWord | string, di
  * @returns
  */
 export function behaviorpack_entity_spawnegg_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
-  const id = value.text.replace("_spawn_egg", "");
+  const id = value.text.replace('_spawn_egg', '');
 
   behaviorpack_entityid_diagnose({ offset: value.offset, text: id }, diagnoser);
 }
@@ -60,7 +60,7 @@ export function behaviorpack_entity_event_diagnose(
   id: string,
   path: string,
   events: Defined | string[] | undefined,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ) {
   if (!events) return;
 
@@ -70,7 +70,7 @@ export function behaviorpack_entity_event_diagnose(
     return;
   }
 
-  diagnoser.add(path, `Entity has no event "${id}"`, DiagnosticSeverity.warning, "behaviorpack.entity.event.missing");
+  diagnoser.add(path, `Entity has no event "${id}"`, DiagnosticSeverity.warning, 'behaviorpack.entity.event.missing');
 }
 
 /**Checks if the event is defined on the correct entities
@@ -81,7 +81,7 @@ export function behaviorpack_entity_event_diagnose(
 export function command_entity_event_diagnose(
   data: Types.OffsetWord,
   diagnoser: DiagnosticsBuilder,
-  Com: Command
+  Com: Command,
 ): void {
   const edu = education_enabled(diagnoser);
   const matches = Com.getBestMatch(edu);
@@ -109,7 +109,7 @@ export function command_entity_event_diagnose(
           data.offset,
           `Entity: ${entityid} has no event declared: ${data.text}`,
           DiagnosticSeverity.error,
-          "behaviorpack.entity.event.missing"
+          'behaviorpack.entity.event.missing',
         );
       }
     }

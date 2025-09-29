@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * as components from "./components";
-export * from "./checks";
+export * as components from './components';
+export * from './checks';

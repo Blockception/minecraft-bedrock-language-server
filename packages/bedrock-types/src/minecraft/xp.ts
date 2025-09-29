@@ -14,7 +14,7 @@ export namespace XP {
    * @param text The valued to check
    * @returns True or false if the xp is not a level spec*/
   export function isLevel(text: string): boolean {
-    return text.endsWith("l") || text.endsWith("L");
+    return text.endsWith('l') || text.endsWith('L');
   }
 
   /**Parses the given xp into a number

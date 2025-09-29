@@ -15,4 +15,3 @@ export interface ComponentBehavior {
   component_groups?: ComponentGroups;
   components?: ComponentContainer;
 }
-

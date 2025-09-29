@@ -1,5 +1,5 @@
-import { MCProject } from "bc-minecraft-project";
-import { MCProjectprovider } from "./interfaces";
+import { MCProject } from 'bc-minecraft-project';
+import { MCProjectprovider } from './interfaces';
 
 /**
  *
@@ -11,7 +11,7 @@ export function IsEducationEnabled(project: MCProject | MCProjectprovider) {
     project = project.configuration();
   }
 
-  return project.attributes["education.enable"] === "true";
+  return project.attributes['education.enable'] === 'true';
 }
 
 /**
@@ -24,7 +24,7 @@ export function IsDiagnosticsEnabled(project: MCProject | MCProjectprovider) {
     project = project.configuration();
   }
 
-  return project.attributes["diagnostic.enable"] === "true";
+  return project.attributes['diagnostic.enable'] === 'true';
 }
 
 /**
@@ -37,7 +37,7 @@ export function IsDiagnosticsJsonEnabled(project: MCProject | MCProjectprovider)
     project = project.configuration();
   }
 
-  return project.attributes["diagnostic.json"] === "true";
+  return project.attributes['diagnostic.json'] === 'true';
 }
 
 /**
@@ -50,5 +50,5 @@ export function IsDiagnosticsLangEnabled(project: MCProject | MCProjectprovider)
     project = project.configuration();
   }
 
-  return project.attributes["diagnostic.lang"] === "true";
+  return project.attributes['diagnostic.lang'] === 'true';
 }

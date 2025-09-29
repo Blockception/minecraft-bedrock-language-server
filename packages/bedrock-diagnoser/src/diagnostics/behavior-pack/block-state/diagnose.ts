@@ -1,7 +1,7 @@
-import { BehaviorPack, ProjectItem } from "bc-minecraft-bedrock-project";
-import { Minecraft, Types } from "bc-minecraft-bedrock-types";
-import { DocumentLocation, Location } from "bc-minecraft-bedrock-types/src/types";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
+import { BehaviorPack, ProjectItem } from 'bc-minecraft-bedrock-project';
+import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
+import { DocumentLocation, Location } from 'bc-minecraft-bedrock-types/src/types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 
 /** Checks if the blocks exists in the project or in vanilla, if not then a bug is reported
  * @param id
@@ -10,7 +10,7 @@ import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
  */
 export function behaviorpack_check_blockstates(blockDescriptor: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
   //If the block has no states then skip
-  if (!blockDescriptor.text.includes("[")) return;
+  if (!blockDescriptor.text.includes('[')) return;
 
   //Parses states
   const blockData = Minecraft.Block.fromBlockDescriptor(blockDescriptor.text);
@@ -33,7 +33,7 @@ export function behaviorpack_check_blockstates(blockDescriptor: Types.OffsetWord
 export function behaviorpack_check_command_blockstates(
   blockId: Types.OffsetWord,
   states: Types.OffsetWord,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): void {
   const blockData: Minecraft.Block = {
     id: blockId.text,
@@ -42,14 +42,14 @@ export function behaviorpack_check_command_blockstates(
   };
 
   // Is state properly formatted?
-  if (states.text.startsWith("[") && states.text.endsWith("]")) {
+  if (states.text.startsWith('[') && states.text.endsWith(']')) {
     const value = states.text.substring(1, states.text.length - 1);
-    const split = value.split(",");
+    const split = value.split(',');
 
     // For each state
     for (let I = 0; I < split.length; I++) {
       const item = split[I];
-      const state = split[I].split("=").map((part) => part.trim());
+      const state = split[I].split('=').map((part) => part.trim());
 
       // Is state properly defined
       if (state.length == 2) {
@@ -65,15 +65,15 @@ export function behaviorpack_check_command_blockstates(
             blockId,
             `Invalid state: '${property}' in '${item}' on the block state definition: '${states.text}', needs to be a string literal with ""`,
             DiagnosticSeverity.error,
-            "behaviorpack.block.states.invalid"
+            'behaviorpack.block.states.invalid',
           );
         }
-      } else if (state[0] !== "") {
+      } else if (state[0] !== '') {
         diagnoser.add(
           states,
           `Invalid state: '${item}' in the block command, needs to be in the format ["state"=value] :`,
           DiagnosticSeverity.error,
-          "behaviorpack.block.states.invalid"
+          'behaviorpack.block.states.invalid',
         );
       }
     }
@@ -82,7 +82,7 @@ export function behaviorpack_check_command_blockstates(
       states,
       `Invalid states: '${states.text}' in the block command, needs to be a list with []`,
       DiagnosticSeverity.error,
-      "behaviorpack.block.states.invalid"
+      'behaviorpack.block.states.invalid',
     );
   }
 
@@ -92,7 +92,7 @@ export function behaviorpack_check_command_blockstates(
 function check_block_definition(
   blockDefinition: Minecraft.Block,
   location: DocumentLocation,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ) {
   const blockItem = diagnoser.context.getProjectData().behaviors.blocks.get(blockDefinition.id, diagnoser.project);
   if (!blockItem) return;
@@ -106,7 +106,7 @@ function check_block_definition(
       location,
       `Block: ${block.id} has no defined states`,
       DiagnosticSeverity.error,
-      "behaviorpack.block.states.missing"
+      'behaviorpack.block.states.missing',
     );
 
     return;
@@ -129,7 +129,7 @@ function check_state(
   state: Minecraft.BlockState,
   data: BehaviorPack.Block.Block,
   location: DocumentLocation,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ) {
   for (let I = 0; I < data.states.length; I++) {
     const stateData = data.states[I];
@@ -139,7 +139,7 @@ function check_state(
       let actual = state.value;
       const values = stateData.values;
 
-      if (stateData.type === "string") {
+      if (stateData.type === 'string') {
         if (actual.startsWith('"') && actual.endsWith('"')) {
           actual = actual.substring(1, actual.length - 1);
         } else {
@@ -147,7 +147,7 @@ function check_state(
             location,
             `Invalid state value: '${state.value}' for state: '${state.property}' in the block definition: '${data.id}', needs to be a string literal with ""`,
             DiagnosticSeverity.error,
-            "behaviorpack.block.states.invalid"
+            'behaviorpack.block.states.invalid',
           );
 
           return;
@@ -167,9 +167,9 @@ function check_state(
         location,
         `Invalid state value: '${state.value}' for state: '${state.property}' in the block definition: '${
           data.id
-        }'\nValid values are: ${values.join(",")}`,
+        }'\nValid values are: ${values.join(',')}`,
         DiagnosticSeverity.error,
-        "behaviorpack.block.states.invalid"
+        'behaviorpack.block.states.invalid',
       );
 
       return;
@@ -181,6 +181,6 @@ function check_state(
     location,
     `Missing state: '${state.property}' in the block definition: '${data.id}'`,
     DiagnosticSeverity.error,
-    "behaviorpack.block.states.missing"
+    'behaviorpack.block.states.missing',
   );
 }

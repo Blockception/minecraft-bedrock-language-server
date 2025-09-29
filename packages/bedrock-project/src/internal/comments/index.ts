@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./comment";
+export * from './comment';

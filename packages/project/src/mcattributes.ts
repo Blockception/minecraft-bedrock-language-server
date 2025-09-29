@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import * as fs from 'fs';
 
 /**An obect that stores project settings, attributes or other project related definition*/
 export interface MCAttributes {
@@ -9,7 +9,7 @@ export interface MCAttributes {
 /**The namespace that provides code for MCAttributes interfaces*/
 export namespace MCAttributes {
   /**The default filename of a MCAttributes filename*/
-  export const filename = ".mcattributes";
+  export const filename = '.mcattributes';
 
   /**Creates an empty version of MCAttributes
    * @returns An empty MCAttributes object*/
@@ -25,20 +25,20 @@ export namespace MCAttributes {
     const result: MCAttributes = {};
 
     parts.forEach((property) => {
-      const cindex = property.indexOf("#");
+      const cindex = property.indexOf('#');
 
       if (cindex >= 0) {
         property = property.substring(0, cindex).trim();
       }
 
-      const index = property.indexOf("=");
+      const index = property.indexOf('=');
 
       if (index >= 0) {
         const name = property.substring(0, index);
         const value = property.substring(index + 1, property.length);
 
         //Write value
-        if (name !== "") result[name] = value;
+        if (name !== '') result[name] = value;
       }
     });
 
@@ -49,12 +49,12 @@ export namespace MCAttributes {
    * @param data The MCAttributes data to convert
    * @returns A string represerntation of the contents of a MCAttributes*/
   export function toString(data: MCAttributes): string {
-    let Out = "";
+    let Out = '';
 
     for (const Key in data) {
       const value = data[Key];
 
-      if (value && typeof value === "string") Out += `${Key}=${value}\n`;
+      if (value && typeof value === 'string') Out += `${Key}=${value}\n`;
     }
 
     return Out;
@@ -81,7 +81,7 @@ export namespace MCAttributes {
    * @param attributes The attributes to retrieve the value from
    * @param key The key that stores the specified value
    * @param defaultValue The default value to set*/
-  export function getOrAdd(attributes: MCAttributes, key: string, defaultValue: string = ""): string {
+  export function getOrAdd(attributes: MCAttributes, key: string, defaultValue: string = ''): string {
     let value = attributes[key];
 
     if (value === undefined || value === null) {

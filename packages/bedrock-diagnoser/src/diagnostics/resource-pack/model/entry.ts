@@ -1,6 +1,6 @@
-import { DocumentDiagnosticsBuilder } from "../../../types";
-import { Internal } from "bc-minecraft-bedrock-project";
-import { Json } from "../../json";
+import { DocumentDiagnosticsBuilder } from '../../../types';
+import { Internal } from 'bc-minecraft-bedrock-project';
+import { Json } from '../../json';
 
 /**Diagnoses the given document as a model
  * @param doc The text document to diagnose

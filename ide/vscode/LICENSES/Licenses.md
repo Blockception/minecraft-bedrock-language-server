@@ -3,16 +3,16 @@
 This plugin makes use of the following licences and their code:
 
 - [Licenses](#licenses)
-	- [Examples for language server:](#examples-for-language-server)
-	- [Fast-Glob](#fast-glob)
-	- [fill-range <https://github.com/jonschlinkert/fill-range>](#fill-range-httpsgithubcomjonschlinkertfill-range)
-	- [is-extglob <https://github.com/jonschlinkert/is-extglob>](#is-extglob-httpsgithubcomjonschlinkertis-extglob)
-	- [is-glob <https://github.com/jonschlinkert/is-glob>](#is-glob-httpsgithubcomjonschlinkertis-glob)
-	- [is-number <https://github.com/jonschlinkert/is-number>](#is-number-httpsgithubcomjonschlinkertis-number)
-	- [repeat-string <https://github.com/jonschlinkert/repeat-string>](#repeat-string-httpsgithubcomjonschlinkertrepeat-string)
-	- [to-regex-range <https://github.com/micromatch/to-regex-range>](#to-regex-range-httpsgithubcommicromatchto-regex-range)
-	- [queue-microtask.](#queue-microtask)
-	- [run-parallel.](#run-parallel)
+  - [Examples for language server:](#examples-for-language-server)
+  - [Fast-Glob](#fast-glob)
+  - [fill-range <https://github.com/jonschlinkert/fill-range>](#fill-range-httpsgithubcomjonschlinkertfill-range)
+  - [is-extglob <https://github.com/jonschlinkert/is-extglob>](#is-extglob-httpsgithubcomjonschlinkertis-extglob)
+  - [is-glob <https://github.com/jonschlinkert/is-glob>](#is-glob-httpsgithubcomjonschlinkertis-glob)
+  - [is-number <https://github.com/jonschlinkert/is-number>](#is-number-httpsgithubcomjonschlinkertis-number)
+  - [repeat-string <https://github.com/jonschlinkert/repeat-string>](#repeat-string-httpsgithubcomjonschlinkertrepeat-string)
+  - [to-regex-range <https://github.com/micromatch/to-regex-range>](#to-regex-range-httpsgithubcommicromatchto-regex-range)
+  - [queue-microtask.](#queue-microtask)
+  - [run-parallel.](#run-parallel)
 
 ## Examples for language server:
 

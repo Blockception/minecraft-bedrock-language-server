@@ -1,6 +1,6 @@
-import { Diagnostic } from "vscode-languageserver";
-import { CodeActionBuilder } from "../../builder";
-import { codeaction_execute_deprecated } from "./command-execute";
+import { Diagnostic } from 'vscode-languageserver';
+import { CodeActionBuilder } from '../../builder';
+import { codeaction_execute_deprecated } from './command-execute';
 
 /**
  *
@@ -9,7 +9,7 @@ import { codeaction_execute_deprecated } from "./command-execute";
  */
 export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void {
   switch (diag.code) {
-    case "minecraft.commands.execute.deprecated":
+    case 'minecraft.commands.execute.deprecated':
       return codeaction_execute_deprecated(builder, diag);
   }
 }

@@ -1,6 +1,6 @@
-import { process } from "./process";
+import { process } from './process';
 
-describe("BehaviorPack - Animation Controller", () => {
+describe('BehaviorPack - Animation Controller', () => {
   const data = `{
       "format_version": "1.8.0",
       "animation_controllers": {
@@ -12,10 +12,10 @@ describe("BehaviorPack - Animation Controller", () => {
       }
     }`;
 
-  test("process", () => {
+  test('process', () => {
     const controllers = process({
       getText: () => data,
-      uri: "example",
+      uri: 'example',
     });
     expect(controllers).toMatchSnapshot();
   });

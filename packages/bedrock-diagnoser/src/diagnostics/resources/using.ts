@@ -1,4 +1,4 @@
-import { Defined, Using } from "bc-minecraft-bedrock-project";
+import { Defined, Using } from 'bc-minecraft-bedrock-project';
 
 export function* filter_not_defined(using: Using, defined: Defined | undefined) {
   defined = defined ?? Defined.create();

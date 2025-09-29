@@ -1,7 +1,7 @@
 //Note: this is kept sync with vscode form of textdocument for easy of use
 
-import { Types } from "bc-minecraft-bedrock-types";
-import { Json } from "../internal/json";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Json } from '../internal/json';
 
 /** */
 export interface TextDocument {

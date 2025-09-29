@@ -6,7 +6,7 @@ export namespace Json {
    * @param value The valued to compare to
    * @returns True or false if the text represents an json obect*/
   export function isObject(value: string): boolean {
-    if (value.startsWith("{") && value.endsWith("}")) return true;
+    if (value.startsWith('{') && value.endsWith('}')) return true;
 
     return false;
   }
@@ -15,7 +15,7 @@ export namespace Json {
    * @param value The valued to compare to
    * @returns True or false if the text represents an json array*/
   export function isArray(value: string): boolean {
-    if (value.startsWith("[") && value.endsWith("]")) return true;
+    if (value.startsWith('[') && value.endsWith(']')) return true;
 
     return false;
   }

@@ -1,4 +1,4 @@
-import { Range, TextEdit } from "vscode-languageserver";
+import { Range, TextEdit } from 'vscode-languageserver';
 
 /**
  *

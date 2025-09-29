@@ -3,7 +3,6 @@ import { OperatorType } from './operator';
 import { SubjectType } from './subject';
 import { TestType } from './testtype';
 
-
 /**
  * The interface for a filter
  */
@@ -43,8 +42,8 @@ export namespace Filter {
    * @returns
    */
   export function is(value: any): value is Filter {
-    if (typeof value === "object") {
-      return typeof value.test === "string";
+    if (typeof value === 'object') {
+      return typeof value.test === 'string';
     }
 
     return false;
@@ -62,7 +61,7 @@ export namespace Filter {
       return;
     }
 
-    if (typeof item !== "object") return;
+    if (typeof item !== 'object') return;
 
     if (Filter.is(item)) {
       callback(item);

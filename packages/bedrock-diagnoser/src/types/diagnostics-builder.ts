@@ -1,7 +1,7 @@
-import { DiagnosticSeverity } from "./severity";
-import { TextDocument, MinecraftData, Documents } from "bc-minecraft-bedrock-project";
-import { MCIgnore, MCProject } from "bc-minecraft-project";
-import { Types } from "bc-minecraft-bedrock-types";
+import { DiagnosticSeverity } from './severity';
+import { TextDocument, MinecraftData, Documents } from 'bc-minecraft-bedrock-project';
+import { MCIgnore, MCProject } from 'bc-minecraft-project';
+import { Types } from 'bc-minecraft-bedrock-types';
 
 /**The context of a diagnostics builder*/
 export interface DiagnosticsBuilderContent<T extends TextDocument = TextDocument> extends Documents<T> {
@@ -44,7 +44,7 @@ export interface DocumentDiagnosticsBuilder<T extends TextDocument = TextDocumen
 export namespace DocumentDiagnosticsBuilder {
   export function wrap<T extends TextDocument = TextDocument>(
     diagnoser: DiagnosticsBuilder<T>,
-    document: T
+    document: T,
   ): DocumentDiagnosticsBuilder<T> {
     const diag = diagnoser as DocumentDiagnosticsBuilder<T>;
     diag.document = document;
@@ -61,7 +61,7 @@ export type WithMetadata<T extends object, M> = T & Metadata<M>;
 export namespace Metadata {
   export function withMetadata<T extends object, M>(source: T, metadata: M): WithMetadata<T, M> {
     const result = source as WithMetadata<T, M>;
-    result["metadata"] = metadata;
+    result['metadata'] = metadata;
     return result;
   }
 }

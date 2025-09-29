@@ -1,4 +1,4 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 /** */
 export type Model = ModelLegacy | ModelModern;
@@ -23,7 +23,7 @@ export namespace ModelLegacy {
    * @returns
    */
   export function is(value: any): value is ModelLegacy {
-    if (typeof value === "object" && (value.format_version === "1.8.0" || value.format_version === "1.10.0")) {
+    if (typeof value === 'object' && (value.format_version === '1.8.0' || value.format_version === '1.10.0')) {
       return true;
     }
 
@@ -44,7 +44,7 @@ export namespace ModelLegacySpec {
    * @returns
    */
   export function is(value: any): value is ModelLegacySpec {
-    if (typeof value === "object" && Array.isArray(value.bones)) {
+    if (typeof value === 'object' && Array.isArray(value.bones)) {
       return true;
     }
 
@@ -57,7 +57,7 @@ export interface ModelModern extends Readonly<FormatVersion> {
   /** */
   format_version: string;
   /** */
-  "minecraft:geometry": ModelModernSpec[];
+  'minecraft:geometry': ModelModernSpec[];
 }
 
 /** */
@@ -68,7 +68,11 @@ export namespace ModelModern {
    * @returns
    */
   export function is(value: any): value is ModelModern {
-    if (typeof value === "object" && typeof value.format_version === "string" && Array.isArray(value["minecraft:geometry"])) {
+    if (
+      typeof value === 'object' &&
+      typeof value.format_version === 'string' &&
+      Array.isArray(value['minecraft:geometry'])
+    ) {
       return true;
     }
 
@@ -95,8 +99,8 @@ export namespace ModelModernSpec {
    * @returns
    */
   export function is(value: any): value is ModelModernSpec {
-    if (typeof value === "object" && typeof value.description === "object") {
-      if (typeof value.description.identifier === "string") return true;
+    if (typeof value === 'object' && typeof value.description === 'object') {
+      if (typeof value.description.identifier === 'string') return true;
     }
 
     return false;
@@ -111,5 +115,5 @@ export interface Bone {
   /** */
   binding?: string;
   /** */
-  locators?: Record<string, [number, number, number]>
+  locators?: Record<string, [number, number, number]>;
 }

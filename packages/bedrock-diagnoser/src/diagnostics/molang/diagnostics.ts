@@ -1,6 +1,6 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types";
-import { MolangDataSetKey, MolangSet } from "bc-minecraft-molang";
-import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../types";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types';
+import { MolangDataSetKey, MolangSet } from 'bc-minecraft-molang';
+import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 
 /**
  * The user of the resource, the user should have the nessecary things defined for the resource to use
@@ -31,28 +31,28 @@ export interface MolangMetadata {
 export function diagnose_molang_implementation(
   user: User,
   resource: Resource,
-  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>
+  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
 ): void {
   const assigned = new Set<string>();
   getAssignedIds(assigned, resource.molang);
   getAssignedIds(assigned, user.molang);
 
   for (const res of resource.molang.using.values()) {
-    if (res.scope === "this") return;
-    const identifier = `${res.scope}.${res.names.join(".")}`;
+    if (res.scope === 'this') return;
+    const identifier = `${res.scope}.${res.names.join('.')}`;
     if (assigned.has(identifier)) continue;
 
     diagnoser.add(
       user.id,
       `${identifier} is used by, but no definition is found by: ${diagnoser.metadata.userType} with id: ${user.id}`,
       DiagnosticSeverity.error,
-      `molang.${res.scope}.undefined`
+      `molang.${res.scope}.undefined`,
     );
   }
 }
 
 function getAssignedIds(receiver: Set<string>, data: MolangSet) {
   for (const item of data.assigned.values()) {
-    receiver.add(`${item.scope}.${item.names.join(".")}`);
+    receiver.add(`${item.scope}.${item.names.join('.')}`);
   }
 }

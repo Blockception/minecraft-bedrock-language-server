@@ -1,6 +1,6 @@
-import { Languages } from "@blockception/ide-shared";
-import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
-import { URI, Utils } from "vscode-uri";
+import { Languages } from '@blockception/ide-shared';
+import { MCAttributes, MCDefinition, MCIgnore } from 'bc-minecraft-project';
+import { URI, Utils } from 'vscode-uri';
 
 /**
  * Returns the language ID based upon the uri
@@ -9,13 +9,13 @@ import { URI, Utils } from "vscode-uri";
 export function identifyDocument(uri: URI): string {
   const ext = Utils.extname(uri).toLowerCase();
   switch (ext) {
-    case ".lang":
+    case '.lang':
       return Languages.McLanguageIdentifier;
-    case ".json":
+    case '.json':
       return Languages.JsonIdentifier;
-    case ".mcfunction":
+    case '.mcfunction':
       return Languages.McFunctionIdentifier;
-    case ".molang":
+    case '.molang':
       return Languages.McMolangIdentifier;
   }
 

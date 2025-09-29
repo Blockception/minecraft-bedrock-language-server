@@ -1,7 +1,7 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MolangSet } from "bc-minecraft-molang";
-import { Defined, References } from "../../../types/references";
-import { EntityProperty } from "./properties";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MolangSet } from 'bc-minecraft-molang';
+import { Defined, References } from '../../../types/references';
+import { EntityProperty } from './properties';
 
 /** */
 export interface Entity extends Types.BaseObject {

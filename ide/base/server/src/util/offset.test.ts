@@ -1,10 +1,10 @@
-import { OffsetWord } from "bc-vscode-words";
-import { Offset } from "./offset";
+import { OffsetWord } from 'bc-vscode-words';
+import { Offset } from './offset';
 
-describe("Offset", () => {
-  test("IsWithin", () => {
-    const word = new OffsetWord("test", 0);
-    expect(word.text).toEqual("test");
+describe('Offset', () => {
+  test('IsWithin', () => {
+    const word = new OffsetWord('test', 0);
+    expect(word.text).toEqual('test');
     expect(word.offset).toEqual(0);
 
     const test = (value: number, actual: boolean) => {

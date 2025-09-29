@@ -1,19 +1,19 @@
-import { PackType } from "bc-minecraft-bedrock-project";
+import { PackType } from 'bc-minecraft-bedrock-project';
 
 export type PackStringType = ReturnType<typeof packTypeToString>;
 
 export function packTypeToString(type: PackType) {
   switch (type) {
     case PackType.resource_pack:
-      return "resourcepack";
+      return 'resourcepack';
     case PackType.behavior_pack:
-      return "behaviorpack";
+      return 'behaviorpack';
     case PackType.skin_pack:
-      return "skinpack";
+      return 'skinpack';
     case PackType.world:
-      return "world";
+      return 'world';
     default:
     case PackType.unknown:
-      return "unknown";
+      return 'unknown';
   }
 }

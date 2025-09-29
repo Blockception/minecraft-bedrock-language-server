@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver";
+import { SignatureHelp } from 'vscode-languageserver';
 
 /**
  *
@@ -11,10 +11,10 @@ export function provideSignature(fn: string | undefined): SignatureHelp | undefi
     activeSignature: 0,
     signatures: [
       {
-        label: "Texture",
+        label: 'Texture',
         parameters: [
-          { label: "texture.", documentation: "The texture to use." },
-          { label: "<texture>", documentation: "The texture to access" },
+          { label: 'texture.', documentation: 'The texture to use.' },
+          { label: '<texture>', documentation: 'The texture to access' },
         ],
       },
     ],

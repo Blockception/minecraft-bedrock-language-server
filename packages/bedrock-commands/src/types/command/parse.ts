@@ -1,4 +1,4 @@
-import { Parameter } from "./parameter";
+import { Parameter } from './parameter';
 
 /**The interface of a basic word builder*/
 export class ParameterBuilder {
@@ -36,7 +36,7 @@ export function GetParameters(text: string, Builder: ParameterBuilder): void {
     //If inString or not
     if (inString) {
       //Is end of string and not escaped?
-      if (c == '"' && text.charAt(index - 1) !== "\\") inString = false;
+      if (c == '"' && text.charAt(index - 1) !== '\\') inString = false;
     } else {
       //Switch on character
       switch (c) {
@@ -46,22 +46,22 @@ export function GetParameters(text: string, Builder: ParameterBuilder): void {
           break;
 
         //Bracket start
-        case "[":
-        case "(":
-        case "{":
+        case '[':
+        case '(':
+        case '{':
           level++;
           break;
 
         //Bracket end
-        case "]":
-        case ")":
-        case "}":
+        case ']':
+        case ')':
+        case '}':
           level--;
           break;
 
         //Empty spaces
-        case " ":
-        case "\t":
+        case ' ':
+        case '\t':
           if (level == 0) {
             if (startIndex < index) {
               const word = text.substring(startIndex, index).trim();
@@ -73,8 +73,8 @@ export function GetParameters(text: string, Builder: ParameterBuilder): void {
           break;
 
         //Coordinates start
-        case "~":
-        case "^":
+        case '~':
+        case '^':
           if (level == 0) {
             if (startIndex < index) {
               const word = text.substring(startIndex, index).trim();

@@ -1,6 +1,6 @@
-import { DocumentDiagnosticsBuilder } from "../../../types";
-import { Json } from "../../json/json";
-import { texture_files_diagnose } from "./entry";
+import { DocumentDiagnosticsBuilder } from '../../../types';
+import { Json } from '../../json/json';
+import { texture_files_diagnose } from './entry';
 
 /**Diagnoses the given document as a texture flipbook file
  * @param doc The text document to diagnose
@@ -15,14 +15,14 @@ export function DiagnoseFlipbook(diagnoser: DocumentDiagnosticsBuilder): void {
   if (pack === undefined) return;
 
   const texture_files = diagnoser.context
-    .getFiles(pack.folder, ["**/textures/**/*.{tga,png,jpg,jpeg}"], pack.context.ignores)
-    .map((item) => item.replace(/\\/gi, "/"));
+    .getFiles(pack.folder, ['**/textures/**/*.{tga,png,jpg,jpeg}'], pack.context.ignores)
+    .map((item) => item.replace(/\\/gi, '/'));
 
   for (let I = 0; I < flipbooks.length; I++) {
     const flipbook = flipbooks[I];
 
     if (isFlipbook(flipbook)) {
-      texture_files_diagnose("flipbook_texture", flipbook.flipbook_texture, texture_files, diagnoser);
+      texture_files_diagnose('flipbook_texture', flipbook.flipbook_texture, texture_files, diagnoser);
     }
   }
 }
@@ -32,8 +32,8 @@ interface FlipbookTexture {
 }
 
 function isFlipbook(value: any): value is FlipbookTexture {
-  if (typeof value === "object") {
-    if (typeof value.flipbook_texture === "string") return true;
+  if (typeof value === 'object') {
+    if (typeof value.flipbook_texture === 'string') return true;
   }
 
   return false;

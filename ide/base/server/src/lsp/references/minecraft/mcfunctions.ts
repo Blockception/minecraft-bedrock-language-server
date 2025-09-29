@@ -1,9 +1,9 @@
-import { OffsetWord } from "bc-vscode-words";
-import { Location, Position } from "vscode-languageserver";
-import { Context } from "../../context/context";
-import { ReferenceContext } from "../context";
+import { OffsetWord } from 'bc-vscode-words';
+import { Location, Position } from 'vscode-languageserver';
+import { Context } from '../../context/context';
+import { ReferenceContext } from '../context';
 
-import * as Command from "./commands";
+import * as Command from './commands';
 
 export function provideReferences(context: Context<ReferenceContext>): Promise<Location[] | undefined> {
   const { document, position } = context;

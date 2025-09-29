@@ -1,13 +1,13 @@
-import { TextDocument } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-types";
-import { MCProject } from "bc-minecraft-project";
+import { TextDocument } from 'bc-minecraft-bedrock-project';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MCProject } from 'bc-minecraft-project';
 import {
   DiagnosticsBuilderContent,
   DiagnosticSeverity,
   DocumentDiagnosticsBuilder,
   ManagedDiagnosticsBuilder,
-} from "../src/types";
-import { TestProjectData } from "./testprojectdata";
+} from '../src/types';
+import { TestProjectData } from './testprojectdata';
 
 export interface Error {
   position: Types.DocumentLocation;
@@ -25,7 +25,7 @@ export class TestDiagnoser<T extends TextDocument = TextDocument> implements Man
 
   constructor(
     context: DiagnosticsBuilderContent<T> | undefined = undefined,
-    project: MCProject | undefined = undefined
+    project: MCProject | undefined = undefined,
   ) {
     this.doneMark = false;
     this.context = context ?? TestProjectData.createContext();
@@ -93,7 +93,7 @@ export class TestDiagnoser<T extends TextDocument = TextDocument> implements Man
   }
 
   writeItemsMessage(): string {
-    let out = "";
+    let out = '';
 
     this.items.forEach((item) => {
       out += `\t\t[${DiagnosticSeverity[item.severity]}: ${item.position}] ${item.message} (${item.code})\n`;
@@ -196,7 +196,7 @@ export class TestDocumentDiagnoser<T extends TextDocument = TextDocument>
   constructor(
     document: T,
     context: DiagnosticsBuilderContent<T> | undefined = undefined,
-    project: MCProject | undefined = undefined
+    project: MCProject | undefined = undefined,
   ) {
     super(context, project);
     this.document = document;
@@ -212,7 +212,7 @@ export namespace TestDiagnoser {
 
   export function createDocument(
     files: Map<string, string> | undefined,
-    document: TextDocument
+    document: TextDocument,
   ): TestDocumentDiagnoser {
     const context = TestProjectData.createContext(files);
 

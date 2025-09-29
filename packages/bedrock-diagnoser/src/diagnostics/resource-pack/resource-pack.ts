@@ -1,27 +1,27 @@
-import { DocumentDiagnosticsBuilder } from "../../types";
-import { FileType } from "bc-minecraft-bedrock-project/src/project/resource-pack";
+import { DocumentDiagnosticsBuilder } from '../../types';
+import { FileType } from 'bc-minecraft-bedrock-project/src/project/resource-pack';
 
-import * as Animation from "./animation/document";
-import * as AnimationController from "./animation-controllers/document";
-import * as Attachable from "./attachable/document";
-import * as BlockCulling from "./block-culling/document";
-import * as BiomesClient from "./biomes-client/document";
-import * as Block from "./block/document";
-import * as Blocks from "./block/document";
-import * as Entity from "./entity/document";
-import * as Fog from "./fog/document";
-import * as Item from "./item/document";
-import * as Manifest from "./manifest/entry";
-import * as Material from "./material/entry";
-import * as Model from "./model/entry";
-import * as MusicDefinitions from "./music-definitions/entry";
-import * as Particle from "./particle/entry";
-import * as RenderController from "./render-controller/entry";
-import * as Sounds from "./sounds/entry";
-import * as SoundsDefinitions from "./sounds-definitions/entry";
-import * as Texture from "./texture/entry";
-import * as TextureAtlas from "./texture-atlas/entry";
-import * as Flipbook from "./texture-atlas/flipbook";
+import * as Animation from './animation/document';
+import * as AnimationController from './animation-controllers/document';
+import * as Attachable from './attachable/document';
+import * as BlockCulling from './block-culling/document';
+import * as BiomesClient from './biomes-client/document';
+import * as Block from './block/document';
+import * as Blocks from './block/document';
+import * as Entity from './entity/document';
+import * as Fog from './fog/document';
+import * as Item from './item/document';
+import * as Manifest from './manifest/entry';
+import * as Material from './material/entry';
+import * as Model from './model/entry';
+import * as MusicDefinitions from './music-definitions/entry';
+import * as Particle from './particle/entry';
+import * as RenderController from './render-controller/entry';
+import * as Sounds from './sounds/entry';
+import * as SoundsDefinitions from './sounds-definitions/entry';
+import * as Texture from './texture/entry';
+import * as TextureAtlas from './texture-atlas/entry';
+import * as Flipbook from './texture-atlas/flipbook';
 
 /** The namespace that deals with resourcepack diagnostics */
 export namespace ResourcePack {
@@ -56,7 +56,7 @@ export namespace ResourcePack {
         break;
 
       case FileType.block:
-        if (uri.endsWith("blocks.json")) {
+        if (uri.endsWith('blocks.json')) {
           Blocks.diagnose_block_document(diagnoser);
         } else {
           Block.diagnose_block_document(diagnoser);

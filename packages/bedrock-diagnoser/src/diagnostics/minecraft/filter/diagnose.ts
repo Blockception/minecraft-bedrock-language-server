@@ -1,13 +1,13 @@
-import { DiagnosticsBuilder } from "../../..";
-import { Minecraft } from "bc-minecraft-bedrock-types";
-import { diagnose_filter_has_biome_tag } from "./filters/has_biome_tag";
-import { diagnose_filter_is_family } from "./filters/is_family";
-import { diagnose_filter_has_tag } from "./filters/has_tag";
-import { diagnose_filter_property } from "./filters/property";
-import { diagnose_filter_has_equipment } from "./filters/has_equipment";
+import { DiagnosticsBuilder } from '../../..';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { diagnose_filter_has_biome_tag } from './filters/has_biome_tag';
+import { diagnose_filter_is_family } from './filters/is_family';
+import { diagnose_filter_has_tag } from './filters/has_tag';
+import { diagnose_filter_property } from './filters/property';
+import { diagnose_filter_has_equipment } from './filters/has_equipment';
 
 export function minecraft_diagnose_filters(value: any, diagnoser: DiagnosticsBuilder) {
-  if (typeof value !== "object") return;
+  if (typeof value !== 'object') return;
 
   Minecraft.Filter.Filter.forEach(value, (filter) => minecraft_diagnose_filter(filter, diagnoser));
 }

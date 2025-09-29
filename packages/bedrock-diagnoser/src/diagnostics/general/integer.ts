@@ -1,10 +1,10 @@
-import { General, Types } from "bc-minecraft-bedrock-types";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
+import { General, Types } from 'bc-minecraft-bedrock-types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export function general_integer_diagnose(
   value: Types.OffsetWord,
   diagnoser: DiagnosticsBuilder,
-  range?: { min: number; max: number }
+  range?: { min: number; max: number },
 ): boolean {
   if (General.Integer.is(value.text)) {
     if (range) {
@@ -15,21 +15,21 @@ export function general_integer_diagnose(
           value,
           `The value of ${v} is lower than the allowed minimum: ${range.min}`,
           DiagnosticSeverity.error,
-          "general.integer.minimum"
+          'general.integer.minimum',
         );
       if (v > range.max)
         diagnoser.add(
           value,
           `The value of ${v} is higher than the allowed minimum: ${range.max}`,
           DiagnosticSeverity.error,
-          "general.integer.maximum"
+          'general.integer.maximum',
         );
     }
 
     return true;
   }
 
-  diagnoser.add(value, "Invalid integer value: " + value.text, DiagnosticSeverity.error, "general.integer.invalid");
+  diagnoser.add(value, 'Invalid integer value: ' + value.text, DiagnosticSeverity.error, 'general.integer.invalid');
   return false;
 }
 
@@ -45,7 +45,7 @@ export function general_positive_integer_diagnose(value: Types.OffsetWord, diagn
     value,
     `expected a positive integer but got: ${n}`,
     DiagnosticSeverity.error,
-    "general.integer.positive.only"
+    'general.integer.positive.only',
   );
   return false;
 }

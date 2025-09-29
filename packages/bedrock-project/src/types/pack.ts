@@ -1,9 +1,9 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MCProject } from "bc-minecraft-project";
-import { Manifest } from "../internal/types";
-import { PackType } from "../project/pack-type";
-import { DataSetBase } from "./data-set";
-import { TextDocument } from "./text-document";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../internal/types';
+import { PackType } from '../project/pack-type';
+import { DataSetBase } from './data-set';
+import { TextDocument } from './text-document';
 
 /** */
 export interface Pack {
@@ -57,7 +57,7 @@ export namespace Pack {
    * @returns
    */
   export function is(value: any): value is Pack {
-    if (typeof value === "object" && typeof value.folder === "string" && typeof value.process === "function") {
+    if (typeof value === 'object' && typeof value.folder === 'string' && typeof value.process === 'function') {
       return true;
     }
 

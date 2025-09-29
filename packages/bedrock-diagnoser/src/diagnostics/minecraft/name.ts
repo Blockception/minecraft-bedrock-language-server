@@ -1,7 +1,7 @@
-import { Text } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { check_definition_value } from "../definitions";
+import { Text } from 'bc-minecraft-bedrock-project';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { check_definition_value } from '../definitions';
 
 /**
  * Checks if the given name exists or is valid.
@@ -18,7 +18,7 @@ export function minecraft_name_diagnose(value: Types.OffsetWord, diagnoser: Diag
     return true;
   }
 
-  if (text.includes(" ") || text.includes("\t")) {
+  if (text.includes(' ') || text.includes('\t')) {
     if (text.startsWith('"') && text.endsWith('"')) {
       return true;
     }
@@ -27,7 +27,7 @@ export function minecraft_name_diagnose(value: Types.OffsetWord, diagnoser: Diag
       value,
       "Name includes whitespace, but hasn't been properly escaped with quotes",
       DiagnosticSeverity.error,
-      "minecraft.name.unquoted"
+      'minecraft.name.unquoted',
     );
     return false;
   }

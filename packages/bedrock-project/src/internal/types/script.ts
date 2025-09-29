@@ -1,4 +1,4 @@
-import { Types } from "bc-minecraft-bedrock-types";
+import { Types } from 'bc-minecraft-bedrock-types';
 
 /**A universal script component for RP and BP scripts*/
 export interface Script {
@@ -21,7 +21,13 @@ export namespace Script {
    */
   export function is(value: any): value is Script {
     if (value) {
-      if (Array.isArray(value.animate) || Array.isArray(value.initialize) || Array.isArray(value.pre_animation) || typeof value.variables === "object") return true;
+      if (
+        Array.isArray(value.animate) ||
+        Array.isArray(value.initialize) ||
+        Array.isArray(value.pre_animation) ||
+        typeof value.variables === 'object'
+      )
+        return true;
     }
 
     return false;
@@ -44,7 +50,7 @@ export namespace ScriptContainer {
    * @returns*/
   export function is(value: any): value is ScriptContainer {
     if (value) {
-      if (typeof value.scripts === "object" || typeof value.animations === "object") return true;
+      if (typeof value.scripts === 'object' || typeof value.animations === 'object') return true;
     }
 
     return false;

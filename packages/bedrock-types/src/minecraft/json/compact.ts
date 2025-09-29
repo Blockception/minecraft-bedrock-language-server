@@ -1,5 +1,5 @@
-import { OffsetWord } from "../../types";
-import { findCommaOrEnd, trimBraces, trimWithOffset } from "./grammar";
+import { OffsetWord } from '../../types';
+import { findCommaOrEnd, trimBraces, trimWithOffset } from './grammar';
 
 /**
  * Namespace that governs minecraft "compact json"
@@ -40,7 +40,7 @@ export namespace CompactJson {
    * @returns True if the node is a key node
    */
   export function hasKey<T extends IBase>(value: any): value is T & { key: string } {
-    return typeof value.key === "string";
+    return typeof value.key === 'string';
   }
 
   /**
@@ -128,9 +128,9 @@ export namespace CompactJson {
       case Type.String:
         return node.value;
       case Type.Object:
-        return `{${node.value.map(stringify).join(",")}}`;
+        return `{${node.value.map(stringify).join(',')}}`;
       case Type.Array:
-        return `[${node.value.map(stringify).join(",")}]`;
+        return `[${node.value.map(stringify).join(',')}]`;
     }
   }
 
@@ -140,11 +140,11 @@ export namespace CompactJson {
    */
   export function empty(): IString {
     return {
-      key: "",
+      key: '',
       type: Type.String,
       offset: 0,
       negative: false,
-      value: "",
+      value: '',
     };
   }
 
@@ -172,7 +172,7 @@ export namespace CompactJson {
       offset += node.key.length + 1;
     }
     if (node.negative) {
-      offset ++;
+      offset++;
     }
 
     return {
@@ -205,12 +205,12 @@ export namespace CompactJson {
     let node: INode;
     [text, offset] = trimWithOffset(text, offset);
 
-    if (text.startsWith("!")) {
+    if (text.startsWith('!')) {
       negative = true;
       text = text.slice(1);
     }
 
-    if (text.startsWith("[")) {
+    if (text.startsWith('[')) {
       node = {
         type: Type.Array,
         offset: offset + 1,
@@ -221,7 +221,7 @@ export namespace CompactJson {
       text = trimBraces(text);
       offset += 1;
       parseItems(text, offset, node);
-    } else if (text.startsWith("{")) {
+    } else if (text.startsWith('{')) {
       node = {
         type: Type.Object,
         offset: offset + 1,
@@ -258,11 +258,11 @@ function parseItems(text: string, offset: number, receiver: CompactJson.IArray) 
   while (index > 0) {
     const attr = text.slice(0, index);
 
-    if (attr.startsWith("{") || attr.endsWith("[")) {
+    if (attr.startsWith('{') || attr.endsWith('[')) {
       const node = CompactJson.parse(attr, offset);
       receiver.value.push(node);
     } else {
-      const equalIndex = attr.indexOf("=");
+      const equalIndex = attr.indexOf('=');
 
       if (equalIndex > 0) {
         const key = attr.slice(0, equalIndex).trim();

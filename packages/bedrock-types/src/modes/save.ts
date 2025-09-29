@@ -1,10 +1,10 @@
-import { ModeCollection } from "./mode-collection";
+import { ModeCollection } from './mode-collection';
 
 /** */
 export const SaveMode: ModeCollection = {
-  name: "Save",
+  name: 'Save',
   modes: [
-    { name: "disk", documentation: "Saves to the disk" },
-    { name: "memory", documentation: "Saves to memory" },
+    { name: 'disk', documentation: 'Saves to the disk' },
+    { name: 'memory', documentation: 'Saves to memory' },
   ],
 };

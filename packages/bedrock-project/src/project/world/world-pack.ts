@@ -1,8 +1,8 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MCProject } from "bc-minecraft-project";
-import { Manifest } from "../../internal/types";
-import { Container, DataSetBase, Pack } from "../../types";
-import { PackType } from "../pack-type";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../../internal/types';
+import { Container, DataSetBase, Pack } from '../../types';
+import { PackType } from '../pack-type';
 
 /** */
 export class WorldPack implements Container, Pack {
@@ -18,7 +18,7 @@ export class WorldPack implements Container, Pack {
   constructor(folder: string, Context: MCProject | string, manifest: Manifest) {
     this.folder = folder;
     this.manifest = manifest;
-    this.context = typeof Context === "object" ? Context : MCProject.loadSync(Context);
+    this.context = typeof Context === 'object' ? Context : MCProject.loadSync(Context);
   }
 
   /**
@@ -86,11 +86,11 @@ export namespace WorldPack {
    * @returns
    */
   export function is(value: any): value is WorldPack {
-    if (typeof value === "object") {
+    if (typeof value === 'object') {
       const temp = <WorldPack>value;
       //Order is determined buy likely / unlikely it is that it missing
-      if (typeof temp.context !== "object") return false;
-      if (typeof temp.folder !== "string") return false;
+      if (typeof temp.context !== 'object') return false;
+      if (typeof temp.folder !== 'string') return false;
 
       return true;
     }

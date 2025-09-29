@@ -1,4 +1,4 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 /** */
 export interface SoundDefinitions extends Readonly<FormatVersion> {
@@ -34,9 +34,9 @@ export namespace SoundDefinitions {
    */
   export function is(value: any): value is SoundDefinitions {
     if (
-      typeof value === "object" &&
-      typeof value.format_version === "string" &&
-      typeof value.sound_definitions === "object"
+      typeof value === 'object' &&
+      typeof value.format_version === 'string' &&
+      typeof value.sound_definitions === 'object'
     ) {
       return true;
     }

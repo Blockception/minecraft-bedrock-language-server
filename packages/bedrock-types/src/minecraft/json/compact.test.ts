@@ -1,5 +1,5 @@
-import { CompactJsonReader } from "../../../src/minecraft/json";
-import { CompactJson } from "../../../src/minecraft/json/compact";
+import { CompactJsonReader } from '../../../src/minecraft/json';
+import { CompactJson } from '../../../src/minecraft/json/compact';
 
 interface TestData {
   text: string;
@@ -7,67 +7,67 @@ interface TestData {
   result: CompactJson.INode;
 }
 
-describe("Compact Json", () => {
-  describe("Should parse string", () => {
+describe('Compact Json', () => {
+  describe('Should parse string', () => {
     const data: TestData[] = [
-      { text: "abc", offset: 0, result: { type: CompactJson.Type.String, offset: 0, negative: false, value: "abc" } },
-      { text: "!abc", offset: 0, result: { type: CompactJson.Type.String, offset: 0, negative: true, value: "abc" } },
-      { text: "abc", offset: 1, result: { type: CompactJson.Type.String, offset: 1, negative: false, value: "abc" } },
-      { text: "!abc", offset: 1, result: { type: CompactJson.Type.String, offset: 1, negative: true, value: "abc" } },
+      { text: 'abc', offset: 0, result: { type: CompactJson.Type.String, offset: 0, negative: false, value: 'abc' } },
+      { text: '!abc', offset: 0, result: { type: CompactJson.Type.String, offset: 0, negative: true, value: 'abc' } },
+      { text: 'abc', offset: 1, result: { type: CompactJson.Type.String, offset: 1, negative: false, value: 'abc' } },
+      { text: '!abc', offset: 1, result: { type: CompactJson.Type.String, offset: 1, negative: true, value: 'abc' } },
     ];
 
-    it.each(data)("Should be able to parse $test", (item) => {
+    it.each(data)('Should be able to parse $test', (item) => {
       const result = CompactJson.parse(item.text, item.offset);
       expect(result).toEqual(expect.objectContaining(item.result));
     });
   });
 
-  describe("Should parse object", () => {
+  describe('Should parse object', () => {
     const data: TestData[] = [
-      { text: "{}", offset: 0, result: { type: CompactJson.Type.Object, offset: 1, negative: false, value: [] } },
-      { text: "!{}", offset: 0, result: { type: CompactJson.Type.Object, offset: 1, negative: true, value: [] } },
-      { text: "{}", offset: 1, result: { type: CompactJson.Type.Object, offset: 2, negative: false, value: [] } },
-      { text: "!{}", offset: 1, result: { type: CompactJson.Type.Object, offset: 2, negative: true, value: [] } },
+      { text: '{}', offset: 0, result: { type: CompactJson.Type.Object, offset: 1, negative: false, value: [] } },
+      { text: '!{}', offset: 0, result: { type: CompactJson.Type.Object, offset: 1, negative: true, value: [] } },
+      { text: '{}', offset: 1, result: { type: CompactJson.Type.Object, offset: 2, negative: false, value: [] } },
+      { text: '!{}', offset: 1, result: { type: CompactJson.Type.Object, offset: 2, negative: true, value: [] } },
     ];
 
-    it.each(data)("Should be able to parse $test", (item) => {
+    it.each(data)('Should be able to parse $test', (item) => {
       const result = CompactJson.parse(item.text, item.offset);
       expect(result).toEqual(expect.objectContaining(item.result));
     });
   });
 
-  describe("Should parse array", () => {
+  describe('Should parse array', () => {
     const data: TestData[] = [
-      { text: "[]", offset: 0, result: { type: CompactJson.Type.Array, offset: 1, negative: false, value: [] } },
-      { text: "![]", offset: 0, result: { type: CompactJson.Type.Array, offset: 1, negative: true, value: [] } },
-      { text: "[]", offset: 1, result: { type: CompactJson.Type.Array, offset: 2, negative: false, value: [] } },
-      { text: "![]", offset: 1, result: { type: CompactJson.Type.Array, offset: 2, negative: true, value: [] } },
+      { text: '[]', offset: 0, result: { type: CompactJson.Type.Array, offset: 1, negative: false, value: [] } },
+      { text: '![]', offset: 0, result: { type: CompactJson.Type.Array, offset: 1, negative: true, value: [] } },
+      { text: '[]', offset: 1, result: { type: CompactJson.Type.Array, offset: 2, negative: false, value: [] } },
+      { text: '![]', offset: 1, result: { type: CompactJson.Type.Array, offset: 2, negative: true, value: [] } },
     ];
 
-    it.each(data)("Should be able to parse $test", (item) => {
+    it.each(data)('Should be able to parse $test', (item) => {
       const result = CompactJson.parse(item.text, item.offset);
       expect(result).toEqual(expect.objectContaining(item.result));
     });
   });
 
-  describe("Examples", () => {
+  describe('Examples', () => {
     //Examples set
     const data: TestData[] = [
       {
-        text: "{a=1,b=2}",
+        text: '{a=1,b=2}',
         offset: 0,
         result: {
           type: CompactJson.Type.Object,
           offset: 1,
           negative: false,
           value: [
-            { key: "a", type: CompactJson.Type.String, offset: 1, negative: false, value: "1" },
-            { key: "b", type: CompactJson.Type.String, offset: 5, negative: false, value: "2" },
+            { key: 'a', type: CompactJson.Type.String, offset: 1, negative: false, value: '1' },
+            { key: 'b', type: CompactJson.Type.String, offset: 5, negative: false, value: '2' },
           ],
         },
       },
       {
-        text: "{data={a=1..2}}",
+        text: '{data={a=1..2}}',
         offset: 15,
         result: {
           type: CompactJson.Type.Object,
@@ -75,17 +75,17 @@ describe("Compact Json", () => {
           negative: false,
           value: [
             {
-              key: "data",
+              key: 'data',
               type: CompactJson.Type.Object,
               offset: 16,
               negative: false,
-              value: [{ key: "a", type: CompactJson.Type.String, offset: 22, negative: false, value: "1..2" }],
+              value: [{ key: 'a', type: CompactJson.Type.String, offset: 22, negative: false, value: '1..2' }],
             },
           ],
         },
       },
       {
-        text: "[a=[b={c=!1}]]",
+        text: '[a=[b={c=!1}]]',
         offset: 12,
         result: {
           type: CompactJson.Type.Array,
@@ -93,17 +93,17 @@ describe("Compact Json", () => {
           negative: false,
           value: [
             {
-              key: "a",
+              key: 'a',
               type: CompactJson.Type.Array,
               offset: 13,
               negative: false,
               value: [
                 {
-                  key: "b",
+                  key: 'b',
                   type: CompactJson.Type.Object,
                   offset: 16,
                   negative: false,
-                  value: [{ key: "c", type: CompactJson.Type.String, offset: 19, negative: true, value: "1" }],
+                  value: [{ key: 'c', type: CompactJson.Type.String, offset: 19, negative: true, value: '1' }],
                 },
               ],
             },
@@ -111,7 +111,7 @@ describe("Compact Json", () => {
         },
       },
       {
-        text: "[hasitem=[{item=minecraft:stone},{data=!1}]]",
+        text: '[hasitem=[{item=minecraft:stone},{data=!1}]]',
         offset: 10,
         result: {
           type: CompactJson.Type.Array,
@@ -119,7 +119,7 @@ describe("Compact Json", () => {
           offset: 11,
           value: [
             {
-              key: "hasitem",
+              key: 'hasitem',
               type: CompactJson.Type.Array,
               negative: false,
               offset: 11,
@@ -130,11 +130,11 @@ describe("Compact Json", () => {
                   offset: 21,
                   value: [
                     {
-                      key: "item",
+                      key: 'item',
                       type: CompactJson.Type.String,
                       negative: false,
                       offset: 21,
-                      value: "minecraft:stone",
+                      value: 'minecraft:stone',
                     },
                   ],
                 },
@@ -144,11 +144,11 @@ describe("Compact Json", () => {
                   offset: 44,
                   value: [
                     {
-                      key: "data",
+                      key: 'data',
                       type: CompactJson.Type.String,
                       negative: true,
                       offset: 44,
-                      value: "1",
+                      value: '1',
                     },
                   ],
                 },
@@ -158,17 +158,17 @@ describe("Compact Json", () => {
         },
       },
       {
-        text: "[a=1,b=2,hasitem=[{item=minecraft:stone},{data=1}],a=1..3,hasitem=[{item=!minecraft:dirt},{data=!2}]]",
+        text: '[a=1,b=2,hasitem=[{item=minecraft:stone},{data=1}],a=1..3,hasitem=[{item=!minecraft:dirt},{data=!2}]]',
         offset: 10,
         result: {
           type: CompactJson.Type.Array,
           offset: 11,
           negative: false,
           value: [
-            { key: "a", type: CompactJson.Type.String, offset: 11, negative: false, value: "1" },
-            { key: "b", type: CompactJson.Type.String, offset: 15, negative: false, value: "2" },
+            { key: 'a', type: CompactJson.Type.String, offset: 11, negative: false, value: '1' },
+            { key: 'b', type: CompactJson.Type.String, offset: 15, negative: false, value: '2' },
             {
-              key: "hasitem",
+              key: 'hasitem',
               type: CompactJson.Type.Array,
               offset: 19,
               negative: false,
@@ -179,11 +179,11 @@ describe("Compact Json", () => {
                   negative: false,
                   value: [
                     {
-                      key: "item",
+                      key: 'item',
                       negative: false,
                       offset: 29,
                       type: CompactJson.Type.String,
-                      value: "minecraft:stone",
+                      value: 'minecraft:stone',
                     },
                   ],
                 },
@@ -193,19 +193,19 @@ describe("Compact Json", () => {
                   negative: false,
                   value: [
                     {
-                      key: "data",
+                      key: 'data',
                       negative: false,
                       offset: 52,
                       type: CompactJson.Type.String,
-                      value: "1",
+                      value: '1',
                     },
                   ],
                 },
               ],
             },
-            { key: "a", type: CompactJson.Type.String, offset: 61, negative: false, value: "1..3" },
+            { key: 'a', type: CompactJson.Type.String, offset: 61, negative: false, value: '1..3' },
             {
-              key: "hasitem",
+              key: 'hasitem',
               type: CompactJson.Type.Array,
               offset: 68,
               negative: false,
@@ -216,11 +216,11 @@ describe("Compact Json", () => {
                   offset: 78,
                   value: [
                     {
-                      key: "item",
+                      key: 'item',
                       negative: true,
                       offset: 78,
                       type: CompactJson.Type.String,
-                      value: "minecraft:dirt",
+                      value: 'minecraft:dirt',
                     },
                   ],
                 },
@@ -230,11 +230,11 @@ describe("Compact Json", () => {
                   offset: 101,
                   value: [
                     {
-                      key: "data",
+                      key: 'data',
                       negative: true,
                       offset: 101,
                       type: CompactJson.Type.String,
-                      value: "2",
+                      value: '2',
                     },
                   ],
                 },
@@ -244,39 +244,39 @@ describe("Compact Json", () => {
         },
       },
       {
-        text: "[x =~0.5, y=50, z =~50,r =50, rm =3,tag =something,tag =!foo]",
+        text: '[x =~0.5, y=50, z =~50,r =50, rm =3,tag =something,tag =!foo]',
         offset: 10,
         result: {
           type: CompactJson.Type.Array,
           offset: 11,
           negative: false,
           value: [
-            { key: "x", type: CompactJson.Type.String, offset: 11, negative: false, value: "~0.5" },
-            { key: "y", type: CompactJson.Type.String, offset: 19, negative: false, value: "50" },
-            { key: "z", type: CompactJson.Type.String, offset: 25, negative: false, value: "~50" },
-            { key: "r", type: CompactJson.Type.String, offset: 33, negative: false, value: "50" },
-            { key: "rm", type: CompactJson.Type.String, offset: 39, negative: false, value: "3" },
-            { key: "tag", type: CompactJson.Type.String, offset: 46, negative: false, value: "something" },
-            { key: "tag", type: CompactJson.Type.String, offset: 61, negative: true, value: "foo" },
+            { key: 'x', type: CompactJson.Type.String, offset: 11, negative: false, value: '~0.5' },
+            { key: 'y', type: CompactJson.Type.String, offset: 19, negative: false, value: '50' },
+            { key: 'z', type: CompactJson.Type.String, offset: 25, negative: false, value: '~50' },
+            { key: 'r', type: CompactJson.Type.String, offset: 33, negative: false, value: '50' },
+            { key: 'rm', type: CompactJson.Type.String, offset: 39, negative: false, value: '3' },
+            { key: 'tag', type: CompactJson.Type.String, offset: 46, negative: false, value: 'something' },
+            { key: 'tag', type: CompactJson.Type.String, offset: 61, negative: true, value: 'foo' },
           ],
         },
       },
     ];
 
-    it.each(data)("Should be able to parse $test", (item) => {
+    it.each(data)('Should be able to parse $test', (item) => {
       const result = CompactJson.parse(item.text, item.offset);
       expect(result).toEqual(expect.objectContaining(item.result));
     });
   });
 
-  describe("Reader", () => {
-    it("Sanity check string reader", () => {
+  describe('Reader', () => {
+    it('Sanity check string reader', () => {
       const data: CompactJson.IString = {
         type: CompactJson.Type.String,
         offset: 0,
         negative: false,
-        value: "test",
-        key: "keyTest",
+        value: 'test',
+        key: 'keyTest',
       };
 
       const reader = new CompactJsonReader(data);
@@ -287,19 +287,19 @@ describe("Compact Json", () => {
           negative: data.negative,
           value: data.value,
           key: data.key,
-        })
+        }),
       );
 
       expect(reader.hasKey()).toBeTruthy();
     });
 
-    it("Sanity check object reader", () => {
+    it('Sanity check object reader', () => {
       const data: CompactJson.IObject = {
         type: CompactJson.Type.Object,
         offset: 0,
         negative: false,
         value: [],
-        key: "keyTest",
+        key: 'keyTest',
       };
 
       const reader = new CompactJsonReader(data);
@@ -310,19 +310,19 @@ describe("Compact Json", () => {
           negative: data.negative,
           value: data.value,
           key: data.key,
-        })
+        }),
       );
 
       expect(reader.hasKey()).toBeTruthy();
     });
 
-    it("Sanity check array reader", () => {
+    it('Sanity check array reader', () => {
       const data: CompactJson.IArray = {
         type: CompactJson.Type.Array,
         offset: 0,
         negative: false,
         value: [],
-        key: "keyTest",
+        key: 'keyTest',
       };
 
       const reader = new CompactJsonReader(data);
@@ -333,7 +333,7 @@ describe("Compact Json", () => {
           negative: data.negative,
           value: data.value,
           key: data.key,
-        })
+        }),
       );
 
       expect(reader.hasKey()).toBeTruthy();

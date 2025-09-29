@@ -1,8 +1,8 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { DataSet, TextDocument } from "../../types";
-import { FileType } from "../behavior-pack";
-import { ProcessMcFunction } from "./types/commands/process";
-import { GeneralInfo } from "./types/general-info";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DataSet, TextDocument } from '../../types';
+import { FileType } from '../behavior-pack';
+import { ProcessMcFunction } from './types/commands/process';
+import { GeneralInfo } from './types/general-info';
 
 /**The class GeneralCollection description*/
 export class GeneralCollection {

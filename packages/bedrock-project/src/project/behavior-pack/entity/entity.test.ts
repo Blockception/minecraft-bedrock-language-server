@@ -1,7 +1,7 @@
-import { Json } from "../../../../src/internal/json";
-import { TextDocument } from "../../../../src/types";
-import * as Internal from "../../../../src/internal/behavior-pack/entity";
-import { Entity } from "../../../../src/project/behavior-pack";
+import { Json } from '../../../../src/internal/json';
+import { TextDocument } from '../../../../src/types';
+import * as Internal from '../../../../src/internal/behavior-pack/entity';
+import { Entity } from '../../../../src/project/behavior-pack';
 
 const EntityJson: string = `{
   "format_version": "1.16.0",
@@ -38,24 +38,24 @@ const EntityJson: string = `{
 }`;
 
 const EntityDoc: TextDocument = {
-  uri: "C:\\temp.json",
+  uri: 'C:\\temp.json',
   getText: () => EntityJson,
 };
 
-describe("Entity", () => {
-  describe("Data", () => {
+describe('Entity', () => {
+  describe('Data', () => {
     const imp = Json.To<Internal.Entity>(EntityJson);
 
-    it("Not Undefined", () => {
+    it('Not Undefined', () => {
       expect(imp).toBeDefined();
     });
 
-    it("Is entity", () => {
+    it('Is entity', () => {
       expect(Internal.Entity.is(imp)).toBeTruthy();
     });
   });
 
-  test("Families", () => {
+  test('Families', () => {
     const data = Entity.process(EntityDoc);
 
     expect(data).toMatchSnapshot();

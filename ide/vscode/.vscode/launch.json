@@ -9,7 +9,7 @@
       "runtimeExecutable": "${execPath}",
       "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}"],
       "sourceMaps": true,
-      "outFiles": ["${workspaceFolder}/client/out/**/*.js"],
+      "outFiles": ["${workspaceFolder}/client/out/**/*.js"]
     },
     {
       "type": "node",
@@ -19,7 +19,7 @@
       "port": 6009,
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/server/out/**/*.js"]
-    },
+    }
   ],
   "compounds": [
     {

@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver";
+import { SignatureHelp } from 'vscode-languageserver';
 
 /**
  *
@@ -14,10 +14,10 @@ const GeometrySignature: SignatureHelp = {
   activeSignature: 0,
   signatures: [
     {
-      label: "Geometry",
+      label: 'Geometry',
       parameters: [
-        { label: "geometry.", documentation: "The geometry to use." },
-        { label: "<geometry>", documentation: "The model to access" },
+        { label: 'geometry.', documentation: 'The geometry to use.' },
+        { label: '<geometry>', documentation: 'The model to access' },
       ],
     },
   ],

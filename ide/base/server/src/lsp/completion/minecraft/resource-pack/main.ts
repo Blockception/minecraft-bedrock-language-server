@@ -1,25 +1,25 @@
-import { FileType } from "bc-minecraft-bedrock-project/src/project/resource-pack";
-import { Context } from "../../../context/context";
-import { JsonCompletionContext } from "../../context";
+import { FileType } from 'bc-minecraft-bedrock-project/src/project/resource-pack';
+import { Context } from '../../../context/context';
+import { JsonCompletionContext } from '../../context';
 
-import * as AnimationControllers from "./animation-controllers";
-import * as Animations from "./animations";
-import * as Attachables from "./attachables";
-import * as BlockCulling from "./block-culling";
-import * as Entities from "./entities";
-import * as RenderController from "./render-controllers";
-import * as SoundDefinitions from "./sound-definitions";
-import * as Sound from "./sounds";
-import * as TexturesAtlas from "./texture-atlas";
-import * as Textures from "./textures";
-import * as Manifests from "../../general/manifests";
+import * as AnimationControllers from './animation-controllers';
+import * as Animations from './animations';
+import * as Attachables from './attachables';
+import * as BlockCulling from './block-culling';
+import * as Entities from './entities';
+import * as RenderController from './render-controllers';
+import * as SoundDefinitions from './sound-definitions';
+import * as Sound from './sounds';
+import * as TexturesAtlas from './texture-atlas';
+import * as Textures from './textures';
+import * as Manifests from '../../general/manifests';
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   //Prepare data to be fixed for json
   const data = context.currentText;
 
-  if (data.startsWith("textures/")) Textures.provideCompletion(context);
-  if (data.startsWith("sounds/")) Sound.provideCompletion(context);
+  if (data.startsWith('textures/')) Textures.provideCompletion(context);
+  if (data.startsWith('sounds/')) Sound.provideCompletion(context);
 
   switch (FileType.detect(context.document.uri)) {
     case FileType.animation:

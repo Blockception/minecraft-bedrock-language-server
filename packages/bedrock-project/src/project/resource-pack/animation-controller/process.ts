@@ -1,10 +1,10 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import * as Internal from "../../../internal/resource-pack/animation-controller";
-import { Documentation, TextDocument } from "../../../types";
-import { References, Using } from "../../../types/references";
-import { harvestMolang } from "../../molang";
-import { AnimationController } from "./animation-controller";
-import { Effect } from "../../../internal/resource-pack";
+import { Types } from 'bc-minecraft-bedrock-types';
+import * as Internal from '../../../internal/resource-pack/animation-controller';
+import { Documentation, TextDocument } from '../../../types';
+import { References, Using } from '../../../types/references';
+import { harvestMolang } from '../../molang';
+import { AnimationController } from './animation-controller';
+import { Effect } from '../../../internal/resource-pack';
 
 /** */
 export function process(doc: TextDocument): AnimationController[] | undefined {
@@ -43,6 +43,6 @@ export function process(doc: TextDocument): AnimationController[] | undefined {
 function harvest(data: Effect[], receiver: Using) {
   Using.add(
     receiver,
-    data.map((e) => e.effect).filter((e) => e !== undefined)
+    data.map((e) => e.effect).filter((e) => e !== undefined),
   );
 }

@@ -1,5 +1,5 @@
-import { Position, Range, TextDocument } from "vscode";
-import { Character } from "./character";
+import { Position, Range, TextDocument } from 'vscode';
+import { Character } from './character';
 
 /**
  * @param position
@@ -7,7 +7,7 @@ import { Character } from "./character";
  * @returns
  */
 export function GetRange(position: string | number | Position, doc: TextDocument): Range {
-  if (typeof position === "string") return resolveJsonPath(position, doc);
+  if (typeof position === 'string') return resolveJsonPath(position, doc);
 
   let Start: Position;
   let End: Position | undefined = undefined;
@@ -58,15 +58,15 @@ export function GetRange(position: string | number | Position, doc: TextDocument
 
 export function GetPosition(position: string | number | Position | OffsetWord, doc: TextDocument): Position {
   if (isPosition(position)) return position;
-  if (typeof position === "string") return resolveJsonPath(position, doc).start;
+  if (typeof position === 'string') return resolveJsonPath(position, doc).start;
   if (OffsetWord.is(position)) return doc.positionAt(position.offset);
 
   return doc.positionAt(position);
 }
 
 function isPosition(value: any): value is Position {
-  if (typeof value === "object") {
-    if (typeof value.character === "number" && typeof value.line === "number") return true;
+  if (typeof value === 'object') {
+    if (typeof value.character === 'number' && typeof value.line === 'number') return true;
   }
 
   return false;
@@ -79,8 +79,8 @@ interface OffsetWord {
 
 namespace OffsetWord {
   export function is(value: any): value is OffsetWord {
-    if (typeof value === "object") {
-      if (typeof value.text === "string" && typeof value.offset === "number") return true;
+    if (typeof value === 'object') {
+      if (typeof value.text === 'string' && typeof value.offset === 'number') return true;
     }
 
     return false;
@@ -88,7 +88,7 @@ namespace OffsetWord {
 }
 
 export function resolveJsonPath(position: string, doc: TextDocument): Range {
-  const index = position.lastIndexOf("/");
+  const index = position.lastIndexOf('/');
   const length = index > -1 ? position.length - index : position.length;
 
   const offset = resolve(doc, position);
@@ -100,7 +100,7 @@ export function resolveJsonPath(position: string, doc: TextDocument): Range {
 }
 
 export function resolve(text: string | { getText(): string }, path: string): number {
-  if (typeof text === "object") text = text.getText();
+  if (typeof text === 'object') text = text.getText();
 
   const s = path.split(/[\\/]/);
   let index = 0;
@@ -108,7 +108,7 @@ export function resolve(text: string | { getText(): string }, path: string): num
   for (let I = 0; I < s.length; I++) {
     const elem = s[I];
 
-    if (!Number.isInteger(elem) && elem !== "") {
+    if (!Number.isInteger(elem) && elem !== '') {
       const t = text.indexOf(elem, index);
       if (t > -1) index = t;
     }

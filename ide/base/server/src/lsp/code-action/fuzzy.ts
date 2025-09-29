@@ -1,12 +1,12 @@
-import { distance } from "fastest-levenshtein";
-import { CodeAction, CodeActionKind, Diagnostic, TextEdit } from "vscode-languageserver";
-import { CodeActionBuilder } from "./builder";
+import { distance } from 'fastest-levenshtein';
+import { CodeAction, CodeActionKind, Diagnostic, TextEdit } from 'vscode-languageserver';
+import { CodeActionBuilder } from './builder';
 
 export async function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): Promise<void> {
   const code = diag.code;
 
-  if (typeof code !== "string") return;
-  if (code.includes("missing") || code.endsWith("invalid")) {
+  if (typeof code !== 'string') return;
+  if (code.includes('missing') || code.endsWith('invalid')) {
     // Do nothing
   } else {
     return;
@@ -15,11 +15,11 @@ export async function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): 
   const id = builder.getId(diag.range);
   let max = 20;
   const items: MatchItems[] = [
-    { id: "", distance: max },
-    { id: "", distance: max },
-    { id: "", distance: max },
-    { id: "", distance: max },
-    { id: "", distance: max },
+    { id: '', distance: max },
+    { id: '', distance: max },
+    { id: '', distance: max },
+    { id: '', distance: max },
+    { id: '', distance: max },
   ];
 
   await builder.context.database.forEach((item) => {
@@ -41,10 +41,10 @@ export async function fuzzyMatch(builder: CodeActionBuilder, diag: Diagnostic): 
   items
     .sort((x, y) => x.distance - y.distance)
     .forEach((m) => {
-      if (m.id === "") return;
+      if (m.id === '') return;
       const document = builder.context.document;
       const action: CodeAction = {
-        title: "Did you mean: " + m.id,
+        title: 'Did you mean: ' + m.id,
         kind: CodeActionKind.QuickFix,
         edit: {
           changes: {

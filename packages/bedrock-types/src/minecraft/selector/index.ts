@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./selector";
-export * from "./selector-types";
+export * from './selector';
+export * from './selector-types';

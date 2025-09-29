@@ -1,4 +1,4 @@
 /**
- * 
+ *
  */
- export type SubjectType = "block" | "damager" | "other" | "parent" | "player" | "self" | "target";
+export type SubjectType = 'block' | 'damager' | 'other' | 'parent' | 'player' | 'self' | 'target';

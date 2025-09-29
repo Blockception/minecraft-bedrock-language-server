@@ -1,7 +1,7 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { TextureAtlas } from "../../../internal/resource-pack/texture-atlas";
-import { Documentation, TextDocument } from "../../../types";
-import { Texture } from "./texture";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { TextureAtlas } from '../../../internal/resource-pack/texture-atlas';
+import { Documentation, TextDocument } from '../../../types';
+import { Texture } from './texture';
 
 /**
  *

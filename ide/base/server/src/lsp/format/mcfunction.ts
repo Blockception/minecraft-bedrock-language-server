@@ -3,11 +3,11 @@ import {
   DocumentRangeFormattingParams,
   FormattingOptions,
   TextEdit,
-} from "vscode-languageserver";
-import { Replace, TrimEndFromLine, TrimStartFromLine } from "../../util";
-import { Context } from "../context/context";
-import { TextDocument } from "../documents/text-document";
-import { FormatContext } from "./context";
+} from 'vscode-languageserver';
+import { Replace, TrimEndFromLine, TrimStartFromLine } from '../../util';
+import { Context } from '../context/context';
+import { TextDocument } from '../documents/text-document';
+import { FormatContext } from './context';
 
 /**
  *
@@ -29,7 +29,7 @@ export function formatMcfunction(context: Context<FormatContext>, params: Docume
  */
 export function formatMcfunctionRange(
   context: Context<FormatContext>,
-  params: DocumentRangeFormattingParams
+  params: DocumentRangeFormattingParams,
 ): TextEdit[] {
   const startIndex = params.range.start.line;
   const endIndex = params.range.end.line;
@@ -55,14 +55,14 @@ class MCFunctionFormatter {
       const line = document.getLine(index);
 
       if (line.length > 2) {
-        TrimStartFromLine(line, index, result, ["/", " ", "\t"]);
-        TrimEndFromLine(line, index, result, [" ", "\t"]);
+        TrimStartFromLine(line, index, result, ['/', ' ', '\t']);
+        TrimEndFromLine(line, index, result, [' ', '\t']);
 
-        Replace(line, "~+", "~", index, result);
-        Replace(line, "~0", "~", index, result);
-        Replace(line, "^+", "^", index, result);
-        Replace(line, "^0", "^", index, result);
-        Replace(line, " ##", " \t##", index, result);
+        Replace(line, '~+', '~', index, result);
+        Replace(line, '~0', '~', index, result);
+        Replace(line, '^+', '^', index, result);
+        Replace(line, '^0', '^', index, result);
+        Replace(line, ' ##', ' \t##', index, result);
       }
     }
 

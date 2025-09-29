@@ -1,21 +1,21 @@
-import { Diagnoser } from "bc-minecraft-bedrock-diagnoser";
-import { Connection, DeleteFilesParams, Diagnostic } from "vscode-languageserver";
-import { getFilename } from "../../util";
-import { TextDocument } from "../documents";
-import { IDocumentManager } from "../documents/manager";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { IService } from "../services/service";
-import { InternalContext } from "./context";
+import { Diagnoser } from 'bc-minecraft-bedrock-diagnoser';
+import { Connection, DeleteFilesParams, Diagnostic } from 'vscode-languageserver';
+import { getFilename } from '../../util';
+import { TextDocument } from '../documents';
+import { IDocumentManager } from '../documents/manager';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { IService } from '../services/service';
+import { InternalContext } from './context';
 
 export class DiagnoserService extends BaseService implements Partial<IService> {
-  name: string = "diagnoser";
+  name: string = 'diagnoser';
   private _context: InternalContext;
   private _diagnoser: Diagnoser;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext, documents: IDocumentManager) {
-    logger = logger.withPrefix("[diagnoser]");
+    logger = logger.withPrefix('[diagnoser]');
     super(logger, extension);
 
     this._context = new InternalContext(logger, documents, () => extension.database.ProjectData);
@@ -39,14 +39,14 @@ export class DiagnoserService extends BaseService implements Partial<IService> {
 
     const dur = Date.now() - start;
     if (dur > 10) {
-      this.logger.info("diagnosing done", {
+      this.logger.info('diagnosing done', {
         uri: doc.uri,
         ms: dur,
       });
     }
   }
 
-  set(doc: Pick<TextDocument, "uri"> & Partial<Pick<TextDocument, "version">>, diagnostics: Diagnostic[]) {
+  set(doc: Pick<TextDocument, 'uri'> & Partial<Pick<TextDocument, 'version'>>, diagnostics: Diagnostic[]) {
     return this.extension.connection.sendDiagnostics({
       diagnostics,
       uri: doc.uri,
@@ -54,7 +54,7 @@ export class DiagnoserService extends BaseService implements Partial<IService> {
     });
   }
 
-  clear(doc: Pick<TextDocument, "uri"> & Partial<Pick<TextDocument, "version">>) {
+  clear(doc: Pick<TextDocument, 'uri'> & Partial<Pick<TextDocument, 'version'>>) {
     return this.set(doc, []);
   }
 

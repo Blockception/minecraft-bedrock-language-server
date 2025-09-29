@@ -1,5 +1,5 @@
-import { MolangSet } from "bc-minecraft-molang";
-import { TextDocument } from "../../types";
+import { MolangSet } from 'bc-minecraft-molang';
+import { TextDocument } from '../../types';
 
 /**
  * Converts the given content to JSON and harvests all the molang statements
@@ -32,7 +32,7 @@ export function harvestMolang(doc: TextDocument, obj: object): MolangSet;
  * @returns
  */
 export function harvestMolang(docOrStr: TextDocument | string, obj?: object): MolangSet {
-  if (typeof docOrStr !== "string") docOrStr = docOrStr.getText();
+  if (typeof docOrStr !== 'string') docOrStr = docOrStr.getText();
 
   const objSet = obj ?? JSON.parse(docOrStr);
   const set = new MolangSet();
@@ -40,8 +40,8 @@ export function harvestMolang(docOrStr: TextDocument | string, obj?: object): Mo
     set.harvest(objSet, docOrStr);
   } catch (err) {
     console.warn(
-      "received an error during molang parsing during harvesting of molang data, skipping report to let it be handled by the diagnoser",
-      err
+      'received an error during molang parsing during harvesting of molang data, skipping report to let it be handled by the diagnoser',
+      err,
     );
   } finally {
     set.cache.clear();

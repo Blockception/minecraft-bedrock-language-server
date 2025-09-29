@@ -1,7 +1,7 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MolangSyntaxCache } from "./cache";
-import { isMolang, isValidMolang } from "./functions";
-import { ExpressionNode, FunctionCallNode, NodeType, ResourceReferenceNode, VariableNode, walk } from "./syntax";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MolangSyntaxCache } from './cache';
+import { isMolang, isValidMolang } from './functions';
+import { ExpressionNode, FunctionCallNode, NodeType, ResourceReferenceNode, VariableNode, walk } from './syntax';
 
 /** The interface for the molang set */
 export class MolangSet {
@@ -57,7 +57,7 @@ export class MolangSet {
   }
 
   harvest(object: Record<string, any> | string, originalText: string): this {
-    if (typeof object === "string") {
+    if (typeof object === 'string') {
       if (isMolang(object)) {
         this.add(Types.OffsetWord.create(object, originalText.indexOf(object)));
         return this;
@@ -65,11 +65,11 @@ export class MolangSet {
     }
 
     for (const [, value] of Object.entries(object)) {
-      if (typeof value === "string") {
+      if (typeof value === 'string') {
         if (isMolang(value)) {
           this.add(Types.OffsetWord.create(value, originalText.indexOf(value)));
         }
-      } else if (typeof value === "object") {
+      } else if (typeof value === 'object') {
         if (Array.isArray(value)) {
           value.forEach((v) => this.harvest(v, originalText));
         } else {

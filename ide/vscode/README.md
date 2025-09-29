@@ -100,20 +100,20 @@ A complete list can be found [here](documentation/Commands.md). These commands p
 
 All third party code and libraries this plugin uses are listed [**here**](./LICENSES/Licenses.md)!
 
-
 # Contributors
+
 Special thanks to these awesome people for helping out these projects 😄
 
 **Vscode plugin**  
 <a href="https://github.com/Blockception/minecraft-bedrock-language-server/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Blockception/minecraft-bedrock-language-server" />
+<img src="https://contrib.rocks/image?repo=Blockception/minecraft-bedrock-language-server" />
 </a>  
 <a href="https://github.com/Blockception/VSCode-Bedrock-Development-Extension/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Blockception/VSCode-Bedrock-Development-Extension" />
+<img src="https://contrib.rocks/image?repo=Blockception/VSCode-Bedrock-Development-Extension" />
 </a>  
 **Schemas**  
 <a href="https://github.com/Blockception/Minecraft-bedrock-json-schemas/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Blockception/Minecraft-bedrock-json-schemas" />
+<img src="https://contrib.rocks/image?repo=Blockception/Minecraft-bedrock-json-schemas" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).

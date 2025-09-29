@@ -1,31 +1,33 @@
-import { Languages } from "@blockception/ide-shared";
+import { Languages } from '@blockception/ide-shared';
 import {
-  BulkRegistration, Connection, Range,
+  BulkRegistration,
+  Connection,
+  Range,
   SemanticTokensParams,
   SemanticTokensRangeParams,
   SemanticTokensRegistrationType,
-  SemanticTokens as VSSemanticsTokens
-} from "vscode-languageserver";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { SemanticModifiers, SemanticTokens } from "./constants";
-import { provideJsonSemanticTokens } from "./minecraft/json";
-import { provideMolangSemanticTokens } from "./minecraft/molang";
+  SemanticTokens as VSSemanticsTokens,
+} from 'vscode-languageserver';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { SemanticModifiers, SemanticTokens } from './constants';
+import { provideJsonSemanticTokens } from './minecraft/json';
+import { provideMolangSemanticTokens } from './minecraft/molang';
 
-import * as Mcfunction from "./minecraft/mcfunctions";
+import * as Mcfunction from './minecraft/mcfunctions';
 
 export class SemanticsServer extends BaseService implements Partial<IService> {
-  name: string = "definitions";
+  name: string = 'definitions';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[definitions]"), extension);
+    super(logger.withPrefix('[definitions]'), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    capabilities.set("definitionProvider", {
+    capabilities.set('definitionProvider', {
       workDoneProgress: true,
     });
   }
@@ -33,7 +35,7 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
   setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.languages.semanticTokens.on(this.onProvideSemanticRequest.bind(this)),
-      connection.languages.semanticTokens.onRange(this.onProvideSemanticRequest.bind(this))
+      connection.languages.semanticTokens.onRange(this.onProvideSemanticRequest.bind(this)),
     );
   }
 
@@ -57,10 +59,10 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
   }
 
   private async onProvideSemanticRequest(
-    params: SemanticTokensRangeParams | SemanticTokensParams
+    params: SemanticTokensRangeParams | SemanticTokensParams,
   ): Promise<VSSemanticsTokens> {
     const uri = params.textDocument.uri;
-    if (!uri.startsWith("file://")) return { data: [] };
+    if (!uri.startsWith('file://')) return { data: [] };
 
     const document = this.extension.documents.get(uri);
     if (!document) return { data: [] };
@@ -94,7 +96,7 @@ export class SemanticsServer extends BaseService implements Partial<IService> {
 }
 
 function IsSemanticTokensRangeParams(
-  value: SemanticTokensRangeParams | SemanticTokensParams
+  value: SemanticTokensRangeParams | SemanticTokensParams,
 ): value is SemanticTokensRangeParams {
   const temp: any = value;
 

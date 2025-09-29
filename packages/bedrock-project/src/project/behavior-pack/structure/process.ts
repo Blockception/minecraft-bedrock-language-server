@@ -1,6 +1,6 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { TextDocument } from "../../../types";
-import { Structure } from "./structure";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { TextDocument } from '../../../types';
+import { Structure } from './structure';
 
 /**
  *
@@ -9,15 +9,15 @@ import { Structure } from "./structure";
  */
 export function process(doc: TextDocument): Structure | undefined {
   const uri = doc.uri;
-  let index = uri.indexOf("structures");
+  let index = uri.indexOf('structures');
 
   if (index < 0) return undefined;
   index += 11;
 
-  let id = uri.substring(index, uri.length).replace(/\\/g, "/");
-  id = id.replace(".mcstructure", "");
+  let id = uri.substring(index, uri.length).replace(/\\/g, '/');
+  id = id.replace('.mcstructure', '');
 
-  if (id.includes("/")) {
+  if (id.includes('/')) {
     id = '"' + id + '"';
   }
 

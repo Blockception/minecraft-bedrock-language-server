@@ -1,8 +1,8 @@
-import { String } from "../../general";
-import { Modes } from "../../modes/modes";
-import { OffsetWord } from "../../types";
-import { CompactJson } from "../json/compact";
-import { CompactJsonReader } from "../json/reader";
+import { String } from '../../general';
+import { Modes } from '../../modes/modes';
+import { OffsetWord } from '../../types';
+import { CompactJson } from '../json/compact';
+import { CompactJsonReader } from '../json/reader';
 import { SelectorType } from './selector-types';
 
 /**
@@ -19,7 +19,7 @@ export class Selector extends CompactJsonReader<CompactJson.IArray> {
     data = data || { negative: false, offset: offset || 0, type: CompactJson.Type.Array, value: [] };
 
     super(data);
-    this._type = type || "@a";
+    this._type = type || '@a';
     this._offset = data.offset;
   }
 
@@ -42,7 +42,7 @@ export namespace Selector {
    * @returns
    */
   export function isValidType(type: string | Selector): boolean {
-    if (typeof type !== "string") {
+    if (typeof type !== 'string') {
       type = type.selectorType;
     }
 
@@ -58,10 +58,10 @@ export namespace Selector {
    */
   export function isSelector(value: string, wildcard?: boolean, allowFakePlayer?: boolean): boolean {
     if (wildcard === true) {
-      if (value === "*") return true;
+      if (value === '*') return true;
     }
 
-    if (!value.startsWith("@")) {
+    if (!value.startsWith('@')) {
       if (allowFakePlayer === true) {
         if (String.is(value)) return true;
       }
@@ -69,11 +69,11 @@ export namespace Selector {
       return false;
     }
 
-    const index = value.indexOf("[");
+    const index = value.indexOf('[');
     const type = index === -1 ? value : value.slice(0, index);
 
     if (index > -1) {
-      if (!value.endsWith("]")) {
+      if (!value.endsWith(']')) {
         return false;
       }
     }
@@ -91,13 +91,13 @@ export namespace Selector {
   export function parse(word: OffsetWord): Selector | undefined;
 
   export function parse(text: string | OffsetWord, offset?: number): Selector | undefined {
-    if (typeof text !== "string") {
+    if (typeof text !== 'string') {
       offset = text.offset;
       text = text.text;
     }
     offset = offset || 0;
 
-    const index = text.indexOf("[");
+    const index = text.indexOf('[');
 
     if (index === -1) {
       return new Selector(text as SelectorType);

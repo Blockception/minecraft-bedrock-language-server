@@ -1,28 +1,28 @@
-import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { TextDocumentEdit, TextEdit } from "vscode-languageserver";
-import { Context } from "../../context/context";
-import { TextDocument } from "../../documents/text-document";
-import { CommandContext } from "../context";
+import { BehaviorPack, ResourcePack } from 'bc-minecraft-bedrock-project';
+import { TextDocumentEdit, TextEdit } from 'vscode-languageserver';
+import { Context } from '../../context/context';
+import { TextDocument } from '../../documents/text-document';
+import { CommandContext } from '../context';
 import { WorldPack } from 'bc-minecraft-bedrock-project/src/project/world/world-pack';
 
 export async function addAllItems(context: Context<CommandContext>): Promise<void> {
   const { logger, arguments: args } = context;
   if (args === undefined) {
-    throw new Error("no arguments");
+    throw new Error('no arguments');
   }
 
   const uri = args[0];
-  if (uri === "" || uri === undefined) {
-    throw new Error("no uri given, should be at 0");
+  if (uri === '' || uri === undefined) {
+    throw new Error('no uri given, should be at 0');
   }
 
   const document = context.documents.get(uri);
   if (document === undefined) {
-    throw new Error("document not found: " + uri);
+    throw new Error('document not found: ' + uri);
   }
   const pack = document.pack();
   if (!pack) {
-    return logger.info("ignoring command, because document is not associated with a pack");
+    return logger.info('ignoring command, because document is not associated with a pack');
   }
 
   const builder = new TextEditBuilder(document);
@@ -45,7 +45,7 @@ export async function addAllItems(context: Context<CommandContext>): Promise<voi
         },
       });
 
-      if (!check.applied) logger.error("document edit failed!");
+      if (!check.applied) logger.error('document edit failed!');
       if (check.failureReason) logger.error(check.failureReason);
     } catch (e) {
       logger.recordError(e, document);
@@ -57,27 +57,27 @@ export function generate_bp(pack: BehaviorPack.BehaviorPack, builder: ITextEditB
   pack.entities.forEach((entity) => {
     const id = Safe(entity.id);
 
-    builder.Add(`entity.${entity.id}.name`, id, "Entity: " + entity.id);
-    builder.Add(`item.spawn_egg.entity.${entity.id}.name`, "Spawn " + id, "Spawn egg for entity: " + entity.id);
+    builder.Add(`entity.${entity.id}.name`, id, 'Entity: ' + entity.id);
+    builder.Add(`item.spawn_egg.entity.${entity.id}.name`, 'Spawn ' + id, 'Spawn egg for entity: ' + entity.id);
   });
 
-  pack.blocks.forEach((data) => builder.Add(`tile.${data.id}.name`, Safe(data.id), "Block: " + data.id));
-  pack.items.forEach((item) => builder.Add(`item.${item.id}.name`, Safe(item.id), "Item: " + item.id));
+  pack.blocks.forEach((data) => builder.Add(`tile.${data.id}.name`, Safe(data.id), 'Block: ' + data.id));
+  pack.items.forEach((item) => builder.Add(`item.${item.id}.name`, Safe(item.id), 'Item: ' + item.id));
 }
 
 export function generate_rp(pack: ResourcePack.ResourcePack, builder: ITextEditBuilder) {
   pack.entities.forEach((entity) => {
     const id = Safe(entity.id);
 
-    builder.Add(`entity.${entity.id}.name`, id, "Entity: " + entity.id);
-    builder.Add(`item.spawn_egg.entity.${entity.id}.name`, "Spawn " + id, "Spawn egg for entity: " + entity.id);
+    builder.Add(`entity.${entity.id}.name`, id, 'Entity: ' + entity.id);
+    builder.Add(`item.spawn_egg.entity.${entity.id}.name`, 'Spawn ' + id, 'Spawn egg for entity: ' + entity.id);
   });
 }
 
 export function generate_wp() {}
 
 function Safe(id: string): string {
-  const index = id.indexOf(":");
+  const index = id.indexOf(':');
   if (index > -1) {
     return id.substring(index + 1, id.length).trim();
   }
@@ -94,20 +94,20 @@ export class TextEditBuilder implements ITextEditBuilder {
   readonly textdoc: string;
 
   constructor(doc: TextDocument | undefined) {
-    this.out = "";
-    this.textdoc = doc?.getText() ?? "";
+    this.out = '';
+    this.textdoc = doc?.getText() ?? '';
   }
 
   Add(Key: string, Value: string, Comment: string | undefined = undefined): void {
-    let Temp = Key + "=";
+    let Temp = Key + '=';
     if (this.textdoc.includes(Temp)) return;
 
     Temp += Value;
 
     if (Comment) {
-      Temp += "\t## " + Comment;
+      Temp += '\t## ' + Comment;
     }
 
-    this.out += Temp + "\n";
+    this.out += Temp + '\n';
   }
 }

@@ -1,14 +1,14 @@
-import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from "../../context/context";
-import { JsonPathCompletion } from "../builder";
-import { CompletionContext } from "../context";
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Context } from '../../context/context';
+import { JsonPathCompletion } from '../builder';
+import { CompletionContext } from '../context';
 
 export function provideJsonCompletion(context: Context<CompletionContext>): void {
   return manifestJsonPaths.onCompletion(context);
 }
 
 const manifestJsonPaths = new JsonPathCompletion({
-  match: "uuid",
+  match: 'uuid',
   onCompletion: packUUIDS,
 });
 

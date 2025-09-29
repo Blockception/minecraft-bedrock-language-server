@@ -1,18 +1,18 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types/identifiable";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../constants";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from "../../../context/context";
-import { CompletionContext, JsonCompletionContext } from "../../context";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { Kinds } from '../../../../constants';
+import { IsEducationEnabled } from '../../../../project/attributes';
+import { Context } from '../../../context/context';
+import { CompletionContext, JsonCompletionContext } from '../../context';
 
-import * as Items from "./items";
+import * as Items from './items';
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>): void {
   const property = JsonCompletionContext.getProperty(context);
   if (property === undefined) return;
 
   switch (property) {
-    case "name":
+    case 'name':
       return Items.provideCompletion(context);
   }
 }
@@ -44,14 +44,14 @@ function generate_items(context: Context<CompletionContext>) {
 }
 
 function short_id(id: string): string {
-  if (id.startsWith("loot_tables/")) {
+  if (id.startsWith('loot_tables/')) {
     id = id.slice(12);
   }
-  if (id.endsWith(".json")) {
+  if (id.endsWith('.json')) {
     id = id.slice(0, -5);
   }
 
-  if (id.includes("/") || id.includes("\\")) {
+  if (id.includes('/') || id.includes('\\')) {
     id = '"' + id + '"';
   }
 

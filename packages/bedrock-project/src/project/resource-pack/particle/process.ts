@@ -1,8 +1,8 @@
-import * as Internal from "../../../internal/resource-pack";
-import { Types } from "bc-minecraft-bedrock-types";
-import { TextDocument } from "../../../types";
-import { Particle } from "./particle";
-import { Documentation } from "../../../types";
+import * as Internal from '../../../internal/resource-pack';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { TextDocument } from '../../../types';
+import { Particle } from './particle';
+import { Documentation } from '../../../types';
 
 /**
  *

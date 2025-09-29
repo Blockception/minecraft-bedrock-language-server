@@ -1,19 +1,19 @@
-import { BaseObject } from "bc-minecraft-bedrock-types/src/types/base-object";
-import { MolangSet } from "bc-minecraft-molang";
-import { OffsetWord } from "bc-vscode-words";
-import { Location } from "vscode-languageserver";
-import { isDefined } from "../../../minecraft/molang";
-import { References } from "../../../util";
-import { Context } from "../../context/context";
-import { ReferenceContext } from "../context";
+import { BaseObject } from 'bc-minecraft-bedrock-types/src/types/base-object';
+import { MolangSet } from 'bc-minecraft-molang';
+import { OffsetWord } from 'bc-vscode-words';
+import { Location } from 'vscode-languageserver';
+import { isDefined } from '../../../minecraft/molang';
+import { References } from '../../../util';
+import { Context } from '../../context/context';
+import { ReferenceContext } from '../context';
 
 export async function provideReferences(
   context: Context<ReferenceContext>,
-  text: OffsetWord
+  text: OffsetWord,
 ): Promise<Location[] | undefined> {
   const { database } = context;
 
-  const index = text.text.indexOf(".");
+  const index = text.text.indexOf('.');
   if (index < 0) return undefined;
 
   const type = text.text.slice(0, index);
@@ -24,7 +24,7 @@ export async function provideReferences(
     // case "c":
     //   break;
 
-    case "geometry":
+    case 'geometry':
       return database.findReference(text.text, context.documents, { defined: true, usage: false }, context.token);
 
     // case "math":
@@ -37,12 +37,12 @@ export async function provideReferences(
     // case "texture":
     //   break;
 
-    case "temp":
-    case "t":
+    case 'temp':
+    case 't':
       return GetTemp(context, value);
 
-    case "variable":
-    case "v":
+    case 'variable':
+    case 'v':
       return GetVariables(context, value);
   }
 

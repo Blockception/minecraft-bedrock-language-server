@@ -1,5 +1,5 @@
-import { Edu, General as G, Types, Vanilla } from "./lib";
-import { Identifiable, MinecraftDataSet } from "./lib/types";
+import { Edu, General as G, Types, Vanilla } from './lib';
+import { Identifiable, MinecraftDataSet } from './lib/types';
 export { Edu, MinecraftDataSet, Types, Vanilla };
 
 /**The minecraft vanilla data of RP and BP data*/
@@ -144,7 +144,7 @@ export namespace MinecraftData {
         id,
         edu,
         MinecraftData.vanilla.BehaviorPack.loot_tables,
-        MinecraftData.edu.BehaviorPack.loot_tables
+        MinecraftData.edu.BehaviorPack.loot_tables,
       );
     }
 
@@ -221,13 +221,13 @@ export namespace MinecraftData {
      * @returns A object with the specified id or undefined if nothing was found*/
     export function getAnimationController(
       id: string,
-      edu: boolean = false
+      edu: boolean = false,
     ): Types.ResourcePack.AnimationController | undefined {
       return get(
         id,
         edu,
         MinecraftData.vanilla.ResourcePack.animation_controllers,
-        MinecraftData.edu.ResourcePack.animation_controllers
+        MinecraftData.edu.ResourcePack.animation_controllers,
       );
     }
 
@@ -285,13 +285,13 @@ export namespace MinecraftData {
      * @returns A object with the specified id or undefined if nothing was found*/
     export function getRenderController(
       id: string,
-      edu: boolean = false
+      edu: boolean = false,
     ): Types.ResourcePack.RenderController | undefined {
       return getStr(
         id,
         edu,
         MinecraftData.vanilla.ResourcePack.render_controllers,
-        MinecraftData.edu.ResourcePack.render_controllers
+        MinecraftData.edu.ResourcePack.render_controllers,
       );
     }
 
@@ -312,7 +312,7 @@ export namespace MinecraftData {
         file,
         edu,
         MinecraftData.vanilla.ResourcePack.sound_files,
-        MinecraftData.edu.ResourcePack.sound_files
+        MinecraftData.edu.ResourcePack.sound_files,
       );
     }
 

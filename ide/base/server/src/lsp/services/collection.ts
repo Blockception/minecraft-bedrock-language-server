@@ -3,26 +3,26 @@ import {
   CancellationToken,
   Connection,
   InitializeParams,
-  WorkDoneProgressReporter
-} from "vscode-languageserver";
-import { IExtendedLogger } from "../logger/logger";
-import { CapabilityBuilder } from "./capabilities";
-import { IService } from "./service";
+  WorkDoneProgressReporter,
+} from 'vscode-languageserver';
+import { IExtendedLogger } from '../logger/logger';
+import { CapabilityBuilder } from './capabilities';
+import { IService } from './service';
 
-type NamedService = Pick<IService, "name"> & Partial<IService>;
+type NamedService = Pick<IService, 'name'> & Partial<IService>;
 
 /**
  * Represents a collection of services
  */
 export class ServiceManager implements NamedService {
   /** @inheritdoc */
-  readonly name: string = "ServiceManager";
+  readonly name: string = 'ServiceManager';
 
   private logger: IExtendedLogger;
   public services: NamedService[];
 
   constructor(logger: IExtendedLogger) {
-    this.logger = logger.withPrefix("[service manager]");
+    this.logger = logger.withPrefix('[service manager]');
     this.services = [];
   }
 
@@ -53,7 +53,7 @@ export class ServiceManager implements NamedService {
     capabilities: CapabilityBuilder,
     params: InitializeParams,
     token?: CancellationToken,
-    workDoneProgress?: WorkDoneProgressReporter
+    workDoneProgress?: WorkDoneProgressReporter,
   ): void {
     const max = this.services.length;
     this.services.forEach((service, index) => {

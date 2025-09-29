@@ -1,11 +1,11 @@
-import { Languages, ToolIdentification } from "@blockception/ide-shared";
+import { Languages, ToolIdentification } from '@blockception/ide-shared';
 
-describe("Constants", () => {
-  it("values", () => {
+describe('Constants', () => {
+  it('values', () => {
     expect(Languages.McFunctionIdentifier).toEqual(Languages.McFunctionIdentifier.toLowerCase());
   });
 
-  it("Tool Identification", () => {
+  it('Tool Identification', () => {
     expect(ToolIdentification.length).toBeLessThanOrEqual(32);
   });
 });

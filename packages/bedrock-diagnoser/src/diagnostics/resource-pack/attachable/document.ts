@@ -1,31 +1,31 @@
-import { Internal, ResourcePack } from "bc-minecraft-bedrock-project";
-import { getUsingResources } from "bc-minecraft-bedrock-project/src/internal/resource-pack/resources";
-import { harvestMolang } from "bc-minecraft-bedrock-project/src/project/molang";
-import { Types } from "bc-minecraft-bedrock-types";
-import { DocumentDiagnosticsBuilder, Metadata } from "../../../types";
-import { behaviorpack_item_diagnose } from "../../behavior-pack/item";
-import { Json } from "../../json/json";
-import { AnimationUsage } from "../../minecraft";
-import { diagnose_script } from "../../minecraft/script";
-import { diagnose_molang_syntax_current_document, MolangMetadata } from "../../molang";
-import { animation_or_controller_diagnose_implementation } from "../anim-or-controller";
-import { resourcepack_animation_used } from "../animation/usage";
-import { model_is_defined } from "../model/diagnose";
-import { particle_is_defined } from "../particle/diagnose";
-import { render_controller_diagnose_implementation } from "../render-controller/diagnostics";
-import { diagnose_resourcepack_sounds } from "../sounds/diagnostics";
-import { texture_files_diagnose } from "../texture-atlas/entry";
+import { Internal, ResourcePack } from 'bc-minecraft-bedrock-project';
+import { getUsingResources } from 'bc-minecraft-bedrock-project/src/internal/resource-pack/resources';
+import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DocumentDiagnosticsBuilder, Metadata } from '../../../types';
+import { behaviorpack_item_diagnose } from '../../behavior-pack/item';
+import { Json } from '../../json/json';
+import { AnimationUsage } from '../../minecraft';
+import { diagnose_script } from '../../minecraft/script';
+import { diagnose_molang_syntax_current_document, MolangMetadata } from '../../molang';
+import { animation_or_controller_diagnose_implementation } from '../anim-or-controller';
+import { resourcepack_animation_used } from '../animation/usage';
+import { model_is_defined } from '../model/diagnose';
+import { particle_is_defined } from '../particle/diagnose';
+import { render_controller_diagnose_implementation } from '../render-controller/diagnostics';
+import { diagnose_resourcepack_sounds } from '../sounds/diagnostics';
+import { texture_files_diagnose } from '../texture-atlas/entry';
 
 /**
  * Diagnoses the given document as an attachable
  * @param doc The text document to diagnose
  * @param diag The diagnoser builder to receive the errors*/
 export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): void {
-  const diagnoser = Metadata.withMetadata(diag, { userType: "Attachables" } as MolangMetadata);
+  const diagnoser = Metadata.withMetadata(diag, { userType: 'Attachables' } as MolangMetadata);
   const attachable = Json.LoadReport<Internal.ResourcePack.Attachable>(diagnoser);
   if (!Internal.ResourcePack.Attachable.is(attachable)) return;
 
-  const description = attachable["minecraft:attachable"].description;
+  const description = attachable['minecraft:attachable'].description;
   const attachableGathered = ResourcePack.Attachable.process(diagnoser.document);
 
   diagnose_molang_syntax_current_document(diagnoser, attachable);
@@ -34,7 +34,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
   if (!attachableGathered) return;
   if (!attachableGathered.molang) {
     attachableGathered.molang = harvestMolang(diagnoser.document.getText(), attachable);
-    getUsingResources(attachableGathered.molang, attachable["minecraft:attachable"].description, diagnoser.document);
+    getUsingResources(attachableGathered.molang, attachable['minecraft:attachable'].description, diagnoser.document);
   }
 
   //#region animations
@@ -45,7 +45,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
     script: description.scripts ?? {},
   };
   description.animation_controllers?.forEach((controller) => {
-    if (typeof controller === "string") {
+    if (typeof controller === 'string') {
       anim_data.animation_controllers[controller] = controller;
       return;
     }
@@ -59,8 +59,8 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
       attachableGathered,
       diagnoser,
       description.particle_effects,
-      description.sound_effects
-    )
+      description.sound_effects,
+    ),
   );
   Types.Definition.forEach(anim_data.animation_controllers, (ref, anim_id) =>
     animation_or_controller_diagnose_implementation(
@@ -68,8 +68,8 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
       attachableGathered,
       diagnoser,
       description.particle_effects,
-      description.sound_effects
-    )
+      description.sound_effects,
+    ),
   );
   //Check used animations
   resourcepack_animation_used(anim_data, diagnoser);
@@ -92,8 +92,8 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
   if (pack === undefined) return;
 
   const rp_files = diagnoser.context
-    .getFiles(pack.folder, ["**/textures/**/*.{tga,png,jpg,jpeg}"], pack.context.ignores)
-    .map((item) => item.replace(/\\/gi, "/"));
+    .getFiles(pack.folder, ['**/textures/**/*.{tga,png,jpg,jpeg}'], pack.context.ignores)
+    .map((item) => item.replace(/\\/gi, '/'));
 
   //Check if attachable has textures defined
   Types.Definition.forEach(description.textures, (ref, id) => {
@@ -108,7 +108,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
 }
 
 function getKey(data: string | Types.Definition): string | undefined {
-  if (typeof data === "string") return data;
+  if (typeof data === 'string') return data;
 
   return Object.getOwnPropertyNames(data)[0];
 }

@@ -42,8 +42,8 @@ export namespace FileType {
   /**Detects behavior pack file type, already assumed the path belongs to a behavior pack
    * @param uri The filepath to examine, expects slashes to be '/'*/
   export function detect(uri: string): FileType {
-    if (uri.endsWith(".mcfunction")) return FileType.function;
-    if (uri.endsWith(".js")) return FileType.script;
+    if (uri.endsWith('.mcfunction')) return FileType.function;
+    if (uri.endsWith('.js')) return FileType.script;
 
     //Folders
     if (/[\\/]animation_controllers[\\/]/.test(uri)) return FileType.animation_controller;
@@ -65,7 +65,7 @@ export namespace FileType {
     if (/[\\/]items[\\/]/.test(uri)) return FileType.item;
 
     //Files
-    if (uri.endsWith("manifest.json")) return FileType.manifest;
+    if (uri.endsWith('manifest.json')) return FileType.manifest;
 
     return FileType.unknown;
   }

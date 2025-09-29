@@ -6,7 +6,7 @@ This is accomplished through the [`.mcattributes`](../project/MCAttributes.md)
 Each template has a filename and a file section:
 
 `.filename` works as a template string itself and is used to specify the folder and filename of the file., example : `entities/${{id.safe}}.entity.json`  
-`.file` is the content of the file. and the content is treated as a template  
+`.file` is the content of the file. and the content is treated as a template
 
 ## Replaceable variables
 
@@ -27,14 +27,13 @@ template.behavior.entity.file=./.minecraft/templates/entity.bp.json
       "identifier": "${{id}}",
       "register_to_creative_menu": true
     },
-    "components": {
-    }
+    "components": {}
   }
 }
 ```
 
-
 ## List of attribute
+
 In the attribute file you can specify the following attributes:
 
 | Attribute                                       | Description                                                       |

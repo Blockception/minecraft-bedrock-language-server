@@ -1,15 +1,15 @@
-import { MCDefinition } from "../../src";
+import { MCDefinition } from '../../src';
 
 const Text1 = `tag=allowed
 tag=!denied
 family=npc
 family=enemy`;
 
-describe("MCDefinitions", () => {
-  describe("tostring1", () => {
+describe('MCDefinitions', () => {
+  describe('tostring1', () => {
     const data = MCDefinition.parse(Text1);
     const content = MCDefinition.toString(data);
-    const lines = Text1.split("\n");
+    const lines = Text1.split('\n');
 
     lines
       .map((item) => item.trim())

@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * as Types from "./types";
-export * from "./general";
+export * as Types from './types';
+export * from './general';

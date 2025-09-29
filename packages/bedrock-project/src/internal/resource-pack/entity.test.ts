@@ -1,7 +1,7 @@
-import { Json } from "../json";
-import { Internal } from "../..";
+import { Json } from '../json';
+import { Internal } from '../..';
 
-describe("RP Entity", () => {
+describe('RP Entity', () => {
   const data = `{
     "format_version": "1.17.0",
     "minecraft:client_entity": {
@@ -24,31 +24,31 @@ describe("RP Entity", () => {
     }
   }`;
 
-  describe("correct", () => {
+  describe('correct', () => {
     const obj = Json.To<Internal.ResourcePack.Entity>(data);
 
-    it("not undefined", () => {
+    it('not undefined', () => {
       expect(obj).toBeDefined();
     });
 
     if (!obj) return;
 
-    it("Is entity", () => {
+    it('Is entity', () => {
       expect(Internal.ResourcePack.Entity.is(obj)).toBeTruthy();
     });
 
-    it("format version is string", () => {
-      expect(typeof obj.format_version).toBe("string");
+    it('format version is string', () => {
+      expect(typeof obj.format_version).toBe('string');
     });
 
-    describe("minecraft:client_entity", () => {
-      const client = obj["minecraft:client_entity"];
+    describe('minecraft:client_entity', () => {
+      const client = obj['minecraft:client_entity'];
 
-      it("not undefined", () => {
+      it('not undefined', () => {
         expect(client).toBeDefined();
       });
 
-      it("has decription", () => {
+      it('has decription', () => {
         expect(client.description).toBeDefined();
       });
     });

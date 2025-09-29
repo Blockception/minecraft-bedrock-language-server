@@ -1,7 +1,7 @@
-import * as path from "path";
-import { MCAttributes } from "./mcattributes";
-import { MCDefinition } from "./mcdefinitions";
-import { MCIgnore } from "./mcignore";
+import * as path from 'path';
+import { MCAttributes } from './mcattributes';
+import { MCDefinition } from './mcdefinitions';
+import { MCIgnore } from './mcignore';
 
 /**An interface that stored minecraft project data */
 export interface MCProject {
@@ -31,8 +31,8 @@ export namespace MCProject {
   export function is(value: any): value is MCProject {
     if (value) {
       if (!(value.ignores && MCIgnore.is(value.ignores))) return false;
-      if (!(value.attributes && typeof value.attributes === "object")) return false;
-      if (!(value.definitions && typeof value.definitions === "object")) return false;
+      if (!(value.attributes && typeof value.attributes === 'object')) return false;
+      if (!(value.definitions && typeof value.definitions === 'object')) return false;
 
       return true;
     }

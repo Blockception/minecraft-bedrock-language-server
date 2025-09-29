@@ -1,13 +1,15 @@
-
-import { Kinds } from "../../../../constants";
+import { Kinds } from '../../../../constants';
 import { Context } from '../../../context/context';
-import { JsonPathCompletion } from "../../builder";
+import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
-  builder.generate(context.database.ProjectData.resourcePacks.block_culling_rules, (bc) => `Block culling defined by ${bc.id}`);
+  builder.generate(
+    context.database.ProjectData.resourcePacks.block_culling_rules,
+    (bc) => `Block culling defined by ${bc.id}`,
+  );
 }
 
 export function provideJsonCompletion(context: Context<CompletionContext>): void {
@@ -15,7 +17,7 @@ export function provideJsonCompletion(context: Context<CompletionContext>): void
 }
 
 const blockCullingRPJsonCompletion = new JsonPathCompletion({
-  match: (item) => item.endsWith("/bone"),
+  match: (item) => item.endsWith('/bone'),
   onCompletion: (context: Context<CompletionContext>) => {
     const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 

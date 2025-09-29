@@ -1,6 +1,6 @@
-import { Vscode } from "../../util";
-import { Context } from "../context/context";
-import { CommandContext } from "../commands/context";
+import { Vscode } from '../../util';
+import { Context } from '../context/context';
+import { CommandContext } from '../commands/context';
 
 export interface Folders {
   BehaviorPack(): string;
@@ -34,7 +34,7 @@ class _internalContext implements Folders {
   constructor(context: Context<CommandContext>, path: string | undefined) {
     this.context = context;
 
-    this.ws = "";
+    this.ws = '';
     const ws = context.database.WorkspaceData.getFirst();
     if (ws) this.ws = ws;
 
@@ -54,7 +54,7 @@ class _internalContext implements Folders {
   BehaviorPack(): string {
     if (this.bp) return this.bp;
 
-    const message = "This action requires behaviorpack with manifest to be present and findable for the plugin!";
+    const message = 'This action requires behaviorpack with manifest to be present and findable for the plugin!';
     this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
@@ -62,7 +62,7 @@ class _internalContext implements Folders {
   ResourcePack(): string {
     if (this.rp) return this.rp;
 
-    const message = "This action requires resourcepack with manifest to be present and findable for the plugin!";
+    const message = 'This action requires resourcepack with manifest to be present and findable for the plugin!';
     this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
@@ -70,7 +70,7 @@ class _internalContext implements Folders {
   WorkSpace(): string {
     if (this.ws) return this.ws;
 
-    const message = "This action requires a workspace to be opened!";
+    const message = 'This action requires a workspace to be opened!';
     this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
@@ -78,15 +78,15 @@ class _internalContext implements Folders {
   WorldFolder(): string {
     if (this.wl) return this.wl;
 
-    const message = "This action requires world with manifest to be present and findable for the plugin!";
+    const message = 'This action requires world with manifest to be present and findable for the plugin!';
     this.context.connection.window.showErrorMessage(message);
     throw new Error(message);
   }
 
   GetFolder(command: string): string {
-    if (command.includes("behavior-")) return this.BehaviorPack();
-    if (command.includes("resource-")) return this.ResourcePack();
-    if (command.includes("world-")) return this.WorldFolder();
+    if (command.includes('behavior-')) return this.BehaviorPack();
+    if (command.includes('resource-')) return this.ResourcePack();
+    if (command.includes('world-')) return this.WorldFolder();
 
     return this.WorkSpace();
   }
@@ -95,9 +95,9 @@ class _internalContext implements Folders {
     const ensured = new _internalContext(this.context, this._path);
     const ws = this.WorkSpace();
 
-    ensured.bp = this.bp || Vscode.join(ws, "behavior_packs", "unnamed_bp");
-    ensured.rp = this.rp || Vscode.join(ws, "resource_packs", "unnamed_rp");
-    ensured.wl = this.wl || Vscode.join(ws, "worlds", "unnamed_wl");
+    ensured.bp = this.bp || Vscode.join(ws, 'behavior_packs', 'unnamed_bp');
+    ensured.rp = this.rp || Vscode.join(ws, 'resource_packs', 'unnamed_rp');
+    ensured.wl = this.wl || Vscode.join(ws, 'worlds', 'unnamed_wl');
 
     return ensured;
   }

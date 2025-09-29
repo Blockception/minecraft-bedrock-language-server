@@ -1,12 +1,12 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { ComponentContainer } from "bc-minecraft-bedrock-types/src/minecraft/components";
-import * as internal from "../../../internal/behavior-pack/entity";
-import { Json } from "../../../internal/json";
-import { Documentation, TextDocument } from "../../../types";
-import { Defined, References } from "../../../types/references";
-import { harvestMolang } from "../../molang";
-import { Entity } from "./entity";
-import { EntityProperty } from "./properties";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
+import * as internal from '../../../internal/behavior-pack/entity';
+import { Json } from '../../../internal/json';
+import { Documentation, TextDocument } from '../../../types';
+import { Defined, References } from '../../../types/references';
+import { harvestMolang } from '../../molang';
+import { Entity } from './entity';
+import { EntityProperty } from './properties';
 
 /**
  *
@@ -20,11 +20,11 @@ export function process(doc: TextDocument): Entity | undefined {
 
   if (!internal.Entity.is(imp)) return undefined;
 
-  const container = imp["minecraft:entity"];
+  const container = imp['minecraft:entity'];
   const id = container.description.identifier;
 
   const out: Entity = {
-    runtime_identifier: container.description.runtime_identifier ?? "",
+    runtime_identifier: container.description.runtime_identifier ?? '',
     animations: References.create(),
     documentation: Documentation.getDoc(doc, () => `BP Entity: ${id}`),
     events: Defined.wrap(Object.keys(container.events ?? {})),
@@ -56,7 +56,7 @@ export function process(doc: TextDocument): Entity | undefined {
 }
 
 function getFamilies(components: ComponentContainer, receiver: Defined) {
-  const families = components["minecraft:type_family"];
+  const families = components['minecraft:type_family'];
 
   if (type_family.is(families)) {
     Defined.add(receiver, families.family);
@@ -69,7 +69,7 @@ interface type_family {
 
 namespace type_family {
   export function is(value: any): value is type_family {
-    if (typeof value === "object" && Array.isArray(value.family)) {
+    if (typeof value === 'object' && Array.isArray(value.family)) {
       return true;
     }
 

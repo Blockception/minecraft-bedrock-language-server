@@ -1,16 +1,16 @@
-import { TestTextDocument } from "../../../types";
-import { process } from "./process";
+import { TestTextDocument } from '../../../types';
+import { process } from './process';
 
-describe("Models", () => {
-  test("can process old format", () => {
-    const doc = TestTextDocument.create("foo.json", old_format);
+describe('Models', () => {
+  test('can process old format', () => {
+    const doc = TestTextDocument.create('foo.json', old_format);
     const result = process(doc);
 
     expect(result).toMatchSnapshot();
   });
 
-  test("can process new format", () => {
-    const doc = TestTextDocument.create("foo.json", new_format);
+  test('can process new format', () => {
+    const doc = TestTextDocument.create('foo.json', new_format);
     const result = process(doc);
 
     expect(result).toMatchSnapshot();

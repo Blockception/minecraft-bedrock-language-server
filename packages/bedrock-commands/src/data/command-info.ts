@@ -1,4 +1,4 @@
-import { ParameterType } from "../types/parameter-type";
+import { ParameterType } from '../types/parameter-type';
 
 /**An interface that carries additional obsolete info*/
 export interface ObsoleteInfo {

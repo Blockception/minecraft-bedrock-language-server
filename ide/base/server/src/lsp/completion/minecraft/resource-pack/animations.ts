@@ -1,9 +1,9 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types/identifiable";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../constants";
-import { IsEducationEnabled } from "../../../../project/attributes";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { Kinds } from '../../../../constants';
+import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
-import { JsonPathCompletion } from "../../builder";
+import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {

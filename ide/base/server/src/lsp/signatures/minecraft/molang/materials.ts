@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver";
+import { SignatureHelp } from 'vscode-languageserver';
 
 /**
  *
@@ -14,10 +14,10 @@ const MaterialSignature: SignatureHelp = {
   activeSignature: 0,
   signatures: [
     {
-      label: "Material",
+      label: 'Material',
       parameters: [
-        { label: "material.", documentation: "The material to use." },
-        { label: "<material>", documentation: "The model to access" },
+        { label: 'material.', documentation: 'The material to use.' },
+        { label: '<material>', documentation: 'The model to access' },
       ],
     },
   ],

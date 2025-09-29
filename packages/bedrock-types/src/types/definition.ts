@@ -37,7 +37,7 @@ export namespace Definition {
       const k = keys[I];
       const value = data[k];
 
-      if (typeof value === "string") out.push(value);
+      if (typeof value === 'string') out.push(value);
     }
 
     return out;
@@ -66,7 +66,10 @@ export namespace Definition {
    * @param callbackfn
    * @returns
    */
-  export function forEach(data: Definition | undefined, callbackfn: (reference: string, id: string, index: number, data: Definition) => void): void {
+  export function forEach(
+    data: Definition | undefined,
+    callbackfn: (reference: string, id: string, index: number, data: Definition) => void,
+  ): void {
     if (!data) return;
 
     const keys = Object.getOwnPropertyNames(data);

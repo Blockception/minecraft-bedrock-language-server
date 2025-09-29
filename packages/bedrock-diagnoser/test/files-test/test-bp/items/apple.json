@@ -7,16 +7,14 @@
     },
 
     "components": {
-			"minecraft:icon": {
-				"texture": "apple"
-			},
-      "minecraft:display_name":{
+      "minecraft:icon": {
+        "texture": "apple"
+      },
+      "minecraft:display_name": {
         "value": "item.apple.name"
       },
       "minecraft:tags": {
-        "tags": [
-          "minecraft:is_food"
-        ]
+        "tags": ["minecraft:is_food"]
       },
       "minecraft:use_animation": "eat",
       "minecraft:use_modifiers": {

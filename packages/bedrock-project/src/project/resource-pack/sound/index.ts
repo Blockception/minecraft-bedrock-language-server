@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./process";
-export * from "./sound";
+export * from './process';
+export * from './sound';

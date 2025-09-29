@@ -12,7 +12,7 @@ export namespace Identifiable {
    * @returns
    */
   export function is(value: any): value is Identifiable {
-    if (typeof value === "object" && typeof value.id === "string") return true;
+    if (typeof value === 'object' && typeof value.id === 'string') return true;
 
     return false;
   }
@@ -55,7 +55,7 @@ export namespace Identifiable {
    * @returns
    */
   export function getId(carrier: string | Identifiable): string {
-    if (typeof carrier === "string") return carrier;
+    if (typeof carrier === 'string') return carrier;
 
     return carrier.id;
   }

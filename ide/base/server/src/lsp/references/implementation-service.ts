@@ -1,25 +1,28 @@
-import { Languages } from "@blockception/ide-shared";
+import { Languages } from '@blockception/ide-shared';
 import {
-  CancellationToken, Connection, Definition,
+  CancellationToken,
+  Connection,
+  Definition,
   DefinitionLink,
-  ImplementationParams, WorkDoneProgressReporter
-} from "vscode-languageserver";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { getCurrentWord } from "./function";
+  ImplementationParams,
+  WorkDoneProgressReporter,
+} from 'vscode-languageserver';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { getCurrentWord } from './function';
 
 export class ImplementationService extends BaseService implements Partial<IService> {
-  name: string = "implementation";
+  name: string = 'implementation';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[implementation]"), extension);
+    super(logger.withPrefix('[implementation]'), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    capabilities.set("implementationProvider", {
+    capabilities.set('implementationProvider', {
       documentSelector: [
         { language: Languages.JsonCIdentifier },
         { language: Languages.JsonIdentifier },
@@ -39,25 +42,25 @@ export class ImplementationService extends BaseService implements Partial<IServi
   private async onImplementation(
     params: ImplementationParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<Definition | DefinitionLink[] | undefined | null> {
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return undefined;
 
     const cursor = document.offsetAt(params.position);
     const w = getCurrentWord(document, cursor);
-    if (w.text === "") {
+    if (w.text === '') {
       return;
     }
 
-    workDoneProgress.begin("searching references");
+    workDoneProgress.begin('searching references');
 
     const locations = await this.extension.database.findReference(
       w.text,
       this.extension.documents,
       { defined: true, usage: true },
       token,
-      workDoneProgress
+      workDoneProgress,
     );
 
     workDoneProgress.done();

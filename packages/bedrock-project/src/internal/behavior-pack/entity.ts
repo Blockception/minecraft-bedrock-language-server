@@ -1,6 +1,6 @@
-import { ComponentContainer, ComponentGroups } from "bc-minecraft-bedrock-types/src/minecraft/components";
-import { CommandContainer } from "../general/commands";
-import { ScriptContainer } from "../types";
+import { ComponentContainer, ComponentGroups } from 'bc-minecraft-bedrock-types/src/minecraft/components';
+import { CommandContainer } from '../general/commands';
+import { ScriptContainer } from '../types';
 
 /**The interface that deals with entity events that add or remove component groups*/
 export interface EntityEventGroup {
@@ -31,14 +31,14 @@ export interface EntityEvent {
  */
 export interface EntityBooleanProperty {
   /** */
-  type: "bool";
+  type: 'bool';
   /** The default value or molang expression */
   default: boolean | string;
 }
 
 export interface EntityFloatProperty {
   /** */
-  type: "float";
+  type: 'float';
   /** The default value or molang expression */
   default: number | string;
   /** */
@@ -47,7 +47,7 @@ export interface EntityFloatProperty {
 
 export interface EntityEnumProperty {
   /** */
-  type: "enum";
+  type: 'enum';
   /** The default value or molang expression */
   values: Array<string>;
   /** */
@@ -58,7 +58,7 @@ export interface EntityEnumProperty {
 
 export interface EntityIntProperty {
   /** */
-  type: "int";
+  type: 'int';
   /** The default value or molang expression */
   default: number | string;
   /** */
@@ -93,7 +93,7 @@ export interface Entity {
   /** */
   format_version: string;
   /** */
-  "minecraft:entity": {
+  'minecraft:entity': {
     /** */
     description: EntityDescription;
     /** */
@@ -114,16 +114,16 @@ export namespace Entity {
    */
   export function is(value: any): value is Entity {
     if (
-      typeof value === "object" &&
-      typeof value.format_version === "string" &&
-      typeof value["minecraft:entity"] === "object"
+      typeof value === 'object' &&
+      typeof value.format_version === 'string' &&
+      typeof value['minecraft:entity'] === 'object'
     ) {
-      const b = value["minecraft:entity"];
+      const b = value['minecraft:entity'];
 
       if (
-        typeof b.description === "object" &&
-        typeof b.description.identifier === "string" &&
-        typeof b.components === "object"
+        typeof b.description === 'object' &&
+        typeof b.description.identifier === 'string' &&
+        typeof b.components === 'object'
       ) {
         return true;
       }

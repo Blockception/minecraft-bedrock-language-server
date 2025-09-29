@@ -1,7 +1,7 @@
-import { BehaviorPack, ResourcePack } from "bc-minecraft-bedrock-project";
-import { Fs, getDirectory } from "../../util";
-import { Kinds } from "../../constants";
-import { SymbolBuilder } from "./builder";
+import { BehaviorPack, ResourcePack } from 'bc-minecraft-bedrock-project';
+import { Fs, getDirectory } from '../../util';
+import { Kinds } from '../../constants';
+import { SymbolBuilder } from './builder';
 
 export function convertResourcePack(pack: ResourcePack.ResourcePack, builder: SymbolBuilder): void {
   const folder = Fs.FromVscode(pack.folder);

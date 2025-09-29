@@ -10,10 +10,9 @@
 A typescript package library that handles commands for minecraft bedrock
 
 ```ts
-const text = "execute @a ~ ~ ~ scoreboard players set @e[type=minecraft:sheep,r=3] range 1";
+const text = 'execute @a ~ ~ ~ scoreboard players set @e[type=minecraft:sheep,r=3] range 1';
 const command = Command.parse(text);
 ```
-
 
 ## Contributing
 

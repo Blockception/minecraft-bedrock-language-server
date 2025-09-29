@@ -1,11 +1,11 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 /** */
 export interface Fog extends Readonly<FormatVersion> {
   /** */
   format_version: string;
   /** */
-  "minecraft:fog_settings": FogContainer;
+  'minecraft:fog_settings': FogContainer;
 }
 
 /** */
@@ -40,7 +40,7 @@ export interface FogDistance {
   /** */
   fog_color?: string;
   /** */
-  render_distance_type?: "fixed" | "render";
+  render_distance_type?: 'fixed' | 'render';
 }
 
 /**
@@ -53,10 +53,14 @@ export namespace Fog {
    * @returns
    */
   export function is(value: any): value is Fog {
-    if (typeof value === "object" && typeof value.format_version === "string" && typeof value["minecraft:fog_settings"] === "object") {
-      const desc = value["minecraft:fog_settings"].description;
+    if (
+      typeof value === 'object' &&
+      typeof value.format_version === 'string' &&
+      typeof value['minecraft:fog_settings'] === 'object'
+    ) {
+      const desc = value['minecraft:fog_settings'].description;
 
-      if (typeof desc === "object" && typeof desc.identifier === "string") {
+      if (typeof desc === 'object' && typeof desc.identifier === 'string') {
         return true;
       }
     }

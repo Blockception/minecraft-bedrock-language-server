@@ -1,9 +1,9 @@
-import { BehaviorPack, Defined, Internal, References, ResourcePack, Using } from "bc-minecraft-bedrock-project";
-import { State } from "bc-minecraft-bedrock-project/src/internal/behavior-pack";
-import { Types } from "bc-minecraft-bedrock-types";
-import { Conditional } from "bc-minecraft-bedrock-types/src/types";
-import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from "../../types";
-import { diagnose_molang_implementation, MolangMetadata, User } from "../molang/diagnostics";
+import { BehaviorPack, Defined, Internal, References, ResourcePack, Using } from 'bc-minecraft-bedrock-project';
+import { State } from 'bc-minecraft-bedrock-project/src/internal/behavior-pack';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Conditional } from 'bc-minecraft-bedrock-types/src/types';
+import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
+import { diagnose_molang_implementation, MolangMetadata, User } from '../molang/diagnostics';
 
 export type animation_controllers =
   | Internal.BehaviorPack.AnimationControllers
@@ -11,7 +11,7 @@ export type animation_controllers =
 export type animation_controller =
   | Internal.BehaviorPack.AnimationController
   | Internal.ResourcePack.AnimationController;
-export type animationsOwner = Types.Identifiable & AnimationCarrier<Pick<References, "defined">>;
+export type animationsOwner = Types.Identifiable & AnimationCarrier<Pick<References, 'defined'>>;
 
 /**
  *
@@ -20,7 +20,7 @@ export type animationsOwner = Types.Identifiable & AnimationCarrier<Pick<Referen
  */
 export function general_animation_controllers(data: animation_controllers, diagnoser: DiagnosticsBuilder): void {
   Object.entries(data.animation_controllers).forEach(([controller_id, controller]) =>
-    general_animation_controller(controller_id, controller, diagnoser)
+    general_animation_controller(controller_id, controller, diagnoser),
   );
 }
 
@@ -33,7 +33,7 @@ export function general_animation_controllers(data: animation_controllers, diagn
 export function general_animation_controller(
   controller_id: string,
   controller: animation_controller,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): void {
   //Check if initial_state points to existing state
   if (controller.initial_state) {
@@ -42,9 +42,9 @@ export function general_animation_controller(
     if (controller.states[initial_state] === undefined) {
       diagnoser.add(
         `${controller_id}/initial_state/${initial_state}`,
-        "Cannot find initial state, minecraft will revert to state at 0 index",
+        'Cannot find initial state, minecraft will revert to state at 0 index',
         DiagnosticSeverity.warning,
-        "minecraft.animation_controller.state.missing"
+        'minecraft.animation_controller.state.missing',
       );
     }
   }
@@ -65,7 +65,7 @@ export function general_animation_controller(
         `${controller_id}/${state}`,
         `"${state}" state is never reached.`,
         DiagnosticSeverity.info,
-        "minecraft.animation_controller.state.never_reached"
+        'minecraft.animation_controller.state.never_reached',
       );
     }
   });
@@ -82,22 +82,22 @@ function checkTransition(
   controller: string,
   transitions: Types.Conditional[],
   states: Record<string, State>,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): string[] {
   const transitionedStates: string[] = [];
   //Loop over the transitions
   for (let I = 0; I < transitions.length; I++) {
     const trans = transitions[I];
     //Get state identification refered
-    const state: string = typeof trans === "string" ? trans : Object.getOwnPropertyNames(trans)[0];
+    const state: string = typeof trans === 'string' ? trans : Object.getOwnPropertyNames(trans)[0];
 
     //check is map contains any value
     if (states[state] === undefined) {
       diagnoser.add(
-        controller + "/states/" + state,
+        controller + '/states/' + state,
         `missing state defined by transition: ${state}`,
         DiagnosticSeverity.error,
-        "minecraft.animation_controller.state.missing"
+        'minecraft.animation_controller.state.missing',
       );
     } else transitionedStates.push(state);
   }
@@ -115,7 +115,7 @@ export interface AnimationCarrier<T extends Defined | Using> {
 export function general_animation_controllers_implementation(
   user: User & Partial<AnimationCarrier<Defined>>,
   controller: Controller,
-  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>
+  diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
 ) {
   //for each animation, check if the defined animation is also used
   controller?.animations.using?.forEach((anim_id) => {
@@ -125,7 +125,7 @@ export function general_animation_controllers_implementation(
       `${user.id}/${controller.id}`,
       `Animation controller (${controller.id}) is using animation: '${anim_id}' but ${user.id} has nothing defined that matches the given key\nMinecraft will still run but might return null errors on the animation`,
       DiagnosticSeverity.warning,
-      "minecraft.animation_controller.animation.undefined"
+      'minecraft.animation_controller.animation.undefined',
     );
   });
 

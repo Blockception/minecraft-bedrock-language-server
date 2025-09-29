@@ -1,19 +1,19 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Definition } from "bc-minecraft-bedrock-types/src/types/definition";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from "../../types";
-import { MolangMetadata } from "../molang";
-import { diagnose_animation_controller_implementation } from "./animation-controllers/diagnostics";
-import { diagnose_animation_implementation } from "./animation/diagnostics";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Definition } from 'bc-minecraft-bedrock-types/src/types/definition';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from '../../types';
+import { MolangMetadata } from '../molang';
+import { diagnose_animation_controller_implementation } from './animation-controllers/diagnostics';
+import { diagnose_animation_implementation } from './animation/diagnostics';
 
-const whiteList = ["animation.humanoid.fishing_rod"];
+const whiteList = ['animation.humanoid.fishing_rod'];
 
 export function animation_or_controller_diagnose_implementation(
   id: string,
   user: EntityAnimationMolangCarrier,
   diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
   particles?: Definition,
-  sounds?: Definition
+  sounds?: Definition,
 ): void {
   switch (is_animation_or_controller(id, diagnoser)) {
     case anim_or_contr.animation:
@@ -28,7 +28,7 @@ export function animation_or_controller_diagnose_implementation(
         id,
         `Cannot find animation / animation controller: ${id}`,
         DiagnosticSeverity.error,
-        "resourcepack.anim_or_controller.missing"
+        'resourcepack.anim_or_controller.missing',
       );
   }
 }
@@ -44,7 +44,7 @@ export function animation_or_controller_diagnose(id: Types.OffsetWord, diagnoser
         id,
         `Cannot find animation / animation controller: ${id}`,
         DiagnosticSeverity.error,
-        "resourcepack.anim_or_controller.missing"
+        'resourcepack.anim_or_controller.missing',
       );
       return;
   }
@@ -80,7 +80,7 @@ export function animation_reference_diagnose(value: Types.OffsetWord, diagnoser:
     value,
     `Cannot find animation / animation controller: ${value.text}`,
     DiagnosticSeverity.error,
-    "resourcepack.anim_or_controller.missing"
+    'resourcepack.anim_or_controller.missing',
   );
 }
 

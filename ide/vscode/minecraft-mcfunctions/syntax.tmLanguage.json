@@ -20,7 +20,10 @@
       "patterns": [
         { "name": "markup.bold", "match": "(@[cvasrep]\\b)" },
         { "name": "markup.bold", "match": "(@initiator\\b)" },
-        { "name": "entity.name.variable", "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)" },
+        {
+          "name": "entity.name.variable",
+          "match": "\\b(tag|x|y|z|dx|dy|dz|scores|type|c|m|r|rm|team|l|lm|name|rx|rxm|ry|rym)(?=\\=)"
+        },
         { "name": "entity.name.variable", "match": "\\b[a-z0-9]+(?=\\=)" },
         { "name": "string.regexp", "match": "\\b(?<=tag=)[a-zA-Z_\\-0-9]+" },
         { "name": "string.regexp", "match": "\\b(?<=tag=!)[a-zA-Z_\\-0-9]+" },
@@ -28,7 +31,7 @@
       ]
     },
     "characters": {
-    "patterns": [
+      "patterns": [
         { "name": "constant.rgb-value", "match": "§0" },
         { "name": "header", "match": "§1" },
         { "name": "comment", "match": "§2" },
@@ -127,7 +130,10 @@
         { "name": "entity.name.function.masked", "match": "\\bmasked\\b" },
         { "name": "entity.name.function.mayfly", "match": "\\bmayfly\\b" },
         { "name": "entity.name.function.me", "match": "\\bme\\b" },
-        { "name": "entity.name.function.minecraft.pillager_patrols_event", "match": "\\bminecraft:pillager_patrols_event\\b" },
+        {
+          "name": "entity.name.function.minecraft.pillager_patrols_event",
+          "match": "\\bminecraft:pillager_patrols_event\\b"
+        },
         { "name": "entity.name.function.mineshaft", "match": "\\bmineshaft\\b" },
         { "name": "entity.name.function.monument", "match": "\\bmonument\\b" },
         { "name": "entity.name.function.move", "match": "\\bmove\\b" },
@@ -259,7 +265,7 @@
         { "name": "entity.name.type.class.w", "match": "\\bw\\b" },
         { "name": "entity.name.type.class.weather", "match": "\\bweather\\b" },
         { "name": "entity.name.type.class.xp", "match": "\\bxp\\b" },
-        
+
         { "name": "keyword.control.execute.align", "match": "\\balign\\b" },
         { "name": "keyword.control.execute.anchored", "match": "\\banchored\\b" },
         { "name": "keyword.control.execute.as", "match": "\\bas\\b" },

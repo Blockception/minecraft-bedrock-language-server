@@ -1,4 +1,4 @@
-import { CompletionItemKind, SymbolKind } from "vscode-languageserver";
+import { CompletionItemKind, SymbolKind } from 'vscode-languageserver';
 
 export namespace Kinds {
   export namespace Symbol {

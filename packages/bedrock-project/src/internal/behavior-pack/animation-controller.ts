@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import * as General from "../general/controllers/state";
-import { FormatVersion } from "../types";
+import * as General from '../general/controllers/state';
+import { FormatVersion } from '../types';
 
 /** */
 export interface AnimationControllers extends Readonly<FormatVersion> {
@@ -22,9 +22,9 @@ export namespace AnimationControllers {
    */
   export function is(value: any): value is AnimationControllers {
     if (
-      typeof value === "object" &&
-      typeof value.format_version === "string" &&
-      typeof value.animation_controllers === "object"
+      typeof value === 'object' &&
+      typeof value.format_version === 'string' &&
+      typeof value.animation_controllers === 'object'
     )
       return true;
 
@@ -48,7 +48,7 @@ export namespace AnimationController {
    * @returns
    */
   export function is(value: any): value is AnimationController {
-    if (typeof value === "object" && typeof value.states === "object") return true;
+    if (typeof value === 'object' && typeof value.states === 'object') return true;
 
     return false;
   }
@@ -64,7 +64,7 @@ export namespace State {
    * @returns
    */
   export function is(value: any): value is State {
-    if (typeof value === "object") return true;
+    if (typeof value === 'object') return true;
 
     return false;
   }

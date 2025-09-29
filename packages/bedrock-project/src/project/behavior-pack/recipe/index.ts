@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./recipe";
-export * from "./process";
+export * from './recipe';
+export * from './process';

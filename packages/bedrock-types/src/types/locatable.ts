@@ -1,4 +1,4 @@
-import { Location } from "./location";
+import { Location } from './location';
 
 /**An object that carries a location*/
 export interface Locatable {
@@ -27,7 +27,7 @@ export namespace Locatable {
    */
   export function empty(): Locatable {
     return {
-      location: { uri: "", position: 0 },
+      location: { uri: '', position: 0 },
     };
   }
 }

@@ -1,11 +1,11 @@
-import { getJsonPath } from "./path";
+import { getJsonPath } from './path';
 
 interface TestCase {
   element: string;
   expectedPath: string;
 }
 
-describe("JsonPath", () => {
+describe('JsonPath', () => {
   const json = `{
     "format_version": "1.20.41",
     "minecraft:volume": {
@@ -27,24 +27,24 @@ describe("JsonPath", () => {
 
   const properties: TestCase[] = [
     {
-      element: "fog_identifier",
-      expectedPath: "minecraft:volume/components/minecraft:fog/fog_identifier",
+      element: 'fog_identifier',
+      expectedPath: 'minecraft:volume/components/minecraft:fog/fog_identifier',
     },
     {
-      element: "min",
-      expectedPath: "minecraft:volume/components/minecraft:bounds/min",
+      element: 'min',
+      expectedPath: 'minecraft:volume/components/minecraft:bounds/min',
     },
     {
-      element: "max",
-      expectedPath: "minecraft:volume/components/minecraft:bounds/max",
+      element: 'max',
+      expectedPath: 'minecraft:volume/components/minecraft:bounds/max',
     },
     {
-      element: "identifier",
-      expectedPath: "minecraft:volume/description/identifier",
+      element: 'identifier',
+      expectedPath: 'minecraft:volume/description/identifier',
     },
     {
-      element: "format_version",
-      expectedPath: "format_version",
+      element: 'format_version',
+      expectedPath: 'format_version',
     },
   ];
 

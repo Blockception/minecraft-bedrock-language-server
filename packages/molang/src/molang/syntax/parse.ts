@@ -1,4 +1,4 @@
-import { Types } from "bc-minecraft-bedrock-types";
+import { Types } from 'bc-minecraft-bedrock-types';
 import {
   ArrayAccessNode,
   AssignmentNode,
@@ -14,12 +14,12 @@ import {
   StringLiteralNode,
   UnaryOperationNode,
   VariableNode,
-} from "./nodes";
-import { Token, TokenType, tokenize } from "./tokens";
-import { getMatchingTokenSlice } from "./util";
-import { SyntaxBuilder } from "./builder";
-import { MolangSyntaxError } from "./errors";
-import { Processed, processOperators } from "./operators";
+} from './nodes';
+import { Token, TokenType, tokenize } from './tokens';
+import { getMatchingTokenSlice } from './util';
+import { SyntaxBuilder } from './builder';
+import { MolangSyntaxError } from './errors';
+import { Processed, processOperators } from './operators';
 
 /** Main function to parse Molang code into a syntax tree */
 export function parseMolang(line: Types.OffsetWord): ExpressionNode[] {
@@ -75,15 +75,15 @@ function parseTokens(tokens: Token[]): ExpressionNode {
           break;
         case NodeType.ResourceReference:
           if (bracketArgs.length > 0) {
-            throw MolangSyntaxError.fromToken(t, "unexpected function call after resource access");
+            throw MolangSyntaxError.fromToken(t, 'unexpected function call after resource access');
           }
           break;
         case NodeType.Variable:
           if (bracketArgs.length > 1) {
-            throw MolangSyntaxError.fromToken(t, "unexpected amount of parameters for array access");
+            throw MolangSyntaxError.fromToken(t, 'unexpected amount of parameters for array access');
           }
           if (!Token.oneOfType(code[0], TokenType.OpenBracket)) {
-            throw MolangSyntaxError.fromToken(t, "unexpected function call after resource access");
+            throw MolangSyntaxError.fromToken(t, 'unexpected function call after resource access');
           }
           builder.replace(
             n,
@@ -91,7 +91,7 @@ function parseTokens(tokens: Token[]): ExpressionNode {
               position: n.position,
               array: n,
               index: bracketArgs[0],
-            })
+            }),
           );
           break;
       }
@@ -137,9 +137,9 @@ function convertToken(token: Token) {
   switch (token.type) {
     case TokenType.Identifier:
       switch (token.value) {
-        case "this":
+        case 'this':
           return VariableNode.create({
-            scope: "this",
+            scope: 'this',
             names: [],
             position: token.position,
           });
@@ -147,46 +147,46 @@ function convertToken(token: Token) {
       break;
 
     case TokenType.NamespacedIdentifier:
-      const parts = token.value.split(".");
+      const parts = token.value.split('.');
 
       switch (parts[0]) {
-        case "this":
+        case 'this':
           return VariableNode.create({
-            scope: "this",
+            scope: 'this',
             names: [],
             position: token.position,
           });
 
-        case "q":
-        case "math":
-        case "query":
+        case 'q':
+        case 'math':
+        case 'query':
           return FunctionCallNode.create({
             names: parts.slice(1) as [string],
             scope: parts[0],
             arguments: [],
             position: token.position,
           });
-        case "texture":
-        case "material":
-        case "geometry":
+        case 'texture':
+        case 'material':
+        case 'geometry':
           return ResourceReferenceNode.create({
             position: token.position,
             scope: parts[0],
             names: parts.slice(1) as [string],
           });
-        case "temp":
-        case "t":
-        case "variable":
-        case "v":
-        case "context":
-        case "c":
-        case "array":
+        case 'temp':
+        case 't':
+        case 'variable':
+        case 'v':
+        case 'context':
+        case 'c':
+        case 'array':
           return VariableNode.create({
             names: parts.slice(1) as [string],
             position: token.position,
             scope: parts[0],
           });
-        case "return":
+        case 'return':
           return UnaryOperationNode.create({
             operator: token.value,
             position: token.position,
@@ -214,7 +214,7 @@ function convertToken(token: Token) {
       });
     case TokenType.UnaryOperator:
       // Skip the return operator, and have that done via costly
-      if (token.value === "return") break;
+      if (token.value === 'return') break;
 
       return UnaryOperationNode.create({
         operator: token.value,
@@ -269,7 +269,7 @@ function costlyConvertToken(tokens: Token[], startIndex: number): { node: Expres
       };
     case TokenType.UnaryOperator:
       // Everything that comes after return is part of its expression statement
-      if (current.value === "return") {
+      if (current.value === 'return') {
         const code = tokens.slice(startIndex + 1);
         const node = UnaryOperationNode.create({
           operator: current.value,
@@ -288,7 +288,7 @@ function costlyConvertToken(tokens: Token[], startIndex: number): { node: Expres
 
   throw MolangSyntaxError.fromToken(
     current,
-    `don't know how to process this token: ['${current.value}' ${TokenType[current.type]}]`
+    `don't know how to process this token: ['${current.value}' ${TokenType[current.type]}]`,
   );
 }
 

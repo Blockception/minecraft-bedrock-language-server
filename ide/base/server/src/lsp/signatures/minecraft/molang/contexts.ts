@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver";
+import { SignatureHelp } from 'vscode-languageserver';
 
 /**
  *
@@ -15,10 +15,10 @@ const ContextSignature: SignatureHelp = {
   activeSignature: 0,
   signatures: [
     {
-      label: "Contexts",
+      label: 'Contexts',
       parameters: [
-        { label: "context.", documentation: "The context to use." },
-        { label: "<context>", documentation: "The data to access" },
+        { label: 'context.', documentation: 'The context to use.' },
+        { label: '<context>', documentation: 'The data to access' },
       ],
     },
   ],

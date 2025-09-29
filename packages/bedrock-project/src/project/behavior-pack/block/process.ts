@@ -1,10 +1,10 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Json } from "../../../internal";
-import * as Internal from "../../../internal/behavior-pack";
-import { Documentation, TextDocument } from "../../../types";
-import { harvestMolang } from "../../molang";
-import { Block } from "./block";
-import { BlockState } from "./block-state";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Json } from '../../../internal';
+import * as Internal from '../../../internal/behavior-pack';
+import { Documentation, TextDocument } from '../../../types';
+import { harvestMolang } from '../../molang';
+import { Block } from './block';
+import { BlockState } from './block-state';
 
 /**
  *
@@ -18,7 +18,7 @@ export function process(doc: TextDocument): Block | undefined {
 
   if (!Internal.Block.is(imp)) return undefined;
 
-  const container = imp["minecraft:block"];
+  const container = imp['minecraft:block'];
   const id = container.description.identifier;
 
   return {

@@ -1,4 +1,4 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 export interface RenderControllers extends Readonly<FormatVersion> {
   format_version: string;
@@ -10,8 +10,8 @@ export interface RenderControllers extends Readonly<FormatVersion> {
 
 export namespace RenderControllers {
   export function is(value: any): value is RenderControllers {
-    if (typeof value === "object") {
-      if (typeof value.format_version === "string" && typeof value.render_controllers === "object") {
+    if (typeof value === 'object') {
+      if (typeof value.format_version === 'string' && typeof value.render_controllers === 'object') {
         return true;
       }
     }

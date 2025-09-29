@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./fog";
-export * from "./process";
+export * from './fog';
+export * from './process';

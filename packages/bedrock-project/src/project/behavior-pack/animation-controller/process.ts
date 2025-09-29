@@ -1,10 +1,10 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import * as Internal from "../../../internal/behavior-pack/animation-controller";
-import { Json } from "../../../internal/json";
-import { Documentation, TextDocument } from "../../../types";
-import { References, Using } from "../../../types/references";
-import { harvestMolang } from "../../molang";
-import { AnimationController } from "./animation-controller";
+import { Types } from 'bc-minecraft-bedrock-types';
+import * as Internal from '../../../internal/behavior-pack/animation-controller';
+import { Json } from '../../../internal/json';
+import { Documentation, TextDocument } from '../../../types';
+import { References, Using } from '../../../types/references';
+import { harvestMolang } from '../../molang';
+import { AnimationController } from './animation-controller';
 
 /**
  *
@@ -35,11 +35,11 @@ export function process(doc: TextDocument): AnimationController[] | undefined {
 
         Using.add(
           item.events,
-          state.on_entry?.filter((entry) => entry.startsWith("@s ")).map((entry) => entry.slice(3))
+          state.on_entry?.filter((entry) => entry.startsWith('@s ')).map((entry) => entry.slice(3)),
         );
         Using.add(
           item.events,
-          state.on_exit?.filter((entry) => entry.startsWith("@s ")).map((entry) => entry.slice(3))
+          state.on_exit?.filter((entry) => entry.startsWith('@s ')).map((entry) => entry.slice(3)),
         );
       });
 

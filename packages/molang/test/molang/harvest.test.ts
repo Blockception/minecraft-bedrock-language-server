@@ -1,14 +1,18 @@
-import { MolangSet } from "../../src/molang";
-import { valid_syntaxes } from "../data/dataset-valid";
-import { VanillaPlayer } from "../vanilla-player";
+import { MolangSet } from '../../src/molang';
+import { valid_syntaxes } from '../data/dataset-valid';
+import { VanillaPlayer } from '../vanilla-player';
 
-describe("MolangSet - harvest", () => {
-  test.each(valid_syntaxes)("%#. %s", (synt) => {
-    const data = toMolangSet(synt);
-    expect(data).toMatchSnapshot();
-  }, 1000);
+describe('MolangSet - harvest', () => {
+  test.each(valid_syntaxes)(
+    '%#. %s',
+    (synt) => {
+      const data = toMolangSet(synt);
+      expect(data).toMatchSnapshot();
+    },
+    1000,
+  );
 
-  test("vanilla-player", () => {
+  test('vanilla-player', () => {
     const data = toMolangSetFrom(VanillaPlayer.DataObject, VanillaPlayer.Data);
     expect(data).toMatchSnapshot();
   }, 1000);

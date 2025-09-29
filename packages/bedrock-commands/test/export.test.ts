@@ -1,7 +1,7 @@
-import { CommandData } from "../src/data/command-data";
-import { CommandInfo, ParameterInfo } from "../src/data/command-info";
-import { ParameterType } from "../src/types/parameter-type";
-import { writeFileSync } from "fs";
+import { CommandData } from '../src/data/command-data';
+import { CommandInfo, ParameterInfo } from '../src/data/command-info';
+import { ParameterType } from '../src/types/parameter-type';
+import { writeFileSync } from 'fs';
 
 interface Parameter {
   text: string;
@@ -21,10 +21,10 @@ interface ExportData {
   edu: Command[];
 }
 
-describe.skip("Export", () => {
+describe.skip('Export', () => {
   const { Vanilla, Edu } = CommandData;
 
-  it("exported", () => {
+  it('exported', () => {
     const out: ExportData = {
       vanilla: [],
       edu: [],
@@ -40,7 +40,7 @@ describe.skip("Export", () => {
       .map(exportCommands)
       .forEach((commands) => out.edu.push(...commands));
 
-    writeFileSync("./out.json", JSON.stringify(out, null, 2));
+    writeFileSync('./out.json', JSON.stringify(out, null, 2));
   });
 });
 

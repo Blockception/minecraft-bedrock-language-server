@@ -1,9 +1,9 @@
-import { Selector } from ".";
+import { Selector } from '.';
 
-describe("Selector", () => {
-  describe("Types", () => {
-    const validTypes = ["@a", "@s", "@c", "@v", "@e", "@p", "@r", "@initiator"];
-    const invalidType = ["@x"];
+describe('Selector', () => {
+  describe('Types', () => {
+    const validTypes = ['@a', '@s', '@c', '@v', '@e', '@p', '@r', '@initiator'];
+    const invalidType = ['@x'];
 
     validTypes.forEach((type) => {
       it(`Type: ${type} should be valid`, () => {
@@ -18,24 +18,24 @@ describe("Selector", () => {
     });
   });
 
-  describe("Is", () => {
+  describe('Is', () => {
     const valid: Parameters<typeof Selector.isSelector>[] = [
-      ["@a", true, true],
-      ["@s", true, true],
-      ["@c", true, true],
-      ["@v", true, true],
-      ["@e", true, true],
-      ["@p", true, true],
-      ["@r", true, true],
+      ['@a', true, true],
+      ['@s', true, true],
+      ['@c', true, true],
+      ['@v', true, true],
+      ['@e', true, true],
+      ['@p', true, true],
+      ['@r', true, true],
       ['"Fake player"', false, true],
-      ["@initiator", true, true],
-      ["*", true, true],
+      ['@initiator', true, true],
+      ['*', true, true],
     ];
     const invalid: Parameters<typeof Selector.isSelector>[] = [
-      ["@x", true, true],
-      ["test", false, false],
+      ['@x', true, true],
+      ['test', false, false],
       ['"Fake player"', false, false],
-      ["*", false, false],
+      ['*', false, false],
     ];
 
     valid.forEach((args) => {

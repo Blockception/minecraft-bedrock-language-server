@@ -1,11 +1,11 @@
-import { CancellationToken, CodeLens, Position, Uri, workspace } from "vscode";
-import { Command, ResolveCodeLensSignature } from "vscode-languageclient/node";
-import { GetPosition } from "../code/document-location";
+import { CancellationToken, CodeLens, Position, Uri, workspace } from 'vscode';
+import { Command, ResolveCodeLensSignature } from 'vscode-languageclient/node';
+import { GetPosition } from '../code/document-location';
 
 export function resolveCodeLens(
   codeLens: CodeLens,
   token: CancellationToken,
-  next: ResolveCodeLensSignature
+  next: ResolveCodeLensSignature,
 ): Thenable<CodeLens> {
   const command = codeLens.command;
 
@@ -17,18 +17,9 @@ export function resolveCodeLens(
         const uri = Uri.parse(data.location.uri);
         return workspace.openTextDocument(uri).then((doc) => {
           const p = GetPosition(data.location.position, doc);
-          const title = data.documentation ? 
-            data.documentation.replace(':', ' |') :
-            data.id;
+          const title = data.documentation ? data.documentation.replace(':', ' |') : data.id;
 
-          codeLens.command = Command.create(
-            title,
-            "editor.action.goToLocations",
-            uri,
-            p,
-            [],
-            "gotoAndPeek"
-          );
+          codeLens.command = Command.create(title, 'editor.action.goToLocations', uri, p, [], 'gotoAndPeek');
 
           return codeLens;
         });
@@ -45,7 +36,7 @@ interface CodeLensData {
 }
 
 function hasData(value: any): value is CodeLensData {
-  if (typeof value.data === "object") return true;
+  if (typeof value.data === 'object') return true;
 
   return false;
 }
@@ -57,8 +48,8 @@ interface BaseObject {
 }
 
 function isBaseObject(value: any): value is BaseObject {
-  if (typeof value === "object") {
-    if (typeof value.id === "string" && typeof value.location === "object") return true;
+  if (typeof value === 'object') {
+    if (typeof value.id === 'string' && typeof value.location === 'object') return true;
   }
 
   return false;

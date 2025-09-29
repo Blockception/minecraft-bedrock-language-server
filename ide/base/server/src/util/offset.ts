@@ -1,4 +1,4 @@
-import { OffsetWord } from "bc-vscode-words";
+import { OffsetWord } from 'bc-vscode-words';
 
 /**
  *

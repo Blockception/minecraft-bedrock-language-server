@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./item_catalog";
-export * from "./process";
+export * from './item_catalog';
+export * from './process';

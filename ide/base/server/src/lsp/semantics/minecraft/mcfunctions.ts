@@ -1,11 +1,11 @@
-import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { Position, Range, SemanticTokens } from "vscode-languageserver";
-import { IsEducationEnabled } from "../../../project/attributes";
-import { TextDocument } from "../../documents/text-document";
-import { McfunctionSemanticTokensBuilder } from "../builders/mcfunction";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
-import { CreateNamespaced, CreateRangeTokensWord } from "../functions";
-import { CreateSelectorTokens } from "./selectors";
+import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
+import { Position, Range, SemanticTokens } from 'vscode-languageserver';
+import { IsEducationEnabled } from '../../../project/attributes';
+import { TextDocument } from '../../documents/text-document';
+import { McfunctionSemanticTokensBuilder } from '../builders/mcfunction';
+import { SemanticModifiersEnum, SemanticTokensEnum } from '../constants';
+import { CreateNamespaced, CreateRangeTokensWord } from '../functions';
+import { CreateSelectorTokens } from './selectors';
 
 export function provideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {
   const builder = new McfunctionSemanticTokensBuilder(doc);
@@ -19,7 +19,7 @@ export function provideSemanticToken(doc: TextDocument, range?: Range | undefine
 
   for (let I = startIndex; I < endIndex; I++) {
     const line = doc.getLine(I);
-    const CommentIndex = line.indexOf("#");
+    const CommentIndex = line.indexOf('#');
 
     if (CommentIndex >= 0) {
       builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
@@ -34,7 +34,7 @@ export function provideSemanticToken(doc: TextDocument, range?: Range | undefine
 }
 
 export function McfunctionLineTokens(line: string, offset: number, Builder: McfunctionSemanticTokensBuilder): void {
-  if (line.startsWith("/")) {
+  if (line.startsWith('/')) {
     line = line.substring(1, line.length);
     offset++;
   }
@@ -53,7 +53,7 @@ function createTokens(command: Command, builder: McfunctionSemanticTokensBuilder
   const edu = IsEducationEnabled(builder.document.configuration());
   const first = command.parameters[0];
 
-  if (first.text.startsWith("#")) return;
+  if (first.text.startsWith('#')) return;
 
   if (command.subType === ParameterType.executeSubcommand) {
     builder.AddWord(first, SemanticTokensEnum.keyword, SemanticModifiersEnum.declaration);

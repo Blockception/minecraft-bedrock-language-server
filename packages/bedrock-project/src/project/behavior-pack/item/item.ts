@@ -1,5 +1,5 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MolangSet } from "bc-minecraft-molang";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MolangSet } from 'bc-minecraft-molang';
 
 /** */
 export interface Item extends Types.BaseObject {

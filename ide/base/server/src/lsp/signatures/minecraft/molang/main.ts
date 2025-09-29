@@ -1,16 +1,16 @@
-import { OffsetWord } from "bc-vscode-words";
-import { Position, SignatureHelp } from "vscode-languageserver";
-import { CreateMolangSetWords } from "../../../../minecraft/molang/words";
-import { TextDocument } from "../../../documents/text-document";
+import { OffsetWord } from 'bc-vscode-words';
+import { Position, SignatureHelp } from 'vscode-languageserver';
+import { CreateMolangSetWords } from '../../../../minecraft/molang/words';
+import { TextDocument } from '../../../documents/text-document';
 
-import * as Contexts from "./contexts";
-import * as Geometry from "./geometries";
-import * as Material from "./materials";
-import * as Math from "./math";
-import * as Query from "./queries";
-import * as Temps from "./temps";
-import * as Textures from "./textures";
-import * as Variables from "./variables";
+import * as Contexts from './contexts';
+import * as Geometry from './geometries';
+import * as Material from './materials';
+import * as Math from './math';
+import * as Query from './queries';
+import * as Temps from './temps';
+import * as Textures from './textures';
+import * as Variables from './variables';
 
 /**
  *
@@ -50,8 +50,12 @@ export function provideSignature(text: OffsetWord, cursor: number): SignatureHel
  * @param text
  * @returns
  */
-export function provideWordSignature(text: OffsetWord, cursor: number, parameters: OffsetWord[]): SignatureHelp | undefined {
-  const index = text.text.indexOf(".");
+export function provideWordSignature(
+  text: OffsetWord,
+  cursor: number,
+  parameters: OffsetWord[],
+): SignatureHelp | undefined {
+  const index = text.text.indexOf('.');
   let main: string | undefined = undefined;
   let sub: string | undefined = undefined;
 
@@ -63,33 +67,33 @@ export function provideWordSignature(text: OffsetWord, cursor: number, parameter
   }
 
   switch (main) {
-    case "c":
-    case "contexts":
+    case 'c':
+    case 'contexts':
       return Contexts.provideSignature(sub);
 
-    case "q":
-    case "query":
+    case 'q':
+    case 'query':
       return Query.provideSignature(sub, cursor, parameters);
 
-    case "m":
-    case "math":
+    case 'm':
+    case 'math':
       return Math.provideSignature(sub, cursor, parameters);
 
-    case "geometry":
+    case 'geometry':
       return Geometry.provideSignature();
 
-    case "material":
+    case 'material':
       return Material.provideSignature();
 
-    case "v":
-    case "variable":
+    case 'v':
+    case 'variable':
       return Variables.provideSignature(sub);
 
-    case "t":
-    case "texture":
+    case 't':
+    case 'texture':
       return Textures.provideSignature(sub);
 
-    case "temp":
+    case 'temp':
       return Temps.provideSignature(sub);
   }
 

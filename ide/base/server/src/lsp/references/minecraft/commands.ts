@@ -1,14 +1,14 @@
-import { Command, ParameterType } from "bc-minecraft-bedrock-command";
-import { OffsetWord } from "bc-vscode-words";
-import { Location } from "vscode-languageserver";
-import { IsEducationEnabled } from "../../../project/attributes";
-import { References } from "../../../util";
-import { Context } from "../../context/context";
-import { ReferenceContext } from "../context";
+import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
+import { OffsetWord } from 'bc-vscode-words';
+import { Location } from 'vscode-languageserver';
+import { IsEducationEnabled } from '../../../project/attributes';
+import { References } from '../../../util';
+import { Context } from '../../context/context';
+import { ReferenceContext } from '../context';
 
 export async function provideReferences(
   context: Context<ReferenceContext>,
-  value: OffsetWord
+  value: OffsetWord,
 ): Promise<Location[] | undefined> {
   const { document, position } = context;
   const line = value.text;

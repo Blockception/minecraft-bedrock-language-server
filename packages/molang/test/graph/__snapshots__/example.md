@@ -1,7 +1,7 @@
 # Snapshot
 
-
 ## 0. !v.swaying && q.all_animations_finished 1
+
 ```mermaid
 ---
 config:
@@ -20,6 +20,7 @@ flowchart TD
 ```
 
 ## 1. !variable.swaying && query.all_animations_finished 1
+
 ```mermaid
 ---
 config:
@@ -38,6 +39,7 @@ flowchart TD
 ```
 
 ## 2. temp.foo1 = 0; temp.foo2 = 0; t.foo3 = 0; 1
+
 ```mermaid
 ---
 config:
@@ -54,6 +56,7 @@ flowchart TD
 ```
 
 ## 2. temp.foo1 = 0; temp.foo2 = 0; t.foo3 = 0; 2
+
 ```mermaid
 ---
 config:
@@ -70,6 +73,7 @@ flowchart TD
 ```
 
 ## 2. temp.foo1 = 0; temp.foo2 = 0; t.foo3 = 0; 3
+
 ```mermaid
 ---
 config:
@@ -86,6 +90,7 @@ flowchart TD
 ```
 
 ## 3. temp.foo1 = 0; temp.foo2 = 0; t.foo3 = 0; 1
+
 ```mermaid
 ---
 config:
@@ -102,6 +107,7 @@ flowchart TD
 ```
 
 ## 3. temp.foo1 = 0; temp.foo2 = 0; t.foo3 = 0; 2
+
 ```mermaid
 ---
 config:
@@ -118,6 +124,7 @@ flowchart TD
 ```
 
 ## 3. temp.foo1 = 0; temp.foo2 = 0; t.foo3 = 0; 3
+
 ```mermaid
 ---
 config:
@@ -134,6 +141,7 @@ flowchart TD
 ```
 
 ## 4. temp.foo3 = 0; 1
+
 ```mermaid
 ---
 config:
@@ -150,6 +158,7 @@ flowchart TD
 ```
 
 ## 5. v.agent.anim_state != 2 1
+
 ```mermaid
 ---
 config:
@@ -166,6 +175,7 @@ flowchart TD
 ```
 
 ## 6. v.agent.anim_state < 2 1
+
 ```mermaid
 ---
 config:
@@ -182,6 +192,7 @@ flowchart TD
 ```
 
 ## 7. v.agent.anim_state <= 2 1
+
 ```mermaid
 ---
 config:
@@ -198,6 +209,7 @@ flowchart TD
 ```
 
 ## 8. v.agent.anim_state == 2 1
+
 ```mermaid
 ---
 config:
@@ -214,6 +226,7 @@ flowchart TD
 ```
 
 ## 9. v.agent.anim_state > 2 1
+
 ```mermaid
 ---
 config:
@@ -230,6 +243,7 @@ flowchart TD
 ```
 
 ## 10. v.agent.anim_state >= 2 1
+
 ```mermaid
 ---
 config:
@@ -246,6 +260,7 @@ flowchart TD
 ```
 
 ## 11. variable.agent.anim_state != 2 1
+
 ```mermaid
 ---
 config:
@@ -262,6 +277,7 @@ flowchart TD
 ```
 
 ## 12. variable.agent.anim_state < 2 1
+
 ```mermaid
 ---
 config:
@@ -278,6 +294,7 @@ flowchart TD
 ```
 
 ## 13. variable.agent.anim_state <= 2 1
+
 ```mermaid
 ---
 config:
@@ -294,6 +311,7 @@ flowchart TD
 ```
 
 ## 14. variable.agent.anim_state == 2 1
+
 ```mermaid
 ---
 config:
@@ -310,6 +328,7 @@ flowchart TD
 ```
 
 ## 15. variable.agent.anim_state > 2 1
+
 ```mermaid
 ---
 config:
@@ -326,6 +345,7 @@ flowchart TD
 ```
 
 ## 16. variable.agent.anim_state >= 2 1
+
 ```mermaid
 ---
 config:
@@ -342,6 +362,7 @@ flowchart TD
 ```
 
 ## 17. variable.armor_stand.hurt_time = 0; 1
+
 ```mermaid
 ---
 config:
@@ -358,6 +379,7 @@ flowchart TD
 ```
 
 ## 18. variable.armor_stand.pose_index = 0; 1
+
 ```mermaid
 ---
 config:
@@ -374,6 +396,7 @@ flowchart TD
 ```
 
 ## 19. variable.foo1 = 0; variable.foo2 = 0; v.foo3 = 0; 1
+
 ```mermaid
 ---
 config:
@@ -390,6 +413,7 @@ flowchart TD
 ```
 
 ## 19. variable.foo1 = 0; variable.foo2 = 0; v.foo3 = 0; 2
+
 ```mermaid
 ---
 config:
@@ -406,6 +430,7 @@ flowchart TD
 ```
 
 ## 19. variable.foo1 = 0; variable.foo2 = 0; v.foo3 = 0; 3
+
 ```mermaid
 ---
 config:
@@ -422,6 +447,7 @@ flowchart TD
 ```
 
 ## 20. variable.foo1 = 0; variable.foo2 = 0; v.foo3 = 0; 1
+
 ```mermaid
 ---
 config:
@@ -438,6 +464,7 @@ flowchart TD
 ```
 
 ## 20. variable.foo1 = 0; variable.foo2 = 0; v.foo3 = 0; 2
+
 ```mermaid
 ---
 config:
@@ -454,6 +481,7 @@ flowchart TD
 ```
 
 ## 20. variable.foo1 = 0; variable.foo2 = 0; v.foo3 = 0; 3
+
 ```mermaid
 ---
 config:
@@ -470,6 +498,7 @@ flowchart TD
 ```
 
 ## 21. variable.foo3 = 0; 1
+
 ```mermaid
 ---
 config:
@@ -486,6 +515,7 @@ flowchart TD
 ```
 
 ## 22. ( variable.use_item_interval_progress > 0.0 ) || ( variable.use_item_startup_progress > 0.0 ) 1
+
 ```mermaid
 ---
 config:
@@ -509,7 +539,8 @@ flowchart TD
     node0 -->|right| node4
 ```
 
-## 23. variable.eat_anim = math.clamp(variable.eat_anim + (query.is_grazing ? ((1.0 - variable.eat_anim) * 0.4 + 0.05) : -variable.eat_anim * 0.4 - 0.05) * query.delta_time * 20.0, 0.0, 1.0); 1
+## 23. variable.eat_anim = math.clamp(variable.eat_anim + (query.is_grazing ? ((1.0 - variable.eat_anim) _ 0.4 + 0.05) : -variable.eat_anim _ 0.4 - 0.05) _ query.delta_time _ 20.0, 0.0, 1.0); 1
+
 ```mermaid
 ---
 config:
@@ -572,6 +603,7 @@ flowchart TD
 ```
 
 ## 24. variable.is_blinking = 0; variable.return_from_blink = query.life_time + math.random(0, 0.2); return query.life_time > (variable.last_blink_time + math.random(3, 40)); 1
+
 ```mermaid
 ---
 config:
@@ -588,6 +620,7 @@ flowchart TD
 ```
 
 ## 24. variable.is_blinking = 0; variable.return_from_blink = query.life_time + math.random(0, 0.2); return query.life_time > (variable.last_blink_time + math.random(3, 40)); 2
+
 ```mermaid
 ---
 config:
@@ -612,6 +645,7 @@ flowchart TD
 ```
 
 ## 24. variable.is_blinking = 0; variable.return_from_blink = query.life_time + math.random(0, 0.2); return query.life_time > (variable.last_blink_time + math.random(3, 40)); 3
+
 ```mermaid
 ---
 config:
@@ -637,7 +671,8 @@ flowchart TD
     node0 -->|operand| node1
 ```
 
-## 25. -175 * math.sin(variable.attack_time * 180) 1
+## 25. -175 _ math.sin(variable.attack_time _ 180) 1
+
 ```mermaid
 ---
 config:
@@ -661,7 +696,8 @@ flowchart TD
     node0 -->|right| node3
 ```
 
-## 26. -5.0 * Math.cos(297.9380535 * query.anim_time) - 5.0 1
+## 26. -5.0 _ Math.cos(297.9380535 _ query.anim_time) - 5.0 1
+
 ```mermaid
 ---
 config:
@@ -689,7 +725,8 @@ flowchart TD
     node0 -->|right| node8
 ```
 
-## 27. 1.5 - math.pow(1.5, 1.0 - 015.0 * query.modified_move_speed) * query.camera_rotation(0) 1
+## 27. 1.5 - math.pow(1.5, 1.0 - 015.0 _ query.modified_move_speed) _ query.camera_rotation(0) 1
+
 ```mermaid
 ---
 config:
@@ -724,6 +761,7 @@ flowchart TD
 ```
 
 ## 28. math.clamp(math.sqrt(math.pow(query.position_delta(0), 2.0) + math.pow(query.position_delta(2), 2.0)), 0.0, 0.1) 1
+
 ```mermaid
 ---
 config:
@@ -759,7 +797,8 @@ flowchart TD
     node0 -->|arg2| node12
 ```
 
-## 29. math.sin(variable.attack_time * 180) * -175 1
+## 29. math.sin(variable.attack_time _ 180) _ -175 1
+
 ```mermaid
 ---
 config:
@@ -783,7 +822,8 @@ flowchart TD
     node0 -->|right| node5
 ```
 
-## 30. -90.0 - ((math.sin(variable.attack_time * 180.0) * 57.3) * 1.2 - (math.sin((1.0 - (1.0 - variable.attack_time) * (1.0 - variable.attack_time)) * 180.0) * 57.3) * 0.4) - (math.sin(query.life_time * 76.776372) * 2.865) - this 1
+## 30. -90.0 - ((math.sin(variable.attack_time _ 180.0) _ 57.3) _ 1.2 - (math.sin((1.0 - (1.0 - variable.attack_time) _ (1.0 - variable.attack_time)) _ 180.0) _ 57.3) _ 0.4) - (math.sin(query.life_time _ 76.776372) \* 2.865) - this 1
+
 ```mermaid
 ---
 config:
@@ -868,6 +908,7 @@ flowchart TD
 ```
 
 ## 31. !variable.has_trim 1
+
 ```mermaid
 ---
 config:
@@ -882,6 +923,7 @@ flowchart TD
 ```
 
 ## 32. array.skins[query.property('minecraft:has_nectar') + query.is_angry * 2] 1
+
 ```mermaid
 ---
 config:
@@ -908,6 +950,7 @@ flowchart TD
 ```
 
 ## 33. variable.has_trim ? variable.trim_path : Texture.default 1
+
 ```mermaid
 ---
 config:
@@ -926,6 +969,7 @@ flowchart TD
 ```
 
 ## 34. variable.is_enchanted ? Material.enchanted : Material.default 1
+
 ```mermaid
 ---
 config:
@@ -944,6 +988,7 @@ flowchart TD
 ```
 
 ## 35. variable.is_peeking = query.property('minecraft:armadillo_state') == 'rolled_up_peeking'; 1
+
 ```mermaid
 ---
 config:
@@ -966,6 +1011,7 @@ flowchart TD
 ```
 
 ## 36. variable.is_rolled_up = (variable.unrolling_time == 0.0 || variable.unrolling_time <= 1.25 ); 1
+
 ```mermaid
 ---
 config:
@@ -994,6 +1040,7 @@ flowchart TD
 ```
 
 ## 37. variable.is_rolled_up = (variable.unrolling_time == 0.0 || variable.unrolling_time <= 1.25 || variable.unrolling_time >= 5 ); 1
+
 ```mermaid
 ---
 config:
@@ -1030,6 +1077,7 @@ flowchart TD
 ```
 
 ## 38. variable.is_rolled_up = query.property('minecraft:armadillo_state') != 'unrolled'; 1
+
 ```mermaid
 ---
 config:
@@ -1052,6 +1100,7 @@ flowchart TD
 ```
 
 ## 39. variable.is_unrolling = query.property('minecraft:armadillo_state') == 'rolled_up_unrolling'; 1
+
 ```mermaid
 ---
 config:
@@ -1074,6 +1123,7 @@ flowchart TD
 ```
 
 ## 40. variable.rolled_up_time = variable.is_rolled_up ? ((variable.rolled_up_time ?? 0.0) + query.delta_time) : 0.0; 1
+
 ```mermaid
 ---
 config:
@@ -1104,6 +1154,7 @@ flowchart TD
 ```
 
 ## 41. variable.unrolling_time = variable.is_unrolling ? ((variable.unrolling_time ?? 0.0) + query.delta_time) : 0.0; 1
+
 ```mermaid
 ---
 config:
@@ -1134,6 +1185,7 @@ flowchart TD
 ```
 
 ## 42. variable.use_rolled_up_model = variable.rolled_up_time >= 0.2083 && (variable.unrolling_time == 0.0 || variable.unrolling_time <= 1.25 ); 1
+
 ```mermaid
 ---
 config:
@@ -1169,7 +1221,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 43. variable.walk_anim_time_update = query.anim_time + math.min(3.0, math.lerp(2.0, 5.0, query.modified_move_speed)) * query.delta_time; 1
+## 43. variable.walk_anim_time_update = query.anim_time + math.min(3.0, math.lerp(2.0, 5.0, query.modified_move_speed)) \* query.delta_time; 1
+
 ```mermaid
 ---
 config:
@@ -1203,7 +1256,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 44. variable.walk_anim_time_update = query.anim_time + math.min(3.0, math.lerp(2.0, 5.0, query.modified_move_speed)) * query.delta_time;variable.y_head_rotation = math.clamp(query.target_y_rotation, -22.5, 25); 1
+## 44. variable.walk_anim_time_update = query.anim_time + math.min(3.0, math.lerp(2.0, 5.0, query.modified_move_speed)) \* query.delta_time;variable.y_head_rotation = math.clamp(query.target_y_rotation, -22.5, 25); 1
+
 ```mermaid
 ---
 config:
@@ -1237,7 +1291,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 44. variable.walk_anim_time_update = query.anim_time + math.min(3.0, math.lerp(2.0, 5.0, query.modified_move_speed)) * query.delta_time;variable.y_head_rotation = math.clamp(query.target_y_rotation, -22.5, 25); 2
+## 44. variable.walk_anim_time_update = query.anim_time + math.min(3.0, math.lerp(2.0, 5.0, query.modified_move_speed)) \* query.delta_time;variable.y_head_rotation = math.clamp(query.target_y_rotation, -22.5, 25); 2
+
 ```mermaid
 ---
 config:
@@ -1262,6 +1317,7 @@ flowchart TD
 ```
 
 ## 45. variable.walking = query.modified_move_speed > 0.01 && !variable.is_rolled_up; 1
+
 ```mermaid
 ---
 config:
@@ -1288,6 +1344,7 @@ flowchart TD
 ```
 
 ## 46. variable.x_head_rotation = math.clamp(query.target_x_rotation, -32.5, 32.5); 1
+
 ```mermaid
 ---
 config:
@@ -1312,6 +1369,7 @@ flowchart TD
 ```
 
 ## 47. variable.x_head_rotation = math.clamp(query.target_x_rotation, -32.5, 32.5); 1
+
 ```mermaid
 ---
 config:
@@ -1335,7 +1393,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 48. variable.x_head_rotation = query.target_x_rotation * 32.5; 1
+## 48. variable.x_head_rotation = query.target_x_rotation \* 32.5; 1
+
 ```mermaid
 ---
 config:
@@ -1356,6 +1415,7 @@ flowchart TD
 ```
 
 ## 49. variable.y_head_rotation = math.clamp(query.target_y_rotation, -22.5, 25); 1
+
 ```mermaid
 ---
 config:
@@ -1380,6 +1440,7 @@ flowchart TD
 ```
 
 ## 50. variable.y_head_rotation = math.clamp(query.target_y_rotation, -22.5, 25); 1
+
 ```mermaid
 ---
 config:
@@ -1404,6 +1465,7 @@ flowchart TD
 ```
 
 ## 51. variable.is_peeking = q.property('minecraft:armadillo_state') == 'rolled_up_peeking'; 1
+
 ```mermaid
 ---
 config:
@@ -1426,6 +1488,7 @@ flowchart TD
 ```
 
 ## 52. variable.is_rolled_up = q.property('minecraft:armadillo_state') != 'unrolled'; 1
+
 ```mermaid
 ---
 config:
@@ -1448,6 +1511,7 @@ flowchart TD
 ```
 
 ## 53. variable.is_unrolling = q.property('minecraft:armadillo_state') == 'rolled_up_unrolling'; 1
+
 ```mermaid
 ---
 config:
@@ -1470,6 +1534,7 @@ flowchart TD
 ```
 
 ## 54. variable.rolled_up_time = variable.is_rolled_up ? ((variable.rolled_up_time ?? 0.0) + q.delta_time) : 0.0; 1
+
 ```mermaid
 ---
 config:
@@ -1500,6 +1565,7 @@ flowchart TD
 ```
 
 ## 55. variable.unrolling_time = variable.is_unrolling ? ((variable.unrolling_time ?? 0.0) + q.delta_time) : 0.0; 1
+
 ```mermaid
 ---
 config:
@@ -1529,7 +1595,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 56. variable.walk_anim_time_update = q.anim_time + math.min(3.0, math.lerp(2.0, 5.0, q.modified_move_speed)) * q.delta_time; 1
+## 56. variable.walk_anim_time_update = q.anim_time + math.min(3.0, math.lerp(2.0, 5.0, q.modified_move_speed)) \* q.delta_time; 1
+
 ```mermaid
 ---
 config:
@@ -1563,7 +1630,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 57. variable.walk_anim_time_update = q.anim_time + math.min(3.0, math.lerp(2.0, 5.0, q.modified_move_speed)) * q.delta_time;variable.y_head_rotation = math.clamp(q.target_y_rotation, -22.5, 25); 1
+## 57. variable.walk_anim_time_update = q.anim_time + math.min(3.0, math.lerp(2.0, 5.0, q.modified_move_speed)) \* q.delta_time;variable.y_head_rotation = math.clamp(q.target_y_rotation, -22.5, 25); 1
+
 ```mermaid
 ---
 config:
@@ -1597,7 +1665,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 57. variable.walk_anim_time_update = q.anim_time + math.min(3.0, math.lerp(2.0, 5.0, q.modified_move_speed)) * q.delta_time;variable.y_head_rotation = math.clamp(q.target_y_rotation, -22.5, 25); 2
+## 57. variable.walk_anim_time_update = q.anim_time + math.min(3.0, math.lerp(2.0, 5.0, q.modified_move_speed)) \* q.delta_time;variable.y_head_rotation = math.clamp(q.target_y_rotation, -22.5, 25); 2
+
 ```mermaid
 ---
 config:
@@ -1622,6 +1691,7 @@ flowchart TD
 ```
 
 ## 58. variable.walking = q.modified_move_speed > 0.01 && !variable.is_rolled_up; 1
+
 ```mermaid
 ---
 config:
@@ -1648,6 +1718,7 @@ flowchart TD
 ```
 
 ## 59. variable.state = variable.is_rolled_up ? 1 : 0; 1
+
 ```mermaid
 ---
 config:
@@ -1669,7 +1740,8 @@ flowchart TD
     node0 -->|value| node2
 ```
 
-## 60. variable.state = variable.is_rolled_up ? 2 * (5 + variable.state) : 3 * 1 + variable.foo; 1
+## 60. variable.state = variable.is_rolled_up ? 2 _ (5 + variable.state) : 3 _ 1 + variable.foo; 1
+
 ```mermaid
 ---
 config:
@@ -1708,6 +1780,7 @@ flowchart TD
 ```
 
 ## 61. variable.state = variable.is_rolled_up ? variable.rolled_up_time >= 0.2083 ? 1 : 2 : 3; 1
+
 ```mermaid
 ---
 config:
@@ -1740,6 +1813,7 @@ flowchart TD
 ```
 
 ## 62. v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar') 1
+
 ```mermaid
 ---
 config:

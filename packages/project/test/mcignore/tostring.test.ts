@@ -1,14 +1,14 @@
-import { MCIgnore } from "../../src";
+import { MCIgnore } from '../../src';
 
 const Text1 = `OutputFolder
 Temp
 Template/something
 !BP/**/*.json`;
 
-describe("MCIgnore", () => {
+describe('MCIgnore', () => {
   const data = MCIgnore.parse(Text1);
   const content = MCIgnore.toString(data);
-  const lines = Text1.split("\n");
+  const lines = Text1.split('\n');
 
   lines
     .map((item) => item.trim())

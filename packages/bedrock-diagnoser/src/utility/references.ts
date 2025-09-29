@@ -1,4 +1,4 @@
-import { References } from "bc-minecraft-bedrock-project";
+import { References } from 'bc-minecraft-bedrock-project';
 
 /**
  * Iterates over the given data

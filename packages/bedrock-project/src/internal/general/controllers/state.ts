@@ -20,7 +20,7 @@ export namespace State {
    * @returns
    */
   export function is(value: any): value is State {
-    if (typeof value === "object") return true;
+    if (typeof value === 'object') return true;
 
     return false;
   }

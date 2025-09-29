@@ -1,3 +1,3 @@
 /*	Auto generated	*/
-export * as Manifest from "./manifest";
-export * from "./world-pack";
+export * as Manifest from './manifest';
+export * from './world-pack';

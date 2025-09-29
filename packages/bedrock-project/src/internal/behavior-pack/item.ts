@@ -1,11 +1,11 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 /** */
 export interface Item extends Readonly<FormatVersion> {
   /** */
   format_version: string;
   /** */
-  "minecraft:item": {
+  'minecraft:item': {
     /** */
     description: {
       /** */
@@ -30,13 +30,13 @@ export namespace Item {
    * @returns
    */
   export function is(value: any): value is Item {
-    if (value && typeof value.format_version === "string" && typeof value["minecraft:item"] === "object") {
-      const b = value["minecraft:item"];
+    if (value && typeof value.format_version === 'string' && typeof value['minecraft:item'] === 'object') {
+      const b = value['minecraft:item'];
 
       if (
-        typeof b.description === "object" &&
-        typeof b.description.identifier === "string" &&
-        typeof b.components === "object"
+        typeof b.description === 'object' &&
+        typeof b.description.identifier === 'string' &&
+        typeof b.components === 'object'
       ) {
         return true;
       }

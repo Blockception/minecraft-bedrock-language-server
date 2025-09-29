@@ -27,7 +27,7 @@ export namespace OffsetWord {
    * @returns
    */
   export function is(value: any): value is OffsetWord {
-    if (typeof value === "object" && typeof value.text === "string" && typeof value.offset === "number") return true;
+    if (typeof value === 'object' && typeof value.text === 'string' && typeof value.offset === 'number') return true;
 
     return false;
   }

@@ -1,13 +1,13 @@
-import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from "vscode";
-import { Commands } from "@blockception/ide-shared";
-import { Console } from "../console/console";
+import { commands, ExtensionContext, FileType, ProgressLocation, Uri, window, workspace } from 'vscode';
+import { Commands } from '@blockception/ide-shared';
+import { Console } from '../console/console';
 
-import path from "path";
+import path from 'path';
 
 export function activate(context: ExtensionContext): void {
   async function showDocs() {
     const base = context.storageUri || context.globalStorageUri;
-    const storage_path = path.join(base.fsPath, "docs");
+    const storage_path = path.join(base.fsPath, 'docs');
     const command = new ShowDocsCommand(storage_path);
 
     const sidebar = await command.getSidebar();
@@ -26,7 +26,7 @@ export function activate(context: ExtensionContext): void {
       // Find the item by title or processed title
       const item = sidebar.find((x) => x.processedTitle === title || x.toc_title === title);
       if (!item) {
-        Console.errror("Failed to find docs item", title);
+        Console.errror('Failed to find docs item', title);
         return;
       }
 
@@ -39,9 +39,9 @@ export function activate(context: ExtensionContext): void {
 
 const day_diff_2 = 1000 * 60 * 60 * 24 * 2;
 // URL with the list of all docs
-const sidebar_url = "https://learn.microsoft.com/en-us/minecraft/creator/toc.json";
+const sidebar_url = 'https://learn.microsoft.com/en-us/minecraft/creator/toc.json';
 // URL to the docs, that will be prepended to the href
-const html_url = "https://learn.microsoft.com/en-us/minecraft/creator/";
+const html_url = 'https://learn.microsoft.com/en-us/minecraft/creator/';
 
 /**
  * Represents a command to show documentation.
@@ -71,14 +71,14 @@ class ShowDocsCommand {
     const data = await fetch(sidebar_url);
 
     if (!data.ok) {
-      window.showErrorMessage("Failed to download docs sidebar");
+      window.showErrorMessage('Failed to download docs sidebar');
       return this.sidebar;
     }
 
     const jsonData = (await data.json()) as Sidebar;
 
     if (!Sidebar.is(jsonData)) {
-      window.showErrorMessage("Failed to parse docs sidebar");
+      window.showErrorMessage('Failed to parse docs sidebar');
       return this.sidebar;
     }
 
@@ -92,14 +92,14 @@ class ShowDocsCommand {
    * @param prefix The prefix to add to the processed title
    * @returns The flattened sidebar
    */
-  flattenSidebar(sidebar: SidebarItem[], prefix: string = ""): SidebarItem[] {
+  flattenSidebar(sidebar: SidebarItem[], prefix: string = ''): SidebarItem[] {
     const result: SidebarItem[] = [];
 
     for (let I = 0; I < sidebar.length; I++) {
       const item = sidebar[I];
       // Add the prefix to the title
       // Remove the docs title from the path, because it is too long
-      item.processedTitle = `${prefix}/${item.toc_title}`.replace("/Minecraft: Bedrock Documentation/", "");
+      item.processedTitle = `${prefix}/${item.toc_title}`.replace('/Minecraft: Bedrock Documentation/', '');
       if (item.href) {
         result.push(item);
       }
@@ -120,7 +120,7 @@ class ShowDocsCommand {
    */
   getFilepath(item: SidebarItem): string {
     // At this point, elements without href are filtered out
-    return path.join(this.storage, item.href! + ".md");
+    return path.join(this.storage, item.href! + '.md');
   }
 
   /**
@@ -156,17 +156,17 @@ class ShowDocsCommand {
   async download(uri: string, filepath: string): Promise<void> {
     const progressOptions = {
       location: ProgressLocation.Notification,
-      title: "Downloading docs",
+      title: 'Downloading docs',
       cancellable: false,
     };
 
     return window.withProgress(progressOptions, async (progress) => {
       const options: RequestInit = {
-        method: "GET",
+        method: 'GET',
       };
 
       progress.report({
-        message: "Downloading docs",
+        message: 'Downloading docs',
         increment: 0,
       });
 
@@ -175,7 +175,7 @@ class ShowDocsCommand {
         const result = await fetch(uri, options);
 
         if (!result.ok) {
-          window.showErrorMessage("Failed to download docs\n", `${uri}\n${filepath}\n`, result.statusText);
+          window.showErrorMessage('Failed to download docs\n', `${uri}\n${filepath}\n`, result.statusText);
           return;
         }
 
@@ -185,27 +185,27 @@ class ShowDocsCommand {
         // Find the github link and change blob to raw. It's not the best solution, but it works
         const matches = /(https:\/\/github.com\/MicrosoftDocs\/minecraft-creator\/blob\/main\/[^"]+)/g.exec(text);
         if (!matches || matches.length === 0 || matches[0] === undefined) {
-          window.showErrorMessage("Failed to download docs\n", `${uri}\n${filepath}\nNo github link found`);
+          window.showErrorMessage('Failed to download docs\n', `${uri}\n${filepath}\nNo github link found`);
           return;
         }
         const mdUrl = matches[0].replace(
-          "MicrosoftDocs/minecraft-creator/blob/",
-          "MicrosoftDocs/minecraft-creator/raw/"
+          'MicrosoftDocs/minecraft-creator/blob/',
+          'MicrosoftDocs/minecraft-creator/raw/',
         );
         // Download the markdown file
         const mdResult = await fetch(mdUrl, options);
 
         if (!mdResult.ok) {
-          window.showErrorMessage("Failed to download docs\n", `${uri}\n${filepath}\n`, mdResult.statusText);
+          window.showErrorMessage('Failed to download docs\n', `${uri}\n${filepath}\n`, mdResult.statusText);
           return;
         }
 
         const mdText = await mdResult.text();
 
-        await workspace.fs.writeFile(Uri.file(filepath), Buffer.from(mdText, "utf8"));
-        Console.info("Downloaded docs", filepath);
+        await workspace.fs.writeFile(Uri.file(filepath), Buffer.from(mdText, 'utf8'));
+        Console.info('Downloaded docs', filepath);
       } catch (err) {
-        window.showErrorMessage("Failed to download docs\n", `${uri}\n${filepath}\n`, JSON.stringify(err));
+        window.showErrorMessage('Failed to download docs\n', `${uri}\n${filepath}\n`, JSON.stringify(err));
       }
 
       progress.report({ increment: 50 });
@@ -232,9 +232,9 @@ class ShowDocsCommand {
     try {
       const uri = Uri.file(filepath);
       // Open the markdown preview
-      await commands.executeCommand("markdown.showPreview", uri);
+      await commands.executeCommand('markdown.showPreview', uri);
     } catch (err) {
-      window.showErrorMessage("Failed to open docs", filepath, JSON.stringify(err));
+      window.showErrorMessage('Failed to open docs', filepath, JSON.stringify(err));
     }
   }
 }

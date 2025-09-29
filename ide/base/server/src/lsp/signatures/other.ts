@@ -1,4 +1,4 @@
-import { SignatureHelp } from "vscode-languageserver";
+import { SignatureHelp } from 'vscode-languageserver';
 
 export function provideOtherSignature(): SignatureHelp | undefined {
   return undefined;

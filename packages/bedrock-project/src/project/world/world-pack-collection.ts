@@ -1,7 +1,7 @@
-import { MCProject } from "bc-minecraft-project";
-import { PackCollection } from "../../types";
-import { WorldPack } from "./world-pack";
-import { Manifest } from "../../internal/types";
+import { MCProject } from 'bc-minecraft-project';
+import { PackCollection } from '../../types';
+import { WorldPack } from './world-pack';
+import { Manifest } from '../../internal/types';
 
 /** */
 export class WorldPackCollection extends PackCollection<WorldPack> {

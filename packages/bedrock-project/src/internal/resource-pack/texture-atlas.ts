@@ -20,8 +20,8 @@ export namespace TextureAtlas {
    * @returns
    */
   export function is(value: any): value is TextureAtlas {
-    if (typeof value === "object") {
-      if (typeof value.resource_pack_name === "string" && typeof value.texture_data === "object") {
+    if (typeof value === 'object') {
+      if (typeof value.resource_pack_name === 'string' && typeof value.texture_data === 'object') {
         return true;
       }
     }

@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync } from 'fs';
 import { Documents, TextDocument } from '../src/types';
 
 export class TextProjectContext implements Documents<TextDocument> {

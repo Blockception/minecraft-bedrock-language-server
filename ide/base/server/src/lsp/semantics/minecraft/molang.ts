@@ -1,13 +1,13 @@
-import { Minecraft } from "bc-minecraft-bedrock-types";
-import { Float } from "bc-minecraft-bedrock-types/src/general/float";
-import { OffsetWord } from "bc-vscode-words";
-import { Range } from "vscode-languageserver-textdocument";
-import { SemanticTokens } from "vscode-languageserver/node";
-import { CreateMolangWords } from "../../../minecraft/molang/words";
-import { TextDocument } from "../../documents/text-document";
-import { JsonSemanticTokensBuilder } from "../builders/json";
-import { MolangSemanticTokensBuilder } from "../builders/molang";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "../constants";
+import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { Float } from 'bc-minecraft-bedrock-types/src/general/float';
+import { OffsetWord } from 'bc-vscode-words';
+import { Range } from 'vscode-languageserver-textdocument';
+import { SemanticTokens } from 'vscode-languageserver/node';
+import { CreateMolangWords } from '../../../minecraft/molang/words';
+import { TextDocument } from '../../documents/text-document';
+import { JsonSemanticTokensBuilder } from '../builders/json';
+import { MolangSemanticTokensBuilder } from '../builders/molang';
+import { SemanticModifiersEnum, SemanticTokensEnum } from '../constants';
 
 /**
  *
@@ -42,52 +42,52 @@ export function ConvertWords(words: OffsetWord[], builder: JsonSemanticTokensBui
     }
 
     switch (text.toLowerCase()) {
-      case "array":
-      case "geometry":
-      case "material":
-      case "texture":
+      case 'array':
+      case 'geometry':
+      case 'material':
+      case 'texture':
         builder.AddWord(word, SemanticTokensEnum.interface, SemanticModifiersEnum.readonly);
         break;
 
-      case "q":
-      case "v":
-      case "t":
-      case "c":
-      case "context":
-      case "math":
-      case "query":
-      case "variable":
-      case "temp":
+      case 'q':
+      case 'v':
+      case 't':
+      case 'c':
+      case 'context':
+      case 'math':
+      case 'query':
+      case 'variable':
+      case 'temp':
         builder.AddWord(word, SemanticTokensEnum.class, SemanticModifiersEnum.static);
         break;
 
-      case "this":
+      case 'this':
         builder.AddWord(word, SemanticTokensEnum.keyword, SemanticModifiersEnum.readonly);
         break;
 
-      case "(":
-      case "[":
-      case "{":
-      case "}":
-      case "]":
-      case ")":
-      case "==":
-      case "!=":
-      case "&&":
-      case "||":
-      case "|=":
-      case ">=":
-      case "<=":
-      case ">":
-      case "!":
-      case "<":
-      case "?":
-      case ":":
-      case ";":
-      case "+":
-      case "-":
-      case "/":
-      case "*":
+      case '(':
+      case '[':
+      case '{':
+      case '}':
+      case ']':
+      case ')':
+      case '==':
+      case '!=':
+      case '&&':
+      case '||':
+      case '|=':
+      case '>=':
+      case '<=':
+      case '>':
+      case '!':
+      case '<':
+      case '?':
+      case ':':
+      case ';':
+      case '+':
+      case '-':
+      case '/':
+      case '*':
         builder.AddWord(word, SemanticTokensEnum.operator);
         break;
 
@@ -117,7 +117,7 @@ function ConvertWordsDefault(words: OffsetWord[], index: number, builder: JsonSe
     return;
   }
 
-  if (words[index + 1]?.text === ":") {
+  if (words[index + 1]?.text === ':') {
     builder.AddWord(word, SemanticTokensEnum.namespace);
     return;
   }

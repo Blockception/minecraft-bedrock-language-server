@@ -6,38 +6,38 @@ import {
   Connection,
   Diagnostic,
   WorkDoneProgressReporter,
-} from "vscode-languageserver";
-import { Context } from "../context/context";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { CapabilityBuilder } from "../services/capabilities";
-import { IService } from "../services/service";
-import { CodeActionBuilder } from "./builder";
-import { CodeActionContext } from "./context";
-import { fuzzyMatch } from "./fuzzy";
-import { attributes } from "./types";
+} from 'vscode-languageserver';
+import { Context } from '../context/context';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
+import { IService } from '../services/service';
+import { CodeActionBuilder } from './builder';
+import { CodeActionContext } from './context';
+import { fuzzyMatch } from './fuzzy';
+import { attributes } from './types';
 
-import * as BehaviorPack from "./minecraft/behavior-pack/main";
-import * as Minecraft from "./minecraft/code-actions";
-import * as Molang from "./minecraft/molang/main";
-import * as ResourcePack from "./minecraft/resource-pack/main";
+import * as BehaviorPack from './minecraft/behavior-pack/main';
+import * as Minecraft from './minecraft/code-actions';
+import * as Molang from './minecraft/molang/main';
+import * as ResourcePack from './minecraft/resource-pack/main';
 
 export class CodeActionService extends BaseService implements Partial<IService> {
-  name: string = "code-actions";
+  name: string = 'code-actions';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[code-actions]"), extension);
+    super(logger.withPrefix('[code-actions]'), extension);
   }
 
   onInitialize(capabilities: CapabilityBuilder): void {
-    capabilities.set("codeActionProvider", true);
+    capabilities.set('codeActionProvider', true);
   }
 
   setupHandlers(connection: Connection): void {
     this.addDisposable(
       connection.onCodeAction(this.onCodeAction.bind(this)),
-      connection.onCodeActionResolve(this.onCodeActionResolve.bind(this))
+      connection.onCodeActionResolve(this.onCodeActionResolve.bind(this)),
     );
   }
 
@@ -48,12 +48,12 @@ export class CodeActionService extends BaseService implements Partial<IService> 
   private async onCodeAction(
     params: CodeActionParams,
     token: CancellationToken,
-    workDoneProgress: WorkDoneProgressReporter
+    workDoneProgress: WorkDoneProgressReporter,
   ): Promise<(Command | CodeAction)[] | undefined | null> {
     const document = this.extension.documents.get(params.textDocument.uri);
     if (document === undefined) return;
 
-    this.logger.info("checking code actions", params);
+    this.logger.info('checking code actions', params);
 
     const context = Context.create<CodeActionContext>(
       this.extension,
@@ -65,7 +65,7 @@ export class CodeActionService extends BaseService implements Partial<IService> 
       },
       {
         logger: this.logger,
-      }
+      },
     );
 
     const builder = new CodeActionBuilder(params, context);
@@ -79,30 +79,30 @@ export class CodeActionService extends BaseService implements Partial<IService> 
 
     attributes(builder, diag);
 
-    const code = diag.code ?? "";
-    if (typeof code === "number") return;
+    const code = diag.code ?? '';
+    if (typeof code === 'number') return;
 
-    const index = code.indexOf(".");
+    const index = code.indexOf('.');
     const mainCode = index > -1 ? code.slice(0, index) : code;
 
     switch (mainCode) {
-      case "behaviorpack":
+      case 'behaviorpack':
         BehaviorPack.onCodeAction(builder, diag);
         break;
 
-      case "resourcepack":
+      case 'resourcepack':
         ResourcePack.onCodeAction(builder, diag);
         break;
 
-      case "minecraft":
+      case 'minecraft':
         Minecraft.onCodeAction(builder, diag);
         break;
 
-      case "molang":
+      case 'molang':
         Molang.onCodeAction(builder, diag);
         break;
 
-      case "mcfunction":
+      case 'mcfunction':
     }
 
     return fuzzyMatch(builder, diag);

@@ -1,13 +1,13 @@
-import { Command } from "bc-minecraft-bedrock-command";
-import { Json } from "../../../../internal";
-import { TextDocument } from "../../../../types";
-import { GeneralCollection } from "../../general";
+import { Command } from 'bc-minecraft-bedrock-command';
+import { Json } from '../../../../internal';
+import { TextDocument } from '../../../../types';
+import { GeneralCollection } from '../../general';
 
-import * as Internal from "../../../../internal";
-import * as Objective from "../objective/process";
-import * as Structure from "../structures/process";
-import * as Tag from "../tag/process";
-import * as TickingArea from "../tickingarea/process";
+import * as Internal from '../../../../internal';
+import * as Objective from '../objective/process';
+import * as Structure from '../structures/process';
+import * as Tag from '../tag/process';
+import * as TickingArea from '../tickingarea/process';
 
 /**
  *
@@ -17,7 +17,7 @@ import * as TickingArea from "../tickingarea/process";
  */
 export function ProcessMcFunction(doc: TextDocument, receiver: GeneralCollection): void {
   const text = doc.getText();
-  const lines = text.split("\n");
+  const lines = text.split('\n');
 
   for (let I = 0; I < lines.length; I++) {
     ProcessCommand(lines[I].trim(), doc, receiver);
@@ -39,7 +39,7 @@ export function ProcessAnimationCommands(doc: TextDocument, receiver: GeneralCol
   Object.values(imp.animations).forEach((anim) => {
     //For each timeline object
     Object.values(anim.timeline ?? {})
-      .flatMap((item) => (typeof item === "string" ? [item] : item))
+      .flatMap((item) => (typeof item === 'string' ? [item] : item))
       .forEach((time) => InternalJsonValue(time, doc, receiver));
   });
 }
@@ -70,7 +70,7 @@ export function processEntityCommands(doc: TextDocument, receiver: GeneralCollec
 
   if (!Internal.BehaviorPack.Entity.is(imp)) return;
 
-  Object.values(imp["minecraft:entity"]?.events ?? {})
+  Object.values(imp['minecraft:entity']?.events ?? {})
     .map((event) => event.queue_command?.command)
     .filter((comm) => comm !== undefined)
     .flatMap((comm) => (!Array.isArray(comm) ? [comm] : comm))
@@ -78,7 +78,7 @@ export function processEntityCommands(doc: TextDocument, receiver: GeneralCollec
 }
 
 function InternalJsonValue(prop: string, doc: TextDocument, receiver: GeneralCollection) {
-  if (prop.startsWith("/")) {
+  if (prop.startsWith('/')) {
     const offset = doc.getText().indexOf(prop);
 
     ProcessCommandAt(prop, offset, doc, receiver);
@@ -94,7 +94,7 @@ function InternalJsonValue(prop: string, doc: TextDocument, receiver: GeneralCol
  * @returns
  */
 export function ProcessCommand(line: string, doc: TextDocument, receiver: GeneralCollection): void {
-  if (line.startsWith("#") || line.length < 3) return;
+  if (line.startsWith('#') || line.length < 3) return;
 
   const offset = doc.getText().indexOf(line);
 
@@ -111,8 +111,8 @@ export function ProcessCommand(line: string, doc: TextDocument, receiver: Genera
  * @returns
  */
 export function ProcessCommandAt(line: string, offset: number, doc: TextDocument, receiver: GeneralCollection): void {
-  if (line.startsWith("#")) return;
-  if (line.startsWith("/")) line = line.substring(1);
+  if (line.startsWith('#')) return;
+  if (line.startsWith('/')) line = line.substring(1);
 
   let command: Command | undefined = Command.parse(line, offset);
 
@@ -120,19 +120,19 @@ export function ProcessCommandAt(line: string, offset: number, doc: TextDocument
     if (command.parameters.length === 0) break;
 
     switch (command != undefined && command.parameters[0].text) {
-      case "tag":
+      case 'tag':
         receiver.tags.set(Tag.process(command, doc));
         break;
 
-      case "scoreboard":
+      case 'scoreboard':
         Objective.process(command, doc, receiver);
         break;
 
-      case "structure":
+      case 'structure':
         receiver.structures.set(Structure.process(command, doc));
         break;
 
-      case "tickingarea":
+      case 'tickingarea':
         receiver.tickingAreas.set(TickingArea.process(command, doc));
         break;
     }

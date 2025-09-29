@@ -1,6 +1,6 @@
-import { hasCommandData } from "bc-minecraft-bedrock-command";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { Types } from "bc-minecraft-bedrock-types";
+import { hasCommandData } from 'bc-minecraft-bedrock-command';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { Types } from 'bc-minecraft-bedrock-types';
 
 /**
  *
@@ -12,8 +12,8 @@ export function minecraft_check_command(command: Types.OffsetWord, diagnoser: Di
 
   diagnoser.add(
     command,
-    "Command does not exist: " + command.text,
+    'Command does not exist: ' + command.text,
     DiagnosticSeverity.error,
-    "minecraft.commands.invalid"
+    'minecraft.commands.invalid',
   );
 }

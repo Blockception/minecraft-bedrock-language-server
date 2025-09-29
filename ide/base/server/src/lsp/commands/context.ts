@@ -1,4 +1,4 @@
-import { CancellationToken, ExecuteCommandParams, WorkDoneProgressReporter } from "vscode-languageserver";
+import { CancellationToken, ExecuteCommandParams, WorkDoneProgressReporter } from 'vscode-languageserver';
 import { Context } from '../context/context';
 
 export interface CommandContext extends ExecuteCommandParams {

@@ -1,4 +1,4 @@
 /*	Auto generated	*/
 
-export * from "./process";
-export * from "./structure";
+export * from './process';
+export * from './structure';

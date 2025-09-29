@@ -1,9 +1,9 @@
-import { MolangData, MolangFunction } from "bc-minecraft-molang";
-import { Hover, Range } from "vscode-languageserver";
-import { TextRange } from "../../../minecraft/json";
-import { Character } from "../../../util";
-import { Context } from "../../context/context";
-import { HoverContext } from "../context";
+import { MolangData, MolangFunction } from 'bc-minecraft-molang';
+import { Hover, Range } from 'vscode-languageserver';
+import { TextRange } from '../../../minecraft/json';
+import { Character } from '../../../util';
+import { Context } from '../../context/context';
+import { HoverContext } from '../context';
 
 export function provideHover(context: Context<HoverContext>): Hover | undefined {
   const { document, params } = context;
@@ -17,10 +17,10 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
 }
 
 export function provideHoverAt(
-  context: Pick<Context<HoverContext>, "document">,
+  context: Pick<Context<HoverContext>, 'document'>,
   currentText: string,
   textRange: TextRange,
-  cursor: number
+  cursor: number,
 ): Hover | undefined {
   let startIndex = cursor - textRange.start;
   let dotIndex = -1;
@@ -65,7 +65,7 @@ export function provideHoverAt(
 export function provideHoverSpecific(
   main: string,
   sub: string | undefined = undefined,
-  range: Range | undefined = undefined
+  range: Range | undefined = undefined,
 ): Hover | undefined {
   switch (main) {
     //TODO animations
@@ -74,32 +74,32 @@ export function provideHoverSpecific(
     //TODO texture
     //TODO material
 
-    case "c":
-    case "context":
+    case 'c':
+    case 'context':
       if (sub) return findGen(sub, range, MolangData.Entities.Contexts);
-      return { contents: "Molang context", range: range };
+      return { contents: 'Molang context', range: range };
 
-    case "m":
-    case "math":
+    case 'm':
+    case 'math':
       if (sub) return findGen(sub, range, MolangData.General.Math);
-      return { contents: "Molang math", range: range };
+      return { contents: 'Molang math', range: range };
 
-    case "q":
-    case "query":
+    case 'q':
+    case 'query':
       if (sub) return findGen(sub, range, MolangData.General.Queries);
-      return { contents: "Molang query", range: range };
+      return { contents: 'Molang query', range: range };
 
-    case "v":
-    case "variable":
+    case 'v':
+    case 'variable':
       //TODO go through ProjectData
       if (sub) return findGen(sub, range, MolangData.Entities.Variables);
-      return { contents: "Molang variable", range: range };
+      return { contents: 'Molang variable', range: range };
 
-    case "t":
-    case "temp":
+    case 't':
+    case 'temp':
       //TODO go through ProjectData
       if (sub) return findGen(sub, range, MolangData.Entities.Temps);
-      return { contents: "Molang temp", range: range };
+      return { contents: 'Molang temp', range: range };
   }
 
   return undefined;
@@ -113,24 +113,24 @@ function findGen(data: string, range: Range | undefined = undefined, items: Mola
       let doc = `${item.id}  \n\n${item.documentation}`;
 
       if (item.parameters) {
-        doc += `\n\n**Parameters**:\n\n${item.parameters.map((p) => `- ${p.id}\n`).join("")}`;
+        doc += `\n\n**Parameters**:\n\n${item.parameters.map((p) => `- ${p.id}\n`).join('')}`;
       }
       if (item.deprecated) {
-        if (item.deprecated.startsWith("query") || item.deprecated.startsWith("math")) {
-          doc = "\n\n**Deprecated**: replace with: " + item.deprecated;
+        if (item.deprecated.startsWith('query') || item.deprecated.startsWith('math')) {
+          doc = '\n\n**Deprecated**: replace with: ' + item.deprecated;
         } else {
-          doc = "\n\n**Deprecated**: " + item.deprecated;
+          doc = '\n\n**Deprecated**: ' + item.deprecated;
         }
       }
       let syntax = item.id;
       if (item.parameters) {
-        syntax += `(${item.parameters.map((i) => `<${i.id}>`).join(", ")})`;
+        syntax += `(${item.parameters.map((i) => `<${i.id}>`).join(', ')})`;
       }
 
       return {
         contents: {
           value: `${syntax}\n---\n${doc}`,
-          kind: "markdown",
+          kind: 'markdown',
         },
         range: range,
       };

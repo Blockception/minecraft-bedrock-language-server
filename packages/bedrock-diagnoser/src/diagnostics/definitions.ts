@@ -1,11 +1,11 @@
-import { Definition } from "bc-minecraft-project";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../types";
+import { Definition } from 'bc-minecraft-project';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../types';
 
 /**Returns if the project has education enabled
  * @param diagnoser The diagnostics builder to add the errors to
  * @returns True if education is enabled, false if not*/
 export function education_enabled(diagnoser: DiagnosticsBuilder): boolean {
-  return diagnoser.project.attributes["education.enable"] === "true";
+  return diagnoser.project.attributes['education.enable'] === 'true';
 }
 
 /**Checks if the Definition has the given value, if it has then return `true`, if it also excluded will report it to the diagnoser.
@@ -17,7 +17,7 @@ export function education_enabled(diagnoser: DiagnosticsBuilder): boolean {
 export function check_definition_value(
   container: Definition | undefined,
   value: string,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   if (Definition.is(container)) {
     //Is defined
@@ -27,9 +27,9 @@ export function check_definition_value(
     if (container.excluded.includes(value)) {
       diagnoser.add(
         value,
-        "Value has been blacklisted through the project files",
+        'Value has been blacklisted through the project files',
         DiagnosticSeverity.error,
-        "project.excluded"
+        'project.excluded',
       );
 
       return true;

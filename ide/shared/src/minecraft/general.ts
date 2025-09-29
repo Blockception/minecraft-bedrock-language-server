@@ -1,5 +1,5 @@
-import { readdirSync } from "fs";
-import path from "path";
+import { readdirSync } from 'fs';
+import path from 'path';
 
 export function findInFolder(base: string, find: string): string | undefined {
   const folders = readdirSync(base);

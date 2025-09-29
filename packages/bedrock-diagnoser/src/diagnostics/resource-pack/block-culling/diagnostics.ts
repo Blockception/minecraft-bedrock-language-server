@@ -1,5 +1,5 @@
-import { DefinitionItem } from "bc-minecraft-bedrock-project";
-import { DiagnosticSeverity, DiagnosticsBuilder } from "../../../types";
+import { DefinitionItem } from 'bc-minecraft-bedrock-project';
+import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
 
 export function diagnose_block_culling_geo_and_rules(geoId: string, cullingId: string, diagnoser: DiagnosticsBuilder) {
   const resources = diagnoser.context.getProjectData().resources;
@@ -23,7 +23,7 @@ export function diagnose_block_culling_geo_and_rules(geoId: string, cullingId: s
       cullingId,
       `The geometry '${geoId}' does not contain the bone '${bone}' as defined in the culling rule '${cullingId}'`,
       DiagnosticSeverity.warning,
-      "resourcepack.block_culling.missing_bone"
+      'resourcepack.block_culling.missing_bone',
     );
   });
 }

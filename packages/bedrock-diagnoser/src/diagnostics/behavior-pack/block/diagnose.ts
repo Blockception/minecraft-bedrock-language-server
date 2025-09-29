@@ -1,7 +1,7 @@
-import { Minecraft, Types } from "bc-minecraft-bedrock-types";
-import { Errors } from "../..";
-import { DiagnosticsBuilder } from "../../../types";
-import { behaviorpack_check_blockstates } from "../block-state/diagnose";
+import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
+import { Errors } from '../..';
+import { DiagnosticsBuilder } from '../../../types';
+import { behaviorpack_check_blockstates } from '../block-state/diagnose';
 
 /**
  *
@@ -10,7 +10,7 @@ import { behaviorpack_check_blockstates } from "../block-state/diagnose";
  */
 export function behaviorpack_check_blockdescriptor(
   blockDescriptor: Types.OffsetWord,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): void {
   behaviorpack_check_blockid_from_descriptor(blockDescriptor, diagnoser);
   behaviorpack_check_blockstates(blockDescriptor, diagnoser);
@@ -18,7 +18,7 @@ export function behaviorpack_check_blockdescriptor(
 
 export function behaviorpack_check_blockid_from_descriptor(
   blockDescriptor: Types.OffsetWord,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   return is_block_defined(Minecraft.Block.getId(blockDescriptor.text), diagnoser);
 }
@@ -32,7 +32,7 @@ export function is_block_defined(id: string, diagnoser: DiagnosticsBuilder): boo
   //Project has block
   const anim = diagnoser.context.getProjectData().behaviors.blocks.get(id, diagnoser.project);
   if (anim === undefined) {
-    Errors.missing("behaviors", "blocks", id, diagnoser);
+    Errors.missing('behaviors', 'blocks', id, diagnoser);
     return false;
   }
   return true;

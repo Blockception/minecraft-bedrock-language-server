@@ -1,13 +1,13 @@
-import { DataSetConnector, Pack, ProjectData } from "bc-minecraft-bedrock-project";
-import { Types } from "bc-minecraft-bedrock-types";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Identifiable } from "bc-minecraft-bedrock-vanilla-data/src/lib/types";
-import { DiagnosticsBuilder } from "../types";
-import { education_enabled } from "../diagnostics";
+import { DataSetConnector, Pack, ProjectData } from 'bc-minecraft-bedrock-project';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { Identifiable } from 'bc-minecraft-bedrock-vanilla-data/src/lib/types';
+import { DiagnosticsBuilder } from '../types';
+import { education_enabled } from '../diagnostics';
 
 export type ItemBase = Identifiable & Types.Locatable;
 
-export type PackType = keyof Pick<typeof MinecraftData, "BehaviorPack" | "ResourcePack">;
+export type PackType = keyof Pick<typeof MinecraftData, 'BehaviorPack' | 'ResourcePack'>;
 
 export type VanillaTypes = {
   BehaviorPack: keyof typeof MinecraftData.BehaviorPack;
@@ -25,7 +25,7 @@ export class Storage {
 
   private exporter<T extends ItemBase, V, U extends Pack>(
     cache?: DataSetConnector<T, U>,
-    vanilla?: (id: string, edu: boolean) => V
+    vanilla?: (id: string, edu: boolean) => V,
   ): Exporter<T, V, U> {
     return new Exporter(cache, vanilla, this.useEducation);
   }
@@ -43,7 +43,7 @@ export class Storage {
   }
 
   get behavior_pack() {
-    return this.singleton("__bp", () => {
+    return this.singleton('__bp', () => {
       return {
         animations: this.exporter(this.cache.behaviorPacks.animations),
         animation_controllers: this.exporter(this.cache.behaviorPacks.animation_controllers),
@@ -59,12 +59,12 @@ export class Storage {
   }
 
   get resource_pack() {
-    return this.singleton("__rp", () => {
+    return this.singleton('__rp', () => {
       return {
         animations: this.exporter(this.cache.resourcePacks.animations, MinecraftData.ResourcePack.getAnimation),
         animation_controllers: this.exporter(
           this.cache.resourcePacks.animation_controllers,
-          MinecraftData.ResourcePack.getAnimationController
+          MinecraftData.ResourcePack.getAnimationController,
         ),
         attachables: this.exporter(this.cache.resourcePacks.attachables),
         block_culling_rules: this.exporter(this.cache.resourcePacks.block_culling_rules),
@@ -75,7 +75,7 @@ export class Storage {
         particles: this.exporter(this.cache.resourcePacks.particles, MinecraftData.ResourcePack.getParticle),
         render_controllers: this.exporter(
           this.cache.resourcePacks.render_controllers,
-          MinecraftData.ResourcePack.getRenderController
+          MinecraftData.ResourcePack.getRenderController,
         ),
         sounds: this.exporter(this.cache.resourcePacks.sounds, MinecraftData.ResourcePack.getSound),
         textures: this.exporter(this.cache.resourcePacks.textures, MinecraftData.ResourcePack.getTexture),
@@ -89,7 +89,7 @@ export class Storage {
 }
 
 export class Exporter<T extends ItemBase, V, U extends Pack> {
-  private _cache: Pick<DataSetConnector<T, U>, "get">;
+  private _cache: Pick<DataSetConnector<T, U>, 'get'>;
   private _useEducation: boolean;
   private _vanilla: (id: string, edu: boolean) => V | undefined;
 

@@ -1,4 +1,4 @@
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export type Depended = string | RegExp;
 export type DependedMap = Record<string, Depended[]>;
@@ -22,7 +22,7 @@ export function components_dependencies<T>(
   context: Context<T>,
   diagnoser: DiagnosticsBuilder,
   component_dependents_all: DependedMap,
-  component_dependents_any: DependedMap
+  component_dependents_any: DependedMap,
 ): void {
   const components = context.components;
 
@@ -63,7 +63,7 @@ export function checkAll(
         dependent,
         `Component: '${dependent}' requires a '${need}' component to be present`,
         DiagnosticSeverity.error,
-        `behaviorpack.${owner}.component.missing`
+        `behaviorpack.${owner}.component.missing`,
       );
     }
   }
@@ -96,15 +96,15 @@ export function checkAny(
   diagnoser.add(
     dependent,
     `Component: '${dependent}' requires one of the following components: '${JSON.stringify(
-      needs.map((n) => n.toString()).join(",")
+      needs.map((n) => n.toString()).join(','),
     )}'`,
     DiagnosticSeverity.error,
-    `behaviorpack.${owner}.component.missing`
+    `behaviorpack.${owner}.component.missing`,
   );
 }
 
 function isMatch(needs: Depended, components: string[]): boolean {
-  if (typeof needs === "string") return components.includes(needs);
+  if (typeof needs === 'string') return components.includes(needs);
 
   return components.findIndex((c) => needs.test(c)) !== -1;
 }

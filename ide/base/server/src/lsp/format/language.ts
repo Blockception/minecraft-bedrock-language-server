@@ -1,10 +1,10 @@
-import { DocumentFormattingParams, DocumentRangeFormattingParams, FormattingOptions } from "vscode-languageserver";
-import { TextEdit } from "vscode-languageserver-textdocument";
-import { TrimEndFromLine, TrimStartFromLine } from "../../util";
-import { Context } from "../context/context";
-import { TextDocument } from "../documents/text-document";
-import { ProgressBar } from "../progress";
-import { FormatContext } from "./context";
+import { DocumentFormattingParams, DocumentRangeFormattingParams, FormattingOptions } from 'vscode-languageserver';
+import { TextEdit } from 'vscode-languageserver-textdocument';
+import { TrimEndFromLine, TrimStartFromLine } from '../../util';
+import { Context } from '../context/context';
+import { TextDocument } from '../documents/text-document';
+import { ProgressBar } from '../progress';
+import { FormatContext } from './context';
 
 export function formatLangauge(context: Context<FormatContext>, params: DocumentFormattingParams): TextEdit[] {
   const formatter = new LanguageFormatter(params, context);
@@ -13,7 +13,7 @@ export function formatLangauge(context: Context<FormatContext>, params: Document
 
 export function formatLangaugeRange(
   context: Context<FormatContext>,
-  params: DocumentRangeFormattingParams
+  params: DocumentRangeFormattingParams,
 ): TextEdit[] {
   const formatter = new LanguageFormatter(params, context);
   const startLine = params.range.start.line;
@@ -40,12 +40,12 @@ class LanguageFormatter {
       if (this.context.token.isCancellationRequested) break;
       const line = document.getLine(index);
 
-      TrimStartFromLine(line, index, result, [" ", "\t"]);
+      TrimStartFromLine(line, index, result, [' ', '\t']);
       if (this.options.trimTrailingWhitespace) {
         //TODO: check if line doesn't end with \r\n or \n
-        TrimEndFromLine(line, index, result, [" ", "\t"]);
+        TrimEndFromLine(line, index, result, [' ', '\t']);
       }
-  
+
       //TODO: this.options.insertFinalNewline
       //TODO: this.options.trimFinalNewlines
     }

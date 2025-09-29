@@ -9,10 +9,10 @@ import {
   TextDocumentEdit,
   TextEdit,
   WorkspaceEdit,
-} from "vscode-languageserver";
+} from 'vscode-languageserver';
 import { exists } from '../../io/io';
-import { Fs, Vscode } from "../../util";
-import { IExtensionContext } from "../extension";
+import { Fs, Vscode } from '../../util';
+import { IExtensionContext } from '../extension';
 
 export class TemplateBuilder {
   private receiver: (TextDocumentEdit | CreateFile | RenameFile | DeleteFile)[];
@@ -34,13 +34,13 @@ export class TemplateBuilder {
   }
 
   createFile(uri: string, body: string): void {
-    if (uri.startsWith("file:\\")) uri = uri.replace(/\\/gi, "/");
+    if (uri.startsWith('file:\\')) uri = uri.replace(/\\/gi, '/');
 
     const path = Fs.FromVscode(uri);
     uri = Vscode.fromFs(path);
 
     if (exists(path, this.context.logger)) {
-      this.context.logger.info("creation of file skipped because it already exists: " + path);
+      this.context.logger.info('creation of file skipped because it already exists: ' + path);
       return;
     }
 
@@ -49,7 +49,7 @@ export class TemplateBuilder {
       range: Range.create(0, 0, 0, 0),
     };
 
-    this.context.logger.info("creating: " + path);
+    this.context.logger.info('creating: ' + path);
     const document = OptionalVersionedTextDocumentIdentifier.create(uri, null);
     this.receiver.push(CreateFile.create(uri, this.options), TextDocumentEdit.create(document, [content]));
   }
@@ -60,10 +60,10 @@ export class TemplateBuilder {
     const keys = Object.getOwnPropertyNames(response);
 
     if (keys.length === 1) {
-      this.context.logger.info("Workspace edit was not applied, possibly of already existing data");
+      this.context.logger.info('Workspace edit was not applied, possibly of already existing data');
       return;
     }
 
-    this.context.logger.error("Workspace edit failed", response);
+    this.context.logger.error('Workspace edit failed', response);
   }
 }

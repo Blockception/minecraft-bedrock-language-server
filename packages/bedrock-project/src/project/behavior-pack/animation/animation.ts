@@ -1,6 +1,6 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MolangSet } from "bc-minecraft-molang";
-import { Using } from "../../../types";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MolangSet } from 'bc-minecraft-molang';
+import { Using } from '../../../types';
 
 //TODO add events
 

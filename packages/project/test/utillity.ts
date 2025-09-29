@@ -1,3 +1,3 @@
-import * as path from "path";
+import * as path from 'path';
 
-export const TestFilesFolder = path.join(__dirname, "..", "test", "files");
+export const TestFilesFolder = path.join(__dirname, '..', 'test', 'files');

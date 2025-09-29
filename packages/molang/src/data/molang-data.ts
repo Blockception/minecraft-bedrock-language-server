@@ -1,14 +1,14 @@
-import { Animations as MAnimations } from "./animations";
-import { AnimationsControllers as MAnimationsControllers } from "./animations-controllers";
-import { Attachables as MAttachables } from "./attachables";
-import { Blocks as MBlocks } from "./blocks";
-import { Data } from "./data";
-import { Entities as MEntities } from "./entities";
-import { FeaturesRules as MFeaturesRules } from "./features-rules";
-import { General as MGeneral } from "./general";
-import { Items as MItems } from "./items";
-import { Particles as MParticles } from "./particles";
-import { RenderControllers as MRenderControllers } from "./render-controllers";
+import { Animations as MAnimations } from './animations';
+import { AnimationsControllers as MAnimationsControllers } from './animations-controllers';
+import { Attachables as MAttachables } from './attachables';
+import { Blocks as MBlocks } from './blocks';
+import { Data } from './data';
+import { Entities as MEntities } from './entities';
+import { FeaturesRules as MFeaturesRules } from './features-rules';
+import { General as MGeneral } from './general';
+import { Items as MItems } from './items';
+import { Particles as MParticles } from './particles';
+import { RenderControllers as MRenderControllers } from './render-controllers';
 
 /**Molang data for all types*/
 export interface MolangDataSet {
@@ -55,13 +55,13 @@ export namespace MolangData {
  * The list of all types
  */
 export type MolangDataSetKey =
-  | "Animations"
-  | "AnimationsControllers"
-  | "Attachables"
-  | "Blocks"
-  | "Entities"
-  | "FeaturesRules"
-  | "General"
-  | "Items"
-  | "Particles"
-  | "RenderControllers";
+  | 'Animations'
+  | 'AnimationsControllers'
+  | 'Attachables'
+  | 'Blocks'
+  | 'Entities'
+  | 'FeaturesRules'
+  | 'General'
+  | 'Items'
+  | 'Particles'
+  | 'RenderControllers';

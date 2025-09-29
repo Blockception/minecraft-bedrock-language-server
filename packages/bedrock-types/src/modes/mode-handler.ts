@@ -1,4 +1,4 @@
-import { Mode, ModeCollection } from "./mode-collection";
+import { Mode, ModeCollection } from './mode-collection';
 
 /**TODO add documentation
  *

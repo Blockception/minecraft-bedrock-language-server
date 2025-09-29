@@ -1,6 +1,6 @@
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { Types } from "bc-minecraft-bedrock-types";
-import { Text } from "bc-minecraft-bedrock-project";
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Text } from 'bc-minecraft-bedrock-project';
 
 export function minecraft_fakentity_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
   const data = diagnoser.context.getProjectData().projectData;
@@ -14,6 +14,6 @@ export function minecraft_fakentity_diagnose(value: Types.OffsetWord, diagnoser:
     value,
     `Cannot find fake entity definition: ${id}`,
     DiagnosticSeverity.error,
-    "minecraft.fakeentity.missing"
+    'minecraft.fakeentity.missing',
   );
 }

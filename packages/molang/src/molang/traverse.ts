@@ -1,4 +1,4 @@
-import { isMolangType, MolangType } from "./functions";
+import { isMolangType, MolangType } from './functions';
 
 /**
  * Traverses the object and returns all the molang strings
@@ -8,18 +8,18 @@ import { isMolangType, MolangType } from "./functions";
 export function traverse(
   obj: any,
   callbackfn: (molang: string, type: MolangType, path: string) => void,
-  path: string = "$"
+  path: string = '$',
 ): void {
-  if (!path.endsWith("/")) path += "/";
+  if (!path.endsWith('/')) path += '/';
 
   switch (typeof obj) {
     default:
       return;
 
-    case "string":
+    case 'string':
       return StringCheck(obj, callbackfn, path);
 
-    case "object":
+    case 'object':
       if (Array.isArray(obj)) {
         for (let I = 0; I < obj.length; I++) {
           traverse(obj[I], callbackfn, path + I);
@@ -39,7 +39,7 @@ export function traverse(
 function StringCheck(
   data: string,
   callbackfn: (molang: string, type: MolangType, path: string) => void,
-  path: string = ""
+  path: string = '',
 ): void {
   const type = isMolangType(data);
 

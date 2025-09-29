@@ -1,10 +1,10 @@
-import { MinecraftData } from "../../src";
+import { MinecraftData } from '../../src';
 
-describe("Sanity", () => {
-  it("No undefined", () => {
+describe('Sanity', () => {
+  it('No undefined', () => {
     const object = MinecraftData;
 
-    traverse_for_undefined(object, "MinecraftData");
+    traverse_for_undefined(object, 'MinecraftData');
   });
 });
 
@@ -18,6 +18,6 @@ function traverse_for_undefined(data: any, path: string): void {
 
     expect(t).toBeDefined();
 
-    if (t === "object") traverse_for_undefined(item, path + "." + name);
+    if (t === 'object') traverse_for_undefined(item, path + '.' + name);
   }
 }

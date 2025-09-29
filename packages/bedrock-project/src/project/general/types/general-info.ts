@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { Types } from "bc-minecraft-bedrock-types";
-import { Text } from "../../../types";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Text } from '../../../types';
 
 /**
  *
@@ -21,7 +21,7 @@ export namespace GeneralInfo {
   export function create(
     id: string,
     location: Types.Location,
-    documentation: string | undefined = undefined
+    documentation: string | undefined = undefined,
   ): GeneralInfo {
     id = Text.UnQuote(id);
 

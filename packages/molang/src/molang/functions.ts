@@ -30,7 +30,7 @@ export function isMolangType(data: string): MolangType {
 }
 
 export function isMolang(data: string) {
-  return molangRegexp.test(data) && data !== "this";
+  return molangRegexp.test(data) && data !== 'this';
 }
 
 /**
@@ -56,15 +56,15 @@ export function isValidMolang(molang: string): boolean {
         instr = !instr;
         break;
 
-      case "[":
-      case "{":
-      case "(":
+      case '[':
+      case '{':
+      case '(':
         if (!instr) level++;
         break;
 
-      case "]":
-      case ")":
-      case "}":
+      case ']':
+      case ')':
+      case '}':
         if (!instr) level--;
         break;
     }
@@ -97,15 +97,15 @@ export function find(molang: string, startIndex: number, find: string): number {
       case "'":
         instr = !instr;
 
-      case "[":
-      case "{":
-      case "(":
+      case '[':
+      case '{':
+      case '(':
         if (!instr) level++;
         break;
 
-      case "]":
-      case ")":
-      case "}":
+      case ']':
+      case ')':
+      case '}':
         if (!instr) level--;
         break;
     }

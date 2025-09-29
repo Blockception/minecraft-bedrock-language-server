@@ -1,20 +1,20 @@
-import { MCProject } from "bc-minecraft-project";
-import { Manifest } from "../../internal/types";
-import { DataSetConnector, PackCollection } from "../../types";
-import { ResourcePack } from "./resource-pack";
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../../internal/types';
+import { DataSetConnector, PackCollection } from '../../types';
+import { ResourcePack } from './resource-pack';
 
-import * as Animation from "./animation";
-import * as AnimationController from "./animation-controller";
-import * as Attachable from "./attachable";
-import * as BlockCulling from "./block-culling";
-import * as Entity from "./entity";
-import * as Fog from "./fog";
-import * as Material from "./material";
-import * as Model from "./model";
-import * as Particle from "./particle";
-import * as RenderController from "./render-controller";
-import * as Sound from "./sound";
-import * as Texture from "./texture";
+import * as Animation from './animation';
+import * as AnimationController from './animation-controller';
+import * as Attachable from './attachable';
+import * as BlockCulling from './block-culling';
+import * as Entity from './entity';
+import * as Fog from './fog';
+import * as Material from './material';
+import * as Model from './model';
+import * as Particle from './particle';
+import * as RenderController from './render-controller';
+import * as Sound from './sound';
+import * as Texture from './texture';
 
 /** */
 export class ResourcePackCollection extends PackCollection<ResourcePack> {

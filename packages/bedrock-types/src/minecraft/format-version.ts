@@ -14,19 +14,19 @@ export namespace FormatVersion {
    * @returns The parsed format version.
    */
   export function parse(data: string): Version {
-    if (data === "") return [0, 0, 0];
+    if (data === '') return [0, 0, 0];
 
-    const parts = data.split(".");
+    const parts = data.split('.');
 
-    const major = parseInt(parts[0] ?? "0");
-    const minor = parseInt(parts[1] ?? "0");
-    const patch = parseInt(parts[2] ?? "0");
+    const major = parseInt(parts[0] ?? '0');
+    const minor = parseInt(parts[1] ?? '0');
+    const patch = parseInt(parts[2] ?? '0');
 
     return [major, minor, patch];
   }
 
   export function unwrap(value: Version | FormatVersion): Version {
-    if (typeof value === "string") return parse(value);
+    if (typeof value === 'string') return parse(value);
 
     return value;
   }

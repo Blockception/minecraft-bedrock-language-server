@@ -1,8 +1,8 @@
-import { Manifest } from "bc-minecraft-bedrock-project/src/internal/types";
-import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
-import { Json } from "../../json/json";
-import { minecraft_manifest_diagnose, minecraft_manifest_required_module } from "../../minecraft/manifest";
+import { Manifest } from 'bc-minecraft-bedrock-project/src/internal/types';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { Json } from '../../json/json';
+import { minecraft_manifest_diagnose, minecraft_manifest_required_module } from '../../minecraft/manifest';
 
 /**
  * Diagnoses the given document as an bp manifest
@@ -10,10 +10,10 @@ import { minecraft_manifest_diagnose, minecraft_manifest_required_module } from 
  * @param diagnoser The diagnoser builder to receive the errors*/
 export function diagnose_manifest(diagnoser: DocumentDiagnosticsBuilder): void {
   const manifest = Json.LoadReport<Manifest>(diagnoser);
-  if (!Json.TypeCheck(manifest, diagnoser, "manifest", "minecraft.manifest.invalid", Manifest.is)) return;
+  if (!Json.TypeCheck(manifest, diagnoser, 'manifest', 'minecraft.manifest.invalid', Manifest.is)) return;
 
   minecraft_manifest_diagnose(manifest, diagnoser);
-  minecraft_manifest_required_module(manifest, diagnoser, "data", "javascript", "script");
+  minecraft_manifest_required_module(manifest, diagnoser, 'data', 'javascript', 'script');
 
   //BP specific
   check_min_engine_version(manifest.header.min_engine_version, diagnoser);
@@ -21,7 +21,7 @@ export function diagnose_manifest(diagnoser: DocumentDiagnosticsBuilder): void {
 
 function check_min_engine_version(
   version: number[] | string | Types.Version | undefined,
-  diagnoser: DocumentDiagnosticsBuilder
+  diagnoser: DocumentDiagnosticsBuilder,
 ): void {
   const pack = diagnoser.context.getProjectData().projectData.behaviorPacks.get(diagnoser.document);
 
@@ -36,9 +36,9 @@ function check_min_engine_version(
   }
 
   return diagnoser.add(
-    "header",
+    'header',
     "Behaviorpacks with mcfunctions need `min_engine_version` of at-least value: '1.8.0'",
     DiagnosticSeverity.error,
-    "behaviorpack.manifest.min_engine_version"
+    'behaviorpack.manifest.min_engine_version',
   );
 }

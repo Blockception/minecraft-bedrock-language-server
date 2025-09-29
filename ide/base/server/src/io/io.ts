@@ -1,5 +1,5 @@
-import { existsSync, lstatSync } from "fs";
-import { IExtendedLogger } from "../lsp/logger/logger";
+import { existsSync, lstatSync } from 'fs';
+import { IExtendedLogger } from '../lsp/logger/logger';
 
 export function isDirectory(path: string, logger: IExtendedLogger): boolean {
   try {

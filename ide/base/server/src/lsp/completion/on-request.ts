@@ -1,12 +1,12 @@
-import { Languages } from "@blockception/ide-shared";
-import { Context } from "../context/context";
-import { CompletionContext } from "./context";
+import { Languages } from '@blockception/ide-shared';
+import { Context } from '../context/context';
+import { CompletionContext } from './context';
 
-import * as Json from "./minecraft/json/document";
-import * as Language from "./minecraft/language/language";
-import * as Mcfunction from "./minecraft/mcfunctions/mcfunctions";
-import * as MCProject from "./minecraft/mcproject/mcproject";
-import * as Molang from "./minecraft/molang/main";
+import * as Json from './minecraft/json/document';
+import * as Language from './minecraft/language/language';
+import * as Mcfunction from './minecraft/mcfunctions/mcfunctions';
+import * as MCProject from './minecraft/mcproject/mcproject';
+import * as Molang from './minecraft/molang/main';
 
 export function onCompletionRequest(context: Context<CompletionContext>) {
   switch (context.document.languageId) {

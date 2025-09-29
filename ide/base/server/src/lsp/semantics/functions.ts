@@ -1,7 +1,7 @@
-import { LocationWord, OffsetWord, RangedWord } from "bc-vscode-words";
-import { Range } from "vscode-languageserver";
-import { McfunctionSemanticTokensBuilder } from "./builders/mcfunction";
-import { SemanticModifiersEnum, SemanticTokensEnum } from "./constants";
+import { LocationWord, OffsetWord, RangedWord } from 'bc-vscode-words';
+import { Range } from 'vscode-languageserver';
+import { McfunctionSemanticTokensBuilder } from './builders/mcfunction';
+import { SemanticModifiersEnum, SemanticTokensEnum } from './constants';
 
 /**
  *
@@ -10,12 +10,12 @@ import { SemanticModifiersEnum, SemanticTokensEnum } from "./constants";
  */
 export function CreateRangeTokensWord(
   word: LocationWord | RangedWord | OffsetWord,
-  builder: McfunctionSemanticTokensBuilder
+  builder: McfunctionSemanticTokensBuilder,
 ): void {
   if (OffsetWord.is(word)) {
     const range = Range.create(
       builder.document.positionAt(word.offset),
-      builder.document.positionAt(word.offset + word.text.length)
+      builder.document.positionAt(word.offset + word.text.length),
     );
     word = new RangedWord(word.text, range);
   } else if (LocationWord.is(word)) {
@@ -35,18 +35,18 @@ export function CreateRangeTokens(word: RangedWord, builder: McfunctionSemanticT
   let value = word.text;
   let start = word.range.start.character;
 
-  if (value.startsWith("~-") || value.startsWith("~+") || value.startsWith("^-") || value.startsWith("^+")) {
+  if (value.startsWith('~-') || value.startsWith('~+') || value.startsWith('^-') || value.startsWith('^+')) {
     builder.AddAt(word.range.start.line, start, 2, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
     value = value.substring(2);
     start += 2;
   } else if (
-    value.startsWith("~") ||
-    value.startsWith("^") ||
-    value.startsWith("-") ||
-    value.startsWith("+") ||
-    value.startsWith("+") ||
-    value.startsWith("!")
+    value.startsWith('~') ||
+    value.startsWith('^') ||
+    value.startsWith('-') ||
+    value.startsWith('+') ||
+    value.startsWith('+') ||
+    value.startsWith('!')
   ) {
     builder.AddAt(word.range.start.line, start, 1, SemanticTokensEnum.operator, SemanticModifiersEnum.readonly);
 
@@ -54,9 +54,9 @@ export function CreateRangeTokens(word: RangedWord, builder: McfunctionSemanticT
     start++;
   }
 
-  if (value === "") return;
+  if (value === '') return;
 
-  const range = value.indexOf("..");
+  const range = value.indexOf('..');
   const line = word.range.start.line;
 
   if (range >= 0) {
@@ -65,23 +65,23 @@ export function CreateRangeTokens(word: RangedWord, builder: McfunctionSemanticT
 
     //Builder.AddAt(Line, start + Range, 1, SemanticTokensEnum.operator);
 
-    if (first && first !== "") {
+    if (first && first !== '') {
       builder.AddAt(
         line,
         start + value.indexOf(first),
         first.length,
         SemanticTokensEnum.number,
-        SemanticModifiersEnum.readonly
+        SemanticModifiersEnum.readonly,
       );
     }
 
-    if (second && second !== "") {
+    if (second && second !== '') {
       builder.AddAt(
         line,
         start + value.indexOf(second),
         second.length,
         SemanticTokensEnum.number,
-        SemanticModifiersEnum.readonly
+        SemanticModifiersEnum.readonly,
       );
     }
   } else {
@@ -102,7 +102,7 @@ export function CreateNamespaced(word: OffsetWord, builder: McfunctionSemanticTo
     return;
   }
 
-  let index = text.indexOf(":");
+  let index = text.indexOf(':');
 
   if (index >= 0) {
     index += word.offset;

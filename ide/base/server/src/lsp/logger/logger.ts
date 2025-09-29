@@ -1,15 +1,15 @@
-import { RemoteConsole } from "vscode-languageserver";
-import { getFilename } from "../../util";
+import { RemoteConsole } from 'vscode-languageserver';
+import { getFilename } from '../../util';
 
-export type ILogger = Pick<RemoteConsole, "error" | "warn" | "info" | "log" | "debug">;
-export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger | "with" | "withPrefix" | "recordError">;
+export type ILogger = Pick<RemoteConsole, 'error' | 'warn' | 'info' | 'log' | 'debug'>;
+export type IExtendedLogger = Pick<ExtendedLogger, keyof ILogger | 'with' | 'withPrefix' | 'recordError'>;
 
 export class ExtendedLogger implements IExtendedLogger {
   private logger: ILogger;
   private prefix: string;
   private additionals: any[];
 
-  constructor(logger: ILogger, prefix: string = "", additionals: any[] = []) {
+  constructor(logger: ILogger, prefix: string = '', additionals: any[] = []) {
     this.logger = logger;
     this.prefix = prefix;
     this.additionals = additionals;
@@ -17,10 +17,10 @@ export class ExtendedLogger implements IExtendedLogger {
 
   private render(base: string, ...messages: any[]): string {
     messages = [...messages, ...this.additionals].map((m) =>
-      typeof m === "object" ? JSON.stringify(m, undefined, 2) : `${m}`
+      typeof m === 'object' ? JSON.stringify(m, undefined, 2) : `${m}`,
     );
 
-    return `${this.prefix} ${base} ${messages.join(" ")}`.trim();
+    return `${this.prefix} ${base} ${messages.join(' ')}`.trim();
   }
 
   /**
@@ -96,7 +96,7 @@ export class ExtendedLogger implements IExtendedLogger {
     }
 
     if (doc) {
-      msg = getFilename(typeof doc === "object" ? doc.uri : doc) + " | " + msg;
+      msg = getFilename(typeof doc === 'object' ? doc.uri : doc) + ' | ' + msg;
     }
 
     this.error(msg);
@@ -110,8 +110,8 @@ interface errormsg {
 
 namespace errormsg {
   export function is(value: any): value is errormsg {
-    if (typeof value === "object") {
-      if (typeof value.message === "string" && typeof value.stack === "string") return true;
+    if (typeof value === 'object') {
+      if (typeof value.message === 'string' && typeof value.stack === 'string') return true;
     }
 
     return false;

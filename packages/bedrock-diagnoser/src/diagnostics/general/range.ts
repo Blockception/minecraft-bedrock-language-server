@@ -1,7 +1,7 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
-import { general_float_diagnose } from "./float";
-import { general_integer_diagnose } from "./integer";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
+import { general_float_diagnose } from './float';
+import { general_integer_diagnose } from './integer';
 
 /**
  * Diagnoses a range integer value
@@ -13,12 +13,12 @@ import { general_integer_diagnose } from "./integer";
 export function general_range_integer_diagnose(
   value: Types.OffsetWord,
   diagnoser: DiagnosticsBuilder,
-  range?: { min: number; max: number }
+  range?: { min: number; max: number },
 ): boolean {
   let upper = Number.MAX_SAFE_INTEGER;
   let lower = Number.MIN_SAFE_INTEGER;
 
-  const index = value.text.indexOf("..");
+  const index = value.text.indexOf('..');
 
   //has ..
   if (index >= 0) {
@@ -31,12 +31,12 @@ export function general_range_integer_diagnose(
 
     //If the text is filled, diagnose it as integer. if that returns false it has an error, then mark 'co'ntinue as false
     if (
-      lowerText !== "" &&
+      lowerText !== '' &&
       !general_integer_diagnose(Types.OffsetWord.create(lowerText, value.offset), diagnoser, range)
     )
       co = false;
     if (
-      upperText !== "" &&
+      upperText !== '' &&
       !general_integer_diagnose(Types.OffsetWord.create(upperText, value.offset + index + 2), diagnoser, range)
     )
       co = false;
@@ -47,8 +47,8 @@ export function general_range_integer_diagnose(
     }
 
     //Parse values
-    if (lowerText !== "") lower = Number.parseInt(lowerText);
-    if (upperText !== "") upper = Number.parseInt(upperText);
+    if (lowerText !== '') lower = Number.parseInt(lowerText);
+    if (upperText !== '') upper = Number.parseInt(upperText);
   } else {
     //Just an integer
     return general_integer_diagnose(value, diagnoser, range);
@@ -58,9 +58,9 @@ export function general_range_integer_diagnose(
   if (lower > upper) {
     diagnoser.add(
       value,
-      "Lower range is greater than the upper range",
+      'Lower range is greater than the upper range',
       DiagnosticSeverity.error,
-      "general.range.integer.invalid"
+      'general.range.integer.invalid',
     );
     return false;
   }
@@ -78,12 +78,12 @@ export function general_range_integer_diagnose(
 export function general_range_float_diagnose(
   value: Types.OffsetWord,
   diagnoser: DiagnosticsBuilder,
-  range?: { min: number; max: number }
+  range?: { min: number; max: number },
 ): boolean {
   let upper = Number.MAX_VALUE;
   let lower = Number.MIN_VALUE;
 
-  const index = value.text.indexOf("..");
+  const index = value.text.indexOf('..');
 
   //has ..
   if (index >= 0) {
@@ -95,10 +95,10 @@ export function general_range_float_diagnose(
     let co = true;
 
     //If the text is filled, diagnose it as integer. if that returns false it has an error, then mark 'co'ntinue as false
-    if (lowerText !== "" && !general_float_diagnose(Types.OffsetWord.create(lowerText, value.offset), diagnoser, range))
+    if (lowerText !== '' && !general_float_diagnose(Types.OffsetWord.create(lowerText, value.offset), diagnoser, range))
       co = false;
     if (
-      upperText !== "" &&
+      upperText !== '' &&
       !general_float_diagnose(Types.OffsetWord.create(upperText, value.offset + index + 2), diagnoser, range)
     )
       co = false;
@@ -109,8 +109,8 @@ export function general_range_float_diagnose(
     }
 
     //Parse values
-    if (lowerText !== "") lower = Number.parseFloat(lowerText);
-    if (upperText !== "") upper = Number.parseFloat(upperText);
+    if (lowerText !== '') lower = Number.parseFloat(lowerText);
+    if (upperText !== '') upper = Number.parseFloat(upperText);
   } else {
     //Just an integer
     return general_float_diagnose(value, diagnoser, range);
@@ -120,9 +120,9 @@ export function general_range_float_diagnose(
   if (lower > upper) {
     diagnoser.add(
       value,
-      "Lower range is greater than the upper range",
+      'Lower range is greater than the upper range',
       DiagnosticSeverity.error,
-      "general.range.float.invalid"
+      'general.range.float.invalid',
     );
     return false;
   }

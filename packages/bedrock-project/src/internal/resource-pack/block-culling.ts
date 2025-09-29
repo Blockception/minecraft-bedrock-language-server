@@ -1,4 +1,4 @@
-import { FormatVersion } from "../types/format-version";
+import { FormatVersion } from '../types/format-version';
 
 /**
  * Represents the interface for Block Culling.
@@ -10,7 +10,7 @@ export interface BlockCulling extends Readonly<FormatVersion> {
   /**
    * The block culling rules for the resource pack.
    */
-  "minecraft:block_culling_rules": BlockCullingSpec;
+  'minecraft:block_culling_rules': BlockCullingSpec;
 }
 
 /**
@@ -23,9 +23,9 @@ export namespace BlockCulling {
    * @returns True if the value is of type BlockCulling, false otherwise.
    */
   export function is(value: any): value is BlockCulling {
-    if (typeof value === "object") {
-      const rules = value["minecraft:block_culling_rules"];
-      if (typeof rules === "object") {
+    if (typeof value === 'object') {
+      const rules = value['minecraft:block_culling_rules'];
+      if (typeof rules === 'object') {
         return true;
       }
     }

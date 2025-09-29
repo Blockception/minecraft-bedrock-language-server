@@ -1,12 +1,12 @@
-import { Identifiable } from "bc-minecraft-bedrock-types/src/types/identifiable";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
-import { Kinds } from "../../../../constants";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from "../../../context/context";
-import { JsonPathCompletion } from "../../builder";
-import { CompletionContext } from "../../context";
+import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { Kinds } from '../../../../constants';
+import { IsEducationEnabled } from '../../../../project/attributes';
+import { Context } from '../../../context/context';
+import { JsonPathCompletion } from '../../builder';
+import { CompletionContext } from '../../context';
 
-import * as BlockCulling from "../resource-pack/block-culling";
+import * as BlockCulling from '../resource-pack/block-culling';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = (item: Identifiable) => `The block definition: ${item.id}`;
@@ -24,6 +24,6 @@ export function provideJsonCompletion(context: Context<CompletionContext>): void
 }
 
 const blocksBPJsonCompletion = new JsonPathCompletion({
-  match: "minecraft:block/components/minecraft:geometry/culling",
+  match: 'minecraft:block/components/minecraft:geometry/culling',
   onCompletion: BlockCulling.provideCompletion,
 });

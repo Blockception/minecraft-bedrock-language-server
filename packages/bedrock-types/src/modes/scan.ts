@@ -1,10 +1,10 @@
-import { ModeCollection } from "./mode-collection";
+import { ModeCollection } from './mode-collection';
 
 /** */
 export const ScanMode: ModeCollection = {
-  name: "Scan",
+  name: 'Scan',
   modes: [
-    { name: "all", documentation: "Scans all blocks" },
-    { name: "masked", documentation: "Scans all blocks that match the mask" },
+    { name: 'all', documentation: 'Scans all blocks' },
+    { name: 'masked', documentation: 'Scans all blocks that match the mask' },
   ],
 };

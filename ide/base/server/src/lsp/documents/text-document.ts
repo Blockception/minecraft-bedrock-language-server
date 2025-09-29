@@ -1,11 +1,11 @@
-import { MCProject } from "bc-minecraft-project";
-import { Range } from "vscode-languageserver";
-import { MCProjectprovider } from "../../project/interfaces";
-import { getFilename } from "../../util";
-import { ExtensionContext } from "../extension/context";
+import { MCProject } from 'bc-minecraft-project';
+import { Range } from 'vscode-languageserver';
+import { MCProjectprovider } from '../../project/interfaces';
+import { getFilename } from '../../util';
+import { ExtensionContext } from '../extension/context';
 
-import * as mcbe from "bc-minecraft-bedrock-project";
-import * as vscode from "vscode-languageserver-textdocument";
+import * as mcbe from 'bc-minecraft-bedrock-project';
+import * as vscode from 'vscode-languageserver-textdocument';
 
 /**
  * The extended text document to give additional code for documents
@@ -97,7 +97,9 @@ export class WrappedTextDocument implements TextDocument, MCProjectprovider {
 
   /** @inheritdoc */
   configuration(): MCProject {
-    return this.pack()?.context ?? this._extension.database.WorkspaceData.getProject(this.uri, this._extension.settings);
+    return (
+      this.pack()?.context ?? this._extension.database.WorkspaceData.getProject(this.uri, this._extension.settings)
+    );
   }
 
   /** @inheritdoc */

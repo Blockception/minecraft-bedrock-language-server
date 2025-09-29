@@ -18,10 +18,10 @@ export namespace Version {
    * @returns True if the value is a valid Version object, false otherwise.
    */
   export function is(value: any): value is Version {
-    if (typeof value === "object") {
-      if (typeof value.major !== "number") return false;
-      if (typeof value.minor !== "number") return false;
-      if (typeof value.patch !== "number") return false;
+    if (typeof value === 'object') {
+      if (typeof value.major !== 'number') return false;
+      if (typeof value.minor !== 'number') return false;
+      if (typeof value.patch !== 'number') return false;
 
       return true;
     }
@@ -41,19 +41,19 @@ export namespace Version {
       patch: 0,
     };
 
-    const p = value.split(".");
+    const p = value.split('.');
 
     switch (p.length) {
       default:
       case 3:
         out.patch = Number.parseInt(p[2]);
-        // fallthrough
+      // fallthrough
       case 2:
         out.minor = Number.parseInt(p[1]);
-        // fallthrough
+      // fallthrough
       case 1:
         out.major = Number.parseInt(p[0]);
-        // fallthrough
+      // fallthrough
       case 0:
         break;
     }
@@ -77,13 +77,13 @@ export namespace Version {
       default:
       case 3:
         out.patch = version[2];
-        // fallthrough
+      // fallthrough
       case 2:
         out.minor = version[1];
-        // fallthrough
+      // fallthrough
       case 1:
         out.major = version[0];
-        // fallthrough
+      // fallthrough
       case 0:
         break;
     }
@@ -107,13 +107,13 @@ export namespace Version {
    * @returns 1 if a is greater than b, -1 if b is greater than a, or 0 if they are equal.
    */
   export function compare(a: Version | string | number[], b: Version | string | number[]): number {
-    if (typeof a === "string") {
+    if (typeof a === 'string') {
       a = Version.parse(a);
     } else if (Array.isArray(a)) {
       a = Version.fromArray(a);
     }
 
-    if (typeof b === "string") {
+    if (typeof b === 'string') {
       b = Version.parse(b);
     } else if (Array.isArray(b)) {
       b = Version.fromArray(b);

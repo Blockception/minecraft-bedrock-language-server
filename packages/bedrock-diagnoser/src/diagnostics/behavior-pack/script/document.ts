@@ -1,5 +1,4 @@
- 
-import { DocumentDiagnosticsBuilder } from "../../../types";
+import { DocumentDiagnosticsBuilder } from '../../../types';
 
 /**Diagnoses the given document as an script
  * @param doc The text document to diagnose

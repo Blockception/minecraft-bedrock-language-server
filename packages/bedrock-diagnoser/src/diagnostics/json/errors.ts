@@ -1,20 +1,20 @@
-import { OffsetWord } from "bc-minecraft-bedrock-types/src/types/offset-word";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../types";
+import { OffsetWord } from 'bc-minecraft-bedrock-types/src/types/offset-word';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export function handle_json_error(err: any, diagnoser: DiagnosticsBuilder): void {
-  if (typeof err.message !== "string") {
+  if (typeof err.message !== 'string') {
     diagnoser.add(
       0,
-      "Invalid json structure\nmessage:" + JSON.stringify(err),
+      'Invalid json structure\nmessage:' + JSON.stringify(err),
       DiagnosticSeverity.error,
-      "json.invalid"
+      'json.invalid',
     );
   }
 
   const message = err.message;
   const word: OffsetWord = {
     offset: 0,
-    text: " ",
+    text: ' ',
   };
 
   const token = safe_first_get(/token ([^ ]+) /gim, message);
@@ -23,7 +23,7 @@ export function handle_json_error(err: any, diagnoser: DiagnosticsBuilder): void
   const pos = safe_first_get(/position (\d+)/gim, message);
   if (pos) word.offset = Number.parseInt(pos);
 
-  diagnoser.add(word, message, DiagnosticSeverity.error, "json.invalid");
+  diagnoser.add(word, message, DiagnosticSeverity.error, 'json.invalid');
 }
 
 function safe_first_get(regex: RegExp, text: string): string | undefined {

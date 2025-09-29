@@ -1,16 +1,16 @@
-import { DocumentUri, TextDocumentContentChangeEvent, TextDocumentsConfiguration } from "vscode-languageserver";
-import { ExtensionContext } from "../extension";
-import { IExtendedLogger } from "../logger/logger";
-import { BaseService } from "../services/base";
-import { TextDocument, WrappedTextDocument } from "./text-document";
+import { DocumentUri, TextDocumentContentChangeEvent, TextDocumentsConfiguration } from 'vscode-languageserver';
+import { ExtensionContext } from '../extension';
+import { IExtendedLogger } from '../logger/logger';
+import { BaseService } from '../services/base';
+import { TextDocument, WrappedTextDocument } from './text-document';
 
-import * as vscode from "vscode-languageserver-textdocument";
+import * as vscode from 'vscode-languageserver-textdocument';
 
 export class TextDocumentFactory extends BaseService implements TextDocumentsConfiguration<TextDocument> {
-  readonly name: string = "textdocument factory";
+  readonly name: string = 'textdocument factory';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
-    super(logger.withPrefix("[textdocument factory]"), extension);
+    super(logger.withPrefix('[textdocument factory]'), extension);
   }
 
   /**

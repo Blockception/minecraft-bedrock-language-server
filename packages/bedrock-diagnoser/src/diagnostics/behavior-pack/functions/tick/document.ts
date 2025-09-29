@@ -1,5 +1,5 @@
-import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../../types";
-import { Json } from "../../../json/json";
+import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../../types';
+import { Json } from '../../../json/json';
 
 /**Diagnoses the given document as an tick.json
  * @param doc The text document to diagnose
@@ -16,9 +16,9 @@ export function diagnose_tick_document(diagnoser: DocumentDiagnosticsBuilder): v
     if (!pack.functions.has(path)) {
       diagnoser.add(
         path,
-        "Cannot find mcfunction: " + path,
+        'Cannot find mcfunction: ' + path,
         DiagnosticSeverity.error,
-        "behaviorpack.mcfunction.missing"
+        'behaviorpack.mcfunction.missing',
       );
     }
   });

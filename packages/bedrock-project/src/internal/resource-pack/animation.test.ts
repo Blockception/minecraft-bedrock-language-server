@@ -1,10 +1,9 @@
-import { Json } from "../json";
-import { Internal } from "../..";
+import { Json } from '../json';
+import { Internal } from '../..';
 
-
-describe("RP Animation", () => {
-  const correct_animations : string[]= [
-    "{}",
+describe('RP Animation', () => {
+  const correct_animations: string[] = [
+    '{}',
     `{
       "loop": true,
       "bones": {
@@ -12,21 +11,20 @@ describe("RP Animation", () => {
           "rotation": [ "25 * math.sin(variable.attack_time * 30)", 0, 0 ]
         }
       }
-    }`
-  ]
-
+    }`,
+  ];
 
   correct_animations.forEach((anim, index) => {
-    describe("correct " + index, () => {
+    describe('correct ' + index, () => {
       const obj = Json.To<Internal.ResourcePack.Animation>(anim);
 
-      it("not undefined", () => {
+      it('not undefined', () => {
         expect(obj).toBeDefined();
       });
 
       if (!obj) return;
 
-      it("is animation", () => {
+      it('is animation', () => {
         expect(Internal.ResourcePack.Animation.is(obj)).toBeTruthy();
       });
     });

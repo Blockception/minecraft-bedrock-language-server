@@ -45,16 +45,16 @@ export namespace PackType {
   export function toString(pack?: PackType): string {
     switch (pack) {
       case PackType.behavior_pack:
-        return "behavior";
+        return 'behavior';
       case PackType.resource_pack:
-        return "resource";
+        return 'resource';
       case PackType.skin_pack:
-        return "skin";
+        return 'skin';
       case PackType.world:
-        return "world";
+        return 'world';
       case PackType.unknown:
       default:
-        return "unknown";
+        return 'unknown';
     }
   }
 
@@ -66,16 +66,16 @@ export namespace PackType {
   export function toStringShort(pack?: PackType): string {
     switch (pack) {
       case PackType.behavior_pack:
-        return "bp";
+        return 'bp';
       case PackType.resource_pack:
-        return "rp";
+        return 'rp';
       case PackType.skin_pack:
-        return "sp";
+        return 'sp';
       case PackType.world:
-        return "wp";
+        return 'wp';
       case PackType.unknown:
       default:
-        return "unknown";
+        return 'unknown';
     }
   }
 }

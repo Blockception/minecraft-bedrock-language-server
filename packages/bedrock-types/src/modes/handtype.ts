@@ -1,10 +1,10 @@
-import { ModeCollection } from "./mode-collection";
+import { ModeCollection } from './mode-collection';
 
 /** */
 export const HandTypeMode: ModeCollection = {
-  name: "handtype",
+  name: 'handtype',
   modes: [
-    { name: "mainhand", documentation: "The main hand" },
-    { name: "offhand", documentation: "The off hand" },
+    { name: 'mainhand', documentation: 'The main hand' },
+    { name: 'offhand', documentation: 'The off hand' },
   ],
 };

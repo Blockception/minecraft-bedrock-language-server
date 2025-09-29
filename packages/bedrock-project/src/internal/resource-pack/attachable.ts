@@ -1,11 +1,11 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { FormatVersion } from "../types/format-version";
-import { ScriptContainer } from "../types";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { FormatVersion } from '../types/format-version';
+import { ScriptContainer } from '../types';
 
 /** */
 export interface Attachable extends Readonly<FormatVersion> {
   /** */
-  "minecraft:attachable": AttachableContainer;
+  'minecraft:attachable': AttachableContainer;
 }
 
 /** */
@@ -51,13 +51,13 @@ export namespace Attachable {
   export function is(value: any): value is Attachable {
     if (
       value &&
-      typeof value === "object" &&
-      typeof value.format_version === "string" &&
-      typeof value["minecraft:attachable"] === "object"
+      typeof value === 'object' &&
+      typeof value.format_version === 'string' &&
+      typeof value['minecraft:attachable'] === 'object'
     ) {
-      const desc = value["minecraft:attachable"].description;
+      const desc = value['minecraft:attachable'].description;
 
-      if (typeof desc === "object" && typeof desc.identifier === "string") return true;
+      if (typeof desc === 'object' && typeof desc.identifier === 'string') return true;
     }
 
     return false;

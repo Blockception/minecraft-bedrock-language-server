@@ -1,7 +1,7 @@
-import { Context } from "../../context/context";
-import { EnsureFolders, getFolders } from "../../templates/folders";
-import { CommandContext } from "../context";
-import { getTemplateCommand } from "./templates";
+import { Context } from '../../context/context';
+import { EnsureFolders, getFolders } from '../../templates/folders';
+import { CommandContext } from '../context';
+import { getTemplateCommand } from './templates';
 
 export type CreateFn = (context: Context<CommandContext>, folders: EnsureFolders) => Promise<boolean | void>;
 
@@ -18,7 +18,7 @@ export function mustExecute(
   commandId: string,
   context: Context<CommandContext>,
   folder?: string | undefined,
-  attributes: Record<string, string> = {}
+  attributes: Record<string, string> = {},
 ) {
   const t = getTemplateCommand(commandId);
   if (t === undefined) throw new Error("couldn't find template command: " + commandId);

@@ -1,7 +1,7 @@
-import { MCProject } from "bc-minecraft-project";
-import { WorkspaceFolder } from "vscode-languageserver";
-import { getProjectEmpty } from "../../project/mcprojects";
-import { Settings } from "../extension";
+import { MCProject } from 'bc-minecraft-project';
+import { WorkspaceFolder } from 'vscode-languageserver';
+import { getProjectEmpty } from '../../project/mcprojects';
+import { Settings } from '../extension';
 
 /**
  *
@@ -65,7 +65,7 @@ export class WorkspaceData {
    * @param Data
    */
   set(Folder: WorkspaceFolder | string, Data: MCProject): void {
-    this._data.set(typeof Folder === "string" ? Folder : Folder.uri, Data);
+    this._data.set(typeof Folder === 'string' ? Folder : Folder.uri, Data);
   }
 
   /**
@@ -74,7 +74,7 @@ export class WorkspaceData {
    * @returns
    */
   remove(Folder: WorkspaceFolder | string): boolean {
-    if (typeof Folder === "string") return this._data.delete(Folder);
+    if (typeof Folder === 'string') return this._data.delete(Folder);
 
     return this._data.delete(Folder.uri);
   }
@@ -86,7 +86,7 @@ export class WorkspaceData {
    */
   forEach(
     callbackfn: (value: MCProject, workspaceUri: string, map: Map<string, MCProject>) => void,
-    thisArg?: any
+    thisArg?: any,
   ): void {
     this._data.forEach(callbackfn, thisArg || this);
   }

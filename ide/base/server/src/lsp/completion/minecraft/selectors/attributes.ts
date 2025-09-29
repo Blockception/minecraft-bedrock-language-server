@@ -1,9 +1,9 @@
-import { Modes } from "bc-minecraft-bedrock-types";
-import { OffsetWord } from "bc-vscode-words";
-import { CompletionItemKind } from "vscode-languageserver";
-import { Context } from "../../../context/context";
-import { CompletionContext } from "../../context";
-import { provideModeCompletion } from "../modes/modes";
+import { Modes } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from 'bc-vscode-words';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { Context } from '../../../context/context';
+import { CompletionContext } from '../../context';
+import { provideModeCompletion } from '../modes/modes';
 
 //Doesnt do scores and doesnt need to
 export function provideCompletion(context: Context<CompletionContext>): void {
@@ -22,7 +22,7 @@ export function GetCurrentAttribute(selector: OffsetWord, pos: number): string {
   while (StartIndex > 2) {
     const character = selector.text.charAt(StartIndex);
 
-    if (character === "," || character === "{") {
+    if (character === ',' || character === '{') {
       break;
     }
 
@@ -30,7 +30,7 @@ export function GetCurrentAttribute(selector: OffsetWord, pos: number): string {
   }
 
   StartIndex++;
-  let EndIndex = selector.text.indexOf("=", StartIndex);
+  let EndIndex = selector.text.indexOf('=', StartIndex);
 
   if (EndIndex < 0) EndIndex = selector.text.length;
 

@@ -1,4 +1,4 @@
-import { CompactJson } from "./compact";
+import { CompactJson } from './compact';
 
 export class CompactJsonReader<T extends CompactJson.IBase> {
   protected _data: T;
@@ -12,7 +12,7 @@ export class CompactJsonReader<T extends CompactJson.IBase> {
   }
 
   /** The type of the node */
-  get type(): T["type"] {
+  get type(): T['type'] {
     return this._data.type;
   }
 
@@ -27,12 +27,12 @@ export class CompactJsonReader<T extends CompactJson.IBase> {
   }
 
   /** The value of the node */
-  get value(): T["value"] {
+  get value(): T['value'] {
     return this._data.value;
   }
 
   /** The key of the node */
-  get key(): T["key"] {
+  get key(): T['key'] {
     return (this._data as any).key;
   }
 

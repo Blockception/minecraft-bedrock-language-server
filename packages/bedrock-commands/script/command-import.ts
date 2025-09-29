@@ -1,15 +1,15 @@
-import { CommandInfo } from "../src/lib/data/command-info";
-import { ParameterType } from "../src/lib/types/parameter-type";
-import { convert } from "./convert";
-import * as command_data from "./minecraft-data";
-const path = require("node:path");
-const fs = require("fs");
+import { CommandInfo } from '../src/lib/data/command-info';
+import { ParameterType } from '../src/lib/types/parameter-type';
+import { convert } from './convert';
+import * as command_data from './minecraft-data';
+const path = require('node:path');
+const fs = require('fs');
 
 async function main() {
-  console.log("==== Loading ====");
+  console.log('==== Loading ====');
   const data = await command_data.get();
 
-  console.log("==== Converting ====");
+  console.log('==== Converting ====');
   const commands = convert(data);
 
   // data.command_enums
@@ -24,7 +24,7 @@ async function main() {
   //     console.log(`  ["${i.name.toUpperCase()}", ["${i.values.map(i => i.value).join('", "')}"]],`);
   //   });
 
-  console.log("==== Saving ====");
+  console.log('==== Saving ====');
   for (const [comm, info] of Object.entries(commands)) {
     save(comm, info);
   }
@@ -35,7 +35,7 @@ main().catch((err) => {
   process.exit(1);
 });
 
-const folder = path.join(__dirname, "..", "src", "lib", "data", "vanilla");
+const folder = path.join(__dirname, '..', 'src', 'lib', 'data', 'vanilla');
 
 function save(comm: string, data: CommandInfo[]) {
   const filePath = path.join(folder, `${comm}.ts`);
@@ -58,7 +58,7 @@ export const ${comm}: CommandInfo[] = [`;
       if (p.options) {
         content += `, options: {`;
         if (p.options.acceptedValues) {
-          content += ` acceptedValues: [${p.options.acceptedValues.map((v) => `"${v}"`).join(", ")}]`;
+          content += ` acceptedValues: [${p.options.acceptedValues.map((v) => `"${v}"`).join(', ')}]`;
         }
         if (p.options.minimum) {
           content += `, minimum: ${p.options.minimum}`;
@@ -86,5 +86,5 @@ export const ${comm}: CommandInfo[] = [`;
   content += `
 ];`;
 
-  fs.writeFileSync(filePath, content, { encoding: "utf-8" });
+  fs.writeFileSync(filePath, content, { encoding: 'utf-8' });
 }

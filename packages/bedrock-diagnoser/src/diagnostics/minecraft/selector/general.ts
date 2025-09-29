@@ -1,6 +1,6 @@
-import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Minecraft } from "bc-minecraft-bedrock-types";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
+import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 
 /**
  * Attribute can only be tested positive once, but can have all the negative tests
@@ -12,7 +12,7 @@ import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
 export function selectorattribute_one_positive_all_negatives(
   parameters: CompactJson.IKeyNode[],
   selector: Minecraft.Selector.Selector,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   let result = true;
   //Attribute can only be tested positive once, but can have all the negative tests
@@ -34,7 +34,7 @@ export function selectorattribute_one_positive_all_negatives(
         CompactJson.toOffsetWord(item),
         `Parameter: "${item.key}" can only have 1 positive test or/and multiple negatives test`,
         DiagnosticSeverity.error,
-        "minecraft.selector.attribute.test.one_positive_all_negatives"
+        'minecraft.selector.attribute.test.one_positive_all_negatives',
       );
     });
   }
@@ -52,7 +52,7 @@ export function selectorattribute_one_positive_all_negatives(
 export function selectorattribute_duplicate_check(
   parameters: CompactJson.IKeyNode[],
   selector: Minecraft.Selector.Selector,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   let result = true;
   //Just check for duplicate tests
@@ -70,7 +70,7 @@ export function selectorattribute_duplicate_check(
           CompactJson.toOffsetWord(second),
           `Duplicate test for parameter: "${second.key}"`,
           DiagnosticSeverity.error,
-          "minecraft.selector.attribute.test.duplicate"
+          'minecraft.selector.attribute.test.duplicate',
         );
       }
     }
@@ -88,7 +88,7 @@ export function selectorattribute_duplicate_check(
 export function selectorattribute_no_negatives(
   parameters: CompactJson.IKeyNode[],
   selector: Minecraft.Selector.Selector,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   let result = true;
 
@@ -100,7 +100,7 @@ export function selectorattribute_no_negatives(
         CompactJson.toOffsetWord(p),
         `Parameter: "${p.key}" can not have a negative test`,
         DiagnosticSeverity.error,
-        "minecraft.selector.attribute.test.nonegatives"
+        'minecraft.selector.attribute.test.nonegatives',
       );
     }
   }

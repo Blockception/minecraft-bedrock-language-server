@@ -1,3 +1,3 @@
 /*	Auto generated	*/
 
-export * from "./document";
+export * from './document';

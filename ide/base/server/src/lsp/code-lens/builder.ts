@@ -1,4 +1,4 @@
-import { CancellationToken, CodeLens, CodeLensParams } from "vscode-languageserver";
+import { CancellationToken, CodeLens, CodeLensParams } from 'vscode-languageserver';
 
 /**
  *

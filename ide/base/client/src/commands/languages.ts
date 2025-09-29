@@ -1,7 +1,7 @@
-import { commands, ExtensionContext, window } from "vscode";
-import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient/node";
-import { Commands } from "@blockception/ide-shared";
-import { Manager } from "../manager/manager";
+import { commands, ExtensionContext, window } from 'vscode';
+import { ExecuteCommandParams, ExecuteCommandRequest } from 'vscode-languageclient/node';
+import { Commands } from '@blockception/ide-shared';
+import { Manager } from '../manager/manager';
 
 export function activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.AddLanguageFile, addAll));

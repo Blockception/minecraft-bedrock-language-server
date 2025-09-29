@@ -1,5 +1,5 @@
-import { ProgressToken, WorkDoneProgressReporter } from "vscode-languageserver";
-import { ExtensionContext } from "../extension";
+import { ProgressToken, WorkDoneProgressReporter } from 'vscode-languageserver';
+import { ExtensionContext } from '../extension';
 
 export class ProgressBar {
   private value: number;
@@ -75,7 +75,7 @@ export namespace ProgressBar {
     extension: ExtensionContext,
     title: string,
     value: number = 0,
-    max: number = 1
+    max: number = 1,
   ): Promise<ProgressBar> {
     const temp = extension.connection.window.createWorkDoneProgress();
     return temp.then((progres) => {
@@ -88,7 +88,7 @@ export namespace ProgressBar {
     token: ProgressToken | undefined,
     title: string,
     value: number = 0,
-    max: number = 1
+    max: number = 1,
   ) {
     const progres = extension.connection.window.attachWorkDoneProgress(token);
     return new ProgressBar(progres, title, value, max);
@@ -100,7 +100,7 @@ export namespace ProgressBar {
       report: () => {},
       done: () => {},
     },
-    "noop"
+    'noop',
   );
 
   export function noop(): ProgressBar {

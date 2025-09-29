@@ -1,15 +1,15 @@
-import { Commands } from "@blockception/ide-shared";
-import { TemplateProcessor } from "../../../templates/processor";
-import { Context } from "../../context/context";
-import { getFolders } from "../../templates/folders";
-import { CommandContext } from "../context";
-import { CommandManager } from "../manager";
+import { Commands } from '@blockception/ide-shared';
+import { TemplateProcessor } from '../../../templates/processor';
+import { Context } from '../../context/context';
+import { getFolders } from '../../templates/folders';
+import { CommandContext } from '../context';
+import { CommandManager } from '../manager';
 
-import * as BPT from "../../templates/definitions/behavior-pack";
-import * as RPT from "../../templates/definitions/resource-pack";
-import * as WPT from "../../templates/definitions/world";
+import * as BPT from '../../templates/definitions/behavior-pack';
+import * as RPT from '../../templates/definitions/resource-pack';
+import * as WPT from '../../templates/definitions/world';
 
-import path from "path";
+import path from 'path';
 
 const BPC = Commands.Create.Behaviorpack;
 const RPC = Commands.Create.Resourcepack;
@@ -30,7 +30,7 @@ export class TemplateItem {
   }
 
   templateId(): string {
-    return this._commandId.replace(Commands.Create.Base, "");
+    return this._commandId.replace(Commands.Create.Base, '');
   }
 
   filename(): string {
@@ -51,10 +51,10 @@ export class TemplateItem {
   async execute(
     context: Context<CommandContext>,
     folder?: string | undefined,
-    attributes: Record<string, string> = {}
+    attributes: Record<string, string> = {},
   ) {
     folder = folder || getFolders(context).GetFolder(this.commandId());
-    const id = (context.arguments ? context.arguments[0] : undefined) || "UNKNOWN";
+    const id = (context.arguments ? context.arguments[0] : undefined) || 'UNKNOWN';
     attributes = {
       id,
       templateId: this.templateId(),
@@ -76,42 +76,47 @@ export const TemplateCommands: TemplateItem[] = [
   new TemplateItem(
     BPC.Animation_Controller,
     BPT.animation_controller,
-    "animation_controllers",
-    "${{id.safe}}.controller.json"
+    'animation_controllers',
+    '${{id.safe}}.controller.json',
   ),
   //BPS
-  new TemplateItem(BPC.Animation, BPT.animation, "animations", "${{id.safe}}.animation.json"),
-  new TemplateItem(BPC.Block, BPT.block, "blocks", "${{id.safe}}.block.json"),
-  new TemplateItem(BPC.Entity, BPT.entity, "entities", "${{id.safe}}.entity.bp.json"),
-  new TemplateItem(BPC.Dialogue, BPT.dialogue, "dialogue", "${{id.safe}}.dialogue.json"),
-  new TemplateItem(BPC.Item, BPT.item, "items", "${{id.safe}}.item.json"),
-  new TemplateItem(BPC.Loot_Table, BPT.loot_table, "loot_tables", "${{id.safe}}.loot.json"),
-  new TemplateItem(BPC.Manifests, BPT.manifest, "manifest.json"),
-  new TemplateItem(BPC.Recipe, BPT.recipe, "recipes", "${{id.safe}}.recipe.json"),
-  new TemplateItem(BPC.Spawn_Rule, BPT.spawn_rule, "spawn_rules", "${{id.safe}}.spawn.json"),
-  new TemplateItem(BPC.Trading, BPT.trading, "trading", "${{id.safe}}.trades.json"),
-  new TemplateItem(BPC.Volume, BPT.volume, "volumes", "${{id.safe}}.volume.json"),
+  new TemplateItem(BPC.Animation, BPT.animation, 'animations', '${{id.safe}}.animation.json'),
+  new TemplateItem(BPC.Block, BPT.block, 'blocks', '${{id.safe}}.block.json'),
+  new TemplateItem(BPC.Entity, BPT.entity, 'entities', '${{id.safe}}.entity.bp.json'),
+  new TemplateItem(BPC.Dialogue, BPT.dialogue, 'dialogue', '${{id.safe}}.dialogue.json'),
+  new TemplateItem(BPC.Item, BPT.item, 'items', '${{id.safe}}.item.json'),
+  new TemplateItem(BPC.Loot_Table, BPT.loot_table, 'loot_tables', '${{id.safe}}.loot.json'),
+  new TemplateItem(BPC.Manifests, BPT.manifest, 'manifest.json'),
+  new TemplateItem(BPC.Recipe, BPT.recipe, 'recipes', '${{id.safe}}.recipe.json'),
+  new TemplateItem(BPC.Spawn_Rule, BPT.spawn_rule, 'spawn_rules', '${{id.safe}}.spawn.json'),
+  new TemplateItem(BPC.Trading, BPT.trading, 'trading', '${{id.safe}}.trades.json'),
+  new TemplateItem(BPC.Volume, BPT.volume, 'volumes', '${{id.safe}}.volume.json'),
   //RPS
-  new TemplateItem(RPC.Animation_Controller, RPT.animation_controller, "animation_controllers","${{id.safe}}.controller.json"),
-  new TemplateItem(RPC.Animation, RPT.animation, "animations", "${{id.safe}}.animation.json"),
-  new TemplateItem(RPC.Attachable, RPT.attachable, "attachables", "${{id.safe}}.attachable.json"),
-  new TemplateItem(RPC.Biomes_Client, RPT.biomes_client, "biomes_client.json"),
-  new TemplateItem(RPC.Blocks, RPT.blocks, "blocks.json"),
-  new TemplateItem(RPC.BlockCulling, RPT.block_culling, "block_culling", "${{id.safe}}.rule.json"),
-  new TemplateItem(RPC.Entity, RPT.entity, "entity", "${{id.safe}}.entity.rp.json"),
-  new TemplateItem(RPC.Fog, RPT.fog, "fogs", "${{id.safe}}.fog.json"),
-  new TemplateItem(RPC.Flipbook_Textures, RPT.flipbook_textures, "textures", "flipbook_textures.json"),
-  new TemplateItem(RPC.Item_Texture, RPT.item_texture, "textures", "item_texture.json"),
-  new TemplateItem(RPC.Manifests, RPT.manifest, "manifest.json"),
-  new TemplateItem(RPC.Model, RPT.model, "models", "entity", "${{id.safe}}.geo.json"),
-  new TemplateItem(RPC.Music_Definitions, RPT.music_definitions, "sounds", "music_definitions.json"),
-  new TemplateItem(RPC.Particle, RPT.particle, "particles", "${{id.safe}}.particle.json"),
-  new TemplateItem(RPC.Render_Controller, RPT.render_controller, "render_controllers", "${{id.safe}}.render.json"),
-  new TemplateItem(RPC.Sounds, RPT.sounds, "sounds.json"),
-  new TemplateItem(RPC.Sound_Definitions, RPT.sound_definitions, "sounds", "sound_definitions.json"),
-  new TemplateItem(RPC.Terrain_Texture, RPT.terrain_texture, "textures", "terrain_texture.json"),
+  new TemplateItem(
+    RPC.Animation_Controller,
+    RPT.animation_controller,
+    'animation_controllers',
+    '${{id.safe}}.controller.json',
+  ),
+  new TemplateItem(RPC.Animation, RPT.animation, 'animations', '${{id.safe}}.animation.json'),
+  new TemplateItem(RPC.Attachable, RPT.attachable, 'attachables', '${{id.safe}}.attachable.json'),
+  new TemplateItem(RPC.Biomes_Client, RPT.biomes_client, 'biomes_client.json'),
+  new TemplateItem(RPC.Blocks, RPT.blocks, 'blocks.json'),
+  new TemplateItem(RPC.BlockCulling, RPT.block_culling, 'block_culling', '${{id.safe}}.rule.json'),
+  new TemplateItem(RPC.Entity, RPT.entity, 'entity', '${{id.safe}}.entity.rp.json'),
+  new TemplateItem(RPC.Fog, RPT.fog, 'fogs', '${{id.safe}}.fog.json'),
+  new TemplateItem(RPC.Flipbook_Textures, RPT.flipbook_textures, 'textures', 'flipbook_textures.json'),
+  new TemplateItem(RPC.Item_Texture, RPT.item_texture, 'textures', 'item_texture.json'),
+  new TemplateItem(RPC.Manifests, RPT.manifest, 'manifest.json'),
+  new TemplateItem(RPC.Model, RPT.model, 'models', 'entity', '${{id.safe}}.geo.json'),
+  new TemplateItem(RPC.Music_Definitions, RPT.music_definitions, 'sounds', 'music_definitions.json'),
+  new TemplateItem(RPC.Particle, RPT.particle, 'particles', '${{id.safe}}.particle.json'),
+  new TemplateItem(RPC.Render_Controller, RPT.render_controller, 'render_controllers', '${{id.safe}}.render.json'),
+  new TemplateItem(RPC.Sounds, RPT.sounds, 'sounds.json'),
+  new TemplateItem(RPC.Sound_Definitions, RPT.sound_definitions, 'sounds', 'sound_definitions.json'),
+  new TemplateItem(RPC.Terrain_Texture, RPT.terrain_texture, 'textures', 'terrain_texture.json'),
   //Other
-  new TemplateItem(Commands.Create.World.Manifests, WPT.manifest, "manifest.json"),
+  new TemplateItem(Commands.Create.World.Manifests, WPT.manifest, 'manifest.json'),
 ];
 
 export function getTemplateCommand(command: string): TemplateItem | undefined {
@@ -125,8 +130,7 @@ export function getTemplateCommand(command: string): TemplateItem | undefined {
 }
 
 export function setupTemplates(manager: CommandManager): void {
-  TemplateCommands
-    .filter((v) => v !== undefined)
+  TemplateCommands.filter((v) => v !== undefined)
     .filter((value) => value instanceof TemplateItem)
     .forEach((template) => manager.add(template.commandId(), template));
 }

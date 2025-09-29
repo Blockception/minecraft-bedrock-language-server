@@ -2,14 +2,14 @@ import {
   DiagnosticsBuilderContent,
   DiagnosticSeverity,
   ManagedDiagnosticsBuilder,
-} from "bc-minecraft-bedrock-diagnoser";
-import { Types } from "bc-minecraft-bedrock-types";
-import { MCProject } from "bc-minecraft-project";
-import { Diagnostic } from "vscode-languageserver";
-import { GetRange } from "../../util";
-import { TextDocument } from "../documents/text-document";
+} from 'bc-minecraft-bedrock-diagnoser';
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MCProject } from 'bc-minecraft-project';
+import { Diagnostic } from 'vscode-languageserver';
+import { GetRange } from '../../util';
+import { TextDocument } from '../documents/text-document';
 
-import * as vscode from "vscode-languageserver";
+import * as vscode from 'vscode-languageserver';
 
 export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument> {
   public doc: TextDocument;
@@ -23,7 +23,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     doc: TextDocument,
     project: MCProject,
     context: DiagnosticsBuilderContent<TextDocument>,
-    doneFN: (e: InternalDiagnoser) => void
+    doneFN: (e: InternalDiagnoser) => void,
   ) {
     this.doc = doc;
     this.items = [];
@@ -36,23 +36,23 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
   /**@inheritdoc*/
   add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
     //Was diagnostics code disabled
-    if (this.project.attributes["diagnostic.disable." + code] === "true") return;
+    if (this.project.attributes['diagnostic.disable.' + code] === 'true') return;
 
     const error: Diagnostic = {
       message: message,
       code: code,
       severity: getSeverity(severity),
       range: GetRange(position, this.doc),
-      source: "mc",
+      source: 'mc',
     };
 
-    if (typeof code === "number") {
+    if (typeof code === 'number') {
       error.codeDescription = {
         href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/codes/main.md#${code}`,
       };
     } else {
       error.codeDescription = {
-        href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, "/")}.md`,
+        href: `https://github.com/Blockception/Minecraft-Error-Codes/blob/main/${code.replace(/\./gi, '/')}.md`,
       };
     }
 

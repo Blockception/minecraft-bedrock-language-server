@@ -1,8 +1,8 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
-import { Kinds } from "../../../constants";
-import { getFilename } from "../../../util";
-import { Context } from "../../context/context";
-import { CompletionContext } from "../context";
+import { Kinds } from '../../../constants';
+import { getFilename } from '../../../util';
+import { Context } from '../../context/context';
+import { CompletionContext } from '../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder;
@@ -13,7 +13,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 }
 
 function generateDocumentation(tag: GeneralInfo | string): string {
-  if (typeof tag === "string") return `The tag: ${tag}`;
+  if (typeof tag === 'string') return `The tag: ${tag}`;
 
   const filename = getFilename(tag.location.uri);
 
@@ -25,14 +25,14 @@ export function provideCompletionTest(context: Context<CompletionContext>): void
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Tag });
 
   builder.add({
-    label: "Any Tag: `tag=`",
-    documentation: "By inserting an `tag=` you test for entities with any kind of tag",
-    insertText: "",
+    label: 'Any Tag: `tag=`',
+    documentation: 'By inserting an `tag=` you test for entities with any kind of tag',
+    insertText: '',
   });
   builder.add({
-    label: "No Tags: `tag=!`",
-    documentation: "By inserting an `tag=!` you test for entities with no tags",
-    insertText: "!",
+    label: 'No Tags: `tag=!`',
+    documentation: 'By inserting an `tag=!` you test for entities with no tags',
+    insertText: '!',
   });
 
   //Add defined tags to the context

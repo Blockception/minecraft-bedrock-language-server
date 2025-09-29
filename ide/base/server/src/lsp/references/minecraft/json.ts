@@ -1,15 +1,15 @@
-import { ParameterType } from "bc-minecraft-bedrock-command";
-import { OffsetWord } from "bc-vscode-words";
-import { Location, Range } from "vscode-languageserver";
-import { getCurrentElement } from "../../../minecraft/json/functions";
-import { IsMolang } from "../../../minecraft/molang/functions";
-import { References } from "../../../util";
-import { Context } from "../../context/context";
-import { TextDocument } from "../../documents/text-document";
-import { ReferenceContext } from "../context";
+import { ParameterType } from 'bc-minecraft-bedrock-command';
+import { OffsetWord } from 'bc-vscode-words';
+import { Location, Range } from 'vscode-languageserver';
+import { getCurrentElement } from '../../../minecraft/json/functions';
+import { IsMolang } from '../../../minecraft/molang/functions';
+import { References } from '../../../util';
+import { Context } from '../../context/context';
+import { TextDocument } from '../../documents/text-document';
+import { ReferenceContext } from '../context';
 
-import * as Command from "./commands";
-import * as Molang from "./molang";
+import * as Command from './commands';
+import * as Molang from './molang';
 
 export async function provideReferences(context: Context<ReferenceContext>): Promise<Location[] | undefined> {
   const { document, position } = context;
@@ -24,16 +24,16 @@ export async function provideReferences(context: Context<ReferenceContext>): Pro
   //Find references in document
   if (IsMolang(value.text)) {
     //Command
-    if (value.text.startsWith("/")) {
+    if (value.text.startsWith('/')) {
       return Command.provideReferences(context, new OffsetWord(value.text.slice(1), value.offset + 1));
     }
     //Event
-    else if (value.text.startsWith("@")) {
+    else if (value.text.startsWith('@')) {
       const references = await context.database.findReferences(
         value.text.slice(2).trim(),
         [ParameterType.event],
         context.token,
-        context.workDoneProgress
+        context.workDoneProgress,
       );
       return References.convertLocation(references, context.documents);
     }
@@ -47,7 +47,7 @@ export async function provideReferences(context: Context<ReferenceContext>): Pro
       value.text,
       context.documents,
       { defined: true, usage: true },
-      context.token
+      context.token,
     );
     if (out) {
       result.push(...out);

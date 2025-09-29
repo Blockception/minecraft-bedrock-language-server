@@ -1,17 +1,17 @@
-import { InternalSelectorTypeMode } from "bc-minecraft-bedrock-types/src/modes/selector-type";
-import { OffsetWord } from "bc-vscode-words";
-import { CompletionItemKind } from "vscode-languageserver";
-import { IsEducationEnabled } from "../../../../project/attributes";
-import { Context } from "../../../context/context";
-import { CompletionBuilder } from "../../builder/builder";
-import { CommandCompletionContext } from "../../context";
+import { InternalSelectorTypeMode } from 'bc-minecraft-bedrock-types/src/modes/selector-type';
+import { OffsetWord } from 'bc-vscode-words';
+import { CompletionItemKind } from 'vscode-languageserver';
+import { IsEducationEnabled } from '../../../../project/attributes';
+import { Context } from '../../../context/context';
+import { CompletionBuilder } from '../../builder/builder';
+import { CommandCompletionContext } from '../../context';
 
-import * as FakeEntity from "../../general/fake-entity";
-import * as AttributeValue from "./attribute-values";
-import * as Attributes from "./attributes";
-import * as HasItem from "./has-item";
-import * as HasProperty from "./has-property";
-import * as Scores from "./scores";
+import * as FakeEntity from '../../general/fake-entity';
+import * as AttributeValue from './attribute-values';
+import * as Attributes from './attributes';
+import * as HasItem from './has-item';
+import * as HasProperty from './has-property';
+import * as Scores from './scores';
 
 /**
  *
@@ -29,18 +29,18 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
 
   if (Options?.wildcard)
     builder.add({
-      label: "*",
-      documentation: "Wildcard, aimed at all players / entities, or possible stored in memory",
+      label: '*',
+      documentation: 'Wildcard, aimed at all players / entities, or possible stored in memory',
       kind: CompletionItemKind.Constant,
     });
 
-  if (selector === undefined || selector.text === "" || !InSelector(selector, pos)) {
+  if (selector === undefined || selector.text === '' || !InSelector(selector, pos)) {
     //In selector
     if (selector !== undefined) {
       const diff = pos - selector.offset;
 
       if (diff < 3) {
-        builder.add({ label: "[", kind: CompletionItemKind.Snippet });
+        builder.add({ label: '[', kind: CompletionItemKind.Snippet });
         return;
       }
     }
@@ -55,7 +55,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
       FromType(builder, InternalSelectorTypeMode.AllEntities);
     }
 
-    if (context.document.uri.includes("/dialogue/")) FromType(builder, InternalSelectorTypeMode.Initiator);
+    if (context.document.uri.includes('/dialogue/')) FromType(builder, InternalSelectorTypeMode.Initiator);
 
     if (edu) {
       FromType(builder, InternalSelectorTypeMode.Agents);
@@ -118,7 +118,7 @@ export function InSelector(selector: OffsetWord, pos: number): boolean {
  */
 export function InScore(selector: OffsetWord, pos: number): boolean {
   pos -= selector.offset;
-  let index = selector.text.indexOf("scores");
+  let index = selector.text.indexOf('scores');
   if (index < 0) return false;
 
   //scores={}
@@ -126,7 +126,7 @@ export function InScore(selector: OffsetWord, pos: number): boolean {
     return false;
   }
 
-  index = selector.text.indexOf("}", index);
+  index = selector.text.indexOf('}', index);
   if (pos <= index) return true;
 
   return pos <= index;
@@ -140,7 +140,7 @@ export function InScore(selector: OffsetWord, pos: number): boolean {
  */
 export function InHasProperty(selector: OffsetWord, pos: number): boolean {
   pos -= selector.offset;
-  let index = selector.text.indexOf("has_property");
+  let index = selector.text.indexOf('has_property');
   if (index < 0) return false;
 
   //scores={}
@@ -148,7 +148,7 @@ export function InHasProperty(selector: OffsetWord, pos: number): boolean {
     return false;
   }
 
-  index = selector.text.indexOf("}", index);
+  index = selector.text.indexOf('}', index);
   if (pos <= index) return true;
 
   return pos <= index;
@@ -162,7 +162,7 @@ export function InHasProperty(selector: OffsetWord, pos: number): boolean {
  */
 export function InHasItem(selector: OffsetWord, pos: number): boolean {
   pos -= selector.offset;
-  let index = selector.text.indexOf("hasitem");
+  let index = selector.text.indexOf('hasitem');
   if (index < 0) return false;
 
   //hasitem=[{}]
@@ -170,14 +170,14 @@ export function InHasItem(selector: OffsetWord, pos: number): boolean {
     return false;
   }
 
-  if (selector.text[index + 8] === "[") {
-    index = selector.text.indexOf("]", index);
+  if (selector.text[index + 8] === '[') {
+    index = selector.text.indexOf(']', index);
     if (pos <= index) return true;
 
     return pos <= index;
   }
 
-  index = selector.text.indexOf("}", index);
+  index = selector.text.indexOf('}', index);
   if (pos <= index) return true;
 
   return pos <= index;
@@ -189,5 +189,5 @@ export function InHasItem(selector: OffsetWord, pos: number): boolean {
  * @returns
  */
 export function IsFakePlayer(text: string): boolean {
-  return !text.startsWith("@") && text !== "*";
+  return !text.startsWith('@') && text !== '*';
 }

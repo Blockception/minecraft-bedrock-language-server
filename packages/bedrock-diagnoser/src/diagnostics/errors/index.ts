@@ -1,1 +1,1 @@
-export * from "./missing";
+export * from './missing';

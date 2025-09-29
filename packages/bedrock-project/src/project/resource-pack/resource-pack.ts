@@ -1,21 +1,21 @@
-import { MCProject } from "bc-minecraft-project";
-import { Manifest } from "../../internal/types/manifest";
-import { Container, DataSet, Pack, TextDocument } from "../../types";
-import { PackType } from "../pack-type";
-import { FileType } from "./file-type";
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../../internal/types/manifest';
+import { Container, DataSet, Pack, TextDocument } from '../../types';
+import { PackType } from '../pack-type';
+import { FileType } from './file-type';
 
-import * as Animation from "./animation";
-import * as AnimationController from "./animation-controller";
-import * as Attachable from "./attachable";
-import * as BlockCulling from "./block-culling";
-import * as Entity from "./entity";
-import * as Fog from "./fog";
-import * as Material from "./material";
-import * as Model from "./model";
-import * as Particle from "./particle";
-import * as RenderController from "./render-controller";
-import * as Sound from "./sound";
-import * as Texture from "./texture";
+import * as Animation from './animation';
+import * as AnimationController from './animation-controller';
+import * as Attachable from './attachable';
+import * as BlockCulling from './block-culling';
+import * as Entity from './entity';
+import * as Fog from './fog';
+import * as Material from './material';
+import * as Model from './model';
+import * as Particle from './particle';
+import * as RenderController from './render-controller';
+import * as Sound from './sound';
+import * as Texture from './texture';
 
 type CollectFieldsOfType<T> = {
   [K in keyof T]: T[K] extends DataSet<infer U> ? U : never;
@@ -25,7 +25,6 @@ type CollectionFieldsDataSet<T> = {
 };
 
 type FieldKeysDataSet<T> = {
-   
   [K in keyof T]: T[K] extends DataSet<infer _U> ? K : never;
 };
 
@@ -77,7 +76,7 @@ export class ResourcePack implements Container, Pack {
   constructor(folder: string, Context: MCProject | string, manifest: Manifest) {
     this.manifest = manifest;
     this.folder = folder;
-    this.context = typeof Context === "object" ? Context : MCProject.loadSync(Context);
+    this.context = typeof Context === 'object' ? Context : MCProject.loadSync(Context);
 
     this.animation_controllers = new DataSet();
     this.animations = new DataSet();
@@ -309,25 +308,25 @@ export namespace ResourcePack {
    * @returns
    */
   export function is(value: any): value is ResourcePack {
-    if (typeof value === "object") {
+    if (typeof value === 'object') {
       const temp = <ResourcePack>value;
       //Order is determined buy likely / unlikely it is that it missing
-      if (typeof temp.attachables !== "object") return false;
-      if (typeof temp.fogs !== "object") return false;
-      if (typeof temp.materials !== "object") return false;
-      if (typeof temp.models !== "object") return false;
-      if (typeof temp.particles !== "object") return false;
-      if (typeof temp.render_controllers !== "object") return false;
-      if (typeof temp.sounds !== "object") return false;
-      if (typeof temp.textures !== "object") return false;
+      if (typeof temp.attachables !== 'object') return false;
+      if (typeof temp.fogs !== 'object') return false;
+      if (typeof temp.materials !== 'object') return false;
+      if (typeof temp.models !== 'object') return false;
+      if (typeof temp.particles !== 'object') return false;
+      if (typeof temp.render_controllers !== 'object') return false;
+      if (typeof temp.sounds !== 'object') return false;
+      if (typeof temp.textures !== 'object') return false;
 
-      if (typeof temp.animations !== "object") return false;
-      if (typeof temp.animation_controllers !== "object") return false;
-      if (typeof temp.block_culling_rules !== "object") return false;
-      if (typeof temp.entities !== "object") return false;
+      if (typeof temp.animations !== 'object') return false;
+      if (typeof temp.animation_controllers !== 'object') return false;
+      if (typeof temp.block_culling_rules !== 'object') return false;
+      if (typeof temp.entities !== 'object') return false;
 
-      if (typeof temp.context !== "object") return false;
-      if (typeof temp.folder !== "string") return false;
+      if (typeof temp.context !== 'object') return false;
+      if (typeof temp.folder !== 'string') return false;
 
       return true;
     }

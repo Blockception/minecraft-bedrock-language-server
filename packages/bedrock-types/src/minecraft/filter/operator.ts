@@ -1,5 +1,5 @@
 /** The operator type */
-export type OperatorType = "!=" | "<" | "<=" | "<>" | "=" | "==" | ">" | ">=" | "equals" | "not";
+export type OperatorType = '!=' | '<' | '<=' | '<>' | '=' | '==' | '>' | '>=' | 'equals' | 'not';
 
 /** The operator type */
 export namespace OperatorType {
@@ -11,16 +11,16 @@ export namespace OperatorType {
    */
   export function parse(text: string): OperatorType {
     switch (text) {
-      case "!=":
-      case "<":
-      case "<=":
-      case "<>":
-      case "=":
-      case "==":
-      case ">":
-      case ">=":
-      case "equals":
-      case "not":
+      case '!=':
+      case '<':
+      case '<=':
+      case '<>':
+      case '=':
+      case '==':
+      case '>':
+      case '>=':
+      case 'equals':
+      case 'not':
         return text;
 
       default:

@@ -1,14 +1,14 @@
-import { MolangFunction } from "bc-minecraft-molang";
-import { OffsetWord } from "bc-vscode-words";
-import { SignatureInformation } from "vscode-languageserver";
-import { Offset } from "../../../../util";
+import { MolangFunction } from 'bc-minecraft-molang';
+import { OffsetWord } from 'bc-vscode-words';
+import { SignatureInformation } from 'vscode-languageserver';
+import { Offset } from '../../../../util';
 
 export function generateSignatures(
   scope: string,
   cursor: number,
   items: MolangFunction[],
   parameters: OffsetWord[],
-  query: string
+  query: string,
 ) {
   return items.filter((item) => item.id === query).map((item) => generateSignature(scope, cursor, item, parameters));
 }
@@ -17,13 +17,13 @@ export function generateSignature(
   scope: string,
   cursor: number,
   item: MolangFunction,
-  parameters: OffsetWord[]
+  parameters: OffsetWord[],
 ): SignatureInformation {
   const out = {
     label: `${scope}.${item.id}`,
     activeParameter: parameters.length,
     documentation: item.documentation ?? `${scope}.${item.id}`,
-    parameters: [] as SignatureInformation["parameters"],
+    parameters: [] as SignatureInformation['parameters'],
   };
 
   if (parameters.length > 0) {
@@ -34,7 +34,7 @@ export function generateSignature(
   }
 
   if (item.parameters) {
-    out.label += `(${item.parameters.map((p) => `<${p.id}>`).join(", ")})`;
+    out.label += `(${item.parameters.map((p) => `<${p.id}>`).join(', ')})`;
     out.parameters = item.parameters.map((p) => {
       return { label: p.id, documentation: p.documentation };
     });

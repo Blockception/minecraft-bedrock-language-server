@@ -1,7 +1,7 @@
-import { ExpressionNode } from "./nodes";
-import { walk } from "./walk";
+import { ExpressionNode } from './nodes';
+import { walk } from './walk';
 
-export function collect<T extends ExpressionNode>(node: ExpressionNode, token: T["type"]): T[] {
+export function collect<T extends ExpressionNode>(node: ExpressionNode, token: T['type']): T[] {
   const nodes: T[] = [];
 
   walk(node, (n) => {

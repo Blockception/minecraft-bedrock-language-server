@@ -1,45 +1,45 @@
 import { Commands } from '@blockception/ide-shared';
-import { commands, ExtensionContext, InputBoxOptions, Uri, window, workspace } from "vscode";
-import { ExecuteCommandParams, ExecuteCommandRequest } from "vscode-languageclient/node";
-import { Manager } from "../manager/manager";
+import { commands, ExtensionContext, InputBoxOptions, Uri, window, workspace } from 'vscode';
+import { ExecuteCommandParams, ExecuteCommandRequest } from 'vscode-languageclient/node';
+import { Manager } from '../manager/manager';
 
 interface IDExample {
   ID: RegExp;
   example: string;
 }
 
-const AnimationControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
-const AnimationID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
-const AttachableID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:attachable" };
-const BlockID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:block" };
-const BlockCullingRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:culling_rule" };
-const DialogueID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "dialogue" };
-const EntityID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:entity" };
-const FogID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
-const ItemID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:item" };
-const LootTableID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "example.foo | example" };
-const ModelID: IDExample = { ID: /^geometry.[0-9a-zA-Z_\\.\\-]+$/, example: "geometry.model_name" };
-const ParticleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:particle" };
-const RecipeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "namespace:recipe" };
-const RenderControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: "" };
-const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
-const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
-const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: "example.foo | example" };
+const AnimationControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: 'example.foo | example' };
+const AnimationID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: 'example.foo | example' };
+const AttachableID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:attachable' };
+const BlockID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:block' };
+const BlockCullingRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:culling_rule' };
+const DialogueID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'dialogue' };
+const EntityID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:entity' };
+const FogID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:item' };
+const ItemID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:item' };
+const LootTableID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: 'example.foo | example' };
+const ModelID: IDExample = { ID: /^geometry.[0-9a-zA-Z_\\.\\-]+$/, example: 'geometry.model_name' };
+const ParticleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:particle' };
+const RecipeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:recipe' };
+const RenderControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: '' };
+const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
+const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
+const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
 
-const ProjectID: IDExample = { ID: /^[A-Za-z]+$/, example: "EP" };
+const ProjectID: IDExample = { ID: /^[A-Za-z]+$/, example: 'EP' };
 
 export function activate(context: ExtensionContext): void {
-  console.log("registering create commands");
+  console.log('registering create commands');
 
   //General
-  createCommandWithID(context, Commands.Create.General.Entity, "Create Entity", EntityID);
+  createCommandWithID(context, Commands.Create.General.Entity, 'Create Entity', EntityID);
   createCommand(context, Commands.Create.General.Languages);
   createCommand(context, Commands.Create.General.Manifests);
 
   //Project
-  createCommandWithID(context, Commands.Create.Project.WorldProject, "Create World, BP, RP project", ProjectID);
-  createCommandWithID(context, Commands.Create.Project.Resourcepack, "Create RP", ProjectID);
-  createCommandWithID(context, Commands.Create.Project.Behaviorpack, "Create BP", ProjectID);
+  createCommandWithID(context, Commands.Create.Project.WorldProject, 'Create World, BP, RP project', ProjectID);
+  createCommandWithID(context, Commands.Create.Project.Resourcepack, 'Create RP', ProjectID);
+  createCommandWithID(context, Commands.Create.Project.Behaviorpack, 'Create BP', ProjectID);
 
   //Behavior pack
   createCommand(context, Commands.Create.Behaviorpack.Languages);
@@ -48,19 +48,19 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(
     context,
     Commands.Create.Behaviorpack.Animation_Controller,
-    "Create animation controller",
-    AnimationControllerID
+    'Create animation controller',
+    AnimationControllerID,
   );
-  createCommandWithID(context, Commands.Create.Behaviorpack.Animation, "Create animation", AnimationID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Block, "Create block", BlockID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Dialogue, "Create dialogue", DialogueID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Entity, "Create entity", EntityID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Item, "Create item", ItemID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Loot_Table, "Create loot table", LootTableID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Recipe, "Create recipe", RecipeID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Spawn_Rule, "Create spawn rule", SpawnRuleID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Trading, "Create trading", TradingID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Volume, "Create volume", VolumeID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Animation, 'Create animation', AnimationID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Block, 'Create block', BlockID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Dialogue, 'Create dialogue', DialogueID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Entity, 'Create entity', EntityID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Item, 'Create item', ItemID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Loot_Table, 'Create loot table', LootTableID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Recipe, 'Create recipe', RecipeID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Spawn_Rule, 'Create spawn rule', SpawnRuleID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Trading, 'Create trading', TradingID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Volume, 'Create volume', VolumeID);
 
   //Resource pack
   createCommand(context, Commands.Create.Resourcepack.Biomes_Client);
@@ -78,26 +78,26 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(
     context,
     Commands.Create.Resourcepack.Animation_Controller,
-    "Create animation controllers files",
-    AnimationControllerID
+    'Create animation controllers files',
+    AnimationControllerID,
   );
-  createCommandWithID(context, Commands.Create.Resourcepack.Animation, "Create animations files", AnimationID);
-  createCommandWithID(context, Commands.Create.Resourcepack.Attachable, "Create attachable files", AttachableID);
+  createCommandWithID(context, Commands.Create.Resourcepack.Animation, 'Create animations files', AnimationID);
+  createCommandWithID(context, Commands.Create.Resourcepack.Attachable, 'Create attachable files', AttachableID);
   createCommandWithID(
     context,
     Commands.Create.Resourcepack.BlockCulling,
-    "Create the block culling rule file",
-    BlockCullingRuleID
+    'Create the block culling rule file',
+    BlockCullingRuleID,
   );
-  createCommandWithID(context, Commands.Create.Resourcepack.Entity, "Create entities files", EntityID);
-  createCommandWithID(context, Commands.Create.Resourcepack.Fog, "Create fog file", FogID);
-  createCommandWithID(context, Commands.Create.Resourcepack.Model, "Create reate model file", ModelID);
-  createCommandWithID(context, Commands.Create.Resourcepack.Particle, "Create particle file", ParticleID);
+  createCommandWithID(context, Commands.Create.Resourcepack.Entity, 'Create entities files', EntityID);
+  createCommandWithID(context, Commands.Create.Resourcepack.Fog, 'Create fog file', FogID);
+  createCommandWithID(context, Commands.Create.Resourcepack.Model, 'Create reate model file', ModelID);
+  createCommandWithID(context, Commands.Create.Resourcepack.Particle, 'Create particle file', ParticleID);
   createCommandWithID(
     context,
     Commands.Create.Resourcepack.Render_Controller,
-    "Create render_controller file",
-    RenderControllerID
+    'Create render_controller file',
+    RenderControllerID,
   );
 
   //World
@@ -109,7 +109,7 @@ function createCommand(context: ExtensionContext, command: string) {
   context.subscriptions.push(
     commands.registerCommand(command, (arg: any[]) => {
       onCommandComplete(command, arg);
-    })
+    }),
   );
 }
 
@@ -130,16 +130,16 @@ function createCommandWithID(context: ExtensionContext, command: string, title: 
       if (!arg) arg = [];
 
       if (arg.length > 0) {
-        if (typeof arg === "string") return onCompleteID(arg, command);
+        if (typeof arg === 'string') return onCompleteID(arg, command);
 
         if (Array.isArray(arg)) {
           const id = arg[0];
-          if (typeof id === "string") return onCompleteID(id, command);
+          if (typeof id === 'string') return onCompleteID(id, command);
         }
       }
 
       return window.showInputBox(opts).then((value) => onCompleteID(value, command));
-    })
+    }),
   );
 }
 
@@ -159,7 +159,7 @@ function onCompleteID(value: string | undefined, command: string): Promise<any> 
     uri = workspace.workspaceFolders?.[0].uri;
 
     if (uri === undefined) {
-      window.showErrorMessage("No workspace folder found");
+      window.showErrorMessage('No workspace folder found');
       return Promise.resolve();
     }
   }

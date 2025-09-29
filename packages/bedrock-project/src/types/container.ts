@@ -1,4 +1,4 @@
-import { MCProject } from "bc-minecraft-project";
+import { MCProject } from 'bc-minecraft-project';
 
 /** */
 export interface Container {

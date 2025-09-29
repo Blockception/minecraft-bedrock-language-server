@@ -1,9 +1,9 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import * as Internal from "../../../internal/resource-pack";
-import { Documentation, TextDocument } from "../../../types";
-import { Using } from "../../../types/references";
-import { harvestMolang } from "../../molang";
-import { Animation } from "./animation";
+import { Types } from 'bc-minecraft-bedrock-types';
+import * as Internal from '../../../internal/resource-pack';
+import { Documentation, TextDocument } from '../../../types';
+import { Using } from '../../../types/references';
+import { harvestMolang } from '../../molang';
+import { Animation } from './animation';
 
 /** */
 export function process(doc: TextDocument): Animation[] | undefined {
@@ -27,21 +27,21 @@ export function process(doc: TextDocument): Animation[] | undefined {
       molang: harvestMolang(content, anim),
       documentation: Documentation.getDoc(
         doc,
-        () => `RP Animation: '${id}', loop: ${anim.loop ?? false}, length: ${anim.animation_length ?? "unknown"}`
+        () => `RP Animation: '${id}', loop: ${anim.loop ?? false}, length: ${anim.animation_length ?? 'unknown'}`,
       ),
       particles: Using.wrap(
         Object.values(anim.particle_effects ?? {})
           .filter((e) => e !== undefined)
           .flatMap((e) => (Array.isArray(e) ? e : [e]))
           .map((e) => e?.effect)
-          .filter((e) => e !== undefined)
+          .filter((e) => e !== undefined),
       ),
       sounds: Using.wrap(
         Object.values(anim.sound_effects ?? {})
           .filter((e) => e !== undefined)
           .flatMap((e) => (Array.isArray(e) ? e : [e]))
           .map((value) => value.effect)
-          .filter((e) => e !== undefined)
+          .filter((e) => e !== undefined),
       ),
     };
     out.push(item);

@@ -1,9 +1,9 @@
-import { Internal } from "bc-minecraft-bedrock-project";
-import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../types";
-import { Json } from "../../json/json";
-import { diagnose_molang_syntax_current_document } from "../../molang";
-import { no_other_duplicates } from "../../packs/duplicate-check";
-import { json_commandsCheck } from "../mcfunction/commands";
+import { Internal } from 'bc-minecraft-bedrock-project';
+import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { Json } from '../../json/json';
+import { diagnose_molang_syntax_current_document } from '../../molang';
+import { no_other_duplicates } from '../../packs/duplicate-check';
+import { json_commandsCheck } from '../mcfunction/commands';
 
 /**Diagnoses the given document as an animation
  * @param doc The text document to diagnose
@@ -19,10 +19,10 @@ export function diagnose_animation_document(diagnoser: DocumentDiagnosticsBuilde
 
     // check that no other exists with this id
     no_other_duplicates(
-      "behaviorpack.animation",
+      'behaviorpack.animation',
       diagnoser.context.getProjectData().projectData.behaviorPacks.animations,
       id,
-      diagnoser
+      diagnoser,
     );
 
     //foreach time
@@ -35,9 +35,9 @@ export function diagnose_animation_document(diagnoser: DocumentDiagnosticsBuilde
         if (temp > length)
           diagnoser.add(
             `${id}/timeline/${time}`,
-            "Time specification is outside the animation range",
+            'Time specification is outside the animation range',
             DiagnosticSeverity.warning,
-            "minecraft.animation.time.range"
+            'minecraft.animation.time.range',
           );
       }
     });

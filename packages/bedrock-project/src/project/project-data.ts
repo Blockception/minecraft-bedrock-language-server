@@ -1,19 +1,19 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { MCProject } from "bc-minecraft-project";
-import { Manifest } from "../internal/types/manifest";
-import { DataSetBase, Documents, Pack, TextDocument } from "../types";
-import { BehaviorPack, BehaviorPackCollection, FileType } from "./behavior-pack";
-import { GeneralCollection } from "./general/general";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../internal/types/manifest';
+import { DataSetBase, Documents, Pack, TextDocument } from '../types';
+import { BehaviorPack, BehaviorPackCollection, FileType } from './behavior-pack';
+import { GeneralCollection } from './general/general';
 import {
   ProcessAnimationCommands,
   ProcessAnimationControllerCommands,
   ProcessMcFunction,
   processEntityCommands,
-} from "./general/types/commands/process";
-import { PackType } from "./pack-type";
-import { ResourcePack } from "./resource-pack/resource-pack";
-import { ResourcePackCollection } from "./resource-pack/resource-pack-collection";
-import { WorldPack, WorldPackCollection } from "./world";
+} from './general/types/commands/process';
+import { PackType } from './pack-type';
+import { ResourcePack } from './resource-pack/resource-pack';
+import { ResourcePackCollection } from './resource-pack/resource-pack-collection';
+import { WorldPack, WorldPackCollection } from './world';
 
 /**The project cache for minecraft*/
 export class ProjectData {
@@ -167,7 +167,7 @@ export class ProjectData {
     if (!manifest) return;
 
     const types = Manifest.detectTypeUri(manifestUri, manifest);
-    const parent = manifestUri.replace(/[\\/]manifest.json/gi, "");
+    const parent = manifestUri.replace(/[\\/]manifest.json/gi, '');
 
     switch (types) {
       case PackType.behavior_pack:

@@ -1,5 +1,5 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { IDataSet } from "./i-data-set";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { IDataSet } from './i-data-set';
 
 /** The base of any dataset */
 export interface DataSetBase {
@@ -51,7 +51,7 @@ export class DataSet<T extends Types.Identifiable & Types.Locatable> implements 
 
   /** @inheritdoc */
   delete(key: string | Types.Identifiable): boolean {
-    if (typeof key !== "string") key = key.id;
+    if (typeof key !== 'string') key = key.id;
 
     return this._data.delete(key);
   }
