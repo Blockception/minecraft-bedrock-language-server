@@ -1,16 +1,16 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { CompactJson, CompactJsonReader } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
-import { behaviorpack_item_diagnose } from "../../behavior-pack/item/diagnose";
-import { general_integer_diagnose, general_range_integer_diagnose } from "../../general";
-import { mode_slotid_diagnose, mode_slot_type_diagnose } from "../../mode/diagnose";
-import { selectorattributes_no_duplicate as no_duplicate } from "./checks";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { CompactJson, CompactJsonReader } from 'bc-minecraft-bedrock-types/src/minecraft/json';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
+import { behaviorpack_item_diagnose } from '../../behavior-pack/item/diagnose';
+import { general_integer_diagnose, general_range_integer_diagnose } from '../../general';
+import { mode_slotid_diagnose, mode_slot_type_diagnose } from '../../mode/diagnose';
+import { selectorattributes_no_duplicate as no_duplicate } from './checks';
 import {
   selectorattribute_no_negatives as no_negatives,
   selectorattribute_one_positive_all_negatives as one_positive_all_negatives,
-} from "./general";
-import { all, diagnoseAttributes, must_offset_word } from "./util";
+} from './general';
+import { all, diagnoseAttributes, must_offset_word } from './util';
 
 function integer_diagnose(range?: { min: number; max: number }): diagnoseAttributes {
   return must_offset_word((value, diagnoser) => general_integer_diagnose(value, diagnoser, range));
@@ -37,15 +37,15 @@ export const attribute_hasitem_diagnostics: Record<string, diagnoseAttributes> =
  */
 export function minecraft_selector_hasitem_diagnose(
   attr: CompactJson.IKeyNode,
-  sel: Selector,
-  diagnoser: DiagnosticsBuilder
+  sel: Minecraft.Selector.Selector,
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   if (CompactJson.isString(attr)) {
     diagnoser.add(
       CompactJson.toOffsetWord(attr),
-      "The hasitem attribute needs to be either a array or object",
+      'The hasitem attribute needs to be either a array or object',
       DiagnosticSeverity.error,
-      "minecraft.selector.hasitem.type"
+      'minecraft.selector.hasitem.type',
     );
     return false;
   }
@@ -62,16 +62,16 @@ export function minecraft_selector_hasitem_diagnose(
       if (CompactJson.isObject(a)) {
         result =
           diagnose_hasitem_object(
-            CompactJson.toKeyed(a, "hasitem") as CompactJson.IKeyNode & CompactJson.IObject,
+            CompactJson.toKeyed(a, 'hasitem') as CompactJson.IKeyNode & CompactJson.IObject,
             sel,
-            diagnoser
+            diagnoser,
           ) && result;
       } else {
         diagnoser.add(
           CompactJson.toOffsetWord(a),
-          "Expected a object",
+          'Expected a object',
           DiagnosticSeverity.error,
-          "minecraft.selector.hasitem.type"
+          'minecraft.selector.hasitem.type',
         );
         result = false;
       }
@@ -83,19 +83,19 @@ export function minecraft_selector_hasitem_diagnose(
 
 function diagnose_hasitem_object(
   attr: CompactJson.IKeyNode & CompactJson.IObject,
-  sel: Selector,
-  diagnoser: DiagnosticsBuilder
+  sel: Minecraft.Selector.Selector,
+  diagnoser: DiagnosticsBuilder,
 ) {
   let result = true;
   const reader = new CompactJsonReader(attr);
 
   //Hasitem needs to contain the item attribute
-  if (!reader.contains("item")) {
+  if (!reader.contains('item')) {
     diagnoser.add(
       CompactJson.toOffsetWord(attr),
-      "Missing item selector attribute",
+      'Missing item selector attribute',
       DiagnosticSeverity.error,
-      "minecraft.selector.hasitem.item.missing"
+      'minecraft.selector.hasitem.item.missing',
     );
     result = false;
   }
@@ -114,11 +114,11 @@ function diagnose_hasitem_object(
     //If still good we check perform additional checks
     if (result) {
       switch (name) {
-        case "data":
+        case 'data':
           result = diagnose_hasitem_data(attrs, reader, diagnoser) && result;
           break;
 
-        case "slot":
+        case 'slot':
           result = diagnose_hasitem_slot(attrs, reader, diagnoser) && result;
           break;
       }
@@ -131,8 +131,8 @@ function diagnose_hasitem_object(
 function defaultAttribute(
   attribute: string,
   attributes: CompactJson.INode[],
-  sel: Selector,
-  diagnoser: DiagnosticsBuilder
+  sel: Minecraft.Selector.Selector,
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   const msg = `Unknown attribute: ${attribute}`;
 
@@ -141,7 +141,7 @@ function defaultAttribute(
       CompactJson.toOffsetWord(a),
       msg,
       DiagnosticSeverity.error,
-      "minecraft.selector.hasitem.attribute.invalid"
+      'minecraft.selector.hasitem.attribute.invalid',
     );
   });
 
@@ -151,10 +151,10 @@ function defaultAttribute(
 function diagnose_hasitem_data(
   attrs: CompactJson.IKeyNode[],
   reader: CompactJsonReader<CompactJson.IKeyNode & CompactJson.IObject>,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   let result = true;
-  const item = reader.get("item") as CompactJson.IKeyNode[];
+  const item = reader.get('item') as CompactJson.IKeyNode[];
   if (item.length !== 1) {
     return false;
   }
@@ -173,10 +173,10 @@ function diagnose_hasitem_data(
 function diagnose_hasitem_slot(
   attrs: CompactJson.IKeyNode[],
   reader: CompactJsonReader<CompactJson.IKeyNode & CompactJson.IObject>,
-  diagnoser: DiagnosticsBuilder
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   let result = true;
-  const location = reader.get("location") as CompactJson.IKeyNode[];
+  const location = reader.get('location') as CompactJson.IKeyNode[];
   if (location.length !== 1) {
     return false;
   }

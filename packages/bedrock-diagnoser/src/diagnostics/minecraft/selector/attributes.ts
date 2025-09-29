@@ -1,5 +1,5 @@
 import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
+import { Minecraft } from "bc-minecraft-bedrock-types";
 import { DiagnosticSeverity, DiagnosticsBuilder } from "../../../types";
 import { behaviorpack_entityid_diagnose } from "../../behavior-pack/entity";
 import { general_float_diagnose, general_integer_diagnose, general_positive_float_diagnose } from "../../general";
@@ -52,7 +52,7 @@ export namespace Attribute {
   export function diagnose(
     attribute: string,
     attributes: CompactJson.IKeyNode[],
-    sel: Selector,
+    sel: Minecraft.Selector.Selector,
     diagnoser: DiagnosticsBuilder
   ): boolean {
     const fn = attribute_diagnostics[attribute];

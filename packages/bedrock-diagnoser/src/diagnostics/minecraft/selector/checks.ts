@@ -1,6 +1,6 @@
-import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
+import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 
 /**
  * Checking if the given attribute is the only one.
@@ -11,8 +11,8 @@ import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
  */
 export function selectorattributes_no_duplicate(
   attrs: CompactJson.IKeyNode[],
-  sel: Selector,
-  diagnoser: DiagnosticsBuilder
+  sel: Minecraft.Selector.Selector,
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   if (attrs.length <= 1) return true;
 
@@ -21,8 +21,8 @@ export function selectorattributes_no_duplicate(
       CompactJson.toOffsetWord(item),
       `Duplicate selector attribute: ${item.key}, but only one allowed`,
       DiagnosticSeverity.error,
-      "minecraft.selector.attribute.noduplicate"
-    )
+      'minecraft.selector.attribute.noduplicate',
+    ),
   );
 
   return false;

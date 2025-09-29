@@ -1,4 +1,4 @@
-import { ResourcePackCollection } from 'bc-minecraft-bedrock-project/src/project/resource-pack';
+import { ResourcePack } from 'bc-minecraft-bedrock-project';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { is_block_defined } from '../../behavior-pack/block';
 import { Json } from '../../json/json';
@@ -55,7 +55,12 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
   }
 }
 
-function hasDefinition(block: string, value: string, rp: Pick<ResourcePackCollection, "terrainTextures">, diagnoser: DiagnosticsBuilder): void {
+function hasDefinition(
+  block: string,
+  value: string,
+  rp: ResourcePack.ResourcePackCollection,
+  diagnoser: DiagnosticsBuilder,
+): void {
   if (rp.terrainTextures.has(value)) return;
 
   diagnoser.add(

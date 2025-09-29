@@ -1,16 +1,16 @@
 import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
+import { Minecraft } from "bc-minecraft-bedrock-types";
 import { OffsetWord } from "bc-minecraft-bedrock-types/src/types";
 import { DiagnosticSeverity, DiagnosticsBuilder } from "../../../types";
 
 export type diagnoseAttribute = (
   attribute: CompactJson.IKeyNode,
-  sel: Selector,
+  sel: Minecraft.Selector.Selector,
   diagnoser: DiagnosticsBuilder
 ) => boolean;
 export type diagnoseAttributes = (
   attributes: CompactJson.IKeyNode[],
-  sel: Selector,
+  sel: Minecraft.Selector.Selector,
   diagnoser: DiagnosticsBuilder
 ) => boolean;
 
@@ -20,7 +20,7 @@ export type diagnoseAttributes = (
  * @returns
  */
 export function all(...fn: diagnoseAttributes[]): diagnoseAttributes {
-  return (attr: CompactJson.IKeyNode[], sel: Selector, diagnoser: DiagnosticsBuilder) => {
+  return (attr: CompactJson.IKeyNode[], sel: Minecraft.Selector.Selector, diagnoser: DiagnosticsBuilder) => {
     let result = true;
 
     for (const f of fn) {
@@ -32,7 +32,7 @@ export function all(...fn: diagnoseAttributes[]): diagnoseAttributes {
 }
 
 export function forEach(fn: diagnoseAttribute): diagnoseAttributes {
-  return (attr: CompactJson.IKeyNode[], sel: Selector, diagnoser: DiagnosticsBuilder) => {
+  return (attr: CompactJson.IKeyNode[], sel: Minecraft.Selector.Selector, diagnoser: DiagnosticsBuilder) => {
     let result = true;
 
     for (const a of attr) {

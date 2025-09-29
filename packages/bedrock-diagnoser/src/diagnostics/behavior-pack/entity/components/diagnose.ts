@@ -1,4 +1,4 @@
-import { Internal, TextDocument } from "bc-minecraft-bedrock-project";
+import { Internal } from "bc-minecraft-bedrock-project";
 import { FormatVersion } from "bc-minecraft-bedrock-types/src/minecraft";
 import { ComponentBehavior } from "bc-minecraft-bedrock-types/src/minecraft/components";
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from "../../../../types";

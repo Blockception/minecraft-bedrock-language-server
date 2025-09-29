@@ -1,14 +1,14 @@
 import { Entity } from "bc-minecraft-bedrock-project/src/project/behavior-pack";
 import { Types } from "bc-minecraft-bedrock-types";
 import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
+import { Minecraft } from "bc-minecraft-bedrock-types";
 import { DiagnosticSeverity, DiagnosticsBuilder } from "../../../types";
 import { NoopDiagnoser } from "../../../types/noop";
 import { general_range_float_diagnose, general_range_integer_diagnose } from "../../general";
 
 export function minecraft_selector_has_property_diagnose(
   attr: CompactJson.IKeyNode,
-  sel: Selector,
+  sel: Minecraft.Selector.Selector,
   diagnoser: DiagnosticsBuilder
 ): boolean {
   let result = true;

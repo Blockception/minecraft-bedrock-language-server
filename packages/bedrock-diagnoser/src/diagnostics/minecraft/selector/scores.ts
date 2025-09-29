@@ -1,9 +1,9 @@
-import { Types } from "bc-minecraft-bedrock-types";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector";
-import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
-import { general_range_integer_diagnose } from "../../general/range";
-import { minecraft_objectives_diagnose } from "../objective";
+import { Types } from 'bc-minecraft-bedrock-types';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
+import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
+import { general_range_integer_diagnose } from '../../general/range';
+import { minecraft_objectives_diagnose } from '../objective';
 
 /**
  * Diagnoses the scores attribute from a selector
@@ -12,8 +12,8 @@ import { minecraft_objectives_diagnose } from "../objective";
  */
 export function selector_scores_diagnose(
   attr: CompactJson.IKeyNode,
-  sel: Selector,
-  diagnoser: DiagnosticsBuilder
+  sel: Minecraft.Selector.Selector,
+  diagnoser: DiagnosticsBuilder,
 ): boolean {
   let result = true;
   if (!CompactJson.isObject(attr)) {
@@ -23,7 +23,7 @@ export function selector_scores_diagnose(
       CompactJson.toOffsetWord(attr),
       `Expected a object, not a ${type}`,
       DiagnosticSeverity.error,
-      "minecraft.selector.scores.type"
+      'minecraft.selector.scores.type',
     );
 
     return false;
@@ -49,7 +49,7 @@ function minecraft_selector_scores_item_diagnose(attr: CompactJson.IKeyNode, dia
       CompactJson.toOffsetWord(attr),
       `Expected a range / integer value, not a ${type}`,
       DiagnosticSeverity.error,
-      "minecraft.selector.scores.item.type"
+      'minecraft.selector.scores.item.type',
     );
     return false;
   }

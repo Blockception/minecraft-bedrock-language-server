@@ -1,5 +1,5 @@
 import { CompactJson } from "bc-minecraft-bedrock-types/src/minecraft/json";
-import { Selector } from "bc-minecraft-bedrock-types/src/minecraft/selector/selector";
+import { Minecraft } from "bc-minecraft-bedrock-types";
 import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
 
 /**
@@ -11,7 +11,7 @@ import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
  */
 export function selectorattribute_one_positive_all_negatives(
   parameters: CompactJson.IKeyNode[],
-  selector: Selector,
+  selector: Minecraft.Selector.Selector,
   diagnoser: DiagnosticsBuilder
 ): boolean {
   let result = true;
@@ -51,7 +51,7 @@ export function selectorattribute_one_positive_all_negatives(
  */
 export function selectorattribute_duplicate_check(
   parameters: CompactJson.IKeyNode[],
-  selector: Selector,
+  selector: Minecraft.Selector.Selector,
   diagnoser: DiagnosticsBuilder
 ): boolean {
   let result = true;
@@ -87,7 +87,7 @@ export function selectorattribute_duplicate_check(
  */
 export function selectorattribute_no_negatives(
   parameters: CompactJson.IKeyNode[],
-  selector: Selector,
+  selector: Minecraft.Selector.Selector,
   diagnoser: DiagnosticsBuilder
 ): boolean {
   let result = true;

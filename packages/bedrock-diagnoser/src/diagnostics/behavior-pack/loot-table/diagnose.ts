@@ -1,8 +1,6 @@
-import { check_definition_value, education_enabled } from "../../definitions";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
-import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { Types } from "bc-minecraft-bedrock-types";
 import { Errors } from "../..";
+import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../types";
 
 export function behaviorpack_loot_table_diagnose(
   value: Types.OffsetWord | string,

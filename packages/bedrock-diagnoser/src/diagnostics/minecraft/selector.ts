@@ -5,7 +5,6 @@ import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';
 import { Attribute } from './selector/attributes';
-import { Selector } from 'bc-minecraft-bedrock-types/src/minecraft/selector';
 
 /**
  *
@@ -138,7 +137,7 @@ function minecraft_selector_diagnose_hard(
 export function minecraft_selector_attribute_diagnose_hard(
   attribute: string,
   attributes: CompactJson.IKeyNode[],
-  selector: Selector,
+  selector: Minecraft.Selector.Selector,
   diagnoser: DiagnosticsBuilder,
 ): boolean {
   return Attribute.diagnose(attribute, attributes as Minecraft.Json.CompactJson.IKeyNode[], selector, diagnoser);

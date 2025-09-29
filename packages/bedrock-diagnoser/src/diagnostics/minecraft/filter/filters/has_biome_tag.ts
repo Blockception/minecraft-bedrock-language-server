@@ -1,7 +1,6 @@
 import { Minecraft } from "bc-minecraft-bedrock-types";
-import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../../types";
-import { minecraft_tag_diagnose } from "../../tag";
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
+import { DiagnosticsBuilder, DiagnosticSeverity } from "../../../../types";
 
 export function diagnose_filter_has_biome_tag(filter: Minecraft.Filter.Filter, diagnoser: DiagnosticsBuilder) {
   const tag = filter.value;
