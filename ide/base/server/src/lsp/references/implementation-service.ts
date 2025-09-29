@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared/dist";
+import { Languages } from "@blockception/ide-shared";
 import {
   CancellationToken, Connection, Definition,
   DefinitionLink,

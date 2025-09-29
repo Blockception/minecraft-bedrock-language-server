@@ -1,4 +1,4 @@
-import { Identification } from "@blockception/shared/dist";
+import { Identification } from "@blockception/ide-shared";
 import { BulkRegistration, Connection, DidChangeConfigurationNotification, DidChangeConfigurationParams } from "vscode-languageserver";
 import { getProject } from "../../project/mcprojects";
 import { ExtensionContext, Settings } from "../extension";

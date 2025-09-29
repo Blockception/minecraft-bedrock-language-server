@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared/dist";
+import { Languages } from "@blockception/ide-shared";
 import {
   BulkRegistration, CancellationToken, Connection, DocumentFormattingParams,
   DocumentFormattingRequest,

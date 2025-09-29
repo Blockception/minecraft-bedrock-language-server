@@ -1,4 +1,4 @@
-import { ToolIdentification } from '@blockception/shared/dist';
+import { ToolIdentification } from '@blockception/ide-shared';
 import { PackType } from 'bc-minecraft-bedrock-project';
 import { MCProject } from 'bc-minecraft-project';
 import { randomUUID } from 'crypto';

@@ -1,4 +1,4 @@
-import { Commands } from "@blockception/shared/dist";
+import { Commands } from "@blockception/ide-shared";
 import { Diagnostic } from "vscode-languageserver";
 import { CodeActionBuilder } from "../../builder";
 import { definition } from "../../types/definition";

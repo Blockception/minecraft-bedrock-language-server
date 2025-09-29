@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared/dist";
+import { Languages } from "@blockception/ide-shared";
 import { DataSet, ProjectData } from "bc-minecraft-bedrock-project";
 import { Types } from "bc-minecraft-bedrock-types";
 import { CodeLens, CodeLensParams, Position, Range } from "vscode-languageserver";

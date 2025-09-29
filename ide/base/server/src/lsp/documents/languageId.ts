@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared/dist";
+import { Languages } from "@blockception/ide-shared";
 import { MCAttributes, MCDefinition, MCIgnore } from "bc-minecraft-project";
 import { URI, Utils } from "vscode-uri";
 

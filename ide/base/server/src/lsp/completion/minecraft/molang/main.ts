@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared/dist";
+import { Languages } from "@blockception/ide-shared";
 import { PackType } from "bc-minecraft-bedrock-project";
 import { CompletionItemKind } from "vscode-languageserver";
 import { getPreviousWord, IsMolang } from "../../../../minecraft/molang/functions";

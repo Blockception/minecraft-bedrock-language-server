@@ -1,4 +1,4 @@
-import { Commands } from "@blockception/shared/dist";
+import { Commands } from "@blockception/ide-shared";
 import { Vscode } from "../../../util";
 import { Context } from "../../context/context";
 import { TemplateBuilder } from "../../templates/builder";

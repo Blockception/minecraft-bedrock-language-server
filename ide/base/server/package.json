@@ -27,7 +27,7 @@
     "clean": "tsc -b --clean"
   },
   "dependencies": {
-    "@blockception/shared": "^0.0.1",
+    "@blockception/ide-shared": "^0.0.1",
     "@daanv2/queue-processor": "^2.2.1",
     "@types/vscode": "^1.103.0",
     "bc-minecraft-bedrock-command": "^1.21.100-3",

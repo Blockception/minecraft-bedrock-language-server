@@ -1,6 +1,6 @@
 import { readdirSync, statSync } from "fs";
 import { commands, ExtensionContext, languages, Uri, window } from "vscode";
-import { Commands } from "@blockception/shared/dist";
+import { Commands } from "@blockception/ide-shared";
 
 import path from "path";
 

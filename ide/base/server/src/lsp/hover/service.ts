@@ -1,4 +1,4 @@
-import { Languages } from "@blockception/shared/dist";
+import { Languages } from "@blockception/ide-shared";
 import { CancellationToken, Connection, Hover, HoverParams, WorkDoneProgressReporter } from "vscode-languageserver";
 import { Context } from "../context/context";
 import { ExtensionContext } from "../extension";

@@ -1,4 +1,4 @@
-import { Languages, ToolIdentification } from "@blockception/shared/dist";
+import { Languages, ToolIdentification } from "@blockception/ide-shared";
 
 describe("Constants", () => {
   test("values", () => {
