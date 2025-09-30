@@ -1,52 +1,31 @@
 //@ts-check
-
 'use strict';
 
 const path = require('path');
+const webpack = require('webpack');
 
-/**@type {import('webpack').Configuration}*/
-console.log('webpack client: ' + __dirname);
-const config = {
-  optimization: {
-    mergeDuplicateChunks: true,
-    minimize: true,
-    mangleExports: true,
-    mangleWasmImports: true,
-    removeEmptyChunks: true,
-    concatenateModules: true,
-    usedExports: true,
-    moduleIds: 'size',
-    chunkIds: 'size',
-  },
-  performance: {
-    hints: 'warning',
-    maxAssetSize: 500000000,
-    maxEntrypointSize: 500000000,
-  },
-
-  target: 'node', // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
-
-  entry: './src/client.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
+export default {
+  name: 'client',
+  target: 'node', // bundle for the browser
+  entry: './src/client.ts',
   output: {
-    // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'lsp'),
     filename: 'client.js',
-    libraryTarget: 'commonjs2',
-    devtoolModuleFilenameTemplate: '../[resource-path]',
+    clean: true,
+    libraryTarget: 'commonjs2', // vscode requires CJS exports
   },
   devtool: 'source-map',
-  externals: {
-    vscode: 'commonjs vscode', // the vscode-module is created on-the-fly and must be excluded. Add other modules that cannot be webpack'ed, 📖 -> https://webpack.js.org/configuration/externals/
-  },
-  resolve: {
-    // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
-    extensions: ['.ts', '.js'],
-  },
+  resolve: { extensions: ['.ts', '.js'] },
   module: {
-    rules: [
-      { test: /\.ts$/, exclude: /node_modules/, use: [{ loader: 'ts-loader' }] },
-      { test: /\.json$/, exclude: /node_modules/, loader: 'json-loader', type: 'javascript/auto' },
-    ],
+    rules: [{ test: /\.ts$/, exclude: /node_modules/, use: 'ts-loader' }],
+  },
+  externals: {
+    vscode: 'commonjs vscode',
+  },
+  optimization: {
+    usedExports: true,
+    concatenateModules: true,
+    splitChunks: false,
+    minimize: true,
   },
 };
-module.exports = config;

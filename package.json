@@ -16,8 +16,8 @@
     "packages/bedrock-project",
     "packages/bedrock-diagnoser",
     "ide/shared",
-    "ide/base/server",
     "ide/base/client",
+    "ide/base/server",
     "ide/vscode"
   ],
   "devDependencies": {

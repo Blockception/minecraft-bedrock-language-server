@@ -10,7 +10,7 @@ export function setupClient(context: vscode.ExtensionContext) {
   console.log('starting minecraft language client');
 
   // The server is implemented in node
-  const serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
+  const serverModule = context.asAbsolutePath('server.js');
 
   // The debug options for the server
   // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging

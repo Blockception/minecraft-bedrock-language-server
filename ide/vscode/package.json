@@ -4,7 +4,7 @@
   "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
   "icon": "resources/logo.png",
   "license": "BSD-3-Clause",
-  "main": "./dist/client.js",
+  "main": "./lsp/client.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
   "version": "8.0.46",
@@ -56,8 +56,8 @@
     "eslint-plugin-jest": "^28.13.3",
     "globals": "^16.4.0",
     "json-loader": "^0.5.7",
-    "ts-jest": "^29.4.1",
     "jsonc": "^2.0.0",
+    "ts-jest": "^29.4.1",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
@@ -66,8 +66,8 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "bc-minecraft-lsp-client": "1.0.0",
-    "bc-minecraft-lsp": "1.0.0"
+    "bc-minecraft-lsp": "^1.0.0",
+    "bc-minecraft-lsp-client": "^1.0.0"
   },
   "maintainers": [
     {
@@ -80,17 +80,14 @@
     "type": "git"
   },
   "scripts": {
-    "compile": "tsc -b ./tsconfig.json",
-    "clean": "tsc -b --clean",
-    "test": "jest --config ../../jest.config.ts",
+    "compile": "npm run webpack",
     "lint": "eslint --config ../../eslint.config.mjs .",
     "postversion": "git push && git push --tags",
+    "test": "jest --config ../../jest.config.ts",
     "version": "git add -A .",
     "vscode:prepublish": "npm run compile && npm run webpack",
     "watch": "tsc -b -w",
-    "webpack:client": "webpack --mode production --config ./webpack.client.config.js",
-    "webpack:server": "webpack --mode production --config ./webpack.server.config.js",
-    "webpack": "npm run webpack:client && npm run webpack:server"
+    "webpack": "webpack --mode production --config ./webpack.config.js"
   },
   "contributes": {
     "configuration": [
