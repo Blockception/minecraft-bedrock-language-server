@@ -8,6 +8,7 @@
     "node_modules"
   ],
   "compilerOptions": {
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "rootDir": ".",
   }
 }

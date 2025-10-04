@@ -31,7 +31,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "test": "jest --config ../../jest.config.ts",
     "lint": "eslint --config ../../eslint.config.mjs .",
-    "clean": "tsc -b --clean",
+    "clean": "rimraf ./dist",
     "pretest": "npm run compile",
     "prepublishOnly": "npm test && npm run compile",
     "preversion": "",

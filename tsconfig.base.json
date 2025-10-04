@@ -15,10 +15,28 @@
     "strict": true,
     "stripInternal": true,
     "target": "es2015",
-    "types": ["node", "jest"],
-    "lib": ["es2015"],
+    "types": [
+      "node",
+      "jest"
+    ],
+    "lib": [
+      "es2015"
+    ],
     "downlevelIteration": true,
-    "rootDir": "."
+    "rootDirs": [
+      "packages/shared",
+      "packages/project",
+      "packages/bedrock-vanilla-data",
+      "packages/bedrock-types",
+      "packages/bedrock-commands",
+      "packages/molang",
+      "packages/bedrock-project",
+      "packages/bedrock-diagnoser",
+      "ide/shared",
+      "ide/base/client",
+      "ide/base/server",
+      "ide/vscode"
+    ]
   },
   "references": [
     {

@@ -25,7 +25,7 @@
     "test": "jest --config ../../jest.config.ts",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "eslint --config ../../eslint.config.mjs .",
-    "clean": "tsc -b --clean"
+    "clean": "rimraf ./dist"
   },
   "devDependencies": {
     "typescript": "^5.8.3",

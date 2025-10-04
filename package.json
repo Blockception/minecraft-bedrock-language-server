@@ -41,5 +41,8 @@
     "test": "npm run test:all",
     "test:all": "npx jest --coverage",
     "clean": "npm run clean --workspaces"
+  },
+  "dependencies": {
+    "rimraf": "^6.0.1"
   }
 }
