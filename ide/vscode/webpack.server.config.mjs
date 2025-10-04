@@ -4,9 +4,6 @@
 import path from 'path';
 import webpack from 'webpack';
 
-/**
- * Server config (Node)
- */
 export default {
   name: 'server',
   target: 'node', // bundle for Node.js
@@ -15,7 +12,6 @@ export default {
   output: {
     path: path.resolve('./lsp'),
     filename: 'server.js',
-    clean: true, // wipe old files each build
   },
   devtool: 'source-map',
   externals: {

@@ -4,14 +4,13 @@
 const path = require('path');
 const webpack = require('webpack');
 
-export default {
+module.exports = {
   name: 'client',
   target: 'node', // bundle for the browser
   entry: './src/client.ts',
   output: {
     path: path.resolve(__dirname, 'lsp'),
     filename: 'client.js',
-    clean: true,
     libraryTarget: 'commonjs2', // vscode requires CJS exports
   },
   devtool: 'source-map',
