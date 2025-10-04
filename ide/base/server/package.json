@@ -14,8 +14,8 @@
   },
   "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
   "license": "BSD-3-Clause",
-  "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "main": "./dist/src/index.js",
+  "typings": "./dist/src/index.d.ts",
   "files": [
     "./dist",
     "../../../LICENSE"
@@ -24,7 +24,7 @@
     "compile": "tsc -b ./tsconfig.json",
     "test": "jest --config ../../../jest.config.ts",
     "lint": "eslint --config ../../../eslint.config.mjs .",
-    "clean": "tsc -b --clean"
+    "clean": "rimraf ./dist"
   },
   "dependencies": {
     "@blockception/ide-shared": "^0.0.1",
