@@ -17,7 +17,8 @@
     "target": "es2015",
     "types": ["node", "jest"],
     "lib": ["es2015"],
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "rootDir": "."
   },
   "references": [
     {

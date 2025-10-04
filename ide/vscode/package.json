@@ -87,7 +87,9 @@
     "version": "git add -A .",
     "vscode:prepublish": "npm run compile && npm run webpack",
     "watch": "tsc -b -w",
-    "webpack": "webpack --mode production --config ./webpack.config.js"
+    "webpack:server": "webpack --mode production --config ./webpack.server.config.mjs",
+    "webpack:client": "webpack --mode production --config ./webpack.client.config.mjs",
+    "webpack": "npm run webpack:server && npm run webpack:client"
   },
   "contributes": {
     "configuration": [

@@ -1,9 +1,8 @@
+import { Languages } from '@blockception/ide-shared';
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient/node';
 import { Manager } from '../manager/manager';
 import { resolveCodeLens } from './middleware';
-import { Languages } from '@blockception/ide-shared';
 
-import * as path from 'path';
 import * as vscode from 'vscode';
 
 export function setupClient(context: vscode.ExtensionContext) {

@@ -1,8 +1,8 @@
 //@ts-check
 'use strict';
 
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
 /**
  * Server config (Node)
@@ -11,8 +11,9 @@ export default {
   name: 'server',
   target: 'node', // bundle for Node.js
   entry: './src/server.ts',
+  optimization: {},
   output: {
-    path: path.resolve(__dirname, 'lsp'),
+    path: path.resolve('./lsp'),
     filename: 'server.js',
     clean: true, // wipe old files each build
   },
