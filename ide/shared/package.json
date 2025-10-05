@@ -22,10 +22,10 @@
   ],
   "scripts": {
     "compile": "tsc -b ./tsconfig.json",
-    "test": "jest --config ../../jest.config.ts",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "test": "jest --config ./jest.config.ts",
+    "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "eslint --config ../../eslint.config.mjs .",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "devDependencies": {
     "typescript": "^5.8.3",

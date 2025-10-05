@@ -20,7 +20,16 @@ export default {
   resolve: { extensions: ['.ts', '.js'] },
   module: {
     rules: [
-      { test: /\.ts$/, exclude: /node_modules/, use: 'ts-loader' },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            projectReferences: true,
+          },
+        },
+      },
       { test: /\.json$/, type: 'javascript/auto', use: 'json-loader' },
     ],
   },

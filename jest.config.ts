@@ -1,5 +1,6 @@
 import type { Config } from 'jest';
 
+/** @type {import('jest').Config} */
 const config: Config = {
   clearMocks: true,
   collectCoverage: true,

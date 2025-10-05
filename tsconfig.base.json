@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
+    "module": "node16",
+    "moduleResolution": "node16",
+    "target": "es2022",
+    "lib": [
+        "es2023"
+    ],
+
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "downlevelIteration": true,
     "esModuleInterop": true,
-    "incremental": true,
-    "module": "node20",
     "noImplicitAny": true,
     "noImplicitReturns": false,
     "noImplicitThis": true,
@@ -14,15 +20,10 @@
     "sourceMap": true,
     "strict": true,
     "stripInternal": true,
-    "target": "es2015",
     "types": [
       "node",
       "jest"
     ],
-    "lib": [
-      "es2015"
-    ],
-    "downlevelIteration": true,
     "rootDirs": [
       "packages/shared",
       "packages/project",
@@ -36,7 +37,20 @@
       "ide/base/client",
       "ide/base/server",
       "ide/vscode"
-    ]
+    ],
+    "paths": {
+      "@blockception/packages-shared": ["./packages/shared"],
+      "@blockception/ide-shared": ["./ide/shared"],
+      "bc-minecraft-project": ["./packages/project"],
+      "bc-minecraft-bedrock-vanilla-data": ["./packages/bedrock-vanilla-data"],
+      "bc-minecraft-bedrock-types": ["./packages/bedrock-types"],
+      "bc-minecraft-bedrock-command": ["./packages/bedrock-commands"],
+      "bc-minecraft-molang": ["./packages/molang"],
+      "bc-minecraft-bedrock-project": ["./packages/bedrock-project"],
+      "bc-minecraft-bedrock-diagnoser": ["./packages/bedrock-diagnoser"],
+      "bc-minecraft-lsp-client": ["./ide/base/client"],
+      "bc-minecraft-lsp": ["./ide/base/server"],
+    }
   },
   "references": [
     {
