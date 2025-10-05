@@ -83,7 +83,7 @@
     "vscode:prepublish": "npm run compile",
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
-    "storeversion": "echo export const Version = \"%npm_package_version%\"; > ./src/version.ts",
+    "storeversion": "node ./scripts/storeversion.mjs",
     "prewebpack": "npm run storeversion",
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",
