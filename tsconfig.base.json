@@ -12,6 +12,7 @@
     "declarationMap": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
+    "isolatedModules": true,
     "noImplicitAny": true,
     "noImplicitReturns": false,
     "noImplicitThis": true,
