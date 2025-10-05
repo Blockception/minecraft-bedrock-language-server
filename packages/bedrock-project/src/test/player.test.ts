@@ -1,5 +1,5 @@
 import { jsonc } from 'jsonc';
-import { Internal, References } from '../src';
+import { Internal, References } from '..';
 
 export namespace VanillaPlayer {
   export const Goes: string[] = ['cape', 'humanoid.custom'];
