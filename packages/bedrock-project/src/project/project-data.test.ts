@@ -1,7 +1,7 @@
 import { Location } from 'bc-minecraft-bedrock-types/src/types';
 import { MolangSet } from 'bc-minecraft-molang';
 import { MCProject } from 'bc-minecraft-project';
-import { TextProjectContext } from '../../test/utility';
+import { TextProjectContext } from '../test/utility';
 import { Manifest } from '../internal/types';
 import { Defined, References, Using } from '../types/references';
 import { BehaviorPack } from './behavior-pack';

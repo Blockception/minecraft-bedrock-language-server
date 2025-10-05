@@ -8,12 +8,12 @@ const config: Config = {
   coveragePathIgnorePatterns: ['node_modules', 'coverage'],
   coverageProvider: 'v8',
   testEnvironment: 'node',
-  roots: ['<rootDir>/packages', '<rootDir>/ide'],
+  roots: ['./src'],
   moduleFileExtensions: ['ts', 'js', 'json', 'node'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  testMatch: ['**/test/**/*.test.ts', '**/test/**/*.spec.ts'],
+  testMatch: ['**/*.{test,spec}.ts'],
 };
 
 export default config;

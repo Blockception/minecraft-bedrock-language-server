@@ -16,8 +16,8 @@
     "packages/bedrock-project",
     "packages/bedrock-diagnoser",
     "ide/shared",
-    "ide/base/server",
     "ide/base/client",
+    "ide/base/server",
     "ide/vscode"
   ],
   "devDependencies": {
@@ -38,8 +38,11 @@
     "compile": "npm run compile --workspaces",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "lint": "npm run lint --workspaces",
-    "test": "npm run test:all",
+    "test": "npm run test  --workspaces",
     "test:all": "npx jest --coverage",
     "clean": "npm run clean --workspaces"
+  },
+  "dependencies": {
+    "rimraf": "^6.0.1"
   }
 }

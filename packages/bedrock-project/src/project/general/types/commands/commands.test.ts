@@ -1,6 +1,6 @@
 import { MCProject } from 'bc-minecraft-project';
-import { TextProjectContext } from '../../../../../test/utility';
 import { Manifest } from '../../../../internal/types';
+import { TextProjectContext } from '../../../../test/utility';
 import { TextDocument } from '../../../../types';
 import { ProjectData } from '../../../project-data';
 
