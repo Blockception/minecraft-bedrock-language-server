@@ -29,7 +29,7 @@
     "project"
   ],
   "scripts": {
-    "compile": "tsc -b ./tsconfig.json",
+    "compile": "tsc -b --pretty./tsconfig.json",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "test": "jest --config ./jest.config.ts",
     "lint": "eslint --config ../../eslint.config.mjs .",
@@ -39,7 +39,7 @@
     "preversion": "",
     "postversion": "git push && git push --tags",
     "version": "git add -A src",
-    "watch": "tsc -b -w"
+    "watch": "tsc -b --pretty -w"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

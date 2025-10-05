@@ -21,7 +21,7 @@
     "../../../LICENSE"
   ],
   "scripts": {
-    "compile": "tsc -b ./tsconfig.json",
+    "compile": "tsc -b --pretty./tsconfig.json",
     "test": "jest --config ./jest.config.ts",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "eslint --config ../../eslint.config.mjs .",
