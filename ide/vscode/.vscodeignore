@@ -12,10 +12,7 @@ server/test/**
 shared/**
 
 # include source code
-client/out/**
-server/out/**
-!client/out/extension.js
-!server/out/server.js
+dist/**
 
 # exclude the following files and folders from the extension package
 .gitattributes

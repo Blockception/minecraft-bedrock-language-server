@@ -1,0 +1,40 @@
+vscode:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "ide/vscode/**"
+ide:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "ide/**"
+packages:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "packages/**"
+CI/CD:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/docs/**"
+          - "*.md"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - package.json
+          - package-lock.json
+          - go.mod
+          - go.sum
+          - go.work
+          - go.work.sum
+
+bug:
+  - head-branch: ["^bug", "bug"]
+feature:
+  - head-branch: ["^feature", "feature"]
+
+  # Add 'release' label to any PR that is opened against the `main` branch
+release:
+  - base-branch: "main"
