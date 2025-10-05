@@ -7,7 +7,7 @@
   "main": "./lsp/client.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "8.0.46",
+  "version": "8.0.47",
   "pricing": "Free",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
@@ -83,6 +83,8 @@
     "vscode:prepublish": "npm run compile",
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
+    "storeversion": "echo export const Version = \"%npm_package_version%\"; > ./src/version.ts",
+    "prewebpack": "npm run storeversion",
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",
     "webpack": "npm run webpack:client && npm run webpack:server"
