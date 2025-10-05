@@ -1,0 +1,94 @@
+name: 🚚 Release assets
+
+on:
+  release:
+    types: [released]
+  workflow_dispatch: {}
+
+jobs:
+  determine-upgrade:
+    runs-on: ubuntu-latest
+    name: 🔍 Determine upgrade type
+    outputs:
+      upgrade_type: ${{ steps.determine.outputs.upgrade_type }}
+      base_version: ${{ steps.determine.outputs.base_version }}
+      tag_name: ${{ steps.determine.outputs.tag_name }}
+    steps:
+      - name: 🏗️ Check out code
+        uses: actions/checkout@v5
+
+      - name: 🧩 Get tag info
+        id: determine
+        run: |
+          # Extract the tag name from GitHub context
+          TAG_NAME="${GITHUB_REF_NAME}"
+          echo "Tag name: $TAG_NAME"
+
+          # Remove optional leading 'v'
+          VERSION="${TAG_NAME#v}"
+
+          # Determine if prerelease based on presence of a dash ("-")
+          if [[ "$VERSION" == *-* ]]; then
+            UPGRADE_TYPE="prerelease"
+          else
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+
+            # Handle missing parts gracefully
+            MAJOR=${MAJOR:-0}
+            MINOR=${MINOR:-0}
+            PATCH=${PATCH:-0}
+
+            PREV_TAG=$(git describe --tags --abbrev=0 "$(git rev-list --tags --skip=1 --max-count=1)" 2>/dev/null || echo "")
+
+            if [ -z "$PREV_TAG" ]; then
+              UPGRADE_TYPE="major"
+            else
+              PREV_VERSION="${PREV_TAG#v}"
+              IFS='.' read -r PMAJOR PMINOR PPATCH <<< "$PREV_VERSION"
+
+              if [ "$MAJOR" -gt "$PMAJOR" ]; then
+                UPGRADE_TYPE="major"
+              elif [ "$MINOR" -gt "$PMINOR" ]; then
+                UPGRADE_TYPE="minor"
+              else
+                UPGRADE_TYPE="patch"
+              fi
+            fi
+          fi
+
+          echo "🧭 Determined upgrade type: $UPGRADE_TYPE"
+          echo "upgrade_type=$UPGRADE_TYPE" >> "$GITHUB_OUTPUT"
+          echo "base_version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "tag_name=$TAG_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: 🧾 Summary
+        run: |
+          echo "Version: ${{ steps.determine.outputs.base_version }}"
+          echo "Tag: ${{ steps.determine.outputs.tag_name }}"
+          echo "Upgrade type: ${{ steps.determine.outputs.upgrade_type }}"
+
+  build-test-ship:
+    runs-on: ubuntu-latest
+    needs: [determine-upgrade]
+    name: 🔍 Determine upgrade type
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🏗️ Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: 🏗️ Setup project
+        run: npm ci
+
+      - name: 🛠️ Build projects
+        run: npm run compile
+
+      - name: 📋 Run Tests
+        run: npm run test:all
+
+      - name: 📦 Run packages
+        run: npm run package
