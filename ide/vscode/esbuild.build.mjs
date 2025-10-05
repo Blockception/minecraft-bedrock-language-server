@@ -11,12 +11,17 @@ async function buildServer() {
     bundle: true,
     platform: 'node',
     format: 'cjs',
-    target: ['node16'],
+    target: ['node24'],
     sourcemap: true,
     outfile: path.join(outdir, 'server.js'),
     external: ['vscode'],
     tsconfig: path.join(root, 'tsconfig.json'),
     logLevel: 'info',
+    minify: true,
+    minifyIdentifiers: true,
+    minifySyntax: true,
+    minifyWhitespace: true,
+    treeShaking: true,
   });
 }
 
@@ -26,13 +31,17 @@ async function buildClient() {
     bundle: true,
     platform: 'node', // keep node for commonjs compatibility
     format: 'cjs',
-    target: ['node16'],
+    target: ['node24'],
     sourcemap: true,
     outfile: path.join(outdir, 'client.js'),
     external: ['vscode'],
     tsconfig: path.join(root, 'tsconfig.json'),
-    minify: true,
     logLevel: 'info',
+    minify: true,
+    minifyIdentifiers: true,
+    minifySyntax: true,
+    minifyWhitespace: true,
+    treeShaking: true,
   });
 }
 
