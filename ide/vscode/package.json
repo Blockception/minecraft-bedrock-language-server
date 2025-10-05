@@ -62,8 +62,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0",
-    "webpack": "^5.99.9",
-    "webpack-cli": "^6.0.1"
+    "esbuild": "^0.18.0"
   },
   "dependencies": {
     "bc-minecraft-lsp": "^1.0.0",
@@ -80,17 +79,15 @@
     "type": "git"
   },
   "scripts": {
-    "compile": "npm run webpack",
     "clean": "rimraf ./dist ./lsp tsconfig.tsbuildinfo",
     "lint": "eslint --config ../../eslint.config.mjs .",
     "postversion": "git push && git push --tags",
     "test": "jest --config ./jest.config.ts",
     "version": "git add -A .",
-    "vscode:prepublish": "npm run compile && npm run webpack",
-    "watch": "tsc -b -w",
-    "webpack:server": "webpack --mode production --config ./webpack.server.config.mjs",
-    "webpack:client": "webpack --mode production --config ./webpack.client.config.js",
-    "webpack": "npm run webpack:server && npm run webpack:client"
+    "vscode:prepublish": "npm run compile",
+    "watch": "tsc -b --pretty -w",
+    "compile": "node ./esbuild.build.mjs",
+    "build": "node ./esbuild.build.mjs"
   },
   "contributes": {
     "configuration": [
