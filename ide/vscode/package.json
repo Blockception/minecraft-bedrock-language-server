@@ -24,6 +24,7 @@
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
     "onCommand:bc-create-project-resource-pack",
+  "onCommand:bc-create-behavior-item_catalog",
     "workspaceContains:**/.mcattributes",
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore",
@@ -310,6 +311,12 @@
       {
         "title": "Behavior Pack: Create volume file",
         "command": "bc-create-behavior-volume",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Behavior Pack: Create item catalog file",
+        "command": "bc-create-behavior-item_catalog",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },

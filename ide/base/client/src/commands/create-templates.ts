@@ -25,6 +25,7 @@ const RenderControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: ''
 const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
 const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
 const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
+const ItemCatalogID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: 'example.foo | example' };
 
 const ProjectID: IDExample = { ID: /^[A-Za-z]+$/, example: 'EP' };
 
@@ -61,6 +62,7 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.Behaviorpack.Spawn_Rule, 'Create spawn rule', SpawnRuleID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Trading, 'Create trading', TradingID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Volume, 'Create volume', VolumeID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Item_Catalog, 'Create item catalog', ItemCatalogID);
 
   //Resource pack
   createCommand(context, Commands.Create.Resourcepack.Biomes_Client);
