@@ -1,0 +1,30 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "extensionHost",
+      "request": "launch",
+      "name": "Vscode: Launch Client",
+      "runtimeExecutable": "${execPath}",
+      "args": ["--disable-extensions", "--extensionDevelopmentPath=${workspaceFolder}/ide/vscode"],
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/ide/vscode/lsp/client.js"],
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Vscode: Attach to Server",
+      "address": "localhost",
+      "port": 6009,
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/ide/vscode/lsp/server.js"]
+    },
+  ],
+  "compounds": [
+    {
+      "name": "Vscode: Client + Server",
+      "configurations": ["Vscode: Launch Client", "Vscode: Attach to Server"]
+    }
+  ]
+}

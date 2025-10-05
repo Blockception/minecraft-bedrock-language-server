@@ -54,11 +54,11 @@
     "eslint": "^9.35.0",
     "eslint-plugin-jest": "^28.13.3",
     "globals": "^16.4.0",
-    "jsonc": "^2.0.0",
     "ts-jest": "^29.4.1",
+    "ts-loader": "^9.5.4",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0",
-    "esbuild": "^0.18.0"
+    "webpack": "^5.102.0"
   },
   "dependencies": {
     "bc-minecraft-lsp": "^1.0.0",
@@ -82,8 +82,10 @@
     "version": "git add -A .",
     "vscode:prepublish": "npm run compile",
     "watch": "tsc -b --pretty -w",
-    "compile": "node ./esbuild.build.mjs",
-    "build": "node ./esbuild.build.mjs"
+    "compile": "npm run webpack",
+    "webpack:client": "webpack --mode production --config ./webpack.client.js",
+    "webpack:server": "webpack --mode production --config ./webpack.server.js",
+    "webpack": "npm run webpack:client && npm run webpack:server"
   },
   "contributes": {
     "configuration": [
