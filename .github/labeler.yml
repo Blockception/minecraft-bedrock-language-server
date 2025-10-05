@@ -1,19 +1,15 @@
-client:
+vscode:
   - changed-files:
       - any-glob-to-any-file:
-          - "client/**"
-server:
+          - "ide/vscode/**"
+ide:
   - changed-files:
       - any-glob-to-any-file:
-          - "server/**"
-proto:
+          - "ide/**"
+packages:
   - changed-files:
       - any-glob-to-any-file:
-          - "*.proto"
-integration-tests:
-  - changed-files:
-      - any-glob-to-any-file:
-          - "tests/**"
+          - "packages/**"
 CI/CD:
   - changed-files:
       - any-glob-to-any-file:
