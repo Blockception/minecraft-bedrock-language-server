@@ -58,7 +58,7 @@
     "ts-jest": "^29.4.1",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0",
-    "esbuild": "^0.18.0"
+    "esbuild": "^0.25.0"
   },
   "dependencies": {
     "bc-minecraft-lsp": "^1.0.0",
