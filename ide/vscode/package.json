@@ -72,18 +72,18 @@
   ],
   "repository": {
     "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-    "type": "git"
+    "type": "git",
+    "directory": "ide/vscode"
   },
   "scripts": {
     "clean": "rimraf ./dist ./lsp tsconfig.tsbuildinfo",
     "lint": "eslint --config ../../eslint.config.mjs .",
     "postversion": "git push && git push --tags",
     "test": "jest --config ./jest.config.ts",
-    "version": "git add -A .",
-    "vscode:prepublish": "npm run compile",
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
     "storeversion": "node ./scripts/storeversion.mjs",
+    "prepackage": "npm run compile",
     "prewebpack": "npm run storeversion",
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",

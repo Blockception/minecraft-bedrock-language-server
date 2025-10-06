@@ -11,38 +11,39 @@ server/src/**
 server/test/**
 shared/**
 
-# include source code
-dist/**
-
-# exclude the following files and folders from the extension package
+# exclude the following files from the extension package
 .gitattributes
 .github
 .github/**
 .gitignore
 .mcignore
 .nvmrc
-.vscode
-.vscode/**
 *.code-workspace
-*.git*
 *.vsix
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 contributing.mdp
 Debugging.md
+eslint.config.mjs
+minecraft colours.json
+NOTE.md
+TODO.md
+tsconfig.json
+webpack.config.js
+makefile
+webpack*
+
+# exclude the following folders from the extension package
+.vscode
+.vscode/**
+*.git*
 documentation/**
 server/coverage/**
 client/coverage/**
-log.txt
-minecraft colours.json
-NOTE.md
 source schemas/**
 src/**
 tools/**
-tsconfig.json
-webpack.config.js
-TODO.md
-eslint.config.mjs
+dist/
 
 **/.eslintignore
 **/.eslintrc
