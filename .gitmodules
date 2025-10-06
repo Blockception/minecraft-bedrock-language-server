@@ -1,0 +1,3 @@
+[submodule "json-schemas"]
+	path = json-schemas
+	url = ../Minecraft-bedrock-json-schemas.git

@@ -29,11 +29,11 @@
     "diagnostics"
   ],
   "scripts": {
-    "compile": "tsc -b ./tsconfig.json",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "test": "jest --config ../../jest.config.ts",
+    "compile": "tsc -b --pretty ./tsconfig.json",
+    "format": "prettier --write \"src/**/*.{ts,js}\"",
+    "test": "jest --config ./jest.config.ts",
     "lint": "eslint --config ../../eslint.config.mjs .",
-    "clean": "tsc -b --clean",
+    "clean": "rimraf ./dist tsconfig.tsbuildinfo",
     "pretest": "npm run compile",
     "prepublishOnly": "npm test",
     "preversion": "",

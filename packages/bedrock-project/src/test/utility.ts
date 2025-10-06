@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import { Documents, TextDocument } from '../src/types';
+import { Documents, TextDocument } from '../types';
 
 export class TextProjectContext implements Documents<TextDocument> {
   getDocument(uri: string): TextDocument {

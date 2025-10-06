@@ -1,16 +1,15 @@
+import { Languages } from '@blockception/ide-shared';
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient/node';
 import { Manager } from '../manager/manager';
 import { resolveCodeLens } from './middleware';
-import { Languages } from '@blockception/ide-shared';
 
-import * as path from 'path';
 import * as vscode from 'vscode';
 
 export function setupClient(context: vscode.ExtensionContext) {
   console.log('starting minecraft language client');
 
   // The server is implemented in node
-  const serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
+  const serverModule = context.asAbsolutePath('./lsp/server.js');
 
   // The debug options for the server
   // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging

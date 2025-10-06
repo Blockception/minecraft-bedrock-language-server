@@ -3,9 +3,10 @@
 'use strict';
 
 const path = require('path');
+const { transpile } = require('typescript');
 
 /**@type {import('webpack').Configuration}*/
-console.log('webpack client: ' + __dirname);
+console.log('webpack: ' + __dirname);
 const config = {
   optimization: {
     mergeDuplicateChunks: true,
@@ -17,6 +18,7 @@ const config = {
     usedExports: true,
     moduleIds: 'size',
     chunkIds: 'size',
+    innerGraph: true,
   },
   performance: {
     hints: 'warning',
@@ -25,12 +27,13 @@ const config = {
   },
 
   target: 'node', // vscode extensions run in a Node.js-context 📖 -> https://webpack.js.org/configuration/node/
+  mode: 'production',
 
-  entry: './src/client.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
+  entry: './src/server.ts', // the entry point of this extension, 📖 -> https://webpack.js.org/configuration/entry-context/
   output: {
-    // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'client.js',
+    // the bundle is stored in the 'out' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
+    path: path.resolve(__dirname, 'lsp'),
+    filename: 'server.js',
     libraryTarget: 'commonjs2',
     devtoolModuleFilenameTemplate: '../[resource-path]',
   },
@@ -44,7 +47,18 @@ const config = {
   },
   module: {
     rules: [
-      { test: /\.ts$/, exclude: /node_modules/, use: [{ loader: 'ts-loader' }] },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true
+            },
+          },
+        ],
+      },
       { test: /\.json$/, exclude: /node_modules/, loader: 'json-loader', type: 'javascript/auto' },
     ],
   },
