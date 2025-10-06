@@ -109,6 +109,8 @@ export namespace Commands {
       export const Trading: string = BPBase + 'trading';
       /**The command to create volume files */
       export const Volume: string = BPBase + 'volume';
+      /**The command to create item catalog files */
+      export const Item_Catalog: string = BPBase + 'item_catalog';
     }
 
     /**The namespace that stores all resourcepack creation commands */
