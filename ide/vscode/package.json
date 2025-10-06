@@ -315,30 +315,6 @@
         "enablement": "ext:is_active"
       },
       {
-        "title": "Behavior Pack: Create item catalog file",
-        "command": "bc-create-behavior-item_catalog",
-        "category": "Blockception",
-        "enablement": "ext:is_active"
-      },
-      {
-        "title": "Create all pack folders",
-        "command": "bc-create-pack-folders-all",
-        "category": "Blockception",
-        "enablement": "ext:is_active"
-      },
-      {
-        "title": "Create regular used pack folders",
-        "command": "bc-create-pack-folders-regular",
-        "category": "Blockception",
-        "enablement": "ext:is_active"
-      },
-      {
-        "title": "Remove empty pack folders",
-        "command": "bc-create-pack-folders-clean",
-        "category": "Blockception",
-        "enablement": "ext:is_active"
-      },
-      {
         "title": "Resource Pack: Create animation controllers files",
         "command": "bc-create-resource-animation_controllers",
         "category": "Blockception",
