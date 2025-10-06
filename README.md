@@ -167,3 +167,19 @@ This project is licensed under the [BSD 3-Clause License](LICENSE).
 ---
 
 For any questions, suggestions, or support, please open an issue or join our community discussions!
+
+# Contributors
+
+Special thanks to these awesome people for helping out these projects 😄
+
+**Vscode plugin**  
+<a href="https://github.com/Blockception/minecraft-bedrock-language-server/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Blockception/minecraft-bedrock-language-server" />
+</a>  
+<a href="https://github.com/Blockception/VSCode-Bedrock-Development-Extension/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Blockception/VSCode-Bedrock-Development-Extension" />
+</a>  
+**Schemas**  
+<a href="https://github.com/Blockception/Minecraft-bedrock-json-schemas/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Blockception/Minecraft-bedrock-json-schemas" />
+</a>
