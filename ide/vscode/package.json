@@ -24,9 +24,6 @@
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
     "onCommand:bc-create-project-resource-pack",
-    "onCommand:bc-create-pack-folders-all",
-    "onCommand:bc-create-pack-folders-regular",
-    "onCommand:bc-create-pack-folders-clean",
     "workspaceContains:**/.mcattributes",
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore",
@@ -217,6 +214,24 @@
       {
         "title": "Create all manifests",
         "command": "bc-create-manifest-all",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Create all pack folders",
+        "command": "bc-create-pack-folders-all",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Create regular used pack folders",
+        "command": "bc-create-pack-folders-regular",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Remove empty pack folders",
+        "command": "bc-create-pack-folders-clean",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },

@@ -37,14 +37,14 @@ export function activate(context: ExtensionContext): void {
   createCommand(context, Commands.Create.General.Languages);
   createCommand(context, Commands.Create.General.Manifests);
   context.subscriptions.push(
-    commands.registerCommand(Commands.Create.General.PackFolders, async (arg: any[]) => {
+    commands.registerCommand(Commands.Create.General.PackFoldersAll, async (arg: any[]) => {
       if (!arg) arg = [];
 
       // append active document uri as other commands do
       arg.push(window.activeTextEditor?.document.uri.toString());
 
       const opts: ExecuteCommandParams = {
-        command: Commands.Create.General.PackFolders,
+        command: Commands.Create.General.PackFoldersAll,
         arguments: arg,
       };
 

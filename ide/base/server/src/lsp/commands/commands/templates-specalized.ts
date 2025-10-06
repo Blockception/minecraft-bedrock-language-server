@@ -47,7 +47,7 @@ export function setupCreate(manager: CommandManager) {
   manager.add(Commands.Create.Project.Behaviorpack, (params) => FunctionWithID(params, Project.create_behaviorpack));
 
   // Create pack folders (top-level behavior_packs / resource_packs) — return directories to create on client
-  manager.add(Commands.Create.General.PackFolders, (context) => {
+  manager.add(Commands.Create.General.PackFoldersAll, (context) => {
     const ensured = getFolders(context).Ensure();
     const bpRoot = ensured.BehaviorPack();
     const rpRoot = ensured.ResourcePack();

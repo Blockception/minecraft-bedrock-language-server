@@ -64,7 +64,7 @@ export namespace Commands {
       /**The command to create all manifests */
       export const Manifests: string = Base + 'manifest-all';
   /**The command to create all pack folders (behavior/resource) */
-  export const PackFolders: string = Base + 'pack-folders-all';
+  export const PackFoldersAll: string = Base + 'pack-folders-all';
   /**The command to create regular used pack folders (behavior/resource) */
   export const PackFoldersRegular: string = Base + 'pack-folders-regular';
   /**The command to clean empty pack folders (behavior/resource) */
