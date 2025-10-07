@@ -35,13 +35,13 @@ export class FileBuilder {
    * Sends the edits to the client
    * @returns
    */
-  async send(): Promise<ApplyWorkspaceEditResult | void> {
+  async send(): Promise<void> {
     if (this._receiver.length <= 0) return;
 
     const edit: WorkspaceEdit = { documentChanges: this._receiver };
     const result = await this._connection.workspace.applyEdit(edit);
     this.response(result);
-    return result;
+    return;
   }
 
   /**
