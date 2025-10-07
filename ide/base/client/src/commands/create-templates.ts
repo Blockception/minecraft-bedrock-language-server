@@ -93,14 +93,6 @@ export function activate(context: ExtensionContext): void {
     // Clean empty pack folders (confirmation + server-side cleanup)
     context.subscriptions.push(
       commands.registerCommand(Commands.Create.General.PackFoldersClean, async (arg: any[]) => {
-        const choice = await window.showWarningMessage(
-          'Remove all empty pack folders (behavior/resource)?',
-          { modal: true },
-          'Yes',
-        );
-
-        if (choice !== 'Yes') return;
-
         if (!arg) arg = [];
         arg.push(window.activeTextEditor?.document.uri.toString());
 
