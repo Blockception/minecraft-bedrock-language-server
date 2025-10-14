@@ -1,5 +1,5 @@
 import { setupServer } from 'bc-minecraft-lsp';
-import { Version } from './constant';
+import { Version } from './version';
 
 setupServer({
   version: Version,

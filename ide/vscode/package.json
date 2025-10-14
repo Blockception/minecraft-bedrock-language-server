@@ -7,7 +7,7 @@
   "main": "./lsp/client.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "8.0.46",
+  "version": "8.0.47",
   "pricing": "Free",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
@@ -87,6 +87,8 @@
     "vscode:prepublish": "npm run compile",
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
+    "storeversion": "node ./scripts/storeversion.mjs",
+    "prewebpack": "npm run storeversion",
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",
     "webpack": "npm run webpack:client && npm run webpack:server"
@@ -220,6 +222,24 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Create all pack folders",
+        "command": "bc-create-pack-folders-all",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Create regular used pack folders",
+        "command": "bc-create-pack-folders-regular",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Remove empty pack folders",
+        "command": "bc-create-pack-folders-clean",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "Create world project",
         "command": "bc-create-project-world",
         "category": "Blockception"
@@ -309,6 +329,12 @@
       {
         "title": "Behavior Pack: Create volume file",
         "command": "bc-create-behavior-volume",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Behavior Pack: Create item catalog file",
+        "command": "bc-create-behavior-item_catalog",
         "category": "Blockception",
         "enablement": "ext:is_active"
       },

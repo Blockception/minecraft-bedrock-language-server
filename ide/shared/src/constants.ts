@@ -63,6 +63,12 @@ export namespace Commands {
       export const Languages: string = Base + 'language-all';
       /**The command to create all manifests */
       export const Manifests: string = Base + 'manifest-all';
+      /**The command to create all pack folders (behavior/resource) */
+      export const PackFoldersAll: string = Base + 'pack-folders-all';
+      /**The command to create regular used pack folders (behavior/resource) */
+      export const PackFoldersRegular: string = Base + 'pack-folders-regular';
+      /**The command to clean empty pack folders (behavior/resource) */
+      export const PackFoldersClean: string = Base + 'pack-folders-clean';
     }
 
     /**
@@ -109,6 +115,8 @@ export namespace Commands {
       export const Trading: string = BPBase + 'trading';
       /**The command to create volume files */
       export const Volume: string = BPBase + 'volume';
+      /**The command to create item catalog files */
+      export const Item_Catalog: string = BPBase + 'item_catalog';
     }
 
     /**The namespace that stores all resourcepack creation commands */

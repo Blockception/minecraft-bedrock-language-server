@@ -25,6 +25,7 @@ const RenderControllerID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: ''
 const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
 const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
 const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
+const ItemCatalogID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: 'example.foo | example' };
 
 const ProjectID: IDExample = { ID: /^[A-Za-z]+$/, example: 'EP' };
 
@@ -35,6 +36,101 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.General.Entity, 'Create Entity', EntityID);
   createCommand(context, Commands.Create.General.Languages);
   createCommand(context, Commands.Create.General.Manifests);
+  context.subscriptions.push(
+    commands.registerCommand(Commands.Create.General.PackFoldersAll, async (arg: any[]) => {
+      if (!arg) arg = [];
+
+      // append active document uri as other commands do
+      arg.push(window.activeTextEditor?.document.uri.toString());
+
+      const opts: ExecuteCommandParams = {
+        command: Commands.Create.General.PackFoldersAll,
+        arguments: arg,
+      };
+
+      const dirs = await Manager.Client.sendRequest(ExecuteCommandRequest.type, opts);
+      if (!dirs || !Array.isArray(dirs)) return;
+
+      for (const d of dirs) {
+        try {
+          await workspace.fs.createDirectory(Uri.parse(d));
+        } catch (err) {
+          // ignore errors for existing folders or inaccessible paths
+        }
+      }
+
+      window.showInformationMessage('Created pack folder structure');
+    }),
+  );
+
+    // Create regular used pack folders
+    context.subscriptions.push(
+      commands.registerCommand(Commands.Create.General.PackFoldersRegular, async (arg: any[]) => {
+        if (!arg) arg = [];
+
+        arg.push(window.activeTextEditor?.document.uri.toString());
+
+        const opts: ExecuteCommandParams = {
+          command: Commands.Create.General.PackFoldersRegular,
+          arguments: arg,
+        };
+
+        const dirs = await Manager.Client.sendRequest(ExecuteCommandRequest.type, opts);
+        if (!dirs || !Array.isArray(dirs)) return;
+
+        for (const d of dirs) {
+          try {
+            await workspace.fs.createDirectory(Uri.parse(d));
+          } catch (err) {
+            // ignore errors for existing folders or inaccessible paths
+          }
+        }
+
+        window.showInformationMessage('Created regular pack folder structure');
+      }),
+    );
+
+    // Clean empty pack folders (confirmation + server-side cleanup)
+    context.subscriptions.push(
+      commands.registerCommand(Commands.Create.General.PackFoldersClean, async (arg: any[]) => {
+        if (!arg) arg = [];
+        arg.push(window.activeTextEditor?.document.uri.toString());
+
+        const opts: ExecuteCommandParams = {
+          command: Commands.Create.General.PackFoldersClean,
+          arguments: arg,
+        };
+
+        const result = await Manager.Client.sendRequest(ExecuteCommandRequest.type, opts);
+        if (!result || !Array.isArray(result) || result.length === 0) {
+          window.showInformationMessage('No empty folders found');
+          return;
+        }
+
+        const deleted: string[] = [];
+        const failed: { uri: string; error: any }[] = [];
+
+        for (const d of result) {
+          try {
+            await workspace.fs.delete(Uri.parse(d), { recursive: true });
+            deleted.push(d);
+          } catch (err) {
+            failed.push({ uri: d, error: err });
+          }
+        }
+
+        if (deleted.length > 0) {
+          window.showInformationMessage(`Removed ${deleted.length} empty folders`);
+        } else {
+          window.showInformationMessage('No empty folders removed');
+        }
+
+        if (failed.length > 0) {
+          const msg = `Failed to remove ${failed.length} folders`;
+          window.showErrorMessage(msg);
+        }
+      }),
+    );
 
   //Project
   createCommandWithID(context, Commands.Create.Project.WorldProject, 'Create World, BP, RP project', ProjectID);
@@ -61,6 +157,7 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.Behaviorpack.Spawn_Rule, 'Create spawn rule', SpawnRuleID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Trading, 'Create trading', TradingID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Volume, 'Create volume', VolumeID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Item_Catalog, 'Create item catalog', ItemCatalogID);
 
   //Resource pack
   createCommand(context, Commands.Create.Resourcepack.Biomes_Client);

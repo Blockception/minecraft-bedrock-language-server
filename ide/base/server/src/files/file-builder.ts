@@ -39,7 +39,9 @@ export class FileBuilder {
     if (this._receiver.length <= 0) return;
 
     const edit: WorkspaceEdit = { documentChanges: this._receiver };
-    return this._connection.workspace.applyEdit(edit).then(this.response);
+    const result = await this._connection.workspace.applyEdit(edit);
+    this.response(result);
+    return;
   }
 
   /**
@@ -49,7 +51,7 @@ export class FileBuilder {
    * @returns
    */
   create(uri: string, content: string): void {
-    if (uri.startsWith('file:\\')) uri = uri.replace(/\\/gi, '/');
+  if (uri.startsWith('file:\\')) uri = uri.replace(/\\/gi, '/');
 
     const path = Fs.FromVscode(uri);
     uri = Vscode.fromFs(path);
@@ -67,6 +69,19 @@ export class FileBuilder {
     this._logger.info('Creating file: ' + path);
     const Version = OptionalVersionedTextDocumentIdentifier.create(uri, null);
     this._receiver.push(CreateFile.create(uri, this.options), TextDocumentEdit.create(Version, [Content]));
+  }
+
+  /**
+   * Delete a file or folder via workspace edit
+   * @param uri vscode uri
+   */
+  delete(uri: string, recursive: boolean = false): void {
+  if (uri.startsWith('file:\\')) uri = uri.replace(/\\/gi, '/');
+
+    const path = Fs.FromVscode(uri);
+    uri = Vscode.fromFs(path);
+
+    this._receiver.push(DeleteFile.create(uri, { recursive: recursive, ignoreIfNotExists: true }));
   }
 
   /**

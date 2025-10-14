@@ -207,3 +207,24 @@ export const volume: string = `{
   }
 }
 `;
+
+export const item_catalog: string = `{
+  "format_version": "1.21.100",
+  "minecraft:crafting_items_catalog": {
+    "categories": [
+      {
+        "category_name": "equipment",
+        "groups": [
+          {
+            "group_identifier": {
+              "icon": "minecraft:diamond_sword",
+              "name": "minecraft:itemGroup.name.swords"
+            },
+            "items": ["minecraft:diamond_sword", "minecraft:iron_sword"]
+          }
+        ]
+      }
+    ]
+  }
+}
+`;
