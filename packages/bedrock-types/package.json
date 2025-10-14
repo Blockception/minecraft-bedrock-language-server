@@ -8,10 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server"
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server",
+    "directory": "packages/bedrock-types"
   },
   "bugs": {
-    "url": "https://github.com/Blockception/BC-Minecraft-Bedrock-Command/issues"
+    "url": "https://github.com/Blockception/minecraft-bedrock-language-server/issues"
   },
   "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server#readme",
   "license": "BSD-3-Clause",

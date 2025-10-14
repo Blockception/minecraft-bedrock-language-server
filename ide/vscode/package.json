@@ -1,7 +1,7 @@
 {
   "description": "An extension that provides code completion, validations, formatters, diagnostics, cheat-sheets, code-actions, creation of files, and development tools to help develop Minecraft Bedrock content",
   "displayName": "Blockception's Minecraft Bedrock Development",
-  "homepage": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
+  "homepage": "https://github.com/Blockception/minecraft-bedrock-language-server",
   "icon": "resources/logo.png",
   "license": "BSD-3-Clause",
   "main": "./lsp/client.js",
@@ -71,8 +71,12 @@
     }
   ],
   "repository": {
-    "url": "https://github.com/Blockception/VSCode-Bedrock-Development-Extension",
-    "type": "git"
+    "url": "https://github.com/Blockception/minecraft-bedrock-language-server",
+    "type": "git",
+    "directory": "ide/vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/Blockception/minecraft-bedrock-language-server/issues"
   },
   "scripts": {
     "clean": "rimraf ./dist ./lsp tsconfig.tsbuildinfo",

@@ -183,3 +183,5 @@ Special thanks to these awesome people for helping out these projects 😄
 <a href="https://github.com/Blockception/Minecraft-bedrock-json-schemas/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=Blockception/Minecraft-bedrock-json-schemas" />
 </a>
+
+Made with [contrib.rocks](https://contrib.rocks).
