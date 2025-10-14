@@ -51,6 +51,7 @@
     "@eslint/js": "^9.35.0",
     "@types/node": "^24.3.1",
     "@vscode/vsce": "^3.6.0",
+    "cpx": "^1.5.0",
     "eslint": "^9.35.0",
     "eslint-plugin-jest": "^28.13.3",
     "globals": "^16.4.0",
@@ -84,7 +85,8 @@
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
     "storeversion": "node ./scripts/storeversion.mjs",
-    "prewebpack": "npm run storeversion",
+    "cp-schemas": "npx cpx ../../json-schemas/**/*.json ./minecraft-bedrock-schemas",
+    "prewebpack": "npm run storeversion && npm run cp-schemas",
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",
     "webpack": "npm run webpack:client && npm run webpack:server"
