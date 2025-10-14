@@ -81,7 +81,6 @@
     "postversion": "git push && git push --tags",
     "test": "jest --config ./jest.config.ts",
     "version": "git add -A .",
-    "vscode:prepublish": "npm run compile",
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
     "storeversion": "node ./scripts/storeversion.mjs",
