@@ -430,6 +430,10 @@ export namespace General {
         "Returns the time in *seconds* of the average frame time over the last 'n' frames. If an argument is passed, it is assumed to be the number of frames in the past that you wish to query. `query.average_frame_time` (or the equivalent `query.average_frame_time(0)`) will return the frame time of the frame before the current one. `query.average_frame_time(1)` will return the average frame time of the previous two frames. Currently we store the history of the last 30 frames, although note that this may change in the future. Asking for more frames will result in only sampling the number of frames stored.",
     },
     {
+      id: 'base_swing_duration',
+      documentation: 'Returns the duration of the mob\'s swing/attack animation, determined by the carried item and unmodified by effects applied on the mob. To access the swing/attack animation progress, use \"variable.attack_time\" instead.'
+    },
+    {
       id: 'block_face',
       documentation:
         'Returns the block face for this (only valid for certain triggers such as placing blocks, or interacting with block) (Down=0.0, Up=1.0, North=2.0, South=3.0, West=4.0, East=5.0, Undefined=6.0).',
@@ -1395,7 +1399,7 @@ export namespace General {
     {
       id: 'last_input_mode_is_any',
       documentation:
-        "Takes one or more arguments ('keyboard_and_mouse', 'touch', 'gamepad', or 'motion_controller'). If the last input used is any of the specified string values, returns 1.0. Otherwise returns 0.0. Available on the Client (Resource Packs) only.",
+        "Takes one or more arguments ('keyboard_and_mouse', 'touch', or 'gamepad'). If the last input used is any of the specified string values, returns 1.0. Otherwise returns 0.0. Available on the Client (Resource Packs) only.",
     },
     {
       id: 'lie_amount',
@@ -1465,6 +1469,10 @@ export namespace General {
     {
       id: 'modified_move_speed',
       documentation: 'Returns the current walk speed of the entity modified by status flags such as is_baby or on_fire',
+    },
+    {
+      id: 'modified_swing_duration',
+      documentation: 'Returns the duration of the mob\'s swing/attack animation, determined by the carried item and modified by effects applied on the mob. To access the swing/attack animation progress, use "variable.attack_time" instead.',
     },
     {
       id: 'moon_brightness',
@@ -1740,6 +1748,30 @@ export namespace General {
     },
     { id: 'yaw_speed', documentation: "Returns the entity's yaw speed" },
     // Experimental
+    {
+      id: 'entity_biome_has_all_tags',
+      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if all of the tag names match. Only supported in resource packs (client-side).'
+    },
+    {
+      id: 'entity_biome_has_any_identifier',
+      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more identifier names, and returns either 0 or 1 based on if any of the identifier names match. Only supported in resource packs (client-side).'
+    },
+    {
+      id: 'entity_biome_has_any_tags',
+      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if any of the tag names match. Only supported in resource packs (client-side).'
+    },
+    {
+      id: 'get_pack_setting',
+      documentation: '(EXPERIMENTAL) Returns value of Pack Setting slider, parameter is name of slider. Available on the Client (Resource Packs) only.'
+    },
+    {
+      id: 'is_pack_setting_enabled',
+      documentation: '(EXPERIMENTAL) Returns 1.0 if the Pack Setting toggle is enabled, parameter is name of toggle. Available on the Client (Resource Packs) only.'
+    },
+    {
+      id: 'is_pack_setting_selected',
+      documentation: '(EXPERIMENTAL) Returns 1.0 if the Pack Setting dropdown (first parameter) matches the string value of the second parameter (selection). Available on the Client (Resource Packs) only.'
+    },
     //DEPRECATED
     {
       id: 'cardinal_block_face_placed_on',
