@@ -40,6 +40,11 @@ export namespace General {
       parameters: [{ id: 'value' }, { id: 'min' }, { id: 'max' }],
     },
     {
+      id: 'copy_sign',
+      documentation: 'Returns A with the sign of B',
+      parameters: [{ id: 'A' }, { id: 'B' }]
+    },
+    {
       id: 'cos',
       documentation: 'Cosine (in degrees) of value',
       parameters: [{ id: 'value' }],
@@ -57,6 +62,156 @@ export namespace General {
       parameters: [{ id: 'num' }, { id: 'low' }, { id: 'high' }],
     },
     {
+      id: 'ease_in_back',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting backward before accelerating into the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_bounce',
+      documentation: 'Output goes from start to end via 0_to_1, starting with bounce oscillations and settling into the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_circ',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating along a circular curve toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_cubic',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_elastic',
+      documentation: 'Output goes from start to end via 0_to_1, starting with elastic oscillations before accelerating into the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_expo',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating extremely rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_back',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting at both start and end, with smoother change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_bounce',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending with bounce oscillations, smoother in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_circ',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending slow, with circular acceleration and deceleration in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_cubic',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating rapidly in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_elastic',
+      documentation: 'Output goes from start to end via 0_to_1, oscillating elastically at both start and end, with stable change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_expo',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending slow, with extremely rapid change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_quad',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_quart',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating very rapidly in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_quint',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating extremely rapidly in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_sine',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending slow, with smoother change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_quad',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_quart',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating very rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_quint',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating extremely rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_sine',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating smoothly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_back',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting past the end before settling into it',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_bounce',
+      documentation: 'Output goes from start to end via 0_to_1, approaching the end with bounce oscillations that diminish over time',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_circ',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating along a circular curve toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_cubic',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_elastic',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting the end with elastic oscillations before settling',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_expo',
+      documentation: 'Output goes from start to end via 0_to_1, starting extremely fast and decelerating gradually toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_quad',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_quart',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating very rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_quint',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating extremely rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_sine',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating smoothly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
       id: 'exp',
       documentation: "Calculates e to the value'th power",
       parameters: [{ id: 'value' }],
@@ -71,6 +226,11 @@ export namespace General {
         'Useful for simple smooth curve interpolation using one of the Hermite Basis ids: `3t^2 - 2t^3`. Note that while any valid float is a valid input, this id works best in the range [0,1].',
       id: 'hermite_blend',
       parameters: [{ id: 'value' }],
+    },
+    {
+      id: 'inverse_lerp',
+      documentation: 'Returns the normalized progress between start and end given value',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: 'value' }],
     },
     {
       id: 'lerp',
@@ -129,6 +289,11 @@ export namespace General {
     {
       id: 'round',
       documentation: 'Round value to nearest integral number',
+      parameters: [{ id: 'value' }],
+    },
+    {
+      id: 'sign',
+      documentation: 'Returns 1 if value is positive, -1 otherwise',
       parameters: [{ id: 'value' }],
     },
     {
