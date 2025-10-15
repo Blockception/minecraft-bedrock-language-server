@@ -40,3 +40,8 @@ jobs:
 
       - name: 🔍 Linting
         run: npm run lint
+
+      - name: '📦 Package test: vscode'
+        working-directory: ./ide/vscode
+        run: |
+          npx vsce package --no-dependencies
