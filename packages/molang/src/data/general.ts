@@ -431,7 +431,7 @@ export namespace General {
     },
     {
       id: 'base_swing_duration',
-      documentation: 'Returns the duration of the mob\'s swing/attack animation, determined by the carried item and unmodified by effects applied on the mob. To access the swing/attack animation progress, use \"variable.attack_time\" instead.'
+      documentation: 'Returns the duration of the mob\'s swing/attack animation, determined by the carried item and unmodified by effects applied on the mob. To access the swing/attack animation progress, use "variable.attack_time" instead.'
     },
     {
       id: 'block_face',
