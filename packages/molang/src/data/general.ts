@@ -40,6 +40,11 @@ export namespace General {
       parameters: [{ id: 'value' }, { id: 'min' }, { id: 'max' }],
     },
     {
+      id: 'copy_sign',
+      documentation: 'Returns A with the sign of B',
+      parameters: [{ id: 'A' }, { id: 'B' }]
+    },
+    {
       id: 'cos',
       documentation: 'Cosine (in degrees) of value',
       parameters: [{ id: 'value' }],
@@ -57,6 +62,156 @@ export namespace General {
       parameters: [{ id: 'num' }, { id: 'low' }, { id: 'high' }],
     },
     {
+      id: 'ease_in_back',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting backward before accelerating into the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_bounce',
+      documentation: 'Output goes from start to end via 0_to_1, starting with bounce oscillations and settling into the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_circ',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating along a circular curve toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_cubic',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_elastic',
+      documentation: 'Output goes from start to end via 0_to_1, starting with elastic oscillations before accelerating into the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_expo',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating extremely rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_back',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting at both start and end, with smoother change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_bounce',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending with bounce oscillations, smoother in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_circ',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending slow, with circular acceleration and deceleration in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_cubic',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating rapidly in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_elastic',
+      documentation: 'Output goes from start to end via 0_to_1, oscillating elastically at both start and end, with stable change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_expo',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending slow, with extremely rapid change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_quad',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_quart',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating very rapidly in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_quint',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow, accelerating extremely rapidly in the middle, then slowing again at the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_out_sine',
+      documentation: 'Output goes from start to end via 0_to_1, starting and ending slow, with smoother change in the middle',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_quad',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_quart',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating very rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_quint',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating extremely rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_in_sine',
+      documentation: 'Output goes from start to end via 0_to_1, starting slow and accelerating smoothly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_back',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting past the end before settling into it',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_bounce',
+      documentation: 'Output goes from start to end via 0_to_1, approaching the end with bounce oscillations that diminish over time',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_circ',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating along a circular curve toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_cubic',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_elastic',
+      documentation: 'Output goes from start to end via 0_to_1, overshooting the end with elastic oscillations before settling',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_expo',
+      documentation: 'Output goes from start to end via 0_to_1, starting extremely fast and decelerating gradually toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_quad',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_quart',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating very rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_quint',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating extremely rapidly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
+      id: 'ease_out_sine',
+      documentation: 'Output goes from start to end via 0_to_1, starting fast and decelerating smoothly toward the end',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: '0_to_1', range: { min: 0, max: 1 }, type: "float" }]
+    },
+    {
       id: 'exp',
       documentation: "Calculates e to the value'th power",
       parameters: [{ id: 'value' }],
@@ -71,6 +226,11 @@ export namespace General {
         'Useful for simple smooth curve interpolation using one of the Hermite Basis ids: `3t^2 - 2t^3`. Note that while any valid float is a valid input, this id works best in the range [0,1].',
       id: 'hermite_blend',
       parameters: [{ id: 'value' }],
+    },
+    {
+      id: 'inverse_lerp',
+      documentation: 'Returns the normalized progress between start and end given value',
+      parameters: [{ id: 'start' }, { id: 'end' }, { id: 'value' }],
     },
     {
       id: 'lerp',
@@ -129,6 +289,11 @@ export namespace General {
     {
       id: 'round',
       documentation: 'Round value to nearest integral number',
+      parameters: [{ id: 'value' }],
+    },
+    {
+      id: 'sign',
+      documentation: 'Returns 1 if value is positive, -1 otherwise',
       parameters: [{ id: 'value' }],
     },
     {
@@ -263,6 +428,10 @@ export namespace General {
       id: 'average_frame_time',
       documentation:
         "Returns the time in *seconds* of the average frame time over the last 'n' frames. If an argument is passed, it is assumed to be the number of frames in the past that you wish to query. `query.average_frame_time` (or the equivalent `query.average_frame_time(0)`) will return the frame time of the frame before the current one. `query.average_frame_time(1)` will return the average frame time of the previous two frames. Currently we store the history of the last 30 frames, although note that this may change in the future. Asking for more frames will result in only sampling the number of frames stored.",
+    },
+    {
+      id: 'base_swing_duration',
+      documentation: 'Returns the duration of the mob\'s swing/attack animation, determined by the carried item and unmodified by effects applied on the mob. To access the swing/attack animation progress, use "variable.attack_time" instead.'
     },
     {
       id: 'block_face',
@@ -1230,7 +1399,7 @@ export namespace General {
     {
       id: 'last_input_mode_is_any',
       documentation:
-        "Takes one or more arguments ('keyboard_and_mouse', 'touch', 'gamepad', or 'motion_controller'). If the last input used is any of the specified string values, returns 1.0. Otherwise returns 0.0. Available on the Client (Resource Packs) only.",
+        "Takes one or more arguments ('keyboard_and_mouse', 'touch', or 'gamepad'). If the last input used is any of the specified string values, returns 1.0. Otherwise returns 0.0. Available on the Client (Resource Packs) only.",
     },
     {
       id: 'lie_amount',
@@ -1300,6 +1469,10 @@ export namespace General {
     {
       id: 'modified_move_speed',
       documentation: 'Returns the current walk speed of the entity modified by status flags such as is_baby or on_fire',
+    },
+    {
+      id: 'modified_swing_duration',
+      documentation: 'Returns the duration of the mob\'s swing/attack animation, determined by the carried item and modified by effects applied on the mob. To access the swing/attack animation progress, use "variable.attack_time" instead.',
     },
     {
       id: 'moon_brightness',
@@ -1575,6 +1748,30 @@ export namespace General {
     },
     { id: 'yaw_speed', documentation: "Returns the entity's yaw speed" },
     // Experimental
+    {
+      id: 'entity_biome_has_all_tags',
+      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if all of the tag names match. Only supported in resource packs (client-side).'
+    },
+    {
+      id: 'entity_biome_has_any_identifier',
+      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more identifier names, and returns either 0 or 1 based on if any of the identifier names match. Only supported in resource packs (client-side).'
+    },
+    {
+      id: 'entity_biome_has_any_tags',
+      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if any of the tag names match. Only supported in resource packs (client-side).'
+    },
+    {
+      id: 'get_pack_setting',
+      documentation: '(EXPERIMENTAL) Returns value of Pack Setting slider, parameter is name of slider. Available on the Client (Resource Packs) only.'
+    },
+    {
+      id: 'is_pack_setting_enabled',
+      documentation: '(EXPERIMENTAL) Returns 1.0 if the Pack Setting toggle is enabled, parameter is name of toggle. Available on the Client (Resource Packs) only.'
+    },
+    {
+      id: 'is_pack_setting_selected',
+      documentation: '(EXPERIMENTAL) Returns 1.0 if the Pack Setting dropdown (first parameter) matches the string value of the second parameter (selection). Available on the Client (Resource Packs) only.'
+    },
     //DEPRECATED
     {
       id: 'cardinal_block_face_placed_on',
