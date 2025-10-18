@@ -26,23 +26,26 @@ dist/**
 *.code-workspace
 *.git*
 *.vsix
+client/coverage/**
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 contributing.mdp
 Debugging.md
 documentation/**
-server/coverage/**
-client/coverage/**
+eslint.config.mjs
 log.txt
+makefile
 minecraft colours.json
 NOTE.md
+server/coverage/**
 source schemas/**
 src/**
+TODO.md
 tools/**
 tsconfig.json
+webpack.client.js
 webpack.config.js
-TODO.md
-eslint.config.mjs
+webpack.server.js
 
 **/.eslintignore
 **/.eslintrc
