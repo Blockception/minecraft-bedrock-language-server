@@ -106,13 +106,6 @@ export function diagnose_molang_syntax(expression: ExpressionNode, diagnoser: Di
             DiagnosticSeverity.error,
             'molang.identifier.invalid',
           );
-        if ((n.names as string[]).length > 2)
-          diagnoser.add(
-            n.position,
-            `found to many nesting in '${n.scope}.${n.names.join('.')}'`,
-            DiagnosticSeverity.error,
-            'molang.identifier.invalid',
-          );
 
         switch (n.scope.toLowerCase()) {
           case 'array':
