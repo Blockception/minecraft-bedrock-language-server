@@ -1,0 +1,46 @@
+name: 🚚 Release IDE
+on:
+  workflow_dispatch: {}
+  workflow_call: {}
+
+jobs:
+  release-vscode:
+    runs-on: ubuntu-latest
+    name: 🖥️ Release VSCode
+    environment:
+      name: 'Vscode Marketplace'
+      url: https://marketplace.visualstudio.com/items?itemName=BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: 🏗️ Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
+      - name: Setup Node Project
+        run: npm install
+
+      - name: 🛠️ Build projects
+        run: npm run compile
+
+      - name: 🛠️ Package
+        working-directory: ${{github.workspace}}/ide/vscode
+        run: |
+          npx vsce package --no-dependencies --no-git-tag-version --out vscode-extension.vsix
+          echo "Size of package: $(du -h *.vsix | cut -f1)" >> $GITHUB_STEP_SUMMARY
+
+      - name: 🚚 Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vscode-extension
+          path: '${{github.workspace}}/ide/vscode-extension.vsix'
+
+      - name: 📦 -> 🏤 Upload to Vscode
+        run: npx @vscode/vsce publish --packagePath ${{github.workspace}}/ide/vscode-extension.vsix
+        env:
+          VSCE_PAT: ${{ secrets.VSCODE_KEY }}
+
