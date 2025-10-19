@@ -1,0 +1,40 @@
+name: 🚚 Release NPM Packages
+on:
+  workflow_dispatch: {}
+  workflow_call: {}
+
+jobs:
+  release-npm-packages:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package:
+          - bedrock-commands
+          - bedrock-diagnoser
+          - bedrock-project
+          - bedrock-types
+          - bedrock-vanilla-data
+          - molang
+          - packages/project
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: 🏗️ Setup Node.js Environment
+        uses: actions/setup-node@v5
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: 🏗️ Setup project
+        run: npm ci
+
+      - name: 🛠️ Build projects
+        working-directory: '${{GITHUB.workspace}}/packages/${{matrix.package}}'
+        run: npm run compile
+
+      - name: 📋 Run Tests
+        run: npm run test
+
+      - name: 🚚 Publish package
+        run: npm publish
