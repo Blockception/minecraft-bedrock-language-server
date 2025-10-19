@@ -53,11 +53,11 @@
     "typescript-eslint": "^8.42.0"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-command": "^1.21.100-3",
-    "bc-minecraft-bedrock-types": "^1.22.1-16",
-    "bc-minecraft-bedrock-vanilla-data": "^1.21.80-11",
-    "bc-minecraft-molang": "^1.21.100-12",
-    "bc-minecraft-project": "^1.21.73-8",
+    "bc-minecraft-bedrock-command": "*",
+    "bc-minecraft-bedrock-types": "*",
+    "bc-minecraft-bedrock-vanilla-data": "*",
+    "bc-minecraft-molang": "*",
+    "bc-minecraft-project": "*",
     "jsonc": "^2.0.0"
   }
 }
