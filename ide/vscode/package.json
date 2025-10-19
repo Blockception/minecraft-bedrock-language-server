@@ -55,11 +55,11 @@
     "eslint": "^9.35.0",
     "eslint-plugin-jest": "^28.13.3",
     "globals": "^16.4.0",
-    "ts-jest": "^29.4.1",
+    "ts-jest": "^29.4.5",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0",
-    "webpack": "^5.102.0"
+    "webpack": "^5.102.1"
   },
   "dependencies": {
     "bc-minecraft-lsp": "^1.0.0",
