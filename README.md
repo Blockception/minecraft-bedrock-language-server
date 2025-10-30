@@ -1,5 +1,7 @@
 # Minecraft Bedrock Language Server Monorepo
 
+[![📋 Test All](https://github.com/Blockception/minecraft-bedrock-language-server/actions/workflows/npm-ci.yml/badge.svg)](https://github.com/Blockception/minecraft-bedrock-language-server/actions/workflows/npm-ci.yml)
+
 Welcome to the Blockception Minecraft Bedrock Language Server monorepo! This repository contains all core packages, tools, and extensions for Minecraft Bedrock Edition development, including the language server, diagnostics, project helpers, and more.
 
 ## Table of Contents
