@@ -36,7 +36,7 @@ public partial class Container {
         Directory.CreateDirectory(Folder);
 
         Typescript.SaveArray("Animation", "../../types/resourcepack/animation", nameof(this.Animations), this.Animations, Path.Join(Folder, "animations.ts"));
-        Typescript.SaveArray("AnimationController", "../../types/resourcepack/animationcontroller", nameof(this.AnimationControllers), this.AnimationControllers, Path.Join(Folder, "animation_controllers.ts"));
+        Typescript.SaveArray("AnimationController", "../../types/resourcepack/animation_controller", nameof(this.AnimationControllers), this.AnimationControllers, Path.Join(Folder, "animation_controllers.ts"));
         Typescript.SaveArray("Entity", "../../types/resourcepack/entity", nameof(this.Entities), this.Entities, Path.Join(Folder, "entities.ts"));
         Typescript.SaveArray("Model", "../../types/resourcepack/model", nameof(this.Models), this.Models, Path.Join(Folder, "models.ts"));
         Typescript.SaveArray("string", null, nameof(this.Fogs), this.Fogs, Path.Join(Folder, "fogs.ts"));

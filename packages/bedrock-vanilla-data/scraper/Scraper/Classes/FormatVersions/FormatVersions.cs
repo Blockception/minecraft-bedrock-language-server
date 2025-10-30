@@ -21,7 +21,7 @@ public partial class FormatVersions {
             Versions = new List<String>(versions.Keys)
         };
 
-        Typescript.Save("FormatVersionData", "./General", "Versions", result, Path.Join(output, "versions.ts"));
+        Typescript.Save("FormatVersionData", "./general", "Versions", result, Path.Join(output, "versions.ts"));
     }
 }
 

@@ -1,6 +1,6 @@
 /** Notice: Auto generated file, do not edit */
 
-import { FormatVersionData } from './General';
+import { FormatVersionData } from './general';
 
 
 export const Versions: FormatVersionData = 
