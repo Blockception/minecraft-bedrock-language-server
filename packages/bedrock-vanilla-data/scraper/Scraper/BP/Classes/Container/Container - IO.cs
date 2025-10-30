@@ -30,10 +30,10 @@ public partial class Container {
     public void Save(String Folder) {
         Directory.CreateDirectory(Folder);
 
-        Typescript.SaveArray("Block", "../../Types/BehaviorPack/Block", nameof(this.Blocks), this.Blocks, Path.Join(Folder, "blocks.ts"));
-        Typescript.SaveArray("Biome", "../../Types/BehaviorPack/Biome", nameof(this.Biomes), this.Biomes, Path.Join(Folder, "biomes.ts"));
-        Typescript.SaveArray("Entity", "../../Types/BehaviorPack/Entity", nameof(this.Entities), this.Entities, Path.Join(Folder, "entities.ts"));
-        Typescript.SaveArray("Item", "../../Types/BehaviorPack/Item", nameof(this.Items), this.Items, Path.Join(Folder, "items.ts"));
+        Typescript.SaveArray("Block", "../../types/behaviorpack/block", nameof(this.Blocks), this.Blocks, Path.Join(Folder, "blocks.ts"));
+        Typescript.SaveArray("Biome", "../../types/behaviorpack/biome", nameof(this.Biomes), this.Biomes, Path.Join(Folder, "biomes.ts"));
+        Typescript.SaveArray("Entity", "../../types/behaviorpack/entity", nameof(this.Entities), this.Entities, Path.Join(Folder, "entities.ts"));
+        Typescript.SaveArray("Item", "../../types/behaviorpack/item", nameof(this.Items), this.Items, Path.Join(Folder, "items.ts"));
         Typescript.SaveArray("string", null, nameof(this.LootTables), this.LootTables, Path.Join(Folder, "loot_tables.ts"));
         Typescript.SaveArray("string", null, nameof(this.Trading), this.Trading, Path.Join(Folder, "trading.ts"));
         Typescript.SaveArray("string", null, nameof(this.Features), this.Features, Path.Join(Folder, "features.ts"));

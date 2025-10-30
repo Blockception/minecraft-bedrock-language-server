@@ -5,3 +5,6 @@ coverage
 tsconfig.tsbuildinfo
 
 *.vsix
+bin
+obj
+work
