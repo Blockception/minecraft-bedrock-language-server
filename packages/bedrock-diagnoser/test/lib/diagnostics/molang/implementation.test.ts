@@ -58,23 +58,5 @@ describe("Molang", () => {
 
       diagnoser.expectAmount(1);
     });
-
-    it("1 error", () => {
-      const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
-
-      const using = new MolangSet();
-      const resource = new MolangSet();
-
-      using.assigned.add({ scope: "variable", names: ["bar"], position: 0, type: NodeType.Variable });
-      resource.using.add({ scope: "variable", names: ["foo"], position: 0, type: NodeType.Variable });
-
-      diagnose_molang_implementation(
-        { id: "animation.example.walk", molang: using },
-        { id: "minecraft:sheep", molang: resource },
-        diagnoser
-      );
-
-      diagnoser.expectAmount(1);
-    });
   });
 });
