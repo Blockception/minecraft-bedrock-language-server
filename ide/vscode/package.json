@@ -87,7 +87,7 @@
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
     "storeversion": "node ./scripts/storeversion.mjs",
-    "cp-schemas": "npx cpx ../../json-schemas/**/*.json ./minecraft-bedrock-schemas",
+    "cp-schemas": "npx cpx '../../json-schemas/{behavior,general,language,resource,skinpacks,worldgen}/**/*.json' './minecraft-bedrock-schemas' --verbose",
     "prewebpack": "npm run storeversion && npm run cp-schemas",
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",
