@@ -7,7 +7,7 @@
   "main": "./lsp/client.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "9.0.1",
+  "version": "9.0.4",
   "pricing": "Free",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
@@ -82,9 +82,7 @@
   "scripts": {
     "clean": "rimraf ./dist ./lsp tsconfig.tsbuildinfo",
     "lint": "eslint --config ../../eslint.config.mjs .",
-    "postversion": "git push && git push --tags",
     "test": "jest --config ./jest.config.ts",
-    "version": "git add -A .",
     "vscode:prepublish": "npm run webpack",
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
