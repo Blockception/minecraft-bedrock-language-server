@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: 📦 Checkout Repository
         uses: actions/checkout@v5
+        with:
+          submodules: true
 
       - name: 🏗️ Setup Node.js Environment
         uses: actions/setup-node@v4
@@ -43,4 +45,3 @@ jobs:
         run: npx @vscode/vsce publish --packagePath ${{github.workspace}}/ide/vscode/vscode-extension.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCODE_KEY }}
-
