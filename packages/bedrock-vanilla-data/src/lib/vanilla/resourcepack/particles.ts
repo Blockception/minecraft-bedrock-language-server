@@ -77,6 +77,7 @@ export const Particles: string[] =
   "minecraft:fish_hook_particle",
   "minecraft:fish_pos_particle",
   "minecraft:glow_particle",
+  "minecraft:green_flame_particle",
   "minecraft:guardian_attack_particle",
   "minecraft:guardian_water_move_particle",
   "minecraft:heart_particle",

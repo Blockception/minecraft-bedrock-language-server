@@ -1,10 +1,8 @@
 /** Notice: Auto generated file, do not edit */
-
-
+
 import { Item } from '../../types/behaviorpack/item';
 
-
-
+
 export const Items: Item[] = 
 [
   {
@@ -53,6 +51,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:acacia_sapling",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:acacia_shelf",
     "max_damage": 0
   },
   {
@@ -272,6 +274,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:bamboo_shelf",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:bamboo_sign",
     "max_damage": 0
   },
@@ -405,6 +411,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:birch_sapling",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:birch_shelf",
     "max_damage": 0
   },
   {
@@ -984,6 +994,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:cherry_shelf",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:cherry_sign",
     "max_damage": 0
   },
@@ -1268,6 +1282,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:copper_block",
     "max_damage": 0
   },
@@ -1277,6 +1295,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:copper_chain",
     "max_damage": 0
   },
   {
@@ -1296,6 +1318,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:copper_grate",
     "max_damage": 0
   },
@@ -1308,7 +1334,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:copper_horse_armor",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:copper_ingot",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:copper_lantern",
     "max_damage": 0
   },
   {
@@ -1333,6 +1367,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:copper_sword",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:copper_torch",
     "max_damage": 0
   },
   {
@@ -1469,6 +1507,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:crimson_roots",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:crimson_shelf",
     "max_damage": 0
   },
   {
@@ -1649,6 +1691,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:dark_oak_sapling",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:dark_oak_shelf",
     "max_damage": 0
   },
   {
@@ -2148,7 +2194,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:exposed_copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:exposed_copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:exposed_copper_chain",
     "max_damage": 0
   },
   {
@@ -2160,7 +2214,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:exposed_copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:exposed_copper_grate",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:exposed_copper_lantern",
     "max_damage": 0
   },
   {
@@ -2181,6 +2243,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:exposed_double_cut_copper_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:exposed_lightning_rod",
     "max_damage": 0
   },
   {
@@ -2816,6 +2882,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:iron_chain",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:iron_chestplate",
     "max_damage": 0
   },
@@ -3041,6 +3111,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:jungle_sapling",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:jungle_shelf",
     "max_damage": 0
   },
   {
@@ -3596,6 +3670,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:mangrove_shelf",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:mangrove_sign",
     "max_damage": 0
   },
@@ -4028,6 +4106,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:oak_shelf",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:oak_sign",
     "max_damage": 0
   },
@@ -4144,7 +4226,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:oxidized_copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:oxidized_copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:oxidized_copper_chain",
     "max_damage": 0
   },
   {
@@ -4156,7 +4246,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:oxidized_copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:oxidized_copper_grate",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:oxidized_copper_lantern",
     "max_damage": 0
   },
   {
@@ -4177,6 +4275,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:oxidized_double_cut_copper_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:oxidized_lightning_rod",
     "max_damage": 0
   },
   {
@@ -4249,6 +4351,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:pale_oak_sapling",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:pale_oak_shelf",
     "max_damage": 0
   },
   {
@@ -5412,6 +5518,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:spruce_shelf",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:spruce_sign",
     "max_damage": 0
   },
@@ -5992,6 +6102,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:warped_shelf",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:warped_sign",
     "max_damage": 0
   },
@@ -6044,7 +6158,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_copper_chain",
     "max_damage": 0
   },
   {
@@ -6056,7 +6178,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_copper_grate",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_copper_lantern",
     "max_damage": 0
   },
   {
@@ -6088,7 +6218,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_exposed_copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_exposed_copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_chain",
     "max_damage": 0
   },
   {
@@ -6100,7 +6238,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_exposed_copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_exposed_copper_grate",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_lantern",
     "max_damage": 0
   },
   {
@@ -6124,6 +6270,14 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_exposed_lightning_rod",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_lightning_rod",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_oxidized_chiseled_copper",
     "max_damage": 0
   },
@@ -6132,7 +6286,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_oxidized_copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_oxidized_copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_chain",
     "max_damage": 0
   },
   {
@@ -6144,7 +6306,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_oxidized_copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_oxidized_copper_grate",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_lantern",
     "max_damage": 0
   },
   {
@@ -6168,6 +6338,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_oxidized_lightning_rod",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_weathered_chiseled_copper",
     "max_damage": 0
   },
@@ -6176,7 +6350,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_weathered_copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_weathered_copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_chain",
     "max_damage": 0
   },
   {
@@ -6188,7 +6370,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_weathered_copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:waxed_weathered_copper_grate",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_lantern",
     "max_damage": 0
   },
   {
@@ -6212,6 +6402,10 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:waxed_weathered_lightning_rod",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:wayfinder_armor_trim_smithing_template",
     "max_damage": 0
   },
@@ -6224,7 +6418,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:weathered_copper_bars",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:weathered_copper_bulb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:weathered_copper_chain",
     "max_damage": 0
   },
   {
@@ -6236,7 +6438,15 @@ export const Items: Item[] =
     "max_damage": 0
   },
   {
+    "id": "minecraft:weathered_copper_golem_statue",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:weathered_copper_grate",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:weathered_copper_lantern",
     "max_damage": 0
   },
   {
@@ -6257,6 +6467,10 @@ export const Items: Item[] =
   },
   {
     "id": "minecraft:weathered_double_cut_copper_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:weathered_lightning_rod",
     "max_damage": 0
   },
   {

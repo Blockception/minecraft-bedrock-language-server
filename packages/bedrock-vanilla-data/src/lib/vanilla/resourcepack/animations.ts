@@ -1,10 +1,8 @@
 /** Notice: Auto generated file, do not edit */
-
-
+
 import { Animation } from '../../types/resourcepack/animation';
 
-
-
+
 export const Animations: Animation[] = 
 [
   {
@@ -995,6 +993,135 @@ export const Animations: Animation[] =
     "sounds": []
   },
   {
+    "id": "animation.copper_golem.chest_interaction.put_item",
+    "bones": [
+      "body",
+      "head",
+      "right_arm",
+      "left_arm",
+      "right_leg",
+      "left_leg",
+      "rightItem"
+    ],
+    "particles": [],
+    "sounds": [
+      "put_item"
+    ]
+  },
+  {
+    "id": "animation.copper_golem.chest_interaction.put_item_fail",
+    "bones": [
+      "body",
+      "head",
+      "right_arm",
+      "left_arm",
+      "right_leg",
+      "left_leg",
+      "rightItem"
+    ],
+    "particles": [],
+    "sounds": [
+      "put_item_fail"
+    ]
+  },
+  {
+    "id": "animation.copper_golem.chest_interaction.take_item",
+    "bones": [
+      "body",
+      "head",
+      "right_arm",
+      "left_arm",
+      "right_leg",
+      "left_leg"
+    ],
+    "particles": [],
+    "sounds": [
+      "take_item"
+    ]
+  },
+  {
+    "id": "animation.copper_golem.chest_interaction.take_item_fail",
+    "bones": [
+      "body",
+      "head",
+      "right_arm",
+      "left_arm",
+      "right_leg",
+      "left_leg"
+    ],
+    "particles": [],
+    "sounds": [
+      "take_item_fail"
+    ]
+  },
+  {
+    "id": "animation.copper_golem.hold_item",
+    "bones": [
+      "right_arm",
+      "left_arm",
+      "rightItem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.copper_golem.spin",
+    "bones": [
+      "body",
+      "head"
+    ],
+    "particles": [],
+    "sounds": [
+      "spin"
+    ]
+  },
+  {
+    "id": "animation.copper_golem.spin.oxidized",
+    "bones": [
+      "body",
+      "head"
+    ],
+    "particles": [],
+    "sounds": [
+      "spin_oxidized"
+    ]
+  },
+  {
+    "id": "animation.copper_golem.spin.weathered",
+    "bones": [
+      "body",
+      "head"
+    ],
+    "particles": [],
+    "sounds": [
+      "spin_weathered"
+    ]
+  },
+  {
+    "id": "animation.copper_golem.walk",
+    "bones": [
+      "body",
+      "head",
+      "right_arm",
+      "left_arm",
+      "right_leg",
+      "left_leg"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.copper_golem.walk_holding_item",
+    "bones": [
+      "body",
+      "head",
+      "right_leg",
+      "left_leg"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.cow.baby_transform",
     "bones": [
       "head"
@@ -1594,6 +1721,14 @@ export const Animations: Animation[] =
       "tentacles_6",
       "tentacles_7",
       "tentacles_8"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.ghast.scale",
+    "bones": [
+      "body"
     ],
     "particles": [],
     "sounds": []
@@ -4321,6 +4456,14 @@ export const Animations: Animation[] =
     "sounds": []
   },
   {
+    "id": "animation.shield.wield_first_person_blocking",
+    "bones": [
+      "shield"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.shield.wield_main_hand_first_person",
     "bones": [
       "shield"
@@ -4808,6 +4951,16 @@ export const Animations: Animation[] =
     "sounds": []
   },
   {
+    "id": "animation.vex.attack.rotations.v1.0",
+    "bones": [
+      "body",
+      "leftarm",
+      "rightarm"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.vex.charge",
     "bones": [
       "rightarm",
@@ -4825,6 +4978,17 @@ export const Animations: Animation[] =
       "rightwing",
       "rightItem",
       "leftItem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.vex.move",
+    "bones": [
+      "leftwing",
+      "leg0",
+      "rightarm",
+      "rightwing"
     ],
     "particles": [],
     "sounds": []

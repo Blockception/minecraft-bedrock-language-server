@@ -1,10 +1,8 @@
 /** Notice: Auto generated file, do not edit */
-
-
+
 import { Model } from '../../types/resourcepack/model';
 
-
-
+
 export const Models: Model[] = 
 [
   {
@@ -364,6 +362,65 @@ export const Models: Model[] =
       "rightFin",
       "tailfin",
       "waist"
+    ]
+  },
+  {
+    "id": "geometry.copper_golem",
+    "bones": [
+      "root",
+      "body",
+      "head",
+      "right_arm",
+      "rightItem",
+      "left_arm",
+      "right_leg",
+      "left_leg"
+    ]
+  },
+  {
+    "id": "geometry.copper_golem.flower",
+    "bones": [
+      "root",
+      "body",
+      "head",
+      "flower"
+    ]
+  },
+  {
+    "id": "geometry.copper_golem.running",
+    "bones": [
+      "root",
+      "body",
+      "head",
+      "right_arm",
+      "left_arm",
+      "right_leg",
+      "left_leg"
+    ]
+  },
+  {
+    "id": "geometry.copper_golem.sitting",
+    "bones": [
+      "root",
+      "body",
+      "head",
+      "right_arm",
+      "left_arm",
+      "right_leg",
+      "left_leg"
+    ]
+  },
+  {
+    "id": "geometry.copper_golem.star",
+    "bones": [
+      "root",
+      "body",
+      "head",
+      "right_arm",
+      "rightItem",
+      "left_arm",
+      "right_leg",
+      "left_leg"
     ]
   },
   {
@@ -2273,16 +2330,16 @@ export const Models: Model[] =
       "head",
       "hat",
       "rightArm",
-      "leftArm",
       "rightSleeve",
-      "leftSleeve",
-      "rightLeg",
-      "leftLeg",
-      "rightPants",
-      "leftPants",
-      "waist",
       "rightItem",
-      "leftItem"
+      "leftArm",
+      "leftSleeve",
+      "leftItem",
+      "rightLeg",
+      "rightPants",
+      "leftLeg",
+      "leftPants",
+      "waist"
     ]
   },
   {

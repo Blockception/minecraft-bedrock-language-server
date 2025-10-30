@@ -1,10 +1,8 @@
 /** Notice: Auto generated file, do not edit */
-
-
+
 import { Block } from '../../types/behaviorpack/block';
 
-
-
+
 export const Blocks: Block[] = 
 [
   {
@@ -77,6 +75,14 @@ export const Blocks: Block[] =
     "id": "minecraft:acacia_sapling",
     "properties": [
       "age_bit"
+    ]
+  },
+  {
+    "id": "minecraft:acacia_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
     ]
   },
   {
@@ -309,6 +315,14 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:bamboo_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
+    ]
+  },
+  {
     "id": "minecraft:bamboo_slab",
     "properties": [
       "minecraft:vertical_half"
@@ -482,6 +496,14 @@ export const Blocks: Block[] =
     "id": "minecraft:birch_sapling",
     "properties": [
       "age_bit"
+    ]
+  },
+  {
+    "id": "minecraft:birch_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
     ]
   },
   {
@@ -938,12 +960,6 @@ export const Blocks: Block[] =
     ]
   },
   {
-    "id": "minecraft:chain",
-    "properties": [
-      "pillar_axis"
-    ]
-  },
-  {
     "id": "minecraft:chain_command_block",
     "properties": [
       "conditional_bit",
@@ -1020,6 +1036,14 @@ export const Blocks: Block[] =
     "id": "minecraft:cherry_sapling",
     "properties": [
       "age_bit"
+    ]
+  },
+  {
+    "id": "minecraft:cherry_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
     ]
   },
   {
@@ -1270,6 +1294,10 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:copper_block",
     "properties": []
   },
@@ -1278,6 +1306,12 @@ export const Blocks: Block[] =
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -1296,12 +1330,30 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:copper_grate",
     "properties": []
   },
   {
+    "id": "minecraft:copper_lantern",
+    "properties": [
+      "hanging"
+    ]
+  },
+  {
     "id": "minecraft:copper_ore",
     "properties": []
+  },
+  {
+    "id": "minecraft:copper_torch",
+    "properties": [
+      "torch_facing_direction"
+    ]
   },
   {
     "id": "minecraft:copper_trapdoor",
@@ -1431,6 +1483,14 @@ export const Blocks: Block[] =
   {
     "id": "minecraft:crimson_roots",
     "properties": []
+  },
+  {
+    "id": "minecraft:crimson_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
+    ]
   },
   {
     "id": "minecraft:crimson_slab",
@@ -1655,6 +1715,14 @@ export const Blocks: Block[] =
     "id": "minecraft:dark_oak_sapling",
     "properties": [
       "age_bit"
+    ]
+  },
+  {
+    "id": "minecraft:dark_oak_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
     ]
   },
   {
@@ -2137,10 +2205,20 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:exposed_copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:exposed_copper_bulb",
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:exposed_copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -2159,8 +2237,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:exposed_copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:exposed_copper_grate",
     "properties": []
+  },
+  {
+    "id": "minecraft:exposed_copper_lantern",
+    "properties": [
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:exposed_copper_trapdoor",
@@ -2191,6 +2281,13 @@ export const Blocks: Block[] =
     "id": "minecraft:exposed_double_cut_copper_slab",
     "properties": [
       "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:exposed_lightning_rod",
+    "properties": [
+      "facing_direction",
+      "powered_bit"
     ]
   },
   {
@@ -2729,6 +2826,12 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:iron_chain",
+    "properties": [
+      "pillar_axis"
+    ]
+  },
+  {
     "id": "minecraft:iron_door",
     "properties": [
       "door_hinge_bit",
@@ -2830,6 +2933,14 @@ export const Blocks: Block[] =
     "id": "minecraft:jungle_sapling",
     "properties": [
       "age_bit"
+    ]
+  },
+  {
+    "id": "minecraft:jungle_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
     ]
   },
   {
@@ -3111,7 +3222,8 @@ export const Blocks: Block[] =
   {
     "id": "minecraft:lightning_rod",
     "properties": [
-      "facing_direction"
+      "facing_direction",
+      "powered_bit"
     ]
   },
   {
@@ -3352,6 +3464,14 @@ export const Blocks: Block[] =
   {
     "id": "minecraft:mangrove_roots",
     "properties": []
+  },
+  {
+    "id": "minecraft:mangrove_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
+    ]
   },
   {
     "id": "minecraft:mangrove_slab",
@@ -3675,6 +3795,14 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:oak_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
+    ]
+  },
+  {
     "id": "minecraft:oak_slab",
     "properties": [
       "minecraft:vertical_half"
@@ -3782,10 +3910,20 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:oxidized_copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:oxidized_copper_bulb",
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:oxidized_copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -3804,8 +3942,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:oxidized_copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:oxidized_copper_grate",
     "properties": []
+  },
+  {
+    "id": "minecraft:oxidized_copper_lantern",
+    "properties": [
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:oxidized_copper_trapdoor",
@@ -3836,6 +3986,13 @@ export const Blocks: Block[] =
     "id": "minecraft:oxidized_double_cut_copper_slab",
     "properties": [
       "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:oxidized_lightning_rod",
+    "properties": [
+      "facing_direction",
+      "powered_bit"
     ]
   },
   {
@@ -3936,6 +4093,14 @@ export const Blocks: Block[] =
     "id": "minecraft:pale_oak_sapling",
     "properties": [
       "age_bit"
+    ]
+  },
+  {
+    "id": "minecraft:pale_oak_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
     ]
   },
   {
@@ -5168,6 +5333,14 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:spruce_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
+    ]
+  },
+  {
     "id": "minecraft:spruce_slab",
     "properties": [
       "minecraft:vertical_half"
@@ -5777,6 +5950,14 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:warped_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
+    ]
+  },
+  {
     "id": "minecraft:warped_slab",
     "properties": [
       "minecraft:vertical_half"
@@ -5838,10 +6019,20 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:waxed_copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:waxed_copper_bulb",
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:waxed_copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -5860,8 +6051,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:waxed_copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:waxed_copper_grate",
     "properties": []
+  },
+  {
+    "id": "minecraft:waxed_copper_lantern",
+    "properties": [
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:waxed_copper_trapdoor",
@@ -5903,10 +6106,20 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:waxed_exposed_copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:waxed_exposed_copper_bulb",
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -5925,8 +6138,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:waxed_exposed_copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:waxed_exposed_copper_grate",
     "properties": []
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_lantern",
+    "properties": [
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:waxed_exposed_copper_trapdoor",
@@ -5960,6 +6185,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:waxed_exposed_lightning_rod",
+    "properties": [
+      "facing_direction",
+      "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:waxed_lightning_rod",
+    "properties": [
+      "facing_direction",
+      "powered_bit"
+    ]
+  },
+  {
     "id": "minecraft:waxed_oxidized_chiseled_copper",
     "properties": []
   },
@@ -5968,10 +6207,20 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:waxed_oxidized_copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:waxed_oxidized_copper_bulb",
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -5990,8 +6239,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:waxed_oxidized_copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:waxed_oxidized_copper_grate",
     "properties": []
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_lantern",
+    "properties": [
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:waxed_oxidized_copper_trapdoor",
@@ -6025,6 +6286,13 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:waxed_oxidized_lightning_rod",
+    "properties": [
+      "facing_direction",
+      "powered_bit"
+    ]
+  },
+  {
     "id": "minecraft:waxed_weathered_chiseled_copper",
     "properties": []
   },
@@ -6033,10 +6301,20 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:waxed_weathered_copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:waxed_weathered_copper_bulb",
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -6055,8 +6333,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:waxed_weathered_copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:waxed_weathered_copper_grate",
     "properties": []
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_lantern",
+    "properties": [
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:waxed_weathered_copper_trapdoor",
@@ -6090,6 +6380,13 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:waxed_weathered_lightning_rod",
+    "properties": [
+      "facing_direction",
+      "powered_bit"
+    ]
+  },
+  {
     "id": "minecraft:weathered_chiseled_copper",
     "properties": []
   },
@@ -6098,10 +6395,20 @@ export const Blocks: Block[] =
     "properties": []
   },
   {
+    "id": "minecraft:weathered_copper_bars",
+    "properties": []
+  },
+  {
     "id": "minecraft:weathered_copper_bulb",
     "properties": [
       "lit",
       "powered_bit"
+    ]
+  },
+  {
+    "id": "minecraft:weathered_copper_chain",
+    "properties": [
+      "pillar_axis"
     ]
   },
   {
@@ -6120,8 +6427,20 @@ export const Blocks: Block[] =
     ]
   },
   {
+    "id": "minecraft:weathered_copper_golem_statue",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:weathered_copper_grate",
     "properties": []
+  },
+  {
+    "id": "minecraft:weathered_copper_lantern",
+    "properties": [
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:weathered_copper_trapdoor",
@@ -6152,6 +6471,13 @@ export const Blocks: Block[] =
     "id": "minecraft:weathered_double_cut_copper_slab",
     "properties": [
       "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:weathered_lightning_rod",
+    "properties": [
+      "facing_direction",
+      "powered_bit"
     ]
   },
   {
