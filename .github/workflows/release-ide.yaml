@@ -40,7 +40,7 @@ jobs:
           path: '${{github.workspace}}/ide/vscode/vscode-extension.vsix'
 
       - name: 📦 -> 🏤 Upload to Vscode
-        run: npx @vscode/vsce publish --packagePath ${{github.workspace}}/ide/vscode-extension.vsix
+        run: npx @vscode/vsce publish --packagePath ${{github.workspace}}/ide/vscode/vscode-extension.vsix
         env:
           VSCE_PAT: ${{ secrets.VSCODE_KEY }}
 
