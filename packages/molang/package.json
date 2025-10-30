@@ -39,7 +39,7 @@
     "preversion": "",
     "postversion": "git push && git push --tags",
     "version": "git add -A src",
-    "watch": "tsc -w -p ./src"
+    "watch": "tsc -w -p ./tsconfig.json"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

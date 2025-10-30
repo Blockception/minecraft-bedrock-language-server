@@ -20,6 +20,23 @@
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/ide/vscode/lsp/server.js"]
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest: Current File",
+      "runtimeExecutable": "npx",
+      "args": [
+        "jest",
+        "--runInBand",
+        "--config",
+        "jest.config.ts",
+        "${file}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "autoAttachChildProcesses": true
+    },
   ],
   "compounds": [
     {

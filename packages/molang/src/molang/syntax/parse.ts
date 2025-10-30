@@ -148,8 +148,9 @@ function convertToken(token: Token) {
 
     case TokenType.NamespacedIdentifier:
       const parts = token.value.split('.');
+      const scope = parts[0];
 
-      switch (parts[0]) {
+      switch (scope) {
         case 'this':
           return VariableNode.create({
             scope: 'this',
@@ -162,7 +163,7 @@ function convertToken(token: Token) {
         case 'query':
           return FunctionCallNode.create({
             names: parts.slice(1) as [string],
-            scope: parts[0],
+            scope: scope,
             arguments: [],
             position: token.position,
           });
@@ -171,7 +172,7 @@ function convertToken(token: Token) {
         case 'geometry':
           return ResourceReferenceNode.create({
             position: token.position,
-            scope: parts[0],
+            scope: scope,
             names: parts.slice(1) as [string],
           });
         case 'temp':
@@ -184,7 +185,7 @@ function convertToken(token: Token) {
           return VariableNode.create({
             names: parts.slice(1) as [string],
             position: token.position,
-            scope: parts[0],
+            scope: scope,
           });
         case 'return':
           return UnaryOperationNode.create({
