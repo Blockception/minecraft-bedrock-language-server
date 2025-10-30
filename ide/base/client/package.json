@@ -28,7 +28,7 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "@blockception/ide-shared": "^0.0.1",
+    "@blockception/ide-shared": "*",
     "@types/vscode": "^1.105.0",
     "vscode-languageclient": "^10.0.0-next.17"
   },
