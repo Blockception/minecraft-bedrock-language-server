@@ -1,10 +1,8 @@
 /** Notice: Auto generated file, do not edit */
-
-
+
 import { Entity } from '../../types/resourcepack/entity';
 
-
-
+
 export const Entities: Entity[] = 
 [
   {
@@ -222,6 +220,25 @@ export const Entities: Entity[] =
     ]
   },
   {
+    "id": "minecraft:copper_golem",
+    "animations": [
+      "look_at_target",
+      "walk",
+      "walk_holding_item",
+      "spin",
+      "spin_weathered",
+      "spin_oxidized",
+      "walk_controller",
+      "hold_item",
+      "idle_controller",
+      "chest_interaction_controller",
+      "chest_interaction.put_item",
+      "chest_interaction.put_item_fail",
+      "chest_interaction.take_item",
+      "chest_interaction.take_item_fail"
+    ]
+  },
+  {
     "id": "minecraft:cow",
     "animations": [
       "setup",
@@ -260,7 +277,8 @@ export const Entities: Entity[] =
   {
     "id": "minecraft:dolphin",
     "animations": [
-      "move"
+      "move",
+      "move_controller"
     ]
   },
   {

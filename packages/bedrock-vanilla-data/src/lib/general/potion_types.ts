@@ -2,7 +2,7 @@
 
 export const PotionTypes: string[] = 
 [
-  "Lingering",
-  "Regular",
-  "Splash"
+  "Consume",
+  "ThrownLingering",
+  "ThrownSplash"
 ]

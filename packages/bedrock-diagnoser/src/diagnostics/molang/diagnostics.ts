@@ -1,5 +1,5 @@
 import { Identifiable } from 'bc-minecraft-bedrock-types/src/types';
-import { MolangDataSetKey, MolangSet } from 'bc-minecraft-molang';
+import { MolangDataSetKey, MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 
 /**
@@ -39,7 +39,7 @@ export function diagnose_molang_implementation(
 
   for (const res of resource.molang.using.values()) {
     if (res.scope === 'this') return;
-    const identifier = `${res.scope}.${res.names.join('.')}`;
+    const identifier = getId(res);
     if (assigned.has(identifier)) continue;
 
     diagnoser.add(
@@ -51,8 +51,25 @@ export function diagnose_molang_implementation(
   }
 }
 
+function getId(item: VariableNode | ResourceReferenceNode) {
+    let scope: VariableScope | ResourceScope = item.scope;
+    switch (scope) {
+      case 'c':
+        scope = 'context';
+        break;
+      case 't':
+        scope = 'temp';
+        break;
+      case 'v':
+        scope = 'variable';
+        break;
+    }
+
+    return `${item}.${item.names.join('.')}`
+}
+
 function getAssignedIds(receiver: Set<string>, data: MolangSet) {
   for (const item of data.assigned.values()) {
-    receiver.add(`${item.scope}.${item.names.join('.')}`);
+    receiver.add(getId(item));
   }
 }

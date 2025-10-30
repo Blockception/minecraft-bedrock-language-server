@@ -64,6 +64,7 @@ export const Fogs: string[] =
   "minecraft:fog_powder_snow",
   "minecraft:fog_river",
   "minecraft:fog_roofed_forest",
+  "minecraft:fog_roofed_forest_mutated",
   "minecraft:fog_savanna",
   "minecraft:fog_savanna_mutated",
   "minecraft:fog_savanna_plateau",

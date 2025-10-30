@@ -39,7 +39,7 @@
     "preversion": "",
     "postversion": "git push && git push --tags",
     "version": "git add -A src",
-    "watch": "tsc -w -p ./src"
+    "watch": "tsc -w -p ./tsconfig.json"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
@@ -53,6 +53,6 @@
     "typescript-eslint": "^8.42.0"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-types": "^1.22.1-16"
+    "bc-minecraft-bedrock-types": "*"
   }
 }

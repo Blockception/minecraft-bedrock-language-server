@@ -1,10 +1,8 @@
 /** Notice: Auto generated file, do not edit */
-
-
+
 import { AnimationController } from '../../types/resourcepack/animation_controller';
 
-
-
+
 export const AnimationControllers: AnimationController[] = 
 [
   {
@@ -297,6 +295,37 @@ export const AnimationControllers: AnimationController[] =
     "sounds": []
   },
   {
+    "id": "controller.animation.copper_golem.chest_interaction",
+    "animations": [
+      "chest_interaction.put_item",
+      "chest_interaction.put_item_fail",
+      "chest_interaction.take_item",
+      "chest_interaction.take_item_fail"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.copper_golem.idle",
+    "animations": [
+      "spin",
+      "spin_weathered",
+      "spin_oxidized"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.copper_golem.walk",
+    "animations": [
+      "walk",
+      "walk_holding_item",
+      "hold_item"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "controller.animation.creaking.attack",
     "animations": [
       "attack"
@@ -365,7 +394,9 @@ export const AnimationControllers: AnimationController[] =
     "animations": [
       "move"
     ],
-    "particles": [],
+    "particles": [
+      "effect"
+    ],
     "sounds": []
   },
   {
@@ -504,6 +535,14 @@ export const AnimationControllers: AnimationController[] =
     "id": "controller.animation.ghast.move",
     "animations": [
       "move"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.ghast.scale",
+    "animations": [
+      "scale"
     ],
     "particles": [],
     "sounds": []
@@ -1307,6 +1346,14 @@ export const AnimationControllers: AnimationController[] =
     "id": "controller.animation.vex.idle",
     "animations": [
       "vex_idle"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.vex.move",
+    "animations": [
+      "vex_move"
     ],
     "particles": [],
     "sounds": []

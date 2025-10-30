@@ -35,10 +35,10 @@ public partial class Container {
     public void Save(String Folder) {
         Directory.CreateDirectory(Folder);
 
-        Typescript.SaveArray("Animation", "../../Types/ResourcePack/Animation", nameof(this.Animations), this.Animations, Path.Join(Folder, "animations.ts"));
-        Typescript.SaveArray("AnimationController", "../../Types/ResourcePack/AnimationController", nameof(this.AnimationControllers), this.AnimationControllers, Path.Join(Folder, "animation_controllers.ts"));
-        Typescript.SaveArray("Entity", "../../Types/ResourcePack/Entity", nameof(this.Entities), this.Entities, Path.Join(Folder, "entities.ts"));
-        Typescript.SaveArray("Model", "../../Types/ResourcePack/Model", nameof(this.Models), this.Models, Path.Join(Folder, "models.ts"));
+        Typescript.SaveArray("Animation", "../../types/resourcepack/animation", nameof(this.Animations), this.Animations, Path.Join(Folder, "animations.ts"));
+        Typescript.SaveArray("AnimationController", "../../types/resourcepack/animation_controller", nameof(this.AnimationControllers), this.AnimationControllers, Path.Join(Folder, "animation_controllers.ts"));
+        Typescript.SaveArray("Entity", "../../types/resourcepack/entity", nameof(this.Entities), this.Entities, Path.Join(Folder, "entities.ts"));
+        Typescript.SaveArray("Model", "../../types/resourcepack/model", nameof(this.Models), this.Models, Path.Join(Folder, "models.ts"));
         Typescript.SaveArray("string", null, nameof(this.Fogs), this.Fogs, Path.Join(Folder, "fogs.ts"));
         Typescript.SaveArray("string", null, nameof(this.Materials), this.Materials, Path.Join(Folder, "materials.ts"));
         Typescript.SaveArray("string", null, nameof(this.Particles), this.Particles, Path.Join(Folder, "particles.ts"));

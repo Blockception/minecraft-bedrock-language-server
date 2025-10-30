@@ -62,8 +62,8 @@
     "webpack": "^5.102.0"
   },
   "dependencies": {
-    "bc-minecraft-lsp": "^1.0.0",
-    "bc-minecraft-lsp-client": "^1.0.0"
+    "bc-minecraft-lsp": "*",
+    "bc-minecraft-lsp-client": "*"
   },
   "maintainers": [
     {

@@ -1,10 +1,8 @@
 /** Notice: Auto generated file, do not edit */
-
-
+
 import { Entity } from '../../types/behaviorpack/entity';
 
-
-
+
 export const Entities: Entity[] = 
 [
   {
@@ -306,8 +304,35 @@ export const Entities: Entity[] =
   },
   {
     "id": "minecraft:copper_golem",
-    "events": [],
-    "families": []
+    "events": [
+      "minecraft:entity_spawned",
+      "minecraft:begin_oxidizing",
+      "minecraft:from_player_spawned",
+      "minecraft:from_player_default",
+      "minecraft:from_player_exposed",
+      "minecraft:from_player_weathered",
+      "minecraft:from_player_oxidized",
+      "minecraft:from_serialized_entity",
+      "minecraft:wax_on",
+      "minecraft:wax_off",
+      "minecraft:restart_oxidation_timer",
+      "minecraft:maximum_oxidation",
+      "minecraft:oxidize_copper",
+      "minecraft:remove_oxidation_layer",
+      "minecraft:transport_items.start_take_succeed",
+      "minecraft:transport_items.start_take_fail",
+      "minecraft:transport_items.start_place_succeed",
+      "minecraft:transport_items.start_place_fail",
+      "minecraft:transport_items.stop_interaction",
+      "minecraft:become_statue",
+      "minecraft:serialize_entity_succeeded",
+      "minecraft:on_take_flower",
+      "minecraft:on_sheared"
+    ],
+    "families": [
+      "copper_golem",
+      "mob"
+    ]
   },
   {
     "id": "minecraft:cow",
