@@ -1,0 +1,10 @@
+name: 🚚 Release All
+on:
+  release:
+    types: released
+
+jobs:
+  release-vscode:
+    name: 🖥️ Release VSCode
+    uses: Blockception/minecraft-bedrock-language-server/.github/workflows/release-ide.yaml@main
+    secrets: inherit
