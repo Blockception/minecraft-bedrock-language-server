@@ -11,6 +11,13 @@ export interface MolangFunction extends Types.Identifiable, Types.Documentated {
 
   /**If present, then the molang is deprecated and needs to be replaced*/
   deprecated?: string;
+
+  /**
+   * If present, specifies the minimum number of parameters required.
+   * When set, the function can accept any number of parameters >= minParams.
+   * This is used for functions like query.is_owner_identifier_any that accept variable arguments.
+   */
+  minParams?: number;
 }
 
 /**

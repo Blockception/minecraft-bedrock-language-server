@@ -223,13 +223,26 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
   }
 
   if (fnData.parameters) {
-    if (fnData.parameters.length != fn.arguments.length) {
-      diagnoser.add(
-        OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
-        `wrong amount of arguments, expected ${fnData.parameters.length} but got ${fn.arguments.length}`,
-        DiagnosticSeverity.error,
-        'molang.function.arguments',
-      );
+    // Check if function supports variable arguments with minParams
+    if (fnData.minParams !== undefined) {
+      if (fn.arguments.length < fnData.minParams) {
+        diagnoser.add(
+          OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+          `wrong amount of arguments, expected at least ${fnData.minParams} but got ${fn.arguments.length}`,
+          DiagnosticSeverity.error,
+          'molang.function.arguments',
+        );
+      }
+    } else {
+      // Check for exact parameter count
+      if (fnData.parameters.length != fn.arguments.length) {
+        diagnoser.add(
+          OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+          `wrong amount of arguments, expected ${fnData.parameters.length} but got ${fn.arguments.length}`,
+          DiagnosticSeverity.error,
+          'molang.function.arguments',
+        );
+      }
     }
   }
 }
