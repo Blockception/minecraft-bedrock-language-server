@@ -93,6 +93,18 @@ describe("Molang Syntax", () => {
       name: "Variable parameters: block_has_all_tags with 3 args (needs at least 4)",
       data: "q.block_has_all_tags(0, 0, 0)",
     },
+    {
+      name: "Type validation: block_has_all_tags with wrong type for tag (number instead of string)",
+      data: "q.block_has_all_tags(0, 0, 0, 2, 1)",
+    },
+    {
+      name: "Type validation: equipped_item_all_tags with wrong type for tag (number instead of string)",
+      data: "q.equipped_item_all_tags('slot.weapon.mainhand', 123)",
+    },
+    {
+      name: "Type validation: is_name_any with wrong type (number instead of string)",
+      data: "q.is_name_any(123)",
+    },
   ];
 
   for (const test of error_tests) {

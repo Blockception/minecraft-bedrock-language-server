@@ -5,6 +5,7 @@ import {
   FunctionCallNode,
   MolangData,
   MolangFunction,
+  MolangParameter,
   MolangSet,
   MolangSyntaxError,
   NodeType,
@@ -233,6 +234,34 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
           'molang.function.arguments',
         );
       }
+      
+      // Validate parameter types
+      for (let i = 0; i < fn.arguments.length; i++) {
+        const arg = fn.arguments[i];
+        let expectedParam: MolangParameter | undefined;
+        
+        // Determine which parameter definition to use
+        if (i < fnData.parameters.length) {
+          // Use the fixed parameter definition
+          expectedParam = fnData.parameters[i];
+        } else if (fnData.repeatableParam) {
+          // Use the repeatable parameter definition for additional args
+          expectedParam = fnData.repeatableParam;
+        }
+        
+        // Validate type if specified
+        if (expectedParam?.type) {
+          const actualType = getArgumentType(arg);
+          if (actualType && actualType !== expectedParam.type) {
+            diagnoser.add(
+              OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+              `wrong argument type at position ${i + 1}, expected ${expectedParam.type} but got ${actualType}`,
+              DiagnosticSeverity.error,
+              'molang.function.arguments.type',
+            );
+          }
+        }
+      }
     } else {
       // Check for exact parameter count
       if (fnData.parameters.length != fn.arguments.length) {
@@ -242,7 +271,45 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
           DiagnosticSeverity.error,
           'molang.function.arguments',
         );
+      } else {
+        // Validate parameter types for exact match case
+        for (let i = 0; i < fn.arguments.length; i++) {
+          const arg = fn.arguments[i];
+          const expectedParam = fnData.parameters[i];
+          
+          if (expectedParam?.type) {
+            const actualType = getArgumentType(arg);
+            if (actualType && actualType !== expectedParam.type) {
+              diagnoser.add(
+                OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+                `wrong argument type at position ${i + 1}, expected ${expectedParam.type} but got ${actualType}`,
+                DiagnosticSeverity.error,
+                'molang.function.arguments.type',
+              );
+            }
+          }
+        }
       }
     }
+  }
+}
+
+/**
+ * Helper function to determine the type of an argument node
+ */
+function getArgumentType(arg: ExpressionNode): 'string' | 'float' | 'boolean' | undefined {
+  switch (arg.type) {
+    case NodeType.StringLiteral:
+      return 'string';
+    case NodeType.Literal:
+      // Check if it's a boolean literal (true/false) or numeric
+      const value = (arg as any).value?.toLowerCase();
+      if (value === 'true' || value === 'false') {
+        return 'boolean';
+      }
+      return 'float';
+    default:
+      // For complex expressions, we can't determine the type statically
+      return undefined;
   }
 }
