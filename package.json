@@ -43,7 +43,7 @@
     "clean": "npm run clean --workspaces"
   },
   "dependencies": {
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.1.0"
   },
   "version": "0.0.1"
 }
