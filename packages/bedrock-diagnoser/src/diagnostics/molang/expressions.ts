@@ -224,46 +224,24 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
   }
 
   if (fnData.parameters) {
-    // Check if function supports variable arguments with minParams
-    if (fnData.minParams !== undefined) {
-      if (fn.arguments.length < fnData.minParams) {
+    // Check if the last parameter is repeatable
+    const lastParam = fnData.parameters[fnData.parameters.length - 1];
+    const hasRepeatableParam = lastParam?.repeatable === true;
+    const minRequiredParams = fnData.parameters.length;
+
+    // Validate parameter count
+    if (hasRepeatableParam) {
+      // With repeatable parameter, we need at least the minimum parameters
+      if (fn.arguments.length < minRequiredParams) {
         diagnoser.add(
           OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
-          `wrong amount of arguments, expected at least ${fnData.minParams} but got ${fn.arguments.length}`,
+          `wrong amount of arguments, expected at least ${minRequiredParams} but got ${fn.arguments.length}`,
           DiagnosticSeverity.error,
           'molang.function.arguments',
         );
       }
-      
-      // Validate parameter types
-      for (let i = 0; i < fn.arguments.length; i++) {
-        const arg = fn.arguments[i];
-        let expectedParam: MolangParameter | undefined;
-        
-        // Determine which parameter definition to use
-        if (i < fnData.parameters.length) {
-          // Use the fixed parameter definition
-          expectedParam = fnData.parameters[i];
-        } else if (fnData.repeatableParam) {
-          // Use the repeatable parameter definition for additional args
-          expectedParam = fnData.repeatableParam;
-        }
-        
-        // Validate type if specified
-        if (expectedParam?.type) {
-          const actualType = getArgumentType(arg);
-          if (actualType && actualType !== expectedParam.type) {
-            diagnoser.add(
-              OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
-              `wrong argument type at position ${i + 1}, expected ${expectedParam.type} but got ${actualType}`,
-              DiagnosticSeverity.error,
-              'molang.function.arguments.type',
-            );
-          }
-        }
-      }
     } else {
-      // Check for exact parameter count
+      // Without repeatable parameter, we need exact match
       if (fnData.parameters.length != fn.arguments.length) {
         diagnoser.add(
           OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
@@ -271,23 +249,33 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
           DiagnosticSeverity.error,
           'molang.function.arguments',
         );
-      } else {
-        // Validate parameter types for exact match case
-        for (let i = 0; i < fn.arguments.length; i++) {
-          const arg = fn.arguments[i];
-          const expectedParam = fnData.parameters[i];
-          
-          if (expectedParam?.type) {
-            const actualType = getArgumentType(arg);
-            if (actualType && actualType !== expectedParam.type) {
-              diagnoser.add(
-                OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
-                `wrong argument type at position ${i + 1}, expected ${expectedParam.type} but got ${actualType}`,
-                DiagnosticSeverity.error,
-                'molang.function.arguments.type',
-              );
-            }
-          }
+      }
+    }
+
+    // Validate parameter types
+    for (let i = 0; i < fn.arguments.length; i++) {
+      const arg = fn.arguments[i];
+      let expectedParam: MolangParameter | undefined;
+
+      // Determine which parameter definition to use
+      if (i < fnData.parameters.length) {
+        // Use the parameter at this index
+        expectedParam = fnData.parameters[i];
+      } else if (hasRepeatableParam) {
+        // Use the last (repeatable) parameter for additional arguments
+        expectedParam = lastParam;
+      }
+
+      // Validate type if specified
+      if (expectedParam?.type) {
+        const actualType = getArgumentType(arg);
+        if (actualType && actualType !== expectedParam.type) {
+          diagnoser.add(
+            OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+            `wrong argument type at position ${i + 1}, expected ${expectedParam.type} but got ${actualType}`,
+            DiagnosticSeverity.error,
+            'molang.function.arguments.type',
+          );
         }
       }
     }

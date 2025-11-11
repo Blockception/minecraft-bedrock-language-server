@@ -11,21 +11,6 @@ export interface MolangFunction extends Types.Identifiable, Types.Documentated {
 
   /**If present, then the molang is deprecated and needs to be replaced*/
   deprecated?: string;
-
-  /**
-   * If present, specifies the minimum number of parameters required.
-   * When set, the function can accept any number of parameters >= minParams.
-   * This is used for functions like query.is_owner_identifier_any that accept variable arguments.
-   */
-  minParams?: number;
-
-  /**
-   * If present, specifies the type constraint for repeatable parameters.
-   * Used together with minParams to validate the type of additional parameters beyond the minimum.
-   * For example, block_has_all_tags(x, y, z, tag1, tag2, ...) has 3 fixed float parameters
-   * and repeatable string parameters for tags.
-   */
-  repeatableParam?: MolangParameter;
 }
 
 /**
@@ -56,6 +41,12 @@ export interface MolangParameter extends Types.Identifiable, Types.Documentated 
    *
    */
   type?: 'boolean' | 'float' | 'string';
+  /**
+   * If true, this parameter can be repeated indefinitely.
+   * When a parameter is repeatable, the function can accept any number of additional arguments
+   * matching this parameter's type.
+   */
+  repeatable?: boolean;
 }
 
 /**

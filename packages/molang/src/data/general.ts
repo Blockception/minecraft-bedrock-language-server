@@ -460,16 +460,11 @@ export namespace General {
         },
         {
           id: 'tag',
-          documentation: 'The first tag',
+          documentation: 'tag name to check',
           type: 'string',
+          repeatable: true,
         },
       ],
-      minParams: 4,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'block_has_any_tags',
@@ -493,16 +488,11 @@ export namespace General {
         },
         {
           id: 'tag',
-          documentation: 'The first tag',
+          documentation: 'tag name to check',
           type: 'string',
+          repeatable: true,
         },
       ],
-      minParams: 4,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'block_neighbor_has_all_tags',
@@ -526,16 +516,11 @@ export namespace General {
         },
         {
           id: 'tag',
-          documentation: 'The first tag',
+          documentation: 'tag name to check',
           type: 'string',
+          repeatable: true,
         },
       ],
-      minParams: 4,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'block_neighbor_has_any_tags',
@@ -559,16 +544,11 @@ export namespace General {
         },
         {
           id: 'tag',
-          documentation: 'The first tag',
+          documentation: 'tag name to check',
           type: 'string',
+          repeatable: true,
         },
       ],
-      minParams: 4,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'block_property',
@@ -773,14 +753,8 @@ export namespace General {
         "takes a slot name followed by any tag you want to check for in the form of 'tag_name' and returns 1 if all of the tags are on that equipped item, 0 otherwise",
       parameters: [
         { id: 'slot_name', documentation: 'equipment slot name', type: 'string' },
-        { id: 'tag', documentation: 'tag name to check', type: 'string' },
+        { id: 'tag', documentation: 'tag name to check', type: 'string', repeatable: true },
       ],
-      minParams: 2,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'equipped_item_any_tag',
@@ -788,14 +762,8 @@ export namespace General {
         "takes a slot name followed by any tag you want to check for in the form of 'tag_name' and returns 0 if none of the tags are on that equipped item or 1 if at least 1 tag exists",
       parameters: [
         { id: 'slot_name', documentation: 'equipment slot name', type: 'string' },
-        { id: 'tag', documentation: 'tag name to check', type: 'string' },
+        { id: 'tag', documentation: 'tag name to check', type: 'string', repeatable: true },
       ],
-      minParams: 2,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'equipped_item_is_attachable',
@@ -844,14 +812,8 @@ export namespace General {
       documentation:
         "Takes in one or more arguments ('simple', 'fancy', 'deferred', 'raytraced'). If the graphics mode of the client matches any of the arguments, return 1.0. Available on the Client (Resource Packs) only.",
       parameters: [
-        { id: 'mode', documentation: "graphics mode ('simple', 'fancy', 'deferred', 'raytraced')", type: 'string' },
+        { id: 'mode', documentation: "graphics mode ('simple', 'fancy', 'deferred', 'raytraced')", type: 'string', repeatable: true },
       ],
-      minParams: 1,
-      repeatableParam: {
-        id: 'mode',
-        documentation: 'Additional graphics mode',
-        type: 'string',
-      },
     },
     {
       id: 'ground_speed',
@@ -1193,14 +1155,8 @@ export namespace General {
       parameters: [
         { id: 'slot_name', documentation: 'equipment slot name', type: 'string' },
         { id: 'slot_index', documentation: 'optional slot index value', type: 'float' },
-        { id: 'item', documentation: 'item name to check', type: 'string' },
+        { id: 'item', documentation: 'item name to check', type: 'string', repeatable: true },
       ],
-      minParams: 3,
-      repeatableParam: {
-        id: 'item',
-        documentation: 'Additional item name',
-        type: 'string',
-      },
     },
 
     {
@@ -1245,14 +1201,8 @@ export namespace General {
       documentation:
         "Takes one or more arguments. If the entity's name is any of the specified string values, returns 1.0. Otherwise returns 0.0. A preferred query to query.get_name, as it can be adjusted by Mojang to avoid breaking content if names are changed.",
       parameters: [
-        { id: 'name', documentation: 'possible entity name', type: 'string' },
+        { id: 'name', documentation: 'possible entity name', type: 'string', repeatable: true },
       ],
-      minParams: 1,
-      repeatableParam: {
-        id: 'name',
-        documentation: 'Additional entity name',
-        type: 'string',
-      },
     },
     {
       id: 'is_on_fire',
@@ -1280,14 +1230,8 @@ export namespace General {
       documentation:
         'Takes one or more arguments. Returns whether the root actor identifier is any of the specified strings. A preferred query to query.owner_identifier, as it can be adjusted by Mojang to avoid breaking content if names are changed.',
       parameters: [
-        { id: 'name', documentation: 'possible entity name', type: 'string' },
+        { id: 'name', documentation: 'possible entity name', type: 'string', repeatable: true },
       ],
-      minParams: 1,
-      repeatableParam: {
-        id: 'name',
-        documentation: 'Additional entity name',
-        type: 'string',
-      },
     },
     {
       id: 'is_persona_or_premium_skin',
@@ -1486,14 +1430,8 @@ export namespace General {
       documentation:
         "Takes one or more arguments ('keyboard_and_mouse', 'touch', or 'gamepad'). If the last input used is any of the specified string values, returns 1.0. Otherwise returns 0.0. Available on the Client (Resource Packs) only.",
       parameters: [
-        { id: 'mode', documentation: "input mode ('keyboard_and_mouse', 'touch', or 'gamepad')", type: 'string' },
+        { id: 'mode', documentation: "input mode ('keyboard_and_mouse', 'touch', or 'gamepad')", type: 'string', repeatable: true },
       ],
-      minParams: 1,
-      repeatableParam: {
-        id: 'mode',
-        documentation: 'Additional input mode',
-        type: 'string',
-      },
     },
     {
       id: 'lie_amount',
@@ -1625,14 +1563,8 @@ export namespace General {
         { id: 'x', documentation: 'entity-relative position on the x axis', type: 'float' },
         { id: 'y', documentation: 'entity-relative position on the y axis', type: 'float' },
         { id: 'z', documentation: 'entity-relative position on the z axis', type: 'float' },
-        { id: 'tag', documentation: 'tag name to check', type: 'string' },
+        { id: 'tag', documentation: 'tag name to check', type: 'string', repeatable: true },
       ],
-      minParams: 4,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'relative_block_has_any_tag',
@@ -1642,14 +1574,8 @@ export namespace General {
         { id: 'x', documentation: 'entity-relative position on the x axis', type: 'float' },
         { id: 'y', documentation: 'entity-relative position on the y axis', type: 'float' },
         { id: 'z', documentation: 'entity-relative position on the z axis', type: 'float' },
-        { id: 'tag', documentation: 'tag name to check', type: 'string' },
+        { id: 'tag', documentation: 'tag name to check', type: 'string', repeatable: true },
       ],
-      minParams: 4,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional tag name',
-        type: 'string',
-      },
     },
     {
       id: 'ride_body_x_rotation',
@@ -1870,40 +1796,22 @@ export namespace General {
       id: 'entity_biome_has_all_tags',
       documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if all of the tag names match. Only supported in resource packs (client-side).',
       parameters: [
-        { id: 'tag', documentation: 'biome tag name to check', type: 'string' },
+        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
       ],
-      minParams: 1,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional biome tag name',
-        type: 'string',
-      },
     },
     {
       id: 'entity_biome_has_any_identifier',
       documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more identifier names, and returns either 0 or 1 based on if any of the identifier names match. Only supported in resource packs (client-side).',
       parameters: [
-        { id: 'identifier', documentation: 'biome identifier to check', type: 'string' },
+        { id: 'identifier', documentation: 'biome identifier to check', type: 'string', repeatable: true },
       ],
-      minParams: 1,
-      repeatableParam: {
-        id: 'identifier',
-        documentation: 'Additional biome identifier',
-        type: 'string',
-      },
     },
     {
       id: 'entity_biome_has_any_tags',
       documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if any of the tag names match. Only supported in resource packs (client-side).',
       parameters: [
-        { id: 'tag', documentation: 'biome tag name to check', type: 'string' },
+        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
       ],
-      minParams: 1,
-      repeatableParam: {
-        id: 'tag',
-        documentation: 'Additional biome tag name',
-        type: 'string',
-      },
     },
     {
       id: 'get_pack_setting',
