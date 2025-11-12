@@ -41,6 +41,12 @@ export interface MolangParameter extends Types.Identifiable, Types.Documentated 
    *
    */
   type?: 'boolean' | 'float' | 'string';
+  /**
+   * If true, this parameter can be repeated indefinitely.
+   * When a parameter is repeatable, the function can accept any number of additional arguments
+   * matching this parameter's type.
+   */
+  repeatable?: boolean;
 }
 
 /**

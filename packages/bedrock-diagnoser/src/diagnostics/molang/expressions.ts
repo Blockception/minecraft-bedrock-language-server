@@ -5,6 +5,7 @@ import {
   FunctionCallNode,
   MolangData,
   MolangFunction,
+  MolangParameter,
   MolangSet,
   MolangSyntaxError,
   NodeType,
@@ -223,13 +224,80 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
   }
 
   if (fnData.parameters) {
-    if (fnData.parameters.length != fn.arguments.length) {
-      diagnoser.add(
-        OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
-        `wrong amount of arguments, expected ${fnData.parameters.length} but got ${fn.arguments.length}`,
-        DiagnosticSeverity.error,
-        'molang.function.arguments',
-      );
+    // Check if the last parameter is repeatable
+    const lastParam = fnData.parameters[fnData.parameters.length - 1];
+    const hasRepeatableParam = lastParam?.repeatable === true;
+    const minRequiredParams = fnData.parameters.length;
+
+    // Validate parameter count
+    if (hasRepeatableParam) {
+      // With repeatable parameter, we need at least the minimum parameters
+      if (fn.arguments.length < minRequiredParams) {
+        diagnoser.add(
+          OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+          `wrong amount of arguments, expected at least ${minRequiredParams} but got ${fn.arguments.length}`,
+          DiagnosticSeverity.error,
+          'molang.function.arguments',
+        );
+      }
+    } else {
+      // Without repeatable parameter, we need exact match
+      if (fnData.parameters.length != fn.arguments.length) {
+        diagnoser.add(
+          OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+          `wrong amount of arguments, expected ${fnData.parameters.length} but got ${fn.arguments.length}`,
+          DiagnosticSeverity.error,
+          'molang.function.arguments',
+        );
+      }
     }
+
+    // Validate parameter types
+    for (let i = 0; i < fn.arguments.length; i++) {
+      const arg = fn.arguments[i];
+      let expectedParam: MolangParameter | undefined;
+
+      // Determine which parameter definition to use
+      if (i < fnData.parameters.length) {
+        // Use the parameter at this index
+        expectedParam = fnData.parameters[i];
+      } else if (hasRepeatableParam) {
+        // Use the last (repeatable) parameter for additional arguments
+        expectedParam = lastParam;
+      }
+
+      // Validate type if specified
+      if (expectedParam?.type) {
+        const actualType = getArgumentType(arg);
+        if (actualType && actualType !== expectedParam.type) {
+          diagnoser.add(
+            OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+            `wrong argument type at position ${i + 1}, expected ${expectedParam.type} but got ${actualType}`,
+            DiagnosticSeverity.error,
+            'molang.function.arguments.type',
+          );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Helper function to determine the type of an argument node
+ */
+function getArgumentType(arg: ExpressionNode): 'string' | 'float' | 'boolean' | undefined {
+  switch (arg.type) {
+    case NodeType.StringLiteral:
+      return 'string';
+    case NodeType.Literal:
+      // Check if it's a boolean literal (true/false) or numeric
+      const value = (arg as any).value?.toLowerCase();
+      if (value === 'true' || value === 'false') {
+        return 'boolean';
+      }
+      return 'float';
+    default:
+      // For complex expressions, we can't determine the type statically
+      return undefined;
   }
 }
