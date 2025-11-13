@@ -10,7 +10,7 @@ describe('RP Filetype', () => {
       { file: 'F:\\Example-rp\\entity\\pig.entity.json', type: FileType.entity },
       { file: 'F:\\Example-rp\\models\\pig.geo.json', type: FileType.model },
       { file: 'F:\\Example-rp\\models\\enity\\pig.geo.json', type: FileType.model },
-      { file: 'F:\\Example-rp\\models\\entities\\pig.geo.json', type: FileType.model },},
+      { file: 'F:\\Example-rp\\models\\entities\\pig.geo.json', type: FileType.model },
       { file: 'F:\\Example-rp\\models\\enity\\foo\\pig.geo.json', type: FileType.model },
       { file: 'F:\\Example-rp\\models\\entities\\foo\\pig.geo.json', type: FileType.model },
       { file: 'F:\\Example-rp\\particles\\example.particle.json', type: FileType.particle },
