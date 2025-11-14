@@ -102,7 +102,7 @@ function scrapeEntities(receiver: Entity[], filepath: string): void {
 
   for (const item of module) {
     if (item.name) {
-      receiver.push({ id: item.name });
+      receiver.push({ id: item.name, events: [], families: [] });
     }
   }
 }

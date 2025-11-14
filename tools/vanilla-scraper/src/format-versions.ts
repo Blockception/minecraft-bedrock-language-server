@@ -38,7 +38,7 @@ export function getFormatVersions(context: Context, outputFolder: string): void 
   const lines: string[] = [];
 
   lines.push('/** Notice: Auto generated file, do not edit */\n');
-  lines.push(`import { FormatVersionData } from './general';\n\n`);
+  lines.push(`import { FormatVersionData } from './general/format-version';\n\n`);
   lines.push(`export const Versions: FormatVersionData = `);
   lines.push(JSON.stringify(result, null, 2));
 

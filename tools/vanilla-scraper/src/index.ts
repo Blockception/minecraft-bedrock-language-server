@@ -16,8 +16,10 @@ async function main() {
   const currentDir = process.cwd();
   const workFolder = path.join(currentDir, 'work');
   
-  // Find the source folder by traversing up
-  const sourceFolder = findFolder(workFolder, 'src');
+  // Navigate to the bedrock-vanilla-data package
+  const repoRoot = path.resolve(currentDir, '..', '..');
+  const packageFolder = path.join(repoRoot, 'packages', 'bedrock-vanilla-data');
+  const sourceFolder = path.join(packageFolder, 'src');
   const outputFolder = path.join(sourceFolder, 'lib');
 
   // Create directories

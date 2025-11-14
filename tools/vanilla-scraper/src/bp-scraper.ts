@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { findJsonFiles, readJsonFile } from './utils.js';
-import { Block, Biome, Entity, Item, LootTable, Trading, BehaviorPackContainer } from './types.js';
+import { Block, Biome, Entity, Item, LootTable, BehaviorPackContainer } from './types.js';
 
 /**
  * Scrape behavior pack data
@@ -72,7 +72,20 @@ function scrapeBiomesFromFolder(receiver: Biome[], folder: string): void {
 
       const id = desc.identifier;
       if (id) {
-        receiver.push({ id });
+        const biome: Biome = {
+          id,
+          tags: [],
+        };
+
+        // Extract tags if present
+        if (biomeDef.components && biomeDef.components['minecraft:tags']) {
+          const tagsComponent = biomeDef.components['minecraft:tags'];
+          if (tagsComponent.tags && Array.isArray(tagsComponent.tags)) {
+            biome.tags = tagsComponent.tags;
+          }
+        }
+
+        receiver.push(biome);
       }
     } catch (error) {
       console.error(`Error processing ${file}:`, error);
@@ -98,7 +111,34 @@ function scrapeEntitiesFromFolder(receiver: Entity[], folder: string): void {
 
       const id = desc.identifier;
       if (id) {
-        receiver.push({ id });
+        const entity: Entity = {
+          id,
+          events: [],
+          families: [],
+        };
+
+        // Extract families
+        if (desc.is_spawnable !== undefined || desc.is_summonable !== undefined || desc.is_experimental !== undefined) {
+          // These are description properties, not families
+        }
+        
+        // Extract family tags from component groups or components
+        const componentGroups = entityDef.component_groups;
+        const components = entityDef.components;
+        
+        // Check for families in description
+        if (desc.family) {
+          if (Array.isArray(desc.family)) {
+            entity.families.push(...desc.family);
+          }
+        }
+
+        // Extract events
+        if (entityDef.events) {
+          entity.events = Object.keys(entityDef.events);
+        }
+
+        receiver.push(entity);
       }
     } catch (error) {
       console.error(`Error processing ${file}:`, error);
@@ -133,7 +173,7 @@ function scrapeItemsFromFolder(receiver: Item[], folder: string): void {
   console.log('::endgroup::' + folder);
 }
 
-function scrapeLootTablesFromFolder(receiver: LootTable[], folder: string): void {
+function scrapeLootTablesFromFolder(receiver: string[], folder: string): void {
   console.log('::group::' + folder);
   const files = findJsonFiles(folder);
 
@@ -145,7 +185,7 @@ function scrapeLootTablesFromFolder(receiver: LootTable[], folder: string): void
       // Loot tables use the file name as the identifier
       const filename = path.basename(file, '.json');
       const id = `loot_tables/${filename}`;
-      receiver.push({ id });
+      receiver.push(id);
     } catch (error) {
       console.error(`Error processing ${file}:`, error);
     }
@@ -153,7 +193,7 @@ function scrapeLootTablesFromFolder(receiver: LootTable[], folder: string): void
   console.log('::endgroup::' + folder);
 }
 
-function scrapeTradingFromFolder(receiver: Trading[], folder: string): void {
+function scrapeTradingFromFolder(receiver: string[], folder: string): void {
   console.log('::group::' + folder);
   const files = findJsonFiles(folder);
 
@@ -165,7 +205,7 @@ function scrapeTradingFromFolder(receiver: Trading[], folder: string): void {
       // Trading files use the file name as the identifier
       const filename = path.basename(file, '.json');
       const id = `trading/${filename}`;
-      receiver.push({ id });
+      receiver.push(id);
     } catch (error) {
       console.error(`Error processing ${file}:`, error);
     }
