@@ -14,6 +14,10 @@ const config: Config = {
     '^.+\\.ts$': 'ts-jest',
   },
   testMatch: ['**/*.{test,spec}.ts'],
+  reporters: [
+    ['github-actions', {silent: false}], 
+    'summary'
+  ]
 };
 
 export default config;
