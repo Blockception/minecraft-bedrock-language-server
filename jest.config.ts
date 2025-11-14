@@ -13,7 +13,11 @@ const config: Config = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  testMatch: ['**/test/**/*.test.ts', '**/test/**/*.spec.ts'],
+  testMatch: ['**/*.{test,spec}.ts'],
+  reporters: [
+    ['github-actions', {silent: false}], 
+    'summary'
+  ]
 };
 
 export default config;

@@ -38,7 +38,7 @@
     "compile": "npm run compile --workspaces",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "lint": "npm run lint --workspaces",
-    "test": "npm run test  --workspaces",
+    "test": "npm run test --workspaces",
     "test:all": "npx jest --coverage",
     "clean": "npm run clean --workspaces"
   },
