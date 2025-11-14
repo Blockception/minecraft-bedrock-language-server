@@ -1,7 +1,7 @@
-import { CommandInfo } from '../src/lib/data/command-info';
-import { ParameterType } from '../src/lib/types/parameter-type';
-import { convert } from './convert';
-import * as command_data from './minecraft-data';
+import { CommandInfo } from '../../../packages/bedrock-commands/src/data/command-info.js';
+import { ParameterType } from '../../../packages/bedrock-commands/src/types/parameter-type.js';
+import { convert } from './convert.js';
+import * as command_data from './minecraft-data.js';
 const path = require('node:path');
 const fs = require('fs');
 
@@ -35,7 +35,7 @@ main().catch((err) => {
   process.exit(1);
 });
 
-const folder = path.join(__dirname, '..', 'src', 'lib', 'data', 'vanilla');
+const folder = path.join(__dirname, '..', '..', '..', 'packages', 'bedrock-commands', 'src', 'data', 'vanilla');
 
 function save(comm: string, data: CommandInfo[]) {
   const filePath = path.join(folder, `${comm}.ts`);

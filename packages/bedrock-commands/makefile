@@ -1,4 +1,4 @@
 
 
 commands:
-	npx tsx ./script/command-import.ts
+	cd ../../tools/generate-command-data && npm run generate

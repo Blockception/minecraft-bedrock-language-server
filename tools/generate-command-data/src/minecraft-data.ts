@@ -26,8 +26,8 @@ export namespace MinecraftCommandData {
     return (
       typeof data.name === 'string' &&
       typeof data.module_type === 'string' &&
-      typeof data.minecraft_version === 'string' &&
-      Array.isArray(data.command_enums)
+      Array.isArray(data.command_enums) &&
+      Array.isArray(data.commands)
     );
   }
 }
