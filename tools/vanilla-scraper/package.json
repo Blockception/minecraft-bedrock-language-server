@@ -1,0 +1,26 @@
+{
+  "name": "vanilla-scraper",
+  "version": "1.0.0",
+  "description": "TypeScript scraper for Minecraft Bedrock vanilla data",
+  "private": true,
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "scrape": "node dist/index.js",
+    "clean": "rimraf dist work"
+  },
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "extract-zip": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "rimraf": "^6.1.0",
+    "typescript": "^5.9.2"
+  }
+}
