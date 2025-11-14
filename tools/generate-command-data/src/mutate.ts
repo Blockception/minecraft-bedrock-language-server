@@ -1,4 +1,4 @@
-import { Command, CommandOverload, CommandParameter } from './minecraft-data';
+import { Command, CommandOverload, CommandParameter } from './minecraft-data.js';
 
 const mutateData: Array<[string, string[]]> = [
   ['ACTORLOCATION', ['eyes', 'feet']],
@@ -195,7 +195,7 @@ function mutateOverloadWith(data: CommandOverload, orignal: string, others: stri
 
 function mutateOverloadWithP(
   data: CommandOverload & Deletable,
-  predicate: (CommandParameter) => boolean,
+  predicate: (param: CommandParameter) => boolean,
   others: Partial<CommandParameter>[],
 ) {
   const i = data.params.findIndex(predicate);
