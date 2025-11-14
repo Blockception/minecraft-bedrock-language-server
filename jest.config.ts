@@ -13,7 +13,7 @@ const config: Config = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
   },
-  testMatch: ['**/*.{test|spec}.ts'],
+  testMatch: ['**/*.{test,spec}.ts'],
 };
 
 export default config;
