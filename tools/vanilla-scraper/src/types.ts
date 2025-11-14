@@ -9,64 +9,55 @@ export interface Block {
 
 export interface Entity {
   id: string;
+  events: string[];
+  families: string[];
 }
 
 export interface Item {
   id: string;
 }
 
-export interface LootTable {
-  id: string;
-}
+export type LootTable = string;
 
-export interface Trading {
-  id: string;
-}
+export type Trading = string;
 
 export interface Biome {
   id: string;
+  tags: string[];
 }
 
 export interface Animation {
   id: string;
+  bones: string[];
+  particles: string[];
+  sounds: string[];
 }
 
 export interface AnimationController {
   id: string;
+  animations: string[];
+  particles: string[];
+  sounds: string[];
 }
 
-export interface Fog {
-  id: string;
-}
+export type Fog = string;
 
 export interface Model {
   id: string;
+  bones: string[];
 }
 
-export interface Particle {
-  id: string;
-}
+export type Particle = string;
 
-export interface RenderController {
-  id: string;
-}
+export type RenderController = string;
 
-export interface Material {
-  id: string;
-}
+export type Material = string;
 
-export interface Sound {
-  id: string;
-}
+export type Sound = string;
 
-export interface Texture {
-  id: string;
-}
+export type Texture = string;
 
-export interface TextureAtlas {
-  id: string;
-  texture?: string;
-}
+export type TextureAtlas = string;
 
 export interface Container<T> {
   items: T[];
@@ -78,7 +69,7 @@ export interface BehaviorPackContainer {
   entities: Entity[];
   items: Item[];
   lootTables: LootTable[];
-  trading: Trading[];
+  trading: string[];
   features: string[];
 }
 
@@ -86,16 +77,16 @@ export interface ResourcePackContainer {
   animations: Animation[];
   animationControllers: AnimationController[];
   entities: Entity[];
-  fogs: Fog[];
+  fogs: string[];
   models: Model[];
-  particles: Particle[];
-  renderControllers: RenderController[];
-  materials: Material[];
-  sounds: Sound[];
+  particles: string[];
+  renderControllers: string[];
+  materials: string[];
+  sounds: string[];
   soundFiles: string[];
-  textures: Texture[];
-  textureItems: TextureAtlas[];
-  textureTerrain: TextureAtlas[];
+  textures: string[];
+  textureItems: string[];
+  textureTerrain: string[];
 }
 
 export interface General {

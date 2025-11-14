@@ -1,83 +1,242 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Fogs: string[] = 
+
+import { Fog } from '../../types/resourcepack/fog';
+
+
+export const Fogs: Fog[] = 
 [
-  "minecraft:fog_bamboo_jungle",
-  "minecraft:fog_bamboo_jungle_hills",
-  "minecraft:fog_basalt_deltas",
-  "minecraft:fog_beach",
-  "minecraft:fog_birch_forest",
-  "minecraft:fog_birch_forest_hills",
-  "minecraft:fog_cherry_grove",
-  "minecraft:fog_cold_beach",
-  "minecraft:fog_cold_ocean",
-  "minecraft:fog_cold_taiga",
-  "minecraft:fog_cold_taiga_hills",
-  "minecraft:fog_cold_taiga_mutated",
-  "minecraft:fog_crimson_forest",
-  "minecraft:fog_deep_cold_ocean",
-  "minecraft:fog_deep_frozen_ocean",
-  "minecraft:fog_deep_lukewarm_ocean",
-  "minecraft:fog_deep_ocean",
-  "minecraft:fog_deep_warm_ocean",
-  "minecraft:fog_default",
-  "minecraft:fog_desert",
-  "minecraft:fog_desert_hills",
-  "minecraft:fog_dry",
-  "minecraft:fog_extreme_hills",
-  "minecraft:fog_extreme_hills_edge",
-  "minecraft:fog_extreme_hills_mutated",
-  "minecraft:fog_extreme_hills_plus_trees",
-  "minecraft:fog_extreme_hills_plus_trees_mutated",
-  "minecraft:fog_flower_forest",
-  "minecraft:fog_forest",
-  "minecraft:fog_forest_hills",
-  "minecraft:fog_frozen_ocean",
-  "minecraft:fog_frozen_river",
-  "minecraft:fog_hell",
-  "minecraft:fog_humid",
-  "minecraft:fog_ice_mountains",
-  "minecraft:fog_ice_plains",
-  "minecraft:fog_ice_plains_spikes",
-  "minecraft:fog_jungle",
-  "minecraft:fog_jungle_edge",
-  "minecraft:fog_jungle_hills",
-  "minecraft:fog_jungle_mutated",
-  "minecraft:fog_lukewarm_ocean",
-  "minecraft:fog_lush_caves",
-  "minecraft:fog_mangrove_swamp",
-  "minecraft:fog_mega_spruce_taiga",
-  "minecraft:fog_mega_spruce_taiga_mutated",
-  "minecraft:fog_mega_taiga",
-  "minecraft:fog_mega_taiga_hills",
-  "minecraft:fog_mega_taiga_mutated",
-  "minecraft:fog_mesa",
-  "minecraft:fog_mesa_bryce",
-  "minecraft:fog_mesa_mutated",
-  "minecraft:fog_mesa_plateau",
-  "minecraft:fog_mesa_plateau_stone",
-  "minecraft:fog_mushroom_island",
-  "minecraft:fog_mushroom_island_shore",
-  "minecraft:fog_ocean",
-  "minecraft:fog_pale_garden",
-  "minecraft:fog_plains",
-  "minecraft:fog_powder_snow",
-  "minecraft:fog_river",
-  "minecraft:fog_roofed_forest",
-  "minecraft:fog_roofed_forest_mutated",
-  "minecraft:fog_savanna",
-  "minecraft:fog_savanna_mutated",
-  "minecraft:fog_savanna_plateau",
-  "minecraft:fog_semi_humid",
-  "minecraft:fog_soulsand_valley",
-  "minecraft:fog_stone_beach",
-  "minecraft:fog_sunflower_plains",
-  "minecraft:fog_swampland",
-  "minecraft:fog_swampland_mutated",
-  "minecraft:fog_taiga",
-  "minecraft:fog_taiga_hills",
-  "minecraft:fog_taiga_mutated",
-  "minecraft:fog_the_end",
-  "minecraft:fog_warm_ocean",
-  "minecraft:fog_warped_forest"
+  {
+    "id": "minecraft:fog_bamboo_jungle"
+  },
+  {
+    "id": "minecraft:fog_bamboo_jungle_hills"
+  },
+  {
+    "id": "minecraft:fog_basalt_deltas"
+  },
+  {
+    "id": "minecraft:fog_beach"
+  },
+  {
+    "id": "minecraft:fog_birch_forest"
+  },
+  {
+    "id": "minecraft:fog_birch_forest_hills"
+  },
+  {
+    "id": "minecraft:fog_cherry_grove"
+  },
+  {
+    "id": "minecraft:fog_cold_beach"
+  },
+  {
+    "id": "minecraft:fog_cold_ocean"
+  },
+  {
+    "id": "minecraft:fog_cold_taiga"
+  },
+  {
+    "id": "minecraft:fog_cold_taiga_hills"
+  },
+  {
+    "id": "minecraft:fog_cold_taiga_mutated"
+  },
+  {
+    "id": "minecraft:fog_crimson_forest"
+  },
+  {
+    "id": "minecraft:fog_deep_cold_ocean"
+  },
+  {
+    "id": "minecraft:fog_deep_frozen_ocean"
+  },
+  {
+    "id": "minecraft:fog_deep_lukewarm_ocean"
+  },
+  {
+    "id": "minecraft:fog_deep_ocean"
+  },
+  {
+    "id": "minecraft:fog_deep_warm_ocean"
+  },
+  {
+    "id": "minecraft:fog_default"
+  },
+  {
+    "id": "minecraft:fog_desert"
+  },
+  {
+    "id": "minecraft:fog_desert_hills"
+  },
+  {
+    "id": "minecraft:fog_dry"
+  },
+  {
+    "id": "minecraft:fog_extreme_hills"
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_edge"
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_mutated"
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_plus_trees"
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_plus_trees_mutated"
+  },
+  {
+    "id": "minecraft:fog_flower_forest"
+  },
+  {
+    "id": "minecraft:fog_forest"
+  },
+  {
+    "id": "minecraft:fog_forest_hills"
+  },
+  {
+    "id": "minecraft:fog_frozen_ocean"
+  },
+  {
+    "id": "minecraft:fog_frozen_river"
+  },
+  {
+    "id": "minecraft:fog_hell"
+  },
+  {
+    "id": "minecraft:fog_humid"
+  },
+  {
+    "id": "minecraft:fog_ice_mountains"
+  },
+  {
+    "id": "minecraft:fog_ice_plains"
+  },
+  {
+    "id": "minecraft:fog_ice_plains_spikes"
+  },
+  {
+    "id": "minecraft:fog_jungle"
+  },
+  {
+    "id": "minecraft:fog_jungle_edge"
+  },
+  {
+    "id": "minecraft:fog_jungle_hills"
+  },
+  {
+    "id": "minecraft:fog_jungle_mutated"
+  },
+  {
+    "id": "minecraft:fog_lukewarm_ocean"
+  },
+  {
+    "id": "minecraft:fog_lush_caves"
+  },
+  {
+    "id": "minecraft:fog_mangrove_swamp"
+  },
+  {
+    "id": "minecraft:fog_mega_spruce_taiga"
+  },
+  {
+    "id": "minecraft:fog_mega_spruce_taiga_mutated"
+  },
+  {
+    "id": "minecraft:fog_mega_taiga"
+  },
+  {
+    "id": "minecraft:fog_mega_taiga_hills"
+  },
+  {
+    "id": "minecraft:fog_mega_taiga_mutated"
+  },
+  {
+    "id": "minecraft:fog_mesa"
+  },
+  {
+    "id": "minecraft:fog_mesa_bryce"
+  },
+  {
+    "id": "minecraft:fog_mesa_mutated"
+  },
+  {
+    "id": "minecraft:fog_mesa_plateau"
+  },
+  {
+    "id": "minecraft:fog_mesa_plateau_stone"
+  },
+  {
+    "id": "minecraft:fog_mushroom_island"
+  },
+  {
+    "id": "minecraft:fog_mushroom_island_shore"
+  },
+  {
+    "id": "minecraft:fog_ocean"
+  },
+  {
+    "id": "minecraft:fog_pale_garden"
+  },
+  {
+    "id": "minecraft:fog_plains"
+  },
+  {
+    "id": "minecraft:fog_powder_snow"
+  },
+  {
+    "id": "minecraft:fog_river"
+  },
+  {
+    "id": "minecraft:fog_roofed_forest"
+  },
+  {
+    "id": "minecraft:fog_roofed_forest_mutated"
+  },
+  {
+    "id": "minecraft:fog_savanna"
+  },
+  {
+    "id": "minecraft:fog_savanna_mutated"
+  },
+  {
+    "id": "minecraft:fog_savanna_plateau"
+  },
+  {
+    "id": "minecraft:fog_semi_humid"
+  },
+  {
+    "id": "minecraft:fog_soulsand_valley"
+  },
+  {
+    "id": "minecraft:fog_stone_beach"
+  },
+  {
+    "id": "minecraft:fog_sunflower_plains"
+  },
+  {
+    "id": "minecraft:fog_swampland"
+  },
+  {
+    "id": "minecraft:fog_swampland_mutated"
+  },
+  {
+    "id": "minecraft:fog_taiga"
+  },
+  {
+    "id": "minecraft:fog_taiga_hills"
+  },
+  {
+    "id": "minecraft:fog_taiga_mutated"
+  },
+  {
+    "id": "minecraft:fog_the_end"
+  },
+  {
+    "id": "minecraft:fog_warm_ocean"
+  },
+  {
+    "id": "minecraft:fog_warped_forest"
+  }
 ]

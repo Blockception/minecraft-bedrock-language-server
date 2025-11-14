@@ -1,4 +1,7 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Fogs: string[] = 
+
+import { Fog } from '../../types/resourcepack/fog';
+
+
+export const Fogs: Fog[] = 
 []

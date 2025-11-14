@@ -87,8 +87,8 @@ export function cleanOutput(output: Output): void {
   output.vanilla.behaviorPack.entities = uniqueById(output.vanilla.behaviorPack.entities);
   output.vanilla.behaviorPack.items = uniqueById(output.vanilla.behaviorPack.items);
   output.vanilla.behaviorPack.biomes = uniqueById(output.vanilla.behaviorPack.biomes);
-  output.vanilla.behaviorPack.lootTables = uniqueById(output.vanilla.behaviorPack.lootTables);
-  output.vanilla.behaviorPack.trading = uniqueById(output.vanilla.behaviorPack.trading);
+  output.vanilla.behaviorPack.lootTables = uniqueStrings(output.vanilla.behaviorPack.lootTables);
+  output.vanilla.behaviorPack.trading = uniqueStrings(output.vanilla.behaviorPack.trading);
 
   output.vanilla.resourcePack.animations = uniqueById(output.vanilla.resourcePack.animations);
   output.vanilla.resourcePack.animationControllers = uniqueById(output.vanilla.resourcePack.animationControllers);
@@ -97,11 +97,11 @@ export function cleanOutput(output: Output): void {
   output.vanilla.resourcePack.models = uniqueById(output.vanilla.resourcePack.models);
   output.vanilla.resourcePack.particles = uniqueById(output.vanilla.resourcePack.particles);
   output.vanilla.resourcePack.renderControllers = uniqueById(output.vanilla.resourcePack.renderControllers);
-  output.vanilla.resourcePack.materials = uniqueById(output.vanilla.resourcePack.materials);
-  output.vanilla.resourcePack.sounds = uniqueById(output.vanilla.resourcePack.sounds);
-  output.vanilla.resourcePack.textures = uniqueById(output.vanilla.resourcePack.textures);
-  output.vanilla.resourcePack.textureItems = uniqueById(output.vanilla.resourcePack.textureItems);
-  output.vanilla.resourcePack.textureTerrain = uniqueById(output.vanilla.resourcePack.textureTerrain);
+  output.vanilla.resourcePack.materials = uniqueStrings(output.vanilla.resourcePack.materials);
+  output.vanilla.resourcePack.sounds = uniqueStrings(output.vanilla.resourcePack.sounds);
+  output.vanilla.resourcePack.textures = uniqueStrings(output.vanilla.resourcePack.textures);
+  output.vanilla.resourcePack.textureItems = uniqueStrings(output.vanilla.resourcePack.textureItems);
+  output.vanilla.resourcePack.textureTerrain = uniqueStrings(output.vanilla.resourcePack.textureTerrain);
 
   // Clean string arrays
   output.vanilla.behaviorPack.features = uniqueStrings(output.vanilla.behaviorPack.features);
@@ -123,8 +123,8 @@ export function cleanOutput(output: Output): void {
   output.edu.behaviorPack.entities = uniqueById(output.edu.behaviorPack.entities);
   output.edu.behaviorPack.items = uniqueById(output.edu.behaviorPack.items);
   output.edu.behaviorPack.biomes = uniqueById(output.edu.behaviorPack.biomes);
-  output.edu.behaviorPack.lootTables = uniqueById(output.edu.behaviorPack.lootTables);
-  output.edu.behaviorPack.trading = uniqueById(output.edu.behaviorPack.trading);
+  output.edu.behaviorPack.lootTables = uniqueStrings(output.edu.behaviorPack.lootTables);
+  output.edu.behaviorPack.trading = uniqueStrings(output.edu.behaviorPack.trading);
   output.edu.behaviorPack.features = uniqueStrings(output.edu.behaviorPack.features);
 
   output.edu.resourcePack.animations = uniqueById(output.edu.resourcePack.animations);
@@ -134,11 +134,11 @@ export function cleanOutput(output: Output): void {
   output.edu.resourcePack.models = uniqueById(output.edu.resourcePack.models);
   output.edu.resourcePack.particles = uniqueById(output.edu.resourcePack.particles);
   output.edu.resourcePack.renderControllers = uniqueById(output.edu.resourcePack.renderControllers);
-  output.edu.resourcePack.materials = uniqueById(output.edu.resourcePack.materials);
-  output.edu.resourcePack.sounds = uniqueById(output.edu.resourcePack.sounds);
-  output.edu.resourcePack.textures = uniqueById(output.edu.resourcePack.textures);
-  output.edu.resourcePack.textureItems = uniqueById(output.edu.resourcePack.textureItems);
-  output.edu.resourcePack.textureTerrain = uniqueById(output.edu.resourcePack.textureTerrain);
+  output.edu.resourcePack.materials = uniqueStrings(output.edu.resourcePack.materials);
+  output.edu.resourcePack.sounds = uniqueStrings(output.edu.resourcePack.sounds);
+  output.edu.resourcePack.textures = uniqueStrings(output.edu.resourcePack.textures);
+  output.edu.resourcePack.textureItems = uniqueStrings(output.edu.resourcePack.textureItems);
+  output.edu.resourcePack.textureTerrain = uniqueStrings(output.edu.resourcePack.textureTerrain);
   output.edu.resourcePack.soundFiles = uniqueStrings(output.edu.resourcePack.soundFiles);
 }
 
@@ -165,9 +165,9 @@ function uniqueStrings(items: string[]): string[] {
  */
 export function saveOutput(output: Output, outputFolder: string): void {
   // Create output directories
-  const vanillaFolder = path.join(outputFolder, 'Vanilla');
-  const eduFolder = path.join(outputFolder, 'Edu');
-  const generalFolder = path.join(outputFolder, 'General');
+  const vanillaFolder = path.join(outputFolder, 'vanilla');
+  const eduFolder = path.join(outputFolder, 'edu');
+  const generalFolder = path.join(outputFolder, 'general');
 
   fs.mkdirSync(vanillaFolder, { recursive: true });
   fs.mkdirSync(eduFolder, { recursive: true });
@@ -189,6 +189,11 @@ function saveOutputSet(outputSet: OutputSet, folder: string, name: string): void
 
   fs.mkdirSync(bpFolder, { recursive: true });
   fs.mkdirSync(rpFolder, { recursive: true });
+
+  // Create index files for the folders
+  createIndexFile(folder, ['behaviorpack', 'resourcepack']);
+  createBPIndexFile(bpFolder);
+  createRPIndexFile(rpFolder);
 
   // Save behavior pack data
   saveTypeScriptFile(
@@ -222,16 +227,16 @@ function saveOutputSet(outputSet: OutputSet, folder: string, name: string): void
   saveTypeScriptFile(
     outputSet.behaviorPack.lootTables,
     path.join(bpFolder, 'loot_tables.ts'),
-    'LootTable',
-    '../../types/behaviorpack/loot_table',
+    'string',
+    null,
     'LootTables'
   );
   saveTypeScriptFile(
     outputSet.behaviorPack.trading,
     path.join(bpFolder, 'trading.ts'),
-    'Trading',
-    '../../types/behaviorpack/trading',
-    'Trading'
+    'string',
+    null,
+    'TradingData'
   );
   saveTypeScriptFile(
     outputSet.behaviorPack.features,
@@ -294,15 +299,15 @@ function saveOutputSet(outputSet: OutputSet, folder: string, name: string): void
   saveTypeScriptFile(
     outputSet.resourcePack.materials,
     path.join(rpFolder, 'materials.ts'),
-    'Material',
-    '../../types/resourcepack/material',
+    'string',
+    null,
     'Materials'
   );
   saveTypeScriptFile(
     outputSet.resourcePack.sounds,
     path.join(rpFolder, 'sounds.ts'),
-    'Sound',
-    '../../types/resourcepack/sound',
+    'string',
+    null,
     'Sounds'
   );
   saveTypeScriptFile(
@@ -315,22 +320,22 @@ function saveOutputSet(outputSet: OutputSet, folder: string, name: string): void
   saveTypeScriptFile(
     outputSet.resourcePack.textures,
     path.join(rpFolder, 'textures.ts'),
-    'Texture',
-    '../../types/resourcepack/texture',
+    'string',
+    null,
     'Textures'
   );
   saveTypeScriptFile(
     outputSet.resourcePack.textureItems,
     path.join(rpFolder, 'texture_items.ts'),
-    'TextureAtlas',
-    '../../types/resourcepack/texture_atlas',
+    'string',
+    null,
     'TextureItems'
   );
   saveTypeScriptFile(
     outputSet.resourcePack.textureTerrain,
     path.join(rpFolder, 'texture_terrain.ts'),
-    'TextureAtlas',
-    '../../types/resourcepack/texture_atlas',
+    'string',
+    null,
     'TextureTerrain'
   );
 }
@@ -346,6 +351,25 @@ function saveGeneral(general: General, folder: string): void {
   saveTypeScriptFile(general.potionEffects, path.join(folder, 'potion_effects.ts'), 'string', null, 'PotionEffects');
   saveTypeScriptFile(general.potionModifiers, path.join(folder, 'potion_modifiers.ts'), 'string', null, 'PotionModifiers');
   saveTypeScriptFile(general.potionTypes, path.join(folder, 'potion_types.ts'), 'string', null, 'PotionTypes');
+  
+  createGeneralIndexFile(folder);
+}
+
+function createGeneralIndexFile(folder: string): void {
+  const lines: string[] = [];
+  lines.push('/** Notice: Auto generated file, do not edit */\n');
+  lines.push('export * from \'./biomes\';');
+  lines.push('export * from \'./camera_presets\';');
+  lines.push('export * from \'./cooldown_category\';');
+  lines.push('export * from \'./dimensions\';');
+  lines.push('export * from \'./effects\';');
+  lines.push('export * from \'./enchantments\';');
+  lines.push('export * from \'./features\';');
+  lines.push('export * from \'./potion_effects\';');
+  lines.push('export * from \'./potion_modifiers\';');
+  lines.push('export * from \'./potion_types\';');
+
+  fs.writeFileSync(path.join(folder, 'index.ts'), lines.join('\n'), 'utf-8');
 }
 
 function saveTypeScriptFile<T>(
@@ -367,4 +391,53 @@ function saveTypeScriptFile<T>(
   lines.push(JSON.stringify(data, null, 2));
 
   fs.writeFileSync(filepath, lines.join('\n'), 'utf-8');
+}
+
+function createIndexFile(folder: string, exports: string[]): void {
+  const lines: string[] = [];
+  lines.push('/** Notice: Auto generated file, do not edit */\n');
+  
+  for (const exp of exports) {
+    lines.push(`export * as ${capitalize(exp)} from './${exp}';`);
+  }
+
+  fs.writeFileSync(path.join(folder, 'index.ts'), lines.join('\n'), 'utf-8');
+}
+
+function createBPIndexFile(folder: string): void {
+  const lines: string[] = [];
+  lines.push('/** Notice: Auto generated file, do not edit */\n');
+  lines.push('export * from \'./blocks\';');
+  lines.push('export * from \'./entities\';');
+  lines.push('export * from \'./items\';');
+  lines.push('export * from \'./biomes\';');
+  lines.push('export * from \'./loot_tables\';');
+  lines.push('export * from \'./trading\';');
+  lines.push('export * from \'./features\';');
+
+  fs.writeFileSync(path.join(folder, 'index.ts'), lines.join('\n'), 'utf-8');
+}
+
+function createRPIndexFile(folder: string): void {
+  const lines: string[] = [];
+  lines.push('/** Notice: Auto generated file, do not edit */\n');
+  lines.push('export * from \'./animations\';');
+  lines.push('export * from \'./animation_controllers\';');
+  lines.push('export * from \'./entities\';');
+  lines.push('export * from \'./fogs\';');
+  lines.push('export * from \'./models\';');
+  lines.push('export * from \'./particles\';');
+  lines.push('export * from \'./render_controllers\';');
+  lines.push('export * from \'./materials\';');
+  lines.push('export * from \'./sounds\';');
+  lines.push('export * from \'./sound_files\';');
+  lines.push('export * from \'./textures\';');
+  lines.push('export * from \'./texture_items\';');
+  lines.push('export * from \'./texture_terrain\';');
+
+  fs.writeFileSync(path.join(folder, 'index.ts'), lines.join('\n'), 'utf-8');
+}
+
+function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }

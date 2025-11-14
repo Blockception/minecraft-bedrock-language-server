@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as https from 'https';
 import extract from 'extract-zip';
+import * as jsonc from 'jsonc-parser';
 
 /**
  * Download a file from a URL
@@ -103,7 +104,7 @@ export function findJsonFiles(directory: string): string[] {
 }
 
 /**
- * Read and parse a JSON file
+ * Read and parse a JSON file (supports JSON with comments and trailing commas)
  */
 export function readJsonFile<T = any>(filepath: string): T | null {
   try {
@@ -111,7 +112,19 @@ export function readJsonFile<T = any>(filepath: string): T | null {
       return null;
     }
     const content = fs.readFileSync(filepath, 'utf-8');
-    return JSON.parse(content);
+    // Use jsonc-parser to handle comments and trailing commas
+    const errors: jsonc.ParseError[] = [];
+    const result = jsonc.parse(content, errors, { allowTrailingComma: true });
+    
+    if (errors.length > 0) {
+      // If there are parsing errors, log them but continue
+      for (const error of errors) {
+        console.error(`Error parsing ${filepath}:`, jsonc.printParseErrorCode(error.error));
+      }
+      return null;
+    }
+    
+    return result as T;
   } catch (error) {
     console.error(`Error reading ${filepath}:`, error);
     return null;

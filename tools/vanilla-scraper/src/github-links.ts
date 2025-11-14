@@ -25,7 +25,7 @@ export function generateGithubLinks(context: Context, outputFolder: string): voi
 
   items.sort();
 
-  const filepath = path.join(outputFolder, 'Vanilla', 'sources.ts');
+  const filepath = path.join(outputFolder, 'vanilla', 'sources.ts');
   const lines: string[] = [];
 
   lines.push('export const GithubFiles = {');

@@ -1,4 +1,7 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Particles: string[] = 
+
+import { Particle } from '../../types/resourcepack/particle';
+
+
+export const Particles: Particle[] = 
 []

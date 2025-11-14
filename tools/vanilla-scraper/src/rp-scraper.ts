@@ -11,8 +11,6 @@ import {
   RenderController,
   Material,
   Sound,
-  Texture,
-  TextureAtlas,
   ResourcePackContainer,
 } from './types.js';
 
@@ -111,7 +109,7 @@ function scrapeRPEntitiesFromFolder(receiver: Entity[], folder: string): void {
 
       const id = desc.identifier;
       if (id) {
-        receiver.push({ id });
+        receiver.push({ id, events: [], families: [] });
       }
     } catch (error) {
       console.error(`Error processing ${file}:`, error);
@@ -222,7 +220,7 @@ function scrapeRenderControllersFromFolder(receiver: RenderController[], folder:
   console.log('::endgroup::' + folder);
 }
 
-function scrapeMaterials(pack: string, receiver: Material[]): void {
+function scrapeMaterials(pack: string, receiver: string[]): void {
   const filepath = path.join(pack, 'materials', 'entity.material');
   
   if (!fs.existsSync(filepath)) return;
@@ -233,7 +231,7 @@ function scrapeMaterials(pack: string, receiver: Material[]): void {
 
     if (data.materials) {
       for (const id of Object.keys(data.materials)) {
-        receiver.push({ id });
+        receiver.push(id);
       }
     }
   } catch (error) {
@@ -241,7 +239,7 @@ function scrapeMaterials(pack: string, receiver: Material[]): void {
   }
 }
 
-function scrapeSounds(pack: string, receiver: Sound[], soundFiles: string[]): void {
+function scrapeSounds(pack: string, receiver: string[], soundFiles: string[]): void {
   const filepath = path.join(pack, 'sounds', 'sound_definitions.json');
   const data = readJsonFile<any>(filepath);
 
@@ -251,7 +249,7 @@ function scrapeSounds(pack: string, receiver: Sound[], soundFiles: string[]): vo
   if (!definitions) return;
 
   for (const [id, def] of Object.entries(definitions)) {
-    receiver.push({ id });
+    receiver.push(id);
 
     // Extract sound file references
     const soundDef = def as any;
@@ -267,7 +265,7 @@ function scrapeSounds(pack: string, receiver: Sound[], soundFiles: string[]): vo
   }
 }
 
-function scrapeTextures(pack: string, receiver: Texture[]): void {
+function scrapeTextures(pack: string, receiver: string[]): void {
   const texturesFolder = path.join(pack, 'textures');
   
   if (!fs.existsSync(texturesFolder)) return;
@@ -285,7 +283,7 @@ function scrapeTextures(pack: string, receiver: Texture[]): void {
       } else if (file.match(/\.(png|tga|jpg|jpeg)$/i)) {
         const relativePath = path.relative(texturesFolder, filepath);
         const id = relativePath.replace(/\\/g, '/').replace(/\.[^.]+$/, '');
-        receiver.push({ id });
+        receiver.push(id);
       }
     }
   };
@@ -293,25 +291,14 @@ function scrapeTextures(pack: string, receiver: Texture[]): void {
   findTextures(texturesFolder);
 }
 
-function scrapeTextureAtlas(filepath: string, receiver: TextureAtlas[]): void {
+function scrapeTextureAtlas(filepath: string, receiver: string[]): void {
   const data = readJsonFile<any>(filepath);
   if (!data) return;
 
   const textureData = data.texture_data;
   if (!textureData) return;
 
-  for (const [id, texDef] of Object.entries(textureData)) {
-    const atlas: TextureAtlas = { id };
-    
-    const def = texDef as any;
-    if (def.textures) {
-      if (typeof def.textures === 'string') {
-        atlas.texture = def.textures;
-      } else if (Array.isArray(def.textures) && def.textures.length > 0) {
-        atlas.texture = def.textures[0];
-      }
-    }
-    
-    receiver.push(atlas);
+  for (const id of Object.keys(textureData)) {
+    receiver.push(id);
   }
 }
