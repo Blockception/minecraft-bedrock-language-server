@@ -30,7 +30,7 @@
   "dependencies": {
     "@blockception/ide-shared": "*",
     "@daanv2/queue-processor": "^2.2.1",
-    "@types/vscode": "^1.105.0",
+    "@types/vscode": "^1.106.1",
     "bc-minecraft-bedrock-command": "*",
     "bc-minecraft-bedrock-diagnoser": "*",
     "bc-minecraft-bedrock-project": "*",
