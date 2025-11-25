@@ -196,6 +196,11 @@ function convertToken(token: Token) {
       }
       break;
 
+    case TokenType.Boolean:
+      return LiteralNode.create({
+        position: token.position,
+        value: token.value,
+      });
     case TokenType.Number:
       return LiteralNode.create({
         position: token.position,

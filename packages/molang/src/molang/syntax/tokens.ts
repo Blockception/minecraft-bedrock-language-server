@@ -17,6 +17,7 @@ export enum TokenType {
   ArrayAccess,
   Arrow,
   Assignment,
+  Boolean,
   CloseBrace,
   CloseBracket,
   CloseParen,
@@ -60,7 +61,6 @@ function isAlphaNumeric(ch: string): boolean {
 export function tokenize(input: string): Token[] {
   const tokens: Token[] = [];
   let pos = 0;
-
   while (pos < input.length) {
     const char = input[pos];
 
@@ -90,6 +90,20 @@ export function tokenize(input: string): Token[] {
       }
 
       tokens.push({ type: TokenType.Number, value, position: start });
+      continue;
+    }
+
+    //Boolean: true
+    if (char === 't' && input.slice(pos, pos + 4) === 'true') {
+      tokens.push({ type: TokenType.Boolean, value: 'true', position: pos });
+      pos += 4;
+      continue;
+    }
+
+    //Boolean: false
+    if (char === 'f' && input.slice(pos, pos + 5) === 'false') {
+      tokens.push({ type: TokenType.Boolean, value: 'false', position: pos });
+      pos += 5;
       continue;
     }
 
@@ -252,6 +266,7 @@ function checkUnaryOperators(item: Token, index: number, items: Token[]) {
     case TokenType.Identifier:
     case TokenType.NamespacedIdentifier:
     case TokenType.Number:
+    case TokenType.Boolean:
     case TokenType.StringLiteral:
       break;
     case TokenType.ArrayAccess:
