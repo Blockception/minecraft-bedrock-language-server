@@ -25,6 +25,9 @@ Quick links:
 
 ## Releasing the VS Code extension
 
+> [!WARNING]
+> Ensure version has been raised
+
 There are two supported paths: through CI (recommended) or locally.
 
 ### CI: Release via GitHub Actions
