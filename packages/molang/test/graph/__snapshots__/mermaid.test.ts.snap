@@ -1692,3 +1692,325 @@ flowchart TD
     node8 -->|arg0| node9
     node0 -->|right| node8"
 `;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 63. variable.is_active = true; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@19"}
+    node1[["variable.is_active@0"]]
+    node2["true@21"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 64. variable.is_active = false; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@19"}
+    node1[["variable.is_active@0"]]
+    node2["false@21"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 65. v.enabled = true; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@10"}
+    node1[["v.enabled@0"]]
+    node2["true@12"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 66. v.enabled = false; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@10"}
+    node1[["v.enabled@0"]]
+    node2["false@12"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 67. temp.flag = true; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@10"}
+    node1[["temp.flag@0"]]
+    node2["true@12"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 68. t.result = false; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@9"}
+    node1[["t.result@0"]]
+    node2["false@11"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 69. variable.flag ? true : false 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@14"}
+    node1[["variable.flag@0"]]
+    node2["true@16"]
+    node3["false@23"]
+    start-->node0
+    node0 -->|condition| node1
+    node0 -->|true| node2
+    node0 -->|false| node3"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 70. query.is_sleeping ? false : true 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@18"}
+    node1{{"query.is_sleeping()@0"}}
+    node2["false@20"]
+    node3["true@28"]
+    start-->node0
+    node0 -->|condition| node1
+    node0 -->|true| node2
+    node0 -->|false| node3"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 71. true && query.is_baby 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"\\&&@5"}
+    node1["true@0"]
+    node2{{"query.is_baby()@8"}}
+    start-->node0
+    node0 -->|left| node1
+    node0 -->|right| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 72. false || variable.is_running 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"\\||@6"}
+    node1["false@0"]
+    node2[["variable.is_running@9"]]
+    start-->node0
+    node0 -->|left| node1
+    node0 -->|right| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 73. variable.state = query.is_alive ? true : false; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@15"}
+    node1[["variable.state@0"]]
+    node2{"?:@32"}
+    node3{{"query.is_alive()@17"}}
+    node4["true@34"]
+    node5["false@41"]
+    start-->node0
+    node0 -->|target| node1
+    node2 -->|condition| node3
+    node2 -->|true| node4
+    node2 -->|false| node5
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 74. variable.result = !false && query.is_alive; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@16"}
+    node1[["variable.result@0"]]
+    node2{"\\&&@25"}
+    node3{"!@18"}
+    node4["false@19"]
+    node5{{"query.is_alive()@28"}}
+    start-->node0
+    node0 -->|target| node1
+    node3 -->|operand| node4
+    node2 -->|left| node3
+    node2 -->|right| node5
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 75. variable.check = !true || query.is_sleeping; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@15"}
+    node1[["variable.check@0"]]
+    node2{"\\||@23"}
+    node3{"!@17"}
+    node4["true@18"]
+    node5{{"query.is_sleeping()@26"}}
+    start-->node0
+    node0 -->|target| node1
+    node3 -->|operand| node4
+    node2 -->|left| node3
+    node2 -->|right| node5
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 76. variable.status = true == query.is_valid; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@16"}
+    node1[["variable.status@0"]]
+    node2{"\\==@23"}
+    node3["true@18"]
+    node4{{"query.is_valid()@26"}}
+    start-->node0
+    node0 -->|target| node1
+    node2 -->|left| node3
+    node2 -->|right| node4
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 77. variable.status = false != query.is_valid; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@16"}
+    node1[["variable.status@0"]]
+    node2{"\\!=@24"}
+    node3["false@18"]
+    node4{{"query.is_valid()@27"}}
+    start-->node0
+    node0 -->|target| node1
+    node2 -->|left| node3
+    node2 -->|right| node4
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 78. variable.value = (true && variable.enabled) || false; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@15"}
+    node1[["variable.value@0"]]
+    node2{"\\||@44"}
+    node3{"\\&&@23"}
+    node4["true@18"]
+    node5[["variable.enabled@26"]]
+    node6["false@47"]
+    start-->node0
+    node0 -->|target| node1
+    node3 -->|left| node4
+    node3 -->|right| node5
+    node2 -->|left| node3
+    node2 -->|right| node6
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 79. query.is_baby ? true : variable.default_value 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@14"}
+    node1{{"query.is_baby()@0"}}
+    node2["true@16"]
+    node3[["variable.default_value@23"]]
+    start-->node0
+    node0 -->|condition| node1
+    node0 -->|true| node2
+    node0 -->|false| node3"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 80. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@15"}
+    node1[["variable.state@0"]]
+    node2{"?:@32"}
+    node3{{"query.is_alive()@17"}}
+    node4{"?:@51"}
+    node5{{"query.is_moving()@35"}}
+    node6["true@53"]
+    node7["false@60"]
+    node8["false@69"]
+    start-->node0
+    node0 -->|target| node1
+    node2 -->|condition| node3
+    node4 -->|condition| node5
+    node4 -->|true| node6
+    node4 -->|false| node7
+    node2 -->|true| node4
+    node2 -->|false| node8
+    node0 -->|value| node2"
+`;

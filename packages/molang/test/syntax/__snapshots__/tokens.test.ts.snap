@@ -1112,3 +1112,214 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 63. variable.is_active = true; 1`] = `
+[
+  "variable.is_active NamespacedIdentifier",
+  "= Assignment",
+  "true Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 64. variable.is_active = false; 1`] = `
+[
+  "variable.is_active NamespacedIdentifier",
+  "= Assignment",
+  "false Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 65. v.enabled = true; 1`] = `
+[
+  "v.enabled NamespacedIdentifier",
+  "= Assignment",
+  "true Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 66. v.enabled = false; 1`] = `
+[
+  "v.enabled NamespacedIdentifier",
+  "= Assignment",
+  "false Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 67. temp.flag = true; 1`] = `
+[
+  "temp.flag NamespacedIdentifier",
+  "= Assignment",
+  "true Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 68. t.result = false; 1`] = `
+[
+  "t.result NamespacedIdentifier",
+  "= Assignment",
+  "false Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 69. variable.flag ? true : false 1`] = `
+[
+  "variable.flag NamespacedIdentifier",
+  "? QuestionMark",
+  "true Boolean",
+  ": Colon",
+  "false Boolean",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 70. query.is_sleeping ? false : true 1`] = `
+[
+  "query.is_sleeping NamespacedIdentifier",
+  "? QuestionMark",
+  "false Boolean",
+  ": Colon",
+  "true Boolean",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 71. true && query.is_baby 1`] = `
+[
+  "true Boolean",
+  "&& Operator",
+  "query.is_baby NamespacedIdentifier",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 72. false || variable.is_running 1`] = `
+[
+  "false Boolean",
+  "|| Operator",
+  "variable.is_running NamespacedIdentifier",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 73. variable.state = query.is_alive ? true : false; 1`] = `
+[
+  "variable.state NamespacedIdentifier",
+  "= Assignment",
+  "query.is_alive NamespacedIdentifier",
+  "? QuestionMark",
+  "true Boolean",
+  ": Colon",
+  "false Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 74. variable.result = !false && query.is_alive; 1`] = `
+[
+  "variable.result NamespacedIdentifier",
+  "= Assignment",
+  "! UnaryOperator",
+  "false Boolean",
+  "&& Operator",
+  "query.is_alive NamespacedIdentifier",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 75. variable.check = !true || query.is_sleeping; 1`] = `
+[
+  "variable.check NamespacedIdentifier",
+  "= Assignment",
+  "! UnaryOperator",
+  "true Boolean",
+  "|| Operator",
+  "query.is_sleeping NamespacedIdentifier",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 76. variable.status = true == query.is_valid; 1`] = `
+[
+  "variable.status NamespacedIdentifier",
+  "= Assignment",
+  "true Boolean",
+  "== Operator",
+  "query.is_valid NamespacedIdentifier",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 77. variable.status = false != query.is_valid; 1`] = `
+[
+  "variable.status NamespacedIdentifier",
+  "= Assignment",
+  "false Boolean",
+  "!= Operator",
+  "query.is_valid NamespacedIdentifier",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 78. variable.value = (true && variable.enabled) || false; 1`] = `
+[
+  "variable.value NamespacedIdentifier",
+  "= Assignment",
+  "( OpenParen",
+  "true Boolean",
+  "&& Operator",
+  "variable.enabled NamespacedIdentifier",
+  ") CloseParen",
+  "|| Operator",
+  "false Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 79. query.is_baby ? true : variable.default_value 1`] = `
+[
+  "query.is_baby NamespacedIdentifier",
+  "? QuestionMark",
+  "true Boolean",
+  ": Colon",
+  "variable.default_value NamespacedIdentifier",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 80. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
+[
+  "variable.state NamespacedIdentifier",
+  "= Assignment",
+  "query.is_alive NamespacedIdentifier",
+  "? QuestionMark",
+  "( OpenParen",
+  "query.is_moving NamespacedIdentifier",
+  "? QuestionMark",
+  "true Boolean",
+  ": Colon",
+  "false Boolean",
+  ") CloseParen",
+  ": Colon",
+  "false Boolean",
+  "; Semicolon",
+  "  EOF",
+]
+`;

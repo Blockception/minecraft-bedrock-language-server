@@ -3655,3 +3655,594 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 63. variable.is_active = true; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "is_active",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 19,
+    "right": {
+      "position": 21,
+      "type": "Literal",
+      "value": "true",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 64. variable.is_active = false; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "is_active",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 19,
+    "right": {
+      "position": 21,
+      "type": "Literal",
+      "value": "false",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 65. v.enabled = true; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "enabled",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 10,
+    "right": {
+      "position": 12,
+      "type": "Literal",
+      "value": "true",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 66. v.enabled = false; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "enabled",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 10,
+    "right": {
+      "position": 12,
+      "type": "Literal",
+      "value": "false",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 67. temp.flag = true; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "flag",
+      ],
+      "position": 0,
+      "scope": "temp",
+      "type": "Variable",
+    },
+    "position": 10,
+    "right": {
+      "position": 12,
+      "type": "Literal",
+      "value": "true",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 68. t.result = false; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "result",
+      ],
+      "position": 0,
+      "scope": "t",
+      "type": "Variable",
+    },
+    "position": 9,
+    "right": {
+      "position": 11,
+      "type": "Literal",
+      "value": "false",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 69. variable.flag ? true : false 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "names": [
+        "flag",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "falseExpression": {
+      "position": 23,
+      "type": "Literal",
+      "value": "false",
+    },
+    "position": 14,
+    "trueExpression": {
+      "position": 16,
+      "type": "Literal",
+      "value": "true",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 70. query.is_sleeping ? false : true 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "arguments": [],
+      "names": [
+        "is_sleeping",
+      ],
+      "position": 0,
+      "scope": "query",
+      "type": "FunctionCall",
+    },
+    "falseExpression": {
+      "position": 28,
+      "type": "Literal",
+      "value": "true",
+    },
+    "position": 18,
+    "trueExpression": {
+      "position": 20,
+      "type": "Literal",
+      "value": "false",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 71. true && query.is_baby 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "position": 0,
+      "type": "Literal",
+      "value": "true",
+    },
+    "operator": "&&",
+    "position": 5,
+    "right": {
+      "arguments": [],
+      "names": [
+        "is_baby",
+      ],
+      "position": 8,
+      "scope": "query",
+      "type": "FunctionCall",
+    },
+    "type": "BinaryOperation",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 72. false || variable.is_running 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "position": 0,
+      "type": "Literal",
+      "value": "false",
+    },
+    "operator": "||",
+    "position": 6,
+    "right": {
+      "names": [
+        "is_running",
+      ],
+      "position": 9,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "type": "BinaryOperation",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 73. variable.state = query.is_alive ? true : false; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "state",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "condition": {
+        "arguments": [],
+        "names": [
+          "is_alive",
+        ],
+        "position": 17,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "falseExpression": {
+        "position": 41,
+        "type": "Literal",
+        "value": "false",
+      },
+      "position": 32,
+      "trueExpression": {
+        "position": 34,
+        "type": "Literal",
+        "value": "true",
+      },
+      "type": "Conditional",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 74. variable.result = !false && query.is_alive; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "result",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 16,
+    "right": {
+      "_processed": true,
+      "left": {
+        "_processed": true,
+        "operand": {
+          "position": 19,
+          "type": "Literal",
+          "value": "false",
+        },
+        "operator": "!",
+        "position": 18,
+        "type": "UnaryOperation",
+      },
+      "operator": "&&",
+      "position": 25,
+      "right": {
+        "arguments": [],
+        "names": [
+          "is_alive",
+        ],
+        "position": 28,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "type": "BinaryOperation",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 75. variable.check = !true || query.is_sleeping; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "check",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "left": {
+        "_processed": true,
+        "operand": {
+          "position": 18,
+          "type": "Literal",
+          "value": "true",
+        },
+        "operator": "!",
+        "position": 17,
+        "type": "UnaryOperation",
+      },
+      "operator": "||",
+      "position": 23,
+      "right": {
+        "arguments": [],
+        "names": [
+          "is_sleeping",
+        ],
+        "position": 26,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "type": "BinaryOperation",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 76. variable.status = true == query.is_valid; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "status",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 16,
+    "right": {
+      "_processed": true,
+      "left": {
+        "position": 18,
+        "type": "Literal",
+        "value": "true",
+      },
+      "operator": "==",
+      "position": 23,
+      "right": {
+        "arguments": [],
+        "names": [
+          "is_valid",
+        ],
+        "position": 26,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "type": "BinaryOperation",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 77. variable.status = false != query.is_valid; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "status",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 16,
+    "right": {
+      "_processed": true,
+      "left": {
+        "position": 18,
+        "type": "Literal",
+        "value": "false",
+      },
+      "operator": "!=",
+      "position": 24,
+      "right": {
+        "arguments": [],
+        "names": [
+          "is_valid",
+        ],
+        "position": 27,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "type": "BinaryOperation",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 78. variable.value = (true && variable.enabled) || false; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "value",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "left": {
+        "_processed": true,
+        "left": {
+          "position": 18,
+          "type": "Literal",
+          "value": "true",
+        },
+        "operator": "&&",
+        "position": 23,
+        "right": {
+          "names": [
+            "enabled",
+          ],
+          "position": 26,
+          "scope": "variable",
+          "type": "Variable",
+        },
+        "type": "BinaryOperation",
+      },
+      "operator": "||",
+      "position": 44,
+      "right": {
+        "position": 47,
+        "type": "Literal",
+        "value": "false",
+      },
+      "type": "BinaryOperation",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 79. query.is_baby ? true : variable.default_value 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "arguments": [],
+      "names": [
+        "is_baby",
+      ],
+      "position": 0,
+      "scope": "query",
+      "type": "FunctionCall",
+    },
+    "falseExpression": {
+      "names": [
+        "default_value",
+      ],
+      "position": 23,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 14,
+    "trueExpression": {
+      "position": 16,
+      "type": "Literal",
+      "value": "true",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 80. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "state",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "condition": {
+        "arguments": [],
+        "names": [
+          "is_alive",
+        ],
+        "position": 17,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "falseExpression": {
+        "position": 69,
+        "type": "Literal",
+        "value": "false",
+      },
+      "position": 32,
+      "trueExpression": {
+        "_processed": true,
+        "condition": {
+          "arguments": [],
+          "names": [
+            "is_moving",
+          ],
+          "position": 35,
+          "scope": "query",
+          "type": "FunctionCall",
+        },
+        "falseExpression": {
+          "position": 60,
+          "type": "Literal",
+          "value": "false",
+        },
+        "position": 51,
+        "trueExpression": {
+          "position": 53,
+          "type": "Literal",
+          "value": "true",
+        },
+        "type": "Conditional",
+      },
+      "type": "Conditional",
+    },
+    "type": "Assignment",
+  },
+]
+`;

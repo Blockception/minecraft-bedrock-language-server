@@ -75,4 +75,24 @@ export const valid_syntaxes = [
 
   // Test
   "v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar')",
+
+  // Boolean literals
+  'variable.is_active = true;',
+  'variable.is_active = false;',
+  'v.enabled = true;',
+  'v.enabled = false;',
+  'temp.flag = true;',
+  't.result = false;',
+  'variable.flag ? true : false',
+  'query.is_sleeping ? false : true',
+  'true && query.is_baby',
+  'false || variable.is_running',
+  'variable.state = query.is_alive ? true : false;',
+  'variable.result = !false && query.is_alive;',
+  'variable.check = !true || query.is_sleeping;',
+  'variable.status = true == query.is_valid;',
+  'variable.status = false != query.is_valid;',
+  'variable.value = (true && variable.enabled) || false;',
+  'query.is_baby ? true : variable.default_value',
+  'variable.state = query.is_alive ? (query.is_moving ? true : false) : false;',
 ];
