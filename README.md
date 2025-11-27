@@ -174,10 +174,11 @@ For any questions, suggestions, or support, please open an issue or join our com
 
 Special thanks to these awesome people for helping out these projects 😄
 
-**Vscode plugin**  
+**Minecraft Bedrock Language Server**  
 <a href="https://github.com/Blockception/minecraft-bedrock-language-server/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=Blockception/minecraft-bedrock-language-server" />
-</a>  
+</a>
+**Vscode plugin**  
 <a href="https://github.com/Blockception/VSCode-Bedrock-Development-Extension/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=Blockception/VSCode-Bedrock-Development-Extension" />
 </a>  
