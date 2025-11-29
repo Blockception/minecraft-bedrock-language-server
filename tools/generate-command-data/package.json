@@ -12,7 +12,8 @@
     "generate": "tsx ./src/command-import.ts",
     "compile": "echo 'This tool does not require compilation'",
     "clean": "echo 'Nothing to clean'",
-    "test": "echo 'No tests for this tool'"
+    "test": "echo 'No tests for this tool'",
+    "lint": "eslint --config ../../eslint.config.mjs ."
   },
   "devDependencies": {
     "@types/node": "^24.3.1",

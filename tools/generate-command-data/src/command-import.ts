@@ -3,8 +3,8 @@ import { ParameterType } from '../../../packages/bedrock-commands/src/types/para
 import { convert } from './convert.js';
 import * as command_data from './minecraft-data.js';
 import { quoteString } from './strings.js';
-const path = require('node:path');
-const fs = require('fs');
+import path from 'node:path';
+import fs from 'fs';
 
 async function main() {
   console.log('==== Loading ====');
