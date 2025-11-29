@@ -23,7 +23,7 @@ export function githubLinks(githubFolder: string, outputFolder: string): void {
 
   items.sort();
 
-  const filepath = path.join(outputFolder, 'Vanilla', 'sources.ts');
+  const filepath = path.join(outputFolder, 'vanilla', 'sources.ts');
   let content = 'export const GithubFiles = {\n';
   content += '  source: "https://raw.githubusercontent.com/Mojang/bedrock-samples/main/",\n';
   content += '  files: [\n';

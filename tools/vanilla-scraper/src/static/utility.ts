@@ -1,11 +1,14 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as https from 'https';
+import * as zlib from 'zlib';
 import { createWriteStream } from 'fs';
-import { pipeline } from 'stream/promises';
 import { installationFolder, eduInstallationFolder } from './minecraft';
 import { Context } from '../classes/context';
-import { execSync } from 'child_process';
+import { exec } from 'child_process';
+import { promisify } from 'util';
+
+const execAsync = promisify(exec);
 
 // Directory paths
 export const workFolder = path.join(process.cwd(), 'work');
@@ -25,12 +28,12 @@ function findFolder(source: string, find: string): string {
 }
 
 export const sourceFolder = findFolder(workFolder, 'src');
-export const outputFolder = path.join(sourceFolder, 'Lib');
-export const outputEdu = path.join(outputFolder, 'Edu');
-export const outputVanilla = path.join(outputFolder, 'Vanilla');
-export const baseFolder = path.join(sourceFolder, 'Base');
-export const baseEdu = path.join(baseFolder, 'Edu');
-export const baseVanilla = path.join(baseFolder, 'Vanilla');
+export const outputFolder = path.join(sourceFolder, 'lib');
+export const outputEdu = path.join(outputFolder, 'edu');
+export const outputVanilla = path.join(outputFolder, 'vanilla');
+export const baseFolder = path.join(sourceFolder, 'base');
+export const baseEdu = path.join(baseFolder, 'edu');
+export const baseVanilla = path.join(baseFolder, 'vanilla');
 
 /**
  * Download file from URL
@@ -76,6 +79,12 @@ export async function download(filepath: string, uri: string): Promise<void> {
  * Download and unpack a zip file
  */
 export async function downloadUnpack(name: string, uri: string): Promise<string | null> {
+  // Validate name to prevent path traversal
+  if (!/^[a-zA-Z0-9_-]+$/.test(name)) {
+    console.error('Invalid name for download:', name);
+    return null;
+  }
+
   const filepath = path.join(workFolder, `${name}.zip`);
 
   if (!fs.existsSync(filepath)) {
@@ -89,10 +98,10 @@ export async function downloadUnpack(name: string, uri: string): Promise<string 
 
     if (!fs.existsSync(folder)) {
       console.log('Unzipping: ' + uri);
-      // Use unzip command for cross-platform compatibility
       try {
         fs.mkdirSync(folder, { recursive: true });
-        execSync(`unzip -q "${filepath}" -d "${folder}"`);
+        // Use async exec with proper escaping
+        await execAsync(`unzip -q "${filepath}" -d "${folder}"`);
       } catch (err) {
         console.error('Failed to unzip:', err);
         return null;

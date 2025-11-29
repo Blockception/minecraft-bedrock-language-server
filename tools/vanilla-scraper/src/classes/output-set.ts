@@ -14,8 +14,8 @@ export class OutputSet {
    */
   static load(folder: string): OutputSet {
     const out = new OutputSet();
-    out.behaviorPack = BPContainer.load(path.join(folder, 'BehaviorPack'));
-    out.resourcePack = RPContainer.load(path.join(folder, 'ResourcePack'));
+    out.behaviorPack = BPContainer.load(path.join(folder, 'behaviorpack'));
+    out.resourcePack = RPContainer.load(path.join(folder, 'resourcepack'));
     return out;
   }
 
@@ -23,8 +23,8 @@ export class OutputSet {
    * Save output set to a folder
    */
   save(folder: string): void {
-    this.behaviorPack.save(path.join(folder, 'BehaviorPack'));
-    this.resourcePack.save(path.join(folder, 'ResourcePack'));
+    this.behaviorPack.save(path.join(folder, 'behaviorpack'));
+    this.resourcePack.save(path.join(folder, 'resourcepack'));
   }
 
   /**

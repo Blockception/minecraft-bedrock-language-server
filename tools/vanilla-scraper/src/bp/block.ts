@@ -58,14 +58,8 @@ export function convertBlock(doc: object, receiver: Block[]): void {
 
   const properties = desc['properties'] as Record<string, unknown[]> | undefined;
   if (properties) {
-    for (const [name, values] of Object.entries(properties)) {
-      const state = createBlockState();
-      state.name = name;
-
-      for (const value of values) {
-        const temp = String(value);
-        state.values.push(temp);
-      }
+    for (const [name] of Object.entries(properties)) {
+      out.properties.push(name);
     }
   }
 }

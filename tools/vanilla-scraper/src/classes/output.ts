@@ -15,8 +15,8 @@ export class Output {
    */
   static load(folder: string): Output {
     const out = new Output();
-    out.edu = OutputSet.load(path.join(folder, 'Edu'));
-    out.vanilla = OutputSet.load(path.join(folder, 'Vanilla'));
+    out.edu = OutputSet.load(path.join(folder, 'edu'));
+    out.vanilla = OutputSet.load(path.join(folder, 'vanilla'));
     return out;
   }
 
@@ -24,9 +24,9 @@ export class Output {
    * Save output to a folder
    */
   save(folder: string): void {
-    this.edu.save(path.join(folder, 'Edu'));
-    this.vanilla.save(path.join(folder, 'Vanilla'));
-    this.general.save(path.join(folder, 'General'));
+    this.edu.save(path.join(folder, 'edu'));
+    this.vanilla.save(path.join(folder, 'vanilla'));
+    this.general.save(path.join(folder, 'general'));
   }
 
   /**
