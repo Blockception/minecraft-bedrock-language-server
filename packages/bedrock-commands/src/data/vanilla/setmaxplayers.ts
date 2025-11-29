@@ -9,7 +9,7 @@ export const setmaxplayers: CommandInfo[] = [
     permission_level: 3,
     parameters: [
       { text: 'setmaxplayers', type: ParameterType.keyword, required: true },
-      { text: 'max players', type: ParameterType.integer, required: true },
+      { text: 'max players', type: ParameterType.integer, required: true, options: { minimum: 1 } },
     ],
   },
 ];
