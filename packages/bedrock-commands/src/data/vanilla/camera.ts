@@ -10,7 +10,7 @@ export const camera: CommandInfo[] = [
     parameters: [
       { text: 'camera', type: ParameterType.keyword, required: true },
       { text: 'players', type: ParameterType.selector, required: true },
-      { text: 'attach to entity', type: ParameterType.unknown, required: true },
+      { text: 'attach to entity', type: ParameterType.boolean, required: true },
       { text: 'entity', type: ParameterType.selector, required: true },
     ],
   },
@@ -31,7 +31,7 @@ export const camera: CommandInfo[] = [
     parameters: [
       { text: 'camera', type: ParameterType.keyword, required: true },
       { text: 'players', type: ParameterType.selector, required: true },
-      { text: 'detach from entity', type: ParameterType.unknown, required: true },
+      { text: 'detach from entity', type: ParameterType.boolean, required: true },
     ],
   },
   {
