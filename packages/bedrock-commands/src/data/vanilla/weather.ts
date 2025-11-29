@@ -5,7 +5,7 @@ import { CommandInfo } from '../command-info';
 export const weather: CommandInfo[] = [
   {
     name: 'weather',
-    documentation: 'Clears the weather.',
+    documentation: 'Sets the weather.',
     permission_level: 1,
     parameters: [
       { text: 'weather', type: ParameterType.keyword, required: true },

@@ -71,9 +71,9 @@ export const structure: CommandInfo[] = [
       { text: 'to x', type: ParameterType.coordinate, required: true },
       { text: 'to y', type: ParameterType.coordinate, required: true },
       { text: 'to z', type: ParameterType.coordinate, required: true },
-      { text: 'includeEntities', type: ParameterType.boolean, required: false },
-      { text: 'saveMode', type: ParameterType.saveMode, required: false },
-      { text: 'includeBlocks', type: ParameterType.boolean, required: false },
+      { text: 'include Entities', type: ParameterType.boolean, required: false },
+      { text: 'save Mode', type: ParameterType.saveMode, required: false },
+      { text: 'include Blocks', type: ParameterType.boolean, required: false },
     ],
   },
   {

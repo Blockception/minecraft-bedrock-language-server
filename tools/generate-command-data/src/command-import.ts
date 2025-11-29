@@ -2,6 +2,7 @@ import { CommandInfo } from '../../../packages/bedrock-commands/src/data/command
 import { ParameterType } from '../../../packages/bedrock-commands/src/types/parameter-type.js';
 import { convert } from './convert.js';
 import * as command_data from './minecraft-data.js';
+import { quoteString } from './strings.js';
 const path = require('node:path');
 const fs = require('fs');
 
@@ -40,25 +41,25 @@ const folder = path.join(__dirname, '..', '..', '..', 'packages', 'bedrock-comma
 function save(comm: string, data: CommandInfo[]) {
   const filePath = path.join(folder, `${comm}.ts`);
 
-  let content = `import { ParameterType } from "../../types/parameter-type";
-import { CommandInfo } from "../command-info";
+  let content = `import { ParameterType } from '../../types/parameter-type';
+import { CommandInfo } from '../command-info';
 
 /**The ${comm} command */
 export const ${comm}: CommandInfo[] = [`;
   data.forEach((d) => {
     content += `
   {
-    name: "${d.name}",
-    documentation: "${d.documentation}",
+    name: ${quoteString(d.name)},
+    documentation: ${quoteString(d.documentation)},
     permission_level: ${d.permission_level},
     parameters: [`;
     d.parameters.forEach((p) => {
       content += `
-      { text: "${p.text}", type: ParameterType.${ParameterType[p.type]}, required: ${p.required}`;
+      { text: '${p.text}', type: ParameterType.${ParameterType[p.type]}, required: ${p.required}`;
       if (p.options) {
         content += `, options: {`;
         if (p.options.acceptedValues) {
-          content += ` acceptedValues: [${p.options.acceptedValues.map((v) => `"${v}"`).join(', ')}]`;
+          content += ` acceptedValues: [${p.options.acceptedValues.map((v) => quoteString(v)).join(', ')}]`;
         }
         if (p.options.minimum) {
           content += `, minimum: ${p.options.minimum}`;

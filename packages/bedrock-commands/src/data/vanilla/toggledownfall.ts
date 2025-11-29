@@ -7,6 +7,8 @@ export const toggledownfall: CommandInfo[] = [
     name: 'toggledownfall',
     documentation: 'Toggles the weather.',
     permission_level: 1,
-    parameters: [{ text: 'toggledownfall', type: ParameterType.keyword, required: true }],
+    parameters: [
+      { text: 'toggledownfall', type: ParameterType.keyword, required: true },
+    ],
   },
 ];

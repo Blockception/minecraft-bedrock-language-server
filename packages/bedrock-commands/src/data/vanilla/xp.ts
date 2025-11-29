@@ -10,7 +10,7 @@ export const xp: CommandInfo[] = [
     parameters: [
       { text: 'xp', type: ParameterType.keyword, required: true },
       { text: 'amount', type: ParameterType.integer, required: true },
-      { text: 'player', type: ParameterType.selector, required: false, options: { playerOnly: true } },
+      { text: 'player', type: ParameterType.selector, required: false },
     ],
   },
   {
@@ -20,7 +20,7 @@ export const xp: CommandInfo[] = [
     parameters: [
       { text: 'xp', type: ParameterType.keyword, required: true },
       { text: 'amount', type: ParameterType.xp, required: true },
-      { text: 'player', type: ParameterType.selector, required: false, options: { playerOnly: true } },
+      { text: 'player', type: ParameterType.selector, required: false },
     ],
   },
 ];

@@ -5,8 +5,7 @@ import { CommandInfo } from '../command-info';
 export const ride: CommandInfo[] = [
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -19,8 +18,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -33,8 +31,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -47,8 +44,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -61,8 +57,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -72,8 +67,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -87,8 +81,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -102,8 +95,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -117,8 +109,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
@@ -128,8 +119,7 @@ export const ride: CommandInfo[] = [
   },
   {
     name: 'ride',
-    documentation:
-      'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
+    documentation: 'Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.',
     permission_level: 1,
     parameters: [
       { text: 'ride', type: ParameterType.keyword, required: true },
