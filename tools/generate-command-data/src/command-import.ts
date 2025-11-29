@@ -1,9 +1,10 @@
-import { CommandInfo } from '../src/lib/data/command-info';
-import { ParameterType } from '../src/lib/types/parameter-type';
-import { convert } from './convert';
-import * as command_data from './minecraft-data';
-const path = require('node:path');
-const fs = require('fs');
+import { CommandInfo } from '../../../packages/bedrock-commands/src/data/command-info.js';
+import { ParameterType } from '../../../packages/bedrock-commands/src/types/parameter-type.js';
+import { convert } from './convert.js';
+import * as command_data from './minecraft-data.js';
+import { quoteString } from './strings.js';
+import path from 'node:path';
+import fs from 'fs';
 
 async function main() {
   console.log('==== Loading ====');
@@ -35,30 +36,30 @@ main().catch((err) => {
   process.exit(1);
 });
 
-const folder = path.join(__dirname, '..', 'src', 'lib', 'data', 'vanilla');
+const folder = path.join(__dirname, '..', '..', '..', 'packages', 'bedrock-commands', 'src', 'data', 'vanilla');
 
 function save(comm: string, data: CommandInfo[]) {
   const filePath = path.join(folder, `${comm}.ts`);
 
-  let content = `import { ParameterType } from "../../types/parameter-type";
-import { CommandInfo } from "../command-info";
+  let content = `import { ParameterType } from '../../types/parameter-type';
+import { CommandInfo } from '../command-info';
 
 /**The ${comm} command */
 export const ${comm}: CommandInfo[] = [`;
   data.forEach((d) => {
     content += `
   {
-    name: "${d.name}",
-    documentation: "${d.documentation}",
+    name: ${quoteString(d.name)},
+    documentation: ${quoteString(d.documentation)},
     permission_level: ${d.permission_level},
     parameters: [`;
     d.parameters.forEach((p) => {
       content += `
-      { text: "${p.text}", type: ParameterType.${ParameterType[p.type]}, required: ${p.required}`;
+      { text: '${p.text}', type: ParameterType.${ParameterType[p.type]}, required: ${p.required}`;
       if (p.options) {
         content += `, options: {`;
         if (p.options.acceptedValues) {
-          content += ` acceptedValues: [${p.options.acceptedValues.map((v) => `"${v}"`).join(', ')}]`;
+          content += ` acceptedValues: [${p.options.acceptedValues.map((v) => quoteString(v)).join(', ')}]`;
         }
         if (p.options.minimum) {
           content += `, minimum: ${p.options.minimum}`;

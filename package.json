@@ -18,7 +18,8 @@
     "ide/shared",
     "ide/base/client",
     "ide/base/server",
-    "ide/vscode"
+    "ide/vscode",
+    "tools/generate-command-data"
   ],
   "devDependencies": {
     "@eslint/js": "^9.35.0",

@@ -1,7 +1,7 @@
-import { CommandInfo, ParameterInfo } from '../src/lib/data/command-info';
-import { ParameterType } from '../src/lib/types/parameter-type';
-import { Command, CommandOverload, CommandParameter, MinecraftCommandData } from './minecraft-data';
-import { mutate } from './mutate';
+import { CommandInfo, ParameterInfo } from '../../../packages/bedrock-commands/src/data/command-info.js';
+import { ParameterType } from '../../../packages/bedrock-commands/src/types/parameter-type.js';
+import { Command, CommandOverload, CommandParameter, MinecraftCommandData } from './minecraft-data.js';
+import { mutate } from './mutate.js';
 
 const removed = [
   'connect',

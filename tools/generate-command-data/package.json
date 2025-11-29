@@ -1,0 +1,28 @@
+{
+  "name": "generate-command-data",
+  "version": "1.0.0",
+  "description": "Tool to generate command data for minecraft bedrock",
+  "private": true,
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "generate": "tsx ./src/command-import.ts",
+    "compile": "echo 'This tool does not require compilation'",
+    "clean": "echo 'Nothing to clean'",
+    "test": "echo 'No tests for this tool'",
+    "lint": "eslint --config ../../eslint.config.mjs ."
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "rimraf": "^6.1.0",
+    "ts-node": "^10.9.1",
+    "tsx": "^4.7.1",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "bc-minecraft-bedrock-command": "*"
+  }
+}

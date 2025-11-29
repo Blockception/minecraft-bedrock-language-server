@@ -5,12 +5,33 @@ import { CommandInfo } from '../command-info';
 export const camera: CommandInfo[] = [
   {
     name: 'camera',
-    documentation: 'Clears the camera settings on the selected players.',
+    documentation: 'Issues a camera instruction',
+    permission_level: 1,
+    parameters: [
+      { text: 'camera', type: ParameterType.keyword, required: true },
+      { text: 'players', type: ParameterType.selector, required: true },
+      { text: 'attach to entity', type: ParameterType.boolean, required: true },
+      { text: 'entity', type: ParameterType.selector, required: true },
+    ],
+  },
+  {
+    name: 'camera',
+    documentation: 'Issues a camera instruction',
     permission_level: 1,
     parameters: [
       { text: 'camera', type: ParameterType.keyword, required: true },
       { text: 'players', type: ParameterType.selector, required: true },
       { text: 'clear', type: ParameterType.keyword, required: true },
+    ],
+  },
+  {
+    name: 'camera',
+    documentation: 'Issues a camera instruction',
+    permission_level: 1,
+    parameters: [
+      { text: 'camera', type: ParameterType.keyword, required: true },
+      { text: 'players', type: ParameterType.selector, required: true },
+      { text: 'detach from entity', type: ParameterType.boolean, required: true },
     ],
   },
   {
