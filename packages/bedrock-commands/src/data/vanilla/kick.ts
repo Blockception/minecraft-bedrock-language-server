@@ -9,7 +9,7 @@ export const kick: CommandInfo[] = [
     permission_level: 1,
     parameters: [
       { text: 'kick', type: ParameterType.keyword, required: true },
-      { text: 'name', type: ParameterType.selector, required: true },
+      { text: 'name', type: ParameterType.selector, required: true, options: { playerOnly: true } },
       { text: 'reason', type: ParameterType.message, required: true },
     ],
   },
