@@ -1,633 +1,1346 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Entity } from '../../types/resourcepack/entity';
 
-
+
 export const Entities: Entity[] = 
 [
   {
-    "id": "minecraft:agent",
-    "events": [],
-    "families": []
-  },
-  {
     "id": "minecraft:allay",
-    "events": [],
-    "families": []
+    "animations": [
+      "idle",
+      "fly",
+      "hold_item",
+      "dance",
+      "hold_item_fly",
+      "look_at_target_default"
+    ]
   },
   {
     "id": "minecraft:armadillo",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target",
+      "look_at_target_controller",
+      "walk",
+      "walk_controller",
+      "roll_up",
+      "rolled_up",
+      "peek",
+      "unroll",
+      "unroll_fast",
+      "roll_up_controller"
+    ]
   },
   {
     "id": "minecraft:armor_stand",
-    "events": [],
-    "families": []
+    "animations": [
+      "default_pose",
+      "no_pose",
+      "solemn_pose",
+      "athena_pose",
+      "brandish_pose",
+      "honor_pose",
+      "entertain_pose",
+      "salute_pose",
+      "riposte_pose",
+      "zombie_pose",
+      "cancan_a_pose",
+      "cancan_b_pose",
+      "hero_pose",
+      "wiggle"
+    ]
   },
   {
     "id": "minecraft:arrow",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:axolotl",
-    "events": [],
-    "families": []
+    "animations": [
+      "idle_float",
+      "idle_floor",
+      "idle_floor_water",
+      "swim",
+      "walk_floor",
+      "walk_floor_water",
+      "play_dead",
+      "swim_angle",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:bat",
-    "events": [],
-    "families": []
+    "animations": [
+      "resting",
+      "flying"
+    ]
   },
   {
     "id": "minecraft:bed",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:bee",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying",
+      "drip",
+      "controller_bee_sting",
+      "bee_sting",
+      "bee_no_stinger",
+      "bee_fly_bobbing",
+      "bee_root_controller"
+    ]
   },
   {
     "id": "minecraft:blaze",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target",
+      "move"
+    ]
   },
   {
     "id": "minecraft:boat",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:bogged",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "skeleton_attack",
+      "riding.body"
+    ]
   },
   {
     "id": "minecraft:breeze",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at",
+      "idle",
+      "jump",
+      "shoot",
+      "slide",
+      "idle_ground_particles",
+      "slide_ground_particles",
+      "whirl_sound",
+      "idle_ground_sound",
+      "look_at_controller",
+      "idle_controller",
+      "move_controller",
+      "ground_particles_controller",
+      "shoot_controller",
+      "jump_controller",
+      "idle_ground_sound_controller"
+    ]
   },
   {
     "id": "minecraft:breeze_wind_charge_projectile",
-    "events": [],
-    "families": []
+    "animations": [
+      "rotate"
+    ]
   },
   {
     "id": "minecraft:camel",
-    "events": [],
-    "families": []
+    "animations": [
+      "moving",
+      "sit_down",
+      "sitting",
+      "stand_up",
+      "look_at_target",
+      "dashing",
+      "dashing_sound",
+      "idle"
+    ]
   },
   {
     "id": "minecraft:cat",
-    "events": [],
-    "families": []
+    "animations": [
+      "sneak",
+      "walk",
+      "sprint",
+      "sit",
+      "look_at_target",
+      "baby_transform",
+      "lie_down"
+    ]
   },
   {
     "id": "minecraft:cave_spider",
-    "events": [],
-    "families": []
+    "animations": [
+      "default_leg_pose",
+      "look_at_target",
+      "walk"
+    ]
   },
   {
     "id": "minecraft:chest_boat",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:chest_minecart",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:chicken",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "general",
+      "look_at_target",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:cod",
-    "events": [],
-    "families": []
+    "animations": [
+      "flop",
+      "swim"
+    ]
   },
   {
     "id": "minecraft:command_block_minecart",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:copper_golem",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target",
+      "walk",
+      "walk_holding_item",
+      "spin",
+      "spin_weathered",
+      "spin_oxidized",
+      "walk_controller",
+      "hold_item",
+      "idle_controller",
+      "chest_interaction_controller",
+      "chest_interaction.put_item",
+      "chest_interaction.put_item_fail",
+      "chest_interaction.take_item",
+      "chest_interaction.take_item_fail"
+    ]
   },
   {
     "id": "minecraft:cow",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "walk",
+      "look_at_target",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:creaking",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target",
+      "look_at_target_controller",
+      "walk",
+      "walk_controller",
+      "attack",
+      "attack_controller",
+      "sway",
+      "sway_controller",
+      "twitch",
+      "twitch_controller"
+    ]
   },
   {
     "id": "minecraft:creeper",
-    "events": [],
-    "families": []
+    "animations": [
+      "creeper_head",
+      "creeper_legs",
+      "creeper_swelling"
+    ]
   },
   {
     "id": "minecraft:decorated_pot",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:dolphin",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "move_controller"
+    ]
   },
   {
     "id": "minecraft:donkey",
-    "events": [],
-    "families": []
+    "animations": [
+      "baby_transform",
+      "walk",
+      "eat",
+      "rear",
+      "tail",
+      "look_at_player"
+    ]
   },
   {
     "id": "minecraft:dragon_fireball",
-    "events": [],
-    "families": []
+    "animations": [
+      "face_player"
+    ]
   },
   {
     "id": "minecraft:drowned",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_big_head",
+      "humanoid_base_pose",
+      "look_at_target",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "bob",
+      "damage_nearby_mobs",
+      "use_item_progress",
+      "attack_controller",
+      "zombie_attack_bare_hand",
+      "attack_rotations",
+      "swimming"
+    ]
   },
   {
     "id": "minecraft:egg",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying"
+    ]
   },
   {
     "id": "minecraft:elder_guardian",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "spikes",
+      "swim",
+      "look_at_target",
+      "move_eye"
+    ]
   },
   {
     "id": "minecraft:ender_crystal",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:ender_dragon",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "jaw_movement",
+      "neck_head_movement",
+      "wings_limbs_movement",
+      "tail_movement"
+    ]
   },
   {
     "id": "minecraft:ender_pearl",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying"
+    ]
   },
   {
     "id": "minecraft:enderman",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "attack.rotations",
+      "bob",
+      "base_pose",
+      "arms_legs",
+      "carrying",
+      "scary_face"
+    ]
   },
   {
     "id": "minecraft:endermite",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:evocation_fang",
-    "events": [],
-    "families": []
+    "animations": [
+      "bite"
+    ]
   },
   {
     "id": "minecraft:evocation_illager",
-    "events": [],
-    "families": []
+    "animations": [
+      "general",
+      "casting",
+      "look_at_target",
+      "move",
+      "riding.legs",
+      "controller_riding"
+    ]
   },
   {
     "id": "minecraft:eye_of_ender_signal",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying"
+    ]
   },
   {
     "id": "minecraft:fireball",
-    "events": [],
-    "families": []
+    "animations": [
+      "face_player"
+    ]
   },
   {
     "id": "minecraft:fireworks_rocket",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:fishing_hook",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:fox",
-    "events": [],
-    "families": []
+    "animations": [
+      "walk",
+      "look_at_target",
+      "baby_transform",
+      "crouch",
+      "sleep",
+      "setup",
+      "sit",
+      "wiggle",
+      "stuck",
+      "pounce",
+      "move"
+    ]
   },
   {
     "id": "minecraft:frog",
-    "events": [],
-    "families": []
+    "animations": [
+      "croak",
+      "jump",
+      "tongue",
+      "walk",
+      "swim",
+      "idle_water",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:ghast",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "scale"
+    ]
   },
   {
     "id": "minecraft:glow_squid",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "squid_rotate"
+    ]
   },
   {
     "id": "minecraft:goat",
-    "events": [],
-    "families": []
+    "animations": [
+      "walk",
+      "look_at_target",
+      "attack",
+      "ram_attack"
+    ]
   },
   {
     "id": "minecraft:guardian",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "spikes",
+      "swim",
+      "look_at_target",
+      "move_eye"
+    ]
   },
   {
     "id": "minecraft:happy_ghast",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "move_controller",
+      "scale",
+      "scale_controller"
+    ]
   },
   {
     "id": "minecraft:hoglin",
-    "events": [],
-    "families": []
+    "animations": [
+      "walk",
+      "look_at_target",
+      "attack",
+      "hoglin_baby_scaling"
+    ]
   },
   {
     "id": "minecraft:hopper_minecart",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:horse",
-    "events": [],
-    "families": []
+    "animations": [
+      "baby_transform",
+      "walk",
+      "eat",
+      "rear",
+      "tail",
+      "look_at_player"
+    ]
   },
   {
     "id": "minecraft:husk",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_big_head",
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "zombie_attack_bare_hand",
+      "zombie_swimming"
+    ]
   },
   {
     "id": "minecraft:iron_golem",
-    "events": [],
-    "families": []
+    "animations": [
+      "walk",
+      "move",
+      "attack",
+      "flower",
+      "look_at_target",
+      "walk_to_target",
+      "move_to_target",
+      "move_controller",
+      "arm_controller"
+    ]
   },
   {
     "id": "minecraft:leash_knot",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:lingering_potion",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying"
+    ]
   },
   {
     "id": "minecraft:llama",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "walk",
+      "look_at_target",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:llama_spit",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup"
+    ]
   },
   {
     "id": "minecraft:magma_cube",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:minecart",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:mooshroom",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "walk",
+      "look_at_target",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:mule",
-    "events": [],
-    "families": []
-  },
-  {
-    "id": "minecraft:npc",
-    "events": [],
-    "families": []
+    "animations": [
+      "baby_transform",
+      "walk",
+      "eat",
+      "rear",
+      "tail",
+      "look_at_player"
+    ]
   },
   {
     "id": "minecraft:ocelot",
-    "events": [],
-    "families": []
+    "animations": [
+      "baby_transform",
+      "look_at_target",
+      "setup",
+      "sit",
+      "sneak",
+      "sprint",
+      "walk"
+    ]
   },
   {
     "id": "minecraft:panda",
-    "events": [],
-    "families": []
+    "animations": [
+      "unhappy",
+      "sneezing",
+      "walk",
+      "look_at_target",
+      "baby_transform",
+      "sitting",
+      "rolling",
+      "lying"
+    ]
   },
   {
     "id": "minecraft:parrot",
-    "events": [],
-    "families": []
+    "animations": [
+      "moving",
+      "base",
+      "dance",
+      "sitting",
+      "flying",
+      "standing",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:phantom",
-    "events": [],
-    "families": []
+    "animations": [
+      "phantom_base_pose",
+      "move",
+      "phantom_base_pose_controller"
+    ]
   },
   {
     "id": "minecraft:pig",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "walk",
+      "look_at_target",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:piglin",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "bob",
+      "humanoid_big_head",
+      "admire",
+      "celebrate_hunt",
+      "celebrate_hunt_special",
+      "look_at_target_controller",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "piglin_attack_controller",
+      "crossbow_hold",
+      "crossbow_charge",
+      "melee_attack",
+      "hand_attack",
+      "riding_controller",
+      "riding.arms",
+      "riding.legs",
+      "riding.body"
+    ]
   },
   {
     "id": "minecraft:piglin_brute",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "bob",
+      "humanoid_big_head",
+      "look_at_target_controller",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "piglin_attack_controller",
+      "crossbow_hold",
+      "crossbow_charge",
+      "melee_attack",
+      "hand_attack",
+      "riding_controller",
+      "riding.arms",
+      "riding.legs",
+      "riding.body"
+    ]
   },
   {
     "id": "minecraft:pillager",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "attack.rotations",
+      "bob",
+      "crossbow_hold",
+      "crossbow_charge",
+      "celebrating",
+      "controller_humanoid_base_pose",
+      "controller_look_at_target",
+      "controller_move",
+      "controller_riding",
+      "controller_attack",
+      "controller_bob",
+      "controller_pillager_attack",
+      "pillager_root_controller",
+      "riding.body"
+    ]
   },
   {
     "id": "minecraft:player",
-    "events": [],
-    "families": []
+    "animations": [
+      "root",
+      "base_controller",
+      "hudplayer",
+      "humanoid_base_pose",
+      "look_at_target",
+      "look_at_target_ui",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "look_at_target_inverted",
+      "cape",
+      "move.arms",
+      "move.legs",
+      "swimming",
+      "swimming.legs",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.positions",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "use_item_progress",
+      "skeleton_attack",
+      "sleeping",
+      "first_person_base_pose",
+      "first_person_empty_hand",
+      "first_person_swap_item",
+      "first_person_attack_controller",
+      "first_person_attack_rotation",
+      "first_person_attack_rotation_item",
+      "first_person_vr_attack_rotation",
+      "first_person_walk",
+      "first_person_map_controller",
+      "first_person_map_hold",
+      "first_person_map_hold_attack",
+      "first_person_map_hold_off_hand",
+      "first_person_map_hold_main_hand",
+      "first_person_crossbow_equipped",
+      "first_person_crossbow_hold",
+      "first_person_breathing_bob",
+      "third_person_crossbow_equipped",
+      "third_person_bow_equipped",
+      "crossbow_hold",
+      "crossbow_controller",
+      "shield_block_main_hand",
+      "shield_block_off_hand",
+      "blink",
+      "fishing_rod",
+      "holding_spyglass",
+      "first_person_shield_block",
+      "tooting_goat_horn",
+      "holding_brush",
+      "brushing",
+      "crawling",
+      "crawling.legs",
+      "holding_heavy_core",
+      "riding.root"
+    ]
   },
   {
     "id": "minecraft:polar_bear",
-    "events": [],
-    "families": []
+    "animations": [
+      "walk",
+      "move",
+      "look_at_target",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:pufferfish",
-    "events": [],
-    "families": []
+    "animations": [
+      "flop",
+      "swim",
+      "general"
+    ]
   },
   {
     "id": "minecraft:rabbit",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "baby_transform",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:ravager",
-    "events": [],
-    "families": []
+    "animations": [
+      "walk",
+      "look_at_target",
+      "idle_mouth",
+      "stunned",
+      "roaring",
+      "move",
+      "head",
+      "biting"
+    ]
   },
   {
     "id": "minecraft:salmon",
-    "events": [],
-    "families": []
+    "animations": [
+      "flop",
+      "swim"
+    ]
   },
   {
     "id": "minecraft:sheep",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "grazing",
+      "walk",
+      "look_at_target",
+      "baby_transform",
+      "move"
+    ]
   },
   {
     "id": "minecraft:shulker",
-    "events": [],
-    "families": []
+    "animations": [
+      "facing",
+      "move",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:shulker_bullet",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:silverfish",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:skeleton",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "skeleton_attack"
+    ]
   },
   {
     "id": "minecraft:skeleton_horse",
-    "events": [],
-    "families": []
+    "animations": [
+      "baby_transform",
+      "walk",
+      "eat",
+      "rear",
+      "tail",
+      "look_at_player"
+    ]
   },
   {
     "id": "minecraft:skull",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:slime",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:small_fireball",
-    "events": [],
-    "families": []
+    "animations": [
+      "face_player"
+    ]
   },
   {
     "id": "minecraft:sniffer",
-    "events": [],
-    "families": []
+    "animations": [
+      "baby_transform",
+      "walk",
+      "look_at_target",
+      "sniffsniff",
+      "long_sniff",
+      "search",
+      "dig",
+      "stand_up",
+      "feeling_happy"
+    ]
   },
   {
     "id": "minecraft:snow_golem",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "arms",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:snowball",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying"
+    ]
   },
   {
     "id": "minecraft:spider",
-    "events": [],
-    "families": []
+    "animations": [
+      "default_leg_pose",
+      "look_at_target",
+      "walk"
+    ]
   },
   {
     "id": "minecraft:splash_potion",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying"
+    ]
   },
   {
     "id": "minecraft:squid",
-    "events": [],
-    "families": []
+    "animations": [
+      "move",
+      "squid_rotate"
+    ]
   },
   {
     "id": "minecraft:stray",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "skeleton_attack"
+    ]
   },
   {
     "id": "minecraft:strider",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target",
+      "walk",
+      "bristle_flow"
+    ]
   },
   {
     "id": "minecraft:tadpole",
-    "events": [],
-    "families": []
+    "animations": [
+      "swim"
+    ]
   },
   {
     "id": "minecraft:thrown_trident",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:tnt_minecart",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:trader_llama",
-    "events": [],
-    "families": []
+    "animations": [
+      "setup",
+      "walk",
+      "look_at_target",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:trial_spawner",
-    "events": [],
-    "families": []
-  },
-  {
-    "id": "minecraft:tripod_camera",
-    "events": [],
-    "families": []
+    "animations": []
   },
   {
     "id": "minecraft:tropicalfish",
-    "events": [],
-    "families": []
+    "animations": [
+      "flop",
+      "swim"
+    ]
   },
   {
     "id": "minecraft:turtle",
-    "events": [],
-    "families": []
+    "animations": [
+      "general",
+      "move",
+      "ground_move",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:vex",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "vex_move"
+    ]
   },
   {
     "id": "minecraft:villager",
-    "events": [],
-    "families": []
+    "animations": [
+      "general",
+      "look_at_target",
+      "move",
+      "baby_transform"
+    ]
   },
   {
     "id": "minecraft:villager_v2",
-    "events": [],
-    "families": []
+    "animations": [
+      "general",
+      "look_at_target",
+      "move",
+      "raise_arms",
+      "baby_transform",
+      "get_in_bed"
+    ]
   },
   {
     "id": "minecraft:vindicator",
-    "events": [],
-    "families": []
+    "animations": [
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "vindicator_base",
+      "vindicator_attack",
+      "vindicator_walk"
+    ]
   },
   {
     "id": "minecraft:wandering_trader",
-    "events": [],
-    "families": []
+    "animations": [
+      "general",
+      "look_at_target",
+      "raise_arms",
+      "move"
+    ]
   },
   {
     "id": "minecraft:warden",
-    "events": [],
-    "families": []
+    "animations": [
+      "emerge",
+      "sniff",
+      "sniff_controller",
+      "dig",
+      "roar",
+      "roar_controller",
+      "shiver",
+      "shiver_controller",
+      "base_pose",
+      "look_at_target",
+      "move",
+      "melee_attack",
+      "melee_attack_controller",
+      "bob",
+      "swimming",
+      "hurt",
+      "hurt_controller",
+      "sonic_boom",
+      "sonic_boom_controller"
+    ]
   },
   {
     "id": "minecraft:wind_charge_projectile",
-    "events": [],
-    "families": []
+    "animations": [
+      "rotate"
+    ]
   },
   {
     "id": "minecraft:witch",
-    "events": [],
-    "families": []
+    "animations": [
+      "villager_general",
+      "look_at_target",
+      "move",
+      "general"
+    ]
   },
   {
     "id": "minecraft:wither",
-    "events": [],
-    "families": []
+    "animations": [
+      "scale",
+      "move",
+      "look_at_target"
+    ]
   },
   {
     "id": "minecraft:wither_skeleton",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "wither_skeleton_attack"
+    ]
   },
   {
     "id": "minecraft:wither_skull",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:wither_skull_dangerous",
-    "events": [],
-    "families": []
+    "animations": [
+      "move"
+    ]
   },
   {
     "id": "minecraft:wolf",
-    "events": [],
-    "families": []
+    "animations": [
+      "wolf_setup",
+      "wolf_baby_scaling",
+      "wolf_look_at",
+      "wolf_head_rot_z",
+      "wolf_tail_default",
+      "wolf_angry",
+      "wolf_sitting",
+      "wolf_shaking",
+      "wolf_leg_default"
+    ]
   },
   {
     "id": "minecraft:xp_bottle",
-    "events": [],
-    "families": []
+    "animations": [
+      "flying"
+    ]
   },
   {
     "id": "minecraft:xp_orb",
-    "events": [],
-    "families": []
+    "animations": [
+      "face_player"
+    ]
   },
   {
     "id": "minecraft:zoglin",
-    "events": [],
-    "families": []
+    "animations": [
+      "walk",
+      "look_at_target",
+      "attack",
+      "hoglin_baby_scaling"
+    ]
   },
   {
     "id": "minecraft:zombie",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_big_head",
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "zombie_attack_bare_hand",
+      "zombie_swimming"
+    ]
   },
   {
     "id": "minecraft:zombie_horse",
-    "events": [],
-    "families": []
+    "animations": [
+      "baby_transform",
+      "walk",
+      "eat",
+      "rear",
+      "tail",
+      "look_at_player"
+    ]
   },
   {
     "id": "minecraft:zombie_pigman",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_big_head",
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "zombie_attack_bare_hand"
+    ]
   },
   {
     "id": "minecraft:zombie_villager",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_big_head",
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "swimming",
+      "use_item_progress",
+      "zombie_attack_bare_hand"
+    ]
   },
   {
     "id": "minecraft:zombie_villager_v2",
-    "events": [],
-    "families": []
+    "animations": [
+      "humanoid_big_head",
+      "humanoid_base_pose",
+      "look_at_target_default",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "riding.arms",
+      "riding.legs",
+      "holding",
+      "brandish_spear",
+      "charging",
+      "attack.rotations",
+      "sneaking",
+      "bob",
+      "damage_nearby_mobs",
+      "bow_and_arrow",
+      "use_item_progress",
+      "zombie_attack_bare_hand",
+      "swimming",
+      "riding.body"
+    ]
   }
 ]

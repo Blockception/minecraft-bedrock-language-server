@@ -1,4 +1,4 @@
 /** Notice: Auto generated file, do not edit */
-
-export const TradingData: string[] = 
+
+export const Trading: string[] = 
 []
