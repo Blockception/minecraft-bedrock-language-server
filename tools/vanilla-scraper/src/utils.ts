@@ -132,15 +132,6 @@ export function readJsonFile<T = any>(filepath: string): T | null {
 }
 
 /**
- * Get Minecraft installation folder (Windows-specific in C# version, returning null for cross-platform)
- */
-export function getMinecraftInstallationFolder(): string | null {
-  // The C# version checks Windows registry for Minecraft installation
-  // For cross-platform TypeScript, we'll rely on downloaded samples
-  return null;
-}
-
-/**
  * Find folder by traversing up the directory tree
  */
 export function findFolder(source: string, find: string): string {

@@ -1,13 +1,12 @@
-import * as path from 'path';
 import * as fs from 'fs';
-import { getFolders } from './context.js';
-import { findFolder } from './utils.js';
-import { scrapeMetadata } from './metadata-scraper.js';
+import * as path from 'path';
 import { scrapeBehaviorPack } from './bp-scraper.js';
-import { scrapeResourcePack } from './rp-scraper.js';
-import { createOutput, cleanOutput, saveOutput } from './output.js';
-import { generateGithubLinks } from './github-links.js';
+import { getFolders } from './context.js';
 import { getFormatVersions } from './format-versions.js';
+import { generateGithubLinks } from './github-links.js';
+import { scrapeMetadata } from './metadata-scraper.js';
+import { cleanOutput, createOutput, saveOutput } from './output.js';
+import { scrapeResourcePack } from './rp-scraper.js';
 
 async function main() {
   const startTime = Date.now();
