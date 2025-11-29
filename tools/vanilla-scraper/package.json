@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "scrape": "node dist/index.js",
-    "clean": "rimraf dist work"
+    "clean": "rimraf dist work",
+    "lint": "eslint --config ../../eslint.config.mjs ."
   },
   "author": {
     "name": "Blockception Ltd",
