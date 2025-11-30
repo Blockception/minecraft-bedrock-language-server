@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { AnimationController } from '../../types/resourcepack/animation_controller';
 
-
-export const AnimationControllers: AnimationController[] = 
-[
+
+export const AnimationControllers: AnimationController[] = [
   {
     "id": "controller.animation.agent.move",
     "animations": [
@@ -1586,4 +1585,4 @@ export const AnimationControllers: AnimationController[] =
     "particles": [],
     "sounds": []
   }
-]
+];

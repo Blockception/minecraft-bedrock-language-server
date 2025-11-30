@@ -1,4 +1,3 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Fogs: string[] = 
-[]
+
+export const Fogs: string[] = [];

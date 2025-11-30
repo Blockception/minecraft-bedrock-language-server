@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Enchantments: string[] = 
-[
+
+export const Enchantments: string[] = [
   "minecraft:aqua_affinity",
   "minecraft:bane_of_arthropods",
   "minecraft:binding",
@@ -43,4 +42,4 @@ export const Enchantments: string[] =
   "minecraft:unbreaking",
   "minecraft:vanishing",
   "minecraft:wind_burst"
-]
+];

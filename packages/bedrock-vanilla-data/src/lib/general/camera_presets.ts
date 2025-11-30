@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const CameraPresets: string[] = 
-[
+
+export const CameraPresets: string[] = [
   "minecraft:control_scheme_camera",
   "minecraft:first_person",
   "minecraft:fixed_boom",
@@ -9,4 +8,4 @@ export const CameraPresets: string[] =
   "minecraft:free",
   "minecraft:third_person",
   "minecraft:third_person_front"
-]
+];

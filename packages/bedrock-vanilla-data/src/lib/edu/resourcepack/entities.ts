@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Entity } from '../../types/resourcepack/entity';
 
-
-export const Entities: Entity[] = 
-[]
+
+export const Entities: Entity[] = [];

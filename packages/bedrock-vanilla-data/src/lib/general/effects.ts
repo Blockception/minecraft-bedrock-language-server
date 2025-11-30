@@ -1,7 +1,22 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Effects: string[] = 
-[
+
+export const Effects: string[] = [
+  "absorption",
+  "bad_omen",
+  "blindness",
+  "conduit_power",
+  "darkness",
+  "fatal_poison",
+  "fire_resistance",
+  "haste",
+  "health_boost",
+  "hunger",
+  "infested",
+  "instant_damage",
+  "instant_health",
+  "invisibility",
+  "jump_boost",
+  "levitation",
   "minecraft:absorption",
   "minecraft:bad_omen",
   "minecraft:blindness",
@@ -38,22 +53,6 @@ export const Effects: string[] =
   "minecraft:weaving",
   "minecraft:wind_charged",
   "minecraft:wither",
-  "absorption",
-  "bad_omen",
-  "blindness",
-  "conduit_power",
-  "darkness",
-  "fatal_poison",
-  "fire_resistance",
-  "haste",
-  "health_boost",
-  "hunger",
-  "infested",
-  "instant_damage",
-  "instant_health",
-  "invisibility",
-  "jump_boost",
-  "levitation",
   "mining_fatigue",
   "nausea",
   "night_vision",
@@ -74,4 +73,4 @@ export const Effects: string[] =
   "weaving",
   "wind_charged",
   "wither"
-]
+];

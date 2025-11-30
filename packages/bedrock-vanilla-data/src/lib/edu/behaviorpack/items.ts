@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Item } from '../../types/behaviorpack/item';
 
-
-export const Items: Item[] = 
-[
+
+export const Items: Item[] = [
   {
     "id": "minecraft:camera",
     "max_damage": 0
@@ -517,4 +516,4 @@ export const Items: Item[] =
     "id": "minecraft:underwater_torch",
     "max_damage": 0
   }
-]
+];

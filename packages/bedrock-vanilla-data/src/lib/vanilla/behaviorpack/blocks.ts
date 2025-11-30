@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Block } from '../../types/behaviorpack/block';
 
-
-export const Blocks: Block[] = 
-[
+
+export const Blocks: Block[] = [
   {
     "id": "minecraft:acacia_button",
     "properties": [
@@ -6651,4 +6650,4 @@ export const Blocks: Block[] =
       "facing_direction"
     ]
   }
-]
+];

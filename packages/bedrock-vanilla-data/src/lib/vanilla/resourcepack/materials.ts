@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Materials: string[] = 
-[
+
+export const Materials: string[] = [
   "agent",
   "allay",
   "alpha_block",
@@ -404,4 +403,4 @@ export const Materials: string[] =
   "zombie_villager",
   "zombie_villager_v2",
   "zombie_villager_v2_masked"
-]
+];

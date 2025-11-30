@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Textures: string[] = 
-[
+
+export const Textures: string[] = [
   "textures/items/photo",
   "textures/ui/animation_code_shuffle0",
   "textures/ui/animation_code_shuffle1",
@@ -64,4 +63,4 @@ export const Textures: string[] =
   "textures/ui/title_edu",
   "textures/ui/view_library_background",
   "textures/ui/view_worlds_background"
-]
+];

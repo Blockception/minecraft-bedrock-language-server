@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const RenderControllers: string[] = 
-[
+
+export const RenderControllers: string[] = [
   "controller.render.agent",
   "controller.render.allay",
   "controller.render.armadillo",
@@ -166,4 +165,4 @@ export const RenderControllers: string[] =
   "controller.render.zombie_villager",
   "controller.render.zombie_villager_v2_base",
   "controller.render.zombie_villager_v2_masked"
-]
+];

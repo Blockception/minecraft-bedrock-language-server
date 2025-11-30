@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const LootTables: string[] = 
-[
+
+export const LootTables: string[] = [
   "loot_tables/chests/abandoned_mineshaft.json",
   "loot_tables/chests/ancient_city_ice_box.json",
   "loot_tables/chests/ancient_city.json",
@@ -201,4 +200,4 @@ export const LootTables: string[] =
   "loot_tables/spawners/trial_chamber/consumables.json",
   "loot_tables/spawners/trial_chamber/items_to_drop_when_ominous.json",
   "loot_tables/spawners/trial_chamber/key.json"
-]
+];

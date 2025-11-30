@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Entity } from '../../types/behaviorpack/entity';
 
-
-export const Entities: Entity[] = 
-[
+
+export const Entities: Entity[] = [
   {
     "id": "minecraft:agent",
     "events": [],
@@ -30,4 +29,4 @@ export const Entities: Entity[] =
     "events": [],
     "families": []
   }
-]
+];

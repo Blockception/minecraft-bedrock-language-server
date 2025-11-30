@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Fogs: string[] = 
-[
+
+export const Fogs: string[] = [
   "minecraft:fog_bamboo_jungle",
   "minecraft:fog_bamboo_jungle_hills",
   "minecraft:fog_basalt_deltas",
@@ -80,4 +79,4 @@ export const Fogs: string[] =
   "minecraft:fog_the_end",
   "minecraft:fog_warm_ocean",
   "minecraft:fog_warped_forest"
-]
+];

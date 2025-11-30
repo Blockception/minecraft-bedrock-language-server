@@ -1,4 +1,3 @@
 /** Notice: Auto generated file, do not edit */
-
-export const LootTables: string[] = 
-[]
+
+export const LootTables: string[] = [];

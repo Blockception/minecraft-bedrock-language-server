@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Sounds: string[] = 
-[
+
+export const Sounds: string[] = [
   "ambient.basalt_deltas.additions",
   "ambient.basalt_deltas.loop",
   "ambient.basalt_deltas.mood",
@@ -1592,4 +1591,4 @@ export const Sounds: string[] =
   "vault.step",
   "vr.stutterturn",
   "wind_charge.burst"
-]
+];
