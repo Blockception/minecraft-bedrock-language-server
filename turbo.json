@@ -6,11 +6,6 @@
       "inputs": ["src/**/*.ts", "tsconfig.json"],
       "outputs": ["dist/**", "tsconfig.tsbuildinfo"]
     },
-    "build": {
-      "dependsOn": ["^build"],
-      "inputs": ["src/**/*.ts", "tsconfig.json"],
-      "outputs": ["dist/**", "tsconfig.tsbuildinfo"]
-    },
     "test": {
       "dependsOn": ["compile"],
       "inputs": ["src/**/*.ts", "test/**/*.ts", "jest.config.ts"],
