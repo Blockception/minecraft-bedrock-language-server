@@ -8,3 +8,6 @@ tsconfig.tsbuildinfo
 bin
 obj
 work
+
+# Turborepo
+.turbo

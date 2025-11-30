@@ -1,6 +1,7 @@
 {
   "name": "minecraft-bedrock-language-server",
   "private": true,
+  "packageManager": "npm@10.8.2",
   "author": {
     "name": "Blockception Ltd",
     "url": "https://www.blockception.com/"
@@ -31,17 +32,18 @@
     "prettier": "^3.7.4",
     "ts-jest": "^29.4.1",
     "ts-node": "^10.9.1",
+    "turbo": "^2.6.1",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0"
   },
   "scripts": {
-    "build": "npm run compile --workspaces",
-    "compile": "npm run compile --workspaces",
+    "build": "turbo run build",
+    "compile": "turbo run compile",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
-    "lint": "npm run lint --workspaces",
-    "test": "npm run test --workspaces",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
     "test:all": "npx jest --coverage",
-    "clean": "npm run clean --workspaces"
+    "clean": "turbo run clean"
   },
   "dependencies": {
     "rimraf": "^6.1.2"

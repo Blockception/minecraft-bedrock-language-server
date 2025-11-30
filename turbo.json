@@ -1,0 +1,31 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "compile": {
+      "dependsOn": ["^compile"],
+      "inputs": ["src/**/*.ts", "tsconfig.json"],
+      "outputs": ["dist/**", "tsconfig.tsbuildinfo"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*.ts", "tsconfig.json"],
+      "outputs": ["dist/**", "tsconfig.tsbuildinfo"]
+    },
+    "test": {
+      "dependsOn": ["compile"],
+      "inputs": ["src/**/*.ts", "test/**/*.ts", "jest.config.ts"],
+      "outputs": ["coverage/**"],
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": ["^compile"],
+      "inputs": ["src/**/*.ts", "test/**/*.ts", "eslint.config.mjs", "../../eslint.config.mjs"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "format": {
+      "cache": false
+    }
+  }
+}
