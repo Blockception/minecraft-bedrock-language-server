@@ -18,11 +18,13 @@ export function hasId<T extends IIdentifier>(data: T[], findId: string, startInd
  */
 export function cleanIdentifiers<T extends IIdentifier>(data: T[], excluded?: T[]): T[] {
   const out: T[] = [];
+  if (data.length === 0) return out;
 
   // Walk backwards to keep last occurrence
   for (let i = data.length - 1; i >= 0; i--) {
     const item = data[i];
     const id = item.id;
+    if (typeof item === "string") throw new Error("string[] has been passed in")
 
     if (item === undefined || item.id === undefined) {
       continue;

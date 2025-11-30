@@ -21,20 +21,21 @@ export function createTexture(): Texture {
 /**
  * Convert pack folder to Texture objects
  */
-export function convertTexture(pack: string, receiver: Texture[]): void {
+export function convertTexture(pack: string): Texture[] {
   const texturesFolder = path.join(pack, 'textures');
+  const textureFiles = getFilesRecursively(texturesFolder, ['.png','.tga']);
 
-  const pngFiles = getFilesRecursively(texturesFolder, '.png');
-  const tgaFiles = getFilesRecursively(texturesFolder, '.tga');
-
-  convertFiles(pngFiles, receiver);
-  convertFiles(tgaFiles, receiver);
+  return convertFiles(textureFiles);
 }
 
 /**
  * Convert file paths to Texture objects
  */
-function convertFiles(files: string[], receiver: Texture[]): void {
+function convertFiles(files: string[]): Texture[] {
+  const receiver: Texture[] = [];
+
+  console.log('converting files', files.length);
+
   for (const filepath of files) {
     const index = filepath.indexOf('textures');
 
@@ -49,13 +50,16 @@ function convertFiles(files: string[], receiver: Texture[]): void {
       }
     }
   }
+
+  return receiver;
 }
 
 /**
  * Get all files with extension recursively
  */
-function getFilesRecursively(folder: string, extension: string): string[] {
+function getFilesRecursively(folder: string, extensions: string[]): string[] {
   const results: string[] = [];
+  console.log('getting files for: ' + folder);
 
   function walk(dir: string) {
     if (!fs.existsSync(dir)) return;
@@ -65,8 +69,12 @@ function getFilesRecursively(folder: string, extension: string): string[] {
       const fullPath = path.join(dir, entry.name);
       if (entry.isDirectory()) {
         walk(fullPath);
-      } else if (entry.isFile() && entry.name.endsWith(extension)) {
-        results.push(fullPath);
+      } else if (entry.isFile()) {
+        const ext = path.extname(entry.name);
+
+        if (extensions.includes(ext)) {
+          results.push(fullPath);
+        }
       }
     }
   }

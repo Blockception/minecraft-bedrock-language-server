@@ -23,7 +23,18 @@ export function load<T>(filepath: string): T | null {
     const data = fs.readFileSync(filepath, 'utf-8');
     // Remove comments and trailing commas for lenient JSON parsing
     const cleaned = removeCommentsAndTrailingCommas(data);
-    return JSON.parse(cleaned) as T;
+    const result = JSON.parse(cleaned) as T;
+
+    if (Array.isArray(result) && result.length > 0) {
+      const item = result[0];
+      if (typeof item === 'string') {
+        return result.map((i) => {
+          return { id: i };
+        }) as T;
+      }
+    }
+
+    return result;
   } catch (ex) {
     console.error(ex);
     return null;

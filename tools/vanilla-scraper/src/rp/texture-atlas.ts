@@ -20,9 +20,10 @@ export function createTextureAtlas(): TextureAtlas {
 /**
  * Convert texture atlas file to TextureAtlas objects
  */
-export function convertTextureAtlas(filepath: string, receiver: TextureAtlas[]): void {
+export function convertTextureAtlas(filepath: string): TextureAtlas[] {
+  const receiver: TextureAtlas[] = [];
   const doc = getDoc(filepath);
-  if (doc === null) return;
+  if (doc === null) return receiver;
 
   const root = doc as Record<string, unknown>;
   const definitions = root['texture_data'] as Record<string, unknown> | undefined;
@@ -34,4 +35,6 @@ export function convertTextureAtlas(filepath: string, receiver: TextureAtlas[]):
       receiver.push(item);
     }
   }
+
+  return receiver;
 }

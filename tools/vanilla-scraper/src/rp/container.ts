@@ -151,7 +151,10 @@ export class Container {
     this.particles = ensureProperties(cleanIdentifiers(this.particles), createParticle);
     this.renderControllers = ensureProperties(cleanIdentifiers(this.renderControllers), createRenderController);
     this.sounds = ensureProperties(cleanIdentifiers(this.sounds), createSound);
+
     this.textures = ensureProperties(cleanIdentifiers(this.textures), createTexture);
+    
+
     this.textureItems = ensureProperties(cleanIdentifiers(this.textureItems), createTextureAtlas);
     this.textureTerrain = ensureProperties(cleanIdentifiers(this.textureTerrain), createTextureAtlas);
     this.soundFiles.sort();
