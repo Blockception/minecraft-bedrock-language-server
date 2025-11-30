@@ -1,0 +1,35 @@
+name: 🥄 Scraping data
+env:
+  FORCE_COLOR: true
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 */7 * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: 🥄 Scraper
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: 🏗️ Setup Node.js Environment
+        uses: actions/setup-node@v6
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: 🏗️ Setup project
+        working-directory: tools/vanilla-scraper
+        run: npm ci
+
+      - name: 🥄 Scrape
+        working-directory: tools/vanilla-scraper
+        run: npm run scrape
+
+      - name: 🗒️ Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: Scraped vanilla data update
