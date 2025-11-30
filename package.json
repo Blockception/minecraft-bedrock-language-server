@@ -37,7 +37,7 @@
     "typescript-eslint": "^8.42.0"
   },
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run compile",
     "compile": "turbo run compile",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "lint": "turbo run lint",
