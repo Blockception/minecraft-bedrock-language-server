@@ -24,7 +24,7 @@
   "scripts": {
     "compile": "tsc -b --pretty ./tsconfig.json",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
-    "test": "jest --config ./jest.config.ts",
+    "test": "jest --config ./jest.config.ts --passWithNoTests",
     "lint": "eslint --config ../../eslint.config.mjs .",
     "clean": "rimraf ./dist tsconfig.tsbuildinfo",
     "pretest": "npm run compile"
