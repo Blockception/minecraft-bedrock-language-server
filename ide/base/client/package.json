@@ -30,6 +30,7 @@
   "dependencies": {
     "@blockception/ide-shared": "*",
     "@types/vscode": "^1.106.1",
+    "bc-minecraft-bedrock-vanilla-data": "*",
     "vscode-languageclient": "^10.0.0-next.18"
   },
   "devDependencies": {
