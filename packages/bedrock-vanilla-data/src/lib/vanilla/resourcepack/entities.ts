@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Entity } from '../../types/resourcepack/entity';
 
-
-export const Entities: Entity[] = 
-[
+
+export const Entities: Entity[] = [
   {
     "id": "minecraft:allay",
     "animations": [
@@ -1343,4 +1342,4 @@ export const Entities: Entity[] =
       "riding.body"
     ]
   }
-]
+];

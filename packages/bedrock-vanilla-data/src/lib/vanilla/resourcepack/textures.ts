@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Textures: string[] = 
-[
+
+export const Textures: string[] = [
   "textures/blocks/acacia_shelf",
   "textures/blocks/acacia_trapdoor",
   "textures/blocks/acacia_trapdoor_mers",
@@ -7528,4 +7527,4 @@ export const Textures: string[] =
   "textures/ui/xyz_axis",
   "textures/ui/yellow_banner",
   "textures/ui/yellowExclamation"
-]
+];

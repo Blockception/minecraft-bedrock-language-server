@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const TextureTerrain: string[] = 
-[
+
+export const TextureTerrain: string[] = [
   "acacia_leaves",
   "acacia_leaves_carried",
   "acacia_log_side",
@@ -1287,4 +1286,4 @@ export const TextureTerrain: string[] =
   "yellow_stained_glass",
   "yellow_stained_glass_pane_top",
   "yellow_terracotta"
-]
+];

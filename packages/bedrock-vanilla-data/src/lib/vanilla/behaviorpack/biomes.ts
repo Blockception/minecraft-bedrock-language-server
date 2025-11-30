@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Biome } from '../../types/behaviorpack/biome';
 
-
-export const Biomes: Biome[] = 
-[
+
+export const Biomes: Biome[] = [
   {
     "id": "minecraft:bamboo_jungle",
     "tags": [
@@ -1837,4 +1836,4 @@ export const Biomes: Biome[] =
       "spawns_warm_variant_farm_animals"
     ]
   }
-]
+];

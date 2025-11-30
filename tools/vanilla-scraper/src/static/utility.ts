@@ -1,12 +1,11 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as https from 'https';
-import * as zlib from 'zlib';
-import { createWriteStream } from 'fs';
-import { installationFolder, eduInstallationFolder } from './minecraft';
-import { Context } from '../classes/context';
 import { exec } from 'child_process';
+import * as fs from 'fs';
+import { createWriteStream } from 'fs';
+import * as https from 'https';
+import * as path from 'path';
 import { promisify } from 'util';
+import { Context } from '../classes/context';
+import { eduInstallationFolder, installationFolder } from './minecraft';
 
 const execAsync = promisify(exec);
 
@@ -27,11 +26,15 @@ function findFolder(source: string, find: string): string {
   throw new Error(`Could not find folder '${find}' starting from '${source}'`);
 }
 
-export const sourceFolder = findFolder(workFolder, 'src');
-export const outputFolder = path.join(sourceFolder, 'lib');
+
+export const workspaceFolder = path.join(workFolder, '..', '..', '..');
+export const libraryFolder = path.join(workspaceFolder, 'packages', 'bedrock-vanilla-data');
+
+export const outputFolder = path.join(libraryFolder, 'src', 'lib');
 export const outputEdu = path.join(outputFolder, 'edu');
 export const outputVanilla = path.join(outputFolder, 'vanilla');
-export const baseFolder = path.join(sourceFolder, 'base');
+
+export const baseFolder = path.join(libraryFolder, 'src', 'base');
 export const baseEdu = path.join(baseFolder, 'edu');
 export const baseVanilla = path.join(baseFolder, 'vanilla');
 
@@ -53,9 +56,7 @@ export async function download(filepath: string, uri: string): Promise<void> {
       if (response.statusCode === 301 || response.statusCode === 302) {
         file.close();
         fs.unlinkSync(filepath);
-        download(filepath, response.headers.location!)
-          .then(resolve)
-          .catch(reject);
+        download(filepath, response.headers.location!).then(resolve).catch(reject);
         return;
       }
 

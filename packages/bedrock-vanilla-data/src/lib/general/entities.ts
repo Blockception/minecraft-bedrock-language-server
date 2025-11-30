@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { GeneralEntity } from './format';
 
-
-export const EntityData: GeneralEntity = 
-{
+
+export const EntityData: GeneralEntity = {
   "families": [
     "adult_piglin",
     "allay",
@@ -571,4 +570,4 @@ export const EntityData: GeneralEntity =
     "villager_converted",
     "wololo"
   ]
-}
+};

@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const TextureItems: string[] = 
-[
+
+export const TextureItems: string[] = [
   "acacia_door",
   "amethyst_shard",
   "angler_pottery_sherd",
@@ -481,4 +480,4 @@ export const TextureItems: string[] =
   "wind_charge",
   "wolf_armor",
   "wooden_door"
-]
+];

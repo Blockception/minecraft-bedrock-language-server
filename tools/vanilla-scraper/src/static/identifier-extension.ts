@@ -24,6 +24,10 @@ export function cleanIdentifiers<T extends IIdentifier>(data: T[], excluded?: T[
     const item = data[i];
     const id = item.id;
 
+    if (item === undefined || item.id === undefined) {
+      continue;
+    }
+
     // Skip if excluded or already in output
     if (excluded && hasId(excluded, id)) {
       continue;

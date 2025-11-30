@@ -53,7 +53,7 @@ export function saveArray<T>(
     const snakeCaseData = convertToSnakeCase(data);
     const jsonContent = JSON.stringify(snakeCaseData, null, 2);
 
-    content += `export const ${name}: ${type}[] = ${jsonContent}`;
+    content += `export const ${name}: ${type}[] = ${jsonContent};`;
 
     fs.writeFileSync(filepath, content, 'utf-8');
   } catch (ex) {
@@ -81,7 +81,7 @@ export function saveSingle<T>(
     const snakeCaseData = convertToSnakeCase(data);
     const jsonContent = JSON.stringify(snakeCaseData, null, 2);
 
-    content += `export const ${name}: ${type} = ${jsonContent}`;
+    content += `export const ${name}: ${type} = ${jsonContent};`;
 
     fs.writeFileSync(filepath, content, 'utf-8');
   } catch (ex) {

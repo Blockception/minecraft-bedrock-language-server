@@ -33,9 +33,8 @@ export function load<T>(filepath: string): T | null {
 /**
  * Load and parse a JSON file, returning a new instance if file doesn't exist
  */
-export function loadEnsure<T>(filepath: string, defaultValue: () => T): T {
-  const result = load<T>(filepath);
-  return result ?? defaultValue();
+export function loadEnsure<T>(filepath: string): T[] {
+  return load<T[]>(filepath) ?? ([] as Array<T>);
 }
 
 /**

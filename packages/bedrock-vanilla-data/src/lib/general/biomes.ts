@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Biomes: string[] = 
-[
+
+export const Biomes: string[] = [
   "minecraft:bamboo_jungle",
   "minecraft:bamboo_jungle_hills",
   "minecraft:basalt_deltas",
@@ -89,4 +88,4 @@ export const Biomes: string[] =
   "minecraft:the_end",
   "minecraft:warm_ocean",
   "minecraft:warped_forest"
-]
+];

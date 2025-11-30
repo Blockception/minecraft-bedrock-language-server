@@ -1,7 +1,6 @@
 /** Notice: Auto generated file, do not edit */
-
-export const Features: string[] = 
-[
+
+export const Features: string[] = [
   "minecraft:ancient_city",
   "minecraft:bastion_remnant",
   "minecraft:buried_treasure",
@@ -19,4 +18,4 @@ export const Features: string[] =
   "minecraft:trail_ruins",
   "minecraft:trial_chambers",
   "minecraft:village"
-]
+];

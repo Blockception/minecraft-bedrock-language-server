@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Model } from '../../types/resourcepack/model';
 
-
-export const Models: Model[] = 
-[
+
+export const Models: Model[] = [
   {
     "id": "geometry.agent",
     "bones": [
@@ -2429,4 +2428,4 @@ export const Models: Model[] =
     "id": "minecraft:geometry.full_block",
     "bones": []
   }
-]
+];

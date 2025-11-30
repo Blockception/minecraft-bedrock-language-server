@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { Item } from '../../types/behaviorpack/item';
 
-
-export const Items: Item[] = 
-[
+
+export const Items: Item[] = [
   {
     "id": "minecraft:acacia_boat",
     "max_damage": 0
@@ -6729,4 +6728,4 @@ export const Items: Item[] =
     "id": "minecraft:zombie_villager_spawn_egg",
     "max_damage": 0
   }
-]
+];

@@ -1,10 +1,9 @@
 /** Notice: Auto generated file, do not edit */
-
+
 import { FormatVersionData } from './general';
 
-
-export const Versions: FormatVersionData = 
-{
+
+export const Versions: FormatVersionData = {
   "latest": "1.21.120.4",
   "versions": [
     "1.21.120.4",
@@ -34,4 +33,4 @@ export const Versions: FormatVersionData =
     "1.19.40.2",
     "1.19.30"
   ]
-}
+};
