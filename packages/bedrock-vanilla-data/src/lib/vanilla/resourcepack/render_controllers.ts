@@ -67,7 +67,6 @@ export const RenderControllers: string[] = [
   "controller.render.horse.v1.and.v2",
   "controller.render.horse.v3",
   "controller.render.husk",
-  "controller.render.iron_golem",
   "controller.render.iron_golem_cracks",
   "controller.render.item_default",
   "controller.render.item_sprite",

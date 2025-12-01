@@ -539,14 +539,6 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
-    "id": "controller.animation.ghast.scale",
-    "animations": [
-      "scale"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
     "id": "controller.animation.goat.move",
     "animations": [
       "walk"
@@ -1345,14 +1337,6 @@ export const AnimationControllers: AnimationController[] = [
     "id": "controller.animation.vex.idle",
     "animations": [
       "vex_idle"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
-    "id": "controller.animation.vex.move",
-    "animations": [
-      "vex_move"
     ],
     "particles": [],
     "sounds": []
