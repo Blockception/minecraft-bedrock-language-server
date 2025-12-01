@@ -5,6 +5,16 @@ import { Entity } from '../../types/resourcepack/entity';
 
 export const Entities: Entity[] = [
   {
+    "id": "minecraft:agent",
+    "animations": [
+      "look_at_target",
+      "move",
+      "swing_arms",
+      "shrug",
+      "move_controller"
+    ]
+  },
+  {
     "id": "minecraft:allay",
     "animations": [
       "idle",
@@ -612,6 +622,15 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:npc",
+    "animations": [
+      "general",
+      "look_at_target",
+      "move",
+      "baby_transform"
+    ]
+  },
+  {
     "id": "minecraft:ocelot",
     "animations": [
       "baby_transform",
@@ -1036,6 +1055,12 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:trial_spawner",
     "animations": []
+  },
+  {
+    "id": "minecraft:tripod_camera",
+    "animations": [
+      "neutral"
+    ]
   },
   {
     "id": "minecraft:tropicalfish",

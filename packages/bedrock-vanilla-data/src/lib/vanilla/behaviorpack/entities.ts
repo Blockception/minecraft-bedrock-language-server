@@ -5,6 +5,11 @@ import { Entity } from '../../types/behaviorpack/entity';
 
 export const Entities: Entity[] = [
   {
+    "id": "minecraft:agent",
+    "events": [],
+    "families": []
+  },
+  {
     "id": "minecraft:allay",
     "events": [
       "pickup_item_delay",
@@ -879,6 +884,14 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:npc",
+    "events": [],
+    "families": [
+      "npc",
+      "mob"
+    ]
+  },
+  {
     "id": "minecraft:ocelot",
     "events": [
       "minecraft:entity_spawned",
@@ -1428,6 +1441,15 @@ export const Entities: Entity[] = [
     "families": [
       "trader_llama",
       "llama",
+      "mob"
+    ]
+  },
+  {
+    "id": "minecraft:tripod_camera",
+    "events": [],
+    "families": [
+      "tripodcamera",
+      "inanimate",
       "mob"
     ]
   },
