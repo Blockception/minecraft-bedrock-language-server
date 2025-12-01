@@ -46,7 +46,7 @@
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^24.3.1",
     "eslint": "^9.35.0",
-    "rimraf": "^6.1.0",
+    "rimraf": "^6.1.2",
     "ts-loader": "^9.5.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.9.2",
