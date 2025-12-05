@@ -13,7 +13,7 @@ jobs:
     name: 🥄 Scraper
     steps:
       - name: 📦 Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 🏗️ Setup Node.js Environment
         uses: actions/setup-node@v6
