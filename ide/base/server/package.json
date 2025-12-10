@@ -28,6 +28,7 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
+    "@blockception/packages-shared": "*",
     "@blockception/ide-shared": "*",
     "@daanv2/queue-processor": "^2.2.1",
     "@types/vscode": "^1.106.1",

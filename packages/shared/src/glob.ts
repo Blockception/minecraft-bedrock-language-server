@@ -1,10 +1,14 @@
-import { Glob as SharedGlob } from '@blockception/packages-shared';
-import { Fs, Vscode } from '../util';
+import FastGlob from 'fast-glob';
+import pm from 'picomatch';
 
 /**
- * Glob utilities with VSCode URI handling
+ * Glob utilities for file pattern matching and searching
  */
 export namespace Glob {
+  const opt: pm.PicomatchOptions = {
+    contains: true,
+  };
+
   /**
    * Filters out files that match the ignore patterns
    * @param source The list of file paths to filter
@@ -12,7 +16,7 @@ export namespace Glob {
    * @returns The filtered list of file paths
    */
   export function excludes(source: string[], ignores: string[]): string[] {
-    return SharedGlob.excludes(source, ignores);
+    return source.filter((x) => !pm.isMatch(x, ignores, opt));
   }
 
   /**
@@ -22,16 +26,16 @@ export namespace Glob {
    * @returns True if the source matches any pattern
    */
   export function isMatch(source: string, patterns: string[]): boolean {
-    return SharedGlob.isMatch(source, patterns);
+    return pm.isMatch(source, patterns, opt);
   }
 
   /**
-   * Gets all files matching the given patterns, with VSCode URI conversion
+   * Gets all files matching the given patterns
    * @param source The glob pattern(s) to search for files
    * @param ignores The glob patterns to ignore (optional)
    * @param cwd The working directory (optional)
    * @param baseNameMatch Whether to match against the basename only (optional)
-   * @returns An array of VSCode URIs
+   * @returns An array of absolute file paths
    */
   export function getFiles(
     source: string | string[],
@@ -39,22 +43,23 @@ export namespace Glob {
     cwd: string | undefined = undefined,
     baseNameMatch: boolean | undefined = undefined,
   ): string[] {
-    // Convert cwd from VSCode URI to file system path
     if (cwd) cwd = folderPath(cwd);
 
-    const entries = SharedGlob.getFiles(source, ignores, cwd, baseNameMatch);
+    const options: FastGlob.Options = { onlyFiles: true, absolute: true, cwd: cwd, baseNameMatch: baseNameMatch };
+    let entries = FastGlob.sync(source, options);
 
-    // Convert file system paths back to VSCode URIs
-    return entries.map(Vscode.fromFs);
+    if (ignores && ignores.length > 0) entries = excludes(entries, ignores);
+
+    return entries;
   }
 
   /**
-   * Normalizes a folder path from VSCode URI to file system path
+   * Normalizes a folder path to use forward slashes
    * @param folder The folder path to normalize
    * @returns The normalized folder path
    */
   export function folderPath(folder: string): string {
-    return Fs.FromVscode(folder).replace(/\\/gi, '/');
+    return folder.replace(/\\/gi, '/');
   }
 
   /**
@@ -63,7 +68,11 @@ export namespace Glob {
    * @returns The normalized source
    */
   export function ensureSources(source: string | string[]): string | string[] {
-    return SharedGlob.ensureSources(source);
+    if (typeof source == 'string') {
+      return internalEnsureSource(source);
+    }
+
+    return source.map(internalEnsureSource);
   }
 
   /**
@@ -72,6 +81,17 @@ export namespace Glob {
    * @returns The normalized source path
    */
   export function ensureSource(source: string): string {
-    return SharedGlob.ensureSource(source);
+    return internalEnsureSource(source);
+  }
+
+  function internalEnsureSource(source: string): string {
+    source = decodeURI(source);
+    source = source.replace(/%3A/gi, ':');
+    source = source.replace(/\\/gi, '/');
+
+    if (source.startsWith('file:///')) source = source.substring(8);
+    else if (source.startsWith('file://')) source = source.substring(7);
+
+    return source;
   }
 }
