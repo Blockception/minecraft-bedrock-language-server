@@ -8,14 +8,15 @@ describe("BehaviorPack", () => {
     describe("Commands", () => {
       //Correct commands
       const correctsCommands: string[] = [
-        'setblock ~ ~ ~ spruce_log ["pillar_axis"="x"]',
+        'setblock ~ ~ ~ spruce_log["pillar_axis"="x"]',
         "setblock ~ ~ ~ spruce_log []",
+        'setblock ~ ~ ~ spruce_log ["pillar_axis"="x"]', // with space before states
       ];
 
       //Incorrect commands
       const incorrectCommands: string[] = [
-        "setblock ~ ~ ~ spruce_log [pillar_axis:x]",
-        "setblock ~ ~ ~ stone [pillar_axis:x]",
+        "setblock ~ ~ ~ spruce_log [pillar_axis:x]", // with space - invalid syntax (colon instead of equals)
+        "setblock ~ ~ ~ stone [pillar_axis:x]", // with space - invalid state on block
       ];
 
       for (let I = 0; I < correctsCommands.length; I++) {
