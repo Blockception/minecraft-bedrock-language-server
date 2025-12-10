@@ -140,15 +140,13 @@ We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) and
 
 ## Documentation
 
-- See the [documentation/](documentation/) folder for guides, API docs, and tutorials.
-- Key docs:
-  - [Commands](documentation/Commands.md)
-  - [Debugging](documentation/Debugging.md)
-  - [Json Validation](documentation/Json%20Validation.md)
-  - [Style Guide](documentation/Style%20Guide.md)
-  - [Completion - JSON](documentation/guides/completion-json.md)
-  - [Completion - Mcfunctions](documentation/completion/Mcfunctions.md)
-  - [Project Attributes](documentation/project/MCAttributes.md)
+Comprehensive documentation is available in the [documentation/](documentation/) folder. See the [Documentation README](documentation/README.md) for a complete guide.
+
+**Quick Links:**
+- **Core Documentation**: [Commands](documentation/Commands.md), [Debugging](documentation/Debugging.md), [JSON Validation](documentation/Json%20Validation.md), [Style Guide](documentation/Style%20Guide.md)
+- **Feature Guides**: [Completion](documentation/completion/), [Implementation Guides](documentation/guides/)
+- **Project Configuration**: [MCAttributes](documentation/project/MCAttributes.md), [MCDefinitions](documentation/project/MCDefinitions.md), [MCIgnore](documentation/project/MCIgnore.md)
+- **Templates**: [Template System](documentation/template/)
 
 ---
 
