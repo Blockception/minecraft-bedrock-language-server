@@ -20,7 +20,7 @@
     "rimraf": "^6.1.2",
     "ts-node": "^10.9.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "bc-minecraft-bedrock-command": "*"
