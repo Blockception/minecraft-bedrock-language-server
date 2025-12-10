@@ -10,6 +10,7 @@ This guide explains how to add JSON completion (autocomplete) to the Minecraft B
 - [Examples](#examples)
 - [Best Practices](#best-practices)
 - [Testing](#testing)
+- [Common Issues](#common-issues)
 
 ---
 
