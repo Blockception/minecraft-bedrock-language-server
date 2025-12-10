@@ -72,3 +72,15 @@ Updated shared type definitions across packages
 - **patch**: Bug fixes, documentation, minor changes (0.0.X)
 - **minor**: New features, backwards compatible (0.X.0)
 - **major**: Breaking changes (X.0.0)
+
+## Linked Packages
+
+This repository uses **linked packages** to ensure related packages are versioned together. When you create a changeset for one package in a linked group, **all packages in that group will receive the same version bump**.
+
+### Linked Groups:
+1. **Core Bedrock packages**: types, vanilla-data, command, molang, bedrock-project, diagnoser
+2. **IDE/LSP packages**: ide-shared, lsp-client, lsp, vscode extension
+
+**Example**: If you create a patch changeset for `bc-minecraft-bedrock-types`, all other core Bedrock packages will also receive a patch bump automatically. You only need to create the changeset for the package you directly modified.
+
+For more details, see the [Release Process](../documentation/Release-Process.md) documentation.

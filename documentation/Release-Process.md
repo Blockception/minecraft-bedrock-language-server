@@ -6,6 +6,33 @@ This document describes the complete release process for the Minecraft Bedrock L
 
 The repository uses **Changesets** for version management and **Release Drafter** for release notes. The process is highly automated with minimal manual intervention required.
 
+## Linked Package Groups
+
+This repository uses **linked packages** to ensure that related packages are always versioned together. When any package in a linked group receives a changeset, all packages in that group will receive the same version bump.
+
+### Core Bedrock Packages
+These packages form the core Bedrock functionality and are versioned together:
+- `bc-minecraft-bedrock-types` - Core type definitions
+- `bc-minecraft-bedrock-vanilla-data` - Vanilla data structures
+- `bc-minecraft-bedrock-command` - Command parsing and handling
+- `bc-minecraft-molang` - Molang expression support
+- `bc-minecraft-bedrock-project` - Project management
+- `bc-minecraft-bedrock-diagnoser` - Diagnostic tools
+
+**Impact**: If you update `bc-minecraft-bedrock-types` with a patch bump, all other packages in this group will also receive a patch bump. This ensures consistency across the core Bedrock stack.
+
+### IDE/LSP Packages
+These packages form the IDE and Language Server functionality:
+- `@blockception/ide-shared` - Shared IDE utilities
+- `bc-minecraft-lsp-client` - LSP client implementation
+- `bc-minecraft-lsp` - Language server implementation
+- `blockceptionvscodeminecraftbedrockdevelopmentextension` - VS Code extension
+
+**Impact**: Updates to any IDE component will bump all IDE-related packages together, ensuring the extension, server, and client remain compatible.
+
+### Configuration
+The linked packages are configured in `.changeset/config.json` under the `linked` array.
+
 ## Process Flow
 
 ```
