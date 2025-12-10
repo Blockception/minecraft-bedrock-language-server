@@ -78,11 +78,8 @@ export function processEntityCommands(doc: TextDocument, receiver: GeneralCollec
 }
 
 function InternalJsonValue(prop: string, doc: TextDocument, receiver: GeneralCollection) {
-  if (prop.startsWith('/')) {
-    const offset = doc.getText().indexOf(prop);
-
-    ProcessCommandAt(prop, offset, doc, receiver);
-  }
+  const offset = doc.getText().indexOf(prop);
+  ProcessCommandAt(prop, offset, doc, receiver);
 }
 
 /**

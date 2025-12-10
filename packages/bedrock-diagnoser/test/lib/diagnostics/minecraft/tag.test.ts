@@ -45,5 +45,20 @@ describe("Tag", () => {
     tags.forEach((t) => minecraft_tag_diagnose(Types.OffsetWord.create(t), B));
 
     B.expectAmount(4);
-  }); 
+  });
+
+  it("diagnose tag defined in entity queue_command", () => {
+    const B = TestDiagnoser.create();
+    const data = B.context.getProjectData().projectData;
+
+    // Simulate a tag being defined in an entity queue_command event
+    data.general.tags.set([
+      GeneralInfo.create("test", Location.create("file:///bp/entities/test.json"), "Entity event command"),
+    ]);
+
+    // This should not produce an error since the tag is defined
+    minecraft_tag_diagnose(Types.OffsetWord.create("test"), B);
+
+    B.expectEmpty();
+  });
 });
