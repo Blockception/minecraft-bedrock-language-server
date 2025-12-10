@@ -10,9 +10,7 @@
       "bc-minecraft-bedrock-command",
       "bc-minecraft-molang",
       "bc-minecraft-bedrock-project",
-      "bc-minecraft-bedrock-diagnoser"
-    ],
-    [
+      "bc-minecraft-bedrock-diagnoser",
       "@blockception/ide-shared",
       "bc-minecraft-lsp-client",
       "bc-minecraft-lsp",
