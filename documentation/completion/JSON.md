@@ -89,7 +89,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 
   // Add project data
   builder.generate(context.database.ProjectData.behaviorPacks.[type], generateDoc);
-  
+
   // Add vanilla data
   builder.generate(MinecraftData.vanilla.BehaviorPack.[type], generateDoc);
 
@@ -113,17 +113,17 @@ export function provideJsonCompletion(context: Context<CompletionContext>) {
 
 const myJsonCompletion = new JsonPathCompletion(
   {
-    match: 'path/to/property',  // String match (checks if path ends with this)
+    match: 'path/to/property', // String match (checks if path ends with this)
     onCompletion: provideCompletion,
   },
   {
-    match: /regex_pattern$/,     // Regex match
+    match: /regex_pattern$/, // Regex match
     onCompletion: provideCompletion,
   },
   {
-    match: (path) => path.includes('condition'),  // Function match
+    match: (path) => path.includes('condition'), // Function match
     onCompletion: provideCompletion,
-  }
+  },
 );
 ```
 
@@ -207,9 +207,7 @@ export function provideJsonCompletion(context: Context<CompletionContext>) {
   return itemJsonCompletion.onCompletion(context);
 }
 
-const itemJsonCompletion = new JsonPathCompletion(
-  JsonPathMatch.create('minecraft:icon/texture', provideCompletion)
-);
+const itemJsonCompletion = new JsonPathCompletion(JsonPathMatch.create('minecraft:icon/texture', provideCompletion));
 ```
 
 ### Example 2: Complex Entity Completion with Multiple Paths
@@ -248,7 +246,7 @@ const entityJsonCompletion = new JsonPathCompletion(
       Animations.provideCompletion(c);
       AnimationControllers.provideCompletion(c);
     },
-  }
+  },
 );
 ```
 
@@ -287,6 +285,7 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>): 
 ### 3. Support All Data Sources
 
 Always include:
+
 - **Project data** (user's custom content)
 - **Vanilla data** (Minecraft's built-in content)
 - **Education data** (when enabled in project settings)
@@ -294,6 +293,7 @@ Always include:
 ### 4. Use Appropriate Completion Kinds
 
 Use the correct `Kinds.Completion` type:
+
 - `Block` for blocks
 - `Entity` for entities
 - `Item` for items
@@ -312,6 +312,7 @@ This helps the IDE display proper icons and categorization.
 ### 6. Match JSON Paths Carefully
 
 When using `JsonPathCompletion`:
+
 - **String matches** check if the path ends with the string
 - **Regex matches** can be more flexible but must be precise
 - **Function matches** offer the most control but add complexity
@@ -321,6 +322,7 @@ Test your path matching to ensure it triggers in the right places.
 ### 7. Reuse Existing Completion Functions
 
 Many completion providers can be reused across different contexts:
+
 - Entity completions can be used in spawn rules, loot tables, etc.
 - Item completions can be used in trades, loot tables, recipes, etc.
 - Sound completions can be used in entities, sound definitions, etc.
@@ -332,6 +334,7 @@ Many completion providers can be reused across different contexts:
 ### Manual Testing
 
 1. **Build the project**:
+
    ```bash
    npm run build
    ```
@@ -352,6 +355,7 @@ Many completion providers can be reused across different contexts:
 ### Automated Testing
 
 Consider adding unit tests in the test folders:
+
 - Test that completion providers return expected items
 - Test JSON path matching logic
 - Test data filtering and transformation
