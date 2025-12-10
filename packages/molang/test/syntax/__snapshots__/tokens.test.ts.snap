@@ -1155,7 +1155,46 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 67. v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar') 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 67. variable.check = query.is_baby ? true :false 1`] = `
+[
+  "variable.check NamespacedIdentifier",
+  "= Assignment",
+  "query.is_baby NamespacedIdentifier",
+  "? QuestionMark",
+  "true Boolean",
+  ": Colon",
+  "false Boolean",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 68. variable.check = query.is_baby ? true:false 1`] = `
+[
+  "variable.check NamespacedIdentifier",
+  "= Assignment",
+  "query.is_baby NamespacedIdentifier",
+  "? QuestionMark",
+  "true Boolean",
+  ": Colon",
+  "false Boolean",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 69. variable.check = query.is_baby ? true : false 1`] = `
+[
+  "variable.check NamespacedIdentifier",
+  "= Assignment",
+  "query.is_baby NamespacedIdentifier",
+  "? QuestionMark",
+  "true Boolean",
+  ": Colon",
+  "false Boolean",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 70. v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar') 1`] = `
 [
   "v.temp_outfit NamespacedIdentifier",
   "!= Operator",
@@ -1177,7 +1216,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 68. variable.is_active = true; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 71. variable.is_active = true; 1`] = `
 [
   "variable.is_active NamespacedIdentifier",
   "= Assignment",
@@ -1187,7 +1226,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 69. variable.is_active = false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 72. variable.is_active = false; 1`] = `
 [
   "variable.is_active NamespacedIdentifier",
   "= Assignment",
@@ -1197,7 +1236,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 70. v.enabled = true; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 73. v.enabled = true; 1`] = `
 [
   "v.enabled NamespacedIdentifier",
   "= Assignment",
@@ -1207,7 +1246,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 71. v.enabled = false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 74. v.enabled = false; 1`] = `
 [
   "v.enabled NamespacedIdentifier",
   "= Assignment",
@@ -1217,7 +1256,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 72. temp.flag = true; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 75. temp.flag = true; 1`] = `
 [
   "temp.flag NamespacedIdentifier",
   "= Assignment",
@@ -1227,7 +1266,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 73. t.result = false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 76. t.result = false; 1`] = `
 [
   "t.result NamespacedIdentifier",
   "= Assignment",
@@ -1237,7 +1276,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 74. variable.flag ? true : false 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 77. variable.flag ? true : false 1`] = `
 [
   "variable.flag NamespacedIdentifier",
   "? QuestionMark",
@@ -1248,7 +1287,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 75. query.is_sleeping ? false : true 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 78. query.is_sleeping ? false : true 1`] = `
 [
   "query.is_sleeping NamespacedIdentifier",
   "? QuestionMark",
@@ -1259,7 +1298,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 76. true && query.is_baby 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 79. true && query.is_baby 1`] = `
 [
   "true Boolean",
   "&& Operator",
@@ -1268,7 +1307,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 77. false || variable.is_running 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 80. false || variable.is_running 1`] = `
 [
   "false Boolean",
   "|| Operator",
@@ -1277,7 +1316,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 78. variable.state = query.is_alive ? true : false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 81. variable.state = query.is_alive ? true : false; 1`] = `
 [
   "variable.state NamespacedIdentifier",
   "= Assignment",
@@ -1291,7 +1330,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 79. variable.result = !false && query.is_alive; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 82. variable.result = !false && query.is_alive; 1`] = `
 [
   "variable.result NamespacedIdentifier",
   "= Assignment",
@@ -1304,7 +1343,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 80. variable.check = !true || query.is_sleeping; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 83. variable.check = !true || query.is_sleeping; 1`] = `
 [
   "variable.check NamespacedIdentifier",
   "= Assignment",
@@ -1317,7 +1356,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 81. variable.status = true == query.is_valid; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 84. variable.status = true == query.is_valid; 1`] = `
 [
   "variable.status NamespacedIdentifier",
   "= Assignment",
@@ -1329,7 +1368,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 82. variable.status = false != query.is_valid; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 85. variable.status = false != query.is_valid; 1`] = `
 [
   "variable.status NamespacedIdentifier",
   "= Assignment",
@@ -1341,7 +1380,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 83. variable.value = (true && variable.enabled) || false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 86. variable.value = (true && variable.enabled) || false; 1`] = `
 [
   "variable.value NamespacedIdentifier",
   "= Assignment",
@@ -1357,7 +1396,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 84. query.is_baby ? true : variable.default_value 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 87. query.is_baby ? true : variable.default_value 1`] = `
 [
   "query.is_baby NamespacedIdentifier",
   "? QuestionMark",
@@ -1368,7 +1407,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 85. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 88. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
 [
   "variable.state NamespacedIdentifier",
   "= Assignment",

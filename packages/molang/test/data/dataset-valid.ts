@@ -77,7 +77,11 @@ export const valid_syntaxes = [
   'query.skin_id == 2 ? Geometry.default : Geometry.baby',
   'variable.has_trim ? variable.trim_path: Texture.default',
   'variable.state = variable.is_rolled_up ? 1: 0;',
+  // All valid ternary operator whitespace variations
   'variable.check = query.is_baby ? true: false',
+  'variable.check = query.is_baby ? true :false',
+  'variable.check = query.is_baby ? true:false',
+  'variable.check = query.is_baby ? true : false',
 
   // Test
   "v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar')",
