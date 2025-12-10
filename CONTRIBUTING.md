@@ -36,8 +36,12 @@ When your PR is merged to `main`:
 1. The changesets GitHub Action will detect the changeset files
 2. It will automatically create or update a "Version Packages" PR
 3. This PR will contain all version bumps and updated CHANGELOGs
-4. When the Version PR is merged, all affected packages will be versioned accordingly
-5. The release workflow can then publish the updated packages
+4. The release-drafter workflow will also create/update a release draft in parallel
+5. When the "Version Packages" PR is merged:
+   - All affected packages will have their versions updated
+   - CHANGELOGs will be updated
+   - A new release draft will be created by release-drafter
+6. The release workflow can then publish the updated packages when the release is published
 
 ### Manual Version Update
 
