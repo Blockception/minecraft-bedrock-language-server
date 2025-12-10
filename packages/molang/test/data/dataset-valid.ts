@@ -72,6 +72,12 @@ export const valid_syntaxes = [
   'variable.state = variable.is_rolled_up ? 1 : 0;',
   'variable.state = variable.is_rolled_up ? 2 * (5 + variable.state) : 3 * 1 + variable.foo;',
   'variable.state = variable.is_rolled_up ? variable.rolled_up_time >= 0.2083 ? 1 : 2 : 3;',
+  // Issue #xxx: Ternary operator without space before colon
+  'query.skin_id == 2 ? Geometry.default: Geometry.baby',
+  'query.skin_id == 2 ? Geometry.default : Geometry.baby',
+  'variable.has_trim ? variable.trim_path: Texture.default',
+  'variable.state = variable.is_rolled_up ? 1: 0;',
+  'variable.check = query.is_baby ? true: false',
 
   // Test
   "v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar')",

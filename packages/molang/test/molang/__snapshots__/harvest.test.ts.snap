@@ -6762,7 +6762,377 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 62. v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar') 1`] = `
+exports[`MolangSet - harvest 62. query.skin_id == 2 ? Geometry.default: Geometry.baby 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "query.skin_id == 2 ? Geometry.default: Geometry.baby" => [
+        {
+          "_processed": true,
+          "condition": {
+            "_processed": true,
+            "left": {
+              "arguments": [],
+              "names": [
+                "skin_id",
+              ],
+              "position": 47,
+              "scope": "query",
+              "type": 4,
+            },
+            "operator": "==",
+            "position": 61,
+            "right": {
+              "position": 64,
+              "type": 5,
+              "value": "2",
+            },
+            "type": 2,
+          },
+          "falseExpression": {
+            "names": [
+              "baby",
+            ],
+            "position": 86,
+            "scope": "geometry",
+            "type": 8,
+          },
+          "position": 66,
+          "trueExpression": {
+            "names": [
+              "default",
+            ],
+            "position": 68,
+            "scope": "geometry",
+            "type": 8,
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [],
+      "names": [
+        "skin_id",
+      ],
+      "position": 47,
+      "scope": "query",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "default",
+      ],
+      "position": 68,
+      "scope": "geometry",
+      "type": 8,
+    },
+    {
+      "names": [
+        "baby",
+      ],
+      "position": 86,
+      "scope": "geometry",
+      "type": 8,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 63. query.skin_id == 2 ? Geometry.default : Geometry.baby 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "query.skin_id == 2 ? Geometry.default : Geometry.baby" => [
+        {
+          "_processed": true,
+          "condition": {
+            "_processed": true,
+            "left": {
+              "arguments": [],
+              "names": [
+                "skin_id",
+              ],
+              "position": 47,
+              "scope": "query",
+              "type": 4,
+            },
+            "operator": "==",
+            "position": 61,
+            "right": {
+              "position": 64,
+              "type": 5,
+              "value": "2",
+            },
+            "type": 2,
+          },
+          "falseExpression": {
+            "names": [
+              "baby",
+            ],
+            "position": 87,
+            "scope": "geometry",
+            "type": 8,
+          },
+          "position": 66,
+          "trueExpression": {
+            "names": [
+              "default",
+            ],
+            "position": 68,
+            "scope": "geometry",
+            "type": 8,
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [],
+      "names": [
+        "skin_id",
+      ],
+      "position": 47,
+      "scope": "query",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "default",
+      ],
+      "position": 68,
+      "scope": "geometry",
+      "type": 8,
+    },
+    {
+      "names": [
+        "baby",
+      ],
+      "position": 87,
+      "scope": "geometry",
+      "type": 8,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 64. variable.has_trim ? variable.trim_path: Texture.default 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "variable.has_trim ? variable.trim_path: Texture.default" => [
+        {
+          "_processed": true,
+          "condition": {
+            "names": [
+              "has_trim",
+            ],
+            "position": 47,
+            "scope": "variable",
+            "type": 12,
+          },
+          "falseExpression": {
+            "names": [
+              "default",
+            ],
+            "position": 87,
+            "scope": "texture",
+            "type": 8,
+          },
+          "position": 65,
+          "trueExpression": {
+            "names": [
+              "trim_path",
+            ],
+            "position": 67,
+            "scope": "variable",
+            "type": 12,
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {
+    {
+      "names": [
+        "has_trim",
+      ],
+      "position": 47,
+      "scope": "variable",
+      "type": 12,
+    },
+    {
+      "names": [
+        "trim_path",
+      ],
+      "position": 67,
+      "scope": "variable",
+      "type": 12,
+    },
+    {
+      "names": [
+        "default",
+      ],
+      "position": 87,
+      "scope": "texture",
+      "type": 8,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 65. variable.state = variable.is_rolled_up ? 1: 0; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "state",
+      ],
+      "position": 47,
+      "scope": "variable",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "variable.state = variable.is_rolled_up ? 1: 0;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "state",
+            ],
+            "position": 47,
+            "scope": "variable",
+            "type": 12,
+          },
+          "position": 62,
+          "right": {
+            "_processed": true,
+            "condition": {
+              "names": [
+                "is_rolled_up",
+              ],
+              "position": 64,
+              "scope": "variable",
+              "type": 12,
+            },
+            "falseExpression": {
+              "position": 91,
+              "type": 5,
+              "value": "0",
+            },
+            "position": 86,
+            "trueExpression": {
+              "position": 88,
+              "type": 5,
+              "value": "1",
+            },
+            "type": 3,
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {
+    {
+      "names": [
+        "is_rolled_up",
+      ],
+      "position": 64,
+      "scope": "variable",
+      "type": 12,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 66. variable.check = query.is_baby ? true: false 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "check",
+      ],
+      "position": 47,
+      "scope": "variable",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "variable.check = query.is_baby ? true: false" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "check",
+            ],
+            "position": 47,
+            "scope": "variable",
+            "type": 12,
+          },
+          "position": 62,
+          "right": {
+            "_processed": true,
+            "condition": {
+              "arguments": [],
+              "names": [
+                "is_baby",
+              ],
+              "position": 64,
+              "scope": "query",
+              "type": 4,
+            },
+            "falseExpression": {
+              "position": 86,
+              "type": 5,
+              "value": "false",
+            },
+            "position": 78,
+            "trueExpression": {
+              "position": 80,
+              "type": 5,
+              "value": "true",
+            },
+            "type": 3,
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [],
+      "names": [
+        "is_baby",
+      ],
+      "position": 64,
+      "scope": "query",
+      "type": 4,
+    },
+  },
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 67. v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar') 1`] = `
 MolangSet {
   "assigned": Set {},
   "cache": MolangSyntaxCache {
@@ -6902,7 +7272,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 63. variable.is_active = true; 1`] = `
+exports[`MolangSet - harvest 68. variable.is_active = true; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -6943,7 +7313,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 64. variable.is_active = false; 1`] = `
+exports[`MolangSet - harvest 69. variable.is_active = false; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -6984,7 +7354,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 65. v.enabled = true; 1`] = `
+exports[`MolangSet - harvest 70. v.enabled = true; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7025,7 +7395,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 66. v.enabled = false; 1`] = `
+exports[`MolangSet - harvest 71. v.enabled = false; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7066,7 +7436,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 67. temp.flag = true; 1`] = `
+exports[`MolangSet - harvest 72. temp.flag = true; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7107,7 +7477,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 68. t.result = false; 1`] = `
+exports[`MolangSet - harvest 73. t.result = false; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7148,7 +7518,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 69. variable.flag ? true : false 1`] = `
+exports[`MolangSet - harvest 74. variable.flag ? true : false 1`] = `
 MolangSet {
   "assigned": Set {},
   "cache": MolangSyntaxCache {
@@ -7194,7 +7564,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 70. query.is_sleeping ? false : true 1`] = `
+exports[`MolangSet - harvest 75. query.is_sleeping ? false : true 1`] = `
 MolangSet {
   "assigned": Set {},
   "cache": MolangSyntaxCache {
@@ -7242,7 +7612,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 71. true && query.is_baby 1`] = `
+exports[`MolangSet - harvest 76. true && query.is_baby 1`] = `
 MolangSet {
   "assigned": Set {},
   "cache": MolangSyntaxCache {
@@ -7286,7 +7656,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 72. false || variable.is_running 1`] = `
+exports[`MolangSet - harvest 77. false || variable.is_running 1`] = `
 MolangSet {
   "assigned": Set {},
   "cache": MolangSyntaxCache {
@@ -7328,7 +7698,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 73. variable.state = query.is_alive ? true : false; 1`] = `
+exports[`MolangSet - harvest 78. variable.state = query.is_alive ? true : false; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7398,7 +7768,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 74. variable.result = !false && query.is_alive; 1`] = `
+exports[`MolangSet - harvest 79. variable.result = !false && query.is_alive; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7470,7 +7840,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 75. variable.check = !true || query.is_sleeping; 1`] = `
+exports[`MolangSet - harvest 80. variable.check = !true || query.is_sleeping; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7542,7 +7912,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 76. variable.status = true == query.is_valid; 1`] = `
+exports[`MolangSet - harvest 81. variable.status = true == query.is_valid; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7608,7 +7978,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 77. variable.status = false != query.is_valid; 1`] = `
+exports[`MolangSet - harvest 82. variable.status = false != query.is_valid; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7674,7 +8044,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 78. variable.value = (true && variable.enabled) || false; 1`] = `
+exports[`MolangSet - harvest 83. variable.value = (true && variable.enabled) || false; 1`] = `
 MolangSet {
   "assigned": Set {
     {
@@ -7749,7 +8119,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 79. query.is_baby ? true : variable.default_value 1`] = `
+exports[`MolangSet - harvest 84. query.is_baby ? true : variable.default_value 1`] = `
 MolangSet {
   "assigned": Set {},
   "cache": MolangSyntaxCache {
@@ -7809,7 +8179,7 @@ MolangSet {
 }
 `;
 
-exports[`MolangSet - harvest 80. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
+exports[`MolangSet - harvest 85. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
 MolangSet {
   "assigned": Set {
     {
