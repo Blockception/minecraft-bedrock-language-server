@@ -29,8 +29,8 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "devDependencies": {
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.3",
     "@types/jest": "^30.0.0",
-    "@types/node": "^22.15.30"
+    "@types/node": "^24.10.2"
   }
 }
