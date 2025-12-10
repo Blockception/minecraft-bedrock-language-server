@@ -114,10 +114,20 @@ export function tokenize(input: string): Token[] {
 
       while (pos < input.length) {
         const ch = input[pos];
-        // Allow alphanumeric, dots, underscores, and colons in identifiers
-        if (isAlphaNumeric(ch) || ch === '.' || ch === ':') {
+        // Allow alphanumeric, dots, underscores in identifiers
+        if (isAlphaNumeric(ch) || ch === '.') {
           value += ch;
           pos++;
+        } else if (ch === ':') {
+          // Only include colon if it's followed by an alphanumeric character (for namespacing like minecraft:state)
+          // This prevents colons from ternary operators being included in identifiers
+          // Check bounds before accessing input[pos + 1] to avoid out-of-bounds access
+          if (pos + 1 < input.length && isAlphaNumeric(input[pos + 1])) {
+            value += ch;
+            pos++;
+          } else {
+            break;
+          }
         } else {
           break;
         }
