@@ -167,6 +167,21 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:camel_husk",
+    "animations": [
+      "moving",
+      "sit_down",
+      "sitting",
+      "stand_up",
+      "look_at_target",
+      "dashing",
+      "dashing_sound",
+      "idle",
+      "general_controller",
+      "idle_controller"
+    ]
+  },
+  {
     "id": "minecraft:cat",
     "animations": [
       "sneak",
@@ -612,6 +627,19 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:nautilus",
+    "animations": [
+      "breathe",
+      "swim",
+      "look_at_target",
+      "charge_warning",
+      "dashing",
+      "sound_controller",
+      "general_controller",
+      "attack_controller"
+    ]
+  },
+  {
     "id": "minecraft:ocelot",
     "animations": [
       "baby_transform",
@@ -634,6 +662,43 @@ export const Entities: Entity[] = [
       "sitting",
       "rolling",
       "lying"
+    ]
+  },
+  {
+    "id": "minecraft:parched",
+    "animations": [
+      "look_at_target_default",
+      "look_at_target_controller",
+      "look_at_target_gliding",
+      "look_at_target_swimming",
+      "move",
+      "move_controller",
+      "riding.arms",
+      "riding.legs",
+      "riding.body",
+      "riding_controller",
+      "holding",
+      "holding_controller",
+      "brandish_spear",
+      "brandish_spear_controller",
+      "charging",
+      "charging_controller",
+      "attack.rotations",
+      "attack_controller",
+      "sneaking",
+      "sneaking_controller",
+      "bob",
+      "bob_controller",
+      "damage_nearby_mobs",
+      "damage_nearby_mobs_controller",
+      "bow_and_arrow",
+      "bow_and_arrow_controller",
+      "swimming",
+      "swimming_controller",
+      "use_item_progress",
+      "use_item_progress_controller",
+      "skeleton_attack",
+      "skeleton_attack_controller"
     ]
   },
   {
@@ -686,7 +751,10 @@ export const Entities: Entity[] = [
       "riding_controller",
       "riding.arms",
       "riding.legs",
-      "riding.body"
+      "riding.body",
+      "melee_spear_use",
+      "melee_spear_hold",
+      "melee_spear_controller"
     ]
   },
   {
@@ -800,8 +868,18 @@ export const Entities: Entity[] = [
       "brushing",
       "crawling",
       "crawling.legs",
+      "swimming.no_right_arm",
+      "crawling.no_right_arm",
+      "riding.root",
       "holding_heavy_core",
-      "riding.root"
+      "first_person_melee_spear_use",
+      "first_person_melee_spear_hold",
+      "first_person_melee_spear_attack",
+      "first_person_melee_spear_controller",
+      "third_person_melee_spear_use",
+      "third_person_melee_spear_hold",
+      "third_person_melee_spear_attack",
+      "third_person_melee_spear_controller"
     ]
   },
   {
@@ -1270,6 +1348,19 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:zombie_nautilus",
+    "animations": [
+      "breathe",
+      "swim",
+      "look_at_target",
+      "charge_warning",
+      "dashing",
+      "sound_controller",
+      "general_controller",
+      "attack_controller"
+    ]
+  },
+  {
     "id": "minecraft:zombie_pigman",
     "animations": [
       "humanoid_big_head",
@@ -1339,7 +1430,26 @@ export const Entities: Entity[] = [
       "use_item_progress",
       "zombie_attack_bare_hand",
       "swimming",
-      "riding.body"
+      "humanoid_base_pose_controller",
+      "humanoid_big_head_controller",
+      "look_at_target_controller",
+      "move_controller",
+      "riding.body",
+      "riding_controller",
+      "holding_controller",
+      "brandish_spear_controller",
+      "charging_controller",
+      "attack_controller",
+      "sneaking_controller",
+      "bob_controller",
+      "damage_nearby_mobs_controller",
+      "bow_and_arrow_controller",
+      "use_item_progress_controller",
+      "zombie_attack_bare_hand_controller",
+      "swimming_controller",
+      "melee_spear_use",
+      "melee_spear_hold",
+      "melee_spear_controller"
     ]
   }
 ];

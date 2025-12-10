@@ -269,6 +269,25 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.camel_husk",
+    "bones": [
+      "root",
+      "body",
+      "saddle",
+      "tail",
+      "head",
+      "bridle",
+      "left_ear",
+      "right_ear",
+      "reins",
+      "hump",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg"
+    ]
+  },
+  {
     "id": "geometry.cape",
     "bones": [
       "root",
@@ -1260,6 +1279,42 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.nautilus",
+    "bones": [
+      "nautilus",
+      "head",
+      "body",
+      "mouth_top",
+      "inner_mouth",
+      "mouth_bottom"
+    ]
+  },
+  {
+    "id": "geometry.nautilus_armor",
+    "bones": [
+      "nautilus",
+      "head"
+    ]
+  },
+  {
+    "id": "geometry.nautilus_saddle",
+    "bones": [
+      "nautilus",
+      "head"
+    ]
+  },
+  {
+    "id": "geometry.nautilus.baby",
+    "bones": [
+      "nautilus_baby",
+      "head",
+      "body",
+      "mouth_top",
+      "inner_mouth",
+      "mouth_bottom"
+    ]
+  },
+  {
     "id": "geometry.npc",
     "bones": [
       "head",
@@ -1309,6 +1364,20 @@ export const Models: Model[] = [
       "leg1",
       "leg2",
       "leg3"
+    ]
+  },
+  {
+    "id": "geometry.parched",
+    "bones": [
+      "parched",
+      "body",
+      "head",
+      "rightArm",
+      "rightItem",
+      "leftArm",
+      "leftItem",
+      "rightLeg",
+      "leftLeg"
     ]
   },
   {
@@ -1947,6 +2016,12 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.spear",
+    "bones": [
+      "spear"
+    ]
+  },
+  {
     "id": "geometry.spider",
     "bones": [
       "head",
@@ -2299,6 +2374,22 @@ export const Models: Model[] = [
   {
     "id": "geometry.zombie",
     "bones": []
+  },
+  {
+    "id": "geometry.zombie_nautilus_coral",
+    "bones": [
+      "nautilus",
+      "head",
+      "body",
+      "mouth_top",
+      "inner_mouth",
+      "mouth_bottom",
+      "corals",
+      "yellow_coral",
+      "pink_coral",
+      "blue_coral",
+      "red_coral"
+    ]
   },
   {
     "id": "geometry.zombie.drowned",

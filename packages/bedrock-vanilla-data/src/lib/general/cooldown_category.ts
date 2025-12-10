@@ -5,5 +5,6 @@ export const CooldownCategory: string[] = [
   "minecraft:ender_pearl",
   "minecraft:goat_horn",
   "minecraft:shield",
+  "minecraft:spear",
   "minecraft:wind_charge"
 ];
