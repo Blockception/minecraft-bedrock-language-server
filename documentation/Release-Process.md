@@ -6,6 +6,44 @@ This document describes the complete release process for the Minecraft Bedrock L
 
 The repository uses **Changesets** for version management and **Release Drafter** for release notes. The process is highly automated with minimal manual intervention required.
 
+## Linked Package Groups
+
+This repository uses **linked packages** to ensure that related packages are always versioned together. When any package in a linked group receives a changeset, all packages in that group will receive the same version bump.
+
+### All Core Packages (Linked Group)
+All packages are linked together because `bc-minecraft-lsp` depends on all core Bedrock packages, creating a dependency chain that requires synchronized versioning:
+
+**Core Bedrock packages:**
+- `bc-minecraft-bedrock-types` - Core type definitions
+- `bc-minecraft-bedrock-vanilla-data` - Vanilla data structures
+- `bc-minecraft-bedrock-command` - Command parsing and handling
+- `bc-minecraft-molang` - Molang expression support
+- `bc-minecraft-bedrock-project` - Project management
+- `bc-minecraft-bedrock-diagnoser` - Diagnostic tools
+
+**IDE/LSP packages:**
+- `@blockception/ide-shared` - Shared IDE utilities
+- `bc-minecraft-lsp-client` - LSP client implementation
+- `bc-minecraft-lsp` - Language server implementation (depends on all Bedrock packages above)
+- `blockceptionvscodeminecraftbedrockdevelopmentextension` - VS Code extension
+
+**Impact**: Updates to ANY package in this group will bump ALL packages together. This ensures:
+- Consistency across the entire Bedrock and IDE stack
+- The LSP and VS Code extension always have compatible versions of all dependencies
+- No version mismatches between interdependent packages
+
+**Example**: A patch update to `bc-minecraft-bedrock-types` will also bump all other 9 packages with a patch version.
+
+### Independent Packages
+The following packages are not linked and version independently:
+- `@blockception/packages-shared` - Independent shared utilities
+- `bc-minecraft-project` - Base project utilities
+- `vanilla-scraper` - Data extraction tool
+- `generate-command-data` - Command data generator (ignored in changesets)
+
+### Configuration
+The linked packages are configured in `.changeset/config.json` under the `linked` array.
+
 ## Process Flow
 
 ```

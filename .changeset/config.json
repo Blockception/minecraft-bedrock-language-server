@@ -3,7 +3,20 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [],
+  "linked": [
+    [
+      "bc-minecraft-bedrock-types",
+      "bc-minecraft-bedrock-vanilla-data",
+      "bc-minecraft-bedrock-command",
+      "bc-minecraft-molang",
+      "bc-minecraft-bedrock-project",
+      "bc-minecraft-bedrock-diagnoser",
+      "@blockception/ide-shared",
+      "bc-minecraft-lsp-client",
+      "bc-minecraft-lsp",
+      "blockceptionvscodeminecraftbedrockdevelopmentextension"
+    ]
+  ],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "minor",
