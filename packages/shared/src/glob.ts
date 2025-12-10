@@ -68,7 +68,7 @@ export namespace Glob {
    * @returns The normalized source
    */
   export function ensureSources(source: string | string[]): string | string[] {
-    if (typeof source == 'string') {
+    if (typeof source === 'string') {
       return internalEnsureSource(source);
     }
 
