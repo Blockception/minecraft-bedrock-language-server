@@ -13,6 +13,7 @@ These guides are designed for developers who want to:
 ## Contents
 
 - [JSON Completion](./completion-json.md) - Comprehensive guide for adding JSON completion (autocomplete) support to new file types
+- [Creating Diagnostics](./creating-diagnostics.md) - Guide for adding new diagnostic error codes to the language server
 
 ## Guide Structure
 
