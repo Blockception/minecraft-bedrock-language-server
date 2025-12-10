@@ -1,0 +1,39 @@
+name: 📦 Changesets Version
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  version:
+    name: Create Version PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: 🏗️ Setup Node.js Environment
+        uses: actions/setup-node@v6
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
+      - name: 📥 Install Dependencies
+        run: npm ci
+
+      - name: 📝 Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          version: npx changeset version
+          commit: 'chore: update versions'
+          title: 'chore: version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

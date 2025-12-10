@@ -3580,7 +3580,342 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 62. v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar') 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 62. query.skin_id == 2 ? Geometry.default: Geometry.baby 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "_processed": true,
+      "left": {
+        "arguments": [],
+        "names": [
+          "skin_id",
+        ],
+        "position": 0,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "operator": "==",
+      "position": 14,
+      "right": {
+        "position": 17,
+        "type": "Literal",
+        "value": "2",
+      },
+      "type": "BinaryOperation",
+    },
+    "falseExpression": {
+      "names": [
+        "baby",
+      ],
+      "position": 39,
+      "scope": "geometry",
+      "type": "ResourceReference",
+    },
+    "position": 19,
+    "trueExpression": {
+      "names": [
+        "default",
+      ],
+      "position": 21,
+      "scope": "geometry",
+      "type": "ResourceReference",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 63. query.skin_id == 2 ? Geometry.default : Geometry.baby 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "_processed": true,
+      "left": {
+        "arguments": [],
+        "names": [
+          "skin_id",
+        ],
+        "position": 0,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "operator": "==",
+      "position": 14,
+      "right": {
+        "position": 17,
+        "type": "Literal",
+        "value": "2",
+      },
+      "type": "BinaryOperation",
+    },
+    "falseExpression": {
+      "names": [
+        "baby",
+      ],
+      "position": 40,
+      "scope": "geometry",
+      "type": "ResourceReference",
+    },
+    "position": 19,
+    "trueExpression": {
+      "names": [
+        "default",
+      ],
+      "position": 21,
+      "scope": "geometry",
+      "type": "ResourceReference",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 64. variable.has_trim ? variable.trim_path: Texture.default 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "names": [
+        "has_trim",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "falseExpression": {
+      "names": [
+        "default",
+      ],
+      "position": 40,
+      "scope": "texture",
+      "type": "ResourceReference",
+    },
+    "position": 18,
+    "trueExpression": {
+      "names": [
+        "trim_path",
+      ],
+      "position": 20,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 65. variable.state = variable.is_rolled_up ? 1: 0; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "state",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "condition": {
+        "names": [
+          "is_rolled_up",
+        ],
+        "position": 17,
+        "scope": "variable",
+        "type": "Variable",
+      },
+      "falseExpression": {
+        "position": 44,
+        "type": "Literal",
+        "value": "0",
+      },
+      "position": 39,
+      "trueExpression": {
+        "position": 41,
+        "type": "Literal",
+        "value": "1",
+      },
+      "type": "Conditional",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 66. variable.check = query.is_baby ? true: false 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "check",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "condition": {
+        "arguments": [],
+        "names": [
+          "is_baby",
+        ],
+        "position": 17,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "falseExpression": {
+        "position": 39,
+        "type": "Literal",
+        "value": "false",
+      },
+      "position": 31,
+      "trueExpression": {
+        "position": 33,
+        "type": "Literal",
+        "value": "true",
+      },
+      "type": "Conditional",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 67. variable.check = query.is_baby ? true :false 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "check",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "condition": {
+        "arguments": [],
+        "names": [
+          "is_baby",
+        ],
+        "position": 17,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "falseExpression": {
+        "position": 39,
+        "type": "Literal",
+        "value": "false",
+      },
+      "position": 31,
+      "trueExpression": {
+        "position": 33,
+        "type": "Literal",
+        "value": "true",
+      },
+      "type": "Conditional",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 68. variable.check = query.is_baby ? true:false 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "check",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "condition": {
+        "arguments": [],
+        "names": [
+          "is_baby",
+        ],
+        "position": 17,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "falseExpression": {
+        "position": 38,
+        "type": "Literal",
+        "value": "false",
+      },
+      "position": 31,
+      "trueExpression": {
+        "position": 33,
+        "type": "Literal",
+        "value": "true",
+      },
+      "type": "Conditional",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 69. variable.check = query.is_baby ? true : false 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "check",
+      ],
+      "position": 0,
+      "scope": "variable",
+      "type": "Variable",
+    },
+    "position": 15,
+    "right": {
+      "_processed": true,
+      "condition": {
+        "arguments": [],
+        "names": [
+          "is_baby",
+        ],
+        "position": 17,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "falseExpression": {
+        "position": 40,
+        "type": "Literal",
+        "value": "false",
+      },
+      "position": 31,
+      "trueExpression": {
+        "position": 33,
+        "type": "Literal",
+        "value": "true",
+      },
+      "type": "Conditional",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 70. v.temp_outfit!=q.property('foo:bar')+q.property('foo:bar')+q.property('foo:bar') 1`] = `
 [
   {
     "_processed": true,
@@ -3656,7 +3991,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 63. variable.is_active = true; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 71. variable.is_active = true; 1`] = `
 [
   {
     "_processed": true,
@@ -3679,7 +4014,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 64. variable.is_active = false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 72. variable.is_active = false; 1`] = `
 [
   {
     "_processed": true,
@@ -3702,7 +4037,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 65. v.enabled = true; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 73. v.enabled = true; 1`] = `
 [
   {
     "_processed": true,
@@ -3725,7 +4060,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 66. v.enabled = false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 74. v.enabled = false; 1`] = `
 [
   {
     "_processed": true,
@@ -3748,7 +4083,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 67. temp.flag = true; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 75. temp.flag = true; 1`] = `
 [
   {
     "_processed": true,
@@ -3771,7 +4106,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 68. t.result = false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 76. t.result = false; 1`] = `
 [
   {
     "_processed": true,
@@ -3794,7 +4129,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 69. variable.flag ? true : false 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 77. variable.flag ? true : false 1`] = `
 [
   {
     "_processed": true,
@@ -3822,7 +4157,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 70. query.is_sleeping ? false : true 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 78. query.is_sleeping ? false : true 1`] = `
 [
   {
     "_processed": true,
@@ -3851,7 +4186,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 71. true && query.is_baby 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 79. true && query.is_baby 1`] = `
 [
   {
     "_processed": true,
@@ -3876,7 +4211,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 72. false || variable.is_running 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 80. false || variable.is_running 1`] = `
 [
   {
     "_processed": true,
@@ -3900,7 +4235,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 73. variable.state = query.is_alive ? true : false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 81. variable.state = query.is_alive ? true : false; 1`] = `
 [
   {
     "_processed": true,
@@ -3942,7 +4277,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 74. variable.result = !false && query.is_alive; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 82. variable.result = !false && query.is_alive; 1`] = `
 [
   {
     "_processed": true,
@@ -3986,7 +4321,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 75. variable.check = !true || query.is_sleeping; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 83. variable.check = !true || query.is_sleeping; 1`] = `
 [
   {
     "_processed": true,
@@ -4030,7 +4365,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 76. variable.status = true == query.is_valid; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 84. variable.status = true == query.is_valid; 1`] = `
 [
   {
     "_processed": true,
@@ -4068,7 +4403,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 77. variable.status = false != query.is_valid; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 85. variable.status = false != query.is_valid; 1`] = `
 [
   {
     "_processed": true,
@@ -4106,7 +4441,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 78. variable.value = (true && variable.enabled) || false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 86. variable.value = (true && variable.enabled) || false; 1`] = `
 [
   {
     "_processed": true,
@@ -4154,7 +4489,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 79. query.is_baby ? true : variable.default_value 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 87. query.is_baby ? true : variable.default_value 1`] = `
 [
   {
     "_processed": true,
@@ -4186,7 +4521,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
 ]
 `;
 
-exports[`molang - syntax should be able to parse and match the syntax tree generated 80. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
+exports[`molang - syntax should be able to parse and match the syntax tree generated 88. variable.state = query.is_alive ? (query.is_moving ? true : false) : false; 1`] = `
 [
   {
     "_processed": true,
