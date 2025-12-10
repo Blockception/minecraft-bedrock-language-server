@@ -29,8 +29,14 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo",
     "pretest": "npm run compile"
   },
+  "dependencies": {
+    "fast-glob": "^3.3.3",
+    "picomatch": "^4.0.3"
+  },
   "devDependencies": {
     "typescript": "^5.8.3",
-    "@types/node": "^22.15.30"
+    "@types/node": "^22.15.30",
+    "@types/picomatch": "^4.0.2",
+    "@types/jest": "^29.5.14"
   }
 }
