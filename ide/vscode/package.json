@@ -1398,6 +1398,14 @@
             "completionEvents": [
               "onCommand:bc-create-language-all"
             ]
+          },
+          {
+            "id": "bc-templates-tutorial",
+            "title": "Using Templates",
+            "description": "Learn how to customize file creation with templates and the .mcattributes file.\n[View Documentation](https://github.com/Blockception/minecraft-bedrock-language-server/blob/main/documentation/template/templates.md)",
+            "media": {
+              "markdown": "media/bc-templates-tutorial.md"
+            }
           }
         ]
       }
