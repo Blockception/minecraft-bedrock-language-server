@@ -121,6 +121,7 @@ export function tokenize(input: string): Token[] {
         } else if (ch === ':') {
           // Only include colon if it's followed by an alphanumeric character (for namespacing like minecraft:state)
           // This prevents colons from ternary operators being included in identifiers
+          // Check bounds before accessing input[pos + 1] to avoid out-of-bounds access
           if (pos + 1 < input.length && isAlphaNumeric(input[pos + 1])) {
             value += ch;
             pos++;
