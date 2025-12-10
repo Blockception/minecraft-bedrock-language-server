@@ -146,7 +146,7 @@ We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) and
   - [Debugging](documentation/Debugging.md)
   - [Json Validation](documentation/Json%20Validation.md)
   - [Style Guide](documentation/Style%20Guide.md)
-  - [Completion - JSON](documentation/completion/JSON.md)
+  - [Completion - JSON](documentation/guides/completion-json.md)
   - [Completion - Mcfunctions](documentation/completion/Mcfunctions.md)
   - [Project Attributes](documentation/project/MCAttributes.md)
 
