@@ -114,4 +114,49 @@ scoreboard players set global id 0`,
     expect(P.general.tickingAreas.has('main')).toBeTruthy();
     expect(P.general.tickingAreas.has('foo')).toBeTruthy();
   });
+
+  it('entity queue_command', () => {
+    const P = new ProjectData(new TextProjectContext());
+
+    P.behaviorPacks.add('c:\\bp', MCProject.createEmpty(), {} as Manifest);
+
+    const doc: TextDocument = {
+      uri: 'c:\\bp\\entities\\test.json',
+      getText: () => `{
+        "format_version": "1.21.0",
+        "minecraft:entity": {
+          "description": {
+            "identifier": "test:entity",
+            "is_spawnable": true,
+            "is_summonable": true
+          },
+          "components": {},
+          "events": {
+            "test_event": {
+              "queue_command": {
+                "command": "tag @a add test"
+              }
+            },
+            "multi_command_event": {
+              "queue_command": {
+                "command": [
+                  "tag @s add flying",
+                  "scoreboard objectives add score dummy"
+                ]
+              }
+            }
+          }
+        }
+      }`,
+    };
+
+    const out = P.process(doc);
+
+    expect(out).toBeDefined();
+    expect(P.general.tags.count()).toEqual(2);
+    expect(P.general.tags.has('test')).toBeTruthy();
+    expect(P.general.tags.has('flying')).toBeTruthy();
+    expect(P.general.objectives.count()).toEqual(1);
+    expect(P.general.objectives.has('score')).toBeTruthy();
+  });
 });
