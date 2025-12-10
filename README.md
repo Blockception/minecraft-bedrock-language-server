@@ -147,7 +147,7 @@ We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) and
   - [Json Validation](documentation/Json%20Validation.md)
   - [Style Guide](documentation/Style%20Guide.md)
   - [Creating Diagnostics](documentation/guides/creating-diagnostics.md)
-  - [Completion](documentation/completion/Mcfunctions.md)
+  - [Completion - JSON](documentation/guides/completion-json.md)
   - [Project Attributes](documentation/project/MCAttributes.md)
 
 ---
