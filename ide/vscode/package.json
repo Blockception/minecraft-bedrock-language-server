@@ -1398,6 +1398,22 @@
             "completionEvents": [
               "onCommand:bc-create-language-all"
             ]
+          },
+          {
+            "id": "bc-document-symbols",
+            "title": "Using Document Symbols",
+            "description": "Learn how to use document symbols to navigate within a single file.\nPress `Ctrl+Shift+O` (Windows/Linux) or `Cmd+Shift+O` (Mac) to try it.",
+            "media": {
+              "markdown": "media/bc-document-symbols.md"
+            }
+          },
+          {
+            "id": "bc-workspace-symbols",
+            "title": "Using Workspace Symbols",
+            "description": "Learn how to use workspace symbols to search across your entire project.\nPress `Ctrl+T` (Windows/Linux) or `Cmd+T` (Mac) to try it.",
+            "media": {
+              "markdown": "media/bc-workspace-symbols.md"
+            }
           }
         ]
       }
