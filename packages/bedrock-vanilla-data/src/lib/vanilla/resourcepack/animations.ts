@@ -1725,14 +1725,6 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.ghast.scale",
-    "bones": [
-      "body"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
     "id": "animation.goat.attack",
     "bones": [
       "head"
@@ -2519,6 +2511,24 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.humanoid.melee_spear_hold",
+    "bones": [
+      "rightarm",
+      "rightitem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.humanoid.melee_spear_use",
+    "bones": [
+      "rightarm",
+      "rightitem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.humanoid.move",
     "bones": [
       "leftarm",
@@ -2859,6 +2869,54 @@ export const Animations: Animation[] = [
     "id": "animation.mooshroom.setup.v1.0",
     "bones": [
       "body"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.nautilus.breathe",
+    "bones": [
+      "body",
+      "mouth_top",
+      "inner_mouth",
+      "mouth_bottom"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.nautilus.charge_warning",
+    "bones": [
+      "nautilus",
+      "body",
+      "mouth_top",
+      "inner_mouth",
+      "mouth_bottom"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.nautilus.dashing",
+    "bones": [],
+    "particles": [],
+    "sounds": [
+      "dash"
+    ]
+  },
+  {
+    "id": "animation.nautilus.look_at_target",
+    "bones": [
+      "head",
+      "body"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.nautilus.swim",
+    "bones": [
+      "head"
     ],
     "particles": [],
     "sounds": []
@@ -3410,6 +3468,15 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.player.crawl.no_right_arm",
+    "bones": [
+      "leftarm",
+      "root"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.player.crossbow_equipped",
     "bones": [
       "leftarm",
@@ -3428,17 +3495,17 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.player.first_person.attack_rotation",
+    "id": "animation.player.first_person.attack_item_rotation",
     "bones": [
-      "rightarm"
+      "rightitem"
     ],
     "particles": [],
     "sounds": []
   },
   {
-    "id": "animation.player.first_person.attack_rotation_item",
+    "id": "animation.player.first_person.attack_rotation",
     "bones": [
-      "rightitem"
+      "rightarm"
     ],
     "particles": [],
     "sounds": []
@@ -3517,6 +3584,30 @@ export const Animations: Animation[] = [
     "id": "animation.player.first_person.map_hold_off_hand",
     "bones": [
       "leftarm"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.player.first_person.melee_spear_attack",
+    "bones": [
+      "rightitem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.player.first_person.melee_spear_hold",
+    "bones": [
+      "rightitem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.player.first_person.melee_spear_use",
+    "bones": [
+      "rightitem"
     ],
     "particles": [],
     "sounds": []
@@ -3605,6 +3696,16 @@ export const Animations: Animation[] = [
     "id": "animation.player.look_at_target.ui",
     "bones": [
       "head"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.player.melee_spear_attack",
+    "bones": [
+      "body",
+      "rightarm",
+      "rightitem"
     ],
     "particles": [],
     "sounds": []
@@ -3813,6 +3914,15 @@ export const Animations: Animation[] = [
     "bones": [
       "leftleg",
       "rightleg"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.player.swim.no_right_arm",
+    "bones": [
+      "leftarm",
+      "root"
     ],
     "particles": [],
     "sounds": []
@@ -4455,14 +4565,6 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.shield.wield_first_person_blocking",
-    "bones": [
-      "shield"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
     "id": "animation.shield.wield_main_hand_first_person",
     "bones": [
       "shield"
@@ -4720,6 +4822,32 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.spear.held_first_person",
+    "bones": [
+      "spear"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.spear.held_third_person",
+    "bones": [
+      "spear"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.spear.hit",
+    "bones": [
+      "spear"
+    ],
+    "particles": [],
+    "sounds": [
+      "hit"
+    ]
+  },
+  {
     "id": "animation.spider.default_leg_pose",
     "bones": [
       "leg0",
@@ -4950,16 +5078,6 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.vex.attack.rotations.v1.0",
-    "bones": [
-      "body",
-      "leftarm",
-      "rightarm"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
     "id": "animation.vex.charge",
     "bones": [
       "rightarm",
@@ -4977,17 +5095,6 @@ export const Animations: Animation[] = [
       "rightwing",
       "rightItem",
       "leftItem"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
-    "id": "animation.vex.move",
-    "bones": [
-      "leftwing",
-      "leg0",
-      "rightarm",
-      "rightwing"
     ],
     "particles": [],
     "sounds": []
@@ -5370,6 +5477,26 @@ export const Animations: Animation[] = [
     "bones": [
       "leftarm",
       "rightarm"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.zombie.melee_spear_hold",
+    "bones": [
+      "leftarm",
+      "rightarm",
+      "rightitem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.zombie.melee_spear_use",
+    "bones": [
+      "leftarm",
+      "rightarm",
+      "rightitem"
     ],
     "particles": [],
     "sounds": []

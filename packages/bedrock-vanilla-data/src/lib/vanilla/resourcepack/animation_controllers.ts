@@ -539,14 +539,6 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
-    "id": "controller.animation.ghast.scale",
-    "animations": [
-      "scale"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
     "id": "controller.animation.goat.move",
     "animations": [
       "walk"
@@ -685,6 +677,15 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
+    "id": "controller.animation.humanoid.melee_spear",
+    "animations": [
+      "melee_spear_hold",
+      "melee_spear_use"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "controller.animation.humanoid.move",
     "animations": [
       "move"
@@ -802,6 +803,26 @@ export const AnimationControllers: AnimationController[] = [
     "id": "controller.animation.mooshroom.setup",
     "animations": [
       "setup"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.nautilus.general",
+    "animations": [
+      "breathe",
+      "swim",
+      "look_at_target"
+    ],
+    "particles": [
+      "effect"
+    ],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.nautilus.sound",
+    "animations": [
+      "dashing"
     ],
     "particles": [],
     "sounds": []
@@ -1021,23 +1042,44 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
+    "id": "controller.animation.player.first_person_melee_spear",
+    "animations": [
+      "first_person_melee_spear_hold",
+      "first_person_melee_spear_use",
+      "first_person_melee_spear_attack"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "controller.animation.player.hudplayer",
     "animations": [],
     "particles": [],
     "sounds": []
   },
   {
+    "id": "controller.animation.player.melee_spear",
+    "animations": [
+      "third_person_melee_spear_hold",
+      "third_person_melee_spear_use",
+      "third_person_melee_spear_attack"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "controller.animation.player.root",
     "animations": [
+      "first_person_base_pose",
+      "first_person_breathing_bob",
       "first_person_swap_item",
       "first_person_shield_block",
       "first_person_attack_controller",
-      "first_person_base_pose",
       "first_person_empty_hand",
       "first_person_walk",
       "first_person_map_controller",
       "first_person_crossbow_equipped",
-      "first_person_breathing_bob",
+      "first_person_melee_spear_controller",
       "humanoid_base_pose",
       "look_at_target_ui",
       "move.arms",
@@ -1055,8 +1097,10 @@ export const AnimationControllers: AnimationController[] = [
       "bob",
       "damage_nearby_mobs",
       "swimming",
+      "swimming.no_right_arm",
       "swimming.legs",
       "crawling",
+      "crawling.no_right_arm",
       "crawling.legs",
       "use_item_progress",
       "sleeping",
@@ -1069,7 +1113,8 @@ export const AnimationControllers: AnimationController[] = [
       "tooting_goat_horn",
       "holding_brush",
       "brushing",
-      "holding_heavy_core"
+      "holding_heavy_core",
+      "third_person_melee_spear_controller"
     ],
     "particles": [],
     "sounds": []
@@ -1277,6 +1322,23 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
+    "id": "controller.animation.spear.held",
+    "animations": [
+      "held_first_person",
+      "held_third_person"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.spear.hit",
+    "animations": [
+      "hit"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "controller.animation.spider.move",
     "animations": [
       "default_leg_pose",
@@ -1345,14 +1407,6 @@ export const AnimationControllers: AnimationController[] = [
     "id": "controller.animation.vex.idle",
     "animations": [
       "vex_idle"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
-    "id": "controller.animation.vex.move",
-    "animations": [
-      "vex_move"
     ],
     "particles": [],
     "sounds": []

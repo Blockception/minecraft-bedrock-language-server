@@ -841,6 +841,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:camel_husk_spawn_egg",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:camel_spawn_egg",
     "max_damage": 0
   },
@@ -1349,6 +1353,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:copper_nautilus_armor",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:copper_nugget",
     "max_damage": 0
   },
@@ -1362,6 +1370,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:copper_shovel",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:copper_spear",
     "max_damage": 0
   },
   {
@@ -1937,6 +1949,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:diamond_nautilus_armor",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:diamond_ore",
     "max_damage": 0
   },
@@ -1946,6 +1962,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:diamond_shovel",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:diamond_spear",
     "max_damage": 0
   },
   {
@@ -2525,6 +2545,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:golden_nautilus_armor",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:golden_pickaxe",
     "max_damage": 0
   },
@@ -2534,6 +2558,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:golden_shovel",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:golden_spear",
     "max_damage": 0
   },
   {
@@ -2917,6 +2945,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:iron_nautilus_armor",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:iron_nugget",
     "max_damage": 0
   },
@@ -2930,6 +2962,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:iron_shovel",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:iron_spear",
     "max_damage": 0
   },
   {
@@ -3953,6 +3989,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:nautilus_spawn_egg",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:nether_brick",
     "max_damage": 0
   },
@@ -4021,11 +4061,19 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:netherite_horse_armor",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:netherite_ingot",
     "max_damage": 0
   },
   {
     "id": "minecraft:netherite_leggings",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:netherite_nautilus_armor",
     "max_damage": 0
   },
   {
@@ -4038,6 +4086,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:netherite_shovel",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:netherite_spear",
     "max_damage": 0
   },
   {
@@ -4382,6 +4434,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:paper",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:parched_spawn_egg",
     "max_damage": 0
   },
   {
@@ -5649,6 +5705,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:stone_spear",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:stone_stairs",
     "max_damage": 0
   },
@@ -6629,6 +6689,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:wooden_spear",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:wooden_sword",
     "max_damage": 0
   },
@@ -6714,6 +6778,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:zombie_horse_spawn_egg",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:zombie_nautilus_spawn_egg",
     "max_damage": 0
   },
   {

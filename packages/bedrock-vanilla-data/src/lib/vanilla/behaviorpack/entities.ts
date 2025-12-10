@@ -204,6 +204,24 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:camel_husk",
+    "events": [
+      "minecraft:entity_spawned",
+      "minecraft:spawn_with_rider",
+      "minecraft:camel_husk_saddled",
+      "minecraft:camel_husk_unsaddled",
+      "minecraft:start_sitting",
+      "minecraft:stop_sitting",
+      "minecraft:all_riders_dismounted",
+      "minecraft:rider_mounted"
+    ],
+    "families": [
+      "camel_husk",
+      "mob",
+      "undead"
+    ]
+  },
+  {
     "id": "minecraft:cat",
     "events": [
       "minecraft:entity_spawned",
@@ -433,10 +451,12 @@ export const Entities: Entity[] = [
       "minecraft:entity_spawned",
       "minecraft:as_baby",
       "minecraft:as_adult",
+      "minecraft:as_ranged_adult",
       "minecraft:switch_to_melee",
       "minecraft:switch_to_ranged",
       "minecraft:has_target",
-      "minecraft:lost_target"
+      "minecraft:lost_target",
+      "minecraft:as_rider"
     ],
     "families": [
       "drowned",
@@ -735,16 +755,24 @@ export const Entities: Entity[] = [
     "id": "minecraft:husk",
     "events": [
       "minecraft:entity_spawned",
+      "minecraft:as_adult",
+      "minecraft:as_baby",
+      "minecraft:as_baby_jockey",
+      "minecraft:spawn_as_rider",
       "minecraft:start_transforming",
       "minecraft:stop_transforming",
-      "minecraft:convert_to_zombie"
+      "minecraft:convert_to_zombie",
+      "minecraft:on_start_riding_camel_husk",
+      "minecraft:on_stop_riding_camel_husk"
     ],
     "families": [
       "husk",
       "zombie",
       "undead",
       "monster",
-      "mob"
+      "mob",
+      "baby_husk",
+      "husk_rider"
     ]
   },
   {
@@ -879,6 +907,37 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:nautilus",
+    "events": [
+      "minecraft:entity_spawned",
+      "minecraft:entity_born",
+      "minecraft:spawn_wild_adult",
+      "minecraft:spawn_wild_baby",
+      "minecraft:spawn_tame_baby",
+      "minecraft:ageable_grow_up",
+      "minecraft:on_saddled",
+      "minecraft:on_saddled_in_water",
+      "minecraft:on_saddled_out_of_water",
+      "minecraft:on_unsaddled",
+      "minecraft:on_tame",
+      "minecraft:on_unleashed",
+      "minecraft:on_stop_tempting",
+      "minecraft:on_mount",
+      "minecraft:on_dismount",
+      "minecraft:start_charge",
+      "minecraft:stop_charge",
+      "minecraft:become_angry",
+      "minecraft:on_calm",
+      "minecraft:switch_to_player_controlled",
+      "minecraft:switch_to_ai_controlled"
+    ],
+    "families": [
+      "aquatic",
+      "nautilus",
+      "mob"
+    ]
+  },
+  {
     "id": "minecraft:ocelot",
     "events": [
       "minecraft:entity_spawned",
@@ -925,6 +984,21 @@ export const Entities: Entity[] = [
       "panda",
       "panda_aggressive",
       "mob"
+    ]
+  },
+  {
+    "id": "minecraft:parched",
+    "events": [
+      "minecraft:entity_spawned",
+      "minecraft:melee_mode",
+      "minecraft:ranged_mode"
+    ],
+    "families": [
+      "parched",
+      "skeleton",
+      "monster",
+      "mob",
+      "undead"
     ]
   },
   {
@@ -1783,25 +1857,69 @@ export const Entities: Entity[] = [
       "minecraft:entity_spawned",
       "minecraft:as_adult",
       "minecraft:as_baby",
+      "minecraft:as_baby_jockey",
       "minecraft:start_transforming",
       "minecraft:stop_transforming",
-      "minecraft:convert_to_drowned"
+      "minecraft:convert_to_drowned",
+      "minecraft:spawn_as_rider",
+      "minecraft:on_start_riding_zombie_horse",
+      "minecraft:on_stop_riding_zombie_horse"
     ],
     "families": [
       "zombie",
       "undead",
       "monster",
-      "mob"
+      "mob",
+      "baby_zombie",
+      "zombie_rider"
     ]
   },
   {
     "id": "minecraft:zombie_horse",
     "events": [
       "minecraft:entity_spawned",
-      "minecraft:ageable_grow_up"
+      "minecraft:spawn_adult",
+      "minecraft:spawn_tame_adult",
+      "minecraft:entity_born",
+      "minecraft:spawn_adult_with_rider",
+      "minecraft:on_tame",
+      "minecraft:horse_saddled",
+      "minecraft:horse_unsaddled",
+      "minecraft:hostile_dismounted",
+      "minecraft:hostile_mounted",
+      "minecraft:upgrade_to_1_21_130"
     ],
     "families": [
       "zombiehorse",
+      "undead",
+      "mob"
+    ]
+  },
+  {
+    "id": "minecraft:zombie_nautilus",
+    "events": [
+      "minecraft:entity_spawned",
+      "minecraft:on_saddled",
+      "minecraft:on_saddled_in_water",
+      "minecraft:on_saddled_out_of_water",
+      "minecraft:on_unsaddled",
+      "minecraft:on_tame",
+      "minecraft:on_unleashed",
+      "minecraft:on_stop_tempting",
+      "minecraft:on_drowned_mount",
+      "minecraft:on_drowned_dismount",
+      "minecraft:on_player_mount",
+      "minecraft:on_player_dismount",
+      "minecraft:become_angry",
+      "minecraft:on_calm",
+      "minecraft:start_charge",
+      "minecraft:stop_charge",
+      "minecraft:switch_to_player_controlled",
+      "minecraft:switch_to_ai_controlled"
+    ],
+    "families": [
+      "aquatic",
+      "zombie_nautilus",
       "undead",
       "mob"
     ]
@@ -1811,6 +1929,8 @@ export const Entities: Entity[] = [
     "events": [
       "minecraft:entity_transformed",
       "minecraft:entity_spawned",
+      "spawn_adult",
+      "spawn_baby",
       "minecraft:on_calm",
       "minecraft:become_angry",
       "minecraft:spawn_as_strider_jockey"

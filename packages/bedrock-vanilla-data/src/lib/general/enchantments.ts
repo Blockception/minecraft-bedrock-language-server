@@ -22,6 +22,7 @@ export const Enchantments: string[] = [
   "minecraft:looting",
   "minecraft:loyalty",
   "minecraft:luck_of_the_sea",
+  "minecraft:lunge",
   "minecraft:lure",
   "minecraft:mending",
   "minecraft:multishot",
