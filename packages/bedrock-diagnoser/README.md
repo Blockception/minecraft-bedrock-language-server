@@ -37,4 +37,4 @@ First, read the [contributing guide](../../CONTRIBUTING.md). fork the project, c
 
 ## Adding New Diagnostics
 
-For detailed instructions on how to create new diagnostic error codes, see the [Creating Diagnostics Guide](../../documentation/Creating-Diagnostics.md).
+For detailed instructions on how to create new diagnostic error codes, see the [Creating Diagnostics Guide](../../documentation/guides/creating-diagnostics.md).
