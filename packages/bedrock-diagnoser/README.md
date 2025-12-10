@@ -26,7 +26,7 @@ diagnoser.processPack(pack): void;
 
 ## Contributing
 
-First, read the [contributing guide](./CONTRIBUTING.md). fork the project, clone it and run the following commands:
+First, read the [contributing guide](../../CONTRIBUTING.md). fork the project, clone it and run the following commands:
 
 **Installation**
 
@@ -34,3 +34,7 @@ First, read the [contributing guide](./CONTRIBUTING.md). fork the project, clone
   npm ci
   npm update
 ```
+
+## Adding New Diagnostics
+
+For detailed instructions on how to create new diagnostic error codes, see the [Creating Diagnostics Guide](../../documentation/Creating-Diagnostics.md).
