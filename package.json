@@ -22,7 +22,6 @@
     "tools/generate-command-data"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.29.8",
     "@eslint/js": "^9.39.1",
     "@types/eslint__js": "^8.42.3",
     "@types/jest": "^30.0.0",
@@ -42,9 +41,7 @@
     "lint": "npm run lint --workspaces",
     "test": "npm run test --workspaces",
     "test:all": "npx jest --coverage",
-    "clean": "npm run clean --workspaces",
-    "changeset": "changeset",
-    "version-packages": "changeset version"
+    "clean": "npm run clean --workspaces"
   },
   "dependencies": {
     "rimraf": "^6.1.2"
