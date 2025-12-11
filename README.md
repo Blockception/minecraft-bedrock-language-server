@@ -103,7 +103,6 @@ npm test
 - `npm run lint` – Lint all code
 - `npm test` – Run all tests
 - `npm run clean` – Clean build artifacts
-- `npm run changeset` – Create a changeset for version management (see [CONTRIBUTING.md](CONTRIBUTING.md))
 
 ---
 
@@ -117,8 +116,7 @@ We welcome contributions! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) and
 2. Make your changes, following the code style and commit guidelines.
 3. Add or update tests as needed.
 4. Run `npm run lint` and `npm test` to ensure code quality.
-5. **Create a changeset** if your changes affect package versions (see [CONTRIBUTING.md](CONTRIBUTING.md) for details).
-6. Submit a pull request with a clear description.
+5. Submit a pull request with a clear description.
 
 ---
 

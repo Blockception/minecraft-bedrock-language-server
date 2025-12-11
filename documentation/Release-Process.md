@@ -4,14 +4,11 @@ This document describes the complete release process for the Minecraft Bedrock L
 
 ## Overview
 
-The repository uses **Changesets** for version management and **Release Drafter** for release notes. The process is highly automated with minimal manual intervention required.
+The repository uses **Release Drafter** for release notes. The process is automated with minimal manual intervention required.
 
-## Linked Package Groups
+## Package Structure
 
-This repository uses **linked packages** to ensure that related packages are always versioned together. When any package in a linked group receives a changeset, all packages in that group will receive the same version bump.
-
-### All Core Packages (Linked Group)
-All packages are linked together because `bc-minecraft-lsp` depends on all core Bedrock packages, creating a dependency chain that requires synchronized versioning:
+This repository contains multiple packages that can be versioned and released independently:
 
 **Core Bedrock packages:**
 - `bc-minecraft-bedrock-types` - Core type definitions
@@ -27,70 +24,45 @@ All packages are linked together because `bc-minecraft-lsp` depends on all core 
 - `bc-minecraft-lsp` - Language server implementation (depends on all Bedrock packages above)
 - `blockceptionvscodeminecraftbedrockdevelopmentextension` - VS Code extension
 
-**Impact**: Updates to ANY package in this group will bump ALL packages together. This ensures:
-- Consistency across the entire Bedrock and IDE stack
-- The LSP and VS Code extension always have compatible versions of all dependencies
-- No version mismatches between interdependent packages
-
-**Example**: A patch update to `bc-minecraft-bedrock-types` will also bump all other 9 packages with a patch version.
-
-### Independent Packages
-The following packages are not linked and version independently:
+**Independent packages:**
 - `@blockception/packages-shared` - Independent shared utilities
 - `bc-minecraft-project` - Base project utilities
 - `vanilla-scraper` - Data extraction tool
-- `generate-command-data` - Command data generator (ignored in changesets)
-
-### Configuration
-The linked packages are configured in `.changeset/config.json` under the `linked` array.
+- `generate-command-data` - Command data generator
 
 ## Process Flow
 
 ```
-Developer PR → Main Branch → Version PR → Release Draft → Published Release
-     ↓            ↓              ↓             ↓              ↓
-  Changeset   Automated      Review &     Maintainer     Auto-publish
-              Version PR      Merge        Creates        to NPM &
-              Created                      Release        Marketplace
+Developer PR → Main Branch → Manual Version Update → Release Draft → Published Release
+     ↓            ↓              ↓                      ↓              ↓
+  Changes      Automated      Maintainer           Maintainer     Auto-publish
+  Merged    Release Draft    Updates Versions     Creates        to NPM &
+            Created          & CHANGELOGs         Release        Marketplace
 ```
 
 ## Step-by-Step Process
 
 ### 1. Developer Makes Changes
 
-When a developer makes changes that should trigger a version bump:
+When a developer makes changes:
 
 ```bash
 # Make your code changes
 git checkout -b fix/some-bug
 
-# Create a changeset
-npm run changeset
+# Make changes to the code
 
-# Follow the prompts to:
-# - Select affected packages
-# - Choose bump type (major/minor/patch)
-# - Provide a description
-
-# Commit everything including the changeset file
+# Commit everything
 git add .
 git commit -m "fix: description of the fix"
 git push origin fix/some-bug
 ```
 
-The changeset file will be created in `.changeset/` directory and should be committed with your PR.
+Create a pull request with your changes.
 
 ### 2. PR is Merged to Main
 
-When the PR is merged to `main`, two automated workflows run in parallel:
-
-#### Changesets Version Workflow
-- **What it does**: Creates or updates a "Version Packages" PR
-- **PR contents**:
-  - Version bumps for all affected packages
-  - Updated CHANGELOG.md files
-  - Updated internal dependencies
-- **File**: `.github/workflows/changesets-version.yaml`
+When the PR is merged to `main`, the Release Drafter workflow runs:
 
 #### Release Drafter Workflow
 - **What it does**: Creates or updates a release draft in GitHub Releases
@@ -100,29 +72,21 @@ When the PR is merged to `main`, two automated workflows run in parallel:
   - Version number based on labels
 - **File**: `.github/workflows/release-drafter.yaml`
 
-### 3. Review "Version Packages" PR
+### 3. Manual Version Update
 
-The automatically created "Version Packages" PR should be reviewed by maintainers:
+When ready to release, maintainers manually update package versions:
 
-**What to check:**
-- ✅ Version bumps are correct for each package
-- ✅ CHANGELOG entries are accurate
-- ✅ Internal dependencies are properly updated
-- ✅ No unintended packages are being versioned
+**What to update:**
+- ✅ Version numbers in package.json files for affected packages
+- ✅ CHANGELOG entries for each package
+- ✅ Internal dependencies to match new versions
 
-**If changes look good:**
-```bash
-# Merge the PR (via GitHub UI)
-```
+**Best practices:**
+- Follow semantic versioning (major.minor.patch)
+- Update all interdependent packages together
+- Keep the LSP and extension versions synchronized
 
-### 4. Version PR is Merged
-
-When the "Version Packages" PR is merged:
-- All package versions are updated in the repository
-- CHANGELOGs are updated with the latest changes
-- Release Drafter creates a new draft for the new version
-
-### 5. Create and Publish Release
+### 4. Create and Publish Release
 
 **Maintainer action required:**
 
@@ -139,7 +103,7 @@ When the "Version Packages" PR is merged:
 
 ## Version Bump Guidelines
 
-When creating changesets, choose the appropriate bump type:
+When manually updating versions, choose the appropriate bump type:
 
 ### Patch (0.0.X)
 - Bug fixes
@@ -147,13 +111,7 @@ When creating changesets, choose the appropriate bump type:
 - Performance improvements
 - Internal refactoring (no API changes)
 
-**Example**: Fixing type inference bug
-```bash
-npm run changeset
-# Select package(s)
-# Choose "patch"
-# Description: "Fixed type inference for entity components"
-```
+**Example**: Fixing type inference bug - bump from 1.2.3 to 1.2.4
 
 ### Minor (0.X.0)
 - New features (backwards compatible)
@@ -161,13 +119,7 @@ npm run changeset
 - Deprecations (with backwards compatibility)
 - Significant enhancements
 
-**Example**: Adding new completion provider
-```bash
-npm run changeset
-# Select package(s)
-# Choose "minor"
-# Description: "Added completion support for dialogue files"
-```
+**Example**: Adding new completion provider - bump from 1.2.3 to 1.3.0
 
 ### Major (X.0.0)
 - Breaking changes
@@ -175,61 +127,34 @@ npm run changeset
 - Changed behavior that affects existing code
 - Requires user migration
 
-**Example**: Changing API signature
-```bash
-npm run changeset
-# Select package(s)
-# Choose "major"
-# Description: "BREAKING: Changed parse() to return Result<T, Error>"
-```
+**Example**: Changing API signature - bump from 1.2.3 to 2.0.0
 
-## Multiple Packages
+## Package Dependencies
 
-If your change affects multiple packages, select all of them in the changeset:
+When updating versions, be mindful of package dependencies:
 
-```bash
-npm run changeset
-# Use Space to select multiple packages
-# All selected packages can have different bump types
-```
-
-The generated changeset will look like:
-```markdown
----
-'bc-minecraft-bedrock-types': minor
-'bc-minecraft-bedrock-project': patch
----
-
-Added new entity types and updated project parser
-```
+- The `bc-minecraft-lsp` package depends on all core Bedrock packages
+- The VS Code extension depends on the LSP package
+- Update dependent packages when their dependencies are updated
+- Ensure version ranges in package.json files are compatible
 
 ## Emergency Hotfixes
 
 For critical bugs that need immediate release:
 
-1. Create a changeset with your fix
-2. Merge PR to main
-3. Immediately merge the auto-created "Version Packages" PR
-4. Create and publish a new release
+1. Create a fix and merge PR to main
+2. Manually update version in affected package.json files
+3. Update CHANGELOG files
+4. Commit and push the version updates
+5. Create and publish a new release
 
 ## Skipping Version Bumps
 
 For changes that don't affect any packages (e.g., CI updates, tooling changes):
-- **Don't create a changeset**
-- The changes won't trigger version bumps
-- They will still be included in Release Drafter notes if properly labeled
+- No version update needed
+- Changes will still be included in Release Drafter notes if properly labeled
 
 ## Troubleshooting
-
-### Changeset workflow fails
-- Check that all dependencies in package.json files are valid
-- Ensure no merge conflicts in package.json files
-- Verify changesets configuration is correct
-
-### Version numbers look wrong
-- Review the changesets in the "Version Packages" PR
-- Check previous version numbers in package.json files
-- Ensure bump types were chosen correctly
 
 ### Release Drafter not creating drafts
 - Check workflow permissions in repository settings
@@ -238,25 +163,21 @@ For changes that don't affect any packages (e.g., CI updates, tooling changes):
 
 ## Related Files
 
-- `.changeset/config.json` - Changesets configuration
-- `.github/workflows/changesets-version.yaml` - Automated version PR creation
 - `.github/workflows/release-drafter.yaml` - Release draft creation
 - `.github/workflows/release-pipeline.yaml` - Publishing automation
 - `.github/release-drafter.yml` - Release notes configuration
-- `CONTRIBUTING.md` - Contributor guidelines including changeset usage
+- `CONTRIBUTING.md` - Contributor guidelines
 
 ## Best Practices
 
-1. **Always create a changeset** for changes that affect packages
-2. **Be descriptive** in changeset summaries - they become CHANGELOG entries
-3. **Select correct bump type** - follow semantic versioning
-4. **Review Version PRs carefully** before merging
-5. **Keep changesets focused** - one logical change per changeset
-6. **Test before releasing** - ensure CI passes before publishing releases
+1. **Test before releasing** - ensure CI passes before publishing releases
+2. **Keep versions synchronized** - especially for interdependent packages
+3. **Document breaking changes** - clearly in CHANGELOG and release notes
+4. **Follow semantic versioning** - consistently across all packages
+5. **Review release drafts carefully** - before publishing
 
 ## Questions?
 
-- Read the [Changesets documentation](https://github.com/changesets/changesets)
 - Check the [Contributing Guide](../CONTRIBUTING.md)
-- Review [examples](./.changeset/README.example.md)
+- Review past releases for examples
 - Ask in repository discussions or issues
