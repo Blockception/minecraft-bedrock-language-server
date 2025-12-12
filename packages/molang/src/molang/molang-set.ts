@@ -1,7 +1,7 @@
 import { Types } from 'bc-minecraft-bedrock-types';
 import { MolangSyntaxCache } from './cache';
 import { isMolang, isValidMolang } from './functions';
-import { ExpressionNode, FunctionCallNode, NodeType, ResourceReferenceNode, VariableNode, walk } from './syntax';
+import { ExpressionNode, FunctionCallNode, NodeType, ResourceReferenceNode, VariableNode } from './syntax';
 
 /** The interface for the molang set */
 export class MolangSet {
@@ -28,10 +28,10 @@ export class MolangSet {
   add(molang: Types.OffsetWord) {
     const exp = this.cache.build(molang);
     if (exp === undefined) return;
-    exp.forEach((e) => walk(e, this.walkFn.bind(this)));
+    exp.forEach((e) => this.walkChildren(e));
   }
 
-  private walkFn(node: ExpressionNode): void {
+  private walkFn(node: ExpressionNode, skipUsing: boolean = false): void {
     switch (node.type) {
       case NodeType.Assignment:
         this.checkAssigned(node.left);
@@ -39,11 +39,35 @@ export class MolangSet {
       case NodeType.FunctionCall:
         this.functions.add(node);
         break;
+      case NodeType.NullishCoalescing:
+        // The left side of ?? is expected to potentially be undefined, so don't mark it as "using"
+        // But we still need to walk it to collect functions, assignments, etc.
+        this.walkChildren(node.left, true);
+        // The right side should be walked normally
+        this.walkChildren(node.right, false);
+        break;
       case NodeType.ResourceReference:
       case NodeType.Variable:
         if (this.assigned.has(node)) break;
-        this.using.add(node);
+        if (!skipUsing) {
+          this.using.add(node);
+        }
         break;
+    }
+  }
+
+  private walkChildren(node: ExpressionNode, skipUsing: boolean = false): void {
+    const objs: ExpressionNode[] = [node];
+
+    for (let i = 0; i < objs.length; i++) {
+      const n = objs[i];
+      if (n === undefined) continue;
+      this.walkFn(n, skipUsing);
+
+      // For NullishCoalescing nodes, don't add children to the queue since walkFn handles them
+      if (n.type === NodeType.NullishCoalescing) continue;
+
+      objs.push(...ExpressionNode.getChildern(n));
     }
   }
 

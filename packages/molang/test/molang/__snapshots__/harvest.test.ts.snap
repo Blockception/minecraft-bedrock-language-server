@@ -3973,14 +3973,6 @@ MolangSet {
       "scope": "variable",
       "type": 12,
     },
-    {
-      "names": [
-        "rolled_up_time",
-      ],
-      "position": 99,
-      "scope": "variable",
-      "type": 12,
-    },
   },
 }
 `;
@@ -4084,14 +4076,6 @@ MolangSet {
         "is_unrolling",
       ],
       "position": 73,
-      "scope": "variable",
-      "type": 12,
-    },
-    {
-      "names": [
-        "unrolling_time",
-      ],
-      "position": 99,
       "scope": "variable",
       "type": 12,
     },
@@ -5712,14 +5696,6 @@ MolangSet {
       "scope": "variable",
       "type": 12,
     },
-    {
-      "names": [
-        "rolled_up_time",
-      ],
-      "position": 99,
-      "scope": "variable",
-      "type": 12,
-    },
   },
 }
 `;
@@ -5823,14 +5799,6 @@ MolangSet {
         "is_unrolling",
       ],
       "position": 73,
-      "scope": "variable",
-      "type": 12,
-    },
-    {
-      "names": [
-        "unrolling_time",
-      ],
-      "position": 99,
       "scope": "variable",
       "type": 12,
     },
