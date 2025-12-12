@@ -808,6 +808,13 @@ export namespace General {
       documentation: 'Gets specified axis of the specified locator offset of the root model',
     },
     {
+      id: 'get_pack_setting',
+      documentation: 'Returns value of Pack Setting slider, parameter is name of slider. Available on the Client (Resource Packs) only.',
+      parameters: [
+        { id: 'key', documentation: 'Setting name', type: 'string' }
+      ]
+    },
+    {
       id: 'graphics_mode_is_any',
       documentation:
         "Takes in one or more arguments ('simple', 'fancy', 'deferred', 'raytraced'). If the graphics mode of the client matches any of the arguments, return 1.0. Available on the Client (Resource Packs) only.",
@@ -1234,6 +1241,21 @@ export namespace General {
       ],
     },
     {
+      id: 'is_pack_setting_enabled',
+      documentation: 'Returns 1.0 if the Pack Setting toggle is enabled, parameter is name of toggle. Available on the Client (Resource Packs) only.',
+      parameters: [
+        { id: 'key', documentation: 'Setting name', type: 'string' }
+      ]
+    },
+    {
+      id: 'is_pack_setting_selected',
+      documentation: 'Returns 1.0 if the Pack Setting dropdown (first parameter) matches the string value of the second parameter (selection). Available on the Client (Resource Packs) only.',
+      parameters: [
+        { id: 'key', documentation: 'Slider name', type: 'string' },
+        { id: 'value', documentation: 'Setting value', type: 'string' }
+      ]
+    },
+    {
       id: 'is_persona_or_premium_skin',
       documentation: 'Returns 1.0 if the player has a persona or permium skin, else it returns 0.0.',
     },
@@ -1414,6 +1436,22 @@ export namespace General {
     {
       id: 'key_frame_lerp_time',
       documentation: 'Returns the ratio between the previous and next key frames',
+    },
+    {
+      id: 'kinetic_weapon_damage_duration',
+      documentation: `Returns the "max_duration" value of "damage_conditions" from the main-hand item's "minecraft:kinetic_weapon" component, or 0 if the component is not present.`
+    },
+    {
+      id: 'kinetic_weapon_delay',
+      documentation: "Returns the \"delay\" value from the main-hand item's \"minecraft:kinetic_weapon\" component, or 0 if the component is not present."
+    },
+    {
+      id: 'kinetic_weapon_dismount_duration',
+      documentation: `Returns the "max_duration" value of "dismount_conditions" from the main-hand item's "minecraft:kinetic_weapon" component, or 0 if the component is not present.`
+    },
+    {
+      id: 'kinetic_weapon_knockback_duration',
+      documentation: `Returns the "max_duration" value of "knockback_conditions" from the main-hand item's "minecraft:kinetic_weapon" component, or 0 if the component is not present.`
     },
     {
       id: 'last_frame_time',
@@ -1727,6 +1765,10 @@ export namespace General {
       documentation: 'Returns the icon index of the experience orb',
     },
     {
+      id: 'ticks_since_last_kinetic_weapon_hit',
+      documentation: 'Returns the number of ticks elapsed since the user last hit something while using a kinetic weapon. Returns -1.0 if no kinetic weapon is being used or if nothing has been hit yet. Hits that occur while the user is unloaded are not counted.'
+    },
+    {
       id: 'time_of_day',
       documentation:
         'Returns the time of day (midnight=0.0, sunrise=0.25, noon=0.5, sunset=0.75) of the dimension the entity is in.',
@@ -1812,18 +1854,6 @@ export namespace General {
       parameters: [
         { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
       ],
-    },
-    {
-      id: 'get_pack_setting',
-      documentation: '(EXPERIMENTAL) Returns value of Pack Setting slider, parameter is name of slider. Available on the Client (Resource Packs) only.'
-    },
-    {
-      id: 'is_pack_setting_enabled',
-      documentation: '(EXPERIMENTAL) Returns 1.0 if the Pack Setting toggle is enabled, parameter is name of toggle. Available on the Client (Resource Packs) only.'
-    },
-    {
-      id: 'is_pack_setting_selected',
-      documentation: '(EXPERIMENTAL) Returns 1.0 if the Pack Setting dropdown (first parameter) matches the string value of the second parameter (selection). Available on the Client (Resource Packs) only.'
     },
     //DEPRECATED
     {
