@@ -12,6 +12,7 @@ import { convertSound } from './sound';
 import { convertTexture } from './texture';
 import { convertTextureAtlas } from './texture-atlas';
 import { fromFolderJson } from '../static/convert';
+import { convertLang } from './lang';
 
 /**
  * Scrape resource pack data from multiple sources
@@ -28,22 +29,24 @@ export function scrape(sources: string[], container: Container): void {
 export function scrapeSource(source: string, container: Container): void {
   console.log('Scraping RP: ' + source);
 
-  fromFolderJson(
-    convertAnimationController,
-    container.animationControllers,
-    path.join(source, 'animation_controllers'),
-  );
-  fromFolderJson(convertAnimation, container.animations, path.join(source, 'animations'));
-  fromFolderJson(convertEntity, container.entities, path.join(source, 'entity'));
-  fromFolderJson(convertFog, container.fogs, path.join(source, 'fogs'));
-  fromFolderJson(convertModel, container.models, path.join(source, 'models'));
-  fromFolderJson(convertParticle, container.particles, path.join(source, 'particles'));
-  fromFolderJson(convertRenderController, container.renderControllers, path.join(source, 'render_controllers'));
+  // fromFolderJson(
+    // convertAnimationController,
+    // container.animationControllers,
+    // path.join(source, 'animation_controllers'),
+  // );
+  // fromFolderJson(convertAnimation, container.animations, path.join(source, 'animations'));
+  // fromFolderJson(convertEntity, container.entities, path.join(source, 'entity'));
+  // fromFolderJson(convertFog, container.fogs, path.join(source, 'fogs'));
+  // fromFolderJson(convertModel, container.models, path.join(source, 'models'));
+  // fromFolderJson(convertParticle, container.particles, path.join(source, 'particles'));
+  // fromFolderJson(convertRenderController, container.renderControllers, path.join(source, 'render_controllers'));
+// 
+  // convertMaterial(source, container.materials);
+  // convertSound(source, container.sounds, container.soundFiles);
+  // container.textures.push(...convertTexture(source));
+// 
+  // container.textureItems.push(...convertTextureAtlas(path.join(source, 'textures', 'item_texture.json')));
+  // container.textureTerrain.push(...convertTextureAtlas(path.join(source, 'textures', 'terrain_texture.json')));
 
-  convertMaterial(source, container.materials);
-  convertSound(source, container.sounds, container.soundFiles);
-  container.textures.push(...convertTexture(source));
-
-  container.textureItems.push(...convertTextureAtlas(path.join(source, 'textures', 'item_texture.json')));
-  container.textureTerrain.push(...convertTextureAtlas(path.join(source, 'textures', 'terrain_texture.json')));
+  container.langs.push(...convertLang(path.join(source, 'texts', 'en_US.lang')))
 }
