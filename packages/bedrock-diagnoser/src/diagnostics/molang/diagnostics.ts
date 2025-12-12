@@ -65,7 +65,7 @@ function getId(item: VariableNode | ResourceReferenceNode) {
         break;
     }
 
-    return `${item}.${item.names.join('.')}`
+    return `${scope}.${item.names.join('.')}`
 }
 
 function getAssignedIds(receiver: Set<string>, data: MolangSet) {
