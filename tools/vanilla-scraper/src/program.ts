@@ -15,10 +15,10 @@ async function main(): Promise<void> {
   const out = Output.load(baseFolder);
 
   // Scrape data sets
-  // MetadataScraper.scrape(context.metadataFolder, out.vanilla.behaviorPack, out.general);
+  MetadataScraper.scrape(context.metadataFolder, out.vanilla.behaviorPack, out.general);
 
-  // BPScraper.scrape(context.eduBP, out.edu.behaviorPack);
-  // BPScraper.scrape(context.vanillaBP, out.vanilla.behaviorPack);
+  BPScraper.scrape(context.eduBP, out.edu.behaviorPack);
+  BPScraper.scrape(context.vanillaBP, out.vanilla.behaviorPack);
 
   RPScraper.scrape(context.eduRP, out.edu.resourcePack);
   RPScraper.scrape(context.vanillaRP, out.vanilla.resourcePack);

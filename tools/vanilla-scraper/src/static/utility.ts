@@ -102,7 +102,7 @@ export async function downloadUnpack(name: string, uri: string): Promise<string 
       try {
         fs.mkdirSync(folder, { recursive: true });
         // Use async exec with proper escaping
-        await execAsync(`powershell.exe -Command "Expand-Archive -Path \\"${filepath}\\" -DestinationPath \\"${folder}\\" -Force"`);
+        await execAsync(`unzip -q "${filepath}" -d "${folder}"`);
       } catch (err) {
         console.error('Failed to unzip:', err);
         return null;
