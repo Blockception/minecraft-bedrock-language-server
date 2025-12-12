@@ -12,6 +12,7 @@ import { convertSound } from './sound';
 import { convertTexture } from './texture';
 import { convertTextureAtlas } from './texture-atlas';
 import { fromFolderJson } from '../static/convert';
+import { convertLang } from './lang';
 
 /**
  * Scrape resource pack data from multiple sources
@@ -46,4 +47,6 @@ export function scrapeSource(source: string, container: Container): void {
 
   container.textureItems.push(...convertTextureAtlas(path.join(source, 'textures', 'item_texture.json')));
   container.textureTerrain.push(...convertTextureAtlas(path.join(source, 'textures', 'terrain_texture.json')));
+
+  container.langs.push(...convertLang(path.join(source, 'texts', 'en_US.lang')))
 }

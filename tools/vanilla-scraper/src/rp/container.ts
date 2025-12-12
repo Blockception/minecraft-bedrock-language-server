@@ -15,6 +15,7 @@ import { createRenderController, RenderController } from './render-controller';
 import { createSound, Sound } from './sound';
 import { createTexture, Texture } from './texture';
 import { createTextureAtlas, TextureAtlas } from './texture-atlas';
+import { createLang, Lang } from './lang';
 
 /**
  * Container for resource pack data
@@ -33,6 +34,7 @@ export class Container {
   textureItems: TextureAtlas[] = [];
   textureTerrain: TextureAtlas[] = [];
   soundFiles: string[] = [];
+  langs: Lang[] = [];
 
   /**
    * Load container from a folder
@@ -51,6 +53,7 @@ export class Container {
     out.textureItems = loadEnsure<TextureAtlas>(path.join(folder, 'texture-atlas-item.json'));
     out.textures = loadEnsure<Texture>(path.join(folder, 'textures.json'));
     out.textureTerrain = loadEnsure<TextureAtlas>(path.join(folder, 'texture-atlas-terrain.json'));
+    out.langs = loadEnsure<Lang>(path.join(folder, 'lang.json'))
     return out;
   }
 
@@ -133,6 +136,13 @@ export class Container {
       this.textureTerrain.map((tt) => tt.id),
       path.join(folder, 'texture-atlas-terrain.ts'),
     );
+    saveArray(
+      'Lang',
+      '../../types/resourcepack/lang',
+      'Langs',
+      this.langs,
+      path.join(folder, 'lang.ts'),
+    );
   }
 
   /**
@@ -158,5 +168,7 @@ export class Container {
     this.textureItems = ensureProperties(cleanIdentifiers(this.textureItems), createTextureAtlas);
     this.textureTerrain = ensureProperties(cleanIdentifiers(this.textureTerrain), createTextureAtlas);
     this.soundFiles.sort();
+
+    this.langs = ensureProperties(cleanIdentifiers(this.langs), createLang)
   }
 }
