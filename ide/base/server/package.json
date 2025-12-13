@@ -50,9 +50,9 @@
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.30",
+    "@types/node": "^25.0.1",
     "json-loader": "^0.5.7",
-    "ts-jest": "^29.3.4",
+    "ts-jest": "^29.4.6",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
