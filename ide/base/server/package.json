@@ -31,7 +31,7 @@
     "@blockception/packages-shared": "*",
     "@blockception/ide-shared": "*",
     "@daanv2/queue-processor": "^2.2.1",
-    "@types/vscode": "^1.106.1",
+    "@types/vscode": "^1.107.0",
     "bc-minecraft-bedrock-command": "*",
     "bc-minecraft-bedrock-diagnoser": "*",
     "bc-minecraft-bedrock-project": "*",
