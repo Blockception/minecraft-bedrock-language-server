@@ -18,7 +18,7 @@ jobs:
       contents: write
     steps:
       - name: ⬇️ Download all workflow artifacts
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           # Collect every artifact produced by prerequisite jobs (e.g., vscode-extension)
           pattern: '*'
