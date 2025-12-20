@@ -14,7 +14,7 @@ export enum MolangType {
 const eventRegex = /^@s ([\w:_-]+)/im;
 const commandRegex = /^\/[a-z]+/im;
 const molangRegexp =
-  /\b((query|math|variable|texture|temp|geometry|material|array|context|c|q|v|t)\.[A-Za-z_0-9]+|->|this)\b/im;
+  /(?<!:)\b((query|math|variable|texture|temp|geometry|material|array|context|c|q|v|t)\.[A-Za-z_0-9]+|->|this)\b/im;
 
 /**
  * Checks if the string is a molang type
