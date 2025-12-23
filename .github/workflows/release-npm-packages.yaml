@@ -15,7 +15,8 @@ jobs:
           - bedrock-types
           - bedrock-vanilla-data
           - molang
-          - packages/project
+          - project
+          - shared
     steps:
       - name: 📦 Checkout Repository
         uses: actions/checkout@v6
@@ -25,16 +26,21 @@ jobs:
         with:
           cache: npm
           cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
 
       - name: 🏗️ Setup project
         run: npm ci
 
       - name: 🛠️ Build projects
-        working-directory: '${{GITHUB.workspace}}/packages/${{matrix.package}}'
+        working-directory: '${{github.workspace}}/packages/${{matrix.package}}'
         run: npm run compile
 
       - name: 📋 Run Tests
+        working-directory: '${{github.workspace}}/packages/${{matrix.package}}'
         run: npm run test
 
       - name: 🚚 Publish package
+        working-directory: '${{github.workspace}}/packages/${{matrix.package}}'
         run: npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

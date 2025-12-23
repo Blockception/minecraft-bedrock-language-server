@@ -87,7 +87,8 @@ Packages are published independently. The GitHub Action `.github/workflows/relea
 - `bedrock-types`
 - `bedrock-vanilla-data`
 - `molang`
-- `packages/project` (directory maps to `bc-minecraft-project`)
+- `project` (directory maps to `bc-minecraft-project`)
+- `shared` (directory maps to `@blockception/packages-shared`)
 
 ### CI: Release via GitHub Actions
 
@@ -95,10 +96,10 @@ Packages are published independently. The GitHub Action `.github/workflows/relea
 - What it does for each package in the matrix:
 	1. `npm ci` at the repo root
 	2. `npm run compile` in the package folder
-	3. `npm run test`
-	4. `npm publish`
+	3. `npm run test` in the package folder
+	4. `npm publish` in the package folder
 
-Auth note: Ensure npm auth is available in the workflow runner (e.g., set a repository/organization secret `NODE_AUTH_TOKEN` and configure npm to use it, or use an `.npmrc` with a token). The provided workflow currently calls `npm publish` directly; add an auth step if required for your registry.
+Auth note: The workflow uses an `.npmrc` file at the repo root that references `NPM_TOKEN`. Ensure the repository/organization secret `NPM_TOKEN` is set with a valid npm authentication token for publishing packages.
 
 ### Local: Release from your machine
 
