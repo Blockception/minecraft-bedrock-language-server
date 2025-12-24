@@ -88,7 +88,6 @@ Packages are published independently. The GitHub Action `.github/workflows/relea
 - `bedrock-vanilla-data`
 - `molang`
 - `project` (directory maps to `bc-minecraft-project`)
-- `shared` (directory maps to `@blockception/packages-shared`)
 
 ### CI: Release via GitHub Actions
 
