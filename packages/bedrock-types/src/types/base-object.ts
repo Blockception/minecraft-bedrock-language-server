@@ -1,5 +1,4 @@
-import { Documentated } from './documentated';
-import { Identifiable } from './identifiable';
+import { Identifiable, Documentated } from '@blockception/packages-shared';
 import { Locatable } from './locatable';
 import { Location } from './location';
 

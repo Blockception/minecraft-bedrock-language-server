@@ -7,6 +7,7 @@ import { Context } from '../context/context';
 import { TextDocument } from '../documents';
 import { CodeLensBuilder } from './builder';
 import { CodeLensContext } from './context';
+import { Identifiable } from '@blockception/packages-shared';
 
 /**
  *
@@ -57,7 +58,7 @@ function forEach<T extends Types.BaseObject>(config: LensConfig<T>, doc: TextDoc
   });
 }
 
-interface LensConfig<T extends Types.Identifiable & Types.Locatable> {
+interface LensConfig<T extends Identifiable & Types.Locatable> {
   data: Pick<DataSet<T>, 'forEach'>;
 
   regex?: (id: string, doc: TextDocument) => RegExp;

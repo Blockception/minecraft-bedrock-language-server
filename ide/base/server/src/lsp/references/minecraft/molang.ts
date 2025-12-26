@@ -1,4 +1,3 @@
-import { BaseObject } from 'bc-minecraft-bedrock-types/src/types/base-object';
 import { MolangSet } from 'bc-minecraft-molang';
 import { OffsetWord } from 'bc-vscode-words';
 import { Location } from 'vscode-languageserver';
@@ -6,6 +5,7 @@ import { isDefined } from '../../../minecraft/molang';
 import { References } from '../../../util';
 import { Context } from '../../context/context';
 import { ReferenceContext } from '../context';
+import { BaseObject } from 'bc-minecraft-bedrock-types/src/types';
 
 export async function provideReferences(
   context: Context<ReferenceContext>,

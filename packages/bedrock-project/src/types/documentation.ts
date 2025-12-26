@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { Documentated } from '@blockception/packages-shared';
 import { TextDocument } from './text-document';
 
 /** */
@@ -8,7 +8,7 @@ export namespace Documentation {
    * @param doc The text document to read from
    * @param ifDefault The default text is nothing is found in the document*/
   export function setDoc(
-    receiver: Types.Documentated,
+    receiver: Documentated,
     doc: TextDocument,
     ifDefault: string | (() => string) | undefined = undefined,
   ): void {

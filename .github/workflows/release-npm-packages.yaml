@@ -6,6 +6,9 @@ on:
 jobs:
   release-npm-packages:
     runs-on: ubuntu-latest
+    environment:
+      name: 'Package: ${{ matrix.package }}'
+      url: https://www.npmjs.com/package/bc-minecraft-${{ matrix.package }}
     strategy:
       matrix:
         package:

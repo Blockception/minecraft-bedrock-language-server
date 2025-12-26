@@ -1,4 +1,4 @@
-import { Identifiable } from 'bc-minecraft-bedrock-types/src/types';
+import { Identifiable } from '@blockception/packages-shared';
 import { Data, MolangData, MolangDataSetKey, MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 

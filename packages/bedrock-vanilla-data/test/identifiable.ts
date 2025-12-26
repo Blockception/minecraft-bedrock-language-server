@@ -1,6 +1,6 @@
 import { fail } from 'assert';
 import { assert } from 'console';
-import { Identifiable } from '../src/lib/types';
+import { Identifiable } from '@blockception/packages-shared';
 
 export function Test_Identifiable(data: Identifiable) {
   if (Identifiable.is(data)) {

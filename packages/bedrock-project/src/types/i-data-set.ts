@@ -1,11 +1,11 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { Identifiable } from '@blockception/packages-shared';
 
-export interface IDataSet<T extends Types.Identifiable> {
+export interface IDataSet<T extends Identifiable> {
   /**
    * retrieves the matching id item in the data set
    * @param id The identication of the item to check
    */
-  get(id: string | Types.Identifiable): T | undefined;
+  get(id: string | Identifiable): T | undefined;
 
   /**
    * Loops over all the items in the dataset
@@ -18,7 +18,7 @@ export interface IDataSet<T extends Types.Identifiable> {
    * Checks if the dataset contains the specified item
    * @param id The identication of the item to check
    */
-  has(id: string | Types.Identifiable): boolean;
+  has(id: string | Identifiable): boolean;
 
   /**
    * Tries to find the specified item in the collection

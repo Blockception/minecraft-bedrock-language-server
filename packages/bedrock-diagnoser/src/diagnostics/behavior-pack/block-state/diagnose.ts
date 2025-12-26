@@ -1,7 +1,7 @@
 import { BehaviorPack, ProjectItem } from 'bc-minecraft-bedrock-project';
 import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
-import { DocumentLocation, Location } from 'bc-minecraft-bedrock-types/src/types';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
+import { Location, DocumentLocation } from 'bc-minecraft-bedrock-types/dist/types';
 
 /** Checks if the blocks exists in the project or in vanilla, if not then a bug is reported
  * @param id

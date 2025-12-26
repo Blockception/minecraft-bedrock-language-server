@@ -1,4 +1,4 @@
-import { Identifiable } from 'bc-minecraft-bedrock-types/src/types/identifiable';
+import { Identifiable } from '@blockception/packages-shared';
 import { Kinds } from '../../../constants';
 import { Context } from '../../context/context';
 import { CompletionContext } from '../context';

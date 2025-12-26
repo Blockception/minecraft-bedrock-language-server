@@ -4,8 +4,6 @@ export * from './base-object';
 export * from './conditional';
 export * from './definition';
 export * from './document-location';
-export * from './documentated';
-export * from './identifiable';
 export * from './json-path';
 export * from './locatable';
 export * from './location';

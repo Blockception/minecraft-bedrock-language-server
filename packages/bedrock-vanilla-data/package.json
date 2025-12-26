@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-vanilla-data",
-  "version": "1.21.114-0",
+  "version": "1.21.130-0",
   "description": "A Typescript library for dealing provides vanilla minecraft data",
   "author": {
     "name": "Blockception Ltd",
@@ -39,6 +39,9 @@
     "postversion": "git push && git push --tags",
     "version": "git add -A src",
     "watch": "tsc -w -p ./src"
+  },
+  "dependencies": {
+    "@blockception/packages-shared": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

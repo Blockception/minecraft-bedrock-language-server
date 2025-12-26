@@ -1,7 +1,7 @@
-import { Location } from 'bc-minecraft-bedrock-types/src/types';
 import { MCProject } from 'bc-minecraft-project';
 import { BehaviorPackCollection } from '.';
 import { Manifest } from '../../internal/types';
+import { Location } from 'bc-minecraft-bedrock-types/dist/types';
 
 describe('BehaviorPackCollection', () => {
   it('sanity check', () => {

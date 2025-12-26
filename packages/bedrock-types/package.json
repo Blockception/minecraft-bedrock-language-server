@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-types",
-  "version": "1.22.1-17",
+  "version": "1.22.1-18",
   "description": "The typescript library that provides default types for minecraft bedrock",
   "author": {
     "name": "Blockception Ltd",
@@ -39,6 +39,9 @@
     "postversion": "git push && git push --tags",
     "version": "git add -A src",
     "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@blockception/packages-shared": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

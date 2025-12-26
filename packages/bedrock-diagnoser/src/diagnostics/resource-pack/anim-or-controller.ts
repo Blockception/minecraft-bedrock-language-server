@@ -1,5 +1,5 @@
 import { Types } from 'bc-minecraft-bedrock-types';
-import { Definition } from 'bc-minecraft-bedrock-types/src/types/definition';
+import { Definition } from 'bc-minecraft-bedrock-types/src/types';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from '../../types';
 import { MolangMetadata } from '../molang';

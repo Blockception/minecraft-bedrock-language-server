@@ -1,4 +1,4 @@
-import { Identifiable } from "../identifiable";
+import { Identifiable } from '@blockception/packages-shared';
 
 /**The block interface*/
 export interface Block extends Identifiable {
