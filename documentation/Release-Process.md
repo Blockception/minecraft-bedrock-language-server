@@ -33,11 +33,12 @@ This repository contains multiple packages that can be versioned and released in
 ## Process Flow
 
 ```
-Developer PR → Main Branch → Manual Version Update → Release Draft → Published Release
-     ↓            ↓              ↓                      ↓              ↓
-  Changes      Automated      Maintainer           Maintainer     Auto-publish
-  Merged    Release Draft    Updates Versions     Creates        to NPM &
-            Created          & CHANGELOGs         Release        Marketplace
+Developer PR → Main Branch → Version Update (Auto/Manual) → Release Draft → Published Release
+     ↓            ↓              ↓                            ↓              ↓
+  Changes      Automated      Automated Workflow         Maintainer     Auto-publish
+  Merged    Release Draft    or Maintainer Manual        Creates        to NPM &
+            Created          Updates Versions             Release        Marketplace
+                             & Creates Tags
 ```
 
 ## Step-by-Step Process
@@ -72,9 +73,31 @@ When the PR is merged to `main`, the Release Drafter workflow runs:
   - Version number based on labels
 - **File**: `.github/workflows/release-drafter.yaml`
 
-### 3. Manual Version Update
+### 3. Version Update
 
-When ready to release, maintainers manually update package versions:
+When ready to release, maintainers update package versions. This can be done automatically or manually:
+
+#### Option A: Automated Version Bump (Recommended)
+
+Use the NPM Version Bump workflow (`.github/workflows/npm-version-bump.yaml`):
+
+1. Go to **Actions** → **📦 NPM Version Bump**
+2. Click **Run workflow**
+3. Select the version bump type:
+   - `patch` - Bug fixes and minor changes (0.0.X)
+   - `minor` - New features, backwards compatible (0.X.0)
+   - `major` - Breaking changes (X.0.0)
+   - `prepatch` - Pre-release patch (0.0.X-0)
+   - `preminor` - Pre-release minor (0.X.0-0)
+   - `premajor` - Pre-release major (X.0.0-0)
+4. The workflow will automatically:
+   - Update all package.json files
+   - Create git tags for each package
+   - Commit and push changes
+
+#### Option B: Manual Version Update
+
+Manually update package versions if you need more control:
 
 **What to update:**
 - ✅ Version numbers in package.json files for affected packages
