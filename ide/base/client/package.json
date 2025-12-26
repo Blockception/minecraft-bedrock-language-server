@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@blockception/ide-shared": "*",
-    "@types/vscode": "^1.106.1",
-    "vscode-languageclient": "^10.0.0-next.18"
+    "@types/vscode": "^1.107.0",
+    "vscode-languageclient": "^10.0.0-next.19"
   },
   "devDependencies": {
     "@types/node": "^24.5.2"

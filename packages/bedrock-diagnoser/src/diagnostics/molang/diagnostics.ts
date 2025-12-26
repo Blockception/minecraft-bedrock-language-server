@@ -1,5 +1,5 @@
 import { Identifiable } from 'bc-minecraft-bedrock-types/src/types';
-import { MolangDataSetKey, MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from 'bc-minecraft-molang';
+import { Data, MolangData, MolangDataSetKey, MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 
 /**
@@ -42,6 +42,11 @@ export function diagnose_molang_implementation(
     const identifier = getId(res);
     if (assigned.has(identifier)) continue;
 
+    let scope = normalizeVariableScope(res);
+    scope = scope[0].toUpperCase() + scope.slice(1) + 's';
+
+    if ((MolangData[diagnoser.metadata.userType][scope as keyof typeof MolangData[MolangDataSetKey]] as Array<Data>)?.map(x => x.id).includes(identifier.split('.')[1])) continue;
+
     diagnoser.add(
       user.id,
       `${identifier} is used by, but no definition is found by: ${diagnoser.metadata.userType} with id: ${user.id}`,
@@ -52,20 +57,26 @@ export function diagnose_molang_implementation(
 }
 
 function getId(item: VariableNode | ResourceReferenceNode) {
-    let scope: VariableScope | ResourceScope = item.scope;
-    switch (scope) {
-      case 'c':
-        scope = 'context';
-        break;
-      case 't':
-        scope = 'temp';
-        break;
-      case 'v':
-        scope = 'variable';
-        break;
-    }
+  const scope = normalizeVariableScope(item);
+  return `${scope}.${item.names.join('.')}`
+}
 
-    return `${scope}.${item.names.join('.')}`
+function normalizeVariableScope(item: VariableNode | ResourceReferenceNode) {
+  let scope: VariableScope | ResourceScope = item.scope;
+
+  switch (scope) {
+    case 'c':
+      scope = 'context';
+      break;
+    case 't':
+      scope = 'temp';
+      break;
+    case 'v':
+      scope = 'variable';
+      break;
+  }
+
+  return scope;
 }
 
 function getAssignedIds(receiver: Set<string>, data: MolangSet) {
