@@ -39,7 +39,7 @@ export namespace ItemCatalog {
       const catalog = value['minecraft:crafting_items_catalog'];
       if (!catalog || typeof catalog != 'object') return false;
       const categories = catalog.categories;
-      if (Array.isArray(categories) && categories.length >= 1 && typeof categories[0] == 'object') return true;
+      if (Array.isArray(categories) && categories.length >= 1 && typeof categories[0] === 'object') return true;
     }
     return false;
   }
