@@ -6,10 +6,10 @@ export interface Identifiable {
 
 /** */
 export namespace Identifiable {
-  /**TODO add documentation
-   *
-   * @param value
-   * @returns
+  /**
+   * Type guard to check if a value is a valid Identifiable object.
+   * @param value The value to check
+   * @returns True if the value has an id string property, false otherwise
    */
   export function is(value: any): value is Identifiable {
     if (typeof value === 'object' && typeof value.id === 'string') return true;
@@ -17,11 +17,11 @@ export namespace Identifiable {
     return false;
   }
 
-  /**TODO add documentation
-   *
-   * @param items
-   * @param id
-   * @returns
+  /**
+   * Checks if an array of Identifiable items contains an item with the specified id.
+   * @param items Array of Identifiable objects to search
+   * @param id The identifier to search for
+   * @returns True if an item with the id exists in the array, false otherwise
    */
   export function has<T extends Identifiable>(items: T[], id: string): boolean {
     for (let I = 0; I < items.length; I++) {
@@ -33,11 +33,11 @@ export namespace Identifiable {
     return false;
   }
 
-  /**TODO add documentation
-   *
-   * @param items
-   * @param id
-   * @returns
+  /**
+   * Retrieves an Identifiable item from an array by its id.
+   * @param items Array of Identifiable objects to search
+   * @param id The identifier to search for
+   * @returns The item with the matching id, or undefined if not found
    */
   export function get<T extends Identifiable>(items: T[], id: string): T | undefined {
     for (let I = 0; I < items.length; I++) {
@@ -49,10 +49,10 @@ export namespace Identifiable {
     return undefined;
   }
 
-  /**TODO add documentation
-   *
-   * @param carrier
-   * @returns
+  /**
+   * Extracts the id from either a string or an Identifiable object.
+   * @param carrier Either a string id or an Identifiable object
+   * @returns The id string
    */
   export function getId(carrier: string | Identifiable): string {
     if (typeof carrier === 'string') return carrier;

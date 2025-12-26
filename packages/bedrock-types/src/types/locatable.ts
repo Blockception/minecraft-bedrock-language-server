@@ -8,10 +8,10 @@ export interface Locatable {
 
 /** */
 export namespace Locatable {
-  /**TODO add documentation
-   *
-   * @param value
-   * @returns
+  /**
+   * Type guard to check if a value is a valid Locatable object.
+   * @param value The value to check
+   * @returns True if the value has a valid location property, false otherwise
    */
   export function is(value: any): value is Locatable {
     if (value && Location.is(value.location)) {
@@ -21,9 +21,9 @@ export namespace Locatable {
     return false;
   }
 
-  /**TODO add documentation
-   *
-   * @returns
+  /**
+   * Creates an empty Locatable object with a default empty location.
+   * @returns A new Locatable object with an empty URI and position 0
    */
   export function empty(): Locatable {
     return {

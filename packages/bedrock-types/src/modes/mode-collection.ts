@@ -32,8 +32,11 @@ export namespace ModeCollection {
     return false;
   }
 
-  /**TODO add documentation
-   *
+  /**
+   * Checks if a given value exists as a mode name in the collection.
+   * @param Collection The mode collection to search
+   * @param value The mode name to look for
+   * @returns True if the value exists as a mode name, false otherwise
    */
   export function isValue(Collection: ModeCollection, value: string): boolean {
     const M = Collection.modes;
@@ -47,11 +50,11 @@ export namespace ModeCollection {
     return false;
   }
 
-  /**TODO add documentation
-   *
-   * @param Collection
-   * @param index
-   * @returns
+  /**
+   * Retrieves a mode from the collection by name or index.
+   * @param Collection The mode collection to search
+   * @param index The mode name (string) or array index (number) to retrieve
+   * @returns The Mode object if found, undefined otherwise
    */
   export function get(Collection: ModeCollection, index: string | number): Mode | undefined {
     if (typeof index === 'string') {
@@ -72,10 +75,10 @@ export namespace ModeCollection {
 
 /** */
 export namespace Mode {
-  /**TODO add documentation
-   *
-   * @param value
-   * @returns
+  /**
+   * Type guard to check if a value is a valid Mode object.
+   * @param value The value to check
+   * @returns True if the value is a Mode with name and documentation strings, false otherwise
    */
   export function is(value: any): value is Mode {
     if (typeof value === 'object' && typeof value.name === 'string' && typeof value.documentation === 'string') {
