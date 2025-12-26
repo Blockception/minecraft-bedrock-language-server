@@ -37,8 +37,7 @@ Developer PR → Main Branch → Version Update (Auto/Manual) → Release Draft 
      ↓            ↓              ↓                            ↓              ↓
   Changes      Automated      Automated Workflow         Maintainer     Auto-publish
   Merged    Release Draft    Creates Version PR          Creates        to NPM &
-            Created          or Manual Updates            Release        Marketplace
-                             (Tags after merge)
+            Created          (Release creates tags)       Release        Marketplace
 ```
 
 ## Step-by-Step Process
@@ -91,11 +90,10 @@ Use the NPM Version Bump workflow (`.github/workflows/npm-version-bump.yaml`):
    - `preminor` - Pre-release minor (0.X.0-0)
    - `premajor` - Pre-release major (X.0.0-0)
 4. The workflow will automatically:
-   - Update all package.json files in packages and IDE components
+   - Update all package.json files in packages and VSCode IDE
    - Create a Pull Request with the version changes
-   - List git tags to create after merging
 5. After merging the PR:
-   - Create and push the git tags as listed in the PR description
+   - Create a GitHub Release to automatically generate git tags
 
 #### Option B: Manual Version Update
 

@@ -91,41 +91,6 @@ jobs:
             cd "${{github.workspace}}"
           done
 
-      - name: 🏷️ Generate Tag List
-        id: tags
-        run: |
-          echo "## Tags to be Created" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          
-          TAG_COMMANDS=""
-          
-          # Generate tags for each package
-          for package in $PACKAGES; do
-            version=$(node -p "require('./packages/$package/package.json').version")
-            tag_name="$package-v$version"
-            TAG_COMMANDS="$TAG_COMMANDS
-            git tag -a \"$tag_name\" -m \"Release $package v$version\""
-            echo "- \`$tag_name\`" >> $GITHUB_STEP_SUMMARY
-          done
-          
-          # Generate tags for each IDE package
-          for ide_package in $IDE_PACKAGES; do
-            version=$(node -p "require('./ide/$ide_package/package.json').version")
-            # Convert path to tag name (e.g., base/client -> base-client)
-            tag_prefix=$(echo "$ide_package" | tr '/' '-')
-            tag_name="ide-$tag_prefix-v$version"
-            TAG_COMMANDS="$TAG_COMMANDS
-            git tag -a \"$tag_name\" -m \"Release IDE $ide_package v$version\""
-            echo "- \`$tag_name\`" >> $GITHUB_STEP_SUMMARY
-          done
-          
-          # Save tag commands for PR body
-          {
-            echo 'tag_commands<<EOF'
-            echo "$TAG_COMMANDS"
-            echo 'EOF'
-          } >> $GITHUB_OUTPUT
-
       - name: 🗒️ Create Pull Request
         uses: peter-evans/create-pull-request@v8
         with:
@@ -141,18 +106,11 @@ jobs:
             
             ### Changes
             - ✅ Updated version in all npm packages
-            - ✅ Updated version in all IDE packages (base/client, base/server, shared, vscode)
+            - ✅ Updated version in VSCode IDE
             
-            ### Instructions
+            ### Next Steps
             
-            After merging this PR, create and push tags using these commands:
-            
-            ```bash
-            git checkout main
-            git pull
-            ${{ steps.tags.outputs.tag_commands }}
-            git push --tags
-            ```
+            After merging this PR, create a GitHub Release to automatically generate the git tags.
           labels: |
             version-bump
             automated
@@ -166,4 +124,4 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "A pull request has been created with the version updates." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "After merging, remember to create and push the git tags listed above." >> $GITHUB_STEP_SUMMARY
+          echo "After merging, create a GitHub Release to generate git tags." >> $GITHUB_STEP_SUMMARY

@@ -99,13 +99,11 @@ A new workflow `.github/workflows/npm-version-bump.yaml` allows you to version a
 
 This workflow will:
 - Update version in all npm packages
-- Update version in all IDE components (base/client, base/server, shared, vscode)
+- Update version in VSCode IDE
 - Create a Pull Request with the changes
-- List the git tags that should be created after merging
 
 After the PR is merged:
-- Create and push the git tags listed in the PR description
-- Or manually create tags for each versioned package
+- Create a GitHub Release to automatically generate git tags
 
 ### Manual version bumping
 
