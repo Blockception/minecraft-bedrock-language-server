@@ -1,4 +1,4 @@
-import { jsonc } from 'jsonc';
+import { Json as SharedJson } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 import { handle_json_error } from './errors';
 
@@ -29,7 +29,7 @@ export namespace Json {
   }
 
   export function parse(text: string): any {
-    return jsonc.parse(text, { stripComments: true });
+    return SharedJson.parse(text, { stripComments: true });
   }
 
   /**

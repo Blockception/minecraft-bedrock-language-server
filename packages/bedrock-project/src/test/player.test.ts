@@ -1,4 +1,4 @@
-import { jsonc } from 'jsonc';
+import { Json } from '@blockception/packages-shared';
 import { Internal, References } from '..';
 
 export namespace VanillaPlayer {
@@ -126,7 +126,7 @@ export namespace VanillaPlayer {
   }
 }`;
 
-  export const DataOBject = jsonc.parse(Data);
+  export const DataOBject = Json.parse(Data);
 }
 
 describe('data test', () => {
