@@ -1,6 +1,6 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
 import { Types } from "bc-minecraft-bedrock-types";
-import { Location } from "bc-minecraft-bedrock-types/src/types";
+import { Location } from "@blockception/packages-shared";
 import { minecraft_tag_diagnose } from "../../../../src/diagnostics/minecraft/tag";
 import { TestDiagnoser } from "../../../diagnoser";
 

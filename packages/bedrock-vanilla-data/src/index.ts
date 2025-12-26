@@ -1,5 +1,6 @@
+import { Identifiable } from '@blockception/packages-shared';
 import { Edu, General as G, Types, Vanilla } from './lib';
-import { Identifiable, MinecraftDataSet } from './lib/types';
+import { MinecraftDataSet } from './lib/types';
 export { Edu, MinecraftDataSet, Types, Vanilla };
 
 /**The minecraft vanilla data of RP and BP data*/
@@ -415,10 +416,10 @@ export namespace MinecraftData {
 }
 
 function get<T extends Identifiable>(id: string, includeEdu: boolean, vanilla: T[], edu: T[]): T | undefined {
-  let out = Identifiable.get(vanilla, id);
+  let out = vanilla.find((x) => x.id === id);
 
   if (out) return out;
-  if (includeEdu) out = Identifiable.get(edu, id);
+  if (includeEdu) out = edu.find((x) => x.id === id);
 
   return out;
 }

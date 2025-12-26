@@ -53,6 +53,7 @@
     "typescript-eslint": "^8.42.0"
   },
   "dependencies": {
+    "@blockception/packages-shared": "*",
     "bc-minecraft-bedrock-command": "*",
     "bc-minecraft-bedrock-types": "*",
     "bc-minecraft-bedrock-vanilla-data": "*",

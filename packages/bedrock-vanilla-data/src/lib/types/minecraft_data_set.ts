@@ -1,5 +1,4 @@
 import { BehaviorPack } from "./behaviorpack/behaviorpack";
-import { Identifiable } from "./identifiable";
 import { ResourcePack } from "./resourcepack/resourcepack";
 
 /**A dataset of minecraft data*/
@@ -18,8 +17,8 @@ export namespace MinecraftDataSet {
    * @param id The identification to find
    * @returns True or False if the entity is present or not*/
   export function hasEntity(data: MinecraftDataSet, id: string): boolean {
-    if (Identifiable.has(data.BehaviorPack.entities, id)) return true;
-    if (Identifiable.has(data.ResourcePack.entities, id)) return true;
+    if (data.BehaviorPack.entities.some((x) => x.id === id)) return true;
+    if (data.ResourcePack.entities.some((x) => x.id === id)) return true;
 
     return false;
   }

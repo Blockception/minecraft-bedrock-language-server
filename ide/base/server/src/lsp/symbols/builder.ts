@@ -1,5 +1,5 @@
 import { Types } from 'bc-minecraft-bedrock-types';
-import { Position } from 'bc-minecraft-bedrock-types/src/types/position';
+import { Position } from '@blockception/packages-shared/position';
 import { CancellationToken, Range, SymbolInformation, SymbolKind } from 'vscode-languageserver';
 
 type forEachCarrier<T> = { forEach: (callbackfn: (value: T) => void, thisArg?: any) => void };

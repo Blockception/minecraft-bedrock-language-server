@@ -40,6 +40,9 @@
     "version": "git add -A src",
     "watch": "tsc -w"
   },
+  "dependencies": {
+    "@blockception/packages-shared": "*"
+  },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@types/eslint__js": "^8.42.3",

@@ -1,5 +1,6 @@
 import { Types } from 'bc-minecraft-bedrock-types';
 import { IDataSet } from './i-data-set';
+import { Identifiable } from '@blockception/packages-shared';
 
 /** The base of any dataset */
 export interface DataSetBase {
@@ -10,7 +11,7 @@ export interface DataSetBase {
    * Delete the given item key from the location
    * @param key The objects identify key
    * @returns `true` or `false` wheter or not deletion was succesfull*/
-  delete(key: string | Types.Identifiable): boolean;
+  delete(key: string | Identifiable): boolean;
 
   /**
    * Delete the items that come from the specified file
@@ -28,11 +29,11 @@ export interface DataSetBase {
    * Checks if an object with the given id exists
    * @param key The objects identify key
    * @returns `true` or `false` wheter or not deletion was succesfull*/
-  has(key: string | Types.Identifiable): boolean;
+  has(key: string | Identifiable): boolean;
 }
 
 /** */
-export class DataSet<T extends Types.Identifiable & Types.Locatable> implements DataSetBase, IDataSet<T> {
+export class DataSet<T extends Identifiable & Types.Locatable> implements DataSetBase, IDataSet<T> {
   private _data: Map<string, T>;
 
   constructor() {
@@ -50,7 +51,7 @@ export class DataSet<T extends Types.Identifiable & Types.Locatable> implements 
   }
 
   /** @inheritdoc */
-  delete(key: string | Types.Identifiable): boolean {
+  delete(key: string | Identifiable): boolean {
     if (typeof key !== 'string') key = key.id;
 
     return this._data.delete(key);
@@ -109,13 +110,13 @@ export class DataSet<T extends Types.Identifiable & Types.Locatable> implements 
    * @param key
    * @returns
    */
-  get(key: string | Types.Identifiable): T | undefined {
-    return this._data.get(Types.Identifiable.getId(key));
+  get(key: string | Identifiable): T | undefined {
+    return this._data.get(Identifiable.getId(key));
   }
 
   /** @inheritdoc */
-  has(key: string | Types.Identifiable): boolean {
-    return this._data.has(Types.Identifiable.getId(key));
+  has(key: string | Identifiable): boolean {
+    return this._data.has(Identifiable.getId(key));
   }
 
   /**

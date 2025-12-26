@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { Identifiable, Documentated } from '@blockception/packages-shared';
 
 /**The base type of a molang data item*/
-export type Data = Types.Identifiable & Types.Documentated;
+export type Data = Identifiable & Documentated;

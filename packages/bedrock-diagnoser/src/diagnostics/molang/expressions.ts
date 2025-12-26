@@ -1,5 +1,4 @@
 import { TextDocument } from 'bc-minecraft-bedrock-project';
-import { OffsetWord } from 'bc-minecraft-bedrock-types/src/types';
 import {
   ExpressionNode,
   FunctionCallNode,
@@ -12,6 +11,7 @@ import {
 } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 import { Json } from '../json';
+import { OffsetWord } from 'bc-minecraft-bedrock-types/src/types';
 
 export function diagnose_molang_syntax_current_document(
   diagnoser: DocumentDiagnosticsBuilder,

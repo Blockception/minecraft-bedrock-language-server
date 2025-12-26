@@ -1,4 +1,4 @@
-import { OffsetWord } from 'bc-minecraft-bedrock-types/src/types/offset-word';
+import { OffsetWord } from 'bc-minecraft-bedrock-types/src/types';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export function handle_json_error(err: any, diagnoser: DiagnosticsBuilder): void {

@@ -1,4 +1,4 @@
-import { BaseObject } from 'bc-minecraft-bedrock-types/src/types/base-object';
+import { BaseObject } from '@blockception/packages-shared/base-object';
 import { MolangSet } from 'bc-minecraft-molang';
 import { OffsetWord } from 'bc-vscode-words';
 import { Location } from 'vscode-languageserver';

@@ -1,7 +1,7 @@
 import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
-import { OffsetWord } from 'bc-minecraft-bedrock-types/src/types';
 import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
+import { OffsetWord } from 'bc-minecraft-bedrock-types/src/types';
 
 export type diagnoseAttribute = (
   attribute: CompactJson.IKeyNode,

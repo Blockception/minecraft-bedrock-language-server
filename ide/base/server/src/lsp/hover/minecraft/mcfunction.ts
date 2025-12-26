@@ -1,12 +1,13 @@
 import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from 'bc-minecraft-bedrock-command';
 import { IDataSet } from 'bc-minecraft-bedrock-project';
-import { Documentated, Identifiable, Locatable } from 'bc-minecraft-bedrock-types/src/types';
+import { Documentated, Identifiable } from '@blockception/packages-shared';
 import { Hover, Range } from 'vscode-languageserver';
 import { IsEducationEnabled } from '../../../project/attributes';
 import { Context } from '../../context/context';
 import { HoverContext } from '../context';
 
 import * as RawText from './json-raw-text';
+import { Locatable } from 'bc-minecraft-bedrock-types/dist/types';
 
 export function provideHover(context: Context<HoverContext>): Hover | undefined {
   const { params, document } = context;

@@ -1,9 +1,9 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { Identifiable, Documentated } from '@blockception/packages-shared';
 
 /**
  *
  */
-export interface MolangFunction extends Types.Identifiable, Types.Documentated {
+export interface MolangFunction extends Identifiable, Documentated {
   /**
    *
    */
@@ -34,7 +34,7 @@ export namespace MolangFunction {
 /**
  *
  */
-export interface MolangParameter extends Types.Identifiable, Types.Documentated {
+export interface MolangParameter extends Identifiable, Documentated {
   /** */
   range?: { min: number; max: number };
   /**
