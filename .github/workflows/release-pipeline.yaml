@@ -9,6 +9,11 @@ jobs:
     uses: Blockception/minecraft-bedrock-language-server/.github/workflows/release-ide.yaml@main
     secrets: inherit
 
+  release-npm:
+    name: 📦 Release NPM
+    uses: Blockception/minecraft-bedrock-language-server/.github/workflows/release-npm-packages.yaml@main
+    secrets: inherit
+
   update-release:
     name: 📦➡️ GitHub Release Assets
     runs-on: ubuntu-latest
