@@ -1,6 +1,7 @@
+import { Identifiable } from '@blockception/packages-shared';
+import { DocumentLocation, Locatable } from 'bc-minecraft-bedrock-types/src/types';
 import { Location } from 'vscode-languageserver';
 import { IDocumentManager } from '../lsp/documents/manager';
-import { DocumentLocation, Identifiable, Locatable } from '@blockception/packages-shared';
 
 export namespace References {
   /**

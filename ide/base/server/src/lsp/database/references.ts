@@ -1,6 +1,7 @@
+import { Identifiable } from '@blockception/packages-shared';
 import { BehaviorPack, Defined, ResourcePack, Using } from 'bc-minecraft-bedrock-project';
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
-import { DocumentLocation, Identifiable, Locatable } from '@blockception/packages-shared';
+import { DocumentLocation, Locatable } from 'bc-minecraft-bedrock-types/src/types';
 import { MolangSet } from 'bc-minecraft-molang';
 import { CancellationToken, Location } from 'vscode-languageserver';
 import { getIdentifier } from '../../minecraft/molang';
