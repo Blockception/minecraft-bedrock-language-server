@@ -25,7 +25,7 @@ export function getUsingResources(receiver: MolangSet, source: Resources, docume
       type: NodeType.ResourceReference,
     });
   });
-  Types.Definition.forEach(source.materials, (reference) => {
+  Types.Definition.forEach(source.textures, (reference) => {
     receiver.assigned.add({
       scope: 'texture',
       names: [reference],
