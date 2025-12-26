@@ -58,7 +58,6 @@
     "bc-minecraft-bedrock-types": "*",
     "bc-minecraft-bedrock-vanilla-data": "*",
     "bc-minecraft-molang": "*",
-    "bc-minecraft-project": "*",
-    "jsonc": "^2.0.0"
+    "bc-minecraft-project": "*"
   }
 }

@@ -36,20 +36,18 @@
     "watch": "tsc -w"
   },
   "dependencies": {
+    "@blockception/packages-shared": "*",
     "bc-minecraft-bedrock-command": "*",
     "bc-minecraft-bedrock-project": "*",
     "bc-minecraft-bedrock-types": "*",
     "bc-minecraft-bedrock-vanilla-data": "*",
     "bc-minecraft-molang": "*",
-    "bc-minecraft-project": "*",
-    "jsonc": "^2.0.0"
+    "bc-minecraft-project": "*"
   },
   "devDependencies": {
-    "@blockception/packages-shared": "*",
     "@eslint/js": "^9.35.0",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^24.3.1",
-    "@types/picomatch": "^4.0.0",
     "eslint": "^9.35.0",
     "rimraf": "^6.1.2",
     "ts-node": "^10.9.1",
