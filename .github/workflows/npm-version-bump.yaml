@@ -1,0 +1,139 @@
+name: 📦 NPM Version Bump
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prepatch
+          - preminor
+          - premajor
+        default: 'patch'
+
+jobs:
+  version-packages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: 🏗️ Setup Node.js Environment
+        uses: actions/setup-node@v6
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
+      - name: 🔧 Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: 🏗️ Setup project
+        run: npm ci
+
+      - name: 📦 Version NPM Packages
+        run: |
+          # Array of packages to version
+          packages=(
+            "bedrock-commands"
+            "bedrock-diagnoser"
+            "bedrock-project"
+            "bedrock-types"
+            "bedrock-vanilla-data"
+            "molang"
+            "project"
+          )
+
+          echo "## NPM Packages Versioning" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          for package in "${packages[@]}"; do
+            echo "### Versioning package: $package" >> $GITHUB_STEP_SUMMARY
+            cd "${{github.workspace}}/packages/$package"
+            
+            # Get current version
+            current_version=$(node -p "require('./package.json').version")
+            echo "Current version: $current_version" >> $GITHUB_STEP_SUMMARY
+            
+            # Run npm version
+            npm version ${{ github.event.inputs.version_type }} --no-git-tag-version
+            
+            # Get new version
+            new_version=$(node -p "require('./package.json').version")
+            echo "New version: $new_version" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            cd "${{github.workspace}}"
+          done
+
+      - name: 🖥️ Version VSCode IDE
+        run: |
+          echo "## VSCode IDE Versioning" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          cd "${{github.workspace}}/ide/vscode"
+          
+          # Get current version
+          current_version=$(node -p "require('./package.json').version")
+          echo "Current version: $current_version" >> $GITHUB_STEP_SUMMARY
+          
+          # Run npm version
+          npm version ${{ github.event.inputs.version_type }} --no-git-tag-version
+          
+          # Get new version
+          new_version=$(node -p "require('./package.json').version")
+          echo "New version: $new_version" >> $GITHUB_STEP_SUMMARY
+
+      - name: 💾 Commit Changes
+        run: |
+          git add -A
+          git commit -m "chore: bump version to ${{ github.event.inputs.version_type }}"
+          git push origin ${{ github.ref_name }}
+
+      - name: 🏷️ Create and Push Tags
+        run: |
+          # Create tags for each package
+          packages=(
+            "bedrock-commands"
+            "bedrock-diagnoser"
+            "bedrock-project"
+            "bedrock-types"
+            "bedrock-vanilla-data"
+            "molang"
+            "project"
+          )
+
+          for package in "${packages[@]}"; do
+            version=$(node -p "require('./packages/$package/package.json').version")
+            tag_name="$package-v$version"
+            git tag -a "$tag_name" -m "Release $package v$version"
+            echo "Created tag: $tag_name" >> $GITHUB_STEP_SUMMARY
+          done
+
+          # Create tag for VSCode IDE
+          vscode_version=$(node -p "require('./ide/vscode/package.json').version")
+          vscode_tag="vscode-v$vscode_version"
+          git tag -a "$vscode_tag" -m "Release VSCode IDE v$vscode_version"
+          echo "Created tag: $vscode_tag" >> $GITHUB_STEP_SUMMARY
+
+          # Push all tags
+          git push --tags
+
+      - name: 📝 Summary
+        run: |
+          echo "## 🎉 Version Bump Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Version type: **${{ github.event.inputs.version_type }}**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All packages and IDE have been versioned and tagged successfully." >> $GITHUB_STEP_SUMMARY
