@@ -73,6 +73,151 @@ describe('MolangSet - harvest', () => {
       const usingArray = Array.from(set.using);
       expect(usingArray[0].names).toEqual(['is_rolled_up']);
     });
+
+    // Additional comprehensive tests for edge cases
+    test('chained nullish coalescing operators', () => {
+      const set = toMolangSet('v.a ?? (v.b ?? (v.c ?? 0))');
+      // v.a is left of first ??, should NOT be in using
+      // v.b is left of second ?? (right of first ??), should NOT be in using
+      // v.c is left of third ?? (right of second ??), should NOT be in using
+      // 0 is right of third ??, but it's a literal
+      expect(set.using.size).toBe(0);
+    });
+
+    test('chained ?? with variable on rightmost side', () => {
+      const set = toMolangSet('v.a ?? (v.b ?? v.c)');
+      // v.a is left of first ??, should NOT be in using
+      // v.b is left of second ?? (right of first ??), should NOT be in using
+      // v.c is right of second ??, SHOULD be in using
+      expect(set.using.size).toBe(1);
+      const usingArray = Array.from(set.using);
+      expect(usingArray[0].names).toEqual(['c']);
+    });
+
+    test('nullish coalescing with different variable scopes', () => {
+      const set = toMolangSet('(v.a ?? 0) + (variable.b ?? 0) + (t.c ?? 0) + (temp.d ?? 0)');
+      // All left-side variables should NOT be in using
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing combined with logical AND', () => {
+      const set = toMolangSet('(v.enabled ?? false) && v.active');
+      // v.enabled should NOT be in using (left of ??)
+      // v.active SHOULD be in using (used in &&)
+      expect(set.using.size).toBe(1);
+      const usingArray = Array.from(set.using);
+      expect(usingArray[0].names).toEqual(['active']);
+    });
+
+    test('nullish coalescing combined with logical OR', () => {
+      const set = toMolangSet('v.disabled || (v.fallback ?? true)');
+      // v.disabled SHOULD be in using (used in ||)
+      // v.fallback should NOT be in using (left of ??)
+      expect(set.using.size).toBe(1);
+      const usingArray = Array.from(set.using);
+      expect(usingArray[0].names).toEqual(['disabled']);
+    });
+
+    test('nullish coalescing in ternary condition', () => {
+      const set = toMolangSet('(v.mode ?? 0) > 0 ? v.on : v.off');
+      // v.mode should NOT be in using (left of ??)
+      // v.on SHOULD be in using (in ternary true branch)
+      // v.off SHOULD be in using (in ternary false branch)
+      expect(set.using.size).toBe(2);
+      const usingArray = Array.from(set.using);
+      const names = usingArray.map(v => v.names[0]).sort();
+      expect(names).toEqual(['off', 'on']);
+    });
+
+    test('nullish coalescing with function calls', () => {
+      const set = toMolangSet('(v.value ?? 0) + math.sin(v.angle ?? 0)');
+      // v.value should NOT be in using (left of ??)
+      // v.angle should NOT be in using (left of ??)
+      expect(set.using.size).toBe(0);
+      expect(set.functions.size).toBe(1);
+    });
+
+    test('assignment followed by nullish coalescing', () => {
+      const set = toMolangSet('v.temp = (v.input ?? 0)');
+      // v.temp should be in assigned
+      // v.input should NOT be in using (it's in left of ??)
+      expect(set.assigned.size).toBe(1);
+      expect(set.using.size).toBe(0);
+      const assignedArray = Array.from(set.assigned);
+      expect(assignedArray[0].names).toEqual(['temp']);
+    });
+
+    test('nested nullish coalescing with arithmetic', () => {
+      const set = toMolangSet('(v.x ?? 0) + (v.y ?? 0) * (v.scale ?? 1)');
+      // v.x, v.y, v.scale should all NOT be in using (all left of ??)
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing with comparison operators', () => {
+      const set = toMolangSet('(v.health ?? 100) < 50');
+      // v.health should NOT be in using (left of ??)
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing does not affect variables outside the expression', () => {
+      const set = toMolangSet('v.result = v.defined + (v.maybe ?? 0)');
+      // v.result should be in assigned
+      // v.defined SHOULD be in using (not protected by ??)
+      // v.maybe should NOT be in using (left of ??)
+      expect(set.assigned.size).toBe(1);
+      expect(set.using.size).toBe(1);
+      const usingArray = Array.from(set.using);
+      expect(usingArray[0].names).toEqual(['defined']);
+    });
+
+    test('multiple separate nullish coalescing expressions', () => {
+      const set = toMolangSet('v.a = v.x ?? 0; v.b = v.y ?? 1; v.c = v.z ?? 2;');
+      // v.a, v.b, v.c should be in assigned
+      // v.x, v.y, v.z should NOT be in using (all left of ??)
+      expect(set.assigned.size).toBe(3);
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing with dotted property access', () => {
+      const set = toMolangSet('v.player.health ?? 100');
+      // v.player.health should NOT be in using
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing preserves function detection', () => {
+      const set = toMolangSet('(v.override ?? query.health) + (query.max_health ?? 100)');
+      // v.override should NOT be in using
+      // query.health and query.max_health should be in functions
+      expect(set.using.size).toBe(0);
+      expect(set.functions.size).toBe(2);
+    });
+
+    test('deeply nested nullish coalescing', () => {
+      const set = toMolangSet('v.a ?? (v.b ?? (v.c ?? (v.d ?? 0)))');
+      // All variables are on left sides of ?? operators, none should be in using
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing with unary operators', () => {
+      const set = toMolangSet('!(v.disabled ?? false)');
+      // v.disabled should NOT be in using (left of ??)
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing with negative values', () => {
+      const set = toMolangSet('v.offset ?? -1');
+      // v.offset should NOT be in using
+      expect(set.using.size).toBe(0);
+    });
+
+    test('nullish coalescing in array-like context', () => {
+      const set = toMolangSet('array.values[v.index ?? 0]');
+      // v.index should NOT be in using (left of ??)
+      // array.values should be in using (array access)
+      expect(set.using.size).toBe(1);
+      const usingArray = Array.from(set.using);
+      expect(usingArray[0].scope).toBe('array');
+    });
   });
 });
 
