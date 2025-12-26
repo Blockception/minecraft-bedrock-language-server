@@ -1,6 +1,5 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
 import { Types } from "bc-minecraft-bedrock-types";
-import { Location } from "@blockception/packages-shared";
 import { minecraft_tag_diagnose } from "../../../../src/diagnostics/minecraft/tag";
 import { TestDiagnoser } from "../../../diagnoser";
 
@@ -10,10 +9,10 @@ describe("Tag", () => {
     const data = B.context.getProjectData().projectData;
 
     data.general.tags.set([
-      GeneralInfo.create("init", Location.create(""), "main tickingarea"),
-      GeneralInfo.create("Flying", Location.create(""), "main tickingarea"),
-      GeneralInfo.create("Follow", Location.create(""), "main tickingarea"),
-      GeneralInfo.create("Attack", Location.create(""), "main tickingarea"),
+      GeneralInfo.create("init", Types.Location.create(""), "main tickingarea"),
+      GeneralInfo.create("Flying", Types.Location.create(""), "main tickingarea"),
+      GeneralInfo.create("Follow", Types.Location.create(""), "main tickingarea"),
+      GeneralInfo.create("Attack", Types.Location.create(""), "main tickingarea"),
     ]);
 
     minecraft_tag_diagnose(Types.OffsetWord.create("init"), B);
@@ -41,7 +40,7 @@ describe("Tag", () => {
     const objectivesData = B.context.getProjectData().projectData.general.tags;
     const tags: string[] = ["te/st", "test!example", "Test@Example", "Test#Example"];
     
-    tags.forEach((t) => objectivesData.set(GeneralInfo.create(t, Location.create(""))));
+    tags.forEach((t) => objectivesData.set(GeneralInfo.create(t, Types.Location.create(""))));
     tags.forEach((t) => minecraft_tag_diagnose(Types.OffsetWord.create(t), B));
 
     B.expectAmount(4);
@@ -53,7 +52,7 @@ describe("Tag", () => {
 
     // Simulate a tag being defined in an entity queue_command event
     data.general.tags.set([
-      GeneralInfo.create("test", Location.create("file:///bp/entities/test.json"), "Entity event command"),
+      GeneralInfo.create("test", Types.Location.create("file:///bp/entities/test.json"), "Entity event command"),
     ]);
 
     // This should not produce an error since the tag is defined
