@@ -97,13 +97,14 @@ jobs:
           echo "## Tags to be Created" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          TAG_LIST=""
+          TAG_COMMANDS=""
           
           # Generate tags for each package
           for package in $PACKAGES; do
             version=$(node -p "require('./packages/$package/package.json').version")
             tag_name="$package-v$version"
-            TAG_LIST="$TAG_LIST$tag_name "
+            TAG_COMMANDS="$TAG_COMMANDS
+            git tag -a \"$tag_name\" -m \"Release $package v$version\""
             echo "- \`$tag_name\`" >> $GITHUB_STEP_SUMMARY
           done
           
@@ -113,12 +114,17 @@ jobs:
             # Convert path to tag name (e.g., base/client -> base-client)
             tag_prefix=$(echo "$ide_package" | tr '/' '-')
             tag_name="ide-$tag_prefix-v$version"
-            TAG_LIST="$TAG_LIST$tag_name "
+            TAG_COMMANDS="$TAG_COMMANDS
+            git tag -a \"$tag_name\" -m \"Release IDE $ide_package v$version\""
             echo "- \`$tag_name\`" >> $GITHUB_STEP_SUMMARY
           done
           
-          # Save tag list for PR body
-          echo "tag_list=$TAG_LIST" >> $GITHUB_OUTPUT
+          # Save tag commands for PR body
+          {
+            echo 'tag_commands<<EOF'
+            echo "$TAG_COMMANDS"
+            echo 'EOF'
+          } >> $GITHUB_OUTPUT
 
       - name: 🗒️ Create Pull Request
         uses: peter-evans/create-pull-request@v8
@@ -137,26 +143,16 @@ jobs:
             - ✅ Updated version in all npm packages
             - ✅ Updated version in all IDE packages (base/client, base/server, shared, vscode)
             
-            ### Tags to Create After Merge
-            
-            ${{ steps.tags.outputs.tag_list }}
-            
             ### Instructions
             
-            After merging this PR, create and push tags manually:
+            After merging this PR, create and push tags using these commands:
             
             ```bash
             git checkout main
             git pull
-            
-            # Create tags
-            ${{ steps.tags.outputs.tag_list }}
-            
-            # Push all tags
+            ${{ steps.tags.outputs.tag_commands }}
             git push --tags
             ```
-            
-            Or use the workflow dispatch to create tags automatically.
           labels: |
             version-bump
             automated
