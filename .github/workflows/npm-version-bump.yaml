@@ -1,0 +1,127 @@
+name: 📦 NPM Version Bump
+on:
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - prepatch
+          - preminor
+          - premajor
+        default: 'patch'
+
+jobs:
+  version-packages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      # Define packages to version (matches release-npm-packages.yaml)
+      PACKAGES: bedrock-commands bedrock-diagnoser bedrock-project bedrock-types bedrock-vanilla-data molang project
+      # Define IDE packages to version
+      IDE_PACKAGES: vscode
+    steps:
+      - name: 📦 Checkout Repository
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: 🏗️ Setup Node.js Environment
+        uses: actions/setup-node@v6
+        with:
+          cache: npm
+          cache-dependency-path: package-lock.json
+          node-version-file: .nvmrc
+
+      - name: 🏗️ Setup project
+        run: npm ci
+
+      - name: 📦 Version NPM Packages
+        run: |
+          echo "## NPM Packages Versioning" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          for package in $PACKAGES; do
+            echo "### Versioning package: $package" >> $GITHUB_STEP_SUMMARY
+            cd "${{github.workspace}}/packages/$package"
+            
+            # Get current version
+            current_version=$(node -p "require('./package.json').version")
+            echo "Current version: $current_version" >> $GITHUB_STEP_SUMMARY
+            
+            # Run npm version
+            npm version ${{ github.event.inputs.version_type }} --no-git-tag-version
+            
+            # Get new version
+            new_version=$(node -p "require('./package.json').version")
+            echo "New version: $new_version" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            cd "${{github.workspace}}"
+          done
+
+      - name: 🖥️ Version IDE Packages
+        run: |
+          echo "## IDE Packages Versioning" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          for ide_package in $IDE_PACKAGES; do
+            echo "### Versioning IDE package: $ide_package" >> $GITHUB_STEP_SUMMARY
+            cd "${{github.workspace}}/ide/$ide_package"
+            
+            # Get current version
+            current_version=$(node -p "require('./package.json').version")
+            echo "Current version: $current_version" >> $GITHUB_STEP_SUMMARY
+            
+            # Run npm version
+            npm version ${{ github.event.inputs.version_type }} --no-git-tag-version
+            
+            # Get new version
+            new_version=$(node -p "require('./package.json').version")
+            echo "New version: $new_version" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            cd "${{github.workspace}}"
+          done
+
+      - name: 🗒️ Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: bump version to ${{ github.event.inputs.version_type }}"
+          branch: version-bump-${{ github.event.inputs.version_type }}-${{ github.run_number }}
+          delete-branch: true
+          title: "chore: bump version (${{ github.event.inputs.version_type }})"
+          body: |
+            ## 📦 Version Bump: ${{ github.event.inputs.version_type }}
+            
+            This PR updates package versions across all npm packages and IDE components.
+            
+            ### Changes
+            - ✅ Updated version in all npm packages
+            - ✅ Updated version in VSCode IDE
+            
+            ### Next Steps
+            
+            After merging this PR, create a GitHub Release to automatically generate the git tags.
+          labels: |
+            version-bump
+            automated
+
+      - name: 📝 Summary
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## 🎉 Version Bump Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Version type: **${{ github.event.inputs.version_type }}**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "A pull request has been created with the version updates." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "After merging, create a GitHub Release to generate git tags." >> $GITHUB_STEP_SUMMARY

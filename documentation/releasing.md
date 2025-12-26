@@ -77,6 +77,38 @@ popd
 
 Tip: You can also install the `.vsix` locally in VS Code for sanity checks before publishing.
 
+## Versioning packages and IDEs
+
+Before releasing, you need to bump the version numbers. You can do this manually or use the automated workflow.
+
+### Automated version bumping (recommended)
+
+A new workflow `.github/workflows/npm-version-bump.yaml` allows you to version all packages and IDE components in one go:
+
+1. Go to the Actions tab in GitHub
+2. Select "📦 NPM Version Bump" workflow
+3. Click "Run workflow"
+4. Choose the version bump type:
+   - `patch` - Bug fixes (0.0.X)
+   - `minor` - New features, backwards compatible (0.X.0)
+   - `major` - Breaking changes (X.0.0)
+   - `prepatch` - Pre-release patch (0.0.X-0)
+   - `preminor` - Pre-release minor (0.X.0-0)
+   - `premajor` - Pre-release major (X.0.0-0)
+5. Click "Run workflow"
+
+This workflow will:
+- Update version in all npm packages
+- Update version in VSCode IDE
+- Create a Pull Request with the changes
+
+After the PR is merged:
+- Create a GitHub Release to automatically generate git tags
+
+### Manual version bumping
+
+If you prefer to version manually, follow the instructions in the "Local: Release from your machine" section below.
+
 ## Releasing npm packages
 
 Packages are published independently. The GitHub Action `.github/workflows/release-npm-packages.yaml` can publish the following matrix:
