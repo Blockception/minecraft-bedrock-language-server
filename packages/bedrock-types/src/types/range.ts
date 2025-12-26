@@ -15,7 +15,7 @@ export namespace Range {
    * @param value The value to check
    * @returns True if the value has valid start and end Position objects, false otherwise
    */
-  export function is(value: any): value is Position {
+  export function is(value: any): value is Range {
     if (value && Position.is(value.start) && Position.is(value.end)) return true;
 
     return false;
