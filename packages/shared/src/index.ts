@@ -1,2 +1,2 @@
 export * from './glob';
-export * from './identifiiable';
+export * from './identifiable';

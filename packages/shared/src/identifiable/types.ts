@@ -1,4 +1,6 @@
-/**The interface that governs if a object is identifiable*/
+/**
+ * The interface that governs if a object is identifiable
+ */
 export interface Identifiable {
   /**The identifier of this object*/
   id: string;
@@ -32,14 +34,6 @@ export namespace Identifiable {
    * @param items Array of Identifiable objects to search
    * @param id The identifier to search for
    * @returns The item with the matching id, or undefined if not found
-   */
-  export function get<T extends Identifiable>(items: T[], id: string): T | undefined {
-    return items.find((x) => x.id === id);
-  }
-
-  /**
-   * Extracts the id from either a string or an Identifiable object.
-   * @param carrier Either a string id or an Identifiable object
    * @returns The id string
    */
   export function getId(carrier: string | Identifiable): string {
