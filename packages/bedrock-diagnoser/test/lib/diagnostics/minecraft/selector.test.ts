@@ -1,7 +1,6 @@
 import { ParameterInfo, ParameterType } from "bc-minecraft-bedrock-command";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/src/project/general/types";
 import { Types } from "bc-minecraft-bedrock-types";
-import { Location } from "@blockception/packages-shared";
 import { minecraft_selector_diagnose } from "../../../../src/diagnostics/minecraft/selector";
 import { TestDiagnoser } from "../../../diagnoser";
 import { TestProjectData } from "../../../testprojectdata";
@@ -10,8 +9,8 @@ describe("Selector", () => {
   const context = TestProjectData.createContext();
   const pi: ParameterInfo = { required: false, text: "", type: ParameterType.selector };
   const cache = context.getProjectData().projectData;
-  cache.general.objectives.set(GeneralInfo.create("data", Location.create("test"), "test objective"));
-  cache.general.tags.set(GeneralInfo.create("foo", Location.create("test"), "test tag"));
+  cache.general.objectives.set(GeneralInfo.create("data", Types.Location.create("test"), "test objective"));
+  cache.general.tags.set(GeneralInfo.create("foo", Types.Location.create("test"), "test tag"));
 
   it("Double negative types should not return errors", () => {
     const B = new TestDiagnoser(context);
