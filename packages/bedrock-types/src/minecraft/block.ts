@@ -1,23 +1,25 @@
 import { Locatable, Documentated, Identifiable, Location } from '../types';
 
-/**TODO add documentation
- *
+/**
+ * Represents a single block state property with its value.
+ * Block states are key-value pairs that define specific properties of a Minecraft block (e.g., facing=north, open=true).
  */
 export interface BlockState {
-  /** */
+  /** The name of the block state property */
   property: string;
-  /** */
+  /** The value of the block state property */
   value: string;
 }
 
-/**TODO add documentation
- *
+/**
+ * Namespace containing utility functions for working with BlockState objects.
  */
 export namespace BlockState {
-  /**TODO add documentation
-   *
-   * @param data
-   * @returns
+  /**
+   * Parses a string representation of a block state into a BlockState object.
+   * Expected format is "property=value".
+   * @param data The string to parse (e.g., "facing=north")
+   * @returns A BlockState object if parsing succeeds, undefined otherwise
    */
   export function parse(data: string): BlockState | undefined {
     const index = data.indexOf('=');
@@ -32,11 +34,11 @@ export namespace BlockState {
     return undefined;
   }
 
-  /**TODO add documentation
-   *
-   * @param property
-   * @param value
-   * @returns
+  /**
+   * Creates a new BlockState object from a property name and value.
+   * @param property The name of the block state property
+   * @param value The value of the block state property
+   * @returns A new BlockState object
    */
   export function create(property: string, value: string) {
     return {
@@ -46,23 +48,24 @@ export namespace BlockState {
   }
 }
 
-/**TODO add documentation
- *
+/**
+ * Represents a Minecraft block with its identifier, location, and optional block states.
+ * Extends Locatable (has a location), Documentated (has documentation), and Identifiable (has an id).
  */
 export interface Block extends Locatable, Documentated, Identifiable {
-  /** */
+  /** The collection of block states associated with this block */
   states: BlockState[];
 }
 
-/**TODO add documentation
- *
+/**
+ * Namespace containing utility functions for working with Block objects.
  */
 export namespace Block {
-  /**TODO add documentation
-   *
-   * @param id
-   * @param Location
-   * @returns
+  /**
+   * Creates a new Block object with the given identifier and location.
+   * @param id The block identifier (e.g., "minecraft:stone")
+   * @param Location The location where this block is referenced
+   * @returns A new Block object with an empty states array
    */
   export function create(id: string, Location: Location): Block {
     return {
@@ -72,10 +75,11 @@ export namespace Block {
     };
   }
 
-  /**TODO add documentation
-   *
-   * @param blockDescription
-   * @returns
+  /**
+   * Extracts the block identifier from a block description string.
+   * If the description contains block states (indicated by '['), returns only the ID portion.
+   * @param blockDescription A block description string (e.g., "minecraft:stone[variant=granite]")
+   * @returns The block identifier without states (e.g., "minecraft:stone")
    */
   export function getId(blockDescription: string): string {
     const index = blockDescription.indexOf('[');
@@ -87,10 +91,11 @@ export namespace Block {
     return blockDescription;
   }
 
-  /**TODO add documentation
-   *
-   * @param blockDescription
-   * @returns
+  /**
+   * Extracts all block states from a block description string.
+   * Parses the content between '[' and ']' and splits by comma.
+   * @param blockDescription A block description string (e.g., "minecraft:stone[variant=granite,smooth=true]")
+   * @returns An array of BlockState objects parsed from the description
    */
   export function getStates(blockDescription: string): BlockState[] {
     const out: BlockState[] = [];
@@ -113,9 +118,12 @@ export namespace Block {
     return out;
   }
 
-  /**TODO add documentation
-   *
-   * @param blockDescription
+  /**
+   * Creates a Block object from a complete block descriptor string.
+   * Parses both the block identifier and any block states from the descriptor.
+   * @param blockDescription A complete block descriptor (e.g., "minecraft:stone[variant=granite,smooth=true]")
+   * @param Loc Optional location for the block; if not provided, creates an empty location
+   * @returns A new Block object with the parsed id and states
    */
   export function fromBlockDescriptor(blockDescription: string, Loc: Location | undefined = undefined): Block {
     if (!Loc) Loc = Location.empty();

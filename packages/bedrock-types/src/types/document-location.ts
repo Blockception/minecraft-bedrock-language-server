@@ -45,11 +45,12 @@ export namespace DocumentLocation {
     }
   }
 
-  /**TODO add documentation
-   *
-   * @param data
-   * @param text
-   * @returns
+  /**
+   * Converts a DocumentLocation to a Position object.
+   * Handles conversion from numbers, JSON paths, and Position/OffsetWord objects.
+   * @param data The document location to convert (number, string path, Position, or OffsetWord)
+   * @param text The text content or document object needed for conversion
+   * @returns A Position object representing the location
    */
   export function toPosition(data: DocumentLocation, text: TextOrDoc): Position {
     switch (typeof data) {

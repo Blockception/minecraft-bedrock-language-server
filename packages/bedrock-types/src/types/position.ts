@@ -8,10 +8,10 @@ export interface Position {
 
 /** */
 export namespace Position {
-  /**TODO add documentation
-   *
-   * @param value
-   * @returns
+  /**
+   * Type guard to check if a value is a valid Position object.
+   * @param value The value to check
+   * @returns True if the value has line and character number properties, false otherwise
    */
   export function is(value: any): value is Position {
     if (value && typeof value.line === 'number' && typeof value.character === 'number') return true;
@@ -19,11 +19,11 @@ export namespace Position {
     return false;
   }
 
-  /**TODO add documentation
-   *
-   * @param line
-   * @param character
-   * @returns
+  /**
+   * Creates a new Position object with the specified line and character offset.
+   * @param line The line number (defaults to 0)
+   * @param character The character offset within the line (defaults to 0)
+   * @returns A new Position object
    */
   export function create(line: number = 0, character: number = 0): Position {
     return { line: line, character: character };
