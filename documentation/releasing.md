@@ -83,7 +83,7 @@ Before releasing, you need to bump the version numbers. You can do this manually
 
 ### Automated version bumping (recommended)
 
-A new workflow `.github/workflows/npm-version-bump.yaml` allows you to version all packages and the VSCode IDE in one go:
+A new workflow `.github/workflows/npm-version-bump.yaml` allows you to version all packages and IDE components in one go:
 
 1. Go to the Actions tab in GitHub
 2. Select "📦 NPM Version Bump" workflow
@@ -99,10 +99,13 @@ A new workflow `.github/workflows/npm-version-bump.yaml` allows you to version a
 
 This workflow will:
 - Update version in all npm packages
-- Update version in VSCode IDE
-- Commit the changes
-- Create git tags for each package and IDE
-- Push everything to the repository
+- Update version in all IDE components (base/client, base/server, shared, vscode)
+- Create a Pull Request with the changes
+- List the git tags that should be created after merging
+
+After the PR is merged:
+- Create and push the git tags listed in the PR description
+- Or manually create tags for each versioned package
 
 ### Manual version bumping
 

@@ -20,9 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     env:
       # Define packages to version (matches release-npm-packages.yaml)
       PACKAGES: bedrock-commands bedrock-diagnoser bedrock-project bedrock-types bedrock-vanilla-data molang project
+      # Define IDE packages to version
+      IDE_PACKAGES: base/client base/server shared vscode
     steps:
       - name: 📦 Checkout Repository
         uses: actions/checkout@v6
@@ -36,11 +39,6 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
           node-version-file: .nvmrc
-
-      - name: 🔧 Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: 🏗️ Setup project
         run: npm ci
@@ -69,51 +67,99 @@ jobs:
             cd "${{github.workspace}}"
           done
 
-      - name: 🖥️ Version VSCode IDE
+      - name: 🖥️ Version IDE Packages
         run: |
-          echo "## VSCode IDE Versioning" >> $GITHUB_STEP_SUMMARY
+          echo "## IDE Packages Versioning" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          cd "${{github.workspace}}/ide/vscode"
-          
-          # Get current version
-          current_version=$(node -p "require('./package.json').version")
-          echo "Current version: $current_version" >> $GITHUB_STEP_SUMMARY
-          
-          # Run npm version
-          npm version ${{ github.event.inputs.version_type }} --no-git-tag-version
-          
-          # Get new version
-          new_version=$(node -p "require('./package.json').version")
-          echo "New version: $new_version" >> $GITHUB_STEP_SUMMARY
+          for ide_package in $IDE_PACKAGES; do
+            echo "### Versioning IDE package: $ide_package" >> $GITHUB_STEP_SUMMARY
+            cd "${{github.workspace}}/ide/$ide_package"
+            
+            # Get current version
+            current_version=$(node -p "require('./package.json').version")
+            echo "Current version: $current_version" >> $GITHUB_STEP_SUMMARY
+            
+            # Run npm version
+            npm version ${{ github.event.inputs.version_type }} --no-git-tag-version
+            
+            # Get new version
+            new_version=$(node -p "require('./package.json').version")
+            echo "New version: $new_version" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            
+            cd "${{github.workspace}}"
+          done
 
-      - name: 💾 Commit Changes
+      - name: 🏷️ Generate Tag List
+        id: tags
         run: |
-          git add -A
-          git commit -m "chore: bump version to ${{ github.event.inputs.version_type }}"
-          git push origin ${{ github.ref_name }}
-
-      - name: 🏷️ Create and Push Tags
-        run: |
-          echo "## Tags Created" >> $GITHUB_STEP_SUMMARY
+          echo "## Tags to be Created" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
-          # Create tags for each package
+          TAG_LIST=""
+          
+          # Generate tags for each package
           for package in $PACKAGES; do
             version=$(node -p "require('./packages/$package/package.json').version")
             tag_name="$package-v$version"
-            git tag -a "$tag_name" -m "Release $package v$version"
-            echo "- $tag_name" >> $GITHUB_STEP_SUMMARY
+            TAG_LIST="$TAG_LIST$tag_name "
+            echo "- \`$tag_name\`" >> $GITHUB_STEP_SUMMARY
           done
+          
+          # Generate tags for each IDE package
+          for ide_package in $IDE_PACKAGES; do
+            version=$(node -p "require('./ide/$ide_package/package.json').version")
+            # Convert path to tag name (e.g., base/client -> base-client)
+            tag_prefix=$(echo "$ide_package" | tr '/' '-')
+            tag_name="ide-$tag_prefix-v$version"
+            TAG_LIST="$TAG_LIST$tag_name "
+            echo "- \`$tag_name\`" >> $GITHUB_STEP_SUMMARY
+          done
+          
+          # Save tag list for PR body
+          echo "tag_list=$TAG_LIST" >> $GITHUB_OUTPUT
 
-          # Create tag for VSCode IDE
-          vscode_version=$(node -p "require('./ide/vscode/package.json').version")
-          vscode_tag="vscode-v$vscode_version"
-          git tag -a "$vscode_tag" -m "Release VSCode IDE v$vscode_version"
-          echo "- $vscode_tag" >> $GITHUB_STEP_SUMMARY
-
-          # Push all tags
-          git push --tags
+      - name: 🗒️ Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: bump version to ${{ github.event.inputs.version_type }}"
+          branch: version-bump-${{ github.event.inputs.version_type }}-${{ github.run_number }}
+          delete-branch: true
+          title: "chore: bump version (${{ github.event.inputs.version_type }})"
+          body: |
+            ## 📦 Version Bump: ${{ github.event.inputs.version_type }}
+            
+            This PR updates package versions across all npm packages and IDE components.
+            
+            ### Changes
+            - ✅ Updated version in all npm packages
+            - ✅ Updated version in all IDE packages (base/client, base/server, shared, vscode)
+            
+            ### Tags to Create After Merge
+            
+            ${{ steps.tags.outputs.tag_list }}
+            
+            ### Instructions
+            
+            After merging this PR, create and push tags manually:
+            
+            ```bash
+            git checkout main
+            git pull
+            
+            # Create tags
+            ${{ steps.tags.outputs.tag_list }}
+            
+            # Push all tags
+            git push --tags
+            ```
+            
+            Or use the workflow dispatch to create tags automatically.
+          labels: |
+            version-bump
+            automated
 
       - name: 📝 Summary
         run: |
@@ -122,4 +168,6 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Version type: **${{ github.event.inputs.version_type }}**" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "All packages and IDE have been versioned and tagged successfully." >> $GITHUB_STEP_SUMMARY
+          echo "A pull request has been created with the version updates." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "After merging, remember to create and push the git tags listed above." >> $GITHUB_STEP_SUMMARY
