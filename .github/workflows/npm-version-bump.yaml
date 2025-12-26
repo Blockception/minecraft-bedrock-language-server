@@ -25,7 +25,7 @@ jobs:
       # Define packages to version (matches release-npm-packages.yaml)
       PACKAGES: bedrock-commands bedrock-diagnoser bedrock-project bedrock-types bedrock-vanilla-data molang project
       # Define IDE packages to version
-      IDE_PACKAGES: base/client base/server shared vscode
+      IDE_PACKAGES: vscode
     steps:
       - name: 📦 Checkout Repository
         uses: actions/checkout@v6
