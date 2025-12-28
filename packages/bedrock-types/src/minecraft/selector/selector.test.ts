@@ -5,7 +5,7 @@ describe('Selector', () => {
     const validTypes = ['@a', '@s', '@c', '@v', '@e', '@p', '@r', '@initiator'];
     const invalidType = ['@x'];
 
-    validforEach((type) => {
+    validTypes.forEach((type) => {
       it(`Type: ${type} should be valid`, () => {
         expect(Selector.isValidType(type)).toBeTruthy();
       });
