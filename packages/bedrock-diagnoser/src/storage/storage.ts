@@ -1,11 +1,11 @@
 import { DataSetConnector, Pack, ProjectData } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticsBuilder } from '../types';
 import { education_enabled } from '../diagnostics';
 import { Identifiable } from '@blockception/packages-shared';
 
-export type ItemBase = Identifiable & Types.Locatable;
+export type ItemBase = Identifiable & Locatable;
 
 export type PackType = keyof Pick<typeof MinecraftData, 'BehaviorPack' | 'ResourcePack'>;
 

@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { general_float_diagnose } from './float';
 import { general_integer_diagnose } from './integer';
@@ -11,7 +11,7 @@ import { general_integer_diagnose } from './integer';
  * @returns Returns true when the value is valid
  */
 export function general_range_integer_diagnose(
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
   range?: { min: number; max: number },
 ): boolean {
@@ -32,12 +32,12 @@ export function general_range_integer_diagnose(
     //If the text is filled, diagnose it as integer. if that returns false it has an error, then mark 'co'ntinue as false
     if (
       lowerText !== '' &&
-      !general_integer_diagnose(Types.OffsetWord.create(lowerText, value.offset), diagnoser, range)
+      !general_integer_diagnose(OffsetWord.create(lowerText, value.offset), diagnoser, range)
     )
       co = false;
     if (
       upperText !== '' &&
-      !general_integer_diagnose(Types.OffsetWord.create(upperText, value.offset + index + 2), diagnoser, range)
+      !general_integer_diagnose(OffsetWord.create(upperText, value.offset + index + 2), diagnoser, range)
     )
       co = false;
 
@@ -76,7 +76,7 @@ export function general_range_integer_diagnose(
  * @returns Returns true when the value is valid
  */
 export function general_range_float_diagnose(
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
   range?: { min: number; max: number },
 ): boolean {
@@ -95,11 +95,11 @@ export function general_range_float_diagnose(
     let co = true;
 
     //If the text is filled, diagnose it as integer. if that returns false it has an error, then mark 'co'ntinue as false
-    if (lowerText !== '' && !general_float_diagnose(Types.OffsetWord.create(lowerText, value.offset), diagnoser, range))
+    if (lowerText !== '' && !general_float_diagnose(OffsetWord.create(lowerText, value.offset), diagnoser, range))
       co = false;
     if (
       upperText !== '' &&
-      !general_float_diagnose(Types.OffsetWord.create(upperText, value.offset + index + 2), diagnoser, range)
+      !general_float_diagnose(OffsetWord.create(upperText, value.offset + index + 2), diagnoser, range)
     )
       co = false;
 

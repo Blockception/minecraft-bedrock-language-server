@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/resource-pack';
 import { Documentation, TextDocument } from '../../../types';
@@ -24,7 +24,7 @@ export function process(doc: TextDocument): Attachable | undefined {
   const id = description.identifier;
   const out: Attachable = {
     id: id,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     molang: harvestMolang(content, container),
     animations: References.wrap(description.animation_controllers, undefined),
     documentation: Documentation.getDoc(doc, () => `Attachable Item: ${id}`),
@@ -32,7 +32,7 @@ export function process(doc: TextDocument): Attachable | undefined {
   getUsingResources(out.molang, imp['minecraft:attachable'].description, doc);
 
   //process animations
-  Types.Definition.forEach(description.animations, (reference, id) => {
+  Definition.forEach(description.animations, (reference, id) => {
     out.animations.defined.add(reference);
     out.animations.using.add(id);
   });

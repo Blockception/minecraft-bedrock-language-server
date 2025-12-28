@@ -1,5 +1,5 @@
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Text } from 'bc-minecraft-bedrock-project';
 import { check_definition_value } from '../definitions';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
@@ -10,7 +10,7 @@ import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
  * @param diagnoser
  * @returns True if the family was found in an entity
  */
-export function minecraft_family_diagnose(value: Types.OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
+export function minecraft_family_diagnose(value: OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
   const id = Text.UnQuote(typeof value === 'string' ? value : value.text);
 
   //Defined in McProject

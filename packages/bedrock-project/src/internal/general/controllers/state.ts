@@ -1,15 +1,15 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 
 /** */
 export interface State {
   /** */
-  animations?: (Types.Conditional | string)[];
+  animations?: (Conditional | string)[];
   /** */
   on_entry?: string[];
   /** */
   on_exit?: string[];
   /** */
-  transitions?: Types.Conditional[];
+  transitions?: Conditional[];
 }
 
 /** */

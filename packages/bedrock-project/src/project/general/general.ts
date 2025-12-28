@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DataSet, TextDocument } from '../../types';
 import { FileType } from '../behavior-pack';
 import { ProcessMcFunction } from './types/commands/process';
@@ -77,7 +77,7 @@ export class GeneralCollection {
    * @param predicate
    * @returns
    */
-  find(predicate: (value: Types.BaseObject, key: string) => boolean): Types.BaseObject | undefined {
+  find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined {
     let value = undefined;
 
     if ((value = this.fakeEntities.find(predicate))) return value;
@@ -94,7 +94,7 @@ export class GeneralCollection {
    * @param predicate
    * @returns
    */
-  forEach(callbackfn: (value: Types.BaseObject) => void): void {
+  forEach(callbackfn: (value: BaseObject) => void): void {
     this.fakeEntities.forEach(callbackfn);
     this.objectives.forEach(callbackfn);
     this.structures.forEach(callbackfn);

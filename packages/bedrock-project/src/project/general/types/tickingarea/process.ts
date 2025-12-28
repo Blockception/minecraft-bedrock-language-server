@@ -1,5 +1,5 @@
 import { Command } from 'bc-minecraft-bedrock-command';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { GeneralInfo } from '../general-info';
 import { Documentation, TextDocument } from '../../../../types';
 
@@ -38,7 +38,7 @@ function ProcessCircleCommand(Command: Command, doc: TextDocument): GeneralInfo 
 
   return GeneralInfo.create(
     Name,
-    Types.Location.create(doc.uri, parameters[3].offset),
+    Location.create(doc.uri, parameters[3].offset),
     Documentation.getDoc(
       doc,
       () => {
@@ -72,7 +72,7 @@ function ProcessBoxCommand(Command: Command, doc: TextDocument): GeneralInfo | u
 
   return GeneralInfo.create(
     Name,
-    Types.Location.create(doc.uri, parameters[3].offset),
+    Location.create(doc.uri, parameters[3].offset),
     Documentation.getDoc(
       doc,
       () => {

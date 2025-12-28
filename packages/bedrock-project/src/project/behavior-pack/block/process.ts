@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/behavior-pack';
 import { Documentation, TextDocument } from '../../../types';
@@ -24,7 +24,7 @@ export function process(doc: TextDocument): Block | undefined {
   return {
     id: id,
     documentation: Documentation.getDoc(doc, () => `BP Block: ${id}`),
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     molang: harvestMolang(content, container),
     states: Object.entries(container.description.properties ?? {})
       .map(([prop, values]) => BlockState.create(prop, values))

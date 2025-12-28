@@ -28,7 +28,7 @@ export function provideCompletionTest(context: Context<CommandCompletionContext>
   const types = GetPossibleEntityTypes(context.command, context.parameterIndex);
   const edu = IsEducationEnabled(context.document);
 
-  if (types.length === 0) {
+  if (length === 0) {
     context.database.ProjectData.behaviorPacks.entities.forEach((entity) => convertTestEntity(entity, builder));
 
     MinecraftData.General.Entities.families.forEach((family) => {
@@ -44,7 +44,7 @@ export function provideCompletionTest(context: Context<CommandCompletionContext>
       });
     });
   } else {
-    types.forEach((type) => {
+    forEach((type) => {
       const entity = context.database.ProjectData.behaviorPacks.entities.get(type);
       if (entity) convertTestEntity(entity, builder);
 

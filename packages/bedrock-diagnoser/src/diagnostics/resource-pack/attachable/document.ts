@@ -1,7 +1,7 @@
 import { Internal, ResourcePack } from 'bc-minecraft-bedrock-project';
 import { getUsingResources } from 'bc-minecraft-bedrock-project/src/internal/resource-pack/resources';
 import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DocumentDiagnosticsBuilder, Metadata } from '../../../types';
 import { behaviorpack_item_diagnose } from '../../behavior-pack/item';
 import { Json } from '../../json/json';
@@ -50,10 +50,10 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
       return;
     }
 
-    Types.Definition.forEach(controller, (ref, anim_id) => (anim_data.animation_controllers[ref] = anim_id));
+    Definition.forEach(controller, (ref, anim_id) => (anim_data.animation_controllers[ref] = anim_id));
   });
 
-  Types.Definition.forEach(anim_data.animations, (reference, anim_id) =>
+  Definition.forEach(anim_data.animations, (reference, anim_id) =>
     animation_or_controller_diagnose_implementation(
       anim_id,
       attachableGathered,
@@ -62,7 +62,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
       description.sound_effects,
     ),
   );
-  Types.Definition.forEach(anim_data.animation_controllers, (ref, anim_id) =>
+  Definition.forEach(anim_data.animation_controllers, (ref, anim_id) =>
     animation_or_controller_diagnose_implementation(
       anim_id,
       attachableGathered,
@@ -82,10 +82,10 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
     .forEach((key) => render_controller_diagnose_implementation(key, attachableGathered, diagnoser));
 
   //Check models
-  Types.Definition.forEach(description.geometry, (ref, modelId) => model_is_defined(modelId, diagnoser));
+  Definition.forEach(description.geometry, (ref, modelId) => model_is_defined(modelId, diagnoser));
 
   //check particles
-  Types.Definition.forEach(description.particle_effects, (ref, part_id) => particle_is_defined(part_id, diagnoser));
+  Definition.forEach(description.particle_effects, (ref, part_id) => particle_is_defined(part_id, diagnoser));
 
   //Get pack
   const pack = diagnoser.context.getProjectData().projectData.resourcePacks.get(diagnoser.document.uri);
@@ -96,7 +96,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
     .map((item) => item.replace(/\\/gi, '/'));
 
   //Check if attachable has textures defined
-  Types.Definition.forEach(description.textures, (ref, id) => {
+  Definition.forEach(description.textures, (ref, id) => {
     texture_files_diagnose(description.identifier, id, rp_files, diagnoser);
   });
 
@@ -107,7 +107,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
   if (description.scripts) diagnose_script(diagnoser, description.scripts, description.animations);
 }
 
-function getKey(data: string | Types.Definition): string | undefined {
+function getKey(data: string | Definition): string | undefined {
   if (typeof data === 'string') return data;
 
   return Object.getOwnPropertyNames(data)[0];

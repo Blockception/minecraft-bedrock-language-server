@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import * as internal from '../../../internal/behavior-pack/entity';
 import { Json } from '../../../internal/json';
@@ -31,7 +31,7 @@ export function process(doc: TextDocument): Entity | undefined {
     families: Defined.create(),
     groups: Defined.create(),
     id: id,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     molang: harvestMolang(content, container),
     properties: Object.entries(container.description?.properties ?? {}).map(([name, property]) => {
       return { name, ...property } as EntityProperty;

@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../internal/types';
 import { PackType } from '../project/pack-type';
@@ -39,14 +39,14 @@ export interface Pack {
    * @param predicate
    * @returns
    */
-  find(predicate: (value: Types.BaseObject, key: string) => boolean): Types.BaseObject | undefined;
+  find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined;
 
   /**
    *
    * @param callbackfn
    * @returns
    */
-  forEach(callbackfn: (value: Types.BaseObject) => boolean): void;
+  forEach(callbackfn: (value: BaseObject) => boolean): void;
 }
 
 /** */

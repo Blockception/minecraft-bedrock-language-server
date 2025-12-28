@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import * as Internal from '../../../internal/resource-pack/render-controller';
 import { Documentation, TextDocument } from '../../../types';
 import { harvestMolang } from '../../molang';
@@ -15,7 +15,7 @@ export function process(doc: TextDocument): RenderController[] | undefined {
   return Object.entries(imp.render_controllers).map(([id, controller]) => {
     return {
       id: id,
-      location: Types.Location.create(uri, content.indexOf(id)),
+      location: Location.create(uri, content.indexOf(id)),
       molang: harvestMolang(content, controller),
       documentation: Documentation.getDoc(doc, () => `Render Controller: \`${id}\``),
     };

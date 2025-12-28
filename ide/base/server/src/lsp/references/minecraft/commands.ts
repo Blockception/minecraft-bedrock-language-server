@@ -34,11 +34,11 @@ export async function provideReferences(
     const Parameters = Pattern.parameters;
 
     if (Parameters.length > index) {
-      types.push(Parameters[index].type);
+      push(Parameters[index].type);
     }
   }
 
-  if (types.length == 0) return undefined;
+  if (length == 0) return undefined;
 
   //TODO add selector references
   const references = await context.database.findReferences(text, types, context.token, context.workDoneProgress);

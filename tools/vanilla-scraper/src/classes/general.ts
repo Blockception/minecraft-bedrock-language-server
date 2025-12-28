@@ -76,6 +76,6 @@ export class General {
     saveArray('string', null, 'Enchantments', this.enchantments, path.join(folder, 'enchantments.ts'));
     saveArray('string', null, 'PotionEffects', this.potionEffects, path.join(folder, 'potion_effects.ts'));
     saveArray('string', null, 'PotionModifiers', this.potionModifiers, path.join(folder, 'potion_modifiers.ts'));
-    saveArray('string', null, 'PotionTypes', this.potionTypes, path.join(folder, 'potion_types.ts'));
+    saveArray('string', null, 'PotionTypes', this.potionTypes, path.join(folder, 'potion_ts'));
   }
 }

@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { CompactJson, CompactJsonReader } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
@@ -159,7 +159,7 @@ function diagnose_hasitem_data(
     return false;
   }
 
-  const itemWord = CompactJson.valueToOffsetWord(item[0]) as Types.OffsetWord & { data: number };
+  const itemWord = CompactJson.valueToOffsetWord(item[0]) as OffsetWord & { data: number };
   attrs.forEach((a) => {
     if (CompactJson.isString(a)) {
       itemWord.data = parseInt(a.value);

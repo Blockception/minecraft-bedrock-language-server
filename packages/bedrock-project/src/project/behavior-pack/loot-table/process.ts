@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Documentation } from '../../../types';
 import { TextDocument } from '../../../types';
 import { LootTable } from './loot-table';
@@ -18,7 +18,7 @@ export function process(doc: TextDocument): LootTable | undefined {
 
   return {
     id: id,
-    location: Types.Location.create(uri, 0),
+    location: Location.create(uri, 0),
     documentation: Documentation.getDoc(doc, () => `Loot table: ${id}`),
   };
 }

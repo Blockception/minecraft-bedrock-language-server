@@ -1,6 +1,6 @@
 import { MinecraftData } from 'bc-minecraft-bedrock-project';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 
 type PackType = keyof Exclude<MinecraftData, 'projectData'>;
 type SubType<T extends PackType> = keyof MinecraftData[T];
@@ -18,7 +18,7 @@ export function missing<T extends PackType>(
   subtype: SubType<T>,
   id: string,
   diagnoser: DiagnosticsBuilder,
-  location?: Types.DocumentLocation,
+  location?: DocumentLocation,
 ) {
   let p: string;
   switch (pack) {

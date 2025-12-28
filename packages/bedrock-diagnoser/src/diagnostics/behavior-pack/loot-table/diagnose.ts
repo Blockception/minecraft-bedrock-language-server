@@ -1,9 +1,9 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 
 export function behaviorpack_loot_table_diagnose(
-  value: Types.OffsetWord | string,
+  value: OffsetWord | string,
   diagnoser: DiagnosticsBuilder,
 ): boolean {
   const id = typeof value === 'string' ? value : value.text;
@@ -15,7 +15,7 @@ export function behaviorpack_loot_table_diagnose(
 }
 
 export function behaviorpack_loot_table_short_diagnose(
-  value: Types.OffsetWord | string,
+  value: OffsetWord | string,
   diagnoser: DiagnosticsBuilder,
 ) {
   let id = typeof value === 'string' ? value : value.text;

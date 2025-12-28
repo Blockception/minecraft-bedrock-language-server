@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/resource-pack';
 import { Defined, Documentation, TextDocument } from '../../../types';
@@ -18,7 +18,7 @@ export function process(doc: TextDocument): BlockCulling | undefined {
     affected_bones: Defined.wrap(
       imp['minecraft:block_culling_rules']?.rules?.map((r) => r?.geometry_part?.bone).filter((b) => b !== undefined),
     ),
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     documentation: Documentation.getDoc(doc, () => `Block culling rule: ${id}`),
   };
 }

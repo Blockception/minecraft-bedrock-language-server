@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import * as Internal from '../../../internal/behavior-pack/feature';
 import { Json } from '../../../internal/json';
 import { Documentation, TextDocument } from '../../../types';
@@ -25,7 +25,7 @@ export function process(doc: TextDocument): Feature | undefined {
   return {
     id: id,
     documentation: Documentation.getDoc(doc, () => `Feature: ${id}`),
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     type: key,
   };
 }

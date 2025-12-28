@@ -2,7 +2,7 @@ import { jsonc } from 'jsonc';
 
 /**
  * Simple text document interface that can be used with JSON parsing.
- * Compatible with vscode-languageserver-textdocument and other text document types.
+ * Compatible with vscode-languageserver-textdocument and other text document 
  */
 export interface TextDocument {
   /** The document URI */

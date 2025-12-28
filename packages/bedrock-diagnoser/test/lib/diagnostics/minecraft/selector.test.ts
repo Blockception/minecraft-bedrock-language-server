@@ -9,14 +9,14 @@ describe("Selector", () => {
   const context = TestProjectData.createContext();
   const pi: ParameterInfo = { required: false, text: "", type: ParameterType.selector };
   const cache = context.getProjectData().projectData;
-  cache.general.objectives.set(GeneralInfo.create("data", Types.Location.create("test"), "test objective"));
-  cache.general.tags.set(GeneralInfo.create("foo", Types.Location.create("test"), "test tag"));
+  cache.general.objectives.set(GeneralInfo.create("data", Location.create("test"), "test objective"));
+  cache.general.tags.set(GeneralInfo.create("foo", Location.create("test"), "test tag"));
 
   it("Double negative types should not return errors", () => {
     const B = new TestDiagnoser(context);
 
     //Loop over all vanilla versions
-    minecraft_selector_diagnose(pi, Types.OffsetWord.create("@e[type=!player,type=!minecraft:sheep]"), B);
+    minecraft_selector_diagnose(pi, OffsetWord.create("@e[type=!player,type=!minecraft:sheep]"), B);
 
     B.expectEmpty();
   });
@@ -27,7 +27,7 @@ describe("Selector", () => {
     //Loop over all vanilla versions
     minecraft_selector_diagnose(
       pi,
-      Types.OffsetWord.create("@e[type=!player,type=!minecraft:sheep,type=minecraft:zombie]"),
+      OffsetWord.create("@e[type=!player,type=!minecraft:sheep,type=minecraft:zombie]"),
       B
     );
 
@@ -38,7 +38,7 @@ describe("Selector", () => {
     const B = new TestDiagnoser(context);
 
     //Loop over all vanilla versions
-    minecraft_selector_diagnose(pi, Types.OffsetWord.create("@e[m=!1,m=!2]"), B);
+    minecraft_selector_diagnose(pi, OffsetWord.create("@e[m=!1,m=!2]"), B);
 
     B.expectEmpty();
   });
@@ -47,7 +47,7 @@ describe("Selector", () => {
     const B = new TestDiagnoser();
 
     //Loop over all vanilla versions
-    minecraft_selector_diagnose(pi, Types.OffsetWord.create("@e[m=!1,m=!2,m=0]"), B);
+    minecraft_selector_diagnose(pi, OffsetWord.create("@e[m=!1,m=!2,m=0]"), B);
 
     B.expectEmpty();
   });
@@ -72,7 +72,7 @@ describe("Selector", () => {
         const B = new TestDiagnoser(context);
 
         //Loop over all vanilla versions
-        minecraft_selector_diagnose(pi, Types.OffsetWord.create(test), B);
+        minecraft_selector_diagnose(pi, OffsetWord.create(test), B);
 
         B.expectEmpty();
       });
@@ -95,7 +95,7 @@ describe("Selector", () => {
         const B = new TestDiagnoser(context);
 
         //Loop over all vanilla versions
-        minecraft_selector_diagnose(pi, Types.OffsetWord.create(test), B);
+        minecraft_selector_diagnose(pi, OffsetWord.create(test), B);
 
         B.expectAny();
       });

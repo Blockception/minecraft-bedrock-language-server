@@ -2,7 +2,7 @@ import { Internal, References } from 'bc-minecraft-bedrock-project';
 import { EntityProperty as DefinedEP } from 'bc-minecraft-bedrock-project/src/internal/behavior-pack/entity';
 import { EntityProperty as ProjectEP } from 'bc-minecraft-bedrock-project/src/project/behavior-pack/entity';
 import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { getUsedComponents } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder, Metadata } from '../../../types';
 import { Context } from '../../../utility/components';
@@ -58,7 +58,7 @@ export function diagnose_entity_document(diag: DocumentDiagnosticsBuilder): void
   );
 
   //Convert animations / controllers
-  Types.Definition.forEach(container.description.animations, (ref, anim_id) => {
+  Definition.forEach(container.description.animations, (ref, anim_id) => {
     owner.animations.defined.add(ref);
     owner.animations.using.add(anim_id);
   });

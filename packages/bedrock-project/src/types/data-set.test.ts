@@ -1,14 +1,14 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DataSet } from '../../src/types';
 import { Location } from 'bc-minecraft-bedrock-types/dist/types';
 
-type TestObject = Types.BaseObject;
+type TestObject = BaseObject;
 
 namespace TestObject {
   export function create(
     id: string,
     uri: string,
-    position: Types.DocumentLocation | undefined = undefined,
+    position: DocumentLocation | undefined = undefined,
   ): TestObject {
     return {
       id: id,

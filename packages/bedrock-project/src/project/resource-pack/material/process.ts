@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Json } from '../../../internal/json';
 import * as internal from '../../../internal/resource-pack/material';
 import { Documentation, TextDocument } from '../../../types';
@@ -21,7 +21,7 @@ export function process(doc: TextDocument): Material[] | undefined {
     .map(([key]) => {
       return {
         id: key,
-        location: Types.Location.create(uri, content.indexOf(key)),
+        location: Location.create(uri, content.indexOf(key)),
         documentation: Documentation.getDoc(doc, () => `Material: ${key}`),
       };
     });
