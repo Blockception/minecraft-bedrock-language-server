@@ -1,6 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { String } from '../../general';
 import { Modes } from '../../modes/modes';
-import { OffsetWord } from '../../types';
 import { CompactJson } from '../json/compact';
 import { CompactJsonReader } from '../json/reader';
 import { SelectorType } from './selector-types';
