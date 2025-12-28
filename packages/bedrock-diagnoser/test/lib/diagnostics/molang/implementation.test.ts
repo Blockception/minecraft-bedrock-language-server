@@ -257,5 +257,81 @@ describe("Molang", () => {
       // Should have no errors - all protected by ??
       diagnoser.expectEmpty();
     });
+
+    describe("GitHub Issue: Client entity variable/texture/render controller definitions not found", () => {
+      it("should recognize textures defined in entity and used in render controller", () => {
+        const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
+
+        // Entity defines textures (simulating JSON keys)
+        const entity = new MolangSet();
+        entity.assigned.add({ scope: "texture", names: ["posi"], position: 0, type: NodeType.ResourceReference });
+        entity.assigned.add({ scope: "texture", names: ["cyan_gradient"], position: 0, type: NodeType.ResourceReference });
+        entity.assigned.add({ scope: "texture", names: ["posi_emissive"], position: 0, type: NodeType.ResourceReference });
+        entity.assigned.add({ scope: "texture", names: ["default"], position: 0, type: NodeType.ResourceReference });
+
+        // Render controller uses textures (Texture.posi gets tokenized to texture.posi)
+        const renderController = new MolangSet();
+        renderController.add(Types.OffsetWord.create('Texture.posi', 0));
+        renderController.add(Types.OffsetWord.create('Texture.cyan_gradient', 0));
+        renderController.add(Types.OffsetWord.create('Texture.posi_emissive', 0));
+        renderController.add(Types.OffsetWord.create('Texture.default', 0));
+
+        diagnose_molang_implementation(
+          { id: "minecraft:test_entity", molang: entity },
+          { id: "controller.render.test", molang: renderController },
+          diagnoser
+        );
+
+        // Should have no errors - all textures are defined
+        diagnoser.expectEmpty();
+      });
+
+      it("should handle mixed-case texture keys from JSON", () => {
+        const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
+
+        // Entity defines textures with mixed case in JSON (should be normalized to lowercase)
+        const entity = new MolangSet();
+        entity.assigned.add({ scope: "texture", names: ["MixedCase"], position: 0, type: NodeType.ResourceReference });
+        entity.assigned.add({ scope: "texture", names: ["UPPERCASE"], position: 0, type: NodeType.ResourceReference });
+        entity.assigned.add({ scope: "texture", names: ["lowercase"], position: 0, type: NodeType.ResourceReference });
+
+        // Render controller uses textures (always gets normalized to lowercase by tokenizer)
+        const renderController = new MolangSet();
+        renderController.add(Types.OffsetWord.create('Texture.MixedCase', 0));
+        renderController.add(Types.OffsetWord.create('Texture.UPPERCASE', 0));
+        renderController.add(Types.OffsetWord.create('Texture.lowercase', 0));
+
+        diagnose_molang_implementation(
+          { id: "minecraft:test_entity", molang: entity },
+          { id: "controller.render.test", molang: renderController },
+          diagnoser
+        );
+
+        // Should have errors because the entity's texture keys weren't normalized
+        diagnoser.expectAmount(2); // MixedCase and UPPERCASE won't match
+      });
+
+      it("should recognize array.textures used in render controller", () => {
+        const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
+
+        // Entity defines textures and array.textures
+        const entity = new MolangSet();
+        entity.assigned.add({ scope: "texture", names: ["default"], position: 0, type: NodeType.ResourceReference });
+        entity.add(Types.OffsetWord.create('array.textures[0]', 0));
+
+        // Render controller defines array.textures and uses texture
+        const renderController = new MolangSet();
+        renderController.add(Types.OffsetWord.create('array.textures = [Texture.default]', 0));
+
+        diagnose_molang_implementation(
+          { id: "minecraft:test_entity", molang: entity },
+          { id: "controller.render.test", molang: renderController },
+          diagnoser
+        );
+
+        // Should have no errors - array.textures is defined in render controller, Texture.default is defined in entity
+        diagnoser.expectEmpty();
+      });
+    });
   });
 });

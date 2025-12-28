@@ -12,7 +12,7 @@ export function getUsingResources(receiver: MolangSet, source: Resources, docume
   Types.Definition.forEach(source.geometry, (reference) => {
     receiver.assigned.add({
       scope: 'geometry',
-      names: [reference],
+      names: [reference.toLowerCase()],
       position: document.getText().indexOf(`"${reference}"`),
       type: NodeType.ResourceReference,
     });
@@ -20,7 +20,7 @@ export function getUsingResources(receiver: MolangSet, source: Resources, docume
   Types.Definition.forEach(source.materials, (reference) => {
     receiver.assigned.add({
       scope: 'material',
-      names: [reference],
+      names: [reference.toLowerCase()],
       position: document.getText().indexOf(`"${reference}"`),
       type: NodeType.ResourceReference,
     });
@@ -28,7 +28,7 @@ export function getUsingResources(receiver: MolangSet, source: Resources, docume
   Types.Definition.forEach(source.textures, (reference) => {
     receiver.assigned.add({
       scope: 'texture',
-      names: [reference],
+      names: [reference.toLowerCase()],
       position: document.getText().indexOf(`"${reference}"`),
       type: NodeType.ResourceReference,
     });
