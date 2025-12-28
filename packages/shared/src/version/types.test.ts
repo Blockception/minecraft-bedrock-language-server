@@ -1,4 +1,4 @@
-import { Version } from '.';
+import { Version } from './types';
 
 describe('Version', () => {
   it('parse', () => {

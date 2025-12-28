@@ -1,4 +1,4 @@
-import { DocumentLocation } from './document-location';
+import { DocumentLocation } from '../document-location/types';
 
 /**An object that describe a location in a document*/
 export interface Location {

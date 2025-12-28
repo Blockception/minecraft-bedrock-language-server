@@ -1,4 +1,4 @@
-import { JsonPath } from './json-path';
+import { JsonPath } from './types';
 
 const jsonData = `{
   "format_version": "1.17.0",
