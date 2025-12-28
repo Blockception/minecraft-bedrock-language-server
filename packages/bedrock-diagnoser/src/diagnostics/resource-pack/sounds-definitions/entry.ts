@@ -43,10 +43,11 @@ export function sound_files_diagnose(
   files: string[],
   diagnoser: DiagnosticsBuilder,
 ): void {
+  // Encode the search term to match URI-encoded file paths (encodeURI keeps slashes as-is)
+  const encodedFile = encodeURI(file);
+  
   for (let i = 0; i < files.length; i++) {
-    // Decode URI components to handle spaces and other special characters
-    const decodedFile = decodeURIComponent(files[i]);
-    if (decodedFile.includes(file)) {
+    if (files[i].includes(encodedFile)) {
       //Found then return out
       return;
     }
