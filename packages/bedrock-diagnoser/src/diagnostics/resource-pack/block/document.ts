@@ -4,6 +4,9 @@ import { is_block_defined } from '../../behavior-pack/block';
 import { Json } from '../../json/json';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 
+const BLOCKSHAPE_DEPRECATION_MESSAGE =
+  'The "blockshape" property is deprecated and no longer officially supported. Support was dropped after 1.19.0, meaning blocks introduced in "Trails & Tales" and later do not have available block shapes. Block shapes cannot be used with custom blocks. Consider using custom geometry or minecraft:material_instances instead.';
+
 /**Diagnoses the given document as a block.json
  * @param doc The text document to diagnose
  * @param diagnoser The diagnoser builder to receive the errors*/
@@ -26,7 +29,7 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
       if (block.blockshape) {
         diagnoser.add(
           `${key}/blockshape`,
-          'The "blockshape" property is deprecated and no longer officially supported. Support was dropped after 1.19.0, meaning blocks introduced in "Trails & Tales" and later do not have available block shapes. Block shapes cannot be used with custom blocks. Consider using custom geometry or minecraft:material_instances instead.',
+          BLOCKSHAPE_DEPRECATION_MESSAGE,
           DiagnosticSeverity.warning,
           'resourcepack.blocks.blockshape.deprecated',
         );
