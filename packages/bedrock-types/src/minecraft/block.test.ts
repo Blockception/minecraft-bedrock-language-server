@@ -1,5 +1,5 @@
+import { Location } from '@blockception/packages-shared';
 import { BlockState, Block } from './block';
-import { Location } from '../types/location';
 
 const blockDescription: string = 'minecraft:log[direction=west,stripped=true,half=top]';
 const blockID = 'minecraft:log';

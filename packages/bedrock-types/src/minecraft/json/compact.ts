@@ -1,4 +1,4 @@
-import { OffsetWord } from '../../types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { findCommaOrEnd, trimBraces, trimWithOffset } from './grammar';
 
 /**

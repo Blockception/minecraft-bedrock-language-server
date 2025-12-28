@@ -1,6 +1,4 @@
-import { Identifiable, Documentated } from '@blockception/packages-shared';
-import { Locatable } from './locatable';
-import { Location } from './location';
+import { Identifiable, Documentated, Locatable, Location } from '@blockception/packages-shared';
 
 /** */
 export interface BaseObject extends Identifiable, Documentated, Locatable {}

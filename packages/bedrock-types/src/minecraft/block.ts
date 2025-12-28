@@ -1,5 +1,4 @@
-import { Identifiable, Documentated } from '@blockception/packages-shared';
-import { Locatable, Location } from '../types';
+import { Documentated, Identifiable, Locatable, Location } from '@blockception/packages-shared';
 
 /**
  * Represents a single block state property with its value.
