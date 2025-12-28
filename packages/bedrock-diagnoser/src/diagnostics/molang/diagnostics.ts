@@ -45,7 +45,8 @@ export function diagnose_molang_implementation(
     // Check if this is a built-in variable/context/temp for this user type
     // Resource references (texture, geometry, material) are never built-in, they must be defined
     const normalizedScope = normalizeVariableScope(res);
-    const isResourceReference = normalizedScope === 'texture' || normalizedScope === 'geometry' || normalizedScope === 'material';
+    const resourceScopes: ResourceScope[] = ['texture', 'geometry', 'material'];
+    const isResourceReference = resourceScopes.includes(normalizedScope as ResourceScope);
     
     if (!isResourceReference) {
       // Only check built-in data for variable scopes (not resources)
