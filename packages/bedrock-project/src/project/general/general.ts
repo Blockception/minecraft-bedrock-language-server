@@ -1,4 +1,5 @@
 
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { DataSet, TextDocument } from '../../types';
 import { FileType } from '../behavior-pack';
 import { ProcessMcFunction } from './types/commands/process';

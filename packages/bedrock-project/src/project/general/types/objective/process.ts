@@ -1,6 +1,6 @@
 import { Command } from 'bc-minecraft-bedrock-command';
-
-import { TextDocument, Documentation } from '../../../../types';
+import { Location } from '@blockception/packages-shared';
+import { Documentation, TextDocument } from '../../../../types';
 import { GeneralCollection } from '../../general';
 import { GeneralInfo } from '../general-info';
 

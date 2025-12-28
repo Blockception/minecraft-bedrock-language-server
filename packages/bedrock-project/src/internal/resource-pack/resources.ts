@@ -1,4 +1,5 @@
 
+import { Definition } from '@blockception/packages-shared';
 import { MolangSet, NodeType } from 'bc-minecraft-molang';
 import { TextDocument } from '../../types';
 

@@ -1,4 +1,4 @@
-import { Location } from 'bc-minecraft-bedrock-types/dist/types';
+import { Location } from '@blockception/packages-shared';
 import { MolangSet } from 'bc-minecraft-molang';
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../internal/types';

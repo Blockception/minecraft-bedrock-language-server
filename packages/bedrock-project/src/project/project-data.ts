@@ -14,6 +14,7 @@ import { PackType } from './pack-type';
 import { ResourcePack } from './resource-pack/resource-pack';
 import { ResourcePackCollection } from './resource-pack/resource-pack-collection';
 import { WorldPack, WorldPackCollection } from './world';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 
 /**The project cache for minecraft*/
 export class ProjectData {
