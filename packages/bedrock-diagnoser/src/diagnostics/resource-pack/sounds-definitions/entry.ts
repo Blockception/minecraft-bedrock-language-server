@@ -44,7 +44,9 @@ export function sound_files_diagnose(
   diagnoser: DiagnosticsBuilder,
 ): void {
   for (let i = 0; i < files.length; i++) {
-    if (files[i].includes(file)) {
+    // Decode URI components to handle spaces and other special characters
+    const decodedFile = decodeURIComponent(files[i]);
+    if (decodedFile.includes(file)) {
       //Found then return out
       return;
     }

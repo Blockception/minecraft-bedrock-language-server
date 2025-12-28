@@ -61,9 +61,11 @@ export function texture_files_diagnose(
   files: string[],
   diagnoser: DiagnosticsBuilder,
 ): void {
-  files = files.map((location) =>
-    location.includes('.') ? location.slice(0, -path.extname(location).length) : location,
-  );
+  files = files.map((location) => {
+    // Decode URI components to handle spaces and other special characters
+    const decoded = decodeURIComponent(location);
+    return decoded.includes('.') ? decoded.slice(0, -path.extname(decoded).length) : decoded;
+  });
   if (file.includes('.')) file = file.slice(0, -path.extname(file).length);
   for (let I = 0; I < files.length; I++) {
     if (files[I].endsWith(file)) {

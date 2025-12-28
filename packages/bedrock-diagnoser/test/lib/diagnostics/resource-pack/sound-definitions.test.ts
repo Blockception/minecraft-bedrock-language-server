@@ -243,4 +243,51 @@ describe("sound definitions", () => {
     expect(ResourcePack.diagnose_document(diagnoser)).toBeTruthy();
     diagnoser.expectAmount(1);
   });
+
+  test("Files with spaces in names should be matched correctly", () => {
+    const docWithSpaces: TextDocument = {
+      uri: path.join("resource_pack", "sounds", "sound_definitions.json"),
+      getText: () => JSON.stringify({
+        format_version: "1.20.20",
+        sound_definitions: {
+          "test.sound": {
+            category: "ambient",
+            sounds: [
+              "sounds/ambient/file with spaces"
+            ]
+          }
+        }
+      }, undefined, 2),
+    };
+    
+    const diagnoser = TestDiagnoser.createDocument(undefined, docWithSpaces);
+    // Simulate file path with URI encoding (as returned by Vscode.fromFs)
+    diagnoser.context.getFiles = () => ["file:///absolute/path/sounds/ambient/file%20with%20spaces.ogg"];
+
+    expect(ResourcePack.diagnose_document(diagnoser)).toBeTruthy();
+    diagnoser.expectEmpty();
+  });
+
+  test("Files with spaces in names should raise error when not found", () => {
+    const docWithSpaces: TextDocument = {
+      uri: path.join("resource_pack", "sounds", "sound_definitions.json"),
+      getText: () => JSON.stringify({
+        format_version: "1.20.20",
+        sound_definitions: {
+          "test.sound": {
+            category: "ambient",
+            sounds: [
+              "sounds/ambient/file with spaces"
+            ]
+          }
+        }
+      }, undefined, 2),
+    };
+    
+    const diagnoser = TestDiagnoser.createDocument(undefined, docWithSpaces);
+    diagnoser.context.getFiles = () => [];
+
+    expect(ResourcePack.diagnose_document(diagnoser)).toBeTruthy();
+    diagnoser.expectAmount(1);
+  });
 });
