@@ -1,6 +1,7 @@
 
+import { DocumentLocation, Location } from '@blockception/packages-shared';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { DataSet } from '../../src/types';
-import { Location } from 'bc-minecraft-bedrock-types/dist/types';
 
 type TestObject = BaseObject;
 

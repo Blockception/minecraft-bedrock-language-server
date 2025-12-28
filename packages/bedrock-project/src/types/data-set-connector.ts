@@ -1,9 +1,9 @@
 
+import { Identifiable, Locatable } from '@blockception/packages-shared';
 import { DataSet } from './data-set';
 import { IDataSet } from './i-data-set';
 import { Pack } from './pack';
 import { PackCollection } from './pack-collection';
-import { Identifiable } from '@blockception/packages-shared';
 
 /**
  * The class DataSetConnector description

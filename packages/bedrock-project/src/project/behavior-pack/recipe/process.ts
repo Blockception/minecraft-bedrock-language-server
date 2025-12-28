@@ -1,8 +1,7 @@
+import { Location } from '@blockception/packages-shared';
 import * as Internal from '../../../internal/behavior-pack/recipe';
 import { Json } from '../../../internal/json';
-
-import { Documentation } from '../../../types';
-import { TextDocument } from '../../../types';
+import { Documentation, TextDocument } from '../../../types';
 import { Recipe } from './recipe';
 
 /**

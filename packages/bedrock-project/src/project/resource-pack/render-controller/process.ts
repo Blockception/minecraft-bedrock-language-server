@@ -1,4 +1,5 @@
 
+import { Location } from '@blockception/packages-shared';
 import * as Internal from '../../../internal/resource-pack/render-controller';
 import { Documentation, TextDocument } from '../../../types';
 import { harvestMolang } from '../../molang';

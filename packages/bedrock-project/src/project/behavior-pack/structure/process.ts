@@ -1,4 +1,4 @@
-
+import { Location } from '@blockception/packages-shared';
 import { TextDocument } from '../../../types';
 import { Structure } from './structure';
 

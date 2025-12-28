@@ -1,4 +1,5 @@
 
+import { Location } from '@blockception/packages-shared';
 import { ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import * as internal from '../../../internal/behavior-pack/entity';
 import { Json } from '../../../internal/json';
