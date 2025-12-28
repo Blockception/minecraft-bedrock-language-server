@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MCProject } from 'bc-minecraft-project';
 import { PackType } from '../../src/project/pack-type';
 import { PackCollection } from '.';
@@ -64,7 +64,7 @@ class TestPack implements Pack {
    * @param predicate
    * @returns
    */
-  find(): Types.BaseObject | undefined {
+  find(): BaseObject | undefined {
     const value = undefined;
 
     return value;

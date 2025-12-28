@@ -1,5 +1,5 @@
 import { Command, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { education_enabled } from '../../definitions';
 
@@ -216,7 +216,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
   }
 }
 
-type DiagnoseCommand = (value: Types.OffsetWord, diagnoser: DocumentDiagnosticsBuilder) => void | boolean;
+type DiagnoseCommand = (value: OffsetWord, diagnoser: DocumentDiagnosticsBuilder) => void | boolean;
 /**Switch data*/
 const ParameterDiagnostics: Record<number, DiagnoseCommand> = {
   [ParameterType.cameraShakeType]: mode_camera_shake_diagnose,

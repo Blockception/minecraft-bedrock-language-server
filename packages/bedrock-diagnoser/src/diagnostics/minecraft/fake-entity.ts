@@ -1,8 +1,8 @@
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Text } from 'bc-minecraft-bedrock-project';
 
-export function minecraft_fakentity_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function minecraft_fakentity_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   const data = diagnoser.context.getProjectData().projectData;
   const id = Text.UnQuote(value.text);
 

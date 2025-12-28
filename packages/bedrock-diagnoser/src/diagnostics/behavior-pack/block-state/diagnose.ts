@@ -8,7 +8,7 @@ import { Location, DocumentLocation } from 'bc-minecraft-bedrock-types/dist/type
  * @param diagnoser
  * @returns
  */
-export function behaviorpack_check_blockstates(blockDescriptor: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function behaviorpack_check_blockstates(blockDescriptor: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   //If the block has no states then skip
   if (!blockDescriptor.text.includes('[')) return;
 
@@ -31,8 +31,8 @@ export function behaviorpack_check_blockstates(blockDescriptor: Types.OffsetWord
  * @param diagnoser
  */
 export function behaviorpack_check_command_blockstates(
-  blockId: Types.OffsetWord,
-  states: Types.OffsetWord,
+  blockId: OffsetWord,
+  states: OffsetWord,
   diagnoser: DiagnosticsBuilder,
 ): void {
   const blockData: Minecraft.Block = {

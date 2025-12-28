@@ -3,7 +3,7 @@ import {
   DiagnosticSeverity,
   ManagedDiagnosticsBuilder,
 } from 'bc-minecraft-bedrock-diagnoser';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MCProject } from 'bc-minecraft-project';
 import { Diagnostic } from 'vscode-languageserver';
 import { GetRange } from '../../util';
@@ -34,7 +34,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
   }
 
   /**@inheritdoc*/
-  add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
+  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
     //Was diagnostics code disabled
     if (this.project.attributes['diagnostic.disable.' + code] === 'true') return;
 

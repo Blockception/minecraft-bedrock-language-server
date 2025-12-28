@@ -15,7 +15,7 @@ import { Attribute } from './selector/attributes';
  */
 export function minecraft_selector_diagnose(
   pattern: ParameterInfo,
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
 ) {
   const sel = value.text;
@@ -69,7 +69,7 @@ export function minecraft_selector_diagnose(
  * @param diagnoser
  */
 function minecraft_selector_diagnose_hard(
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
   pattern: ParameterInfo,
 ): boolean {

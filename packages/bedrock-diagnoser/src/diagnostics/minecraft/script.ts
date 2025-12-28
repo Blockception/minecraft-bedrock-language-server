@@ -1,5 +1,5 @@
 import { Script } from 'bc-minecraft-bedrock-project/src/internal/types';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 /**
@@ -13,23 +13,23 @@ import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 export function diagnose_script(
   builder: DiagnosticsBuilder,
   script: Script | undefined,
-  Animations?: Types.Definition,
-  Controllers?: Types.Definition,
+  Animations?: Definition,
+  Controllers?: Definition,
 ): void {
   if (script === undefined) return;
 
   if (script.animate) {
     const animates = script.animate;
 
-    Types.Conditional.forEach(animates, (ref_id) => has_ref(builder, ref_id, Animations, Controllers));
+    Conditional.forEach(animates, (ref_id) => has_ref(builder, ref_id, Animations, Controllers));
   }
 }
 
 function has_ref(
   diagnoser: DiagnosticsBuilder,
   ref_id: string,
-  Animations?: Types.Definition,
-  Controllers?: Types.Definition,
+  Animations?: Definition,
+  Controllers?: Definition,
 ): void {
   if (Animations && Animations[ref_id] !== undefined) return;
   if (Controllers && Controllers[ref_id] !== undefined) return;

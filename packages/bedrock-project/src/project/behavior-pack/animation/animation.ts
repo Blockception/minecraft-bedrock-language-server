@@ -1,11 +1,11 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MolangSet } from 'bc-minecraft-molang';
 import { Using } from '../../../types';
 
 //TODO add events
 
 /** */
-export interface Animation extends Types.BaseObject {
+export interface Animation extends BaseObject {
   /** */
   molang: MolangSet;
   /** */

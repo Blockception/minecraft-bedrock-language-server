@@ -1,5 +1,5 @@
 import { Command } from 'bc-minecraft-bedrock-command';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { TextDocument, Documentation } from '../../../../types';
 import { GeneralCollection } from '../../general';
 import { GeneralInfo } from '../general-info';
@@ -44,7 +44,7 @@ function CheckObjective(Com: Command, doc: TextDocument): GeneralInfo | undefine
 
     return GeneralInfo.create(
       ID.text,
-      Types.Location.create(doc.uri, offset),
+      Location.create(doc.uri, offset),
       Documentation.getDoc(
         doc,
         () => {
@@ -71,7 +71,7 @@ function CheckPlayer(Com: Command, doc: TextDocument): GeneralInfo | undefined {
     if (!Selector.text.startsWith('@') && Selector.text !== '*') {
       return GeneralInfo.create(
         Selector.text,
-        Types.Location.create(doc.uri, Selector.offset),
+        Location.create(doc.uri, Selector.offset),
         Documentation.getDoc(doc, () => `The fake player: ${Selector.text}`, Selector.offset),
       );
     }

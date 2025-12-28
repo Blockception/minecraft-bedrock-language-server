@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import * as Internal from '../../../internal/resource-pack/animation-controller';
 import { Documentation, TextDocument } from '../../../types';
 import { References, Using } from '../../../types/references';
@@ -20,7 +20,7 @@ export function process(doc: TextDocument): AnimationController[] | undefined {
     .map(([id, controller]) => {
       const item: AnimationController = {
         id: id,
-        location: Types.Location.create(uri, content.indexOf(id)),
+        location: Location.create(uri, content.indexOf(id)),
         molang: harvestMolang(content, controller),
         documentation: Documentation.getDoc(doc, () => `RP Animation Controller: '${id}'`),
         animations: References.create(),
@@ -29,7 +29,7 @@ export function process(doc: TextDocument): AnimationController[] | undefined {
       };
 
       Object.values(controller.states).map((state) => {
-        Types.Conditional.forEach(state.animations, (reference) => item.animations.using.add(reference));
+        Conditional.forEach(state.animations, (reference) => item.animations.using.add(reference));
 
         if (state.particle_effects) harvest(state.particle_effects, item.particles);
         if (state.sound_effects) harvest(state.sound_effects, item.sounds);

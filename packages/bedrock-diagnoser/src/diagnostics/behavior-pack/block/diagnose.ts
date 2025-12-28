@@ -9,7 +9,7 @@ import { behaviorpack_check_blockstates } from '../block-state/diagnose';
  * @param diagnoser
  */
 export function behaviorpack_check_blockdescriptor(
-  blockDescriptor: Types.OffsetWord,
+  blockDescriptor: OffsetWord,
   diagnoser: DiagnosticsBuilder,
 ): void {
   behaviorpack_check_blockid_from_descriptor(blockDescriptor, diagnoser);
@@ -17,7 +17,7 @@ export function behaviorpack_check_blockdescriptor(
 }
 
 export function behaviorpack_check_blockid_from_descriptor(
-  blockDescriptor: Types.OffsetWord,
+  blockDescriptor: OffsetWord,
   diagnoser: DiagnosticsBuilder,
 ): boolean {
   return is_block_defined(Minecraft.Block.getId(blockDescriptor.text), diagnoser);

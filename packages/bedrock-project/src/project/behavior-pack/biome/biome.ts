@@ -1,7 +1,7 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Defined } from '../../../types';
 
 /** */
-export interface Biome extends Types.BaseObject {
+export interface Biome extends BaseObject {
   tags: Defined;
 }

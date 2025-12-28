@@ -1,6 +1,6 @@
 import { BehaviorPack, Defined, Internal, References, ResourcePack, Using } from 'bc-minecraft-bedrock-project';
 import { State } from 'bc-minecraft-bedrock-project/src/internal/behavior-pack';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 import { diagnose_molang_implementation, MolangMetadata, User } from '../molang/diagnostics';
 import { Identifiable } from '@blockception/packages-shared';
@@ -81,7 +81,7 @@ export function general_animation_controller(
  */
 function checkTransition(
   controller: string,
-  transitions: Types.Conditional[],
+  transitions: Conditional[],
   states: Record<string, State>,
   diagnoser: DiagnosticsBuilder,
 ): string[] {

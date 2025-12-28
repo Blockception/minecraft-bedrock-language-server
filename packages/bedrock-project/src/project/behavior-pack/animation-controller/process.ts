@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import * as Internal from '../../../internal/behavior-pack/animation-controller';
 import { Json } from '../../../internal/json';
 import { Documentation, TextDocument } from '../../../types';
@@ -26,12 +26,12 @@ export function process(doc: TextDocument): AnimationController[] | undefined {
         animations: References.create(),
         documentation: Documentation.getDoc(doc, () => `BP Animation Controller: ${id}`),
         events: Using.create(),
-        location: Types.Location.create(uri, content.indexOf(id)),
+        location: Location.create(uri, content.indexOf(id)),
         molang: harvestMolang(content, controller),
       };
 
       Object.values(controller.states).forEach((state) => {
-        Types.Conditional.forEach(state.animations, (reference) => item.animations.using.add(reference));
+        Conditional.forEach(state.animations, (reference) => item.animations.using.add(reference));
 
         Using.add(
           item.events,

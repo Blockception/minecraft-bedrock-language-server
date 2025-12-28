@@ -1,5 +1,5 @@
 import { Entity } from 'bc-minecraft-bedrock-project/src/project/behavior-pack';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
@@ -46,7 +46,7 @@ function entity_has_property(attr: CompactJson.IKeyNode, diagnoser: DiagnosticsB
   }
 
   const entityData = diagnoser.context.getProjectData().projectData.behaviorPacks.entities;
-  const key = Types.OffsetWord.create(attr.key, attr.offset);
+  const key = OffsetWord.create(attr.key, attr.offset);
   const value = CompactJson.valueToOffsetWord(attr);
 
   let entities: Array<Entity.Entity> = [];

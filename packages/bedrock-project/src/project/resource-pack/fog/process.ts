@@ -1,5 +1,5 @@
 import * as Internal from '../../../internal/resource-pack';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { TextDocument } from '../../../types';
 import { Fog } from './fog';
 import { Documentation } from '../../../types';
@@ -20,7 +20,7 @@ export function process(doc: TextDocument): Fog | undefined {
 
   return {
     id: id,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     documentation: Documentation.getDoc(doc, () => `Fog: ${id}`),
   };
 }

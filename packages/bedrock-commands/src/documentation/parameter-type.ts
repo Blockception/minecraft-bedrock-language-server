@@ -191,7 +191,7 @@ A selector is a way to specify a group of entities.
 Either starts with \`@\` or a string of a fake player.`,
 
   [ParameterType.slotType]: `## Slot Type
-A value representing the different slot types.
+A value representing the different slot 
 ${sumMode(Modes.SlotType)}`,
 
   [ParameterType.slotID]: `## Slot ID

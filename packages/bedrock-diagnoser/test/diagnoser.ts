@@ -1,5 +1,5 @@
 import { TextDocument } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MCProject } from 'bc-minecraft-project';
 import {
   DiagnosticsBuilderContent,
@@ -10,7 +10,7 @@ import {
 import { TestProjectData } from './testprojectdata';
 
 export interface Error {
-  position: Types.DocumentLocation;
+  position: DocumentLocation;
   message: string;
   severity: DiagnosticSeverity;
   code: string | number;
@@ -44,7 +44,7 @@ export class TestDiagnoser<T extends TextDocument = TextDocument> implements Man
    * @param severity
    * @param code
    */
-  add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
+  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
     this.items.push({
       code: code,
       message: message,
@@ -118,7 +118,7 @@ export class TestDiagnoser<T extends TextDocument = TextDocument> implements Man
   /**Gets the first matching position
    * @param message
    * @returns*/
-  getPosition(position: Types.DocumentLocation): Error | undefined {
+  getPosition(position: DocumentLocation): Error | undefined {
     for (let I = 0; I < this.items.length; I++) {
       const elem = this.items[I];
 
@@ -166,7 +166,7 @@ export class TestDiagnoser<T extends TextDocument = TextDocument> implements Man
    * @param position
    * @returns
    */
-  hasPosition(position: Types.DocumentLocation): boolean {
+  hasPosition(position: DocumentLocation): boolean {
     return this.getPosition(position) !== undefined;
   }
 

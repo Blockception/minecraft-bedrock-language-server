@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { Types } from 'bc-minecraft-bedrock-types';
+
 
 /** */
-export interface Sound extends Types.BaseObject {}
+export interface Sound extends BaseObject {}

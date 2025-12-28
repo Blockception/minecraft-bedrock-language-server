@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import * as Internal from '../../../internal/resource-pack';
 import { Documentation, TextDocument } from '../../../types';
 import { Using } from '../../../types/references';
@@ -23,7 +23,7 @@ export function process(doc: TextDocument): Animation[] | undefined {
 
     const item: Animation = {
       id: id,
-      location: Types.Location.create(uri, content.indexOf(id)),
+      location: Location.create(uri, content.indexOf(id)),
       molang: harvestMolang(content, anim),
       documentation: Documentation.getDoc(
         doc,

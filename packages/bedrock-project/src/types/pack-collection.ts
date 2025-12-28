@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DataSetBase } from './data-set';
 import { Pack } from './pack';
 import { TextDocument } from './text-document';
@@ -99,7 +99,7 @@ export class PackCollection<T extends Pack> {
    * @param predicate
    * @returns
    */
-  find(predicate: (value: Types.BaseObject, key: string) => boolean): Types.BaseObject | undefined {
+  find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined {
     let value = undefined;
 
     for (let I = 0; I < this.packs.length; I++) {

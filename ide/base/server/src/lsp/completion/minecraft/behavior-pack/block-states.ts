@@ -16,7 +16,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
 
   if (!(context.current?.text.startsWith('[') ?? false)) {
     if (block) {
-      let b: BehaviorPack.Block.Block | Types.BehaviorPack.Block | undefined;
+      let b: BehaviorPack.Block.Block | BehaviorPack.Block | undefined;
 
       if ((b = context.database.ProjectData.behaviorPacks.blocks.get(block))) provideDefaultCompletion(b, context);
       if ((b = vanillaBlockToBlock(MinecraftData.BehaviorPack.getBlock(block, edu))))
@@ -70,7 +70,7 @@ function provideStateCompletion(states: BehaviorPack.Block.BlockState[], context
   }
 }
 
-function vanillaBlockToBlock(block: Types.BehaviorPack.Block | undefined): BehaviorPack.Block.Block | undefined {
+function vanillaBlockToBlock(block: BehaviorPack.Block | undefined): BehaviorPack.Block.Block | undefined {
   if (!block) return undefined;
   const states: BehaviorPack.Block.BlockState[] = [];
 

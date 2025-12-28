@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import * as Internal from '../../../internal/behavior-pack/item_catalog';
 import { Json } from '../../../internal/json';
 import { TextDocument } from '../../../types';
@@ -25,7 +25,7 @@ export function process(doc: TextDocument): Group[] | undefined {
         id: id,
         documentation: `Item Group: ` + id,
         items: entry.items.map((item) => (typeof item === 'string' ? item : item.name)),
-        location: Types.Location.create(uri, content.indexOf(id)),
+        location: Location.create(uri, content.indexOf(id)),
       };
     })
     .filter((e) => e !== undefined);

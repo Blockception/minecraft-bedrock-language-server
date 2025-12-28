@@ -7,12 +7,12 @@ describe("Command", () => {
     const B = new TestDiagnoser();
 
     //Loop over all vanilla versions
-    minecraft_check_command(Types.OffsetWord.create("playsound"), B, false);
-    minecraft_check_command(Types.OffsetWord.create("tellraw"), B, false);
-    minecraft_check_command(Types.OffsetWord.create("dialogue"), B, false);
-    minecraft_check_command(Types.OffsetWord.create("event"), B, false);
+    minecraft_check_command(OffsetWord.create("playsound"), B, false);
+    minecraft_check_command(OffsetWord.create("tellraw"), B, false);
+    minecraft_check_command(OffsetWord.create("dialogue"), B, false);
+    minecraft_check_command(OffsetWord.create("event"), B, false);
 
-    minecraft_check_command(Types.OffsetWord.create("ability"), B, true);
+    minecraft_check_command(OffsetWord.create("ability"), B, true);
 
     B.expectEmpty();
   });
@@ -21,8 +21,8 @@ describe("Command", () => {
     const B = new TestDiagnoser();
 
     //Random words
-    minecraft_check_command(Types.OffsetWord.create("detect"), B, false);
-    minecraft_check_command(Types.OffsetWord.create("netherfortress"), B, false);
+    minecraft_check_command(OffsetWord.create("detect"), B, false);
+    minecraft_check_command(OffsetWord.create("netherfortress"), B, false);
 
     B.expectAmount(2);
   });

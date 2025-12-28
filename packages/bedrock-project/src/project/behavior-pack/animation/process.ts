@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/behavior-pack';
 import { Documentation, TextDocument, Using } from '../../../types';
@@ -19,7 +19,7 @@ export function process(doc: TextDocument): Animation[] | undefined {
     .map(([id, anim]) => {
       return {
         id: id,
-        location: Types.Location.create(uri, content.indexOf(id)),
+        location: Location.create(uri, content.indexOf(id)),
         molang: harvestMolang(content, anim),
         documentation: Documentation.getDoc(
           doc,

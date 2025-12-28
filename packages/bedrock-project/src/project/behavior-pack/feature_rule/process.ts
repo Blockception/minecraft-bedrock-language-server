@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import * as Internal from '../../../internal/behavior-pack/feature_rule';
 import { Json } from '../../../internal/json';
 import { Documentation, TextDocument } from '../../../types';
@@ -24,6 +24,6 @@ export function process(doc: TextDocument): FeatureRule | undefined {
     id: id,
     documentation: Documentation.getDoc(doc, () => `Feature Rule: ${id}`),
     feature_used: feature_used,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
   };
 }

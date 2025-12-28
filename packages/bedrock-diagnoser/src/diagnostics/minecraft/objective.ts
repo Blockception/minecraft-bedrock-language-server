@@ -1,8 +1,8 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';
 
-export function minecraft_objectives_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
+export function minecraft_objectives_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
   if (diagnoser.project.attributes['diagnostic.objective'] === 'false') {
     return true;
   }

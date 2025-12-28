@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/resource-pack';
 import { Documentation, TextDocument } from '../../../types';
@@ -23,7 +23,7 @@ export function process(doc: TextDocument): Entity | undefined {
   const id = description.identifier;
   const out: Entity = {
     id: id,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     molang: harvestMolang(content, description),
     animations: References.wrap(
       description.animation_controllers
@@ -36,7 +36,7 @@ export function process(doc: TextDocument): Entity | undefined {
   getUsingResources(out.molang, imp['minecraft:client_entity'].description, doc);
 
   //process animations
-  Types.Definition.forEach(description.animations, (reference, id) => {
+  Definition.forEach(description.animations, (reference, id) => {
     out.animations.defined.add(reference);
     out.animations.using.add(id);
   });
