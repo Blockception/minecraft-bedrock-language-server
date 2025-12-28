@@ -22,6 +22,16 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
     const block = blocks[keys[I]];
 
     if (typeof block === 'object') {
+      // Check for deprecated blockshape property
+      if (block.blockshape) {
+        diagnoser.add(
+          `${key}/blockshape`,
+          'The "blockshape" property is deprecated and no longer officially supported. Support was dropped after 1.19.0, meaning blocks introduced in "Trails & Tales" and later do not have available block shapes. Block shapes cannot be used with custom blocks. Consider using custom geometry or minecraft:material_instances instead.',
+          DiagnosticSeverity.warning,
+          'resourcepack.blocks.blockshape.deprecated',
+        );
+      }
+
       const texture = block.textures;
 
       if (!texture) return;
@@ -74,6 +84,7 @@ function hasDefinition(
 interface Blocks {
   [block_id: string]: {
     sound?: string;
+    blockshape?: string;
     textures:
       | string
       | {
