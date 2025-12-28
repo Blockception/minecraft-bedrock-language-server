@@ -76,6 +76,23 @@ exports[`Files test testing file: {/test-rp/entity/sample.entity.json} expect sp
 ]
 `;
 
+exports[`Files test testing file: {/test-rp/entity/test_entity.json} expect specific errors 1`] = `
+[
+  {
+    "code": "behaviorpack.entities.missing",
+    "message": "Cannot find behaviorpack entities definition: "test:test_entity"",
+    "position": "test:test_entity",
+    "severity": 3,
+  },
+  {
+    "code": "resourcepack.texture.missing",
+    "message": "Cannot find file: textures/entity/test",
+    "position": "test:test_entity/textures/entity/test",
+    "severity": 3,
+  },
+]
+`;
+
 exports[`Files test testing file: {/test-rp/manifest.json} expect specific errors 1`] = `
 [
   {
@@ -109,5 +126,9 @@ exports[`Files test testing file: {/test-rp/manifest.json} expect specific error
   },
 ]
 `;
+
+exports[`Files test testing file: {/test-rp/models/nested/test_model.geo.json} expect specific errors 1`] = `[]`;
+
+exports[`Files test testing file: {/test-rp/models/root_model.geo.json} expect specific errors 1`] = `[]`;
 
 exports[`Files test testing file: {/test-rp/render_controllers/sample.render_controllers.json} expect specific errors 1`] = `[]`;
