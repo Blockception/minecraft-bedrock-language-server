@@ -1,11 +1,12 @@
 
+import { Definition, Location } from '@blockception/packages-shared';
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/resource-pack';
+import { getUsingResources } from '../../../internal/resource-pack/resources';
 import { Documentation, TextDocument } from '../../../types';
 import { References } from '../../../types/references';
 import { harvestMolang } from '../../molang';
 import { Entity } from './entity';
-import { getUsingResources } from '../../../internal/resource-pack/resources';
 
 /**
  *

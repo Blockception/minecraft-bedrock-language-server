@@ -1,6 +1,7 @@
 
 import { FormatVersion } from '../types/format-version';
 import { ScriptContainer } from '../types';
+import { Definition } from '@blockception/packages-shared';
 
 /** */
 export interface Entity extends Readonly<FormatVersion> {

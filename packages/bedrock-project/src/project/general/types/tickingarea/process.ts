@@ -1,7 +1,7 @@
 import { Command } from 'bc-minecraft-bedrock-command';
-
-import { GeneralInfo } from '../general-info';
+import { Location } from '@blockception/packages-shared';
 import { Documentation, TextDocument } from '../../../../types';
+import { GeneralInfo } from '../general-info';
 
 export function process(Command: Command, doc: TextDocument): GeneralInfo | undefined {
   //tickingarea add

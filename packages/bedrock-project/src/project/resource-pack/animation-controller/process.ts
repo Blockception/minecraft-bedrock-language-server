@@ -1,10 +1,11 @@
 
+import { Conditional, Location } from '@blockception/packages-shared';
+import { Effect } from '../../../internal/resource-pack';
 import * as Internal from '../../../internal/resource-pack/animation-controller';
 import { Documentation, TextDocument } from '../../../types';
 import { References, Using } from '../../../types/references';
 import { harvestMolang } from '../../molang';
 import { AnimationController } from './animation-controller';
-import { Effect } from '../../../internal/resource-pack';
 
 /** */
 export function process(doc: TextDocument): AnimationController[] | undefined {

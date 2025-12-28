@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-
+import { Location } from '@blockception/packages-shared';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { Text } from '../../../types';
 
 /**
