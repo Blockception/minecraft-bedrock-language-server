@@ -1,6 +1,5 @@
 //Note: this is kept sync with vscode form of textdocument for easy of use
-
-
+import { Range } from '@blockception/packages-shared';
 import { Json } from '../internal/json';
 
 /** */

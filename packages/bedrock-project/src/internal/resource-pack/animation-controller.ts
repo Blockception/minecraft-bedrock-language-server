@@ -1,4 +1,5 @@
 
+import { Definition } from '@blockception/packages-shared';
 import * as General from '../general/controllers/state';
 import { FormatVersion } from '../types/format-version';
 

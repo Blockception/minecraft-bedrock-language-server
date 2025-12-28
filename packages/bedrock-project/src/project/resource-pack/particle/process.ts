@@ -1,8 +1,7 @@
+import { Location } from '@blockception/packages-shared';
 import * as Internal from '../../../internal/resource-pack';
-
-import { TextDocument } from '../../../types';
+import { Documentation, TextDocument } from '../../../types';
 import { Particle } from './particle';
-import { Documentation } from '../../../types';
 
 /**
  *

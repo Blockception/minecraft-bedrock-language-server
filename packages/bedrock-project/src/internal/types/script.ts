@@ -1,3 +1,4 @@
+import { Conditional, Definition } from '@blockception/packages-shared';
 
 
 /**A universal script component for RP and BP scripts*/

@@ -1,9 +1,8 @@
-import * as internal from '../../../internal/resource-pack/model';
+import { Location } from '@blockception/packages-shared';
 import { Json } from '../../../internal/json';
-
-import { Defined, TextDocument } from '../../../types';
+import * as internal from '../../../internal/resource-pack/model';
+import { Defined, Documentation, TextDocument } from '../../../types';
 import { Model } from './model';
-import { Documentation } from '../../../types';
 
 /**
  *

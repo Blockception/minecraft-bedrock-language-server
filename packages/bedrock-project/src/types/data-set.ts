@@ -1,6 +1,6 @@
 
+import { Identifiable, Locatable } from '@blockception/packages-shared';
 import { IDataSet } from './i-data-set';
-import { Identifiable } from '@blockception/packages-shared';
 
 /** The base of any dataset */
 export interface DataSetBase {

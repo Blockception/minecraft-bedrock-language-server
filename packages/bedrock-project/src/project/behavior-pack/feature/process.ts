@@ -1,4 +1,5 @@
 
+import { Location } from '@blockception/packages-shared';
 import * as Internal from '../../../internal/behavior-pack/feature';
 import { Json } from '../../../internal/json';
 import { Documentation, TextDocument } from '../../../types';

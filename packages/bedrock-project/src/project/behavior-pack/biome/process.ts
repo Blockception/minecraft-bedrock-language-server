@@ -1,4 +1,5 @@
 
+import { Location } from '@blockception/packages-shared';
 import * as Internal from '../../../internal/behavior-pack/biome';
 import { Json } from '../../../internal/json';
 import { Defined, Documentation, TextDocument } from '../../../types';

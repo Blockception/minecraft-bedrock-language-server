@@ -1,6 +1,7 @@
 
-import { FormatVersion } from '../types/format-version';
+import { Definition } from '@blockception/packages-shared';
 import { ScriptContainer } from '../types';
+import { FormatVersion } from '../types/format-version';
 
 /** */
 export interface Attachable extends Readonly<FormatVersion> {

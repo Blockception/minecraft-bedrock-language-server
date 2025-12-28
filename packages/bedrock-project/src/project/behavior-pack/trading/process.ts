@@ -1,6 +1,5 @@
-
-import { Documentation } from '../../../types';
-import { TextDocument } from '../../../types';
+import { Location } from '@blockception/packages-shared';
+import { Documentation, TextDocument } from '../../../types';
 import { Trading } from './trading';
 
 /**

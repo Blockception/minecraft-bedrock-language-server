@@ -1,4 +1,5 @@
 
+import { Location } from '@blockception/packages-shared';
 import { Json } from '../../../internal/json';
 import * as internal from '../../../internal/resource-pack/sound-definitions';
 import { Documentation, TextDocument } from '../../../types';

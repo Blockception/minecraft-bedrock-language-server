@@ -1,4 +1,4 @@
-
+import { Range } from '@blockception/packages-shared';
 import { TextDocument } from '../../types';
 
 export function GetComment(doc: TextDocument, lineIndex: number): string {

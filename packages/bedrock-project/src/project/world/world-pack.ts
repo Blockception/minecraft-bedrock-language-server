@@ -1,4 +1,5 @@
 
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../../internal/types';
 import { Container, DataSetBase, Pack } from '../../types';

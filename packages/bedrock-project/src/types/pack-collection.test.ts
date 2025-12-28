@@ -1,11 +1,12 @@
 
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { MCProject } from 'bc-minecraft-project';
-import { PackType } from '../../src/project/pack-type';
+import { randomUUID } from 'crypto';
 import { PackCollection } from '.';
-import { Pack } from './pack';
+import { PackType } from '../../src/project/pack-type';
 import { TextDocument } from '../../src/types';
 import { Manifest } from '../internal/types';
-import { randomUUID } from 'crypto';
+import { Pack } from './pack';
 
 const defaultFolder = 'c:\\project\\bp';
 const defaultContext = MCProject.createEmpty();
