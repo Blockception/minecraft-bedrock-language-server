@@ -58,6 +58,9 @@ export namespace FileType {
     if (/[\\/]animations[\\/]/.test(uri)) return FileType.animation;
     if (/[\\/]attachables[\\/]/.test(uri)) return FileType.attachable;
     if (/[\\/]block_culling[\\/]/.test(uri)) return FileType.block_culling_rules;
+    // Check more specific model paths before general entity path to avoid conflicts
+    if (/[\\/]models[\\/]entities[\\/]/.test(uri)) return FileType.model;
+    if (/[\\/]models[\\/]entity[\\/]/.test(uri)) return FileType.model;
     if (/[\\/]models[\\/]/.test(uri)) return FileType.model;
     if (/[\\/]entity[\\/]/.test(uri)) return FileType.entity;
     if (/[\\/]particles[\\/]/.test(uri)) return FileType.particle;
