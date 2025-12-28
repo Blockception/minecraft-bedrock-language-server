@@ -42,10 +42,19 @@ export function diagnose_molang_implementation(
     const identifier = getId(res);
     if (assigned.has(identifier)) continue;
 
-    let scope = normalizeVariableScope(res);
-    scope = scope[0].toUpperCase() + scope.slice(1) + 's';
-
-    if ((MolangData[diagnoser.metadata.userType][scope as keyof typeof MolangData[MolangDataSetKey]] as Array<Data>)?.map(x => x.id).includes(identifier.split('.')[1])) continue;
+    // Check if this is a built-in variable/context/temp for this user type
+    // Resource references (texture, geometry, material) are never built-in, they must be defined
+    const normalizedScope = normalizeVariableScope(res);
+    const isResourceReference = normalizedScope === 'texture' || normalizedScope === 'geometry' || normalizedScope === 'material';
+    
+    if (!isResourceReference) {
+      // Only check built-in data for variable scopes (not resources)
+      const scopeKey = normalizedScope[0].toUpperCase() + normalizedScope.slice(1) + 's';
+      const builtInData = MolangData[diagnoser.metadata.userType][scopeKey as keyof typeof MolangData[MolangDataSetKey]] as Array<Data> | undefined;
+      if (builtInData?.map(x => x.id).includes(identifier.split('.')[1])) {
+        continue;
+      }
+    }
 
     diagnoser.add(
       user.id,

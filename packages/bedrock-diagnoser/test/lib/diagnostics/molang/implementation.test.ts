@@ -257,5 +257,89 @@ describe("Molang", () => {
       // Should have no errors - all protected by ??
       diagnoser.expectEmpty();
     });
+
+    it("built-in variable.attack_time should not require definition for Entities", () => {
+      const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
+
+      // Entity defines no variables
+      const entity = new MolangSet();
+      
+      // Animation uses built-in variable.attack_time
+      const animation = new MolangSet();
+      const molangText = 'variable.attack_time';
+      animation.add(Types.OffsetWord.create(molangText, 0));
+
+      diagnose_molang_implementation(
+        { id: "minecraft:test_entity", molang: entity },
+        { id: "animation.test.walk", molang: animation },
+        diagnoser
+      );
+
+      // Should have no errors - attack_time is built-in for Entities
+      diagnoser.expectEmpty();
+    });
+
+    it("texture references should require definition", () => {
+      const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
+
+      // Entity defines texture.var_0
+      const entity = new MolangSet();
+      entity.assigned.add({ scope: "texture", names: ["var_0"], position: 0, type: NodeType.ResourceReference });
+      
+      // Render controller uses texture.var_0 and texture.var_1
+      const renderController = new MolangSet();
+      renderController.using.add({ scope: "texture", names: ["var_0"], position: 0, type: NodeType.ResourceReference });
+      renderController.using.add({ scope: "texture", names: ["var_1"], position: 0, type: NodeType.ResourceReference });
+
+      diagnose_molang_implementation(
+        { id: "minecraft:test_entity", molang: entity },
+        { id: "controller.render.test", molang: renderController },
+        diagnoser
+      );
+
+      // Should have 1 error for undefined texture.var_1 (var_0 is defined)
+      diagnoser.expectAmount(1);
+    });
+
+    it("geometry references should require definition", () => {
+      const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
+
+      // Entity defines no geometries
+      const entity = new MolangSet();
+      
+      // Animation uses geometry.pv_ceratosaurus
+      const animation = new MolangSet();
+      animation.using.add({ scope: "geometry", names: ["pv_ceratosaurus"], position: 0, type: NodeType.ResourceReference });
+
+      diagnose_molang_implementation(
+        { id: "minecraft:test_entity", molang: entity },
+        { id: "animation.test.run", molang: animation },
+        diagnoser
+      );
+
+      // Should have 1 error for undefined geometry
+      diagnoser.expectAmount(1);
+    });
+
+    it("material references should require definition", () => {
+      const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
+
+      // Entity defines material.default
+      const entity = new MolangSet();
+      entity.assigned.add({ scope: "material", names: ["default"], position: 0, type: NodeType.ResourceReference });
+      
+      // Render controller uses material.default
+      const renderController = new MolangSet();
+      renderController.using.add({ scope: "material", names: ["default"], position: 0, type: NodeType.ResourceReference });
+
+      diagnose_molang_implementation(
+        { id: "minecraft:test_entity", molang: entity },
+        { id: "controller.render.test", molang: renderController },
+        diagnoser
+      );
+
+      // Should have no errors - material is defined
+      diagnoser.expectEmpty();
+    });
   });
 });
