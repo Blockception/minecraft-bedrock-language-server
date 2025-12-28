@@ -1,0 +1,16 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "test:test_entity",
+      "geometry": {
+        "default": "geometry.test_root_model",
+        "nested": "geometry.test_nested_model"
+      },
+      "textures": {
+        "default": "textures/entity/test"
+      },
+      "render_controllers": ["controller.render.default"]
+    }
+  }
+}
