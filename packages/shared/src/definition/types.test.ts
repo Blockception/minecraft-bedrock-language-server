@@ -1,4 +1,4 @@
-import { Definition } from '.';
+import { Definition } from './types';
 
 describe('Definition', () => {
   it('getId', () => {
