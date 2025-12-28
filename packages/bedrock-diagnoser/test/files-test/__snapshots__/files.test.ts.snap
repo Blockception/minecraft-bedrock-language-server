@@ -53,6 +53,47 @@ exports[`Files test testing file: {/test-bp/manifest.json} expect specific error
 ]
 `;
 
+exports[`Files test testing file: {/test-rp/entity/mixed_case_textures.entity.json} expect specific errors 1`] = `
+[
+  {
+    "code": "behaviorpack.entities.missing",
+    "message": "Cannot find behaviorpack entities definition: "bc:mixed_case_test"",
+    "position": "bc:mixed_case_test",
+    "severity": 3,
+  },
+  {
+    "code": "resourcepack.models.missing",
+    "message": "Cannot find resourcepack models definition: "geometry.test"",
+    "position": ""geometry.test"",
+    "severity": 3,
+  },
+  {
+    "code": "resourcepack.texture.missing",
+    "message": "Cannot find file: textures/entity/test/default",
+    "position": "bc:mixed_case_test/textures/entity/test/default",
+    "severity": 3,
+  },
+  {
+    "code": "resourcepack.texture.missing",
+    "message": "Cannot find file: textures/entity/test/posi",
+    "position": "bc:mixed_case_test/textures/entity/test/posi",
+    "severity": 3,
+  },
+  {
+    "code": "resourcepack.texture.missing",
+    "message": "Cannot find file: textures/entity/test/cyan",
+    "position": "bc:mixed_case_test/textures/entity/test/cyan",
+    "severity": 3,
+  },
+  {
+    "code": "resourcepack.texture.missing",
+    "message": "Cannot find file: textures/entity/test/posi_emissive",
+    "position": "bc:mixed_case_test/textures/entity/test/posi_emissive",
+    "severity": 3,
+  },
+]
+`;
+
 exports[`Files test testing file: {/test-rp/entity/sample.entity.json} expect specific errors 1`] = `
 [
   {
@@ -109,5 +150,7 @@ exports[`Files test testing file: {/test-rp/manifest.json} expect specific error
   },
 ]
 `;
+
+exports[`Files test testing file: {/test-rp/render_controllers/mixed_case_textures.render_controllers.json} expect specific errors 1`] = `[]`;
 
 exports[`Files test testing file: {/test-rp/render_controllers/sample.render_controllers.json} expect specific errors 1`] = `[]`;

@@ -1,0 +1,14 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.mixed_case_test": {
+      "geometry": "Geometry.default",
+      "materials": [{ "*": "Material.default" }],
+      "textures": [
+        "Texture.Posi",
+        "Texture.CYAN_GRADIENT",
+        "Texture.PosiEmissive"
+      ]
+    }
+  }
+}
