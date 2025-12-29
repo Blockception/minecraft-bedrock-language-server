@@ -20,6 +20,33 @@ export interface MolangDataSet {
   Temps: Data[];
 }
 
+export namespace MolangDataSet {
+  /**
+   * Tries to get one of the fields from the molangdataset from a range of values
+   * @param s The set of data
+   * @param k a value like: `v`, `variable`, etc
+   * @returns The found data set or undefined if an unknown value is passed
+   */
+  export function get(s: MolangDataSet, k: string): Data[] | undefined {
+    switch (k.toLowerCase()) {
+      case 'v':
+      case 'variable':
+      case 'variables':
+        return s.Variables;
+      case 'c':
+      case 'context':
+      case 'contexts':
+        return s.Contexts;
+      case 't':
+      case 'temp':
+      case 'temps':
+        return s.Temps;
+    }
+
+    return undefined;
+  }
+}
+
 /**
  * Molang data for all types
  */
@@ -47,8 +74,14 @@ export namespace MolangData {
 
   /** Returns the specified type of molang data */
   export function get(type: MolangDataSetKey): MolangDataSet {
-    return MolangData[type] as MolangDataSet;
+    return (MolangData[type] as MolangDataSet) || emptySet;
   }
+}
+
+const emptySet: MolangDataSet = {
+  Variables: [],
+  Contexts: [],
+  Temps: [],
 }
 
 /**
