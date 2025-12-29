@@ -1,11 +1,11 @@
-import * as path from 'path';
 import * as fs from 'fs';
+import * as path from 'path';
 import { Container as BPContainer } from '../bp/container';
-import { Output } from './output';
-import { OutputSet } from './output-set';
-import { GeneralEntity } from './general-entity';
 import { cleanStrings, duplicateWithoutNamespace } from '../static/identifier-extension';
 import { saveArray, saveSingle } from '../static/typescript';
+import { GeneralEntity } from './general-entity';
+import { Output } from './output';
+import { OutputSet } from './output-set';
 
 /**
  * General data (combined from all sources)
@@ -76,6 +76,6 @@ export class General {
     saveArray('string', null, 'Enchantments', this.enchantments, path.join(folder, 'enchantments.ts'));
     saveArray('string', null, 'PotionEffects', this.potionEffects, path.join(folder, 'potion_effects.ts'));
     saveArray('string', null, 'PotionModifiers', this.potionModifiers, path.join(folder, 'potion_modifiers.ts'));
-    saveArray('string', null, 'PotionTypes', this.potionTypes, path.join(folder, 'potion_ts'));
+    saveArray('string', null, 'PotionTypes', this.potionTypes, path.join(folder, 'potion_types.ts'));
   }
 }
