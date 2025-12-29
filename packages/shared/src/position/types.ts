@@ -1,12 +1,17 @@
-/** */
+/**
+ * Represents a position in a text document as a line and character offset.
+ * Line and character offsets are zero-based.
+ */
 export interface Position {
-  /** */
+  /**The zero-based line number*/
   line: number;
-  /** */
+  /**The zero-based character offset within the line*/
   character: number;
 }
 
-/** */
+/**
+ * Namespace containing utility functions for working with Position objects.
+ */
 export namespace Position {
   /**
    * Type guard to check if a value is a valid Position object.
@@ -31,10 +36,11 @@ export namespace Position {
 
   const NewLine = '\n'.charCodeAt(0);
 
-  /**Converts the position to an offset
-   * @param position
-   * @param text
-   * @returns
+  /**
+   * Converts a Position to a character offset in the text.
+   * @param position The position to convert
+   * @param text The text content or an object with offsetAt method
+   * @returns The zero-based character offset in the text
    */
   export function toOffset(position: Position, text: string | { offsetAt(position: Position): number }): number {
     if (typeof text === 'object') return text.offsetAt(position);
@@ -61,10 +67,10 @@ export namespace Position {
   }
 
   /**
-   *
-   * @param offset
-   * @param text
-   * @returns
+   * Converts a character offset to a Position in the text.
+   * @param offset The zero-based character offset
+   * @param text The text content or an object with positionAt method
+   * @returns A Position object representing the location
    */
   export function toPosition(offset: number, text: string | { positionAt(offset: number): Position }): Position {
     if (typeof text === 'object') return text.positionAt(offset);
