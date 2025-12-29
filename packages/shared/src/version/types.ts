@@ -18,7 +18,7 @@ export namespace Version {
    * @returns True if the value is a valid Version object, false otherwise.
    */
   export function is(value: any): value is Version {
-    if (typeof value === 'object') {
+    if (typeof value === 'object' && value !== null) {
       if (typeof value.major !== 'number') return false;
       if (typeof value.minor !== 'number') return false;
       if (typeof value.patch !== 'number') return false;

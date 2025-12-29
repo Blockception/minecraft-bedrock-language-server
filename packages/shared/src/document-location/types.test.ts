@@ -86,4 +86,59 @@ describe('DocumentLocation', () => {
 
     expect(P).toEqual(identifierPos);
   });
+
+  it('toOffset - OffsetWord', () => {
+    const offsetWord = { text: 'example', offset: 100 };
+    const offset = DocumentLocation.toOffset(offsetWord);
+
+    expect(offset).toEqual(100);
+  });
+
+  it('toOffset - unknown type defaults to 0', () => {
+    // Pass a boolean which doesn't match any case in the switch statement
+    const offset = DocumentLocation.toOffset(true as any, jsonData);
+
+    expect(offset).toEqual(0);
+  });
+
+  it('toPosition - OffsetWord', () => {
+    const text = 'identifier';
+    const offsetWord = { text: text, offset: 0 };
+    const P = DocumentLocation.toPosition(offsetWord, text);
+
+    expect(P).toEqual(Position.create(0, 0));
+  });
+
+  it('toPosition - default case', () => {
+    const P = DocumentLocation.toPosition(undefined as any, jsonData);
+
+    expect(P).toEqual(Position.create(0, 0));
+  });
+
+  it('toRange - OffsetWord', () => {
+    const text = 'identifier';
+    const offsetWord = { text: text, offset: 0 };
+    const range = DocumentLocation.toRange(offsetWord);
+
+    expect(range.start).toEqual(Position.create(0, 0));
+    expect(range.end).toEqual(Position.create(0, text.length));
+  });
+
+  it('toRange - number with text and length', () => {
+    const range = DocumentLocation.toRange(identifierOffset, jsonData, identifierKey.length);
+
+    expect(range.start).toEqual(identifierPos);
+    expect(range.end.line).toEqual(4);
+    expect(range.end.character).toEqual(17);
+  });
+
+  it('toRange - throws error without text', () => {
+    expect(() => DocumentLocation.toRange(identifierOffset, undefined as any, identifierKey.length)).toThrow(
+      'requires text or document',
+    );
+  });
+
+  it('toRange - throws error without length', () => {
+    expect(() => DocumentLocation.toRange(identifierOffset, jsonData, undefined as any)).toThrow('requires length');
+  });
 });

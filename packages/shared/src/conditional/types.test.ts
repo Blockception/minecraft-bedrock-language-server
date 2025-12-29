@@ -37,4 +37,16 @@ describe('Conditional', () => {
     expect(ids).toEqual(expect.arrayContaining(['example', 'foo', 'example2']));
     expect(values).toEqual(expect.arrayContaining(['foo', 1, '1.0']));
   });
+
+  it('getCondition with empty object', () => {
+    const example: Conditional = {};
+
+    expect(Conditional.getCondition(example)).toEqual('1.0');
+  });
+
+  it('getId with empty object', () => {
+    const example: Conditional = {};
+
+    expect(Conditional.getId(example)).toEqual('');
+  });
 });
