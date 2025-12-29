@@ -32,12 +32,6 @@ export interface MolangMetadata {
   userType: MolangDataSetKey;
 }
 
-namespace emptySet {
-  export const Variables: Data[] = [];
-  export const Contexts: Data[] = [];
-  export const Temps: Data[] = [];
-}
-
 /**
  * Diagnoses the given molang sets, the using party checks upon the definer if they have setup properly
  * @param using The set of molang data that is being used
