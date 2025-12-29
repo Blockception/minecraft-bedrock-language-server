@@ -1,12 +1,13 @@
-import { Identifiable } from '@blockception/packages-shared';
+import { Languages } from '@blockception/ide-shared';
+import { Identifiable, Locatable } from '@blockception/packages-shared';
 import { DataSet, ProjectData } from 'bc-minecraft-bedrock-project';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { CodeLens, CodeLensParams, Position, Range } from 'vscode-languageserver';
 import { Processor } from '../../util';
 import { Context } from '../context/context';
 import { TextDocument } from '../documents';
 import { CodeLensBuilder } from './builder';
 import { CodeLensContext } from './context';
-import { BaseObject } from 'bc-minecraft-bedrock-types';
 
 /**
  *

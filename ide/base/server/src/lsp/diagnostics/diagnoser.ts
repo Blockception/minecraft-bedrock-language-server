@@ -1,15 +1,14 @@
+import { DocumentLocation } from '@blockception/packages-shared';
 import {
   DiagnosticsBuilderContent,
   DiagnosticSeverity,
   ManagedDiagnosticsBuilder,
 } from 'bc-minecraft-bedrock-diagnoser';
-
 import { MCProject } from 'bc-minecraft-project';
+import * as vscode from 'vscode-languageserver';
 import { Diagnostic } from 'vscode-languageserver';
 import { GetRange } from '../../util';
 import { TextDocument } from '../documents/text-document';
-
-import * as vscode from 'vscode-languageserver';
 
 export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument> {
   public doc: TextDocument;
