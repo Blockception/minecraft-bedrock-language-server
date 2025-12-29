@@ -4,6 +4,7 @@ import { valid_syntaxes } from '../data/dataset-valid';
 import { ExpressionNode, NodeType } from '../../src/molang/syntax/nodes';
 import { invalid_syntaxes } from '../data/dataset-invalid';
 import { MolangSyntaxError } from '../../src/molang';
+import { OffsetWord } from "@blockception/packages-shared";
 
 describe('molang - syntax', () => {
   describe('should be able to parse and match the syntax tree generated', () => {
