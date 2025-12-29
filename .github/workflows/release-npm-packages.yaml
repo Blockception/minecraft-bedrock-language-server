@@ -33,6 +33,9 @@ jobs:
       - name: 🏗️ Setup project
         run: npm ci
 
+      - name: 🛠️ Build all packages
+        run: npm run build
+
       - name: 🛠️ Build projects
         working-directory: '${{github.workspace}}/packages/${{matrix.package}}'
         run: npm run compile
