@@ -1,14 +1,19 @@
 import { Position } from '../position/types';
 
-/** */
+/**
+ * Represents a range in a text document as a start and end position.
+ * Both start and end positions are inclusive.
+ */
 export interface Range {
-  /** */
+  /**The start position of the range*/
   start: Position;
-  /** */
+  /**The end position of the range*/
   end: Position;
 }
 
-/** */
+/**
+ * Namespace containing utility functions for working with Range objects.
+ */
 export namespace Range {
   /**
    * Type guard to check if a value is a valid Range object.

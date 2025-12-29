@@ -9,7 +9,9 @@ export interface Location {
   position: DocumentLocation;
 }
 
-/** */
+/**
+ * Namespace containing utility functions for working with Location objects.
+ */
 export namespace Location {
   /**
    * Type guard to check if a value is a valid Location object.

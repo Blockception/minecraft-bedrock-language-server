@@ -6,7 +6,9 @@ export interface Locatable {
   location: Location;
 }
 
-/** */
+/**
+ * Namespace containing utility functions for working with Locatable objects.
+ */
 export namespace Locatable {
   /**
    * Type guard to check if a value is a valid Locatable object.

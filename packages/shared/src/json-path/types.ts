@@ -1,8 +1,14 @@
-/** */
+/**
+ * Represents a path string used to locate elements within JSON documents.
+ * Paths use forward slashes as separators (e.g., "/property/subproperty").
+ */
 export type JsonPath = string;
 
-/** */
+/**
+ * Namespace containing utility functions for working with JSON paths.
+ */
 export namespace JsonPath {
+  /**The separator character used in JSON paths*/
   export const seperator = '/';
 
   /**
