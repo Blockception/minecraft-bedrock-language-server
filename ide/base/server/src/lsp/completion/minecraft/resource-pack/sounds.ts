@@ -38,11 +38,13 @@ export function provideSoundFileCompletion(context: Context<CompletionContext>):
       return;
     }
     const ext = getExtension(filepath);
-    const id = filepath.substring(index, filepath.length - ext.length);
+    // Decode URI-encoded paths to handle files with spaces
+    const decodedPath = decodeURIComponent(filepath);
+    const id = decodedPath.substring(index, decodedPath.length - ext.length);
 
     context.builder.add({
       label: id,
-      documentation: filepath,
+      documentation: decodedPath,
       kind: CompletionItemKind.File,
     });
   });
