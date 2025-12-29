@@ -57,4 +57,18 @@ describe('Json', () => {
 
     expect(offset).toEqual(jsonData.indexOf('identifier'));
   });
+
+  it('Json Path - Create', () => {
+    const path = JsonPath.create('minecraft:entity', 'description', 'identifier');
+
+    expect(path).toEqual('minecraft:entity/description/identifier');
+  });
+
+  it('Json Path - Is', () => {
+    expect(JsonPath.is('some/path')).toBeTruthy();
+    expect(JsonPath.is(123)).toBeFalsy();
+    expect(JsonPath.is(null)).toBeFalsy();
+    expect(JsonPath.is(undefined)).toBeFalsy();
+    expect(JsonPath.is({})).toBeFalsy();
+  });
 });

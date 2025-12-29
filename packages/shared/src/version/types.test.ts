@@ -38,4 +38,46 @@ describe('Version', () => {
     expect(Version.compare('1.16.220', { major: 1, minor: 10, patch: 0 })).toEqual(1);
     expect(Version.compare([1, 10, 220], { major: 1, minor: 10, patch: 0 })).toEqual(1);
   });
+
+  it('is - valid version', () => {
+    const version = { major: 1, minor: 2, patch: 3 };
+
+    expect(Version.is(version)).toBeTruthy();
+  });
+
+  it('is - invalid version with non-number major', () => {
+    const version = { major: '1', minor: 2, patch: 3 };
+
+    expect(Version.is(version)).toBeFalsy();
+  });
+
+  it('is - invalid version with non-number minor', () => {
+    const version = { major: 1, minor: '2', patch: 3 };
+
+    expect(Version.is(version)).toBeFalsy();
+  });
+
+  it('is - invalid version with non-number patch', () => {
+    const version = { major: 1, minor: 2, patch: '3' };
+
+    expect(Version.is(version)).toBeFalsy();
+  });
+
+  it('is - non-object value', () => {
+    expect(Version.is('1.2.3')).toBeFalsy();
+    expect(Version.is(null)).toBeFalsy();
+    expect(Version.is(undefined)).toBeFalsy();
+  });
+
+  it('toString', () => {
+    const version = { major: 1, minor: 16, patch: 220 };
+
+    expect(Version.toString(version)).toEqual('1.16.220');
+  });
+
+  it('compare - arrays', () => {
+    expect(Version.compare([1, 10, 0], [1, 17, 0])).toEqual(-1);
+    expect(Version.compare([1, 16, 220], [1, 10, 0])).toEqual(1);
+    expect(Version.compare([1, 10, 0], [1, 10, 0])).toEqual(0);
+  });
 });

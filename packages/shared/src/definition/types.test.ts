@@ -60,4 +60,17 @@ describe('Definition', () => {
     expect(ids).toEqual(expect.arrayContaining(['animation.sheep.walk', 'animation.sheep.default']));
     expect(references).toEqual(expect.arrayContaining(['walk', 'default']));
   });
+
+  it('foreach with undefined', () => {
+    const ids: string[] = [];
+    const references: string[] = [];
+
+    Definition.forEach(undefined, (reference, id) => {
+      ids.push(id);
+      references.push(reference);
+    });
+
+    expect(ids).toEqual([]);
+    expect(references).toEqual([]);
+  });
 });

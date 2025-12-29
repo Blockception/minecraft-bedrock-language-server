@@ -55,4 +55,46 @@ describe('Position', () => {
     expect(Position.is({ line: 135 })).toBeFalsy();
     expect(Position.is({ character: 0 })).toBeFalsy();
   });
+
+  it('create', () => {
+    const pos = Position.create(5, 10);
+
+    expect(pos.line).toEqual(5);
+    expect(pos.character).toEqual(10);
+  });
+
+  it('toOffset with position beyond all lines', () => {
+    const simpleText = 'hello world';
+    const pos = Position.create(5, 3);
+    const offset = Position.toOffset(pos, simpleText);
+
+    // Since there are no newlines, should return the character position
+    expect(offset).toEqual(3);
+  });
+
+  it('toOffset with object implementing offsetAt', () => {
+    const mockDoc = {
+      offsetAt: (position: any) => {
+        return position.line * 100 + position.character;
+      },
+    };
+
+    const pos = Position.create(2, 5);
+    const offset = Position.toOffset(pos, mockDoc);
+
+    expect(offset).toEqual(205);
+  });
+
+  it('toPosition with object implementing positionAt', () => {
+    const mockDoc = {
+      positionAt: (offset: number) => {
+        return Position.create(Math.floor(offset / 100), offset % 100);
+      },
+    };
+
+    const position = Position.toPosition(205, mockDoc);
+
+    expect(position.line).toEqual(2);
+    expect(position.character).toEqual(5);
+  });
 });
