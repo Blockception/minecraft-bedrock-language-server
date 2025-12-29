@@ -1,5 +1,14 @@
 import { Identifiable } from '@blockception/packages-shared';
-import { Data, MolangData, MolangDataSetKey, MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from 'bc-minecraft-molang';
+import {
+  MolangData,
+  MolangDataSet,
+  MolangDataSetKey,
+  MolangSet,
+  ResourceReferenceNode,
+  ResourceScope,
+  VariableNode,
+  VariableScope
+} from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 
 /**
@@ -36,16 +45,26 @@ export function diagnose_molang_implementation(
   const assigned = new Set<string>();
   getAssignedIds(assigned, resource.molang);
   getAssignedIds(assigned, user.molang);
+  const molangset = MolangData.get(diagnoser.metadata.userType);
 
   for (const res of resource.molang.using.values()) {
     if (res.scope === 'this') return;
     const identifier = getId(res);
     if (assigned.has(identifier)) continue;
 
-    let scope = normalizeVariableScope(res);
-    scope = scope[0].toUpperCase() + scope.slice(1) + 's';
+    // Check if this is a built-in variable/context/temp for this user type
+    // Resource references (texture, geometry, material) are never built-in, they must be defined
+    const normalizedScope = normalizeVariableScope(res);
 
-    if ((MolangData[diagnoser.metadata.userType][scope as keyof typeof MolangData[MolangDataSetKey]] as Array<Data>)?.map(x => x.id).includes(identifier.split('.')[1])) continue;
+    if (!isResourceReference(normalizedScope)) {
+      // Only check built-in data for variable scopes (not resources)
+      const builtInData = MolangDataSet.get(molangset, normalizedScope);
+      const fnId = getFnId(res);
+
+      if (builtInData?.some((x) => x.id === fnId)) {
+        continue;
+      }
+    }
 
     diagnoser.add(
       user.id,
@@ -56,9 +75,24 @@ export function diagnose_molang_implementation(
   }
 }
 
+function isResourceReference(item: string): item is 'texture' | 'geometry' | 'material' {
+  switch (item) {
+    case 'texture':
+    case 'geometry':
+    case 'material':
+      return true;
+  }
+
+  return false;
+}
+
 function getId(item: VariableNode | ResourceReferenceNode) {
   const scope = normalizeVariableScope(item);
-  return `${scope}.${item.names.join('.')}`
+  return `${scope}.${item.names.join('.')}`;
+}
+
+function getFnId(item: VariableNode | ResourceReferenceNode) {
+  return `${item.names.join('.')}`;
 }
 
 function normalizeVariableScope(item: VariableNode | ResourceReferenceNode) {
