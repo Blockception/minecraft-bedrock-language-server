@@ -2,7 +2,7 @@ import { MolangSet, NodeType } from "bc-minecraft-molang";
 import { diagnose_molang_implementation, MolangMetadata } from "../../../../src/diagnostics/molang/diagnostics";
 import { Metadata } from "../../../../src/types";
 import { TestDiagnoser } from "../../../diagnoser";
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "@blockception/packages-shared";
 
 describe("Molang", () => {
   describe("diagnose_molang_implementation", () => {
