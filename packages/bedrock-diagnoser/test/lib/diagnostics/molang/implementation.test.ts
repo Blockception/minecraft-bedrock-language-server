@@ -267,7 +267,7 @@ describe("Molang", () => {
       // Animation uses built-in variable.attack_time
       const animation = new MolangSet();
       const molangText = 'variable.attack_time';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -288,7 +288,7 @@ describe("Molang", () => {
       // Render controller uses built-in variable.attack_time
       const renderController = new MolangSet();
       const molangText = 'variable.attack_time';
-      renderController.add(Types.OffsetWord.create(molangText, 0));
+      renderController.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -309,7 +309,7 @@ describe("Molang", () => {
       // Animation uses built-in context.is_first_person
       const animation = new MolangSet();
       const molangText = 'context.is_first_person';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -330,7 +330,7 @@ describe("Molang", () => {
       // Animation uses built-in context.item_slot
       const animation = new MolangSet();
       const molangText = 'c.item_slot';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
