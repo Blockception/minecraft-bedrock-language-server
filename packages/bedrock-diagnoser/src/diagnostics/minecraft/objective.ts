@@ -1,6 +1,6 @@
-
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';
+import { OffsetWord } from '@blockception/packages-shared';
 
 export function minecraft_objectives_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
   if (diagnoser.project.attributes['diagnostic.objective'] === 'false') {

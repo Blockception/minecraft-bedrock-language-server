@@ -1,5 +1,5 @@
 import { PackType } from 'bc-minecraft-bedrock-project';
-
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 
 export function diagnose_language_document(diagnoser: DocumentDiagnosticsBuilder, packType: PackType): void {

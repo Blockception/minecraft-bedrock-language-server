@@ -1,5 +1,5 @@
 
-import { Definition } from 'bc-minecraft-bedrock-types/src/types';
+import { Definition, OffsetWord } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from '../../types';
 import { MolangMetadata } from '../molang';

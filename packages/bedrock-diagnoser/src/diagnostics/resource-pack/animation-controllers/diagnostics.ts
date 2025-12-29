@@ -1,5 +1,5 @@
+import { Definition } from '@blockception/packages-shared';
 import { ProjectItem } from 'bc-minecraft-bedrock-project';
-import { Definition } from 'bc-minecraft-bedrock-types/src/types';
 import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../../types';
 import { forEach } from '../../../utility/references';

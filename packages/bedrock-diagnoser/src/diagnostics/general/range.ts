@@ -1,4 +1,5 @@
 
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { general_float_diagnose } from './float';
 import { general_integer_diagnose } from './integer';

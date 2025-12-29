@@ -1,5 +1,5 @@
+import { Conditional, Definition } from '@blockception/packages-shared';
 import { Script } from 'bc-minecraft-bedrock-project/src/internal/types';
-
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 /**

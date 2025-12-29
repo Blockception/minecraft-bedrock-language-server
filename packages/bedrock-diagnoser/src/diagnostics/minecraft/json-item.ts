@@ -1,4 +1,4 @@
-
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder } from '../../types';
 
 export function minecraft_jsonitem_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder) {

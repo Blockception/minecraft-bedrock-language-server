@@ -1,4 +1,5 @@
-import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../../types';
 import { behaviorpack_check_blockstates } from '../block-state/diagnose';

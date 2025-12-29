@@ -1,7 +1,7 @@
-
+import { OffsetWord } from '@blockception/packages-shared';
+import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { check_definition_value } from '../../definitions';
-import { Errors } from '../..';
 
 export function diagnose_structure_implementation(
   id: OffsetWord | string,

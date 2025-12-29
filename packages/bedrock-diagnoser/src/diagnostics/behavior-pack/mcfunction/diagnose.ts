@@ -1,7 +1,7 @@
 import { Text } from 'bc-minecraft-bedrock-project';
-
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../../types';
+import { OffsetWord } from '@blockception/packages-shared';
 
 export function mcfunction_is_defined(value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
   const id = Text.UnQuote(value.text);

@@ -1,6 +1,7 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { ParameterInfo } from 'bc-minecraft-bedrock-command';
 import { Text } from 'bc-minecraft-bedrock-project';
-import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';

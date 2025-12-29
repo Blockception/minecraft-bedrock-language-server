@@ -1,7 +1,7 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { Entity } from 'bc-minecraft-bedrock-project/src/project/behavior-pack';
-
-import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
 import { NoopDiagnoser } from '../../../types/noop';
 import { general_range_float_diagnose, general_range_integer_diagnose } from '../../general';

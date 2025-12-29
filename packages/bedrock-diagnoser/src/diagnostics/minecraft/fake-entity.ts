@@ -1,5 +1,5 @@
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
-
+import { OffsetWord } from '@blockception/packages-shared';
 import { Text } from 'bc-minecraft-bedrock-project';
 
 export function minecraft_fakentity_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): void {

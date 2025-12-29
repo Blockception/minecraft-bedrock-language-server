@@ -1,8 +1,7 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { Command, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
-
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { education_enabled } from '../../definitions';
-
 import {
   general_boolean_diagnose,
   general_float_diagnose,
@@ -211,8 +210,8 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
     }
   }
 
-  for (let I = 0; I < max; I++) {
-    mcfunction_diagnoseparameter(data.parameters[I], command.parameters[I], diagnoser, command, edu);
+  for (let i = 0; i < max; i++) {
+    mcfunction_diagnoseparameter(data.parameters[i], command.parameters[i], diagnoser, command, edu);
   }
 }
 
