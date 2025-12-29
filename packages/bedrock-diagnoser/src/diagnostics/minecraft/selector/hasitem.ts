@@ -1,10 +1,10 @@
-import { Types } from 'bc-minecraft-bedrock-types';
-import { CompactJson, CompactJsonReader } from 'bc-minecraft-bedrock-types/src/minecraft/json';
+import { OffsetWord } from '@blockception/packages-shared';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
+import { CompactJson, CompactJsonReader } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { behaviorpack_item_diagnose } from '../../behavior-pack/item/diagnose';
 import { general_integer_diagnose, general_range_integer_diagnose } from '../../general';
-import { mode_slotid_diagnose, mode_slot_type_diagnose } from '../../mode/diagnose';
+import { mode_slot_type_diagnose, mode_slotid_diagnose } from '../../mode/diagnose';
 import { selectorattributes_no_duplicate as no_duplicate } from './checks';
 import {
   selectorattribute_no_negatives as no_negatives,
@@ -159,7 +159,7 @@ function diagnose_hasitem_data(
     return false;
   }
 
-  const itemWord = CompactJson.valueToOffsetWord(item[0]) as Types.OffsetWord & { data: number };
+  const itemWord = CompactJson.valueToOffsetWord(item[0]) as OffsetWord & { data: number };
   attrs.forEach((a) => {
     if (CompactJson.isString(a)) {
       itemWord.data = parseInt(a.value);

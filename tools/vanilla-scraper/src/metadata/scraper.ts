@@ -89,7 +89,7 @@ export function scrapeSource(source: string, bpContainer: BPContainer, general: 
     convertNamedObjectToString
   );
   convertVanillaModule<NamedObject, string>(
-    path.join(vanillaModules, 'mojang-potion-types.json'),
+    path.join(vanillaModules, 'mojang-potion-json'),
     general.potionTypes,
     convertNamedObjectToString
   );

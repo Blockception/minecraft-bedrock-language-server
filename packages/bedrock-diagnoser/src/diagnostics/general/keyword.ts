@@ -1,9 +1,9 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export function general_keyword_diagnose(
   keyword: string,
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
 ): void {
   //Keyword matches the given value, then stop

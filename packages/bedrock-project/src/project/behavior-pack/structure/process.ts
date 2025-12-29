@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { Location } from '@blockception/packages-shared';
 import { TextDocument } from '../../../types';
 import { Structure } from './structure';
 
@@ -23,7 +23,7 @@ export function process(doc: TextDocument): Structure | undefined {
 
   return {
     id: id,
-    location: Types.Location.create(uri, 0),
+    location: Location.create(uri, 0),
     documentation: `McStructure: ${id}`,
   };
 }

@@ -1,10 +1,10 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
+import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { check_definition_value } from '../../definitions';
-import { Errors } from '../..';
 
 export function diagnose_structure_implementation(
-  id: Types.OffsetWord | string,
+  id: OffsetWord | string,
   diagnoser: DiagnosticsBuilder,
 ): boolean {
   const strId = typeof id === 'string' ? id : id.text;

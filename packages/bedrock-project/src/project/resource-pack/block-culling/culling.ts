@@ -1,6 +1,6 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { Defined } from '../../../types';
 
-export interface BlockCulling extends Types.BaseObject {
+export interface BlockCulling extends BaseObject {
   affected_bones: Defined;
 }

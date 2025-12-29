@@ -1,5 +1,5 @@
 import { Text } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';
 
@@ -9,7 +9,7 @@ import { check_definition_value } from '../definitions';
  * @param diagnoser The diagnoser
  * @returns True if the name exists
  */
-export function minecraft_name_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
+export function minecraft_name_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
   const text = value.text;
   const id = Text.UnQuote(text);
 

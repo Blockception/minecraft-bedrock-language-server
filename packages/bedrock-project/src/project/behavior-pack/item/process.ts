@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { Location } from '@blockception/packages-shared';
 import * as internal from '../../../internal/behavior-pack/item';
 import { Json } from '../../../internal/json';
 import { Documentation, TextDocument } from '../../../types';
@@ -23,7 +23,7 @@ export function process(doc: TextDocument): Item | undefined {
   return {
     id: id,
     isFood: typeof container.components['minecraft:food'] === 'object' ? true : false,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     molang: harvestMolang(content, container),
     documentation: Documentation.getDoc(
       doc,

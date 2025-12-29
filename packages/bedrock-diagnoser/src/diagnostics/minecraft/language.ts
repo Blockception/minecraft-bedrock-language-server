@@ -1,5 +1,5 @@
 import { PackType } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 
 export function diagnose_language_document(diagnoser: DocumentDiagnosticsBuilder, packType: PackType): void {
@@ -12,7 +12,7 @@ export function diagnose_language_document(diagnoser: DocumentDiagnosticsBuilder
     const line = lines[I].trim();
     const offset = text.indexOf(line, lastOffset);
 
-    minecraft_language_line_diagnose(Types.OffsetWord.create(line, offset), keys, diagnoser, packType);
+    minecraft_language_line_diagnose(OffsetWord.create(line, offset), keys, diagnoser, packType);
 
     lastOffset = offset + 1;
   }
@@ -27,7 +27,7 @@ export function diagnose_language_document(diagnoser: DocumentDiagnosticsBuilder
  * @returns
  */
 export function minecraft_language_line_diagnose(
-  line: Types.OffsetWord,
+  line: OffsetWord,
   keys: Map<string, number>,
   diagnoser: DiagnosticsBuilder,
   packType: PackType,

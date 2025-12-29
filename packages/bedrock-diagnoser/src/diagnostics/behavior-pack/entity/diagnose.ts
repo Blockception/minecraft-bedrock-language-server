@@ -1,6 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
 import { Defined, DefinitionItem } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
 import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { check_definition_value, education_enabled } from '../../definitions';
@@ -11,7 +11,7 @@ import { check_definition_value, education_enabled } from '../../definitions';
  * @param diagnoser The diagnoser
  * @returns True if the entity exists
  */
-export function behaviorpack_entityid_diagnose(id: Types.OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
+export function behaviorpack_entityid_diagnose(id: OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
   let strId = typeof id === 'string' ? id : id.text;
   let event = '';
   if (strId.includes('<')) {
@@ -50,7 +50,7 @@ export function behaviorpack_entityid_diagnose(id: Types.OffsetWord | string, di
  * @param diagnoser
  * @returns
  */
-export function behaviorpack_entity_spawnegg_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function behaviorpack_entity_spawnegg_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   const id = value.text.replace('_spawn_egg', '');
 
   behaviorpack_entityid_diagnose({ offset: value.offset, text: id }, diagnoser);
@@ -79,7 +79,7 @@ export function behaviorpack_entity_event_diagnose(
  * @param Com
  */
 export function command_entity_event_diagnose(
-  data: Types.OffsetWord,
+  data: OffsetWord,
   diagnoser: DiagnosticsBuilder,
   Com: Command,
 ): void {

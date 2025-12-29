@@ -1,5 +1,5 @@
+import { Location } from '@blockception/packages-shared';
 import { BehaviorPack } from 'bc-minecraft-bedrock-project';
-import { Location } from 'bc-minecraft-bedrock-types/src/types';
 import { MinecraftData, Types } from 'bc-minecraft-bedrock-vanilla-data';
 import { MolangSet } from 'bc-minecraft-molang';
 import { CompletionItemKind } from 'vscode-languageserver';

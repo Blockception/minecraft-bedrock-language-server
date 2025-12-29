@@ -2,7 +2,7 @@ import { MolangSet, NodeType } from "bc-minecraft-molang";
 import { diagnose_molang_implementation, MolangMetadata } from "../../../../src/diagnostics/molang/diagnostics";
 import { Metadata } from "../../../../src/types";
 import { TestDiagnoser } from "../../../diagnoser";
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from '@blockception/packages-shared';
 
 describe("Entity Integration Tests", () => {
   describe("Real-world entity scenarios", () => {
@@ -17,8 +17,8 @@ describe("Entity Integration Tests", () => {
 
       // Animation uses variable.attack_time (built-in) and geometry.default (defined)
       const animation = new MolangSet();
-      animation.add(Types.OffsetWord.create("variable.attack_time * 10", 0));
-      animation.add(Types.OffsetWord.create("geometry.default ? 1 : 0", 0));
+      animation.add(OffsetWord.create("variable.attack_time * 10", 0));
+      animation.add(OffsetWord.create("geometry.default ? 1 : 0", 0));
 
       diagnose_molang_implementation(
         { id: "pv:ceratosaurus", molang: entity },
@@ -111,15 +111,15 @@ describe("Entity Integration Tests", () => {
       // Animation uses mix of built-in, defined variables, and resources
       const animation = new MolangSet();
       // Built-in variable
-      animation.add(Types.OffsetWord.create("variable.attack_time", 0));
+      animation.add(OffsetWord.create("variable.attack_time", 0));
       // Built-in context
-      animation.add(Types.OffsetWord.create("context.is_first_person", 0));
+      animation.add(OffsetWord.create("context.is_first_person", 0));
       // Custom variable (defined by entity)
-      animation.add(Types.OffsetWord.create("variable.custom", 0));
+      animation.add(OffsetWord.create("variable.custom", 0));
       // Defined resources
-      animation.add(Types.OffsetWord.create("texture.default", 0));
-      animation.add(Types.OffsetWord.create("geometry.default", 0));
-      animation.add(Types.OffsetWord.create("material.default", 0));
+      animation.add(OffsetWord.create("texture.default", 0));
+      animation.add(OffsetWord.create("geometry.default", 0));
+      animation.add(OffsetWord.create("material.default", 0));
 
       diagnose_molang_implementation(
         { id: "test:entity", molang: entity },

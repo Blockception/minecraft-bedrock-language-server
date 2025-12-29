@@ -1,6 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder } from '../../..';
-import { Types } from 'bc-minecraft-bedrock-types';
 
-export function resourcepack_sound_definitions_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function resourcepack_sound_definitions_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   //TODO sound diaganostics
 }

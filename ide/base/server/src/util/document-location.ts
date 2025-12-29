@@ -1,6 +1,6 @@
-import * as vstd from 'vscode-languageserver-textdocument';
-import { Types } from 'bc-minecraft-bedrock-types';
+import { DocumentLocation, JsonPath, OffsetWord, Position } from '@blockception/packages-shared';
 import { Range } from 'vscode-languageserver';
+import * as vstd from 'vscode-languageserver-textdocument';
 import { Character } from './character';
 
 /**
@@ -9,20 +9,20 @@ import { Character } from './character';
  * @param doc
  * @returns
  */
-export function GetRange(position: Types.DocumentLocation, doc: vstd.TextDocument): Range {
-  if (Types.JsonPath.is(position)) {
+export function GetRange(position: DocumentLocation, doc: vstd.TextDocument): Range {
+  if (JsonPath.is(position)) {
     return resolveJsonPath(position, doc);
   }
 
-  let Start: Types.Position;
-  let End: Types.Position | undefined = undefined;
+  let Start: Position;
+  let End: Position | undefined = undefined;
 
   //If document location is already a position, then grab the offset to start at
-  if (Types.Position.is(position)) {
+  if (Position.is(position)) {
     Start = position;
     position = doc.offsetAt(position);
     //If document location is already an offset, then grab the start position
-  } else if (Types.OffsetWord.is(position)) {
+  } else if (OffsetWord.is(position)) {
     Start = doc.positionAt(position.offset);
     End = doc.positionAt(position.text.length + position.offset);
 
@@ -61,10 +61,10 @@ export function GetRange(position: Types.DocumentLocation, doc: vstd.TextDocumen
   return { start: Start, end: End };
 }
 
-export function GetPosition(position: Types.DocumentLocation, doc: vstd.TextDocument): vstd.Position {
-  if (Types.Position.is(position)) return position;
-  if (Types.JsonPath.is(position)) return resolveJsonPath(position, doc).start;
-  if (Types.OffsetWord.is(position)) return doc.positionAt(position.offset);
+export function GetPosition(position: DocumentLocation, doc: vstd.TextDocument): vstd.Position {
+  if (Position.is(position)) return position;
+  if (JsonPath.is(position)) return resolveJsonPath(position, doc).start;
+  if (OffsetWord.is(position)) return doc.positionAt(position.offset);
 
   return doc.positionAt(position);
 }
@@ -94,7 +94,7 @@ export function resolveJsonPath(path: string, doc: vstd.TextDocument): Range {
   }
 
   if (offset < 0) {
-    offset = Types.JsonPath.resolve(doc, path);
+    offset = JsonPath.resolve(doc, path);
   }
 
   const start = doc.positionAt(offset);

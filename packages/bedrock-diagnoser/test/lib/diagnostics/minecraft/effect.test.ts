@@ -1,4 +1,4 @@
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "@blockception/packages-shared";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { minecraft_effect_diagnose } from "../../../../src/diagnostics/minecraft/effect";
 import { TestDiagnoser } from "../../../diagnoser";
@@ -8,7 +8,7 @@ describe("Effect", () => {
     const B = new TestDiagnoser();
 
     //Loop over all vanilla versions
-    MinecraftData.General.Effects.forEach((effect) => minecraft_effect_diagnose(Types.OffsetWord.create(effect), B));
+    MinecraftData.General.Effects.forEach((effect) => minecraft_effect_diagnose(OffsetWord.create(effect), B));
 
     B.expectEmpty();
   });
@@ -17,10 +17,10 @@ describe("Effect", () => {
     const B = new TestDiagnoser();
 
     //Random words
-    minecraft_effect_diagnose(Types.OffsetWord.create("main"), B);
-    minecraft_effect_diagnose(Types.OffsetWord.create("calc"), B);
-    minecraft_effect_diagnose(Types.OffsetWord.create("spawn"), B);
-    minecraft_effect_diagnose(Types.OffsetWord.create("Spawn"), B);
+    minecraft_effect_diagnose(OffsetWord.create("main"), B);
+    minecraft_effect_diagnose(OffsetWord.create("calc"), B);
+    minecraft_effect_diagnose(OffsetWord.create("spawn"), B);
+    minecraft_effect_diagnose(OffsetWord.create("Spawn"), B);
 
     B.expectAmount(4);
   });

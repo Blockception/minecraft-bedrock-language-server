@@ -1,6 +1,6 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
+import { Identifiable, Locatable } from '@blockception/packages-shared';
 import { IDataSet } from './i-data-set';
-import { Identifiable } from '@blockception/packages-shared';
 
 /** The base of any dataset */
 export interface DataSetBase {
@@ -33,7 +33,7 @@ export interface DataSetBase {
 }
 
 /** */
-export class DataSet<T extends Identifiable & Types.Locatable> implements DataSetBase, IDataSet<T> {
+export class DataSet<T extends Identifiable & Locatable> implements DataSetBase, IDataSet<T> {
   private _data: Map<string, T>;
 
   constructor() {

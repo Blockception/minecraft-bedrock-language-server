@@ -1,8 +1,7 @@
+import { Location } from '@blockception/packages-shared';
 import * as Internal from '../../../internal/resource-pack';
-import { Types } from 'bc-minecraft-bedrock-types';
-import { TextDocument } from '../../../types';
+import { Documentation, TextDocument } from '../../../types';
 import { Particle } from './particle';
-import { Documentation } from '../../../types';
 
 /**
  *
@@ -19,7 +18,7 @@ export function process(doc: TextDocument): Particle | undefined {
   const id = container.description.identifier;
   return {
     id: id,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     documentation: Documentation.getDoc(doc, () => `Particle: ${id}`),
   };
 }

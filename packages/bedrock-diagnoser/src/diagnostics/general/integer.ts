@@ -1,8 +1,9 @@
-import { General, Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
+import { General } from 'bc-minecraft-bedrock-types';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export function general_integer_diagnose(
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
   range?: { min: number; max: number },
 ): boolean {
@@ -33,7 +34,7 @@ export function general_integer_diagnose(
   return false;
 }
 
-export function general_positive_integer_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
+export function general_positive_integer_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
   //If its not a integer then skip positive check
   if (!general_integer_diagnose(value, diagnoser)) return false;
 

@@ -1,4 +1,4 @@
-import { Position } from './position';
+import { Position } from '../position/types';
 
 /** */
 export interface Range {

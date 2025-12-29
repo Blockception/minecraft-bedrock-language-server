@@ -1,7 +1,8 @@
-import { DiagnosticSeverity } from './severity';
-import { TextDocument, MinecraftData, Documents } from 'bc-minecraft-bedrock-project';
+import { DocumentLocation } from '@blockception/packages-shared';
+import { Documents, MinecraftData, TextDocument } from 'bc-minecraft-bedrock-project';
 import { MCIgnore, MCProject } from 'bc-minecraft-project';
-import { Types } from 'bc-minecraft-bedrock-types';
+import { DiagnosticSeverity } from './severity';
+
 
 /**The context of a diagnostics builder*/
 export interface DiagnosticsBuilderContent<T extends TextDocument = TextDocument> extends Documents<T> {
@@ -32,7 +33,7 @@ export interface DiagnosticsBuilder<T extends TextDocument = TextDocument> {
    * @param message The message to add
    * @param severity The severity of the issue
    * @param code The code of the diagnostic error*/
-  add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void;
+  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void;
 }
 
 /** The interface of a diagnostics builder for a document*/

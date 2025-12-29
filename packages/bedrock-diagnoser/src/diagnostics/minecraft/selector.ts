@@ -1,6 +1,7 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { ParameterInfo } from 'bc-minecraft-bedrock-command';
 import { Text } from 'bc-minecraft-bedrock-project';
-import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';
@@ -15,7 +16,7 @@ import { Attribute } from './selector/attributes';
  */
 export function minecraft_selector_diagnose(
   pattern: ParameterInfo,
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
 ) {
   const sel = value.text;
@@ -69,7 +70,7 @@ export function minecraft_selector_diagnose(
  * @param diagnoser
  */
 function minecraft_selector_diagnose_hard(
-  value: Types.OffsetWord,
+  value: OffsetWord,
   diagnoser: DiagnosticsBuilder,
   pattern: ParameterInfo,
 ): boolean {

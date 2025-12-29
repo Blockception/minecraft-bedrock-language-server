@@ -1,8 +1,9 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';
 
-export function minecraft_tag_diagnose(value: Types.OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
+export function minecraft_tag_diagnose(value: OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
   if (diagnoser.project.attributes['diagnostic.tags'] === 'false') {
     return true;
   }

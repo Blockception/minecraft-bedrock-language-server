@@ -1,5 +1,6 @@
-import { Types } from 'bc-minecraft-bedrock-types';
-import { Position } from 'bc-minecraft-bedrock-types/src/types';
+
+import { Position } from '@blockception/packages-shared';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { CancellationToken, Range, SymbolInformation, SymbolKind } from 'vscode-languageserver';
 
 type forEachCarrier<T> = { forEach: (callbackfn: (value: T) => void, thisArg?: any) => void };
@@ -40,7 +41,7 @@ export class SymbolBuilder {
     return item;
   }
 
-  add(item: Types.BaseObject): SymbolInformation | undefined {
+  add(item: BaseObject): SymbolInformation | undefined {
     if (this.query && !item.id.includes(this.query)) return undefined;
 
     let range: Range = this.range;
@@ -52,7 +53,7 @@ export class SymbolBuilder {
     return this.new(item.id, this.kind, range, item.location.uri, this.containerName);
   }
 
-  generate<T extends Types.BaseObject>(data: forEachCarrier<T>, kind: SymbolKind): void {
+  generate<T extends BaseObject>(data: forEachCarrier<T>, kind: SymbolKind): void {
     if (this.token.isCancellationRequested) return;
     this.kind = kind;
 

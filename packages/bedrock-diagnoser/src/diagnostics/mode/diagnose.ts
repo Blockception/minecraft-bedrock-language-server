@@ -1,5 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { Command } from 'bc-minecraft-bedrock-command';
-import { Modes, Types } from 'bc-minecraft-bedrock-types';
+import { Modes } from 'bc-minecraft-bedrock-types';
 import { ModeHandler } from 'bc-minecraft-bedrock-types/src/modes/mode-handler';
 import { SlotTypeMode } from 'bc-minecraft-bedrock-types/src/modes/slot-type';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
@@ -37,7 +38,7 @@ export const mode_structure_animation_diagnose = mode_generic_diagnose(Modes.Str
 export const mode_teleport_rules_diagnose = mode_generic_diagnose(Modes.TeleportRules);
 export const mode_time_diagnose = mode_generic_diagnose(Modes.Time);
 
-type ModeDiagnose = (value: Types.OffsetWord, diagnoser: DiagnosticsBuilder) => boolean;
+type ModeDiagnose = (value: OffsetWord, diagnoser: DiagnosticsBuilder) => boolean;
 
 /**
  * Diagnoses the value a generic collection of modes
@@ -45,7 +46,7 @@ type ModeDiagnose = (value: Types.OffsetWord, diagnoser: DiagnosticsBuilder) => 
  * @param diagnoser The diagnoser to report to
  * @returns true or false, false is any error was found*/
 function mode_generic_diagnose(Mode: ModeHandler): ModeDiagnose {
-  return function (value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
+  return function (value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
     const m = Mode.get(value.text);
 
     //Mode returned then it is valid
@@ -67,7 +68,7 @@ function mode_generic_diagnose(Mode: ModeHandler): ModeDiagnose {
  * @param diagnoser The diagnoser to report to
  * @returns true or false, false is any error was found*/
 export function mode_slotid_diagnose(
-  value: Types.OffsetWord,
+  value: OffsetWord,
   Com: Command | string,
   diagnoser: DiagnosticsBuilder,
 ): boolean {

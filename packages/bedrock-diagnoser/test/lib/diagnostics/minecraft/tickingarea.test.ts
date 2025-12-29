@@ -1,5 +1,5 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
-import { Types } from "bc-minecraft-bedrock-types";
+import { Location, OffsetWord } from "@blockception/packages-shared";
 import { minecraft_tickingarea_diagnose } from "../../../../src/diagnostics/minecraft/tickingarea";
 import { TestDiagnoser } from "../../../diagnoser";
 
@@ -9,26 +9,26 @@ describe("Tickingarea", () => {
     const data = B.context.getProjectData().projectData;
 
     data.general.tickingAreas.set([
-      GeneralInfo.create("main", Types.Location.create(""), "main tickingarea"),
-      GeneralInfo.create("calc", Types.Location.create(""), "calculation area"),
-      GeneralInfo.create("spawn", Types.Location.create(""), "spawn location"),
-      GeneralInfo.create("Spawn", Types.Location.create(""), "spawn location"),
+      GeneralInfo.create("main", Location.create(""), "main tickingarea"),
+      GeneralInfo.create("calc", Location.create(""), "calculation area"),
+      GeneralInfo.create("spawn", Location.create(""), "spawn location"),
+      GeneralInfo.create("Spawn", Location.create(""), "spawn location"),
     ]);
 
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("main"), B);
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("calc"), B);
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("spawn"), B);
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("Spawn"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("main"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("calc"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("spawn"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("Spawn"), B);
 
     B.expectEmpty();
   });
 
   it("diagnose with errors", () => {
     const B = new TestDiagnoser();
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("main"), B);
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("calc"), B);
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("spawn"), B);
-    minecraft_tickingarea_diagnose(Types.OffsetWord.create("Spawn"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("main"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("calc"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("spawn"), B);
+    minecraft_tickingarea_diagnose(OffsetWord.create("Spawn"), B);
 
     B.expectAmount(4);
   });

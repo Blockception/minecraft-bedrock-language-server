@@ -1285,7 +1285,7 @@ export namespace General {
     },
     {
       id: 'is_riding_any_entity_of_type',
-      documentation: 'Returns whether or not the entity is currently riding an entity of any of the designated types.',
+      documentation: 'Returns whether or not the entity is currently riding an entity of any of the designated ',
     },
     {
       id: 'is_rising',

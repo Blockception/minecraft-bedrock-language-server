@@ -1,11 +1,12 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { check_definition_value, education_enabled } from '../../definitions';
 import { behaviorpack_entityid_diagnose } from '../entity';
+import { OffsetWord } from '@blockception/packages-shared';
 
-interface Item extends Types.OffsetWord {
+interface Item extends OffsetWord {
   data?: number;
 }
 

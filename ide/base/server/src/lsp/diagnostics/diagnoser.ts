@@ -1,15 +1,14 @@
+import { DocumentLocation } from '@blockception/packages-shared';
 import {
   DiagnosticsBuilderContent,
   DiagnosticSeverity,
   ManagedDiagnosticsBuilder,
 } from 'bc-minecraft-bedrock-diagnoser';
-import { Types } from 'bc-minecraft-bedrock-types';
 import { MCProject } from 'bc-minecraft-project';
+import * as vscode from 'vscode-languageserver';
 import { Diagnostic } from 'vscode-languageserver';
 import { GetRange } from '../../util';
 import { TextDocument } from '../documents/text-document';
-
-import * as vscode from 'vscode-languageserver';
 
 export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument> {
   public doc: TextDocument;
@@ -34,7 +33,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
   }
 
   /**@inheritdoc*/
-  add(position: Types.DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
+  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
     //Was diagnostics code disabled
     if (this.project.attributes['diagnostic.disable.' + code] === 'true') return;
 

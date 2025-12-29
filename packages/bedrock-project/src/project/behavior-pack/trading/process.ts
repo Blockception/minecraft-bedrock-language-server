@@ -1,6 +1,5 @@
-import { Types } from 'bc-minecraft-bedrock-types';
-import { Documentation } from '../../../types';
-import { TextDocument } from '../../../types';
+import { Location } from '@blockception/packages-shared';
+import { Documentation, TextDocument } from '../../../types';
 import { Trading } from './trading';
 
 /**
@@ -17,7 +16,7 @@ export function process(doc: TextDocument): Trading | undefined {
 
   return {
     id: id,
-    location: Types.Location.create(uri, 0),
+    location: Location.create(uri, 0),
     documentation: Documentation.getDoc(doc, () => `Trading table: ${id}`),
   };
 }

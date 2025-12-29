@@ -1,4 +1,4 @@
-import { Position } from '.';
+import { Position } from './types';
 
 const jsonData = `{
   "format_version": "1.17.0",

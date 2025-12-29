@@ -1,4 +1,6 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
+import { SyntaxBuilder } from './builder';
+import { MolangSyntaxError } from './errors';
 import {
   ArrayAccessNode,
   AssignmentNode,
@@ -15,14 +17,12 @@ import {
   UnaryOperationNode,
   VariableNode,
 } from './nodes';
+import { Processed, processOperators } from './operators';
 import { Token, TokenType, tokenize } from './tokens';
 import { getMatchingTokenSlice } from './util';
-import { SyntaxBuilder } from './builder';
-import { MolangSyntaxError } from './errors';
-import { Processed, processOperators } from './operators';
 
 /** Main function to parse Molang code into a syntax tree */
-export function parseMolang(line: Types.OffsetWord): ExpressionNode[] {
+export function parseMolang(line: OffsetWord): ExpressionNode[] {
   const tokens = tokenize(line.text);
   tokens.forEach((t) => (t.position += line.offset));
   const statements = splitTokens(tokens, (item) => item.type === TokenType.Semicolon).filter((t) => t.length > 0);

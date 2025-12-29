@@ -1,8 +1,7 @@
+import { Location } from '@blockception/packages-shared';
 import * as Internal from '../../../internal/behavior-pack/recipe';
 import { Json } from '../../../internal/json';
-import { Types } from 'bc-minecraft-bedrock-types';
-import { Documentation } from '../../../types';
-import { TextDocument } from '../../../types';
+import { Documentation, TextDocument } from '../../../types';
 import { Recipe } from './recipe';
 
 /**
@@ -25,7 +24,7 @@ export function process(doc: TextDocument): Recipe | undefined {
 
   return {
     id: id,
-    location: Types.Location.create(uri, content.indexOf(id)),
+    location: Location.create(uri, content.indexOf(id)),
     documentation: Documentation.getDoc(doc, () => `Recipe: ${id}`),
   };
 }

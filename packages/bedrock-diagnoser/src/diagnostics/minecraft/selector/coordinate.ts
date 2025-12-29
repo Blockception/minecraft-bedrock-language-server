@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { minecraft_coordinate_diagnose } from '../coordinate';
 
@@ -8,7 +8,7 @@ import { minecraft_coordinate_diagnose } from '../coordinate';
  * @param selector
  * @param receiver
  */
-export function selectorattribute_coordinate(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
+export function selectorattribute_coordinate(value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
   if (value.text.startsWith('^')) {
     diagnoser.add(
       value,

@@ -1,8 +1,8 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../..';
 
-export function particle_is_defined(id: string | Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function particle_is_defined(id: string | OffsetWord, diagnoser: DiagnosticsBuilder): void {
   const strId = typeof id === 'string' ? id : id.text;
 
   //Project has particle

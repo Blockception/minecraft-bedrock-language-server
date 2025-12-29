@@ -1,5 +1,5 @@
+import { Version } from '@blockception/packages-shared';
 import { Manifest } from 'bc-minecraft-bedrock-project/src/internal/types';
-import { Types } from 'bc-minecraft-bedrock-types';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json/json';
 import { minecraft_manifest_diagnose, minecraft_manifest_required_module } from '../../minecraft/manifest';
@@ -20,7 +20,7 @@ export function diagnose_manifest(diagnoser: DocumentDiagnosticsBuilder): void {
 }
 
 function check_min_engine_version(
-  version: number[] | string | Types.Version | undefined,
+  version: number[] | string | Version | undefined,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
   const pack = diagnoser.context.getProjectData().projectData.behaviorPacks.get(diagnoser.document);
@@ -32,7 +32,7 @@ function check_min_engine_version(
   if (pack.functions.count() === 0) return;
 
   if (version !== undefined) {
-    if (Types.Version.compare(version, { major: 1, minor: 8, patch: 0 }) >= 0) return;
+    if (Version.compare(version, { major: 1, minor: 8, patch: 0 }) >= 0) return;
   }
 
   return diagnoser.add(

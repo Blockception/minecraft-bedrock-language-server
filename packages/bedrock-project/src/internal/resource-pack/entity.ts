@@ -1,6 +1,7 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { FormatVersion } from '../types/format-version';
 import { ScriptContainer } from '../types';
+import { Definition } from '@blockception/packages-shared';
 
 /** */
 export interface Entity extends Readonly<FormatVersion> {
@@ -21,21 +22,21 @@ export interface EntityDescription extends ScriptContainer {
   /** */
   identifier: string;
   /** */
-  materials?: Types.Definition;
+  materials?: Definition;
   /** */
-  animations?: Types.Definition;
+  animations?: Definition;
   /** */
-  animation_controllers?: (string | Types.Definition)[];
+  animation_controllers?: (string | Definition)[];
   /** */
-  particle_effects?: Types.Definition;
+  particle_effects?: Definition;
   /** */
-  geometry?: Types.Definition;
+  geometry?: Definition;
   /** */
-  render_controllers?: (string | Types.Definition)[];
+  render_controllers?: (string | Definition)[];
   /** */
-  sound_effects?: Types.Definition;
+  sound_effects?: Definition;
   /** */
-  textures?: Types.Definition;
+  textures?: Definition;
 }
 
 /** */

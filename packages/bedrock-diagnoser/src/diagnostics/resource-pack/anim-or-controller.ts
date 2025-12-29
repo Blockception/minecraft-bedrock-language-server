@@ -1,5 +1,5 @@
-import { Types } from 'bc-minecraft-bedrock-types';
-import { Definition } from 'bc-minecraft-bedrock-types/src/types';
+
+import { Definition, OffsetWord } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from '../../types';
 import { MolangMetadata } from '../molang';
@@ -33,7 +33,7 @@ export function animation_or_controller_diagnose_implementation(
   }
 }
 
-export function animation_or_controller_diagnose(id: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function animation_or_controller_diagnose(id: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   switch (is_animation_or_controller(id.text, diagnoser)) {
     case anim_or_contr.controller:
     case anim_or_contr.animation:
@@ -50,7 +50,7 @@ export function animation_or_controller_diagnose(id: Types.OffsetWord, diagnoser
   }
 }
 
-export function animation_reference_diagnose(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function animation_reference_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   const data = diagnoser.context.getProjectData().projectData;
   const id = value.text;
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-import { Types } from 'bc-minecraft-bedrock-types';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 
 /** */
-export interface Particle extends Types.BaseObject {}
+export interface Particle extends BaseObject {}

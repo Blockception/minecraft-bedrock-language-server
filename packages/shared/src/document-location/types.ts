@@ -1,44 +1,65 @@
-import { JsonPath } from './json-path';
-import { OffsetWord } from './offset-word';
-import { Position } from './position';
-import { Range } from './range';
+import { JsonPath } from '../json-path';
+import { OffsetWord } from '../offset-word';
+import { Position } from '../position';
+import { Range } from '../range';
 
 /**The type of a document location */
 export type DocumentLocation = Position | OffsetWord | JsonPath | number;
 
-/** */
+/** A string or document object that can provide text */
 export type TextOrDoc = string | { getText(): string };
 
+/** Converts TextOrDoc to string */
 function ToText(value: TextOrDoc): string {
   return typeof value === 'string' ? value : value.getText();
 }
 
 /**
- *
+ * Document location utilities
  */
 export namespace DocumentLocation {
+  /**
+   * Converts a DocumentLocation to an offset number.
+   * @param data The document location to convert (number, string path, Position, or OffsetWord)
+   */
   export function toOffset(data: number): number;
+  /**
+   * Converts a DocumentLocation to an offset number.
+   * @param data The document location to convert (number, string path, Position, or OffsetWord)
+   */
   export function toOffset(data: OffsetWord): number;
+  /**
+   * Converts a DocumentLocation to an offset number.
+   * @param loc The document location to convert (number, string path, Position, or OffsetWord)
+   * @param text The text content or document object needed for conversion
+   * @returns The offset number representing the location
+   */
   export function toOffset(data: DocumentLocation, text: TextOrDoc): number;
 
-  export function toOffset(data: DocumentLocation, text?: TextOrDoc): number {
-    switch (typeof data) {
+  /**
+   * Converts a DocumentLocation to an offset number.
+   * @param loc The document location to convert (number, string path, Position, or OffsetWord)
+   * @param text The text content or document object needed for conversion
+   * @returns The offset number representing the location
+   */
+  export function toOffset(loc: DocumentLocation, text?: TextOrDoc): number {
+    switch (typeof loc) {
       case 'number':
-        return data;
+        return loc;
 
       //Json path
       case 'string':
         if (text === undefined) throw new Error('text or document must be provided');
-        return JsonPath.resolve(text, data);
+        return JsonPath.resolve(text, loc);
 
       //Position
       case 'object':
-        if (OffsetWord.is(data)) {
-          return data.offset;
+        if (OffsetWord.is(loc)) {
+          return loc.offset;
         }
 
         if (text === undefined) throw new Error('text or document must be provided');
-        return Position.toOffset(data, ToText(text));
+        return Position.toOffset(loc, ToText(text));
 
       default:
         return 0;
@@ -74,9 +95,27 @@ export namespace DocumentLocation {
     }
   }
 
+  /**
+   * Converts a DocumentLocation to a Range object.
+   * @param data The document location to convert (OffsetWord)
+   */
   export function toRange(data: OffsetWord): Range;
+  /**
+   * Converts a DocumentLocation to a Range object.
+   * @param data The document location to convert (number, string path, Position)
+   * @param text The text content or document object needed for conversion
+   * @param length The length of the range
+   * @returns A Range object representing the location
+   */
   export function toRange(data: DocumentLocation, text: TextOrDoc, length: number): Range;
 
+  /**
+   * Converts a DocumentLocation to a Range object.
+   * @param data The document location to convert (number, string path, Position)
+   * @param text The text content or document object needed for conversion
+   * @param length The length of the range
+   * @returns A Range object representing the location
+   */
   export function toRange(data: DocumentLocation, text?: TextOrDoc, length?: number): Range {
     if (OffsetWord.is(data)) {
       const t = data.text;

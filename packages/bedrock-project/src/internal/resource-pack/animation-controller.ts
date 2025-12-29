@@ -1,4 +1,5 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
+import { Definition } from '@blockception/packages-shared';
 import * as General from '../general/controllers/state';
 import { FormatVersion } from '../types/format-version';
 
@@ -65,7 +66,7 @@ export interface State extends General.State {
   /** */
   sound_effects?: { effect?: string }[];
   /** */
-  variables?: Types.Definition;
+  variables?: Definition;
 }
 
 /** */

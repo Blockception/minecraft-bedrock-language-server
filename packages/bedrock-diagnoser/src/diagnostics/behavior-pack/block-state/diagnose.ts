@@ -1,14 +1,14 @@
+import { DocumentLocation, Location, OffsetWord } from '@blockception/packages-shared';
 import { BehaviorPack, ProjectItem } from 'bc-minecraft-bedrock-project';
-import { Minecraft, Types } from 'bc-minecraft-bedrock-types';
+import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
-import { Location, DocumentLocation } from 'bc-minecraft-bedrock-types/dist/types';
 
 /** Checks if the blocks exists in the project or in vanilla, if not then a bug is reported
  * @param id
  * @param diagnoser
  * @returns
  */
-export function behaviorpack_check_blockstates(blockDescriptor: Types.OffsetWord, diagnoser: DiagnosticsBuilder): void {
+export function behaviorpack_check_blockstates(blockDescriptor: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   //If the block has no states then skip
   if (!blockDescriptor.text.includes('[')) return;
 
@@ -31,8 +31,8 @@ export function behaviorpack_check_blockstates(blockDescriptor: Types.OffsetWord
  * @param diagnoser
  */
 export function behaviorpack_check_command_blockstates(
-  blockId: Types.OffsetWord,
-  states: Types.OffsetWord,
+  blockId: OffsetWord,
+  states: OffsetWord,
   diagnoser: DiagnosticsBuilder,
 ): void {
   const blockData: Minecraft.Block = {
@@ -47,9 +47,10 @@ export function behaviorpack_check_command_blockstates(
     const split = value.split(',');
 
     // For each state
-    for (let I = 0; I < split.length; I++) {
-      const item = split[I];
-      const state = split[I].split('=').map((part) => part.trim());
+    for (let i = 0; i < split.length; i++) {
+      const item = split[i];
+      //TODO standardize this assignment pattern deconstruction
+      const state = split[i].split('=').map((part) => part.trim());
 
       // Is state properly defined
       if (state.length == 2) {

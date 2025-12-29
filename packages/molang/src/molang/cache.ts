@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { ExpressionNode, parseMolang } from './syntax';
 
 export class MolangSyntaxCache {
@@ -8,7 +8,7 @@ export class MolangSyntaxCache {
     this._data = new Map();
   }
 
-  build(code: Types.OffsetWord): ExpressionNode[] | undefined {
+  build(code: OffsetWord): ExpressionNode[] | undefined {
     const exp = this._data.get(code.text);
     if (exp === undefined) {
       const r = parseMolang(code);

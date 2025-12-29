@@ -2,7 +2,7 @@ import { MolangSet, NodeType } from "bc-minecraft-molang";
 import { diagnose_molang_implementation, MolangMetadata } from "../../../../src/diagnostics/molang/diagnostics";
 import { Metadata } from "../../../../src/types";
 import { TestDiagnoser } from "../../../diagnoser";
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "@blockception/packages-shared";
 
 describe("Molang", () => {
   describe("diagnose_molang_implementation", () => {
@@ -72,7 +72,7 @@ describe("Molang", () => {
       // Animation uses v.width with null coalescing - should NOT require it to be defined
       const animation = new MolangSet();
       const molangText = 'v.width ?? 1';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       // Should have no errors because v.width is protected by ??
       diagnose_molang_implementation(
@@ -94,7 +94,7 @@ describe("Molang", () => {
       // Animation uses complex expression with null coalescing
       const animation = new MolangSet();
       const molangText = 'variable.rolled_up_time = variable.is_rolled_up ? ((variable.rolled_up_time ?? 0.0) + query.delta_time) : 0.0';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       // Should have no errors:
       // - variable.rolled_up_time is assigned, not using
@@ -118,7 +118,7 @@ describe("Molang", () => {
       // Animation uses undefined variable WITHOUT null coalescing protection
       const animation = new MolangSet();
       const molangText = 'v.width + 1'; // No ?? here, should require definition
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -139,7 +139,7 @@ describe("Molang", () => {
       // Animation uses v.fallback on right side of ?? - should require it to be defined
       const animation = new MolangSet();
       const molangText = 'v.primary ?? v.fallback';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -160,7 +160,7 @@ describe("Molang", () => {
       // Animation uses chained ?? with literal at the end
       const animation = new MolangSet();
       const molangText = 'v.a ?? (v.b ?? (v.c ?? 0))'; // All are protected by ??
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -181,7 +181,7 @@ describe("Molang", () => {
       // Animation uses variable both in ?? and outside
       const animation = new MolangSet();
       const molangText = 'v.result = v.required + (v.optional ?? 0)';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -203,7 +203,7 @@ describe("Molang", () => {
       // Animation uses multiple ?? expressions
       const animation = new MolangSet();
       const molangText = '(v.x ?? 0) + (v.y ?? 0) + (v.z ?? 0)';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -225,7 +225,7 @@ describe("Molang", () => {
       // Animation uses ?? in ternary operator
       const animation = new MolangSet();
       const molangText = 'v.condition ? (v.value ?? 0) : 1';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -246,7 +246,7 @@ describe("Molang", () => {
       // Animation uses various scope prefixes with ??
       const animation = new MolangSet();
       const molangText = '(v.a ?? 0) + (variable.b ?? 0) + (t.c ?? 0) + (temp.d ?? 0)';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -267,7 +267,7 @@ describe("Molang", () => {
       // Animation uses built-in variable.attack_time
       const animation = new MolangSet();
       const molangText = 'variable.attack_time';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -288,7 +288,7 @@ describe("Molang", () => {
       // Render controller uses built-in variable.attack_time
       const renderController = new MolangSet();
       const molangText = 'variable.attack_time';
-      renderController.add(Types.OffsetWord.create(molangText, 0));
+      renderController.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -309,7 +309,7 @@ describe("Molang", () => {
       // Animation uses built-in context.is_first_person
       const animation = new MolangSet();
       const molangText = 'context.is_first_person';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },
@@ -330,7 +330,7 @@ describe("Molang", () => {
       // Animation uses built-in context.item_slot
       const animation = new MolangSet();
       const molangText = 'c.item_slot';
-      animation.add(Types.OffsetWord.create(molangText, 0));
+      animation.add(OffsetWord.create(molangText, 0));
 
       diagnose_molang_implementation(
         { id: "minecraft:test_entity", molang: entity },

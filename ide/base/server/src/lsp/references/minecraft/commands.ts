@@ -29,12 +29,11 @@ export async function provideReferences(
   const types: ParameterType[] = [];
 
   //Gets types used
-  for (let I = 0; I < data.length; I++) {
-    const Pattern = data[I];
-    const Parameters = Pattern.parameters;
+  for (let i = 0; i < data.length; i++) {
+    const parameters = data[i].parameters;
 
-    if (Parameters.length > index) {
-      types.push(Parameters[index].type);
+    if (parameters.length > index) {
+      types.push(parameters[index].type);
     }
   }
 

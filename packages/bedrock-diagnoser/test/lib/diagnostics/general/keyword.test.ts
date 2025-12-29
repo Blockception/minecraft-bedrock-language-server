@@ -1,15 +1,15 @@
 import { general_keyword_diagnose } from "../../../../src/diagnostics/general";
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "@blockception/packages-shared";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("Keyword", () => {
   it("diagnose no errors", () => {
     const B = new TestDiagnoser();
-    general_keyword_diagnose("playsound", Types.OffsetWord.create("playsound"), B);
-    general_keyword_diagnose("@a", Types.OffsetWord.create("@a"), B);
+    general_keyword_diagnose("playsound", OffsetWord.create("playsound"), B);
+    general_keyword_diagnose("@a", OffsetWord.create("@a"), B);
     general_keyword_diagnose(
       "invalid keyword but still expect to work",
-      Types.OffsetWord.create("invalid keyword but still expect to work"),
+      OffsetWord.create("invalid keyword but still expect to work"),
       B
     );
 
@@ -18,9 +18,9 @@ describe("Keyword", () => {
 
   it("diagnose with errors", () => {
     const B = new TestDiagnoser();
-    general_keyword_diagnose("asd", Types.OffsetWord.create("playsound"), B);
-    general_keyword_diagnose("@s", Types.OffsetWord.create("@a"), B);
-    general_keyword_diagnose("invalid keyword but still expect to work", Types.OffsetWord.create("I am different"), B);
+    general_keyword_diagnose("asd", OffsetWord.create("playsound"), B);
+    general_keyword_diagnose("@s", OffsetWord.create("@a"), B);
+    general_keyword_diagnose("invalid keyword but still expect to work", OffsetWord.create("I am different"), B);
 
     B.expectAmount(3);
   });

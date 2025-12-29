@@ -1,6 +1,6 @@
 import { ParameterType } from 'bc-minecraft-bedrock-command';
 import { ProjectData } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { CancellationToken, Location, WorkDoneProgressReporter } from 'vscode-languageserver';
 import { Processor, References } from '../../util';
 import { InternalContext } from '../diagnostics/context';
@@ -10,9 +10,8 @@ import { IService } from '../services/service';
 import { Options, ReferenceBuilder } from './references';
 import { WorkspaceData } from './workspace-data';
 
-type BaseObject = Types.BaseObject;
 
-export interface forEachfn<T extends Types.BaseObject> {
+export interface forEachfn<T extends BaseObject> {
   forEach(callbackfn: (value: T) => void): void;
 }
 
@@ -86,7 +85,7 @@ export class Database implements Partial<IService> {
     id: string,
     token?: CancellationToken,
     workDoneProgress?: WorkDoneProgressReporter,
-  ): Promise<Types.BaseObject[]> {
+  ): Promise<BaseObject[]> {
     const result: BaseObject[] = [];
 
     await this.forEach(

@@ -1,6 +1,6 @@
+import { Conditional, Definition } from '@blockception/packages-shared';
 import { BehaviorPack, DataSetConnector, ResourcePack } from 'bc-minecraft-bedrock-project';
 import { Script } from 'bc-minecraft-bedrock-project/src/internal/types';
-import { Types } from 'bc-minecraft-bedrock-types';
 import { Vanilla } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
@@ -16,8 +16,8 @@ const whitelist = [
 ];
 
 export interface AnimationUsage {
-  animation_controllers: Types.Definition;
-  animations: Types.Definition;
+  animation_controllers: Definition;
+  animations: Definition;
   script: Script;
 }
 
@@ -47,22 +47,22 @@ export function minecraft_animation_used(
   });
 
   // Animations field is to be used by script and animations controllers
-  Types.Definition.forEach(animations, (ref, id) => {
+  Definition.forEach(animations, (ref, id) => {
     controllers.get(id)?.animations.using.forEach((anim) => (refsUsed[anim] = true));
   });
 
   // Script will use animations
-  Types.Conditional.forEach(script.animate, (id) => (refsUsed[id] = true));
+  Conditional.forEach(script.animate, (id) => (refsUsed[id] = true));
 
   // Animation controllers are assumed to be always active
-  Types.Definition.forEach(animation_controllers, (ref, id) => {
+  Definition.forEach(animation_controllers, (ref, id) => {
     refsUsed[ref] = true;
 
     controllers.get(id)?.animations.using.forEach((anim) => (refsUsed[anim] = true));
   });
 
   // Check if animations are used
-  Types.Definition.forEach(animations, (ref, id) => {
+  Definition.forEach(animations, (ref, id) => {
     if (whitelist.includes(id)) return;
 
     //If the used animations does not contain the referenced animation, then its unused

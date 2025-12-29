@@ -1,10 +1,9 @@
+import { Identifiable, Locatable } from '@blockception/packages-shared';
 import { IDataSet } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
-import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 import { PackStringType } from '../../constants/packs';
-import { Identifiable } from '@blockception/packages-shared';
+import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 
-export function no_other_duplicates<T extends Identifiable & Types.Locatable>(
+export function no_other_duplicates<T extends Identifiable & Locatable>(
   diagPrefix: `${PackStringType}.${string}`,
   set: IDataSet<T>,
   id: string,

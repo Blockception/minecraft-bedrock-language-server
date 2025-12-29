@@ -1,4 +1,4 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../internal/types/manifest';
 import { DataSetBase, Documents, Pack, TextDocument } from '../types';
@@ -14,6 +14,7 @@ import { PackType } from './pack-type';
 import { ResourcePack } from './resource-pack/resource-pack';
 import { ResourcePackCollection } from './resource-pack/resource-pack-collection';
 import { WorldPack, WorldPackCollection } from './world';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 
 /**The project cache for minecraft*/
 export class ProjectData {
@@ -89,7 +90,7 @@ export class ProjectData {
   }
 
   /** */
-  find(predicate: (value: Types.BaseObject) => boolean): Types.BaseObject | undefined {
+  find(predicate: (value: BaseObject) => boolean): BaseObject | undefined {
     let value = undefined;
 
     if ((value = this.behaviorPacks.find(predicate))) return value;

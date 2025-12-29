@@ -1,6 +1,6 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 
 /** */
-export interface FeatureRule extends Types.BaseObject {
+export interface FeatureRule extends BaseObject {
   feature_used: string;
 }

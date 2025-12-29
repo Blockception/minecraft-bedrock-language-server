@@ -1,12 +1,13 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
+import { Definition } from '@blockception/packages-shared';
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../../types';
 
-export function diagnose_resourcepack_sounds(data: Types.Definition | undefined, diagnoser: DiagnosticsBuilder): void {
+export function diagnose_resourcepack_sounds(data: Definition | undefined, diagnoser: DiagnosticsBuilder): void {
   if (data === undefined) return;
 
   const resources = diagnoser.context.getProjectData().resources;
-  Types.Definition.forEach(data, (ref, id) => {
+  Definition.forEach(data, (ref, id) => {
     const sound = resources.sounds.get(id, diagnoser.project);
     if (sound === undefined) {
       Errors.missing('resources', 'sounds', ref + '/' + id, diagnoser);

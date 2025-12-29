@@ -1,7 +1,6 @@
+import { Location } from '@blockception/packages-shared';
 import { Command } from 'bc-minecraft-bedrock-command';
-import { Types } from 'bc-minecraft-bedrock-types';
-import { TextDocument } from '../../../../types';
-import { Documentation } from '../../../../types';
+import { Documentation, TextDocument } from '../../../../types';
 import { GeneralInfo } from '../general-info';
 
 export function process(command: Command, doc: TextDocument): GeneralInfo | undefined {
@@ -12,7 +11,7 @@ export function process(command: Command, doc: TextDocument): GeneralInfo | unde
 
   return GeneralInfo.create(
     structure.text,
-    Types.Location.create(doc.uri, structure.offset),
+    Location.create(doc.uri, structure.offset),
     Documentation.getDoc(doc, () => `The mcstructure: ${structure.text}`, structure.offset),
   );
 }

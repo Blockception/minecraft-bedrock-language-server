@@ -1,8 +1,8 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../../types';
 
-export function diagnose_trading_implementation(id: Types.OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
+export function diagnose_trading_implementation(id: OffsetWord | string, diagnoser: DiagnosticsBuilder): boolean {
   const strId = typeof id === 'string' ? id : id.text;
 
   //Project has trading

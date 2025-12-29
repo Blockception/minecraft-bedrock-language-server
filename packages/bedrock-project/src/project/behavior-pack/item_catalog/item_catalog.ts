@@ -1,6 +1,6 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 
 /** */
-export interface Group extends Types.BaseObject {
+export interface Group extends BaseObject {
   items: string[];
 }

@@ -1,7 +1,8 @@
 import { TextDocument } from 'bc-minecraft-bedrock-project';
-import { General, Types } from 'bc-minecraft-bedrock-types';
+import { General } from 'bc-minecraft-bedrock-types';
+import { OffsetWord } from '@blockception/packages-shared';
 
-interface Item extends Types.OffsetWord {
+interface Item extends OffsetWord {
   data?: number;
 }
 

@@ -1,9 +1,9 @@
 import { Text } from 'bc-minecraft-bedrock-project';
-import { Types } from 'bc-minecraft-bedrock-types';
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../../types';
+import { OffsetWord } from '@blockception/packages-shared';
 
-export function mcfunction_is_defined(value: Types.OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
+export function mcfunction_is_defined(value: OffsetWord, diagnoser: DiagnosticsBuilder): boolean {
   const id = Text.UnQuote(value.text);
 
   //Project has mcfunction

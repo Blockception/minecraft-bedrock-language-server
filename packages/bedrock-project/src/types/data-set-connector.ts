@@ -1,14 +1,14 @@
-import { Types } from 'bc-minecraft-bedrock-types';
+
+import { Identifiable, Locatable } from '@blockception/packages-shared';
 import { DataSet } from './data-set';
 import { IDataSet } from './i-data-set';
 import { Pack } from './pack';
 import { PackCollection } from './pack-collection';
-import { Identifiable } from '@blockception/packages-shared';
 
 /**
  * The class DataSetConnector description
  */
-export class DataSetConnector<T extends Identifiable & Types.Locatable, U extends Pack> implements IDataSet<T> {
+export class DataSetConnector<T extends Identifiable & Locatable, U extends Pack> implements IDataSet<T> {
   private _collection: PackCollection<U>;
   private _getDataset: (pack: U) => DataSet<T> | undefined;
 

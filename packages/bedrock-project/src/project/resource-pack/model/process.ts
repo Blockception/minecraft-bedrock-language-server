@@ -1,9 +1,8 @@
-import * as internal from '../../../internal/resource-pack/model';
+import { Location } from '@blockception/packages-shared';
 import { Json } from '../../../internal/json';
-import { Types } from 'bc-minecraft-bedrock-types';
-import { Defined, TextDocument } from '../../../types';
+import * as internal from '../../../internal/resource-pack/model';
+import { Defined, Documentation, TextDocument } from '../../../types';
 import { Model } from './model';
-import { Documentation } from '../../../types';
 
 /**
  *
@@ -30,7 +29,7 @@ export function process(doc: TextDocument): Model[] | undefined {
     return createModel({
       id: key,
       documentation: Documentation.getDoc(doc, () => `Model: ${key}`),
-      location: Types.Location.create(uri, content.indexOf(key)),
+      location: Location.create(uri, content.indexOf(key)),
       root_bone_uses_binding: typeof model.bones[0].binding == 'string' ? true : false,
       bones: Defined.wrap(
         model.bones.map((bone) => bone.name).filter((name) => typeof name === 'string' && name !== ''),

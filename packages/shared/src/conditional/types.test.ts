@@ -1,4 +1,4 @@
-import { Conditional } from '.';
+import { Conditional } from './types';
 
 describe('Conditional', () => {
   it('getId', () => {
