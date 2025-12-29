@@ -1,7 +1,7 @@
+import { Definition } from '@blockception/packages-shared';
 import { Internal, ResourcePack } from 'bc-minecraft-bedrock-project';
 import { getUsingResources } from 'bc-minecraft-bedrock-project/src/internal/resource-pack/resources';
 import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
-
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder, Metadata } from '../../../types';
 import { behaviorpack_entityid_diagnose } from '../../behavior-pack/entity';
 import { Json } from '../../json/json';

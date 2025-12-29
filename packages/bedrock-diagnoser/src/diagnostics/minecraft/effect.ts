@@ -1,6 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticSeverity, DiagnosticsBuilder } from '../../types';
-
 
 export function minecraft_effect_diagnose(value: OffsetWord, diagnoser: DiagnosticsBuilder): void {
   //Check if minecraft has effect data

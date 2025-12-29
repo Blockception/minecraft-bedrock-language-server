@@ -1,4 +1,4 @@
-
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { minecraft_coordinate_diagnose } from '../coordinate';
 

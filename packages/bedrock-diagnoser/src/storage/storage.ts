@@ -1,9 +1,8 @@
+import { Identifiable, Locatable } from '@blockception/packages-shared';
 import { DataSetConnector, Pack, ProjectData } from 'bc-minecraft-bedrock-project';
-
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
-import { DiagnosticsBuilder } from '../types';
 import { education_enabled } from '../diagnostics';
-import { Identifiable } from '@blockception/packages-shared';
+import { DiagnosticsBuilder } from '../types';
 
 export type ItemBase = Identifiable & Locatable;
 

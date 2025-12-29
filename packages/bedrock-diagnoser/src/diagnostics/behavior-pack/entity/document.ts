@@ -1,8 +1,8 @@
+import { Definition } from '@blockception/packages-shared';
 import { Internal, References } from 'bc-minecraft-bedrock-project';
 import { EntityProperty as DefinedEP } from 'bc-minecraft-bedrock-project/src/internal/behavior-pack/entity';
 import { EntityProperty as ProjectEP } from 'bc-minecraft-bedrock-project/src/project/behavior-pack/entity';
 import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
-
 import { getUsedComponents } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder, Metadata } from '../../../types';
 import { Context } from '../../../utility/components';

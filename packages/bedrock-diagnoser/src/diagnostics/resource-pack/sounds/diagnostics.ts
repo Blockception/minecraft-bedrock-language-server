@@ -1,4 +1,5 @@
 
+import { Definition } from '@blockception/packages-shared';
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../../types';
 

@@ -1,4 +1,4 @@
-
+import { OffsetWord } from '@blockception/packages-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export function general_keyword_diagnose(

@@ -1,5 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { Command } from 'bc-minecraft-bedrock-command';
-import { Modes, Types } from 'bc-minecraft-bedrock-types';
+import { Modes } from 'bc-minecraft-bedrock-types';
 import { ModeHandler } from 'bc-minecraft-bedrock-types/src/modes/mode-handler';
 import { SlotTypeMode } from 'bc-minecraft-bedrock-types/src/modes/slot-type';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';

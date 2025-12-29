@@ -1,6 +1,7 @@
-import { DiagnosticSeverity } from './severity';
-import { TextDocument, MinecraftData, Documents } from 'bc-minecraft-bedrock-project';
+import { DocumentLocation } from '@blockception/packages-shared';
+import { Documents, MinecraftData, TextDocument } from 'bc-minecraft-bedrock-project';
 import { MCIgnore, MCProject } from 'bc-minecraft-project';
+import { DiagnosticSeverity } from './severity';
 
 
 /**The context of a diagnostics builder*/

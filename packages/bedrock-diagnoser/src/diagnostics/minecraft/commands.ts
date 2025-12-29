@@ -1,6 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { hasCommandData } from 'bc-minecraft-bedrock-command';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
-
 
 /**
  *

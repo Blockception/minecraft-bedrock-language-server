@@ -1,6 +1,6 @@
+import { DocumentLocation } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-project';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
-
 
 type PackType = keyof Exclude<MinecraftData, 'projectData'>;
 type SubType<T extends PackType> = keyof MinecraftData[T];

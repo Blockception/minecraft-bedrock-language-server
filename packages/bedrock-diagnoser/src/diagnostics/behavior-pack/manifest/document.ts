@@ -1,5 +1,5 @@
+import { Version } from '@blockception/packages-shared';
 import { Manifest } from 'bc-minecraft-bedrock-project/src/internal/types';
-
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json/json';
 import { minecraft_manifest_diagnose, minecraft_manifest_required_module } from '../../minecraft/manifest';

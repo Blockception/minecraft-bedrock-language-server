@@ -1,6 +1,6 @@
+import { OffsetWord } from '@blockception/packages-shared';
 import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
 import { Defined, DefinitionItem } from 'bc-minecraft-bedrock-project';
-
 import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { check_definition_value, education_enabled } from '../../definitions';
