@@ -64,9 +64,16 @@ export function texture_files_diagnose(
   files = files.map((location) =>
     location.includes('.') ? location.slice(0, -path.extname(location).length) : location,
   );
-  if (file.includes('.')) file = file.slice(0, -path.extname(file).length);
+  
+  // Encode the search term to match URI-encoded file paths (encodeURI keeps slashes as-is)
+  let encodedFile = file;
+  if (file.includes('.')) {
+    encodedFile = file.slice(0, -path.extname(file).length);
+  }
+  encodedFile = encodeURI(encodedFile);
+  
   for (let I = 0; I < files.length; I++) {
-    if (files[I].endsWith(file)) {
+    if (files[I].endsWith(encodedFile)) {
       //Found then return
       return;
     }

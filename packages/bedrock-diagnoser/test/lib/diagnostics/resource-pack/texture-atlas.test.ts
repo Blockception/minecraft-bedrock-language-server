@@ -54,5 +54,52 @@ describe("ResourcePack", () => {
       expect(ResourcePack.diagnose_document(diagnoser)).toBeTruthy();
       diagnoser.expectEmpty();
     });
+
+    it("should match texture files with spaces in names", () => {
+      const dataWithSpaces = {
+        texture_name: "atlas.terrain",
+        texture_data: {
+          test_texture: {
+            textures: "textures/blocks/block with spaces",
+          },
+        },
+      };
+
+      const doc: TextDocument = {
+        uri: path.join("resource_pack", "textures", "terrain_texture.json"),
+        getText: () => JSON.stringify(dataWithSpaces, undefined, 2),
+      };
+
+      const diagnoser = TestDiagnoser.createDocument(undefined, doc);
+      // Simulate URI-encoded file path as returned by Vscode.fromFs
+      diagnoser.context.getFiles = () => [
+        "file:///absolute/path/textures/blocks/block%20with%20spaces.png",
+      ];
+
+      expect(ResourcePack.diagnose_document(diagnoser)).toBeTruthy();
+      diagnoser.expectEmpty();
+    });
+
+    it("should raise error when texture file with spaces is not found", () => {
+      const dataWithSpaces = {
+        texture_name: "atlas.terrain",
+        texture_data: {
+          test_texture: {
+            textures: "textures/blocks/block with spaces",
+          },
+        },
+      };
+
+      const doc: TextDocument = {
+        uri: path.join("resource_pack", "textures", "terrain_texture.json"),
+        getText: () => JSON.stringify(dataWithSpaces, undefined, 2),
+      };
+
+      const diagnoser = TestDiagnoser.createDocument(undefined, doc);
+      diagnoser.context.getFiles = () => [];
+
+      expect(ResourcePack.diagnose_document(diagnoser)).toBeTruthy();
+      diagnoser.expectAmount(1);
+    });
   });
 });
