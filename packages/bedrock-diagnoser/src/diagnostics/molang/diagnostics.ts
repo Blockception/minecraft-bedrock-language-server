@@ -1,5 +1,15 @@
 import { Identifiable } from '@blockception/packages-shared';
-import { Data, MolangData, MolangDataSetKey, MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from 'bc-minecraft-molang';
+import {
+  Data,
+  MolangData,
+  MolangDataSet,
+  MolangDataSetKey,
+  MolangSet,
+  ResourceReferenceNode,
+  ResourceScope,
+  VariableNode,
+  VariableScope,
+} from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 
 /**
@@ -22,6 +32,12 @@ export interface MolangMetadata {
   userType: MolangDataSetKey;
 }
 
+namespace emptySet {
+  export const Variables: Data[] = [];
+  export const Contexts: Data[] = [];
+  export const Temps: Data[] = [];
+}
+
 /**
  * Diagnoses the given molang sets, the using party checks upon the definer if they have setup properly
  * @param using The set of molang data that is being used
@@ -36,6 +52,7 @@ export function diagnose_molang_implementation(
   const assigned = new Set<string>();
   getAssignedIds(assigned, resource.molang);
   getAssignedIds(assigned, user.molang);
+  const molangset = MolangData.get(diagnoser.metadata.userType);
 
   for (const res of resource.molang.using.values()) {
     if (res.scope === 'this') return;
@@ -45,14 +62,13 @@ export function diagnose_molang_implementation(
     // Check if this is a built-in variable/context/temp for this user type
     // Resource references (texture, geometry, material) are never built-in, they must be defined
     const normalizedScope = normalizeVariableScope(res);
-    const resourceScopes: ResourceScope[] = ['texture', 'geometry', 'material'];
-    const isResourceReference = resourceScopes.includes(normalizedScope as ResourceScope);
-    
-    if (!isResourceReference) {
+
+    if (!isResourceReference(normalizedScope)) {
       // Only check built-in data for variable scopes (not resources)
-      const scopeKey = normalizedScope[0].toUpperCase() + normalizedScope.slice(1) + 's';
-      const builtInData = MolangData[diagnoser.metadata.userType][scopeKey as keyof typeof MolangData[MolangDataSetKey]] as Array<Data> | undefined;
-      if (builtInData?.map(x => x.id).includes(identifier.split('.')[1])) {
+      const builtInData = MolangDataSet.get(molangset, normalizedScope);
+      const fnId = getFnId(res);
+
+      if (builtInData?.some((x) => x.id === fnId)) {
         continue;
       }
     }
@@ -66,9 +82,24 @@ export function diagnose_molang_implementation(
   }
 }
 
+function isResourceReference(item: string): item is 'texture' | 'geometry' | 'material' {
+  switch (item) {
+    case 'texture':
+    case 'geometry':
+    case 'material':
+      return true;
+  }
+
+  return false;
+}
+
 function getId(item: VariableNode | ResourceReferenceNode) {
   const scope = normalizeVariableScope(item);
-  return `${scope}.${item.names.join('.')}`
+  return `${scope}.${item.names.join('.')}`;
+}
+
+function getFnId(item: VariableNode | ResourceReferenceNode) {
+  return `${item.names.join('.')}`;
 }
 
 function normalizeVariableScope(item: VariableNode | ResourceReferenceNode) {
