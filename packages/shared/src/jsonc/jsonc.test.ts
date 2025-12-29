@@ -1,4 +1,5 @@
 import { Json } from './jsonc';
+import * as jsoncModule from 'jsonc';
 
 describe('Json', () => {
   describe('To', () => {
@@ -101,9 +102,8 @@ describe('Json', () => {
 
     it('should handle error without message property', () => {
       // Mock jsonc.parse to throw an error without message property
-      const originalParse = require('jsonc').jsonc.parse;
       const mockError = { code: 'SOME_ERROR' };
-      require('jsonc').jsonc.parse = jest.fn(() => {
+      const parseSpy = jest.spyOn(jsoncModule.jsonc, 'parse').mockImplementation(() => {
         throw mockError;
       });
 
@@ -113,7 +113,7 @@ describe('Json', () => {
       expect(console.error).toHaveBeenCalledWith(expect.stringContaining(JSON.stringify(mockError)));
 
       // Restore original parse
-      require('jsonc').jsonc.parse = originalParse;
+      parseSpy.mockRestore();
     });
   });
 });
