@@ -1,4 +1,4 @@
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "@blockception/packages-shared";
 import { minecraft_coordinate_diagnose } from "../../../../src/diagnostics/minecraft/coordinate";
 import { TestDiagnoser } from "../../../diagnoser";
 

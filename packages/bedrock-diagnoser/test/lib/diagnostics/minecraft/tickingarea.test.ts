@@ -1,5 +1,5 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
-import { Types } from "bc-minecraft-bedrock-types";
+import { Location, OffsetWord } from "@blockception/packages-shared";
 import { minecraft_tickingarea_diagnose } from "../../../../src/diagnostics/minecraft/tickingarea";
 import { TestDiagnoser } from "../../../diagnoser";
 

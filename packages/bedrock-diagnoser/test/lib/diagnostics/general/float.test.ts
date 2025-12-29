@@ -1,5 +1,5 @@
 import { general_float_diagnose } from "../../../../src/diagnostics/general/float";
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "@blockception/packages-shared";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("Float", () => {

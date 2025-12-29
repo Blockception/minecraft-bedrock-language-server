@@ -1,7 +1,7 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
-import { Types } from "bc-minecraft-bedrock-types";
 import { minecraft_objectives_diagnose } from '../../../../src/diagnostics/minecraft';
 import { TestDiagnoser } from "../../../diagnoser";
+import { Location, OffsetWord } from "@blockception/packages-shared";
 
 describe("Objective", () => {
   it("diagnose no errors", () => {

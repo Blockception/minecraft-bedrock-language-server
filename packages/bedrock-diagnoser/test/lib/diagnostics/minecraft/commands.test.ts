@@ -1,4 +1,4 @@
-import { Types } from "bc-minecraft-bedrock-types";
+import { OffsetWord } from "@blockception/packages-shared";
 import { minecraft_check_command } from "../../../../src/diagnostics/minecraft/commands";
 import { TestDiagnoser } from "../../../diagnoser";
 
