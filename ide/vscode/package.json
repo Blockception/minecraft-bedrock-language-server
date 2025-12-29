@@ -82,7 +82,7 @@
   "scripts": {
     "clean": "rimraf ./dist ./lsp tsconfig.tsbuildinfo",
     "lint": "eslint --config ../../eslint.config.mjs .",
-    "test": "jest --config ./jest.config.ts",
+    "test": "jest --config ../../jest.config.ts",
     "vscode:prepublish": "npm run webpack",
     "watch": "tsc -b --pretty -w",
     "compile": "npm run webpack",
