@@ -1,6 +1,6 @@
 import { ParameterType } from 'bc-minecraft-bedrock-command';
 import { ProjectData } from 'bc-minecraft-bedrock-project';
-
+import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { CancellationToken, Location, WorkDoneProgressReporter } from 'vscode-languageserver';
 import { Processor, References } from '../../util';
 import { InternalContext } from '../diagnostics/context';
@@ -10,7 +10,6 @@ import { IService } from '../services/service';
 import { Options, ReferenceBuilder } from './references';
 import { WorkspaceData } from './workspace-data';
 
-type BaseObject = BaseObject;
 
 export interface forEachfn<T extends BaseObject> {
   forEach(callbackfn: (value: T) => void): void;
@@ -111,10 +110,10 @@ export class Database implements Partial<IService> {
       if (item.id === id) out.push(item);
     };
 
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < types.length; i++) {
       const item = types[i];
       if (token?.isCancellationRequested) break;
-      workDoneProgress?.report(i / length, `checking type: ${ParameterType[item]}`);
+      workDoneProgress?.report(i / types.length, `checking type: ${ParameterType[item]}`);
 
       switch (item) {
         case ParameterType.animation:

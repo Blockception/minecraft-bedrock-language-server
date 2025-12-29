@@ -29,16 +29,15 @@ export async function provideReferences(
   const types: ParameterType[] = [];
 
   //Gets types used
-  for (let I = 0; I < data.length; I++) {
-    const Pattern = data[I];
-    const Parameters = Pattern.parameters;
+  for (let i = 0; i < data.length; i++) {
+    const parameters = data[i].parameters;
 
-    if (Parameters.length > index) {
-      push(Parameters[index].type);
+    if (parameters.length > index) {
+      types.push(parameters[index].type);
     }
   }
 
-  if (length == 0) return undefined;
+  if (types.length == 0) return undefined;
 
   //TODO add selector references
   const references = await context.database.findReferences(text, types, context.token, context.workDoneProgress);

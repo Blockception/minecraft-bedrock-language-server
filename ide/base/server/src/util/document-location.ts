@@ -1,6 +1,6 @@
-import * as vstd from 'vscode-languageserver-textdocument';
-
+import { DocumentLocation, JsonPath, OffsetWord, Position } from '@blockception/packages-shared';
 import { Range } from 'vscode-languageserver';
+import * as vstd from 'vscode-languageserver-textdocument';
 import { Character } from './character';
 
 /**
