@@ -1,6 +1,5 @@
 import { Identifiable } from '@blockception/packages-shared';
 import {
-  Data,
   MolangData,
   MolangDataSet,
   MolangDataSetKey,
@@ -8,7 +7,7 @@ import {
   ResourceReferenceNode,
   ResourceScope,
   VariableNode,
-  VariableScope,
+  VariableScope
 } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';
 
