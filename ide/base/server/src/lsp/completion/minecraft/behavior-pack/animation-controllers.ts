@@ -2,10 +2,21 @@ import { Kinds } from '../../../../constants';
 import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as Animations from './animations';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
+  const data = context.document.configuration();
+  const generateDoc = createDefinitionDocGenerator('The defined bp animation controller', 'The bp animation controller');
+
+  // Add animation controllers from .mcdefinitions
+  context.builder.generate(
+    data.definitions.animation_controller?.defined,
+    generateDoc,
+    Kinds.Completion.AnimationControllers,
+  );
+
   context.builder.generate(
     context.database.ProjectData.behaviorPacks.animation_controllers,
     (item) => `The bp animation controller: ${item.id}`,

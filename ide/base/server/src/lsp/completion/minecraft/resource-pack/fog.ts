@@ -1,12 +1,16 @@
-import { Identifiable } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { Kinds } from '../../../../constants';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The fog: ${item.id}`;
+  const generateDoc = createDefinitionDocGenerator('The defined fog', 'The fog');
+  const data = context.document.configuration();
+
+  // Add fogs from .mcdefinitions
+  context.builder.generate(data.definitions.fog?.defined, generateDoc, Kinds.Completion.Fogs);
 
   context.builder.generate(context.database.ProjectData.resourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
 

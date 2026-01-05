@@ -1,5 +1,4 @@
 import { ResourcePack } from 'bc-minecraft-bedrock-project';
-import { Identifiable } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { CompletionItemKind } from 'vscode-languageserver';
 import { Kinds } from '../../../../constants';
@@ -8,10 +7,15 @@ import { IsEducationEnabled } from '../../../../project/attributes';
 import { getExtension } from '../../../../util';
 import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
+  const generateDoc = createDefinitionDocGenerator('The defined sound', 'The sound');
   const generateV = (item: string) => `The vanilla sound: ${item}`;
+  const data = context.document.configuration();
+
+  // Add sounds from .mcdefinitions
+  context.builder.generate(data.definitions.sound?.defined, generateDoc, Kinds.Completion.Sound);
 
   context.builder.generate(context.database.ProjectData.resourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
   context.builder.generate(MinecraftData.vanilla.ResourcePack.sounds, generateV, Kinds.Completion.Sound);

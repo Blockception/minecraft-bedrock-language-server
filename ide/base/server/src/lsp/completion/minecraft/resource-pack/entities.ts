@@ -6,6 +6,7 @@ import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder/json-path';
 import { CompletionContext } from '../../context';
 import { Material } from '../molang';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as AnimationControllers from './animation-controllers';
 import * as Animations from './animations';
@@ -14,10 +15,14 @@ import * as RenderControllers from './render-controllers';
 import * as Textures from './textures';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The rp entity: ${item.id}`;
+  const generateDoc = createDefinitionDocGenerator('The defined rp entity', 'The rp entity');
   const generateV = (item: Identifiable) => `The vanilla rp entity: ${item.id}`;
 
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
+  const data = context.document.configuration();
+
+  // Add entities from .mcdefinitions
+  builder.generate(data.definitions.entity?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.resourcePacks.entities, generateDoc);
   builder.generate(MinecraftData.vanilla.ResourcePack.entities, generateV);

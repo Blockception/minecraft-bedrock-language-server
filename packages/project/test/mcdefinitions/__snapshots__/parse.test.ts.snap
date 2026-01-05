@@ -78,6 +78,119 @@ exports[`MCDefinition loadSync file1 1`] = `
 }
 `;
 
+exports[`MCDefinition loadSync file3 with new definition types 1`] = `
+{
+  "animation": {
+    "defined": [
+      "animation.custom.walk",
+      "animation.custom.attack",
+    ],
+    "excluded": [],
+  },
+  "animation_controller": {
+    "defined": [
+      "controller.animation.custom_mob",
+    ],
+    "excluded": [],
+  },
+  "block": {
+    "defined": [
+      "my_namespace:custom_block",
+    ],
+    "excluded": [],
+  },
+  "entity": {
+    "defined": [
+      "my_namespace:custom_mob",
+      "my_namespace:custom_npc",
+    ],
+    "excluded": [],
+  },
+  "family": {
+    "defined": [
+      "npc",
+      "Npc",
+      "enemy",
+    ],
+    "excluded": [
+      "nemesis",
+    ],
+  },
+  "fog": {
+    "defined": [
+      "my_namespace:custom_fog",
+    ],
+    "excluded": [],
+  },
+  "item": {
+    "defined": [
+      "my_namespace:custom_item",
+    ],
+    "excluded": [],
+  },
+  "loot_table": {
+    "defined": [
+      "loot_tables/custom_chest",
+    ],
+    "excluded": [],
+  },
+  "material": {
+    "defined": [
+      "custom_material",
+    ],
+    "excluded": [],
+  },
+  "model": {
+    "defined": [
+      "geometry.custom_model",
+    ],
+    "excluded": [],
+  },
+  "name": {
+    "defined": [
+      "Steve",
+    ],
+    "excluded": [
+      "Creeper",
+    ],
+  },
+  "objective": {
+    "defined": [
+      "counter",
+    ],
+    "excluded": [
+      "Foo",
+    ],
+  },
+  "particle": {
+    "defined": [
+      "my_namespace:custom_particle",
+    ],
+    "excluded": [],
+  },
+  "sound": {
+    "defined": [
+      "custom.sound.ambient",
+    ],
+    "excluded": [],
+  },
+  "tag": {
+    "defined": [
+      "tag_number1",
+    ],
+    "excluded": [
+      "FoLolOl",
+    ],
+  },
+  "texture": {
+    "defined": [
+      "textures/custom/texture",
+    ],
+    "excluded": [],
+  },
+}
+`;
+
 exports[`MCDefinition parse1 1`] = `
 {
   "tag": {
