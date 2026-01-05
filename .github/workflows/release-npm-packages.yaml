@@ -51,5 +51,3 @@ jobs:
       - name: 🚚 Publish package
         working-directory: '${{github.workspace}}/packages/${{matrix.package}}'
         run: npm publish --tag latest
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
