@@ -4,12 +4,10 @@ import { Kinds } from '../../../../constants';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined material: ${item}`;
-    return `The material: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined material', 'The material');
   const generateV = (item: string) => `The vanilla material: ${item}`;
   const data = context.document.configuration();
 

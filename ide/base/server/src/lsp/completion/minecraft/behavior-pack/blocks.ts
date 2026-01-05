@@ -5,14 +5,12 @@ import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as BlockCulling from '../resource-pack/block-culling';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined block: ${item}`;
-    return `The block definition: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined block', 'The block definition');
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
   const data = context.document.configuration();
 

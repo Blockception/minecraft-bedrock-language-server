@@ -2,19 +2,18 @@ import { Kinds } from '../../../../constants';
 import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as Animations from './animations';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const data = context.document.configuration();
+  const generateDoc = createDefinitionDocGenerator('The defined bp animation controller', 'The bp animation controller');
 
   // Add animation controllers from .mcdefinitions
   context.builder.generate(
     data.definitions.animation_controller?.defined,
-    (item) => {
-      if (typeof item === 'string') return `The defined bp animation controller: ${item}`;
-      return `The bp animation controller: ${item.id}`;
-    },
+    generateDoc,
     Kinds.Completion.AnimationControllers,
   );
 

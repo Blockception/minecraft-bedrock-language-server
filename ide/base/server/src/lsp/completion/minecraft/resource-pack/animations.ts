@@ -5,12 +5,10 @@ import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined rp animation: ${item}`;
-    return `The rp animation: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined rp animation', 'The rp animation');
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
   const data = context.document.configuration();
 

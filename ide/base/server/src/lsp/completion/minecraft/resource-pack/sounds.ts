@@ -8,12 +8,10 @@ import { IsEducationEnabled } from '../../../../project/attributes';
 import { getExtension } from '../../../../util';
 import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined sound: ${item}`;
-    return `The sound: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined sound', 'The sound');
   const generateV = (item: string) => `The vanilla sound: ${item}`;
   const data = context.document.configuration();
 

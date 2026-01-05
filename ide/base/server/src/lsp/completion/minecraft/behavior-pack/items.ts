@@ -5,12 +5,10 @@ import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
 import { JsonPathCompletion, JsonPathMatch } from '../../builder';
+import { createDefinitionDocGenerator } from '../utils';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined item: ${item}`;
-    return `The item definition: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined item', 'The item definition');
   const builder = context.builder;
   const data = context.document.configuration();
 

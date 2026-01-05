@@ -5,6 +5,7 @@ import { IsEducationEnabled } from '../../../../../project/attributes';
 import { Context } from '../../../../context/context';
 import { JsonPathCompletion } from '../../../builder/json-path';
 import { CompletionContext } from '../../../context';
+import { createDefinitionDocGenerator } from '../../utils';
 
 import * as Sounds from '../../resource-pack/sounds';
 import * as AnimationControllers from '../animation-controllers';
@@ -18,10 +19,7 @@ import * as Trading from '../trading';
 import * as EntityComponentGroups from './component-groups';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined entity: ${item}`;
-    return `The entity definition: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined entity', 'The entity definition');
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
   const data = context.document.configuration();
 

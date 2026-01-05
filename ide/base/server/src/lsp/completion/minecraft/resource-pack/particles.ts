@@ -5,14 +5,12 @@ import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as Textures from './textures';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined particle: ${item}`;
-    return `The particle: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined particle', 'The particle');
   const generateV = (item: string) => `The vanilla particle: ${item}`;
   const data = context.document.configuration();
 

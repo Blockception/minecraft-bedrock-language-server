@@ -6,6 +6,7 @@ import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder/json-path';
 import { CompletionContext } from '../../context';
 import { Material } from '../molang';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as AnimationControllers from './animation-controllers';
 import * as Animations from './animations';
@@ -14,10 +15,7 @@ import * as RenderControllers from './render-controllers';
 import * as Textures from './textures';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined rp entity: ${item}`;
-    return `The rp entity: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined rp entity', 'The rp entity');
   const generateV = (item: Identifiable) => `The vanilla rp entity: ${item.id}`;
 
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });

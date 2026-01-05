@@ -5,14 +5,12 @@ import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as Animations from './animations';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined rp animation controller: ${item}`;
-    return `The rp animation controller: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined rp animation controller', 'The rp animation controller');
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.AnimationControllers });
   const data = context.document.configuration();
 

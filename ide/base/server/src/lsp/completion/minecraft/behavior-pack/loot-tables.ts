@@ -4,6 +4,7 @@ import { Kinds } from '../../../../constants';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { CompletionContext, JsonCompletionContext } from '../../context';
+import { createDefinitionDocGenerator } from '../utils';
 
 import * as Items from './items';
 
@@ -33,10 +34,7 @@ export function provideShortCompletion(context: Context<CompletionContext>): voi
 function generate_items(context: Context<CompletionContext>) {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.LootTable });
 
-  const generateDoc = (item: Identifiable | string) => {
-    if (typeof item === 'string') return `The defined loot table: ${item}`;
-    return `The loot table definition: ${item.id}`;
-  };
+  const generateDoc = createDefinitionDocGenerator('The defined loot table', 'The loot table definition');
   const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
 
   const data = context.document.configuration();
