@@ -10,6 +10,7 @@ import * as Entities from './entity/main';
 import * as Items from './items';
 import * as LootTables from './loot-tables';
 import * as Trading from './trading';
+import * as FeatureRules from './feature-rules';
 
 export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
   switch (FileType.detect(context.document.uri)) {
@@ -29,6 +30,8 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
       return Manifests.provideJsonCompletion(context);
     case FileType.trading:
       return Trading.provideCompletion(context);
+    case FileType.feature_rule:
+      return FeatureRules.provideJsonCompletion(context);
 
     // case FileType.function:
     // case FileType.item:

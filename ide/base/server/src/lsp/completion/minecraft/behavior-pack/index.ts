@@ -1,5 +1,6 @@
 export * as AnimationControllers from './animation-controllers';
 export * as Animations from './animations';
+export * as BiomeTags from './biome-tags';
 export * as BlockStates from './block-states';
 export * as Blocks from './blocks';
 export * as EntityEvent from './entity/event';
