@@ -134,8 +134,9 @@ function addDisableNextLine(builder: CodeActionBuilder, diag: Diagnostic): void 
   // Get the indentation of the current line
   const currentLineText = document.getText({
     start: { line, character: 0 },
-    end: { line, character: 1000 },
-  });
+    end: { line: line + 1, character: 0 },
+  }).replace(/\n$/, ''); // Remove trailing newline
+  
   const indent = currentLineText.match(/^(\s*)/)?.[1] ?? '';
 
   // Insert on the line before the diagnostic

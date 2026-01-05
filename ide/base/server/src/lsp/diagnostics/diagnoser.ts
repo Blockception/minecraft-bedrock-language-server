@@ -90,29 +90,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     if (this.disabledCodes.fileLevel.has(codeStr)) return;
     
     // Check if code is disabled for this specific line
-    // Convert position to line number
-    let line: number;
-    if (typeof position === 'number') {
-      // It's an offset, convert to line
-      const text = this.doc.getText();
-      const lines = text.substring(0, position).split('\n');
-      line = lines.length - 1;
-    } else if (typeof position === 'object' && 'line' in position) {
-      // It's a Position object
-      line = position.line;
-    } else if (typeof position === 'object' && 'offset' in position) {
-      // It's an OffsetWord
-      const text = this.doc.getText();
-      const lines = text.substring(0, position.offset).split('\n');
-      line = lines.length - 1;
-    } else {
-      // It's a JsonPath string, we need to resolve it
-      const offset = DocumentLocation.toOffset(position, this.doc.getText());
-      const text = this.doc.getText();
-      const lines = text.substring(0, offset).split('\n');
-      line = lines.length - 1;
-    }
-    
+    const line = this.getLineNumber(position);
     const lineCodes = this.disabledCodes.lineLevel.get(line);
     if (lineCodes && lineCodes.has(codeStr)) return;
 
@@ -135,6 +113,39 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     }
 
     this.items.push(error);
+  }
+  
+  /**
+   * Converts a DocumentLocation to a line number
+   * @param position The position to convert
+   * @returns The line number (0-indexed)
+   */
+  private getLineNumber(position: DocumentLocation): number {
+    if (typeof position === 'number') {
+      // It's an offset, convert to line
+      return this.offsetToLine(position);
+    } else if (typeof position === 'object' && 'line' in position) {
+      // It's a Position object
+      return position.line;
+    } else if (typeof position === 'object' && 'offset' in position) {
+      // It's an OffsetWord
+      return this.offsetToLine(position.offset);
+    } else {
+      // It's a JsonPath string, we need to resolve it
+      const offset = DocumentLocation.toOffset(position, this.doc.getText());
+      return this.offsetToLine(offset);
+    }
+  }
+  
+  /**
+   * Converts an offset to a line number
+   * @param offset The offset in the document
+   * @returns The line number (0-indexed)
+   */
+  private offsetToLine(offset: number): number {
+    const text = this.doc.getText();
+    const lines = text.substring(0, offset).split('\n');
+    return lines.length - 1;
   }
 }
 
