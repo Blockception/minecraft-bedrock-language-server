@@ -8,6 +8,15 @@ import { CompletionBuilder } from '../../builder/builder';
 import { CommandCompletionContext, CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
+  const data = context.document.configuration();
+
+  // Add families from .mcdefinitions
+  context.builder.generate(
+    data.definitions.family?.defined,
+    (item) => `The defined family: ${item}`,
+    Kinds.Completion.Family,
+  );
+
   context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
 
@@ -23,12 +32,27 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 }
 
 export function provideCompletionTest(context: Context<CommandCompletionContext>): void {
+  const data = context.document.configuration();
   const builder = context.builder;
 
   const types = GetPossibleEntityTypes(context.command, context.parameterIndex);
   const edu = IsEducationEnabled(context.document);
 
   if (types.length === 0) {
+    // Add families from .mcdefinitions
+    data.definitions.family?.defined?.forEach((family) => {
+      builder.add({
+        label: family,
+        documentation: `Test for the defined family: ${family}`,
+        kind: Kinds.Completion.Family,
+      });
+      builder.add({
+        label: '!' + family,
+        documentation: `Test not for the defined family: ${family}`,
+        kind: Kinds.Completion.Family,
+      });
+    });
+
     context.database.ProjectData.behaviorPacks.entities.forEach((entity) => convertTestEntity(entity, builder));
 
     MinecraftData.General.Entities.families.forEach((family) => {
