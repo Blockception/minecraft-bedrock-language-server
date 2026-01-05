@@ -1,4 +1,3 @@
-import { Identifiable } from '@blockception/packages-shared';
 import { Kinds } from '../../../../constants';
 import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder';

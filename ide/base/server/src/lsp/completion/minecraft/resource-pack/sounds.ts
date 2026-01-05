@@ -1,5 +1,4 @@
 import { ResourcePack } from 'bc-minecraft-bedrock-project';
-import { Identifiable } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { CompletionItemKind } from 'vscode-languageserver';
 import { Kinds } from '../../../../constants';

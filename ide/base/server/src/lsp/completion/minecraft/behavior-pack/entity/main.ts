@@ -1,4 +1,3 @@
-import { Identifiable } from '@blockception/packages-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { Kinds } from '../../../../../constants';
 import { IsEducationEnabled } from '../../../../../project/attributes';
@@ -9,14 +8,14 @@ import { createDefinitionDocGenerator } from '../../utils';
 
 import * as Sounds from '../../resource-pack/sounds';
 import * as AnimationControllers from '../animation-controllers';
-import * as Blocks from '../blocks';
 import * as Animations from '../animations';
+import * as Blocks from '../blocks';
 import * as Families from '../families';
-import * as EntityEvents from './event';
 import * as Item from '../items';
 import * as LootTables from '../loot-tables';
 import * as Trading from '../trading';
 import * as EntityComponentGroups from './component-groups';
+import * as EntityEvents from './event';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
   const generateDoc = createDefinitionDocGenerator('The defined entity', 'The entity definition');
