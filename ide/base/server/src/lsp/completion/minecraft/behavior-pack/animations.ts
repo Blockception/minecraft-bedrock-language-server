@@ -5,8 +5,15 @@ import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The bp animation: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined bp animation: ${item}`;
+    return `The bp animation: ${item.id}`;
+  };
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
+  const data = context.document.configuration();
+
+  // Add animations from .mcdefinitions
+  builder.generate(data.definitions.animation?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.behaviorPacks.animations, generateDoc);
 }

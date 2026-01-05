@@ -33,8 +33,16 @@ export function provideShortCompletion(context: Context<CompletionContext>): voi
 function generate_items(context: Context<CompletionContext>) {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.LootTable });
 
-  const generateDoc = (item: Identifiable) => `The loot table definition: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined loot table: ${item}`;
+    return `The loot table definition: ${item.id}`;
+  };
   const generatesDoc = (item: string) => `The vanilla loot table definition: ${item}`;
+
+  const data = context.document.configuration();
+
+  // Add loot tables from .mcdefinitions
+  builder.generate(data.definitions.loot_table?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.behaviorPacks.loot_tables, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);

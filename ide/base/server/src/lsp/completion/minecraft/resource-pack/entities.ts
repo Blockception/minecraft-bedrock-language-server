@@ -14,10 +14,17 @@ import * as RenderControllers from './render-controllers';
 import * as Textures from './textures';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The rp entity: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined rp entity: ${item}`;
+    return `The rp entity: ${item.id}`;
+  };
   const generateV = (item: Identifiable) => `The vanilla rp entity: ${item.id}`;
 
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
+  const data = context.document.configuration();
+
+  // Add entities from .mcdefinitions
+  builder.generate(data.definitions.entity?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.resourcePacks.entities, generateDoc);
   builder.generate(MinecraftData.vanilla.ResourcePack.entities, generateV);

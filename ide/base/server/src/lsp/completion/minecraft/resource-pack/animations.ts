@@ -7,8 +7,15 @@ import { JsonPathCompletion } from '../../builder';
 import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The rp animation: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined rp animation: ${item}`;
+    return `The rp animation: ${item.id}`;
+  };
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Animation });
+  const data = context.document.configuration();
+
+  // Add animations from .mcdefinitions
+  builder.generate(data.definitions.animation?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.resourcePacks.animations, generateDoc);
   builder.generate(context.database.ProjectData.resourcePacks.animation_controllers, generateDoc);

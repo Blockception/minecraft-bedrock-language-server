@@ -10,8 +10,15 @@ import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The sound: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined sound: ${item}`;
+    return `The sound: ${item.id}`;
+  };
   const generateV = (item: string) => `The vanilla sound: ${item}`;
+  const data = context.document.configuration();
+
+  // Add sounds from .mcdefinitions
+  context.builder.generate(data.definitions.sound?.defined, generateDoc, Kinds.Completion.Sound);
 
   context.builder.generate(context.database.ProjectData.resourcePacks.sounds, generateDoc, Kinds.Completion.Sound);
   context.builder.generate(MinecraftData.vanilla.ResourcePack.sounds, generateV, Kinds.Completion.Sound);

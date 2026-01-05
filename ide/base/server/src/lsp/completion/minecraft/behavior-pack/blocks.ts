@@ -9,8 +9,15 @@ import { CompletionContext } from '../../context';
 import * as BlockCulling from '../resource-pack/block-culling';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The block definition: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined block: ${item}`;
+    return `The block definition: ${item.id}`;
+  };
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
+  const data = context.document.configuration();
+
+  // Add blocks from .mcdefinitions
+  builder.generate(data.definitions.block?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.behaviorPacks.blocks, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.blocks, generateDoc);

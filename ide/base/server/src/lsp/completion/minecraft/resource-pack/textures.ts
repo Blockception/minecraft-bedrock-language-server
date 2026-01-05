@@ -6,8 +6,15 @@ import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The texture: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined texture: ${item}`;
+    return `The texture: ${item.id}`;
+  };
   const generateV = (item: string) => `The vanilla texture: ${item}`;
+  const data = context.document.configuration();
+
+  // Add textures from .mcdefinitions
+  context.builder.generate(data.definitions.texture?.defined, generateDoc, Kinds.Completion.Texture);
 
   context.builder.generate(context.database.ProjectData.resourcePacks.textures, generateDoc, Kinds.Completion.Texture);
   context.builder.generate(MinecraftData.vanilla.ResourcePack.textures, generateV, Kinds.Completion.Texture);

@@ -6,7 +6,14 @@ import { Context } from '../../../context/context';
 import { CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The fog: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined fog: ${item}`;
+    return `The fog: ${item.id}`;
+  };
+  const data = context.document.configuration();
+
+  // Add fogs from .mcdefinitions
+  context.builder.generate(data.definitions.fog?.defined, generateDoc, Kinds.Completion.Fogs);
 
   context.builder.generate(context.database.ProjectData.resourcePacks.fogs, generateDoc, Kinds.Completion.Fogs);
 

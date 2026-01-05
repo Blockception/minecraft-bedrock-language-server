@@ -23,4 +23,10 @@ describe('MCDefinition', () => {
     const definitions = await MCDefinition.load(filepath);
     expect(definitions).toMatchSnapshot();
   });
+
+  it('loadSync file3 with new definition types', () => {
+    const filepath = path.join(TestFilesFolder, 'mcdefinitions', 'file3.mcdefinitions');
+    const definitions = MCDefinition.loadSync(filepath);
+    expect(definitions).toMatchSnapshot();
+  });
 });

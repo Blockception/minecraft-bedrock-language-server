@@ -9,8 +9,15 @@ import { CompletionContext } from '../../context';
 import * as Animations from './animations';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The rp animation controller: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined rp animation controller: ${item}`;
+    return `The rp animation controller: ${item.id}`;
+  };
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.AnimationControllers });
+  const data = context.document.configuration();
+
+  // Add animation controllers from .mcdefinitions
+  builder.generate(data.definitions.animation_controller?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.resourcePacks.animation_controllers, generateDoc);
   builder.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc);

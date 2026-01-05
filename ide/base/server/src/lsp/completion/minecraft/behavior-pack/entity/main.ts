@@ -18,8 +18,15 @@ import * as Trading from '../trading';
 import * as EntityComponentGroups from './component-groups';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
-  const generateDoc = (item: Identifiable) => `The entity definition: ${item.id}`;
+  const generateDoc = (item: Identifiable | string) => {
+    if (typeof item === 'string') return `The defined entity: ${item}`;
+    return `The entity definition: ${item.id}`;
+  };
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Entity });
+  const data = context.document.configuration();
+
+  // Add entities from .mcdefinitions
+  builder.generate(data.definitions.entity?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.behaviorPacks.entities, generateDoc);
   builder.generate(MinecraftData.vanilla.BehaviorPack.entities, generateDoc);
