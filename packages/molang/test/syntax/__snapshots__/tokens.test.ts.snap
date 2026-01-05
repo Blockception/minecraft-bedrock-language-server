@@ -1426,3 +1426,30 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 89. query.mark_variant < 1200 && ((query.is_on_ground && !query.is_moving) || (!query.is_on_ground && query.vertical_speed < 0)) 1`] = `
+[
+  "query.mark_variant NamespacedIdentifier",
+  "< Operator",
+  "1200 Number",
+  "&& Operator",
+  "( OpenParen",
+  "( OpenParen",
+  "query.is_on_ground NamespacedIdentifier",
+  "&& Operator",
+  "! UnaryOperator",
+  "query.is_moving NamespacedIdentifier",
+  ") CloseParen",
+  "|| Operator",
+  "( OpenParen",
+  "! UnaryOperator",
+  "query.is_on_ground NamespacedIdentifier",
+  "&& Operator",
+  "query.vertical_speed NamespacedIdentifier",
+  "< Operator",
+  "0 Number",
+  ") CloseParen",
+  ") CloseParen",
+  "  EOF",
+]
+`;

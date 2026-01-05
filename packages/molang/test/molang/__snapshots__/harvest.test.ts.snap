@@ -8455,6 +8455,169 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 89. query.mark_variant < 1200 && ((query.is_on_ground && !query.is_moving) || (!query.is_on_ground && query.vertical_speed < 0)) 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "query.mark_variant < 1200 && ((query.is_on_ground && !query.is_moving) || (!query.is_on_ground && query.vertical_speed < 0))" => [
+        {
+          "_processed": true,
+          "left": {
+            "_processed": true,
+            "left": {
+              "arguments": [],
+              "names": [
+                "mark_variant",
+              ],
+              "position": 47,
+              "scope": "query",
+              "type": 4,
+            },
+            "operator": "<",
+            "position": 66,
+            "right": {
+              "position": 68,
+              "type": 5,
+              "value": "1200",
+            },
+            "type": 2,
+          },
+          "operator": "&&",
+          "position": 73,
+          "right": {
+            "_processed": true,
+            "left": {
+              "_processed": true,
+              "left": {
+                "arguments": [],
+                "names": [
+                  "is_on_ground",
+                ],
+                "position": 78,
+                "scope": "query",
+                "type": 4,
+              },
+              "operator": "&&",
+              "position": 97,
+              "right": {
+                "_processed": true,
+                "operand": {
+                  "arguments": [],
+                  "names": [
+                    "is_moving",
+                  ],
+                  "position": 101,
+                  "scope": "query",
+                  "type": 4,
+                },
+                "operator": "!",
+                "position": 100,
+                "type": 11,
+              },
+              "type": 2,
+            },
+            "operator": "||",
+            "position": 118,
+            "right": {
+              "_processed": true,
+              "left": {
+                "_processed": true,
+                "operand": {
+                  "arguments": [],
+                  "names": [
+                    "is_on_ground",
+                  ],
+                  "position": 123,
+                  "scope": "query",
+                  "type": 4,
+                },
+                "operator": "!",
+                "position": 122,
+                "type": 11,
+              },
+              "operator": "&&",
+              "position": 142,
+              "right": {
+                "_processed": true,
+                "left": {
+                  "arguments": [],
+                  "names": [
+                    "vertical_speed",
+                  ],
+                  "position": 145,
+                  "scope": "query",
+                  "type": 4,
+                },
+                "operator": "<",
+                "position": 166,
+                "right": {
+                  "position": 168,
+                  "type": 5,
+                  "value": "0",
+                },
+                "type": 2,
+              },
+              "type": 2,
+            },
+            "type": 2,
+          },
+          "type": 2,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [],
+      "names": [
+        "mark_variant",
+      ],
+      "position": 47,
+      "scope": "query",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "is_on_ground",
+      ],
+      "position": 78,
+      "scope": "query",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "is_moving",
+      ],
+      "position": 101,
+      "scope": "query",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "is_on_ground",
+      ],
+      "position": 123,
+      "scope": "query",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "vertical_speed",
+      ],
+      "position": 145,
+      "scope": "query",
+      "type": 4,
+    },
+  },
+  "using": Set {},
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {

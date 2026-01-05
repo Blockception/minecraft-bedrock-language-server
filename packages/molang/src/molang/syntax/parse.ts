@@ -104,7 +104,19 @@ function parseTokens(tokens: Token[]): ExpressionNode {
   return builder.build();
 }
 
-/** Filter () {} [] from start or finish if they match */
+/** 
+ * Filter () {} [] from start or finish if they match 
+ * 
+ * This function removes matching opening and closing brackets from the start and end of a token array.
+ * It's critical that this function verifies the brackets actually match each other - for example,
+ * in `(a) || (b)`, the first `(` matches the first `)`, NOT the last `)`, so we should NOT trim.
+ * 
+ * Example behaviors:
+ * - `((a))` -> `(a)` -> `a` (trims twice)
+ * - `(a)` -> `a` (trims once)
+ * - `(a) || (b)` -> `(a) || (b)` (no trim, first and last don't match)
+ * - `((a) || (b))` -> `(a) || (b)` (trims once, outer pair matches)
+ */
 function trimBraces(tokens: Token[]): Token[] {
   if (tokens.length <= 1) return tokens;
   while (
@@ -112,6 +124,51 @@ function trimBraces(tokens: Token[]): Token[] {
     (tokens[0].type === TokenType.OpenBracket && tokens[tokens.length - 1].type === TokenType.CloseBracket) ||
     (tokens[0].type === TokenType.OpenParen && tokens[tokens.length - 1].type === TokenType.CloseParen)
   ) {
+    // Verify that the first and last tokens actually match each other
+    // by tracking nesting levels to find where the first opening bracket closes
+    const firstType = tokens[0].type;
+    let targetType: TokenType;
+    let counterType: TokenType;
+
+    switch (firstType) {
+      case TokenType.OpenBrace:
+        targetType = TokenType.CloseBrace;
+        counterType = TokenType.OpenBrace;
+        break;
+      case TokenType.OpenParen:
+        targetType = TokenType.CloseParen;
+        counterType = TokenType.OpenParen;
+        break;
+      case TokenType.OpenBracket:
+        targetType = TokenType.CloseBracket;
+        counterType = TokenType.OpenBracket;
+        break;
+      default:
+        return tokens;
+    }
+
+    // Find the closing bracket that matches the opening bracket at index 0
+    // by tracking nesting level (increment on open, decrement on close, match when level reaches 0)
+    let level = 1;
+    let matchIndex = -1;
+    for (let i = 1; i < tokens.length; i++) {
+      if (tokens[i].type === counterType) {
+        level++;
+      } else if (tokens[i].type === targetType) {
+        level--;
+        if (level === 0) {
+          matchIndex = i;
+          break;
+        }
+      }
+    }
+
+    // Only trim if the matching closing bracket is at the end of the array
+    // If it's not at the end, then the first and last brackets don't form a pair
+    if (matchIndex !== tokens.length - 1) {
+      break;
+    }
+
     tokens = tokens.slice(1, tokens.length - 1);
     if (tokens.length === 0) return tokens;
   }

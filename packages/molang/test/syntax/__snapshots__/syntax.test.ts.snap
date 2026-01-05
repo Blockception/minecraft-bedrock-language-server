@@ -4581,3 +4581,111 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 89. query.mark_variant < 1200 && ((query.is_on_ground && !query.is_moving) || (!query.is_on_ground && query.vertical_speed < 0)) 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "_processed": true,
+      "left": {
+        "arguments": [],
+        "names": [
+          "mark_variant",
+        ],
+        "position": 0,
+        "scope": "query",
+        "type": "FunctionCall",
+      },
+      "operator": "<",
+      "position": 19,
+      "right": {
+        "position": 21,
+        "type": "Literal",
+        "value": "1200",
+      },
+      "type": "BinaryOperation",
+    },
+    "operator": "&&",
+    "position": 26,
+    "right": {
+      "_processed": true,
+      "left": {
+        "_processed": true,
+        "left": {
+          "arguments": [],
+          "names": [
+            "is_on_ground",
+          ],
+          "position": 31,
+          "scope": "query",
+          "type": "FunctionCall",
+        },
+        "operator": "&&",
+        "position": 50,
+        "right": {
+          "_processed": true,
+          "operand": {
+            "arguments": [],
+            "names": [
+              "is_moving",
+            ],
+            "position": 54,
+            "scope": "query",
+            "type": "FunctionCall",
+          },
+          "operator": "!",
+          "position": 53,
+          "type": "UnaryOperation",
+        },
+        "type": "BinaryOperation",
+      },
+      "operator": "||",
+      "position": 71,
+      "right": {
+        "_processed": true,
+        "left": {
+          "_processed": true,
+          "operand": {
+            "arguments": [],
+            "names": [
+              "is_on_ground",
+            ],
+            "position": 76,
+            "scope": "query",
+            "type": "FunctionCall",
+          },
+          "operator": "!",
+          "position": 75,
+          "type": "UnaryOperation",
+        },
+        "operator": "&&",
+        "position": 95,
+        "right": {
+          "_processed": true,
+          "left": {
+            "arguments": [],
+            "names": [
+              "vertical_speed",
+            ],
+            "position": 98,
+            "scope": "query",
+            "type": "FunctionCall",
+          },
+          "operator": "<",
+          "position": 119,
+          "right": {
+            "position": 121,
+            "type": "Literal",
+            "value": "0",
+          },
+          "type": "BinaryOperation",
+        },
+        "type": "BinaryOperation",
+      },
+      "type": "BinaryOperation",
+    },
+    "type": "BinaryOperation",
+  },
+]
+`;
