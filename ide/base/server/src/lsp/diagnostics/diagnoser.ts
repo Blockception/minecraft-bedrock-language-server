@@ -7,7 +7,7 @@ import {
 import { MCProject } from 'bc-minecraft-project';
 import * as vscode from 'vscode-languageserver';
 import { Diagnostic } from 'vscode-languageserver';
-import { GetRange } from '../../util';
+import { GetPosition, GetRange } from '../../util';
 import { TextDocument } from '../documents/text-document';
 
 /**
@@ -19,34 +19,33 @@ interface DisabledCodes {
   lineLevel: Map<number, Set<string>>; // Codes disabled for specific lines (line number -> codes)
 }
 
-function parseDisabledCodes(text: string): DisabledCodes {
+function parseDisabledCodes(doc: TextDocument): DisabledCodes {
   const result: DisabledCodes = {
     fileLevel: new Set(),
     lineLevel: new Map(),
   };
 
-  const lines = text.split('\n');
+  const text = doc.getText();
+  // Single regex that matches both file-level and line-level disables
+  const disableRegex = /\/\/\s*mc-disable(?:-(next-line))?\s+(.+)/g;
   
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i].trim();
+  let match;
+  while ((match = disableRegex.exec(text)) !== null) {
+    const isNextLine = match[1] !== undefined; // Check if it's mc-disable-next-line
+    const codesStr = match[2];
+    const codes = codesStr.split(',').map(c => c.trim()).filter(c => c.length > 0);
     
-    // Check for file-level disable: // mc-disable <code>[,code2,...]
-    const fileLevelMatch = line.match(/^\/\/\s*mc-disable\s+(.+)/);
-    if (fileLevelMatch) {
-      const codes = fileLevelMatch[1].split(',').map(c => c.trim()).filter(c => c.length > 0);
-      codes.forEach(code => result.fileLevel.add(code));
-      continue;
-    }
-    
-    // Check for next-line disable: // mc-disable-next-line <code>[,code2,...]
-    const nextLineMatch = line.match(/^\/\/\s*mc-disable-next-line\s+(.+)/);
-    if (nextLineMatch) {
-      const codes = nextLineMatch[1].split(',').map(c => c.trim()).filter(c => c.length > 0);
-      const targetLine = i + 1;
+    if (isNextLine) {
+      // Line-level disable: applies to the next line
+      const position = doc.positionAt(match.index);
+      const targetLine = position.line + 1;
       if (!result.lineLevel.has(targetLine)) {
         result.lineLevel.set(targetLine, new Set());
       }
       codes.forEach(code => result.lineLevel.get(targetLine)!.add(code));
+    } else {
+      // File-level disable: applies to entire file
+      codes.forEach(code => result.fileLevel.add(code));
     }
   }
   
@@ -76,7 +75,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     this.done = () => doneFN(this);
     
     // Parse disabled codes from document
-    this.disabledCodes = parseDisabledCodes(doc.getText());
+    this.disabledCodes = parseDisabledCodes(doc);
   }
 
   /**@inheritdoc*/
@@ -89,10 +88,12 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     // Check if code is disabled at file level
     if (this.disabledCodes.fileLevel.has(codeStr)) return;
     
-    // Check if code is disabled for this specific line
-    const line = this.getLineNumber(position);
-    const lineCodes = this.disabledCodes.lineLevel.get(line);
-    if (lineCodes && lineCodes.has(codeStr)) return;
+    // Optimization: Check if there are any line-level disablements before getting line number
+    if (this.disabledCodes.lineLevel.size > 0) {
+      const line = GetPosition(position, this.doc).line;
+      const lineCodes = this.disabledCodes.lineLevel.get(line);
+      if (lineCodes && lineCodes.has(codeStr)) return;
+    }
 
     const error: Diagnostic = {
       message: message,
@@ -113,39 +114,6 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
     }
 
     this.items.push(error);
-  }
-  
-  /**
-   * Converts a DocumentLocation to a line number
-   * @param position The position to convert
-   * @returns The line number (0-indexed)
-   */
-  private getLineNumber(position: DocumentLocation): number {
-    if (typeof position === 'number') {
-      // It's an offset, convert to line
-      return this.offsetToLine(position);
-    } else if (typeof position === 'object' && 'line' in position) {
-      // It's a Position object
-      return position.line;
-    } else if (typeof position === 'object' && 'offset' in position) {
-      // It's an OffsetWord
-      return this.offsetToLine(position.offset);
-    } else {
-      // It's a JsonPath string, we need to resolve it
-      const offset = DocumentLocation.toOffset(position, this.doc.getText());
-      return this.offsetToLine(offset);
-    }
-  }
-  
-  /**
-   * Converts an offset to a line number
-   * @param offset The offset in the document
-   * @returns The line number (0-indexed)
-   */
-  private offsetToLine(offset: number): number {
-    const text = this.doc.getText();
-    const lines = text.substring(0, offset).split('\n');
-    return lines.length - 1;
   }
 }
 
