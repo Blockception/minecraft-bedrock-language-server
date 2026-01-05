@@ -33,8 +33,9 @@ function extractArrayDefinitions(
     // For example: "Array.skins", "Array.variants", etc.
     for (const arrayName of Object.keys(arraySpec)) {
       // Find the position of this array name in the content
-      // Note: This uses a simple indexOf which may not be perfect if the name appears
-      // multiple times, but in practice render controller array names are unique
+      // Note: Using indexOf is a simple approach that works well for typical render controller files
+      // where array names are unique. More sophisticated approaches (like JSON path tracking)
+      // could be used for edge cases, but are not necessary for standard use.
       const position = content.indexOf(arrayName);
       if (position === -1) continue;
 
@@ -57,7 +58,7 @@ function extractArrayDefinitions(
       const arrayNode: VariableNode = {
         type: NodeType.Variable,
         scope: ARRAY_SCOPE,
-        names: [arrayIdentifier] as [string],
+        names: [arrayIdentifier],
         position: position,
       };
 
