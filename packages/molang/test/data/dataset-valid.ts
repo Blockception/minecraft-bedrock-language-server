@@ -105,4 +105,7 @@ export const valid_syntaxes = [
   'variable.value = (true && variable.enabled) || false;',
   'query.is_baby ? true : variable.default_value',
   'variable.state = query.is_alive ? (query.is_moving ? true : false) : false;',
+
+  // Issue: Unable to process ) - complex nested parentheses with negation
+  'query.mark_variant < 1200 && ((query.is_on_ground && !query.is_moving) || (!query.is_on_ground && query.vertical_speed < 0))',
 ];
