@@ -3,6 +3,10 @@ on:
   workflow_dispatch: {}
   workflow_call: {}
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   release-npm-packages:
     runs-on: ubuntu-latest

@@ -3,6 +3,10 @@ on:
   release:
     types: released
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: read
+
 jobs:
   release-vscode:
     name: 🖥️ Release VSCode
@@ -13,6 +17,9 @@ jobs:
     name: 📦 Release NPM
     uses: Blockception/minecraft-bedrock-language-server/.github/workflows/release-npm-packages.yaml@main
     secrets: inherit
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read
 
   update-release:
     name: 📦➡️ GitHub Release Assets
