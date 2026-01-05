@@ -112,6 +112,49 @@ function trimBraces(tokens: Token[]): Token[] {
     (tokens[0].type === TokenType.OpenBracket && tokens[tokens.length - 1].type === TokenType.CloseBracket) ||
     (tokens[0].type === TokenType.OpenParen && tokens[tokens.length - 1].type === TokenType.CloseParen)
   ) {
+    // Verify that the first and last tokens actually match each other
+    // by checking if they are properly paired
+    const firstType = tokens[0].type;
+    let targetType: TokenType;
+    let counterType: TokenType;
+
+    switch (firstType) {
+      case TokenType.OpenBrace:
+        targetType = TokenType.CloseBrace;
+        counterType = TokenType.OpenBrace;
+        break;
+      case TokenType.OpenParen:
+        targetType = TokenType.CloseParen;
+        counterType = TokenType.OpenParen;
+        break;
+      case TokenType.OpenBracket:
+        targetType = TokenType.CloseBracket;
+        counterType = TokenType.OpenBracket;
+        break;
+      default:
+        return tokens;
+    }
+
+    // Check if the first opening token matches with the last closing token
+    let level = 1;
+    let matchIndex = -1;
+    for (let i = 1; i < tokens.length; i++) {
+      if (tokens[i].type === counterType) {
+        level++;
+      } else if (tokens[i].type === targetType) {
+        level--;
+        if (level === 0) {
+          matchIndex = i;
+          break;
+        }
+      }
+    }
+
+    // If the matching closing token is not the last token, don't trim
+    if (matchIndex !== tokens.length - 1) {
+      break;
+    }
+
     tokens = tokens.slice(1, tokens.length - 1);
     if (tokens.length === 0) return tokens;
   }
