@@ -8,6 +8,15 @@ import { CompletionBuilder } from '../../builder/builder';
 import { CommandCompletionContext, CompletionContext } from '../../context';
 
 export function provideCompletion(context: Context<CompletionContext>): void {
+  const data = context.document.configuration();
+
+  // Add families from .mcdefinitions
+  context.builder.generate(
+    data.definitions.family?.defined,
+    (item) => `The defined family: ${item}`,
+    Kinds.Completion.Family,
+  );
+
   context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
     const generateDoc = (item: string) => `The entity family: ${item} from: ${entity.id}`;
 
