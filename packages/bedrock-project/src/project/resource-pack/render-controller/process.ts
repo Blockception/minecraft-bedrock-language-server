@@ -6,6 +6,9 @@ import { Documentation, TextDocument } from '../../../types';
 import { harvestMolang } from '../../molang';
 import { RenderController } from './render-controller';
 
+/** Constant for the array scope identifier used in render controller arrays */
+const ARRAY_SCOPE = 'array';
+
 /**
  * Extracts array definitions from render controller arrays section and adds them to the molang set
  * @param controller The render controller object
@@ -26,26 +29,35 @@ function extractArrayDefinitions(
     const arraySpec = controller.arrays[category];
     if (!arraySpec) continue;
 
-    // Each key in the ArraySpec is an array name (e.g., "Array.skins")
+    // Each key in the ArraySpec is an array name following the format "Scope.name"
+    // For example: "Array.skins", "Array.variants", etc.
     for (const arrayName of Object.keys(arraySpec)) {
       // Find the position of this array name in the content
+      // Note: This uses a simple indexOf which may not be perfect if the name appears
+      // multiple times, but in practice render controller array names are unique
       const position = content.indexOf(arrayName);
       if (position === -1) continue;
 
       // Parse the array name to extract scope and name parts
-      // Array names can be like "Array.skins" where "Array" is the scope
+      // Expected format: "Array.name" where "Array" is the scope and "name" is the identifier
       const parts = arrayName.split('.');
-      if (parts.length < 2) continue;
+      if (parts.length < 2) {
+        // Invalid format - array names should be at least "Scope.name"
+        continue;
+      }
 
-      const scope = parts[0].toLowerCase();
-      // Only process if it's an array scope
-      if (scope !== 'array') continue;
+      const scopePrefix = parts[0].toLowerCase();
+      const arrayIdentifier = parts[1];
+      
+      // Only process if it's an array scope (e.g., "Array.skins")
+      // Other scopes like "Texture" or "Material" are not array definitions
+      if (scopePrefix !== ARRAY_SCOPE) continue;
 
       // Create a VariableNode for the array definition
       const arrayNode: VariableNode = {
         type: NodeType.Variable,
-        scope: 'array',
-        names: [parts[1]] as [string],
+        scope: ARRAY_SCOPE,
+        names: [arrayIdentifier] as [string],
         position: position,
       };
 
