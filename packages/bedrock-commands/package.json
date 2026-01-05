@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server.git",
     "directory": "packges/bedrock-commands"
   },
   "bugs": {
