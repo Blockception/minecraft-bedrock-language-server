@@ -32,12 +32,27 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 }
 
 export function provideCompletionTest(context: Context<CommandCompletionContext>): void {
+  const data = context.document.configuration();
   const builder = context.builder;
 
   const types = GetPossibleEntityTypes(context.command, context.parameterIndex);
   const edu = IsEducationEnabled(context.document);
 
   if (types.length === 0) {
+    // Add families from .mcdefinitions
+    data.definitions.family?.defined.forEach((family) => {
+      builder.add({
+        label: family,
+        documentation: `Test for the defined family: ${family}`,
+        kind: Kinds.Completion.Family,
+      });
+      builder.add({
+        label: '!' + family,
+        documentation: `Test not for the defined family: ${family}`,
+        kind: Kinds.Completion.Family,
+      });
+    });
+
     context.database.ProjectData.behaviorPacks.entities.forEach((entity) => convertTestEntity(entity, builder));
 
     MinecraftData.General.Entities.families.forEach((family) => {
