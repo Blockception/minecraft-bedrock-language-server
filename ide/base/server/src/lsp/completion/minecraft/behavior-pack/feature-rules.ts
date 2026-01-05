@@ -2,53 +2,54 @@ import { Context } from '../../../context/context';
 import { JsonPathCompletion } from '../../builder/json-path';
 import { CompletionContext } from '../../context';
 import * as BiomeTags from './biome-tags';
+import * as jsonc from 'jsonc-parser';
 
 export function provideJsonCompletion(context: Context<CompletionContext>) {
   return featureRuleJsonCompletion.onCompletion(context);
 }
 
 function provideBiomeTagsIfHasBiomeTagFilter(context: Context<CompletionContext>): void {
-  // Check if the document contains "has_biome_tag" near this value field
+  // Parse the document to get the JSON structure
   const text = context.document.getText();
   const cursor = context.cursor;
   
-  // Look backwards from cursor to find the opening brace of the current filter object
-  let braceCount = 0;
-  let startPos = cursor;
-  for (let i = cursor; i >= 0; i--) {
-    const char = text[i];
-    if (char === '}') braceCount++;
-    if (char === '{') {
-      if (braceCount === 0) {
-        startPos = i;
-        break;
-      }
-      braceCount--;
+  // Get the location of the current cursor in the JSON structure
+  const location = jsonc.getLocation(text, cursor);
+  
+  // Navigate up the path to find the filter object that contains the 'value' field
+  // The path might be like: ["minecraft:feature_rules", "conditions", "minecraft:biome_filter", "all_of", 0, "value"]
+  // We need to go up one level to get the filter object
+  if (location.path.length === 0) {
+    return;
+  }
+  
+  // Create a path to the parent object (remove the last element which is 'value')
+  const parentPath = location.path.slice(0, -1);
+  
+  // Parse the entire JSON to navigate to the parent object
+  const root = jsonc.parseTree(text);
+  if (!root) {
+    return;
+  }
+  
+  // Navigate to the parent filter object
+  let current = root;
+  for (const segment of parentPath) {
+    const node = jsonc.findNodeAtLocation(current, [segment]);
+    if (!node) {
+      return;
     }
+    current = node;
   }
   
-  // Look forward to find the closing brace
-  braceCount = 0;
-  let endPos = cursor;
-  for (let i = cursor; i < text.length; i++) {
-    const char = text[i];
-    if (char === '{') braceCount++;
-    if (char === '}') {
-      if (braceCount === 0) {
-        endPos = i;
-        break;
-      }
-      braceCount--;
-    }
+  // Now check if this object has a 'test' property with value 'has_biome_tag'
+  const testNode = jsonc.findNodeAtLocation(current, ['test']);
+  if (!testNode || testNode.type !== 'string' || testNode.value !== 'has_biome_tag') {
+    return;
   }
   
-  // Extract the filter object text
-  const filterText = text.substring(startPos, endPos + 1);
-  
-  // Check if this filter has test: "has_biome_tag"
-  if (/["']test["']\s*:\s*["']has_biome_tag["']/.test(filterText)) {
-    BiomeTags.provideCompletion(context);
-  }
+  // If we get here, we're in a has_biome_tag filter, so provide biome tag completions
+  BiomeTags.provideCompletion(context);
 }
 
 const featureRuleJsonCompletion = new JsonPathCompletion({

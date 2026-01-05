@@ -22,8 +22,11 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 
   // Collect tags from project biomes
   context.database.ProjectData.behaviorPacks.biomes.forEach((biome) => {
+    if (!biome.tags) return;
     const biomeTags = Array.isArray(biome.tags) ? biome.tags : biome.tags.defined;
-    biomeTags.forEach((tag) => tags.add(tag));
+    if (biomeTags) {
+      biomeTags.forEach((tag) => tags.add(tag));
+    }
   });
 
   // Generate completion items for all collected tags
