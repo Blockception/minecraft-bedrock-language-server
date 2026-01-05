@@ -40,7 +40,7 @@ export function provideCompletionTest(context: Context<CommandCompletionContext>
 
   if (types.length === 0) {
     // Add families from .mcdefinitions
-    data.definitions.family?.defined.forEach((family) => {
+    data.definitions.family?.defined?.forEach((family) => {
       builder.add({
         label: family,
         documentation: `Test for the defined family: ${family}`,
