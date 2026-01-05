@@ -1,6 +1,6 @@
 import { Commands } from '@blockception/ide-shared';
 import { MCAttributes, MCDefinition } from 'bc-minecraft-project';
-import { CodeAction, CodeActionKind, Command, Diagnostic } from 'vscode-languageserver';
+import { CodeAction, CodeActionKind, Command, Diagnostic, TextEdit } from 'vscode-languageserver';
 import { CodeActionBuilder } from '../builder';
 import { Vscode } from '../../../util';
 
@@ -72,6 +72,88 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
     diagnostics: [diag],
     kind: CodeActionKind.QuickFix,
     isPreferred: false,
+  };
+
+  builder.push(action);
+  
+  // Add quick fix to disable in current file
+  addDisableInFile(builder, diag);
+  
+  // Add quick fix to disable on next line
+  addDisableNextLine(builder, diag);
+}
+
+/**
+ * Adds a quick fix to disable a diagnostic code for the entire file
+ * @param builder
+ * @param diag
+ */
+function addDisableInFile(builder: CodeActionBuilder, diag: Diagnostic): void {
+  const document = builder.context.document;
+  if (!document) return;
+
+  const key = diag.code ?? '';
+  if (typeof key === 'undefined' || key === '') return;
+
+  // Insert at the beginning of the file
+  const edit = TextEdit.insert(
+    { line: 0, character: 0 },
+    `// mc-disable ${key}\n`
+  );
+
+  const action: CodeAction = {
+    title: `Disable '${key}' for this file`,
+    kind: CodeActionKind.QuickFix,
+    diagnostics: [diag],
+    isPreferred: false,
+    edit: {
+      changes: {
+        [document.uri]: [edit],
+      },
+    },
+  };
+
+  builder.push(action);
+}
+
+/**
+ * Adds a quick fix to disable a diagnostic code for the next line
+ * @param builder
+ * @param diag
+ */
+function addDisableNextLine(builder: CodeActionBuilder, diag: Diagnostic): void {
+  const document = builder.context.document;
+  if (!document) return;
+
+  const key = diag.code ?? '';
+  if (typeof key === 'undefined' || key === '') return;
+
+  // Get the line before the diagnostic
+  const line = diag.range.start.line;
+  
+  // Get the indentation of the current line
+  const currentLineText = document.getText({
+    start: { line, character: 0 },
+    end: { line, character: 1000 },
+  });
+  const indent = currentLineText.match(/^(\s*)/)?.[1] ?? '';
+
+  // Insert on the line before the diagnostic
+  const edit = TextEdit.insert(
+    { line, character: 0 },
+    `${indent}// mc-disable-next-line ${key}\n`
+  );
+
+  const action: CodeAction = {
+    title: `Disable '${key}' for this line`,
+    kind: CodeActionKind.QuickFix,
+    diagnostics: [diag],
+    isPreferred: false,
+    edit: {
+      changes: {
+        [document.uri]: [edit],
+      },
+    },
   };
 
   builder.push(action);
