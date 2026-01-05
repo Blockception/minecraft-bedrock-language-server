@@ -57,6 +57,62 @@ describe('Render Controller - Process', () => {
       expect(arraySkinsUsing).toBeDefined();
     });
 
+    it('should handle real-world bee example with Array.skins', () => {
+      const content = `{
+        "format_version": "1.8.0",
+        "render_controllers": {
+          "controller.render.bee": {
+            "geometry": "Geometry.default",
+            "materials": [
+              {
+                "*": "Material.default"
+              }
+            ],
+            "arrays": {
+              "textures": {
+                "Array.skins": [
+                  "Texture.default",
+                  "Texture.nectar",
+                  "Texture.angry",
+                  "Texture.angry_nectar"
+                ]
+              }
+            },
+            "textures": [
+              "Array.skins[query.property('minecraft:has_nectar') + query.is_angry * 2]"
+            ]
+          }
+        }
+      }`;
+
+      const doc = TestTextDocument.create('bee.render_controllers.json', content);
+      const result = process(doc);
+
+      expect(result).toBeDefined();
+      const controller = result![0];
+      
+      // Array.skins should be in assigned (defined in arrays section)
+      const assignedArray = Array.from(controller.molang.assigned);
+      const arraySkinsDef = assignedArray.find((node) => {
+        return node.scope === 'array' && node.names[0] === 'skins';
+      });
+      
+      expect(arraySkinsDef).toBeDefined();
+      expect(arraySkinsDef?.scope).toBe('array');
+      expect(arraySkinsDef?.names).toEqual(['skins']);
+      
+      // Array.skins should also be in using (used in textures field)
+      const usingArray = Array.from(controller.molang.using);
+      const arraySkinsUsage = usingArray.find((node) => {
+        return node.scope === 'array' && node.names[0] === 'skins';
+      });
+      
+      expect(arraySkinsUsage).toBeDefined();
+      
+      // This demonstrates that the array is both defined and used,
+      // which should prevent "undefined" warnings
+    });
+
     it('should handle multiple array definitions in different categories', () => {
       const content = `{
         "format_version": "1.8.0",
