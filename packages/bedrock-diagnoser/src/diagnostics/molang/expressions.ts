@@ -12,6 +12,8 @@ import {
 } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 import { Json } from '../json';
+import { traverseAndOptimize } from './optimizations/framework';
+import { createDefaultOptimizationRegistry } from './optimizations/rules';
 
 export function diagnose_molang_syntax_current_document(
   diagnoser: DocumentDiagnosticsBuilder,
@@ -174,8 +176,22 @@ export function diagnose_molang_syntax(expression: ExpressionNode, diagnoser: Di
   }
 }
 
+// Singleton registry instance for optimization rules
+let optimizationRegistry: ReturnType<typeof createDefaultOptimizationRegistry> | undefined;
+
+/**
+ * Gets or creates the optimization registry
+ */
+function getOptimizationRegistry() {
+  if (!optimizationRegistry) {
+    optimizationRegistry = createDefaultOptimizationRegistry();
+  }
+  return optimizationRegistry;
+}
+
 export function diagnose_molang_syntax_optimizations(expression: ExpressionNode, diagnoser: DiagnosticsBuilder) {
-  // TODO: optimizations
+  const registry = getOptimizationRegistry();
+  traverseAndOptimize(expression, registry, diagnoser);
 }
 
 export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: DiagnosticsBuilder) {
