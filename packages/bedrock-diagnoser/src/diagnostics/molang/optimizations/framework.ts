@@ -99,7 +99,7 @@ export namespace OptimizationRuleHelpers {
     operator: string,
     literalValue: string,
     code: string,
-    message: string,
+    message: string | ((node: ExpressionNode) => string),
     severity: DiagnosticSeverity = DiagnosticSeverity.info,
   ): OptimizationRule {
     return {
@@ -111,7 +111,7 @@ export namespace OptimizationRuleHelpers {
         const binOp = node as BinaryOperationNode;
         return binOp.operator === operator && isLiteralValue(binOp.right, literalValue);
       },
-      getMessage: () => message,
+      getMessage: typeof message === 'string' ? () => message : message,
     };
   }
 
@@ -122,7 +122,7 @@ export namespace OptimizationRuleHelpers {
     operator: string,
     literalValue: string,
     code: string,
-    message: string,
+    message: string | ((node: ExpressionNode) => string),
     severity: DiagnosticSeverity = DiagnosticSeverity.info,
   ): OptimizationRule {
     return {
@@ -134,8 +134,32 @@ export namespace OptimizationRuleHelpers {
         const binOp = node as BinaryOperationNode;
         return binOp.operator === operator && isLiteralValue(binOp.left, literalValue);
       },
-      getMessage: () => message,
+      getMessage: typeof message === 'string' ? () => message : message,
     };
+  }
+
+  /**
+   * Creates rules for checking binary operations with a specific operator and literal value on either side
+   * This helper reduces duplication by creating both left and right rules at once
+   */
+  export function createBinaryLeftOrRightLiteralRules(
+    operator: string,
+    literalValue: string,
+    code: string,
+    messageTemplate: string | ((node: ExpressionNode, side: 'left' | 'right') => string),
+    severity: DiagnosticSeverity = DiagnosticSeverity.info,
+  ): OptimizationRule[] {
+    // If messageTemplate is a function, we need to adapt it for left/right
+    if (typeof messageTemplate === 'function') {
+      return [
+        createBinaryRightLiteralRule(operator, literalValue, code, (node) => messageTemplate(node, 'right'), severity),
+        createBinaryLeftLiteralRule(operator, literalValue, code, (node) => messageTemplate(node, 'left'), severity),
+      ];
+    }
+    return [
+      createBinaryRightLiteralRule(operator, literalValue, code, messageTemplate, severity),
+      createBinaryLeftLiteralRule(operator, literalValue, code, messageTemplate, severity),
+    ];
   }
 }
 

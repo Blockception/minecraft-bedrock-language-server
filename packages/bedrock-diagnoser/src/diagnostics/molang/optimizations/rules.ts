@@ -32,6 +32,33 @@ function createConstantFoldingCategory(): OptimizationCategory {
           const binOp = node as BinaryOperationNode;
           const leftVal = OptimizationRuleHelpers.getLiteralValue(binOp.left);
           const rightVal = OptimizationRuleHelpers.getLiteralValue(binOp.right);
+          
+          // Try to calculate the result
+          let result: string | undefined;
+          try {
+            const left = parseFloat(leftVal || '0');
+            const right = parseFloat(rightVal || '0');
+            if (!isNaN(left) && !isNaN(right)) {
+              let computed: number;
+              switch (binOp.operator) {
+                case '+': computed = left + right; break;
+                case '-': computed = left - right; break;
+                case '*': computed = left * right; break;
+                case '/': computed = left / right; break;
+                case '%': computed = left % right; break;
+                default: computed = NaN;
+              }
+              if (!isNaN(computed)) {
+                result = String(computed);
+              }
+            }
+          } catch {
+            // If calculation fails, don't show result
+          }
+
+          if (result !== undefined) {
+            return `constant expression '${leftVal} ${binOp.operator} ${rightVal}' can be replaced with '${result}'`;
+          }
           return `constant expression can be pre-calculated: ${leftVal} ${binOp.operator} ${rightVal}`;
         },
       },
@@ -48,41 +75,64 @@ function createIdentityOperationsCategory(): OptimizationCategory {
     name: 'Identity Operations',
     description: 'Detects mathematical operations that have no effect and can be removed',
     rules: [
-      OptimizationRuleHelpers.createBinaryRightLiteralRule(
+      ...OptimizationRuleHelpers.createBinaryLeftOrRightLiteralRules(
         '+',
         '0',
         'molang.optimization.identity-operation',
-        'addition with 0 has no effect and can be removed',
+        (node, side) => {
+          const binOp = node as BinaryOperationNode;
+          const otherSide = side === 'left' ? binOp.right : binOp.left;
+          // Try to get a simple representation
+          let replacement = 'the other operand';
+          if (otherSide.type === NodeType.Variable || otherSide.type === NodeType.ResourceReference) {
+            const varNode = otherSide as any;
+            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
+          }
+          return `addition with 0 has no effect, replace with ${replacement}`;
+        },
       ),
       OptimizationRuleHelpers.createBinaryRightLiteralRule(
         '-',
         '0',
         'molang.optimization.identity-operation',
-        'subtraction with 0 has no effect and can be removed',
+        (node) => {
+          const binOp = node as BinaryOperationNode;
+          let replacement = 'the left operand';
+          if (binOp.left.type === NodeType.Variable || binOp.left.type === NodeType.ResourceReference) {
+            const varNode = binOp.left as any;
+            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
+          }
+          return `subtraction with 0 has no effect, replace with ${replacement}`;
+        },
       ),
-      OptimizationRuleHelpers.createBinaryRightLiteralRule(
+      ...OptimizationRuleHelpers.createBinaryLeftOrRightLiteralRules(
         '*',
         '1',
         'molang.optimization.identity-operation',
-        'multiplication by 1 has no effect and can be removed',
+        (node, side) => {
+          const binOp = node as BinaryOperationNode;
+          const otherSide = side === 'left' ? binOp.right : binOp.left;
+          let replacement = 'the other operand';
+          if (otherSide.type === NodeType.Variable || otherSide.type === NodeType.ResourceReference) {
+            const varNode = otherSide as any;
+            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
+          }
+          return `multiplication by 1 has no effect, replace with ${replacement}`;
+        },
       ),
       OptimizationRuleHelpers.createBinaryRightLiteralRule(
         '/',
         '1',
         'molang.optimization.identity-operation',
-        'division by 1 has no effect and can be removed',
-      ),
-      OptimizationRuleHelpers.createBinaryLeftLiteralRule(
-        '+',
-        '0',
-        'molang.optimization.identity-operation',
-        'addition with 0 has no effect and can be removed',
-      ),
-      OptimizationRuleHelpers.createBinaryLeftLiteralRule(
-        '*',
-        '1',
-        'molang.optimization.identity-operation',
-        'multiplication by 1 has no effect and can be removed',
+        (node) => {
+          const binOp = node as BinaryOperationNode;
+          let replacement = 'the left operand';
+          if (binOp.left.type === NodeType.Variable || binOp.left.type === NodeType.ResourceReference) {
+            const varNode = binOp.left as any;
+            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
+          }
+          return `division by 1 has no effect, replace with ${replacement}`;
+        },
       ),
     ],
   };
