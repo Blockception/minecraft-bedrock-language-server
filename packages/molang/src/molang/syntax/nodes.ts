@@ -31,9 +31,9 @@ function createfn<T extends ExpressionNode>(type: T['type']): (data: Omit<T, 'ty
   };
 }
 
-function isfn<T extends ExpressionNode>(type: T['type']) {
-  return function (data: T): data is T {
-    return data?.type === type;
+function isfn<T extends ExpressionNode>(type: T['type']): (data: ExpressionNode) => data is T {
+  return function (data: ExpressionNode): data is T {
+    return data.type === type;
   };
 }
 
@@ -51,6 +51,7 @@ export interface UnaryOperationNode extends SyntaxNode {
 
 export namespace UnaryOperationNode {
   export const create = createfn<UnaryOperationNode>(NodeType.UnaryOperation);
+  export const is = isfn<UnaryOperationNode>(NodeType.UnaryOperation);
 }
 
 /** Represents an assignment operation */

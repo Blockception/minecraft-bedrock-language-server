@@ -1,10 +1,20 @@
-import { ExpressionNode, NodeType, BinaryOperationNode, UnaryOperationNode, ConditionalNode } from 'bc-minecraft-molang';
-import { DiagnosticSeverity } from '../../../types';
 import {
-  OptimizationCategory,
-  OptimizationRuleHelpers,
-  OptimizationRegistry,
-} from './framework';
+  BinaryOperationNode,
+  ConditionalNode,
+  ExpressionNode,
+  NodeType,
+  ResourceReferenceNode,
+  UnaryOperationNode,
+  VariableNode,
+} from 'bc-minecraft-molang';
+import { DiagnosticSeverity } from '../../../types';
+import { OptimizationCategory, OptimizationRegistry } from './framework';
+import {
+  createBinaryLeftLiteralRule,
+  createBinaryLeftOrRightLiteralRules,
+  createBinaryRightLiteralRule,
+} from './template';
+import { getLiteralValue, hasTwoLiteralOperands, isBooleanLiteral } from './util';
 
 /**
  * Default optimization rules for Molang expressions
@@ -26,13 +36,13 @@ function createConstantFoldingCategory(): OptimizationCategory {
         name: 'Constant expression folding',
         severity: DiagnosticSeverity.info,
         matches(node: ExpressionNode): boolean {
-          return OptimizationRuleHelpers.hasTwoLiteralOperands(node);
+          return hasTwoLiteralOperands(node);
         },
         getMessage(node: ExpressionNode): string {
           const binOp = node as BinaryOperationNode;
-          const leftVal = OptimizationRuleHelpers.getLiteralValue(binOp.left);
-          const rightVal = OptimizationRuleHelpers.getLiteralValue(binOp.right);
-          
+          const leftVal = getLiteralValue(binOp.left);
+          const rightVal = getLiteralValue(binOp.right);
+
           // Try to calculate the result
           let result: string | undefined;
           try {
@@ -41,12 +51,23 @@ function createConstantFoldingCategory(): OptimizationCategory {
             if (!isNaN(left) && !isNaN(right)) {
               let computed: number;
               switch (binOp.operator) {
-                case '+': computed = left + right; break;
-                case '-': computed = left - right; break;
-                case '*': computed = left * right; break;
-                case '/': computed = left / right; break;
-                case '%': computed = left % right; break;
-                default: computed = NaN;
+                case '+':
+                  computed = left + right;
+                  break;
+                case '-':
+                  computed = left - right;
+                  break;
+                case '*':
+                  computed = left * right;
+                  break;
+                case '/':
+                  computed = left / right;
+                  break;
+                case '%':
+                  computed = left % right;
+                  break;
+                default:
+                  computed = NaN;
               }
               if (!isNaN(computed)) {
                 result = String(computed);
@@ -75,65 +96,40 @@ function createIdentityOperationsCategory(): OptimizationCategory {
     name: 'Identity Operations',
     description: 'Detects mathematical operations that have no effect and can be removed',
     rules: [
-      ...OptimizationRuleHelpers.createBinaryLeftOrRightLiteralRules(
-        '+',
-        '0',
-        'molang.optimization.identity-operation',
-        (node, side) => {
-          const binOp = node as BinaryOperationNode;
-          const otherSide = side === 'left' ? binOp.right : binOp.left;
-          // Try to get a simple representation
-          let replacement = 'the other operand';
-          if (otherSide.type === NodeType.Variable || otherSide.type === NodeType.ResourceReference) {
-            const varNode = otherSide as any;
-            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
-          }
-          return `addition with 0 has no effect, replace with ${replacement}`;
-        },
-      ),
-      OptimizationRuleHelpers.createBinaryRightLiteralRule(
-        '-',
-        '0',
-        'molang.optimization.identity-operation',
-        (node) => {
-          const binOp = node as BinaryOperationNode;
-          let replacement = 'the left operand';
-          if (binOp.left.type === NodeType.Variable || binOp.left.type === NodeType.ResourceReference) {
-            const varNode = binOp.left as any;
-            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
-          }
-          return `subtraction with 0 has no effect, replace with ${replacement}`;
-        },
-      ),
-      ...OptimizationRuleHelpers.createBinaryLeftOrRightLiteralRules(
-        '*',
-        '1',
-        'molang.optimization.identity-operation',
-        (node, side) => {
-          const binOp = node as BinaryOperationNode;
-          const otherSide = side === 'left' ? binOp.right : binOp.left;
-          let replacement = 'the other operand';
-          if (otherSide.type === NodeType.Variable || otherSide.type === NodeType.ResourceReference) {
-            const varNode = otherSide as any;
-            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
-          }
-          return `multiplication by 1 has no effect, replace with ${replacement}`;
-        },
-      ),
-      OptimizationRuleHelpers.createBinaryRightLiteralRule(
-        '/',
-        '1',
-        'molang.optimization.identity-operation',
-        (node) => {
-          const binOp = node as BinaryOperationNode;
-          let replacement = 'the left operand';
-          if (binOp.left.type === NodeType.Variable || binOp.left.type === NodeType.ResourceReference) {
-            const varNode = binOp.left as any;
-            replacement = `${varNode.scope}.${varNode.names.join('.')}`;
-          }
-          return `division by 1 has no effect, replace with ${replacement}`;
-        },
-      ),
+      ...createBinaryLeftOrRightLiteralRules('+', '0', 'molang.optimization.identity-operation', (node, side) => {
+        const otherSide = side === 'left' ? node.right : node.left;
+        // Try to get a simple representation
+        let replacement = 'the other operand';
+        if (otherSide.type === NodeType.Variable || otherSide.type === NodeType.ResourceReference) {
+          const varNode = otherSide as any;
+          replacement = `${varNode.scope}.${varNode.names.join('.')}`;
+        }
+        return `addition with 0 has no effect, replace with ${replacement}`;
+      }),
+      createBinaryRightLiteralRule('-', '0', 'molang.optimization.identity-operation', (node) => {
+        let replacement = 'the left operand';
+        if (node.left.type === NodeType.Variable || node.left.type === NodeType.ResourceReference) {
+          const varNode = node.left as any;
+          replacement = `${varNode.scope}.${varNode.names.join('.')}`;
+        }
+        return `subtraction with 0 has no effect, replace with ${replacement}`;
+      }),
+      ...createBinaryLeftOrRightLiteralRules('*', '1', 'molang.optimization.identity-operation', (node, side) => {
+        const otherSide = side === 'left' ? node.right : node.left;
+        let replacement = 'the other operand';
+        if (VariableNode.is(otherSide)  || ResourceReferenceNode.is(otherSide)) {
+          replacement = `${otherSide.scope}.${otherSide.names.join('.')}`;
+        }
+        return `multiplication by 1 has no effect, replace with ${replacement}`;
+      }),
+      createBinaryRightLiteralRule('/', '1', 'molang.optimization.identity-operation', (node) => {
+        let replacement = 'the left operand';
+        if (node.left.type === NodeType.Variable || node.left.type === NodeType.ResourceReference) {
+          const varNode = node.left as any;
+          replacement = `${varNode.scope}.${varNode.names.join('.')}`;
+        }
+        return `division by 1 has no effect, replace with ${replacement}`;
+      }),
     ],
   };
 }
@@ -147,13 +143,13 @@ function createConstantResultCategory(): OptimizationCategory {
     name: 'Constant Result',
     description: 'Detects operations that always produce a constant result',
     rules: [
-      OptimizationRuleHelpers.createBinaryRightLiteralRule(
+      createBinaryRightLiteralRule(
         '*',
         '0',
         'molang.optimization.constant-result',
         'multiplication by 0 always results in 0',
       ),
-      OptimizationRuleHelpers.createBinaryLeftLiteralRule(
+      createBinaryLeftLiteralRule(
         '*',
         '0',
         'molang.optimization.constant-result',
@@ -177,17 +173,17 @@ function createRedundantComparisonCategory(): OptimizationCategory {
         name: 'Redundant boolean comparison',
         severity: DiagnosticSeverity.info,
         matches(node: ExpressionNode): boolean {
-          if (node.type !== NodeType.BinaryOperation) return false;
-          const binOp = node as BinaryOperationNode;
-          if (binOp.operator !== '==' && binOp.operator !== '!=') return false;
-          return OptimizationRuleHelpers.isBooleanLiteral(binOp.left) || OptimizationRuleHelpers.isBooleanLiteral(binOp.right);
+          if (!BinaryOperationNode.is(node)) return false;
+          if (node.operator !== '==' && node.operator !== '!=') return false;
+
+          return isBooleanLiteral(node.left) || isBooleanLiteral(node.right);
         },
         getMessage(node: ExpressionNode): string {
           const binOp = node as BinaryOperationNode;
-          const leftIsBoolean = OptimizationRuleHelpers.isBooleanLiteral(binOp.left);
+          const leftIsBoolean = isBooleanLiteral(binOp.left);
           const boolNode = leftIsBoolean ? binOp.left : binOp.right;
           const otherSide = leftIsBoolean ? 'right' : 'left';
-          const value = OptimizationRuleHelpers.getLiteralValue(boolNode)?.toLowerCase();
+          const value = getLiteralValue(boolNode)?.toLowerCase();
 
           const shouldNegate =
             (binOp.operator === '==' && value === 'false') || (binOp.operator === '!=' && value === 'true');
@@ -214,11 +210,9 @@ function createDoubleNegationCategory(): OptimizationCategory {
         name: 'Double negation',
         severity: DiagnosticSeverity.info,
         matches(node: ExpressionNode): boolean {
-          if (node.type !== NodeType.UnaryOperation) return false;
-          const unaryOp = node as UnaryOperationNode;
-          if (unaryOp.operator !== '!') return false;
-          if (unaryOp.operand.type !== NodeType.UnaryOperation) return false;
-          const innerOp = unaryOp.operand as UnaryOperationNode;
+          if (!UnaryOperationNode.is(node)) return false;
+          if (!UnaryOperationNode.is(node.operand)) return false;
+          const innerOp = node.operand;
           return innerOp.operator === '!';
         },
         getMessage(): string {
@@ -243,9 +237,8 @@ function createRedundantUnaryCategory(): OptimizationCategory {
         name: 'Redundant unary plus',
         severity: DiagnosticSeverity.info,
         matches(node: ExpressionNode): boolean {
-          if (node.type !== NodeType.UnaryOperation) return false;
-          const unaryOp = node as UnaryOperationNode;
-          return unaryOp.operator === '+';
+          if (!UnaryOperationNode.is(node)) return false;
+          return node.operator === '+';
         },
         getMessage(): string {
           return 'unary plus operator has no effect and can be removed';
@@ -269,15 +262,13 @@ function createConstantConditionCategory(): OptimizationCategory {
         name: 'Constant condition in ternary',
         severity: DiagnosticSeverity.info,
         matches(node: ExpressionNode): boolean {
-          if (node.type !== NodeType.Conditional) return false;
-          const conditional = node as ConditionalNode;
-          if (conditional.condition.type !== NodeType.Literal) return false;
-          const value = OptimizationRuleHelpers.getLiteralValue(conditional.condition)?.toLowerCase();
+          if (!ConditionalNode.is(node)) return false;
+          const value = getLiteralValue(node.condition)?.toLowerCase();
           return value === 'true' || value === 'false' || value === '0';
         },
         getMessage(node: ExpressionNode): string {
           const conditional = node as ConditionalNode;
-          const condValue = OptimizationRuleHelpers.getLiteralValue(conditional.condition)?.toLowerCase();
+          const condValue = getLiteralValue(conditional.condition)?.toLowerCase();
           const branch = condValue === '0' || condValue === 'false' ? 'false' : 'true';
           return `conditional has constant condition, can be replaced with ${branch} branch`;
         },
@@ -303,32 +294,3 @@ export function createDefaultOptimizationRegistry(): OptimizationRegistry {
 
   return registry;
 }
-
-/**
- * Example of how to add custom optimization rules:
- * 
- * ```typescript
- * const customCategory: OptimizationCategory = {
- *   name: 'Custom Optimizations',
- *   description: 'My custom optimization rules',
- *   rules: [
- *     {
- *       code: 'molang.optimization.custom-rule',
- *       name: 'My custom rule',
- *       severity: DiagnosticSeverity.info,
- *       matches(node: ExpressionNode): boolean {
- *         // Your matching logic here
- *         return false;
- *       },
- *       getMessage(node: ExpressionNode): string {
- *         return 'Your message here';
- *       },
- *     },
- *   ],
- * };
- * 
- * const registry = createDefaultOptimizationRegistry();
- * registry.registerCategory(customCategory);
- * ```
- */
-
