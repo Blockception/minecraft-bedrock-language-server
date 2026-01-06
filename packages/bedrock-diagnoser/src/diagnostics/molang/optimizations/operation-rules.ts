@@ -107,6 +107,8 @@ function constantFold(n: TOp): boolean {
           n.args[1].type === types.Value && typeof n.args[1].value === 'number') {
         const left = n.args[0].value;
         const right = n.args[1].value;
+        // Prevent division by zero
+        if (n.op === '/' && right === 0) break;
         const calcResult = n.op === '-' ? left - right : left / right;
         n.args = [{ type: types.Value, value: calcResult }];
         changed = true;

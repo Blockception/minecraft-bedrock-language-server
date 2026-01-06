@@ -254,7 +254,8 @@ export function createRedundantComparisonCategory(): OptimizationCategory {
           // Check if exactly one operand is a boolean literal (XOR)
           const leftIsBoolean = isBooleanLiteral(node.left);
           const rightIsBoolean = isBooleanLiteral(node.right);
-          if (leftIsBoolean === rightIsBoolean) return null; // Both true or both false - not what we want
+          // Skip if both operands have same boolean status - need exactly one boolean literal
+          if (leftIsBoolean === rightIsBoolean) return null;
 
           const boolNode = leftIsBoolean ? node.left : node.right;
           const otherSide = leftIsBoolean ? 'right' : 'left';
