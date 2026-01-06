@@ -1,3 +1,4 @@
+import { nodesToString } from './string';
 import { Token } from './tokens';
 
 /** Variable scope types in Molang */
@@ -226,6 +227,11 @@ export type ExpressionNode =
   | UnaryOperationNode
   | VariableNode;
 
+export interface Scoped {
+  scope: string;
+  names: string[];
+}
+
 export namespace ExpressionNode {
   export function getChildern(node: ExpressionNode): ExpressionNode[] {
     if (node === undefined) return [];
@@ -255,10 +261,7 @@ export namespace ExpressionNode {
     }
   }
 
-  export function getIdentifier(
-    node: Pick<ResourceReferenceNode | VariableNode | FunctionCallNode, 'scope' | 'names'>,
-    prefixed: boolean = true,
-  ): string {
+  export function getIdentifier(node: Scoped, prefixed: boolean = true): string {
     if (prefixed) {
       return `${node.scope}.${node.names.join('.')}`;
     }
@@ -308,5 +311,9 @@ export namespace ExpressionNode {
     }
 
     return (node as ExpressionNode | undefined)?.position ?? 0;
+  }
+
+  export function toString(node: ExpressionNode): string {
+    return nodesToString(node);
   }
 }

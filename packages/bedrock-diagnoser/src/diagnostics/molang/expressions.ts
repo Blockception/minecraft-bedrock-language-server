@@ -12,8 +12,7 @@ import {
 } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 import { Json } from '../json';
-import { traverseAndOptimize } from './optimizations/framework';
-import { createDefaultOptimizationRegistry } from './optimizations/rules';
+import { createDefaultOptimizationRegistry, traverseAndOptimize } from './optimizations/registry';
 
 export function diagnose_molang_syntax_current_document(
   diagnoser: DocumentDiagnosticsBuilder,
@@ -207,7 +206,7 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
       break;
     default:
       diagnoser.add(
-        OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+        OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
         `Unknown function molang scope: ${fn.scope}, expected math or query`,
         DiagnosticSeverity.error,
         `molang.function.scope`,
@@ -217,7 +216,7 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
 
   if (fnData === undefined) {
     diagnoser.add(
-      OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+      OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
       `Unknown function ${fn.scope}.${id}, doesn't seem to exist`,
       DiagnosticSeverity.error,
       `molang.function.${fn.scope}.${id}`,
@@ -232,7 +231,7 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
     }
 
     diagnoser.add(
-      OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+      OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
       `molang function has been deprecated: ${fnData.deprecated}`,
       DiagnosticSeverity.error,
       'molang.function.deprecated',
@@ -250,7 +249,7 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
       // With repeatable parameter, we need at least the minimum parameters
       if (fn.arguments.length < minRequiredParams) {
         diagnoser.add(
-          OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+          OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
           `wrong amount of arguments, expected at least ${minRequiredParams} but got ${fn.arguments.length}`,
           DiagnosticSeverity.error,
           'molang.function.arguments',
@@ -260,7 +259,7 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
       // Without repeatable parameter, we need exact match
       if (fnData.parameters.length != fn.arguments.length) {
         diagnoser.add(
-          OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+          OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
           `wrong amount of arguments, expected ${fnData.parameters.length} but got ${fn.arguments.length}`,
           DiagnosticSeverity.error,
           'molang.function.arguments',
@@ -287,7 +286,7 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
         const actualType = getArgumentType(arg);
         if (actualType && actualType !== expectedParam.type) {
           diagnoser.add(
-            OffsetWord.create(`${fn.scope}.${fn.names.join('.')}`, fn.position),
+            OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
             `wrong argument type at position ${i + 1}, expected ${expectedParam.type} but got ${actualType}`,
             DiagnosticSeverity.error,
             'molang.function.arguments.type',

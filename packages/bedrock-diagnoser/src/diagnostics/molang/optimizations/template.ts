@@ -1,4 +1,4 @@
-import { BinaryOperationNode, ExpressionNode } from 'bc-minecraft-molang';
+import { BinaryOperationNode, ExpressionNode, LiteralNode } from 'bc-minecraft-molang';
 import { OptimizationRule } from '.';
 import { DiagnosticSeverity } from '../../../types';
 import { isLiteralValue } from './util';
@@ -78,4 +78,30 @@ export function createBinaryLeftOrRightLiteralRules(
     createBinaryRightLiteralRule(operator, literalValue, code, messageTemplate, severity),
     createBinaryLeftLiteralRule(operator, literalValue, code, messageTemplate, severity),
   ];
+}
+
+export function createBinaryBothLiteralRule(
+  code: string,
+  severity: DiagnosticSeverity,
+  optimize: (op: string, left: string, right: string) => string | undefined,
+): OptimizationRule {
+  return {
+    code,
+    name: `Operators with literals on both sides`,
+    severity,
+    getOptimizations(node: ExpressionNode) {
+      if (!BinaryOperationNode.is(node)) return null;
+      if (!LiteralNode.is(node.left)) return null;
+      if (!LiteralNode.is(node.right)) return null;
+
+      const newValue = optimize(node.operator, node.left.value, node.right.value);
+      if (newValue !== undefined) {
+        return {
+          message: `Both sides of the '${node.operator}' operation are literals and can be pre-calculated to '${newValue}'`,
+        };
+      }
+
+      return null;
+    },
+  };
 }

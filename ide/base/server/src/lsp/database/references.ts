@@ -1,9 +1,8 @@
 import { DocumentLocation, Identifiable, Locatable } from '@blockception/packages-shared';
 import { BehaviorPack, Defined, ResourcePack, Using } from 'bc-minecraft-bedrock-project';
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
-import { MolangSet } from 'bc-minecraft-molang';
+import { ExpressionNode, MolangSet, Scoped } from 'bc-minecraft-molang';
 import { CancellationToken, Location } from 'vscode-languageserver';
-import { getIdentifier } from '../../minecraft/molang';
 import { IDocumentManager } from '../documents/manager';
 
 type Base = Identifiable & Locatable;
@@ -95,10 +94,10 @@ export class ReferenceBuilder {
     molang.functions.forEach((i) => this.checkMolang(holder, id, i));
   }
 
-  private checkMolang(holder: Base, id: string, item: { scope: string; names: string[]; position: number }) {
+  private checkMolang(holder: Base, id: string, item: Scoped & { position: DocumentLocation }) {
     if (!id.startsWith(item.scope)) return;
 
-    const identifier = getIdentifier(item);
+    const identifier = ExpressionNode.getIdentifier(item);
     if (identifier === id) {
       this.addItem(holder, item.position, identifier.length);
     }

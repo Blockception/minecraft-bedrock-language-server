@@ -1,5 +1,13 @@
 import { CommandData } from 'bc-minecraft-bedrock-command';
-import { MolangSet, ResourceReferenceNode, ResourceScope, VariableNode, VariableScope } from 'bc-minecraft-molang';
+import {
+  ExpressionNode,
+  FunctionCallNode,
+  MolangSet,
+  ResourceReferenceNode,
+  ResourceScope,
+  VariableNode,
+  VariableScope,
+} from 'bc-minecraft-molang';
 import { Character } from '../../util';
 
 const MolangRegexp =
@@ -62,21 +70,22 @@ export function isDefined(set: MolangSet | undefined, id: string) {
   if (set === undefined) return false;
 
   for (const item of set.assigned) {
-    const identifier = `${item.scope}.${item.names.join('.')}`;
+    const identifier = ExpressionNode.getIdentifier(item);
+
     if (identifier === id) return true;
   }
 
   return false;
 }
 
+/**
+ * @deprecated Use ExpressionNode.getIdentifier
+ */
 export function getIdentifier(
-  item: { scope: string; names: string[] | [string] | [string, string] },
+  item: Pick<ResourceReferenceNode | VariableNode | FunctionCallNode, 'scope' | 'names'>,
   prefixed: boolean = true,
 ): string {
-  if (prefixed) {
-    return `${item.scope}.${item.names.join('.')}`;
-  }
-  return item.names.join('.');
+  return ExpressionNode.getIdentifier(item, prefixed);
 }
 
 export function getScopeDefined(set: MolangSet, ...scope: Array<VariableScope | ResourceScope>) {
