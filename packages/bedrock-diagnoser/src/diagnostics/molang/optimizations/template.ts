@@ -17,11 +17,16 @@ export function createBinaryRightLiteralRule(
     code,
     name: `${operator} with ${literalValue} on right`,
     severity,
-    matches(node: ExpressionNode): boolean {
-      if (!BinaryOperationNode.is(node)) return false;
-      return node.operator === operator && isLiteralValue(node.right, literalValue);
+    getOptimizations(node) {
+      if (!BinaryOperationNode.is(node)) return null;
+      if (node.operator === operator && isLiteralValue(node.right, literalValue)) {
+        return {
+          message: typeof message === 'string' ? message : message(node),
+        };
+      }
+
+      return null;
     },
-    getMessage: typeof message === 'string' ? () => message : message,
   };
 }
 
@@ -39,11 +44,15 @@ export function createBinaryLeftLiteralRule(
     code,
     name: `${operator} with ${literalValue} on left`,
     severity,
-    matches(node: ExpressionNode): boolean {
-      if (!BinaryOperationNode.is(node)) return false;
-      return node.operator === operator && isLiteralValue(node.left, literalValue);
+    getOptimizations(node: ExpressionNode) {
+      if (!BinaryOperationNode.is(node)) return null;
+      if (node.operator === operator && isLiteralValue(node.left, literalValue)) {
+        return {
+          message: typeof message === 'string' ? message : message(node),
+        };
+      }
+      return null;
     },
-    getMessage: typeof message === 'string' ? () => message : message,
   };
 }
 
