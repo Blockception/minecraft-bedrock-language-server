@@ -1,6 +1,7 @@
 import { ComponentBehavior, ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import { DocumentDiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { Context } from './components';
+import { safeObjectKeys, safeObjectEntries } from '@blockception/packages-shared';
 
 export type ComponentCheck<T> = (
   name: string,
@@ -33,7 +34,7 @@ export function components_check<T>(
   comp_container_check(data, context, diagnoser, component_test);
 
   if (data.component_groups) {
-    Object.entries(data.component_groups)?.forEach(([, group]) => {
+    safeObjectEntries(data.component_groups).forEach(([, group]) => {
       comp_container_check(group, context, diagnoser, component_test);
     });
   }
@@ -47,7 +48,7 @@ function comp_container_check<T>(
 ): void {
   if (container === undefined) return;
 
-  Object.keys(container)?.forEach((key) => {
+  safeObjectKeys(container).forEach((key) => {
     const callbackfn = component_test[key];
 
     if (callbackfn) {

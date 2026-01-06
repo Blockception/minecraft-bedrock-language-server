@@ -10,6 +10,7 @@ import { is_block_defined } from '../../block';
 import { behaviorpack_entityid_diagnose } from '../../entity';
 import { behaviorpack_item_diagnose } from '../diagnose';
 import { Vanilla } from 'bc-minecraft-bedrock-vanilla-data';
+import { safeObjectKeys } from '@blockception/packages-shared';
 
 /**
  *
@@ -110,7 +111,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Item>>
           'behaviorpack.item.components.texture_not_found',
         );
     } else {
-      Object.keys(component.textures)?.forEach((value) => {
+      safeObjectKeys(component.textures).forEach((value) => {
         const textureId = component.textures[value];
         if (
           !diagnoser.context

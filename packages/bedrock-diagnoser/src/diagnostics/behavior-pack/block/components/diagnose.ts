@@ -9,6 +9,7 @@ import { diagnose_block_culling_geo_and_rules } from '../../../resource-pack/blo
 import { model_is_defined } from '../../../resource-pack/model/diagnose';
 import { behaviorpack_loot_table_diagnose } from '../../loot-table';
 import { is_block_defined } from '../diagnose';
+import { safeObjectKeys } from '@blockception/packages-shared';
 
 /**
  *
@@ -126,7 +127,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
       // Leaving empty as the base diagnoser should flag an invalid format version
     }
 
-    Object.keys(component)
+    safeObjectKeys(component)
       .map((value) => component[value].texture)
       .forEach((textureId) => {
         if (
@@ -144,7 +145,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
         }
       });
 
-    if (new Set(Object.keys(component).map((value) => component[value].render_method)).size > 1)
+    if (new Set(safeObjectKeys(component).map((value) => component[value].render_method)).size > 1)
       diagnoser.add(
         name,
         'Custom blocks were never intended to support multiple different render_method inside this component',

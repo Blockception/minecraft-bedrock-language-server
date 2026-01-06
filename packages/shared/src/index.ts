@@ -8,6 +8,7 @@ export * from "./json-path";
 export * from "./jsonc";
 export * from "./locatable";
 export * from "./location";
+export * from "./objects";
 export * from "./offset-word";
 export * from "./position";
 export * from "./range";
