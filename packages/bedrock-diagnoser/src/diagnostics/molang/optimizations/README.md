@@ -6,9 +6,9 @@ This directory contains the framework for detecting optimization opportunities i
 
 The optimization system consists of three main components:
 
-1. **Framework** (`optimization-framework.ts`) - The core infrastructure for defining and applying optimization rules
-2. **Rules** (`optimization-rules.ts`) - The default set of optimization rules
-3. **Integration** (`expressions.ts`) - Integration with the diagnostic system
+1. **Framework** (`framework.ts`) - The core infrastructure for defining and applying optimization rules
+2. **Rules** (`rules.ts`) - The default set of optimization rules
+3. **Integration** (`../expressions.ts`) - Integration with the diagnostic system
 
 ## Adding New Optimization Rules
 

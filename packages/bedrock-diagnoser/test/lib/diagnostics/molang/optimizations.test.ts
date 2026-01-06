@@ -276,8 +276,8 @@ describe('Molang Optimization Diagnostics', () => {
         diagnose_molang_syntax_line(test.data, diagnoser);
 
         // Should not have optimization diagnostics
-        const hasOptimizationDiag = diagnoser.items.some((d) =>
-          (d.code as string).includes('molang.optimization'),
+        const hasOptimizationDiag = diagnoser.items.some(
+          (d) => typeof d.code === 'string' && d.code.includes('molang.optimization'),
         );
         expect(hasOptimizationDiag).toBe(false);
       });
