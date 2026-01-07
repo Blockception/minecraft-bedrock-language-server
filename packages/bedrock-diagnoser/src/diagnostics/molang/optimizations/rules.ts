@@ -250,9 +250,13 @@ export function createRedundantComparisonCategory(): OptimizationCategory {
         getOptimizations(node) {
           if (!BinaryOperationNode.is(node)) return null;
           if (node.operator !== '==' && node.operator !== '!=') return null;
-          if (!isBooleanLiteral(node.left) || !isBooleanLiteral(node.right)) return null;
-
+          
+          // Check if exactly one operand is a boolean literal (XOR)
           const leftIsBoolean = isBooleanLiteral(node.left);
+          const rightIsBoolean = isBooleanLiteral(node.right);
+          // Skip if both operands have same boolean status - need exactly one boolean literal
+          if (leftIsBoolean === rightIsBoolean) return null;
+
           const boolNode = leftIsBoolean ? node.left : node.right;
           const otherSide = leftIsBoolean ? 'right' : 'left';
           const value = getLiteralValue(boolNode)?.toLowerCase();
