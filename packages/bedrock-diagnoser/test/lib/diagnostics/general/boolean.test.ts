@@ -1,5 +1,5 @@
 import { general_boolean_diagnose } from "../../../../src/diagnostics/general/boolean";
-import { OffsetWord } from "@blockception/packages-shared";
+import { OffsetWord } from "bc-minecraft-bedrock-shared";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("Boolean", () => {

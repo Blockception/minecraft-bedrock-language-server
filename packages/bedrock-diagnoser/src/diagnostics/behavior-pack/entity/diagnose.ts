@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
 import { Defined, DefinitionItem } from 'bc-minecraft-bedrock-project';
 import { Errors } from '../..';

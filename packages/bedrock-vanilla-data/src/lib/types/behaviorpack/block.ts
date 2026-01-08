@@ -1,4 +1,4 @@
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 
 /**The block interface*/
 export interface Block extends Identifiable {

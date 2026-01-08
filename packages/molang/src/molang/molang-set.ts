@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { MolangSyntaxCache } from './cache';
 import { isMolang, isValidMolang } from './functions';
 import { ExpressionNode, FunctionCallNode, NodeType, ResourceReferenceNode, VariableNode } from './syntax';

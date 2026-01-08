@@ -1,4 +1,4 @@
-import { OffsetWord } from "@blockception/packages-shared";
+import { OffsetWord } from "bc-minecraft-bedrock-shared";
 import { MinecraftData } from "bc-minecraft-bedrock-vanilla-data";
 import { minecraft_effect_diagnose } from "../../../../src/diagnostics/minecraft/effect";
 import { TestDiagnoser } from "../../../diagnoser";

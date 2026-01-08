@@ -1,5 +1,5 @@
 
-import { Conditional, Location } from '@blockception/packages-shared';
+import { Conditional, Location } from 'bc-minecraft-bedrock-shared';
 import { Effect } from '../../../internal/resource-pack';
 import * as Internal from '../../../internal/resource-pack/animation-controller';
 import { Documentation, TextDocument } from '../../../types';

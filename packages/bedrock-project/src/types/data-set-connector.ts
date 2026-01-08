@@ -1,5 +1,5 @@
 
-import { Identifiable, Locatable } from '@blockception/packages-shared';
+import { Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { DataSet } from './data-set';
 import { IDataSet } from './i-data-set';
 import { Pack } from './pack';

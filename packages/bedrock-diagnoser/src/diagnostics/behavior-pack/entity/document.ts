@@ -1,4 +1,4 @@
-import { Definition } from '@blockception/packages-shared';
+import { Definition } from 'bc-minecraft-bedrock-shared';
 import { Internal, References } from 'bc-minecraft-bedrock-project';
 import { EntityProperty as DefinedEP } from 'bc-minecraft-bedrock-project/src/internal/behavior-pack/entity';
 import { EntityProperty as ProjectEP } from 'bc-minecraft-bedrock-project/src/project/behavior-pack/entity';

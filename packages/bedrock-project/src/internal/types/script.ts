@@ -1,4 +1,4 @@
-import { Conditional, Definition } from '@blockception/packages-shared';
+import { Conditional, Definition } from 'bc-minecraft-bedrock-shared';
 
 
 /**A universal script component for RP and BP scripts*/

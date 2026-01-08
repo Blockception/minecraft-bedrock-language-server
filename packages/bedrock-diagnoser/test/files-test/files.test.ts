@@ -1,4 +1,4 @@
-import { Glob } from '@blockception/packages-shared';
+import { Glob } from 'bc-minecraft-bedrock-shared';
 import { Documents, MinecraftData, ProjectData } from 'bc-minecraft-bedrock-project';
 import { MCAttributes, MCDefinition, MCIgnore, MCProject } from 'bc-minecraft-project';
 import { readFileSync } from 'fs';

@@ -1,4 +1,4 @@
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { MinecraftData, Types } from 'bc-minecraft-bedrock-vanilla-data';
 import { MolangSet } from 'bc-minecraft-molang';

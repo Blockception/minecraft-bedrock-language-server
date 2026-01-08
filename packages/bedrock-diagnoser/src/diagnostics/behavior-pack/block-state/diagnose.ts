@@ -1,4 +1,4 @@
-import { DocumentLocation, Location, OffsetWord } from '@blockception/packages-shared';
+import { DocumentLocation, Location, OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { BehaviorPack, ProjectItem } from 'bc-minecraft-bedrock-project';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';

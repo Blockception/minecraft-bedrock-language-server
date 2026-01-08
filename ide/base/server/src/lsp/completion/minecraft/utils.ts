@@ -1,4 +1,4 @@
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 
 /**
  * Creates a documentation generator function for completion items that handles both

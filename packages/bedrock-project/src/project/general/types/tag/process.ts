@@ -1,4 +1,4 @@
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { Command } from 'bc-minecraft-bedrock-command';
 import { Documentation, TextDocument } from '../../../../types';
 import { GeneralInfo } from '../general-info';

@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { General } from 'bc-minecraft-bedrock-types';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 

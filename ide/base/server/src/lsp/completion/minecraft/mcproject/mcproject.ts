@@ -1,4 +1,4 @@
-import { Documentated, Identifiable } from '@blockception/packages-shared';
+import { Documentated, Identifiable } from 'bc-minecraft-bedrock-shared';
 import { MCAttributes, MCDefinition, MCIgnore } from 'bc-minecraft-project';
 import { CompletionItemKind, MarkupContent } from 'vscode-languageserver';
 import { TemplateCommands } from '../../../commands/commands/templates';

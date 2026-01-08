@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { ParameterInfo } from 'bc-minecraft-bedrock-command';
 import { Text } from 'bc-minecraft-bedrock-project';
 import { Minecraft } from 'bc-minecraft-bedrock-types';

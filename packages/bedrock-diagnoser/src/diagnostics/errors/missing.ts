@@ -1,4 +1,4 @@
-import { DocumentLocation } from '@blockception/packages-shared';
+import { DocumentLocation } from 'bc-minecraft-bedrock-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-project';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 

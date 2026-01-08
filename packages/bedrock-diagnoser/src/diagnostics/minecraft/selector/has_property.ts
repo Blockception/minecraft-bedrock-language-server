@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { Entity } from 'bc-minecraft-bedrock-project/src/project/behavior-pack';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';

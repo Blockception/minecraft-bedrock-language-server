@@ -1,4 +1,4 @@
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import * as Internal from '../../../internal/behavior-pack/recipe';
 import { Json } from '../../../internal/json';
 import { Documentation, TextDocument } from '../../../types';

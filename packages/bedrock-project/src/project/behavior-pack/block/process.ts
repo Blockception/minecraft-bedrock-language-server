@@ -1,5 +1,5 @@
 
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/behavior-pack';
 import { Documentation, TextDocument } from '../../../types';

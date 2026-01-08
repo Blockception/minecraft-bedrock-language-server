@@ -1,4 +1,4 @@
-import { Documentated } from '@blockception/packages-shared';
+import { Documentated } from 'bc-minecraft-bedrock-shared';
 import { TextDocument } from './text-document';
 
 /** */

@@ -1,4 +1,4 @@
-import { DocumentLocation, JsonPath, OffsetWord, Position } from '@blockception/packages-shared';
+import { DocumentLocation, JsonPath, OffsetWord, Position } from 'bc-minecraft-bedrock-shared';
 import { Range } from 'vscode-languageserver';
 import * as vstd from 'vscode-languageserver-textdocument';
 import { Character } from './character';

@@ -1,4 +1,4 @@
-import { Documentated, Identifiable, Locatable } from '@blockception/packages-shared';
+import { Documentated, Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from 'bc-minecraft-bedrock-command';
 import { IDataSet } from 'bc-minecraft-bedrock-project';
 import { Hover, Range } from 'vscode-languageserver';

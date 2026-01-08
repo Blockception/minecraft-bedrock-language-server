@@ -1,4 +1,4 @@
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { BlockState, Block } from './block';
 
 const blockDescription: string = 'minecraft:log[direction=west,stripped=true,half=top]';

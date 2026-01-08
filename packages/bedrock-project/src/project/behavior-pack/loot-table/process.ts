@@ -1,4 +1,4 @@
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { Documentation, TextDocument } from '../../../types';
 import { LootTable } from './loot-table';
 

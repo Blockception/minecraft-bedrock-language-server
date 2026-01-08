@@ -1,4 +1,4 @@
-import { Glob as SharedGlob } from '@blockception/packages-shared';
+import { Glob as SharedGlob } from 'bc-minecraft-bedrock-shared';
 import { Fs, Vscode } from '../util';
 
 /**

@@ -1,5 +1,5 @@
 
-import { Position } from '@blockception/packages-shared';
+import { Position } from 'bc-minecraft-bedrock-shared';
 import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { CancellationToken, Range, SymbolInformation, SymbolKind } from 'vscode-languageserver';
 

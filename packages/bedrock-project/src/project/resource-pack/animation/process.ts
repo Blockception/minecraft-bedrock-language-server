@@ -1,5 +1,5 @@
 
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import * as Internal from '../../../internal/resource-pack';
 import { Documentation, TextDocument } from '../../../types';
 import { Using } from '../../../types/references';

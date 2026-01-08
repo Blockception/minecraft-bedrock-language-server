@@ -1,6 +1,6 @@
 import { fail } from 'assert';
 import { assert } from 'console';
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 
 export function Test_Identifiable(data: Identifiable) {
   if (Identifiable.is(data)) {

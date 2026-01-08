@@ -1,4 +1,4 @@
-import { Json as SharedJson, TextDocument } from '@blockception/packages-shared';
+import { Json as SharedJson, TextDocument } from 'bc-minecraft-bedrock-shared';
 
 /**The namespace that provided json code*/
 export namespace Json {

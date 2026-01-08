@@ -1,5 +1,5 @@
 
-import { Definition, Location } from '@blockception/packages-shared';
+import { Definition, Location } from 'bc-minecraft-bedrock-shared';
 import { Json } from '../../../internal';
 import * as Internal from '../../../internal/resource-pack';
 import { getUsingResources } from '../../../internal/resource-pack/resources';

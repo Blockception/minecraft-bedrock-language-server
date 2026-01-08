@@ -1,4 +1,4 @@
-import { Conditional, Location } from '@blockception/packages-shared';
+import { Conditional, Location } from 'bc-minecraft-bedrock-shared';
 import * as Internal from '../../../internal/behavior-pack/animation-controller';
 import { Json } from '../../../internal/json';
 import { Documentation, TextDocument } from '../../../types';

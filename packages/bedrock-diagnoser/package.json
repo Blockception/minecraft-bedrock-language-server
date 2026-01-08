@@ -36,7 +36,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@blockception/packages-shared": "*",
+    "bc-minecraft-bedrock-shared": "*",
     "bc-minecraft-bedrock-command": "*",
     "bc-minecraft-bedrock-project": "*",
     "bc-minecraft-bedrock-types": "*",

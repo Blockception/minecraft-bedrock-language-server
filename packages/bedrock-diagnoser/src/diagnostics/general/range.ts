@@ -1,5 +1,5 @@
 
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { general_float_diagnose } from './float';
 import { general_integer_diagnose } from './integer';

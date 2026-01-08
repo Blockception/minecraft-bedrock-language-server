@@ -1,4 +1,4 @@
-import { Identifiable, Documentated } from '@blockception/packages-shared';
+import { Identifiable, Documentated } from 'bc-minecraft-bedrock-shared';
 
 /**
  *

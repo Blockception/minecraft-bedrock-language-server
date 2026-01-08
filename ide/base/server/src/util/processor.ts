@@ -1,5 +1,5 @@
 import { QueueProcessor } from '@daanv2/queue-processor';
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 import { CancellationToken, WorkDoneProgressReporter } from 'vscode-languageserver';
 
 export namespace Processor {
