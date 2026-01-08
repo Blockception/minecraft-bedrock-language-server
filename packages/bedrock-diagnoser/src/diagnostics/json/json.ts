@@ -1,4 +1,4 @@
-import { Json as SharedJson } from '@blockception/packages-shared';
+import { Json as SharedJson } from 'bc-minecraft-bedrock-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 import { handle_json_error } from './errors';
 

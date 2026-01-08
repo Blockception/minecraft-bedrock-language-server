@@ -1,4 +1,4 @@
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 import {
   MolangData,
   MolangDataSet,

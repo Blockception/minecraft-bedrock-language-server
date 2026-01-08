@@ -1,5 +1,5 @@
 
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { TextureAtlas } from '../../../internal/resource-pack/texture-atlas';
 import { Documentation, TextDocument } from '../../../types';
 import { Texture } from './texture';

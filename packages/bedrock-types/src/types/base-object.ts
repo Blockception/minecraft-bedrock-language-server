@@ -1,4 +1,4 @@
-import { Identifiable, Documentated, Locatable, Location } from '@blockception/packages-shared';
+import { Identifiable, Documentated, Locatable, Location } from 'bc-minecraft-bedrock-shared';
 
 /** */
 export interface BaseObject extends Identifiable, Documentated, Locatable {}

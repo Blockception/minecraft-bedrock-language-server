@@ -1,5 +1,5 @@
 import { Languages } from '@blockception/ide-shared';
-import { Identifiable, Locatable } from '@blockception/packages-shared';
+import { Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { DataSet, ProjectData } from 'bc-minecraft-bedrock-project';
 import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { CodeLens, CodeLensParams, Position, Range } from 'vscode-languageserver';

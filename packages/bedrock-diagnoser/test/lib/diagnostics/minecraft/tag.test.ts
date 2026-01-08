@@ -1,5 +1,5 @@
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
-import { Location, OffsetWord } from "@blockception/packages-shared";
+import { Location, OffsetWord } from "bc-minecraft-bedrock-shared";
 import { minecraft_tag_diagnose } from "../../../../src/diagnostics/minecraft/tag";
 import { TestDiagnoser } from "../../../diagnoser";
 

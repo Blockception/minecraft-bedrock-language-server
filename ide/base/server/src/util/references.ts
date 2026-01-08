@@ -1,4 +1,4 @@
-import { DocumentLocation, Identifiable, Locatable } from '@blockception/packages-shared';
+import { DocumentLocation, Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { Location } from 'vscode-languageserver';
 import { IDocumentManager } from '../lsp/documents/manager';
 

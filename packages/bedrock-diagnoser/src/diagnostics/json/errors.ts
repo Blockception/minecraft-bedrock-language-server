@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 export function handle_json_error(err: any, diagnoser: DiagnosticsBuilder): void {

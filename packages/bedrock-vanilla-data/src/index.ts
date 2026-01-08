@@ -1,4 +1,4 @@
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 import { Edu, General as G, Types, Vanilla } from './lib';
 import { MinecraftDataSet } from './lib/types';
 export { Edu, MinecraftDataSet, Types, Vanilla };

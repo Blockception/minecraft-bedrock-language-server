@@ -40,7 +40,7 @@
       "ide/vscode"
     ],
     "paths": {
-      "@blockception/packages-shared": ["./packages/shared"],
+      "bc-minecraft-bedrock-shared": ["./packages/shared"],
       "@blockception/ide-shared": ["./ide/shared"],
       "bc-minecraft-project": ["./packages/project"],
       "bc-minecraft-bedrock-vanilla-data": ["./packages/bedrock-vanilla-data"],

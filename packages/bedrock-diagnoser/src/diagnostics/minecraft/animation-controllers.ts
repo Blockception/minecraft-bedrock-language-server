@@ -1,4 +1,4 @@
-import { Conditional, Identifiable } from '@blockception/packages-shared';
+import { Conditional, Identifiable } from 'bc-minecraft-bedrock-shared';
 import { BehaviorPack, Defined, Internal, References, ResourcePack, Using } from 'bc-minecraft-bedrock-project';
 import { State } from 'bc-minecraft-bedrock-project/src/internal/behavior-pack';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../types';

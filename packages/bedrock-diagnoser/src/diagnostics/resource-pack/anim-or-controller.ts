@@ -1,5 +1,5 @@
 
-import { Definition, OffsetWord } from '@blockception/packages-shared';
+import { Definition, OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticsBuilder, DiagnosticSeverity, EntityAnimationMolangCarrier, WithMetadata } from '../../types';
 import { MolangMetadata } from '../molang';

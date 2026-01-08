@@ -1,4 +1,4 @@
-import { DocumentLocation } from '@blockception/packages-shared';
+import { DocumentLocation } from 'bc-minecraft-bedrock-shared';
 import { Documents, MinecraftData, TextDocument } from 'bc-minecraft-bedrock-project';
 import { MCIgnore, MCProject } from 'bc-minecraft-project';
 import { DiagnosticSeverity } from './severity';

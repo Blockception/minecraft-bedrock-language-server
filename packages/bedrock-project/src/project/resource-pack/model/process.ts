@@ -1,4 +1,4 @@
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { Json } from '../../../internal/json';
 import * as internal from '../../../internal/resource-pack/model';
 import { Defined, Documentation, TextDocument } from '../../../types';

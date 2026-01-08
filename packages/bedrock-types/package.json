@@ -41,7 +41,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
-    "@blockception/packages-shared": "*"
+    "bc-minecraft-bedrock-shared": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

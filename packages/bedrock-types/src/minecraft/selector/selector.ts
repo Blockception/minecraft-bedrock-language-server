@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { String } from '../../general';
 import { Modes } from '../../modes/modes';
 import { CompactJson } from '../json/compact';

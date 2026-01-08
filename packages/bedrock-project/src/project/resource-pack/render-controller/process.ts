@@ -1,5 +1,5 @@
 
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { NodeType, VariableNode } from 'bc-minecraft-molang';
 import * as Internal from '../../../internal/resource-pack/render-controller';
 import { Documentation, TextDocument } from '../../../types';

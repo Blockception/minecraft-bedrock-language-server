@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { Command } from 'bc-minecraft-bedrock-command';
 import { Modes } from 'bc-minecraft-bedrock-types';
 import { ModeHandler } from 'bc-minecraft-bedrock-types/src/modes/mode-handler';

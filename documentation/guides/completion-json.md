@@ -76,7 +76,7 @@ Create a new TypeScript file for your completion provider in the appropriate fol
 Every completion module should export a `provideCompletion` function:
 
 ```typescript
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { Kinds } from '../../../../constants';
 import { IsEducationEnabled } from '../../../../project/attributes';

@@ -1,4 +1,4 @@
-import { Identifiable, Locatable } from '@blockception/packages-shared';
+import { Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { IDataSet } from 'bc-minecraft-bedrock-project';
 import { PackStringType } from '../../constants/packs';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';

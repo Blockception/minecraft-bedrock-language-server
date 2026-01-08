@@ -1,7 +1,7 @@
 import { ComponentBehavior, ComponentContainer } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import { DocumentDiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { Context } from './components';
-import { safeObjectKeys, safeObjectEntries } from '@blockception/packages-shared';
+import { safeObjectKeys, safeObjectEntries } from 'bc-minecraft-bedrock-shared';
 
 export type ComponentCheck<T> = (
   name: string,

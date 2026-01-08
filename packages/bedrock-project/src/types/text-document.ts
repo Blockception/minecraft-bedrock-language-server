@@ -1,5 +1,5 @@
 //Note: this is kept sync with vscode form of textdocument for easy of use
-import { Range } from '@blockception/packages-shared';
+import { Range } from 'bc-minecraft-bedrock-shared';
 import { Json } from '../internal/json';
 
 /** */

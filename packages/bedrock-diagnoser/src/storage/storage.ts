@@ -1,4 +1,4 @@
-import { Identifiable, Locatable } from '@blockception/packages-shared';
+import { Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { DataSetConnector, Pack, ProjectData } from 'bc-minecraft-bedrock-project';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { education_enabled } from '../diagnostics';

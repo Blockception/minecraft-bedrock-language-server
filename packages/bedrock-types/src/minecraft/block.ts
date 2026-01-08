@@ -1,4 +1,4 @@
-import { Documentated, Identifiable, Locatable, Location } from '@blockception/packages-shared';
+import { Documentated, Identifiable, Locatable, Location } from 'bc-minecraft-bedrock-shared';
 
 /**
  * Represents a single block state property with its value.

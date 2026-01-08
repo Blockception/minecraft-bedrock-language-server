@@ -1,5 +1,5 @@
 
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import * as Internal from '../../../internal/behavior-pack/biome';
 import { Json } from '../../../internal/json';
 import { Defined, Documentation, TextDocument } from '../../../types';

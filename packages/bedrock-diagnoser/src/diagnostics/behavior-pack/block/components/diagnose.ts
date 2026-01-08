@@ -9,7 +9,7 @@ import { diagnose_block_culling_geo_and_rules } from '../../../resource-pack/blo
 import { model_is_defined } from '../../../resource-pack/model/diagnose';
 import { behaviorpack_loot_table_diagnose } from '../../loot-table';
 import { is_block_defined } from '../diagnose';
-import { safeObjectKeys } from '@blockception/packages-shared';
+import { safeObjectKeys } from 'bc-minecraft-bedrock-shared';
 
 /**
  *

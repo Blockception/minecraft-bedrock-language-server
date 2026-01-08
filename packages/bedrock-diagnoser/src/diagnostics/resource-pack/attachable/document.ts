@@ -1,4 +1,4 @@
-import { Definition } from '@blockception/packages-shared';
+import { Definition } from 'bc-minecraft-bedrock-shared';
 import { Internal, ResourcePack } from 'bc-minecraft-bedrock-project';
 import { getUsingResources } from 'bc-minecraft-bedrock-project/src/internal/resource-pack/resources';
 import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';

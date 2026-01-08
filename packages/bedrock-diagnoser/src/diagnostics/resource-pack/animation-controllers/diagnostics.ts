@@ -1,4 +1,4 @@
-import { Definition } from '@blockception/packages-shared';
+import { Definition } from 'bc-minecraft-bedrock-shared';
 import { ProjectItem } from 'bc-minecraft-bedrock-project';
 import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity, WithMetadata } from '../../../types';

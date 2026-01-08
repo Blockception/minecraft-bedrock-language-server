@@ -1,4 +1,4 @@
-import { Json } from '@blockception/packages-shared';
+import { Json } from 'bc-minecraft-bedrock-shared';
 import { Internal, References } from '..';
 
 export namespace VanillaPlayer {

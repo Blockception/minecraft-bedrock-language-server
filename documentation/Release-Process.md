@@ -25,7 +25,7 @@ This repository contains multiple packages that can be versioned and released in
 - `blockceptionvscodeminecraftbedrockdevelopmentextension` - VS Code extension
 
 **Independent packages:**
-- `@blockception/packages-shared` - Independent shared utilities
+- `bc-minecraft-bedrock-shared` - Independent shared utilities
 - `bc-minecraft-project` - Base project utilities
 - `vanilla-scraper` - Data extraction tool
 - `generate-command-data` - Command data generator

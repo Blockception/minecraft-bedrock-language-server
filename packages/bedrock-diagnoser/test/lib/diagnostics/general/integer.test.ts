@@ -1,5 +1,5 @@
 import { general_integer_diagnose } from "../../../../src/diagnostics/general";
-import { OffsetWord } from "@blockception/packages-shared";
+import { OffsetWord } from "bc-minecraft-bedrock-shared";
 import { TestDiagnoser } from "../../../diagnoser";
 
 describe("Integer", () => {

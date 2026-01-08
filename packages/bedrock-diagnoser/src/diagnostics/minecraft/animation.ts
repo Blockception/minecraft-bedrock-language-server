@@ -1,4 +1,4 @@
-import { Conditional, Definition } from '@blockception/packages-shared';
+import { Conditional, Definition } from 'bc-minecraft-bedrock-shared';
 import { BehaviorPack, DataSetConnector, ResourcePack } from 'bc-minecraft-bedrock-project';
 import { Script } from 'bc-minecraft-bedrock-project/src/internal/types';
 import { Vanilla } from 'bc-minecraft-bedrock-vanilla-data';

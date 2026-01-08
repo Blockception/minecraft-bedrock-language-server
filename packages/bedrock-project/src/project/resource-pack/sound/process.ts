@@ -1,5 +1,5 @@
 
-import { Location } from '@blockception/packages-shared';
+import { Location } from 'bc-minecraft-bedrock-shared';
 import { Json } from '../../../internal/json';
 import * as internal from '../../../internal/resource-pack/sound-definitions';
 import { Documentation, TextDocument } from '../../../types';

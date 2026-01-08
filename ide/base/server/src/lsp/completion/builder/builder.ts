@@ -1,6 +1,6 @@
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 import { Defined } from 'bc-minecraft-bedrock-project';
-import { Documentated } from '@blockception/packages-shared';
+import { Documentated } from 'bc-minecraft-bedrock-shared';
 import { CancellationToken, CompletionItem, CompletionItemKind, WorkDoneProgressReporter } from 'vscode-languageserver';
 
 export type GenerateFunction<T> = (item: T) => string;

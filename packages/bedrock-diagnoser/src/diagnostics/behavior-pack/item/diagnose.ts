@@ -4,7 +4,7 @@ import { Errors } from '../..';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { check_definition_value, education_enabled } from '../../definitions';
 import { behaviorpack_entityid_diagnose } from '../entity';
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 
 interface Item extends OffsetWord {
   data?: number;

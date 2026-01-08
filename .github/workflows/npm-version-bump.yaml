@@ -23,7 +23,7 @@ jobs:
       pull-requests: write
     env:
       # Define packages to version (matches release-npm-packages.yaml)
-      PACKAGES: bedrock-commands bedrock-diagnoser bedrock-project bedrock-types bedrock-vanilla-data molang project
+      PACKAGES: bedrock-commands bedrock-diagnoser bedrock-project bedrock-shared bedrock-types bedrock-vanilla-data molang project
       # Define IDE packages to version
       IDE_PACKAGES: vscode
     steps:

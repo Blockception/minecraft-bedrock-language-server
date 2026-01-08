@@ -1,4 +1,4 @@
-import { Conditional } from '@blockception/packages-shared';
+import { Conditional } from 'bc-minecraft-bedrock-shared';
 
 
 /** */

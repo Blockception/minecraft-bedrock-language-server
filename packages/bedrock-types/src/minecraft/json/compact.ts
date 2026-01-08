@@ -1,4 +1,4 @@
-import { OffsetWord } from '@blockception/packages-shared';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { findCommaOrEnd, trimBraces, trimWithOffset } from './grammar';
 
 /**

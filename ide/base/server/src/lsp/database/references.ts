@@ -1,4 +1,4 @@
-import { DocumentLocation, Identifiable, Locatable } from '@blockception/packages-shared';
+import { DocumentLocation, Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { BehaviorPack, Defined, ResourcePack, Using } from 'bc-minecraft-bedrock-project';
 import { GeneralInfo } from 'bc-minecraft-bedrock-project/src/project/general/types';
 import { ExpressionNode, MolangSet, Scoped } from 'bc-minecraft-molang';

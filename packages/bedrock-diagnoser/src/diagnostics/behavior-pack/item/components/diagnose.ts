@@ -10,7 +10,7 @@ import { is_block_defined } from '../../block';
 import { behaviorpack_entityid_diagnose } from '../../entity';
 import { behaviorpack_item_diagnose } from '../diagnose';
 import { Vanilla } from 'bc-minecraft-bedrock-vanilla-data';
-import { safeObjectKeys } from '@blockception/packages-shared';
+import { safeObjectKeys } from 'bc-minecraft-bedrock-shared';
 
 /**
  *

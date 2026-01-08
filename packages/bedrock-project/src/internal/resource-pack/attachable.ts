@@ -1,5 +1,5 @@
 
-import { Definition } from '@blockception/packages-shared';
+import { Definition } from 'bc-minecraft-bedrock-shared';
 import { ScriptContainer } from '../types';
 import { FormatVersion } from '../types/format-version';
 

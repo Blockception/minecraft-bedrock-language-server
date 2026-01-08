@@ -1,7 +1,7 @@
 import { References } from 'bc-minecraft-bedrock-project';
 import { AnimationCarrier } from '../diagnostics/minecraft';
 import { User } from '../diagnostics/molang';
-import { Identifiable } from '@blockception/packages-shared';
+import { Identifiable } from 'bc-minecraft-bedrock-shared';
 
 /**
  * The type that is used to store the animation data & molang data
