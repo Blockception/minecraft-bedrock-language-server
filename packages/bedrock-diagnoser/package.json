@@ -31,7 +31,6 @@
     "pretest": "npm run compile",
     "prepublishOnly": "npm test && npm run compile",
     "preversion": "",
-    "postversion": "git push && git push --tags",
     "version": "git add -A src",
     "watch": "tsc -w"
   },
