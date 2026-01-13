@@ -149,7 +149,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
       diagnoser.add(
         name,
         'Custom blocks were never intended to support multiple different render_method inside this component',
-        DiagnosticSeverity.error,
+        DiagnosticSeverity.warning,
         'behaviorpack.block.components.multiple_render_methods',
       );
   },
