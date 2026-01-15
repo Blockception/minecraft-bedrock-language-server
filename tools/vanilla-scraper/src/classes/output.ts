@@ -25,9 +25,13 @@ export class Output {
    * Save output to a folder
    */
   save(folder: string): void {
+    console.log("::group::saving data: " + folder);
+
     this.edu.save(path.join(folder, 'edu'));
     this.vanilla.save(path.join(folder, 'vanilla'));
     this.general.save(path.join(folder, 'general'));
+
+    console.log("::endgroup::");
   }
 
   /**

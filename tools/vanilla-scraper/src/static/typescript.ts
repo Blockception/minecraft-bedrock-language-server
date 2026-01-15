@@ -55,6 +55,7 @@ export function saveArray<T>(
 
     content += `export const ${name}: ${type}[] = ${jsonContent};`;
 
+    console.log("saving: " + filepath);
     fs.writeFileSync(filepath, content, 'utf-8');
   } catch (ex) {
     console.error(ex);
@@ -83,6 +84,7 @@ export function saveSingle<T>(
 
     content += `export const ${name}: ${type} = ${jsonContent};`;
 
+    console.log("saving: " + filepath);
     fs.writeFileSync(filepath, content, 'utf-8');
   } catch (ex) {
     console.error(ex);
