@@ -17,14 +17,18 @@ export type ConvertFile<T> = (filepath: string, receiver: T[]) => void;
  */
 export function fromFolderJson<T>(func: ConvertJson<T> | null, receiver: T[], folder: string): void {
   if (func === null || !fs.existsSync(folder)) {
+    console.log("folder doesn't exist: ", folder);
     return;
   }
+  console.log('::group::' + folder);
 
   const files = getJsonFilesRecursively(folder);
 
   for (const filepath of files) {
     fromFileJson(func, receiver, filepath);
   }
+
+  console.log('::endgroup::' + folder);
 }
 
 /**
@@ -32,6 +36,7 @@ export function fromFolderJson<T>(func: ConvertJson<T> | null, receiver: T[], fo
  */
 export function fromFolderFile<T>(func: ConvertFile<T> | null, receiver: T[], folder: string): void {
   if (func === null || !fs.existsSync(folder)) {
+    console.log("folder doesn't exist: ", folder);
     return;
   }
 
