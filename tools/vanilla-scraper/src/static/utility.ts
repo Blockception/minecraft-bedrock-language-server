@@ -98,7 +98,7 @@ export async function downloadUnpack(name: string, uri: string): Promise<string 
     const folder = path.join(workFolder, name);
 
     if (!fs.existsSync(folder)) {
-      console.log('Unzipping: ' + uri);
+      console.log('Unzipping: ' + uri, {folder});
       try {
         fs.mkdirSync(folder, { recursive: true });
         // Use async exec with proper escaping

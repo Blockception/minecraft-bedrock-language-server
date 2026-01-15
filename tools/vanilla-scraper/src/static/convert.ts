@@ -102,5 +102,7 @@ function getJsonFilesRecursively(folder: string): string[] {
   }
 
   walk(folder);
+  console.log("got files:", results.length)
+
   return results;
 }
