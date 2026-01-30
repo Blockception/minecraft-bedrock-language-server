@@ -51,7 +51,7 @@ export class OptimizationRegistry {
   /**
    * Checks a node against all registered rules and reports diagnostics
    */
-  checkNode(node: ExpressionNode, diagnoser: DiagnosticsBuilder): void {
+  checkNode(node: ExpressionNode, diagnoser: Pick<DiagnosticsBuilder, "add">): void {
     for (const rule of this.getAllRules()) {
       let result = rule.getOptimizations(node);
       if (result == null) continue;
@@ -78,7 +78,7 @@ export class OptimizationRegistry {
 export function traverseAndOptimize(
   expression: ExpressionNode,
   registry: OptimizationRegistry,
-  diagnoser: DiagnosticsBuilder,
+  diagnoser: Pick<DiagnosticsBuilder, "add">,
 ): void {
   walk(expression, (node) => {
     registry.checkNode(node, diagnoser);
