@@ -19,7 +19,7 @@ jobs:
           - bedrock-commands
           - bedrock-diagnoser
           - bedrock-project
-          - bedrock-shared
+          - shared
           - bedrock-types
           - bedrock-vanilla-data
           - molang
