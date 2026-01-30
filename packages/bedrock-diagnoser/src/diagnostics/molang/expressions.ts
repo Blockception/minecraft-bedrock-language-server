@@ -188,11 +188,22 @@ function getOptimizationRegistry() {
   return optimizationRegistry;
 }
 
-export function diagnose_molang_syntax_optimizations(expression: ExpressionNode, diagnoser: DiagnosticsBuilder) {
+/**
+ * Diagnoses Molang expression optimizations
+ * @param expression The expression to diagnose
+ * @param diagnoser The diagnoser to report issues to
+ */
+export function diagnose_molang_syntax_optimizations(expression: ExpressionNode, diagnoser: Pick<DiagnosticsBuilder, "add">) {
   const registry = getOptimizationRegistry();
   traverseAndOptimize(expression, registry, diagnoser);
 }
 
+/**
+ * Diagnoses a Molang function call for correctness
+ * @param fn The function call node to diagnose
+ * @param diagnoser The diagnoser to report issues to
+ * @returns void
+ */
 export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: DiagnosticsBuilder) {
   const id = fn.names.join('.');
   let fnData: MolangFunction | undefined;
