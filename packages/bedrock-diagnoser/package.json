@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-diagnoser",
-  "version": "1.21.134-0",
+  "version": "1.22.0-0",
   "description": "A typescript package library that provides diagnostics for minecraft bedrock projects",
   "author": {
     "name": "Blockception Ltd",

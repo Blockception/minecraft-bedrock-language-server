@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-vanilla-data",
-  "version": "1.21.134-0",
+  "version": "1.22.0-0",
   "description": "A Typescript library for dealing provides vanilla minecraft data",
   "author": {
     "name": "Blockception Ltd",
