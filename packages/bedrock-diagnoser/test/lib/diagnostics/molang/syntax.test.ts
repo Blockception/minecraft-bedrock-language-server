@@ -72,7 +72,11 @@ describe("Molang Syntax", () => {
       const diagnoser = new TestDiagnoser();
       diagnose_molang_syntax_text("", diagnoser, test.data);
 
-      diagnoser.expectEmpty();
+      // Allow info-level diagnostics (optimizations) but no warnings or errors
+      const errorsAndWarnings = diagnoser.items.filter(
+        item => item.severity >= 2 // warning or error
+      );
+      expect(errorsAndWarnings).toHaveLength(0);
     });
   }
 
