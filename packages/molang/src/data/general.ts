@@ -371,6 +371,7 @@ export namespace General {
       id: 'anger_level',
       documentation:
         'Returns the anger level of the actor [0,n]. On errors or if the actor has no anger level, returns 0. Available on the Server only.',
+      packType: 'behavior',
     },
     {
       id: 'anim_time',
@@ -681,11 +682,13 @@ export namespace General {
       id: 'client_max_render_distance',
       documentation:
         'Returns the max render distance in chunks of the current client. Available on the Client (Resource Packs) only.',
+      packType: 'resource',
     },
     {
       id: 'client_memory_tier',
       documentation:
         "Returns a number representing the client RAM memory tier, 0 = 'SuperLow', 1 = 'Low', 2 = 'Mid', 3 = 'High', or 4 = 'SuperHigh'. Available on the Client (Resource Packs) only.",
+      packType: 'resource',
     },
     {
       id: 'combine_entities',
@@ -812,7 +815,8 @@ export namespace General {
       documentation: 'Returns value of Pack Setting slider, parameter is name of slider. Available on the Client (Resource Packs) only.',
       parameters: [
         { id: 'key', documentation: 'Setting name', type: 'string' }
-      ]
+      ],
+      packType: 'resource',
     },
     {
       id: 'graphics_mode_is_any',
@@ -821,6 +825,7 @@ export namespace General {
       parameters: [
         { id: 'mode', documentation: "graphics mode ('simple', 'fancy', 'deferred', 'raytraced')", type: 'string', repeatable: true },
       ],
+      packType: 'resource',
     },
     {
       id: 'ground_speed',
@@ -830,6 +835,7 @@ export namespace General {
       id: 'had_component_group',
       documentation:
         "Usable only in behavior packs when determining the default value for an entity's Property. Requires one string argument. If the entity is being loaded from data that was last saved with a component_group with the specified name, returns 1.0, otherwise returns 0.0. The purpose of this query is to allow entity definitions to change and still be able to load the correct state of entities.",
+      packType: 'behavior',
     },
     {
       id: 'has_any_family',
@@ -922,6 +928,7 @@ export namespace General {
       id: 'heartbeat_phase',
       documentation:
         'Returns the heartbeat phase of the actor. 0.0 if at start of current heartbeat, 1.0 if at the end. Returns 0 on errors or when the actor has no heartbeat. Available on the Client (Resource Packs) only.',
+      packType: 'resource',
     },
     { id: 'heightmap', documentation: 'Queries Height Map' },
     {
@@ -969,6 +976,7 @@ export namespace General {
       id: 'is_attached',
       documentation:
         'Returns 1.0 if the entity is attached to another entity (such as being held or worn), else it will return 0.0. Available only with resource packs.',
+      packType: 'resource',
     },
     {
       id: 'is_attached_to_entity',
@@ -1198,6 +1206,7 @@ export namespace General {
       id: 'is_local_player',
       documentation:
         'Takes no arguments. Returns 1.0 if the entity is the local player for the current game window, else it returns 0.0. In splitscreen returns 0.0 for the other local players for other views. Always returns 0.0 if used in a behavior pack.',
+      packType: 'resource',
     },
     {
       id: 'is_moving',
@@ -1245,7 +1254,8 @@ export namespace General {
       documentation: 'Returns 1.0 if the Pack Setting toggle is enabled, parameter is name of toggle. Available on the Client (Resource Packs) only.',
       parameters: [
         { id: 'key', documentation: 'Setting name', type: 'string' }
-      ]
+      ],
+      packType: 'resource',
     },
     {
       id: 'is_pack_setting_selected',
@@ -1253,7 +1263,8 @@ export namespace General {
       parameters: [
         { id: 'key', documentation: 'Slider name', type: 'string' },
         { id: 'value', documentation: 'Setting value', type: 'string' }
-      ]
+      ],
+      packType: 'resource',
     },
     {
       id: 'is_persona_or_premium_skin',
@@ -1470,6 +1481,7 @@ export namespace General {
       parameters: [
         { id: 'mode', documentation: "input mode ('keyboard_and_mouse', 'touch', or 'gamepad')", type: 'string', repeatable: true },
       ],
+      packType: 'resource',
     },
     {
       id: 'lie_amount',
@@ -1670,11 +1682,16 @@ export namespace General {
       id: 'scoreboard',
       documentation:
         'Takes one argument - the name of the scoreboard entry for this entity. Returns the specified scoreboard value for this entity. Available only with behavior packs.',
+      parameters: [
+        { id: 'name', documentation: 'The name of the scoreboard entry', type: 'string' }
+      ],
+      packType: 'behavior',
     },
     {
       id: 'server_memory_tier',
       documentation:
         "Returns a number representing the server RAM memory tier, 0 = 'SuperLow', 1 = 'Low', 2 = 'Mid', 3 = 'High', or 4 = 'SuperHigh'. Available on the server side (Behavior Packs) only.",
+      packType: 'behavior',
     },
     {
       id: 'shake_angle',
@@ -1726,16 +1743,19 @@ export namespace General {
       id: 'surface_particle_color',
       documentation:
         "Returns the particle color for the block located in the surface below the actor (scanned up to 10 blocks down). The struct contains '.r' '.g' '.b' and '.a' members, each 0.0 to 1.0. If no actor is specified or if no surface is found, each member value is set to 0.0. Available on the Client (Resource Packs) only.",
+      packType: 'resource',
     },
     {
       id: 'surface_particle_texture_coordinate',
       documentation:
         "Returns the texture coordinate for generating particles for the block located in the surface below the actor (scanned up to 10 blocks down) in a struct with 'u' and 'v' keys. If no actor is specified or if no surface is found, u and v will be 0.0. Available on the Client (Resource Packs) only.",
+      packType: 'resource',
     },
     {
       id: 'surface_particle_texture_size',
       documentation:
         'Returns the texture size for generating particles for the block located in the surface below the actor (scanned up to 10 blocks down). If no actor is specified or if no surface is found, each member value will be 0.0. Available on the Client (Resource Packs) only.',
+      packType: 'resource',
     },
     { id: 'swell_amount', documentation: 'Returns how swollen the entity is' },
     {
@@ -1777,6 +1797,7 @@ export namespace General {
       id: 'time_since_last_vibration_detection',
       documentation:
         'Returns the time in seconds since the last vibration detected by the actor. On errors or if no vibration has been detected yet, returns -1. Available on the Client (Resource Packs) only.',
+      packType: 'resource',
     },
     {
       id: 'time_stamp',
@@ -1840,6 +1861,7 @@ export namespace General {
       parameters: [
         { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
       ],
+      packType: 'resource',
     },
     {
       id: 'entity_biome_has_any_identifier',
@@ -1847,6 +1869,7 @@ export namespace General {
       parameters: [
         { id: 'identifier', documentation: 'biome identifier to check', type: 'string', repeatable: true },
       ],
+      packType: 'resource',
     },
     {
       id: 'entity_biome_has_any_tags',
@@ -1854,6 +1877,7 @@ export namespace General {
       parameters: [
         { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
       ],
+      packType: 'resource',
     },
     //DEPRECATED
     {

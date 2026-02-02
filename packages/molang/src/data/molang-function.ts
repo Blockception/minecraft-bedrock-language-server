@@ -11,6 +11,12 @@ export interface MolangFunction extends Identifiable, Documentated {
 
   /**If present, then the molang is deprecated and needs to be replaced*/
   deprecated?: string;
+
+  /**If present, specifies which pack type this function is available in. 
+   * 'behavior' means it's only available in Behavior Packs (server-side)
+   * 'resource' means it's only available in Resource Packs (client-side)
+   * If undefined or null, the function is available in both pack types*/
+  packType?: 'behavior' | 'resource';
 }
 
 /**
