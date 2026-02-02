@@ -294,6 +294,22 @@ describe('Molang Optimization Diagnostics', () => {
       {
         name: 'multiple optimizations in sequence',
         data: 'v.temp + 0 + v.other * 1',
+        expectedCode: 'molang.optimization.constant-folding',
+      },
+      {
+        name: 'x * 0 + 5 should optimize to 5',
+        data: 'v.x * 0 + 5',
+        expectedCode: 'molang.optimization.constant-folding',
+      },
+      {
+        name: '(a + 0) * 1 should optimize to a',
+        data: '(v.a + 0) * 1',
+        expectedCode: 'molang.optimization.constant-folding',
+      },
+      {
+        name: 'x - 0 + 3 + 2 should optimize to x + 5',
+        data: 'v.x - 0 + 3 + 2',
+        expectedCode: 'molang.optimization.constant-folding',
       },
     ];
 
