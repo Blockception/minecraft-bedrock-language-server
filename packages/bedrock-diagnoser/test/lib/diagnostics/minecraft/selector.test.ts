@@ -65,6 +65,12 @@ describe("Selector", () => {
       "@s[scores={data=..3,data=5..}]",
       '@e[name="main",tag=foo]',
       "@e[x=0,y=2,z=3,dx=4,dy=5,dz=6,type=minecraft:sheep,c=1]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=5}]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=5..8}]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=0..26}]",
+      "@a[hasitem={item=diamond,location=slot.hotbar,slot=0..8}]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=..10}]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=5..}]",
     ];
 
     valid.forEach((test) => {
@@ -88,6 +94,9 @@ describe("Selector", () => {
       "@a[scores={data=[value=1]}",
       "@r[hasitem={item=minecraft:stone,data=1},hasitem=[{item=minecraft:stone,data=2}]]",
       "@r[hasitem=[item=minecraft:stone]]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=54}]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=-1}]",
+      "@a[hasitem={item=diamond,location=slot.inventory,slot=10..5}]",
     ];
 
     invalid.forEach((test) => {
