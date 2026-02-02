@@ -200,6 +200,15 @@ export function diagnose_molang_syntax_optimizations(expression: ExpressionNode,
 }
 
 /**
+ * Checks if the pack type is one that can be validated for MoLang pack-specific queries
+ * @param packType The pack type to check
+ * @returns true if the pack type supports MoLang validation (Behavior or Resource pack)
+ */
+function isValidatablePackType(packType: PackType): boolean {
+  return packType === PackType.behavior_pack || packType === PackType.resource_pack;
+}
+
+/**
  * Diagnoses a Molang function call for correctness
  * @param fn The function call node to diagnose
  * @param diagnoser The diagnoser to report issues to
@@ -255,8 +264,8 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
   if (fnData.packType && documentUri) {
     const detectedPackType = PackType.detect(documentUri);
     
-    // Only validate if we can detect the pack type
-    if (detectedPackType === PackType.behavior_pack || detectedPackType === PackType.resource_pack) {
+    // Only validate if we can detect a pack type that supports MoLang validation
+    if (isValidatablePackType(detectedPackType)) {
       const expectedPackType = fnData.packType === 'behavior' ? PackType.behavior_pack : PackType.resource_pack;
       
       if (detectedPackType !== expectedPackType) {

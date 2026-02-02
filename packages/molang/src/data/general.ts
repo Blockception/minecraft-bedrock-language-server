@@ -1683,7 +1683,7 @@ export namespace General {
       documentation:
         'Takes one argument - the name of the scoreboard entry for this entity. Returns the specified scoreboard value for this entity. Available only with behavior packs.',
       parameters: [
-        { id: 'name', documentation: 'The name of the scoreboard entry', type: 'string' }
+        { id: 'name', documentation: 'The name of the scoreboard entry for this entity', type: 'string' }
       ],
       packType: 'behavior',
     },
