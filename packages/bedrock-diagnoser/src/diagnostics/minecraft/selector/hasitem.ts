@@ -26,7 +26,7 @@ export const attribute_hasitem_diagnostics: Record<string, diagnoseAttributes> =
   quantity: all(one_positive_all_negatives, range_integer_diagnose({ min: 0, max: 32767 })),
   location: all(no_duplicate, one_positive_all_negatives, must_offset_word(mode_slot_type_diagnose)),
   //Has extra checks down below
-  slot: all(no_duplicate, one_positive_all_negatives, integer_diagnose({ min: 0, max: 53 })),
+  slot: all(no_duplicate, one_positive_all_negatives, range_integer_diagnose({ min: 0, max: 53 })),
 };
 
 /**
