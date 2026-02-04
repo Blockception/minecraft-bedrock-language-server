@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-command",
-  "version": "1.21.134-2",
+  "version": "1.21.134-3",
   "description": "A typescript package library that handles commands for minecraft bedrock",
   "author": {
     "name": "Blockception Ltd",
