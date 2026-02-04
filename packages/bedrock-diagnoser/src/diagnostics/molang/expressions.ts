@@ -1,5 +1,5 @@
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
-import { TextDocument } from 'bc-minecraft-bedrock-project';
+import { TextDocument, PackType } from 'bc-minecraft-bedrock-project';
 import {
   ExpressionNode,
   FunctionCallNode,
@@ -28,7 +28,7 @@ export function diagnose_molang_syntax_document(
 ): MolangSet {
   const objSet = obj ?? Json.LoadReport(DocumentDiagnosticsBuilder.wrap(diagnoser, doc));
 
-  return diagnose_molang_set(objSet, diagnoser, doc.getText());
+  return diagnose_molang_set(objSet, diagnoser, doc.getText(), doc.uri);
 }
 
 export function diagnose_molang_syntax_text(
@@ -49,6 +49,7 @@ function diagnose_molang_set(
   obj: string | Record<string, any> | undefined,
   diagnoser: DiagnosticsBuilder,
   text: string,
+  documentUri?: string,
 ): MolangSet {
   const set = new MolangSet();
   if (obj === undefined) return set;
@@ -75,12 +76,12 @@ function diagnose_molang_set(
     }
   }
 
-  return diagnose_molang_syntax_set(set, diagnoser);
+  return diagnose_molang_syntax_set(set, diagnoser, documentUri);
 }
 
-export function diagnose_molang_syntax_set(set: MolangSet, diagnoser: DiagnosticsBuilder) {
+export function diagnose_molang_syntax_set(set: MolangSet, diagnoser: DiagnosticsBuilder, documentUri?: string) {
   // Check functions parameters
-  set.functions.forEach((fn) => diagnose_molang_function(fn, diagnoser));
+  set.functions.forEach((fn) => diagnose_molang_function(fn, diagnoser, documentUri));
 
   // Check syntax
   for (const exps of set.cache.expressions()) {
@@ -199,12 +200,22 @@ export function diagnose_molang_syntax_optimizations(expression: ExpressionNode,
 }
 
 /**
+ * Checks if the pack type is one that can be validated for MoLang pack-specific queries
+ * @param packType The pack type to check
+ * @returns true if the pack type supports MoLang validation (Behavior or Resource pack)
+ */
+function isValidatablePackType(packType: PackType): boolean {
+  return packType === PackType.behavior_pack || packType === PackType.resource_pack;
+}
+
+/**
  * Diagnoses a Molang function call for correctness
  * @param fn The function call node to diagnose
  * @param diagnoser The diagnoser to report issues to
+ * @param documentUri Optional document URI to detect pack type
  * @returns void
  */
-export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: DiagnosticsBuilder) {
+export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: DiagnosticsBuilder, documentUri?: string) {
   const id = fn.names.join('.');
   let fnData: MolangFunction | undefined;
   switch (fn.scope) {
@@ -247,6 +258,28 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
       DiagnosticSeverity.error,
       'molang.function.deprecated',
     );
+  }
+
+  // Check pack type restrictions if packType is specified on the function and we have a document URI
+  if (fnData.packType && documentUri) {
+    const detectedPackType = PackType.detect(documentUri);
+    
+    // Only validate if we can detect a pack type that supports MoLang validation
+    if (isValidatablePackType(detectedPackType)) {
+      const expectedPackType = fnData.packType === 'behavior' ? PackType.behavior_pack : PackType.resource_pack;
+      
+      if (detectedPackType !== expectedPackType) {
+        const packTypeStr = fnData.packType === 'behavior' ? 'Behavior Packs' : 'Resource Packs';
+        const currentPackStr = detectedPackType === PackType.behavior_pack ? 'Behavior Pack' : 'Resource Pack';
+        
+        diagnoser.add(
+          OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
+          `${fn.scope}.${id} is only available in ${packTypeStr}, but is being used in a ${currentPackStr}`,
+          DiagnosticSeverity.error,
+          'molang.function.wrong_pack_type',
+        );
+      }
+    }
   }
 
   if (fnData.parameters) {
