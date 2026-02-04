@@ -16,7 +16,7 @@
     "lint": "eslint --config ../../eslint.config.mjs ."
   },
   "devDependencies": {
-    "@types/node": "^25.2.0",
+    "@types/node": "^24.3.1",
     "rimraf": "^6.1.2",
     "ts-node": "^10.9.1",
     "tsx": "^4.21.0",
