@@ -632,11 +632,9 @@ export const Entities: Entity[] = [
       "breathe",
       "swim",
       "look_at_target",
-      "charge_warning",
       "dashing",
       "sound_controller",
-      "general_controller",
-      "attack_controller"
+      "general_controller"
     ]
   },
   {
@@ -1353,11 +1351,9 @@ export const Entities: Entity[] = [
       "breathe",
       "swim",
       "look_at_target",
-      "charge_warning",
       "dashing",
       "sound_controller",
-      "general_controller",
-      "attack_controller"
+      "general_controller"
     ]
   },
   {
