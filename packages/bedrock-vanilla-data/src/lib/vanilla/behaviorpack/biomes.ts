@@ -126,7 +126,9 @@ export const Biomes: Biome[] = [
       "monster",
       "ocean",
       "overworld",
-      "spawns_cold_variant_farm_animals"
+      "spawns_cold_variant_farm_animals",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -189,7 +191,9 @@ export const Biomes: Biome[] = [
       "monster",
       "ocean",
       "overworld",
-      "spawns_cold_variant_farm_animals"
+      "spawns_cold_variant_farm_animals",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -212,7 +216,9 @@ export const Biomes: Biome[] = [
       "overworld",
       "spawns_cold_variant_farm_animals",
       "spawns_cold_variant_frogs",
-      "spawns_polar_bears_on_alternate_blocks"
+      "spawns_polar_bears_on_alternate_blocks",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -223,7 +229,9 @@ export const Biomes: Biome[] = [
       "monster",
       "ocean",
       "overworld",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -233,7 +241,9 @@ export const Biomes: Biome[] = [
       "monster",
       "ocean",
       "overworld",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -244,7 +254,9 @@ export const Biomes: Biome[] = [
       "ocean",
       "overworld",
       "warm",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -389,7 +401,9 @@ export const Biomes: Biome[] = [
       "spawns_cold_variant_farm_animals",
       "spawns_cold_variant_frogs",
       "spawns_snow_foxes",
-      "spawns_white_rabbits"
+      "spawns_white_rabbits",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -569,7 +583,9 @@ export const Biomes: Biome[] = [
       "ocean",
       "overworld",
       "spawns_cold_variant_farm_animals",
-      "spawns_polar_bears_on_alternate_blocks"
+      "spawns_polar_bears_on_alternate_blocks",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -579,7 +595,9 @@ export const Biomes: Biome[] = [
       "monster",
       "ocean",
       "overworld",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -600,7 +618,8 @@ export const Biomes: Biome[] = [
       "monster",
       "spawns_slimes_on_surface",
       "spawns_warm_variant_farm_animals",
-      "spawns_warm_variant_frogs"
+      "spawns_warm_variant_frogs",
+      "slime"
     ]
   },
   {
@@ -648,7 +667,8 @@ export const Biomes: Biome[] = [
       "monster",
       "overworld",
       "spawns_mesa_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "surface_mineshaft"
     ]
   },
   {
@@ -660,7 +680,8 @@ export const Biomes: Biome[] = [
       "mutated",
       "overworld",
       "spawns_mesa_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "surface_mineshaft"
     ]
   },
   {
@@ -673,7 +694,8 @@ export const Biomes: Biome[] = [
       "plateau",
       "rare",
       "spawns_mesa_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "surface_mineshaft"
     ]
   },
   {
@@ -687,7 +709,8 @@ export const Biomes: Biome[] = [
       "plateau",
       "stone",
       "spawns_mesa_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "surface_mineshaft"
     ]
   },
   {
@@ -701,7 +724,8 @@ export const Biomes: Biome[] = [
       "rare",
       "stone",
       "spawns_mesa_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "surface_mineshaft"
     ]
   },
   {
@@ -714,7 +738,8 @@ export const Biomes: Biome[] = [
       "overworld",
       "plateau",
       "spawns_mesa_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "surface_mineshaft"
     ]
   },
   {
@@ -739,7 +764,9 @@ export const Biomes: Biome[] = [
     "tags": [
       "monster",
       "ocean",
-      "overworld"
+      "overworld",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {
@@ -928,7 +955,9 @@ export const Biomes: Biome[] = [
       "monster",
       "overworld",
       "swamp",
-      "spawns_slimes_on_surface"
+      "spawns_slimes_on_surface",
+      "slime",
+      "swamp_water_huge_mushroom"
     ]
   },
   {
@@ -939,7 +968,9 @@ export const Biomes: Biome[] = [
       "mutated",
       "swamp",
       "overworld_generation",
-      "spawns_slimes_on_surface"
+      "spawns_slimes_on_surface",
+      "slime",
+      "swamp_water_huge_mushroom"
     ]
   },
   {
@@ -994,7 +1025,9 @@ export const Biomes: Biome[] = [
       "overworld",
       "warm",
       "spawns_warm_variant_farm_animals",
-      "spawns_warm_variant_frogs"
+      "spawns_warm_variant_frogs",
+      "fast_fishing",
+      "high_seas"
     ]
   },
   {

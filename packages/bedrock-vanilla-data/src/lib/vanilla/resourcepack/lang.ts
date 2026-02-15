@@ -1629,6 +1629,10 @@ export const Langs: Lang[] = [
     "value": "Sit"
   },
   {
+    "id": "action.interact.spawn_egg_baby",
+    "value": "Spawn Baby"
+  },
+  {
     "id": "action.interact.stand",
     "value": "Stand"
   },
@@ -2309,6 +2313,14 @@ export const Langs: Lang[] = [
     "value": "Unlocked"
   },
   {
+    "id": "char.commandMacroFail.desc",
+    "value": "'%s' was unsuccessful."
+  },
+  {
+    "id": "char.commandMacroFail.title",
+    "value": "Command Macros"
+  },
+  {
     "id": "chat.cannotSend",
     "value": "Cannot send chat message"
   },
@@ -2359,6 +2371,10 @@ export const Langs: Lang[] = [
   {
     "id": "chat.mute",
     "value": "Mute Chat"
+  },
+  {
+    "id": "chat.newMessages",
+    "value": "New messages"
   },
   {
     "id": "chat.realmsFilterDisabled",
@@ -4929,6 +4945,10 @@ export const Langs: Lang[] = [
     "value": "Reloads all function and script files from all behavior packs, or optionally reloads the world and all resource and behavior packs."
   },
   {
+    "id": "commands.reload.ddui.success",
+    "value": "Data Driven UI files have been reloaded."
+  },
+  {
     "id": "commands.reload.description",
     "value": "Reloads all function and script files from all behavior packs."
   },
@@ -6993,6 +7013,18 @@ export const Langs: Lang[] = [
     "value": "Cancel"
   },
   {
+    "id": "controllerLayoutScreen.command_macro.command_placeholder",
+    "value": "Command to run"
+  },
+  {
+    "id": "controllerLayoutScreen.command_macros.title",
+    "value": "Command Macros"
+  },
+  {
+    "id": "controllerLayoutScreen.command_macros.title.description",
+    "value": "Command macros allow you to assign a keyboard input that will run the command when pressing Alt and the bound key."
+  },
+  {
     "id": "controllerLayoutScreen.confirmation.reset",
     "value": "Do you really want to reset the settings?"
   },
@@ -7677,8 +7709,24 @@ export const Langs: Lang[] = [
     "value": "Always Day"
   },
   {
+    "id": "createWorldScreen.alwaysDay.description",
+    "value": "Night never comes, it is always noon"
+  },
+  {
+    "id": "createWorldScreen.alwaysDay.name",
+    "value": "Always day"
+  },
+  {
     "id": "createWorldScreen.bonusChest",
     "value": "Bonus Chest"
+  },
+  {
+    "id": "createWorldScreen.bonusChest.description",
+    "value": "Spawn close to a chest with items to get you started"
+  },
+  {
+    "id": "createWorldScreen.bonusChest.name",
+    "value": "Bonus chest"
   },
   {
     "id": "createWorldScreen.cheatSettings",
@@ -7725,6 +7773,14 @@ export const Langs: Lang[] = [
     "value": "Command Blocks Enabled"
   },
   {
+    "id": "createWorldScreen.commandblocksenabled.description",
+    "value": "These are special programmable blocks"
+  },
+  {
+    "id": "createWorldScreen.commandblocksenabled.name",
+    "value": "Command blocks enabled"
+  },
+  {
     "id": "createWorldScreen.create",
     "value": "Create"
   },
@@ -7735,6 +7791,14 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.daylightcycle",
     "value": "Do Daylight Cycle"
+  },
+  {
+    "id": "createWorldScreen.daylightcycle.description",
+    "value": "Turn off to freeze the day/night cycle in its current phase"
+  },
+  {
+    "id": "createWorldScreen.daylightcycle.name",
+    "value": "Normal Day/Night Cycle"
   },
   {
     "id": "createWorldScreen.defaultName",
@@ -7789,6 +7853,14 @@ export const Langs: Lang[] = [
     "value": "Education Edition"
   },
   {
+    "id": "createWorldScreen.educationtoggle.description",
+    "value": "Try out your world with Education edition’s toolset"
+  },
+  {
+    "id": "createWorldScreen.educationtoggle.name",
+    "value": "Education edition"
+  },
+  {
     "id": "createWorldScreen.eduCloud.about.body",
     "value": "Filename: '%1$s'%2$sLast updated: %3$s%4$sTo download, click OK and then click the 'Download' button.%5$s"
   },
@@ -7823,6 +7895,14 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.entitiesdroploot",
     "value": "Entities Drop Loot"
+  },
+  {
+    "id": "createWorldScreen.entitiesdroploot.description",
+    "value": "Non-mob entities, like paintings, drop items when destroyed"
+  },
+  {
+    "id": "createWorldScreen.entitiesdroploot.name",
+    "value": "Entities drop loot"
   },
   {
     "id": "createWorldScreen.experimentalCreatorCameraFeatures",
@@ -7873,8 +7953,32 @@ export const Langs: Lang[] = [
     "value": "Contains updated trades for villagers for the purpose of rebalancing"
   },
   {
+    "id": "createWorldScreen.experimentalY2026Drop1",
+    "value": "Drop 1 of 2026"
+  },
+  {
+    "id": "createWorldScreen.experimentalY2026Drop1Description",
+    "value": "Make lots of tiny friends with a whole cast of cute new baby mobs"
+  },
+  {
     "id": "createWorldScreen.fireSpreads",
     "value": "Fire Spreads"
+  },
+  {
+    "id": "createWorldScreen.fireSpreads.description",
+    "value": "Might want to build with stone"
+  },
+  {
+    "id": "createWorldScreen.fireSpreads.name",
+    "value": "Fire spreads"
+  },
+  {
+    "id": "createWorldScreen.flatWorld",
+    "value": "Flat world"
+  },
+  {
+    "id": "createWorldScreen.flatWorld.description",
+    "value": "A flat world to build up or mine down into"
   },
   {
     "id": "createWorldScreen.game.settings",
@@ -7901,8 +8005,44 @@ export const Langs: Lang[] = [
     "value": "Default Game Mode"
   },
   {
+    "id": "createWorldScreen.gameMode.default.description",
+    "value": "Select a game mode for players entering your world"
+  },
+  {
+    "id": "createWorldScreen.gameMode.default.name",
+    "value": "Default game mode"
+  },
+  {
+    "id": "createWorldScreen.gameMode.description.adventure",
+    "value": "Explore special worlds and play by the rules of their creator."
+  },
+  {
+    "id": "createWorldScreen.gameMode.description.creative",
+    "value": "Create, build, and explore without limits. You can fly, have endless materials, and can’t be hurt by monsters."
+  },
+  {
+    "id": "createWorldScreen.gameMode.description.serverDefault",
+    "value": "Whatever the default game mode is… that's what you get."
+  },
+  {
+    "id": "createWorldScreen.gameMode.description.spectator",
+    "value": "Fly around and observe without interacting with the world or being seen."
+  },
+  {
+    "id": "createWorldScreen.gameMode.description.survival",
+    "value": "Explore a mysterious world where you build, collect, craft, and fight monsters."
+  },
+  {
     "id": "createWorldScreen.gameMode.personal",
     "value": "Personal Game Mode"
+  },
+  {
+    "id": "createWorldScreen.gameMode.personal.description",
+    "value": "Select your preferred game mode"
+  },
+  {
+    "id": "createWorldScreen.gameMode.personal.name",
+    "value": "Personal game mode"
   },
   {
     "id": "createWorldScreen.gameMode.serverDefault",
@@ -7961,12 +8101,32 @@ export const Langs: Lang[] = [
     "value": "Immediate Respawn"
   },
   {
+    "id": "createWorldScreen.immediaterespawn.description",
+    "value": "Skip “You died!” menu and respawn immediately"
+  },
+  {
+    "id": "createWorldScreen.immediaterespawn.name",
+    "value": "Immediate respawn"
+  },
+  {
     "id": "createWorldScreen.isHardcore",
     "value": "Hardcore mode"
   },
   {
+    "id": "createWorldScreen.isHardcore.description",
+    "value": "You can’t respawn if you die. Good luck! You’ll need it."
+  },
+  {
     "id": "createWorldScreen.keepInventory",
     "value": "Keep Inventory"
+  },
+  {
+    "id": "createWorldScreen.keepInventory.description",
+    "value": "Keep all items in the inventory when you die"
+  },
+  {
+    "id": "createWorldScreen.keepInventory.name",
+    "value": "Keep inventory"
   },
   {
     "id": "createWorldScreen.levelName",
@@ -7977,20 +8137,60 @@ export const Langs: Lang[] = [
     "value": "Seed"
   },
   {
+    "id": "createWorldScreen.levelSeed.copy",
+    "value": "Copy seed"
+  },
+  {
+    "id": "createWorldScreen.levelSeed.description",
+    "value": "A mysterious series of numbers used to create your world"
+  },
+  {
+    "id": "createWorldScreen.levelSeed.notification",
+    "value": "Copied to clipboard"
+  },
+  {
     "id": "createWorldScreen.locatorBar",
     "value": "Locator bar"
+  },
+  {
+    "id": "createWorldScreen.locatorBar.description",
+    "value": "Shows the direction of nearby players in the world"
   },
   {
     "id": "createWorldScreen.mobgriefing",
     "value": "Mob Griefing"
   },
   {
+    "id": "createWorldScreen.mobgriefing.description",
+    "value": "Mobs can break blocks and interfere with the environment"
+  },
+  {
+    "id": "createWorldScreen.mobgriefing.name",
+    "value": "Mob griefing"
+  },
+  {
     "id": "createWorldScreen.mobLoot",
     "value": "Mob Loot"
   },
   {
+    "id": "createWorldScreen.mobLoot.description",
+    "value": "Mobs drop items when killed"
+  },
+  {
+    "id": "createWorldScreen.mobLoot.name",
+    "value": "Mob loot"
+  },
+  {
     "id": "createWorldScreen.mobSpawn",
     "value": "Mob Spawning"
+  },
+  {
+    "id": "createWorldScreen.mobSpawn.description",
+    "value": "Turn off to prevent mobs from spawning"
+  },
+  {
+    "id": "createWorldScreen.mobSpawn.name",
+    "value": "Mob spawn normally"
   },
   {
     "id": "createWorldScreen.multiplayer.settings",
@@ -8001,12 +8201,36 @@ export const Langs: Lang[] = [
     "value": "Natural Regeneration"
   },
   {
+    "id": "createWorldScreen.naturalregeneration.description",
+    "value": "Gain or lose health based on your hunger"
+  },
+  {
+    "id": "createWorldScreen.naturalregeneration.name",
+    "value": "Natural regeneration"
+  },
+  {
     "id": "createWorldScreen.playerSleep",
     "value": "Beds Work"
   },
   {
+    "id": "createWorldScreen.playerSleep.description",
+    "value": "Sleeping in bed at night will skip to morning"
+  },
+  {
+    "id": "createWorldScreen.playerSleep.name",
+    "value": "Skip night by sleeping"
+  },
+  {
     "id": "createWorldScreen.playerSleepPercentage",
     "value": "Players needed to skip night"
+  },
+  {
+    "id": "createWorldScreen.playerSleepPercentage.description",
+    "value": "Percentage of players that must be in bed to skip to morning"
+  },
+  {
+    "id": "createWorldScreen.playerSleepPercentage.name",
+    "value": "Required sleeping players"
   },
   {
     "id": "createWorldScreen.playerSleepPercentageDescription",
@@ -8029,8 +8253,24 @@ export const Langs: Lang[] = [
     "value": "Friendly Fire"
   },
   {
+    "id": "createWorldScreen.pvp.description",
+    "value": "Players can hurt each other"
+  },
+  {
+    "id": "createWorldScreen.pvp.name",
+    "value": "Friendly fire"
+  },
+  {
     "id": "createWorldScreen.randomtickspeed",
     "value": "Random Tick Speed"
+  },
+  {
+    "id": "createWorldScreen.randomtickspeed.description",
+    "value": "Changes the speed of the world and everything in it (max 4096)"
+  },
+  {
+    "id": "createWorldScreen.randomtickspeed.name",
+    "value": "Tick Speed"
   },
   {
     "id": "createWorldScreen.randomtickspeed.reset",
@@ -8041,12 +8281,36 @@ export const Langs: Lang[] = [
     "value": "Recipes Unlock"
   },
   {
+    "id": "createWorldScreen.recipesUnlock.description",
+    "value": "Collect materials to automatically unlock recipes"
+  },
+  {
+    "id": "createWorldScreen.recipesUnlock.name",
+    "value": "Recipes unlocking"
+  },
+  {
     "id": "createWorldScreen.respawnblocksexplode",
     "value": "Respawn Blocks Explode"
   },
   {
+    "id": "createWorldScreen.respawnblocksexplode.description",
+    "value": "Respawn anchors and beds can explode if poorly placed"
+  },
+  {
+    "id": "createWorldScreen.respawnblocksexplode.name",
+    "value": "Respawn blocks explode"
+  },
+  {
     "id": "createWorldScreen.respawnRadius",
     "value": "Respawn Radius"
+  },
+  {
+    "id": "createWorldScreen.respawnRadius.description",
+    "value": "Randomly respawn somewhere within this many blocks of where you died (max 128)"
+  },
+  {
+    "id": "createWorldScreen.respawnRadius.name",
+    "value": "Respawn radius in blocks"
   },
   {
     "id": "createWorldScreen.seed.desc",
@@ -8055,6 +8319,10 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.serverSimDistance",
     "value": "Simulation Distance"
+  },
+  {
+    "id": "createWorldScreen.serverSimDistance.description",
+    "value": "The game loads and applies changes within a range of %1$sx%1$s blocks from the player"
   },
   {
     "id": "createWorldScreen.serverSimDistanceFormat",
@@ -8069,20 +8337,60 @@ export const Langs: Lang[] = [
     "value": "Show Coordinates"
   },
   {
+    "id": "createWorldScreen.showCoordinates.description",
+    "value": "Display your current position at all times"
+  },
+  {
+    "id": "createWorldScreen.showCoordinates.name",
+    "value": "Show coordinates"
+  },
+  {
     "id": "createWorldScreen.showDaysPlayed",
     "value": "Show Days Played"
+  },
+  {
+    "id": "createWorldScreen.showDaysPlayed.description",
+    "value": "Number of in-game days that have passed"
+  },
+  {
+    "id": "createWorldScreen.showDaysPlayed.name",
+    "value": "Show days played"
   },
   {
     "id": "createWorldScreen.startWithMap",
     "value": "Starting Map"
   },
   {
+    "id": "createWorldScreen.startWithMap.description",
+    "value": "Spawn with a blank map to explore your world"
+  },
+  {
+    "id": "createWorldScreen.startWithMap.name",
+    "value": "Starting map"
+  },
+  {
     "id": "createWorldScreen.tileDrops",
     "value": "Tile Drops"
   },
   {
+    "id": "createWorldScreen.tileDrops.description",
+    "value": "Blocks drop in the spot or tile where they’re broken. When off, blocks are simply destroyed."
+  },
+  {
+    "id": "createWorldScreen.tileDrops.name",
+    "value": "Tile drops"
+  },
+  {
     "id": "createWorldScreen.tntexplodes",
     "value": "TNT Explodes"
+  },
+  {
+    "id": "createWorldScreen.tntexplodes.description",
+    "value": "Red box goes boom"
+  },
+  {
+    "id": "createWorldScreen.tntexplodes.name",
+    "value": "TNT explodes"
   },
   {
     "id": "createWorldScreen.trustPlayers",
@@ -8091,6 +8399,14 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.weathercycle",
     "value": "Weather Cycle"
+  },
+  {
+    "id": "createWorldScreen.weathercycle.description",
+    "value": "Like rain, snow, and thunderstorms"
+  },
+  {
+    "id": "createWorldScreen.weathercycle.name",
+    "value": "Normal weather cycle"
   },
   {
     "id": "createWorldScreen.worldManagement",
@@ -10625,6 +10941,14 @@ export const Langs: Lang[] = [
     "value": "This is your current Skin"
   },
   {
+    "id": "dr.label.failed_to_load_appearance",
+    "value": "Failed to load appearance"
+  },
+  {
+    "id": "dr.label.loading_appearance",
+    "value": "Loading appearance"
+  },
+  {
     "id": "dr.left_arm",
     "value": "Left Arm"
   },
@@ -10817,32 +11141,32 @@ export const Langs: Lang[] = [
     "value": "coming soon"
   },
   {
-    "id": "edu.password_entry_screen.enter_password_title",
-    "value": "Enter Password"
+    "id": "edu.passcode_entry_screen.enter_passcode_title",
+    "value": "Enter Passcode"
   },
   {
-    "id": "edu.password_entry_screen.hide_password",
-    "value": "Hide Password"
+    "id": "edu.passcode_entry_screen.hide_passcode",
+    "value": "Hide Passcode"
   },
   {
-    "id": "edu.password_entry_screen.password_info",
-    "value": "This server requires a password. If you don't know the password, ask for help."
+    "id": "edu.passcode_entry_screen.passcode_info",
+    "value": "This server requires a passcode. If you don't know the passcode, ask for help."
   },
   {
-    "id": "edu.password_entry_screen.password_info_placeholder",
-    "value": "Please enter the server password"
+    "id": "edu.passcode_entry_screen.passcode_info_placeholder",
+    "value": "Please enter the server passcode"
   },
   {
-    "id": "edu.password_entry_screen.password_tooltip_label",
-    "value": "Password"
+    "id": "edu.passcode_entry_screen.passcode_tooltip_label",
+    "value": "Passcode"
   },
   {
-    "id": "edu.password_entry_screen.password_tooltip_text",
-    "value": "The password may contain only letters or numbers."
+    "id": "edu.passcode_entry_screen.passcode_tooltip_text",
+    "value": "The passcode may contain only letters or numbers."
   },
   {
-    "id": "edu.password_entry_screen.password_tooltip_tts",
-    "value": "The password may contain only letters or numbers."
+    "id": "edu.passcode_entry_screen.passcode_tooltip_tts",
+    "value": "The passcode may contain only letters or numbers."
   },
   {
     "id": "edu.pause.ipaddress",
@@ -10941,12 +11265,36 @@ export const Langs: Lang[] = [
     "value": "Server not available for your tenant."
   },
   {
+    "id": "edu.servers_screen.error_join_server_feature_disabled_body",
+    "value": "Your Minecraft Education servers have been disabled. Please contact your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_join_server_feature_disabled_title",
+    "value": "Servers disabled"
+  },
+  {
     "id": "edu.servers_screen.error_join_server_forbidden_text",
-    "value": "Incorrect Password. Sorry, but you need to enter the correct password to access this server."
+    "value": "Incorrect Passcode. Sorry, but you need to enter the correct passcode to access this server."
   },
   {
     "id": "edu.servers_screen.error_join_server_forbidden_title",
     "value": "Can't join"
+  },
+  {
+    "id": "edu.servers_screen.error_join_server_unexpectedly_disabled_body",
+    "value": "This Minecraft Education server has been disabled. It will be removed until re-enabled. For information, please contact your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_join_server_unexpectedly_disabled_title",
+    "value": "Server disabled"
+  },
+  {
+    "id": "edu.servers_screen.error_load_server_feature_disabled_banner",
+    "value": "Your Minecraft Education servers have been disabled. Please contact your IT administrator or try again later."
+  },
+  {
+    "id": "edu.servers_screen.error_load_server_service_unavailable_banner",
+    "value": "We’re sorry. We’re having some trouble retrieving information about your Minecraft Education servers. Please try again later."
   },
   {
     "id": "edu.servers_screen.generic_error_code",
@@ -10959,6 +11307,10 @@ export const Langs: Lang[] = [
   {
     "id": "edu.servers_screen.generic_error_title",
     "value": "Server Error"
+  },
+  {
+    "id": "edu.servers_screen.new",
+    "value": "NEW"
   },
   {
     "id": "edu.servers_screen.play",
@@ -11441,6 +11793,10 @@ export const Langs: Lang[] = [
     "value": "Aqua Affinity"
   },
   {
+    "id": "entity.agent.name",
+    "value": "Agent"
+  },
+  {
     "id": "entity.allay.name",
     "value": "Allay"
   },
@@ -11725,8 +12081,16 @@ export const Langs: Lang[] = [
     "value": "Nautilus"
   },
   {
+    "id": "entity.npc.name",
+    "value": "NPC"
+  },
+  {
     "id": "entity.ocelot.name",
     "value": "Ocelot"
+  },
+  {
+    "id": "entity.ominous_item_spawner.name",
+    "value": "Ominous Item Spawner"
   },
   {
     "id": "entity.painting.name",
@@ -11763,6 +12127,10 @@ export const Langs: Lang[] = [
   {
     "id": "entity.pillager.name",
     "value": "Pillager"
+  },
+  {
+    "id": "entity.player.name",
+    "value": "Player"
   },
   {
     "id": "entity.polar_bear.name",
@@ -15242,7 +15610,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "howtoplay.minecoins.text.1",
-    "value": "Explore a world of possibility with Minecoins: Minecraft's in-game currency! Minecoins let you add variety to your gameplat across supported Minecraft games."
+    "value": "Explore a world of possibility with Minecoins: Minecraft's in-game currency! Minecoins let you add variety to your gameplay across supported Minecraft games."
   },
   {
     "id": "howtoplay.minecoins.text.2",
@@ -15462,7 +15830,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "howtoplay.navigation.text.10",
-    "value": "There are several places for you to explore. Find a village and look for a Cartographer. He will trade you Explorer Maps that will lead you to strange places very far away."
+    "value": "There are several places for you to explore. Find a village and look for a Cartographer. They will trade you Explorer Maps that will lead you to strange places very far away."
   },
   {
     "id": "howtoplay.navigation.text.2",
@@ -16586,7 +16954,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "howtoplay.worlds.text.1",
-    "value": "Worlds in the Minecraft Marketplace Minecraft levels where our partners have altered the terrain and placed new blocks to create amazing structures and terrain for you to explore and enjoy."
+    "value": "Worlds in the Minecraft Marketplace are Minecraft levels where our partners have altered the terrain and placed new blocks to create amazing structures and terrain for you to explore and enjoy."
   },
   {
     "id": "howtoplay.worlds.text.10",
@@ -16606,7 +16974,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "howtoplay.worlds.text.3",
-    "value": "All of the content in the Marketplace is created by our professional commiunity creators."
+    "value": "All of the content in the Marketplace is created by our professional community creators."
   },
   {
     "id": "howtoplay.worlds.text.4",
@@ -23542,7 +23910,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "key.attack",
-    "value": "Attack/Destroy"
+    "value": "Attack / Destroy"
   },
   {
     "id": "key.back",
@@ -23591,6 +23959,46 @@ export const Langs: Lang[] = [
   {
     "id": "key.command",
     "value": "Open Command"
+  },
+  {
+    "id": "key.commandMacro.0",
+    "value": "Command Macro 1"
+  },
+  {
+    "id": "key.commandMacro.1",
+    "value": "Command Macro 2"
+  },
+  {
+    "id": "key.commandMacro.2",
+    "value": "Command Macro 3"
+  },
+  {
+    "id": "key.commandMacro.3",
+    "value": "Command Macro 4"
+  },
+  {
+    "id": "key.commandMacro.4",
+    "value": "Command Macro 5"
+  },
+  {
+    "id": "key.commandMacro.5",
+    "value": "Command Macro 6"
+  },
+  {
+    "id": "key.commandMacro.6",
+    "value": "Command Macro 7"
+  },
+  {
+    "id": "key.commandMacro.7",
+    "value": "Command Macro 8"
+  },
+  {
+    "id": "key.commandMacro.8",
+    "value": "Command Macro 9"
+  },
+  {
+    "id": "key.commandMacro.9",
+    "value": "Command Macro 10"
   },
   {
     "id": "key.copyCoordinates",
@@ -23694,7 +24102,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "key.jump",
-    "value": "Jump/Fly Up"
+    "value": "Jump / Fly Up"
   },
   {
     "id": "key.left",
@@ -23854,7 +24262,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "key.sneak",
-    "value": "Sneak/Fly Down"
+    "value": "Sneak / Fly Down"
   },
   {
     "id": "key.spectatorOutlines",
@@ -23894,7 +24302,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "key.use",
-    "value": "Use Item/Place Block"
+    "value": "Use Item / Place Block"
   },
   {
     "id": "key.viewToast",
@@ -24861,24 +25269,16 @@ export const Langs: Lang[] = [
     "value": "Open accessibility settings"
   },
   {
-    "id": "menu.accessibility.access.nogamepad",
-    "value": "Select the Accessibility Tab to open the Accessibility Settings."
-  },
-  {
     "id": "menu.accessibility.access.noicon",
     "value": "Select [A] to open the Accessibility Settings."
   },
   {
-    "id": "menu.accessibility.generalMessage",
-    "value": "We have moved the accessibility settings."
-  },
-  {
     "id": "menu.accessibility.tab.description",
-    "value": "Options and tools to help you get the best Minecraft experience, whoever you are"
+    "value": "Minecraft is for everyone, including you"
   },
   {
     "id": "menu.accessibility.tab.gameplay.description",
-    "value": "Tweak accessibility options for in-game visuals and camera movements"
+    "value": "Change accessibility options for in-game visuals and camera movements"
   },
   {
     "id": "menu.accessibility.tab.gameplay.title",
@@ -24890,7 +25290,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.accessibility.tab.tts.description",
-    "value": "Customise the text to speech feature, which reads aloud on-screen text"
+    "value": "Adjust how you hear on-screen text"
   },
   {
     "id": "menu.accessibility.tab.tts.title",
@@ -24898,7 +25298,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.accessibility.tab.ui.description",
-    "value": "Customise the game’s UI to reduce distractions and maximise clarity"
+    "value": "Set the game’s UI to fit your playing style"
   },
   {
     "id": "menu.accessibility.tab.ui.title",
@@ -24907,10 +25307,6 @@ export const Langs: Lang[] = [
   {
     "id": "menu.account.access",
     "value": "Press :_gamepad_face_button_down: to open the Account Settings."
-  },
-  {
-    "id": "menu.account.access.nogamepad",
-    "value": "Select the Account Tab to open the Account Settings."
   },
   {
     "id": "menu.account.access.noicon",
@@ -24965,10 +25361,6 @@ export const Langs: Lang[] = [
     "value": "Gamertag"
   },
   {
-    "id": "menu.account.generalMessage",
-    "value": "Account settings."
-  },
-  {
     "id": "menu.account.manageAccount.buttonLabel",
     "value": "Manage"
   },
@@ -24999,6 +25391,14 @@ export const Langs: Lang[] = [
   {
     "id": "menu.account.realmMembershipInvites.title",
     "value": "Manage Realms membership invites"
+  },
+  {
+    "id": "menu.account.signIn.buttonLabel",
+    "value": "Sign In"
+  },
+  {
+    "id": "menu.account.signIn.title",
+    "value": "Sign in for free"
   },
   {
     "id": "menu.account.signOutOfMicrosoft.buttonLabel",
@@ -25049,20 +25449,12 @@ export const Langs: Lang[] = [
     "value": "Press :_gamepad_face_button_down: to open the Audio Settings."
   },
   {
-    "id": "menu.audio.access.nogamepad",
-    "value": "Select the Audio Tab to open the Audio Settings."
-  },
-  {
     "id": "menu.audio.access.noicon",
     "value": "Select [A] to open the Audio Settings."
   },
   {
-    "id": "menu.audio.generalMessage",
-    "value": "Audio settings."
-  },
-  {
     "id": "menu.audio.tab.description",
-    "value": "Adjust the volume of each aspect of the game to create your perfect soundscape"
+    "value": "Adjust volume settings for music and sound effects"
   },
   {
     "id": "menu.audio.tab.title",
@@ -25121,6 +25513,74 @@ export const Langs: Lang[] = [
     "value": "Game menu"
   },
   {
+    "id": "menu.game.access",
+    "value": "Press :_gamepad_face_button_down: to open the Game Settings."
+  },
+  {
+    "id": "menu.game.access.button",
+    "value": "Open game settings"
+  },
+  {
+    "id": "menu.game.access.noicon",
+    "value": "Select [A] to open the Game Settings."
+  },
+  {
+    "id": "menu.game.tab.cheats.description",
+    "value": "Sometimes you need to bend the rules"
+  },
+  {
+    "id": "menu.game.tab.cheats.title",
+    "value": "Cheats"
+  },
+  {
+    "id": "menu.game.tab.description",
+    "value": "Change world settings and style of play"
+  },
+  {
+    "id": "menu.game.tab.experiments.addonCreators.title",
+    "value": "Add-On Creators"
+  },
+  {
+    "id": "menu.game.tab.experiments.description",
+    "value": "Try out new features and in-game experiments. But heads up! These can’t be turned off after world creation."
+  },
+  {
+    "id": "menu.game.tab.experiments.gameplay.title",
+    "value": "Gameplay"
+  },
+  {
+    "id": "menu.game.tab.experiments.graphics.title",
+    "value": "Graphics"
+  },
+  {
+    "id": "menu.game.tab.experiments.internal.title",
+    "value": "Internal Tests"
+  },
+  {
+    "id": "menu.game.tab.experiments.title",
+    "value": "Experiments"
+  },
+  {
+    "id": "menu.game.tab.title",
+    "value": "Game"
+  },
+  {
+    "id": "menu.game.tab.worldOptions.description",
+    "value": "Make the world yours"
+  },
+  {
+    "id": "menu.game.tab.worldOptions.title",
+    "value": "World Options"
+  },
+  {
+    "id": "menu.game.tab.worldPreferences.description",
+    "value": "Settings for worlds created by you"
+  },
+  {
+    "id": "menu.game.tab.worldPreferences.title",
+    "value": "World Setup"
+  },
+  {
     "id": "menu.general.access",
     "value": "Press :_gamepad_face_button_down: to open the General Settings."
   },
@@ -25129,20 +25589,12 @@ export const Langs: Lang[] = [
     "value": "Open general settings"
   },
   {
-    "id": "menu.general.access.nogamepad",
-    "value": "Select the General Tab to open the General Settings."
-  },
-  {
     "id": "menu.general.access.noicon",
     "value": "Select [A] to open the Accessibility Settings."
   },
   {
-    "id": "menu.general.generalMessage",
-    "value": "We have moved the general settingns."
-  },
-  {
     "id": "menu.general.tab.description",
-    "value": "Network and powersaving settings, plus access to game credits and licenses. If you can’t find what you’re looking for anywhere else, try here"
+    "value": "A bunch of stuff, from network settings to game credits"
   },
   {
     "id": "menu.general.tab.miscellaneous.description",
@@ -25154,7 +25606,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.general.tab.network.description",
-    "value": "These options touch the online experience on a technical and social level"
+    "value": "Adjust the online experience on a technical and social level"
   },
   {
     "id": "menu.general.tab.network.title",
@@ -25221,24 +25673,36 @@ export const Langs: Lang[] = [
     "value": "Open keyboard & mouse settings"
   },
   {
-    "id": "menu.keyboardAndMouse.access.nogamepad",
-    "value": "Select the Keyboard & Mouse Tab to open the Keyboard & Mouse Settings."
-  },
-  {
     "id": "menu.keyboardAndMouse.access.noicon",
     "value": "Select [A] to open the Keyboard & Mouse Settings."
   },
   {
-    "id": "menu.keyboardAndMouse.generalMessage",
-    "value": "We have moved the keyboard & mouse settings."
+    "id": "menu.keyboardAndMouse.tab.description",
+    "value": "Adjust input and mapping options"
   },
   {
-    "id": "menu.keyboardAndMouse.tab.description",
-    "value": "Input options, sensitivity settings and button mapping for keyboard & mouse"
+    "id": "menu.keyboardAndMouse.tab.mappings.chord.description",
+    "value": "Keys that are used with ‘CTRL + ALT’"
+  },
+  {
+    "id": "menu.keyboardAndMouse.tab.mappings.chord.title",
+    "value": "Chords"
   },
   {
     "id": "menu.keyboardAndMouse.tab.mappings.description",
     "value": "Remap any and all keyboard & mouse buttons to play your way"
+  },
+  {
+    "id": "menu.keyboardAndMouse.tab.mappings.macro.description",
+    "value": "Assign a keyboard input that will run a command when pressing ALT and the bound key"
+  },
+  {
+    "id": "menu.keyboardAndMouse.tab.mappings.macro.placeholder",
+    "value": "Command to run"
+  },
+  {
+    "id": "menu.keyboardAndMouse.tab.mappings.macro.title",
+    "value": "Macros"
   },
   {
     "id": "menu.keyboardAndMouse.tab.mappings.title",
@@ -25253,16 +25717,8 @@ export const Langs: Lang[] = [
     "value": "Press :_gamepad_face_button_down: to open the Language Settings."
   },
   {
-    "id": "menu.language.access.nogamepad",
-    "value": "Select the Language Tab to open the Language Settings."
-  },
-  {
     "id": "menu.language.access.noicon",
     "value": "Select [A] to open the Language Settings."
-  },
-  {
-    "id": "menu.language.generalMessage",
-    "value": "Language settings."
   },
   {
     "id": "menu.language.tab.description",
@@ -25295,6 +25751,66 @@ export const Langs: Lang[] = [
   {
     "id": "menu.multiplayer",
     "value": "Multiplayer"
+  },
+  {
+    "id": "menu.multiplayer.access",
+    "value": "Press :_gamepad_face_button_down: to open the Multiplayer Settings."
+  },
+  {
+    "id": "menu.multiplayer.access.button",
+    "value": "Open multiplayer settings"
+  },
+  {
+    "id": "menu.multiplayer.access.nogamepad",
+    "value": "Select the Multiplayer Tab to open the Multiplayer Settings."
+  },
+  {
+    "id": "menu.multiplayer.access.noicon",
+    "value": "Select [A] to open the Multiplayer Settings."
+  },
+  {
+    "id": "menu.multiplayer.broadcast.description",
+    "value": "Select who can join your multiplayer world"
+  },
+  {
+    "id": "menu.multiplayer.broadcast.name",
+    "value": "Microsoft account privacy"
+  },
+  {
+    "id": "menu.multiplayer.generalMessage",
+    "value": "We have moved the multiplayer settings."
+  },
+  {
+    "id": "menu.multiplayer.name",
+    "value": "Enable Multiplayer"
+  },
+  {
+    "id": "menu.multiplayer.nintendo.broadcast.name",
+    "value": "Nintendo Account Settings"
+  },
+  {
+    "id": "menu.multiplayer.serverVisible.description",
+    "value": "Play with people who are on the same wi-fi or local area network as you. No online subscription required"
+  },
+  {
+    "id": "menu.multiplayer.serverVisible.name",
+    "value": "Enable LAN play"
+  },
+  {
+    "id": "menu.multiplayer.sony.broadcast.name",
+    "value": "Settings for PlayStation™Network"
+  },
+  {
+    "id": "menu.multiplayer.tab.description",
+    "value": "Enjoy Minecraft with friends"
+  },
+  {
+    "id": "menu.multiplayer.tab.title",
+    "value": "Multiplayer"
+  },
+  {
+    "id": "menu.multiplayer.toggle.description",
+    "value": "Allows other players to join your world"
   },
   {
     "id": "menu.online",
@@ -25465,10 +25981,6 @@ export const Langs: Lang[] = [
     "value": "Press :_gamepad_face_button_down: to open the Video Settings."
   },
   {
-    "id": "menu.video.access.nogamepad",
-    "value": "Select the Video Tab to open the Video Settings."
-  },
-  {
     "id": "menu.video.access.noicon",
     "value": "Select [A] to open the Video Settings."
   },
@@ -25482,7 +25994,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.video.gamma.description",
-    "value": "Calibrate brightness and gamma to make Minecraft easier to see"
+    "value": "Make Minecraft brighter and easier to see"
   },
   {
     "id": "menu.video.generalMessage",
@@ -25522,15 +26034,15 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.video.mode_switch.description",
-    "value": "Change graphics mode during play, may affect performance. Turn off in Main Menu settings if frame rate drops."
+    "value": "Change graphics mode during play. Turn off in Main Menu settings if frame rate drops."
   },
   {
     "id": "menu.video.mode.description",
-    "value": "Adjust the quality of your game visuals"
+    "value": "Select the quality of your game visuals"
   },
   {
     "id": "menu.video.tab.description",
-    "value": "Graphics options and visual quality settings to allow the game to look its best."
+    "value": "Adjust graphics and visual quality"
   },
   {
     "id": "menu.video.tab.title",
@@ -26366,7 +26878,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.accessibility.resetSettings",
-    "value": "Reset to default settings"
+    "value": "Reset to default"
   },
   {
     "id": "options.accessibility.resetSettings.buttonLabel",
@@ -26374,7 +26886,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.accessibility.resetSettings.description",
-    "value": "Return all accessibility settings and sliders to their initial values"
+    "value": "Return all accessibility settings and sliders to their original values"
   },
   {
     "id": "options.accessibility.title",
@@ -26414,7 +26926,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.actionBarTextBackgroundOpacity.description",
-    "value": "Controls backgrounds of action bar hints (often used by Marketplace content)"
+    "value": "How much you can see-through the action bar"
   },
   {
     "id": "options.activateExperimentalGameplay",
@@ -26518,7 +27030,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.attribution.description",
-    "value": "View a list of our technology partners and systems used in the making of Minecraft"
+    "value": "Technology partners and systems"
   },
   {
     "id": "options.autojump",
@@ -26526,7 +27038,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.autojump.description",
-    "value": "Automatically jump up single blocks when moving forward"
+    "value": "Jump up single blocks when moving forward"
   },
   {
     "id": "options.autojump.name",
@@ -26538,7 +27050,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.autoUpdateEnabled.description",
-    "value": "Turns on automatic content pack updates. Newly released versions of your packs will be downloaded as soon as they are available"
+    "value": "Newly released versions of your packs will be downloaded as soon as they’re available"
   },
   {
     "id": "options.autoUpdateEnabled.name",
@@ -26578,7 +27090,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.bubbleparticles.description",
-    "value": "Turns on advanced effects for underwater bubbles"
+    "value": "Bubbles with style"
   },
   {
     "id": "options.builddate.format",
@@ -26710,7 +27222,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.classic_box_selection.description",
-    "value": "Adds a colored border to blocks you’re looking at, to make it easier to see which block is currently targeted"
+    "value": "Makes it easier to see which block you’re looking at"
   },
   {
     "id": "options.clearhotbar",
@@ -27010,7 +27522,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.credits.description",
-    "value": "Find out who made the game!"
+    "value": "All the people who helped make this game"
   },
   {
     "id": "options.crossplatformgame",
@@ -27066,7 +27578,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.darknessEffectModifier.description",
-    "value": "Adjust how dark the screen can become when affected by darkness. Caused by some hostile mobs and environmental hazards"
+    "value": "How dark the screen gets when affected by some hostile mobs and environmental hazards"
   },
   {
     "id": "options.darknessEffectModifier.message",
@@ -28077,6 +28589,26 @@ export const Langs: Lang[] = [
     "value": "Difficulty"
   },
   {
+    "id": "options.difficulty.description",
+    "value": "Select your preferred level of challenge"
+  },
+  {
+    "id": "options.difficulty.description.easy",
+    "value": "Hostile mobs spawn but deal less damage. Hunger bar depletes and drains health down to 5 hearts."
+  },
+  {
+    "id": "options.difficulty.description.hard",
+    "value": "Hostile mobs spawn and deal more damage. Hunger bar depletes and can drain all health."
+  },
+  {
+    "id": "options.difficulty.description.normal",
+    "value": "Hostile mobs spawn and deal standard damage. Hunger bar depletes and drains health down to half a heart."
+  },
+  {
+    "id": "options.difficulty.description.peaceful",
+    "value": "No hostile mobs and only some neutral mobs spawn. Hunger bar doesn’t deplete and health replenishes over time."
+  },
+  {
     "id": "options.difficulty.easy",
     "value": "Easy"
   },
@@ -28170,7 +28702,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.enableAutoPlatformTextToSpeech.description",
-    "value": "Use your device’s text-to-speech functionality instead of Minecraft’s"
+    "value": "Use your device for text to speech"
   },
   {
     "id": "options.enableChatTextToSpeech",
@@ -28179,6 +28711,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.enableChatTextToSpeech.description",
     "value": "Hear chat messages with text to speech"
+  },
+  {
+    "id": "options.enableCommandMacrosUI",
+    "value": "Enable Command Macros"
   },
   {
     "id": "options.enableDitheringBlocks",
@@ -28201,12 +28737,8 @@ export const Langs: Lang[] = [
     "value": "Lower Framerate When Controller Is Disconnected"
   },
   {
-    "id": "options.enableEcoMode.description",
-    "value": "An experimental power-saving setting which will lower power consumption while the game runs idle"
-  },
-  {
     "id": "options.enableEcoMode.name",
-    "value": "Enter sleep mode when no inputs detected"
+    "value": "Lower framerate when controller is disconnected"
   },
   {
     "id": "options.enableEducation",
@@ -28221,12 +28753,16 @@ export const Langs: Lang[] = [
     "value": "Enables Education Edition chemistry features. This cannot be disabled after your world is created. Please note these features are best experienced on desktop devices with moderate to high memory."
   },
   {
+    "id": "options.enableGameplaySubtitles",
+    "value": "Closed Captions"
+  },
+  {
     "id": "options.enableNewTouchControlSchemes",
     "value": "Enable New Touch Control Schemes"
   },
   {
     "id": "options.enableOpenChatMessage",
-    "value": "Chat Instructions on Join"
+    "value": "Chat instructions on join"
   },
   {
     "id": "options.enableOpenChatMessage.description",
@@ -28238,7 +28774,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.enableUITextToSpeech.description",
-    "value": "Hear menu options and other non-gameplay user interface elements with text to speech"
+    "value": "Hear menu options and other UI elements"
   },
   {
     "id": "options.entityShadows",
@@ -28322,7 +28858,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.filterProfanity.description",
-    "value": "Turns on profanity filtering. When active, this will filter out inappropriate language from text chat that would otherwise be visible"
+    "value": "Filter out inappropriate language"
   },
   {
     "id": "options.filterProfanity.name",
@@ -28350,7 +28886,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.font_license.description",
-    "value": "A license for the use of third-party fonts in Minecraft"
+    "value": "A license for third-party fonts"
   },
   {
     "id": "options.font_license.name",
@@ -28366,7 +28902,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.fov.description",
-    "value": "Adjust the viewing angle of the in-game camera"
+    "value": "Viewing angle of the in-game camera"
   },
   {
     "id": "options.fov.format",
@@ -28401,6 +28937,10 @@ export const Langs: Lang[] = [
     "value": "Frame pacing"
   },
   {
+    "id": "options.framePacing.description",
+    "value": "Turn this on for a smoother, more stable experience. This may cap your game at a lower frame rate."
+  },
+  {
     "id": "options.framePacing.tooltip",
     "value": "Turn this on for a smoother, more stable experience. This may cap your game at a lower frame rate."
   },
@@ -28418,7 +28958,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.fullKeyboardGameplay.description",
-    "value": "Maps mouse input onto the keyboard, for keyboard-only input while playing"
+    "value": "Maps mouse input onto the keyboard"
   },
   {
     "id": "options.fullKeyboardGameplay.name",
@@ -28478,7 +29018,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.glintSpeed.description",
-    "value": "Adjust how fast enchanted items can sparkle"
+    "value": "How fast enchanted items sparkle"
   },
   {
     "id": "options.glintSpeed.message",
@@ -28490,7 +29030,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.glintStrength.description",
-    "value": "Adjust the level of shiny glint for enchanted items"
+    "value": "Shiny glint for enchanted items"
   },
   {
     "id": "options.glintStrength.message",
@@ -28562,7 +29102,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.graphicsMode.rayTraced.description",
-    "value": "Advanced realtime lighting and reflections"
+    "value": "Advanced real-time lighting and reflections"
   },
   {
     "id": "options.graphicsMode.simple",
@@ -28681,6 +29221,10 @@ export const Langs: Lang[] = [
     "value": "Invited to Realms Alpha?"
   },
   {
+    "id": "options.group.server",
+    "value": "Server"
+  },
+  {
     "id": "options.gui.accessibility.scaling",
     "value": "Extra Large New UI"
   },
@@ -28694,7 +29238,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.guiAccessibilityScaling.description",
-    "value": "Make the updated menus bigger. Some parts might look a bit glitchy"
+    "value": "Increase the size of the UI for clarity and easy reading"
   },
   {
     "id": "options.guiAccessibilityScaling.name",
@@ -28738,7 +29282,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.guiScale.optionName.description",
-    "value": "Adjust the size of the HUD and other User Interface elements"
+    "value": "Select the size of the HUD and other UI elements to make them easier to use on different devices"
   },
   {
     "id": "options.guiScale.optionName.name",
@@ -28762,7 +29306,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.helpCenter.description",
-    "value": "Visit our online help directory and find answers for all of your burning support queries"
+    "value": "Get answers to all of your burning support queries"
   },
   {
     "id": "options.hidden",
@@ -28790,7 +29334,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.hidehand.description",
-    "value": "Hides your hands from first-person view, as well as any items you might be holding"
+    "value": "Hide your hand in first-person view"
   },
   {
     "id": "options.hidehud",
@@ -28798,7 +29342,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.hidehud.description",
-    "value": "Hide your Heads-Up Display - the health, hunger, and item bars"
+    "value": "Hide your Heads Up Display, including health, hunger, and item bars"
   },
   {
     "id": "options.hidepaperdoll",
@@ -28806,7 +29350,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.hidepaperdoll.description",
-    "value": "Hides your character preview from the HUD"
+    "value": "Hide your character preview when swimming, sneaking, flying, or riding"
   },
   {
     "id": "options.hidetooltips",
@@ -28870,7 +29414,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.ingamePlayerNames.description",
-    "value": "Display the profile names of players in the world, visible above their heads when playing split-screen"
+    "value": "Display names above other players' heads"
   },
   {
     "id": "options.ingamePlayerNames.name",
@@ -28898,7 +29442,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.interfaceOpacity.description",
-    "value": "Adjust how much you can see through the Heads-Up Display"
+    "value": "How much you can see-through the Heads Up Display"
   },
   {
     "id": "options.invertMouse",
@@ -28910,7 +29454,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.invertYAxis.description",
-    "value": "Reverses up and down when looking around. A less common option for keyboard and mouse users, but you do you"
+    "value": "Reverses up and down when looking around"
   },
   {
     "id": "options.invertYAxis.name",
@@ -28946,7 +29490,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.keyboardAndMouse.resetMappings",
-    "value": "Reset mapping to default"
+    "value": "Reset to default mapping"
   },
   {
     "id": "options.keyboardAndMouse.resetMappings.buttonLabel",
@@ -29022,7 +29566,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.licensed_content.description",
-    "value": "A list of all the licensed content available in Minecraft, across our entire range of content packs"
+    "value": "All licensed content available in Minecraft"
   },
   {
     "id": "options.licensed_content.name",
@@ -29035,6 +29579,30 @@ export const Langs: Lang[] = [
   {
     "id": "options.loadWorldAnyway",
     "value": "Load World Anyway"
+  },
+  {
+    "id": "options.lockedTemplateOptions",
+    "value": "Discard the creator's settings?"
+  },
+  {
+    "id": "options.lockedTemplateOptions.cancel",
+    "value": "Keep creator settings"
+  },
+  {
+    "id": "options.lockedTemplateOptions.initiate",
+    "value": "Unlock creator settings"
+  },
+  {
+    "id": "options.lockedTemplateOptions.message",
+    "value": "The experience that the creator of this template wants you to have might be broken if you unlock these settings. You might not be able to return to that intended experience if you continue."
+  },
+  {
+    "id": "options.lockedTemplateOptions.ok",
+    "value": "Unlock all settings"
+  },
+  {
+    "id": "options.lockedTemplateOptions.warning",
+    "value": "Template world options are locked to the values set by this template's creator. Unlock to change them."
   },
   {
     "id": "options.makeBackup",
@@ -29054,7 +29622,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.maxFramerate.description",
-    "value": "Cap the game’s maximum frames per second to maintain a steady frame rate or prevent overheating your device"
+    "value": "Set a limit for maximum frames per second to keep a steady frame rate or prevent overheating your device"
   },
   {
     "id": "options.maxFramerate.tooltip",
@@ -29102,7 +29670,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.msaa.description",
-    "value": "How smooth do you like your blocks? Higher values may affect performance"
+    "value": "Not a trick question. How smooth do you like your blocks?"
   },
   {
     "id": "options.multiplayer.title",
@@ -29166,7 +29734,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.notificationDuration.Chat.description",
-    "value": "Choose how long messages in the chat remain visible"
+    "value": "Select how long messages in the chat remain visible"
   },
   {
     "id": "options.notificationDuration.chat.TenSec",
@@ -29190,7 +29758,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.notificationDuration.Toast.description",
-    "value": "Choose how long notifications like game invites and marketplace offers remain visible"
+    "value": "Select how long notifications like game invites and marketplace offers remain visible"
   },
   {
     "id": "options.notificationDuration.toast.TenSec",
@@ -29225,12 +29793,8 @@ export const Langs: Lang[] = [
     "value": "Only Allow Trusted Skins"
   },
   {
-    "id": "options.onlyTrustedSkinsAllowed.description",
-    "value": "Allows trusted skins created by Mojang and our partners to be used/viewed in the game, but excludes any others"
-  },
-  {
     "id": "options.onlyTrustedSkinsAllowed.name",
-    "value": "Only add/see trusted skins"
+    "value": "Only allow trusted skins"
   },
   {
     "id": "options.openFeedbackPage",
@@ -29441,6 +30005,10 @@ export const Langs: Lang[] = [
     "value": "Video Quality Settings"
   },
   {
+    "id": "options.randomTick.reset.buttonLabel",
+    "value": "Reset"
+  },
+  {
     "id": "options.raytracing",
     "value": "Ray Tracing"
   },
@@ -29598,7 +30166,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.restartTutorial.description",
-    "value": "Restarts the tutorial so that you can experience it again. Just in case you missed something"
+    "value": "Restarts the tutorial in case you missed something"
   },
   {
     "id": "options.safeZone",
@@ -29606,7 +30174,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.safeZone.description",
-    "value": "Adjust the sliders until the four corners fit the edge of your screen."
+    "value": "Make sure the game looks great in your device’s screen"
   },
   {
     "id": "options.safeZone.title",
@@ -29630,7 +30198,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.screenAnimations.description",
-    "value": "Turns on HUD animations, which could impact game performance"
+    "value": "Subtle HUD animations to help transition from one screen to another"
   },
   {
     "id": "options.screenPositionX",
@@ -29646,7 +30214,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.screenShake.description",
-    "value": "Turns on a shaking animation, such as when taking damage in first person mode"
+    "value": "Set up camera shake using macros or chat"
   },
   {
     "id": "options.sensitivity",
@@ -29654,7 +30222,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.sensitivity.description",
-    "value": "Adjust the speed of the camera when looking around with the mouse"
+    "value": "Speed and sensitivity of the camera when looking around with the mouse"
   },
   {
     "id": "options.sensitivity.max",
@@ -29774,7 +30342,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.smooth_lighting.description",
-    "value": "Enable smoother light transitions for more natural looking shadows and brightness"
+    "value": "Better transitions for natural looking shadows and brightness"
   },
   {
     "id": "options.smoothRotationSpeed",
@@ -29826,7 +30394,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.sound.resetSettings",
-    "value": "Reset to default volume"
+    "value": "Reset to default"
   },
   {
     "id": "options.sound.resetSettings.buttonLabel",
@@ -29902,7 +30470,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.spyglassdampen.description",
-    "value": "Adjust the speed of the camera when using a spyglass"
+    "value": "Speed of the camera when using a spyglass"
   },
   {
     "id": "options.spyglassdampen.name",
@@ -30078,7 +30646,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.texelAA.description",
-    "value": "How smooth do you like your blocks? Higher values may affect performance"
+    "value": "Not a trick question. How smooth do you like your blocks?"
   },
   {
     "id": "options.texelAA.name",
@@ -30090,7 +30658,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.thirdperson.description",
-    "value": "Choose the placement of the game camera"
+    "value": "Select the in-game camera’s point of view"
   },
   {
     "id": "options.thirdperson.firstperson",
@@ -30118,7 +30686,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.tinkeringList.description",
-    "value": "Technical information used in the development of Minecraft, with no relevance to players. But feel free to have a look anyway if you really want"
+    "value": "Technical info that’s not relevant for players. Feel free to have a look if you’re curious!"
   },
   {
     "id": "options.title",
@@ -30134,7 +30702,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.toggleclouds.description",
-    "value": "Turns on clouds in the sky. Yes, that’s it"
+    "value": "Happy little clouds in the sky"
   },
   {
     "id": "options.toggleCrouch",
@@ -30222,7 +30790,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.tutorial.description",
-    "value": "Turns on in-game tips, to help teach you the basic principles of Minecraft as you play"
+    "value": "Get in-game tips to learn the basics of Minecraft"
   },
   {
     "id": "options.tutorialHint",
@@ -30238,7 +30806,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.uiprofile.description",
-    "value": "Choose between Classic and Pocket (mobile) interface layouts"
+    "value": "Select Pocket (mobile) or Classic interface layouts"
   },
   {
     "id": "options.uiprofile.pocket",
@@ -30302,7 +30870,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.upscalingMode.description",
-    "value": "Select the technique to use for upscaling"
+    "value": "Select your preferred technique for upscaling"
   },
   {
     "id": "options.upscalingModeOptions.bilinear",
@@ -30390,7 +30958,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.viewBobbing.description",
-    "value": "Turns on a gentle bobbing animation when walking in first person mode"
+    "value": "Camera bobs when walking"
   },
   {
     "id": "options.viewSubscriptions",
@@ -30506,7 +31074,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.volumetricFogQuality.description",
-    "value": "Adjust level of detail for more immersive fog"
+    "value": "Light shaft resolution for more immersive fog"
   },
   {
     "id": "options.volumetricFogQuality.high",
@@ -30562,7 +31130,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.websocketsEnabled.description",
-    "value": "Turns on the ability to connect to a WebSockets server for the setup of external scripts and other automated features"
+    "value": "Connect to a WebSockets server for the setup of external scripts and other automated features"
   },
   {
     "id": "options.websocketsEnabled.name",
@@ -30597,12 +31165,24 @@ export const Langs: Lang[] = [
     "value": "Friends of Friends"
   },
   {
+    "id": "options.xboxliveBroadcast.friendsOfFriends.description",
+    "value": "Anyone you’ve added as a Minecraft friend, as well as their Minecraft friends, can join your world"
+  },
+  {
     "id": "options.xboxliveBroadcast.friendsOnly",
     "value": "Friends Only"
   },
   {
+    "id": "options.xboxliveBroadcast.friendsOnly.description",
+    "value": "Anyone you’ve added as a Minecraft friend can join your world"
+  },
+  {
     "id": "options.xboxliveBroadcast.inviteOnly",
     "value": "Invite Only"
+  },
+  {
+    "id": "options.xboxliveBroadcast.inviteOnly.description",
+    "value": "All players need a direct invite to join your world"
   },
   {
     "id": "options.xboxliveBroadcastSettings",
@@ -30757,6 +31337,10 @@ export const Langs: Lang[] = [
     "value": "Missing '%s' element in pack manifest; Defaulting to '%s'."
   },
   {
+    "id": "parties.chat.unavailable",
+    "value": "Not in a party or party chat not available"
+  },
+  {
     "id": "parties.toast.acceptInviteFailed",
     "value": "Failed to accept invite"
   },
@@ -30789,6 +31373,10 @@ export const Langs: Lang[] = [
     "value": "You left the party"
   },
   {
+    "id": "parties.toast.mainMenu",
+    "value": "Main Menu"
+  },
+  {
     "id": "parties.toast.memberJoined",
     "value": "%s joined the party"
   },
@@ -30818,11 +31406,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "parties.toast.travelToMenu",
-    "value": "Party loading - Main Menu"
+    "value": "Party moving to Main Menu"
   },
   {
     "id": "parties.toast.travelToWorld",
-    "value": "Party loading - %s"
+    "value": "Party moving to %s"
   },
   {
     "id": "patchNotes.continue",
@@ -32551,6 +33139,10 @@ export const Langs: Lang[] = [
   {
     "id": "progressScreen.title.applyingPacks",
     "value": "Loading resource packs"
+  },
+  {
+    "id": "progressScreen.title.connectingCOM",
+    "value": "Connecting to online experience"
   },
   {
     "id": "progressScreen.title.connectingExternal",
@@ -35581,6 +36173,14 @@ export const Langs: Lang[] = [
     "value": "Activate Cheats"
   },
   {
+    "id": "selectWorld.cheats.description",
+    "value": "Get access to Minecraft’s built-in cheat system"
+  },
+  {
+    "id": "selectWorld.cheats.name",
+    "value": "Activate cheats"
+  },
+  {
     "id": "selectWorld.conversion",
     "value": "Must be converted!"
   },
@@ -35659,6 +36259,10 @@ export const Langs: Lang[] = [
   {
     "id": "selectWorld.enterName",
     "value": "World Name"
+  },
+  {
+    "id": "selectWorld.enterName.name",
+    "value": "World name"
   },
   {
     "id": "selectWorld.enterSeed",
@@ -36153,6 +36757,10 @@ export const Langs: Lang[] = [
     "value": "Skins"
   },
   {
+    "id": "slot.armor.body.when_equipped",
+    "value": "When equipped:"
+  },
+  {
     "id": "slot.armor.chest.when_equipped",
     "value": "When on Chest:"
   },
@@ -36174,7 +36782,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.ambient.description",
-    "value": "The volume of ambient sounds made by the environment"
+    "value": "Ambient sounds made by the environment"
   },
   {
     "id": "soundCategory.block",
@@ -36182,7 +36790,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.block.description",
-    "value": "The volume of sounds when placing or removing blocks"
+    "value": "Sounds when placing or removing blocks"
   },
   {
     "id": "soundCategory.hostile",
@@ -36190,7 +36798,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.hostile.description",
-    "value": "The volume of sounds made by nearby enemies"
+    "value": "Like zombies and skeletons"
   },
   {
     "id": "soundCategory.main",
@@ -36198,7 +36806,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.main.description",
-    "value": "The overall volume of the game"
+    "value": "Overall volume of the game"
   },
   {
     "id": "soundCategory.music",
@@ -36206,7 +36814,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.music.description",
-    "value": "The volume of the background music"
+    "value": "Background music"
   },
   {
     "id": "soundCategory.neutral",
@@ -36214,7 +36822,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.neutral.description",
-    "value": "The volume of sounds made by mobs like animals and villagers"
+    "value": "Like animals and villagers"
   },
   {
     "id": "soundCategory.player",
@@ -36222,7 +36830,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.player.description",
-    "value": "The volume of sounds made by other nearby players"
+    "value": "Sounds made by other nearby players"
   },
   {
     "id": "soundCategory.record",
@@ -36230,7 +36838,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.record.description",
-    "value": "The volume of sounds made by jukebox and note blocks"
+    "value": "Like jukeboxes and note blocks"
   },
   {
     "id": "soundCategory.sound",
@@ -36238,7 +36846,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.sound.description",
-    "value": "The volume of sounds that aren’t otherwise covered below, such as your footsteps and most UI sounds"
+    "value": "Sounds that aren’t covered below, like your footsteps and most UI sounds"
   },
   {
     "id": "soundCategory.texttospeech",
@@ -36246,7 +36854,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.texttospeech.description",
-    "value": "The volume of the game’s text to speech voice"
+    "value": "The game’s text to speech voice"
   },
   {
     "id": "soundCategory.weather",
@@ -36254,7 +36862,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.weather.description",
-    "value": "The volume of weather sounds, like rain and wind"
+    "value": "Weather sounds like rain and wind"
   },
   {
     "id": "splitscreen.joinPrompt",
@@ -39445,6 +40053,14 @@ export const Langs: Lang[] = [
     "value": "Replace World?"
   },
   {
+    "id": "store.vibrantvisuals.enabled.automatically.failed",
+    "value": "Graphics Mode Setting not changed to Vibrant Visuals"
+  },
+  {
+    "id": "store.vibrantvisuals.enabled.automatically.success",
+    "value": "Changed Graphic Mode - Vibrant Visuals enabled"
+  },
+  {
     "id": "store.view_achievement",
     "value": "View achievement"
   },
@@ -39917,6 +40533,3754 @@ export const Langs: Lang[] = [
     "value": "Waterlog Blocks"
   },
   {
+    "id": "subtitles.ambient.cave",
+    "value": "Eerie noise"
+  },
+  {
+    "id": "subtitles.ambient.sound",
+    "value": "Eerie noise"
+  },
+  {
+    "id": "subtitles.block.amethyst_block.chime",
+    "value": "Amethyst chimes"
+  },
+  {
+    "id": "subtitles.block.amethyst_block.resonate",
+    "value": "Amethyst resonates"
+  },
+  {
+    "id": "subtitles.block.anvil.destroy",
+    "value": "Anvil destroyed"
+  },
+  {
+    "id": "subtitles.block.anvil.land",
+    "value": "Anvil landed"
+  },
+  {
+    "id": "subtitles.block.anvil.use",
+    "value": "Anvil used"
+  },
+  {
+    "id": "subtitles.block.barrel.close",
+    "value": "Barrel closes"
+  },
+  {
+    "id": "subtitles.block.barrel.open",
+    "value": "Barrel opens"
+  },
+  {
+    "id": "subtitles.block.beacon.activate",
+    "value": "Beacon activates"
+  },
+  {
+    "id": "subtitles.block.beacon.ambient",
+    "value": "Beacon hums"
+  },
+  {
+    "id": "subtitles.block.beacon.deactivate",
+    "value": "Beacon deactivates"
+  },
+  {
+    "id": "subtitles.block.beacon.power_select",
+    "value": "Beacon power selected"
+  },
+  {
+    "id": "subtitles.block.beehive.drip",
+    "value": "Honey drips"
+  },
+  {
+    "id": "subtitles.block.beehive.enter",
+    "value": "Bee enters hive"
+  },
+  {
+    "id": "subtitles.block.beehive.exit",
+    "value": "Bee leaves hive"
+  },
+  {
+    "id": "subtitles.block.beehive.shear",
+    "value": "Shears scrape"
+  },
+  {
+    "id": "subtitles.block.beehive.work",
+    "value": "Bees work"
+  },
+  {
+    "id": "subtitles.block.bell.resonate",
+    "value": "Bell resonates"
+  },
+  {
+    "id": "subtitles.block.bell.use",
+    "value": "Bell rings"
+  },
+  {
+    "id": "subtitles.block.big_dripleaf.tilt_down",
+    "value": "Dripleaf tilts down"
+  },
+  {
+    "id": "subtitles.block.big_dripleaf.tilt_up",
+    "value": "Dripleaf tilts up"
+  },
+  {
+    "id": "subtitles.block.blastfurnace.fire_crackle",
+    "value": "Blast Furnace crackles"
+  },
+  {
+    "id": "subtitles.block.brewing_stand.brew",
+    "value": "Brewing Stand bubbles"
+  },
+  {
+    "id": "subtitles.block.bubble_column.bubble_pop",
+    "value": "Bubbles pop"
+  },
+  {
+    "id": "subtitles.block.bubble_column.upwards_ambient",
+    "value": "Bubbles flow"
+  },
+  {
+    "id": "subtitles.block.bubble_column.upwards_inside",
+    "value": "Bubbles woosh"
+  },
+  {
+    "id": "subtitles.block.bubble_column.whirlpool_ambient",
+    "value": "Bubbles whirl"
+  },
+  {
+    "id": "subtitles.block.bubble_column.whirlpool_inside",
+    "value": "Bubbles zoom"
+  },
+  {
+    "id": "subtitles.block.button.click",
+    "value": "Button clicks"
+  },
+  {
+    "id": "subtitles.block.cake.add_candle",
+    "value": "Cake squishes"
+  },
+  {
+    "id": "subtitles.block.campfire.crackle",
+    "value": "Campfire crackles"
+  },
+  {
+    "id": "subtitles.block.candle.crackle",
+    "value": "Candle crackles"
+  },
+  {
+    "id": "subtitles.block.candle.extinguish",
+    "value": "Candle extinguishes"
+  },
+  {
+    "id": "subtitles.block.chest.close",
+    "value": "Chest closes"
+  },
+  {
+    "id": "subtitles.block.chest.locked",
+    "value": "Chest locked"
+  },
+  {
+    "id": "subtitles.block.chest.open",
+    "value": "Chest opens"
+  },
+  {
+    "id": "subtitles.block.chorus_flower.death",
+    "value": "Chorus Flower withers"
+  },
+  {
+    "id": "subtitles.block.chorus_flower.grow",
+    "value": "Chorus Flower grows"
+  },
+  {
+    "id": "subtitles.block.comparator.click",
+    "value": "Comparator clicks"
+  },
+  {
+    "id": "subtitles.block.composter.empty",
+    "value": "Composter emptied"
+  },
+  {
+    "id": "subtitles.block.composter.fill",
+    "value": "Composter filled"
+  },
+  {
+    "id": "subtitles.block.composter.ready",
+    "value": "Composter composts"
+  },
+  {
+    "id": "subtitles.block.conduit.activate",
+    "value": "Conduit activates"
+  },
+  {
+    "id": "subtitles.block.conduit.ambient",
+    "value": "Conduit pulses"
+  },
+  {
+    "id": "subtitles.block.conduit.attack.target",
+    "value": "Conduit attacks"
+  },
+  {
+    "id": "subtitles.block.conduit.deactivate",
+    "value": "Conduit deactivates"
+  },
+  {
+    "id": "subtitles.block.copper_bulb.turn_off",
+    "value": "Copper Bulb turns off"
+  },
+  {
+    "id": "subtitles.block.copper_bulb.turn_on",
+    "value": "Copper Bulb turns on"
+  },
+  {
+    "id": "subtitles.block.copper_chest.close",
+    "value": "Chest closes"
+  },
+  {
+    "id": "subtitles.block.copper_chest.open",
+    "value": "Chest opens"
+  },
+  {
+    "id": "subtitles.block.copper_trapdoor.close",
+    "value": "Trapdoor closes"
+  },
+  {
+    "id": "subtitles.block.copper_trapdoor.open",
+    "value": "Trapdoor opens"
+  },
+  {
+    "id": "subtitles.block.crafter.craft",
+    "value": "Crafter crafts"
+  },
+  {
+    "id": "subtitles.block.crafter.fail",
+    "value": "Crafter fails crafting"
+  },
+  {
+    "id": "subtitles.block.creaking_heart.hurt",
+    "value": "Creaking Heart grumbles"
+  },
+  {
+    "id": "subtitles.block.creaking_heart.idle",
+    "value": "Eerie noise"
+  },
+  {
+    "id": "subtitles.block.creaking_heart.spawn",
+    "value": "Creaking Heart awakens"
+  },
+  {
+    "id": "subtitles.block.deadbush.idle",
+    "value": "Dry sounds"
+  },
+  {
+    "id": "subtitles.block.decorated_pot.insert",
+    "value": "Decorated Pot fills"
+  },
+  {
+    "id": "subtitles.block.decorated_pot.insert_fail",
+    "value": "Decorated Pot wobbles"
+  },
+  {
+    "id": "subtitles.block.decorated_pot.shatter",
+    "value": "Decorated Pot shatters"
+  },
+  {
+    "id": "subtitles.block.dispenser.dispense",
+    "value": "Dispensed item"
+  },
+  {
+    "id": "subtitles.block.dispenser.fail",
+    "value": "Dispenser failed"
+  },
+  {
+    "id": "subtitles.block.door.toggle",
+    "value": "Door creaks"
+  },
+  {
+    "id": "subtitles.block.dried_ghast.ambient",
+    "value": "Sounds of dryness"
+  },
+  {
+    "id": "subtitles.block.dried_ghast.ambient_water",
+    "value": "Dried Ghast rehydrates"
+  },
+  {
+    "id": "subtitles.block.dried_ghast.place_in_water",
+    "value": "Dried Ghast soaks"
+  },
+  {
+    "id": "subtitles.block.dried_ghast.transition",
+    "value": "Dried Ghast feels better"
+  },
+  {
+    "id": "subtitles.block.dry_grass.ambient",
+    "value": "Windy sounds"
+  },
+  {
+    "id": "subtitles.block.enchantment_table.use",
+    "value": "Enchanting Table used"
+  },
+  {
+    "id": "subtitles.block.end_portal_frame.fill",
+    "value": "Eye of Ender attaches"
+  },
+  {
+    "id": "subtitles.block.end_portal.spawn",
+    "value": "End Portal opens"
+  },
+  {
+    "id": "subtitles.block.eyeblossom.close",
+    "value": "Eyeblossom closes"
+  },
+  {
+    "id": "subtitles.block.eyeblossom.idle",
+    "value": "Eyeblossom whispers"
+  },
+  {
+    "id": "subtitles.block.eyeblossom.open",
+    "value": "Eyeblossom opens"
+  },
+  {
+    "id": "subtitles.block.fence_gate.toggle",
+    "value": "Fence Gate creaks"
+  },
+  {
+    "id": "subtitles.block.fire.ambient",
+    "value": "Fire crackles"
+  },
+  {
+    "id": "subtitles.block.fire.extinguish",
+    "value": "Fire extinguished"
+  },
+  {
+    "id": "subtitles.block.firefly_bush.idle",
+    "value": "Fireflies buzz"
+  },
+  {
+    "id": "subtitles.block.frogspawn.hatch",
+    "value": "Tadpole hatches"
+  },
+  {
+    "id": "subtitles.block.furnace.fire_crackle",
+    "value": "Furnace crackles"
+  },
+  {
+    "id": "subtitles.block.generic.break",
+    "value": "Block broken"
+  },
+  {
+    "id": "subtitles.block.generic.fall",
+    "value": "Something falls on a block"
+  },
+  {
+    "id": "subtitles.block.generic.footsteps",
+    "value": "Footsteps"
+  },
+  {
+    "id": "subtitles.block.generic.hit",
+    "value": "Block breaking"
+  },
+  {
+    "id": "subtitles.block.generic.place",
+    "value": "Block placed"
+  },
+  {
+    "id": "subtitles.block.grindstone.use",
+    "value": "Grindstone used"
+  },
+  {
+    "id": "subtitles.block.growing_plant.crop",
+    "value": "Plant cropped"
+  },
+  {
+    "id": "subtitles.block.hanging_sign.waxed_interact_fail",
+    "value": "Sign wobbles"
+  },
+  {
+    "id": "subtitles.block.honey_block.slide",
+    "value": "Sliding down a honey block"
+  },
+  {
+    "id": "subtitles.block.iron_trapdoor.close",
+    "value": "Trapdoor closes"
+  },
+  {
+    "id": "subtitles.block.iron_trapdoor.open",
+    "value": "Trapdoor opens"
+  },
+  {
+    "id": "subtitles.block.lava.ambient",
+    "value": "Lava pops"
+  },
+  {
+    "id": "subtitles.block.lava.extinguish",
+    "value": "Lava hisses"
+  },
+  {
+    "id": "subtitles.block.lever.click",
+    "value": "Lever clicks"
+  },
+  {
+    "id": "subtitles.block.note_block.note",
+    "value": "Note Block plays"
+  },
+  {
+    "id": "subtitles.block.pale_hanging_moss.idle",
+    "value": "Eerie noise"
+  },
+  {
+    "id": "subtitles.block.piston.move",
+    "value": "Piston moves"
+  },
+  {
+    "id": "subtitles.block.pointed_dripstone.drip_lava",
+    "value": "Lava drips"
+  },
+  {
+    "id": "subtitles.block.pointed_dripstone.drip_lava_into_cauldron",
+    "value": "Lava drips into Cauldron"
+  },
+  {
+    "id": "subtitles.block.pointed_dripstone.drip_water",
+    "value": "Water drips"
+  },
+  {
+    "id": "subtitles.block.pointed_dripstone.drip_water_into_cauldron",
+    "value": "Water drips into Cauldron"
+  },
+  {
+    "id": "subtitles.block.pointed_dripstone.land",
+    "value": "Stalactite crashes down"
+  },
+  {
+    "id": "subtitles.block.portal.ambient",
+    "value": "Portal whooshes"
+  },
+  {
+    "id": "subtitles.block.portal.travel",
+    "value": "Portal noise fades"
+  },
+  {
+    "id": "subtitles.block.portal.trigger",
+    "value": "Portal noise intensifies"
+  },
+  {
+    "id": "subtitles.block.pressure_plate.click",
+    "value": "Pressure Plate clicks"
+  },
+  {
+    "id": "subtitles.block.pumpkin.carve",
+    "value": "Shears carve"
+  },
+  {
+    "id": "subtitles.block.redstone_torch.burnout",
+    "value": "Torch fizzes"
+  },
+  {
+    "id": "subtitles.block.respawn_anchor.ambient",
+    "value": "Respawn Anchor whooshes"
+  },
+  {
+    "id": "subtitles.block.respawn_anchor.charge",
+    "value": "Respawn Anchor is charged"
+  },
+  {
+    "id": "subtitles.block.respawn_anchor.deplete",
+    "value": "Respawn Anchor depletes"
+  },
+  {
+    "id": "subtitles.block.respawn_anchor.set_spawn",
+    "value": "Respawn Anchor sets spawn"
+  },
+  {
+    "id": "subtitles.block.sand.idle",
+    "value": "Sandy sounds"
+  },
+  {
+    "id": "subtitles.block.sand.wind",
+    "value": "Windy sounds"
+  },
+  {
+    "id": "subtitles.block.sculk_catalyst.bloom",
+    "value": "Sculk Catalyst blooms"
+  },
+  {
+    "id": "subtitles.block.sculk_sensor.clicking",
+    "value": "Sculk Sensor clicks"
+  },
+  {
+    "id": "subtitles.block.sculk_sensor.clicking_stop",
+    "value": "Sculk Sensor stops clicking"
+  },
+  {
+    "id": "subtitles.block.sculk_shrieker.shriek",
+    "value": "Sculk Shrieker shrieks"
+  },
+  {
+    "id": "subtitles.block.sculk.charge",
+    "value": "Sculk bubbles"
+  },
+  {
+    "id": "subtitles.block.sculk.spread",
+    "value": "Sculk spreads"
+  },
+  {
+    "id": "subtitles.block.shulker_box.close",
+    "value": "Shulker box closes"
+  },
+  {
+    "id": "subtitles.block.shulker_box.open",
+    "value": "Shulker box opens"
+  },
+  {
+    "id": "subtitles.block.sign.waxed_interact_fail",
+    "value": "Sign wobbles"
+  },
+  {
+    "id": "subtitles.block.smithing_table.use",
+    "value": "Smithing Table used"
+  },
+  {
+    "id": "subtitles.block.smoker.smoke",
+    "value": "Smoker smokes"
+  },
+  {
+    "id": "subtitles.block.sniffer_egg.crack",
+    "value": "Sniffer Egg cracks"
+  },
+  {
+    "id": "subtitles.block.sniffer_egg.hatch",
+    "value": "Sniffer Egg hatches"
+  },
+  {
+    "id": "subtitles.block.sniffer_egg.plop",
+    "value": "Sniffer plops"
+  },
+  {
+    "id": "subtitles.block.sponge.absorb",
+    "value": "Sponge sucks"
+  },
+  {
+    "id": "subtitles.block.sweet_berry_bush.pick_berries",
+    "value": "Berries pop"
+  },
+  {
+    "id": "subtitles.block.trapdoor.close",
+    "value": "Trapdoor closes"
+  },
+  {
+    "id": "subtitles.block.trapdoor.open",
+    "value": "Trapdoor opens"
+  },
+  {
+    "id": "subtitles.block.trapdoor.toggle",
+    "value": "Trapdoor creaks"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.about_to_spawn_item",
+    "value": "Ominous item prepares"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.ambient",
+    "value": "Trial Spawner crackles"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.ambient_charged",
+    "value": "Ominous crackling"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.ambient_ominous",
+    "value": "Ominous crackling"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.charge_activate",
+    "value": "Omen engulfs Trial Spawner"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.close_shutter",
+    "value": "Trial Spawner closes"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.detect_player",
+    "value": "Trial Spawner charges up"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.eject_item",
+    "value": "Trial Spawner ejects items"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.ominous_activate",
+    "value": "Omen engulfs Trial Spawner"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.open_shutter",
+    "value": "Trial Spawner opens"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.spawn_item",
+    "value": "Ominous item drops"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.spawn_item_begin",
+    "value": "Ominous item appears"
+  },
+  {
+    "id": "subtitles.block.trial_spawner.spawn_mob",
+    "value": "Trial Spawner spawns a mob"
+  },
+  {
+    "id": "subtitles.block.tripwire.attach",
+    "value": "Tripwire attaches"
+  },
+  {
+    "id": "subtitles.block.tripwire.click",
+    "value": "Tripwire clicks"
+  },
+  {
+    "id": "subtitles.block.tripwire.detach",
+    "value": "Tripwire detaches"
+  },
+  {
+    "id": "subtitles.block.vault.activate",
+    "value": "Vault ignites"
+  },
+  {
+    "id": "subtitles.block.vault.ambient",
+    "value": "Vault crackles"
+  },
+  {
+    "id": "subtitles.block.vault.close_shutter",
+    "value": "Vault closes"
+  },
+  {
+    "id": "subtitles.block.vault.deactivate",
+    "value": "Vault extinguishes"
+  },
+  {
+    "id": "subtitles.block.vault.eject_item",
+    "value": "Vault ejects item"
+  },
+  {
+    "id": "subtitles.block.vault.insert_item",
+    "value": "Vault unlocks"
+  },
+  {
+    "id": "subtitles.block.vault.insert_item_fail",
+    "value": "Vault rejects item"
+  },
+  {
+    "id": "subtitles.block.vault.open_shutter",
+    "value": "Vault opens"
+  },
+  {
+    "id": "subtitles.block.vault.reject_rewarded_player",
+    "value": "Vault rejects player"
+  },
+  {
+    "id": "subtitles.block.water.ambient",
+    "value": "Water flows"
+  },
+  {
+    "id": "subtitles.block.wet_sponge.dries",
+    "value": "Sponge dries"
+  },
+  {
+    "id": "subtitles.chiseled_bookshelf.insert",
+    "value": "Book placed"
+  },
+  {
+    "id": "subtitles.chiseled_bookshelf.insert_enchanted",
+    "value": "Enchanted Book placed"
+  },
+  {
+    "id": "subtitles.chiseled_bookshelf.take",
+    "value": "Book taken"
+  },
+  {
+    "id": "subtitles.chiseled_bookshelf.take_enchanted",
+    "value": "Enchanted Book taken"
+  },
+  {
+    "id": "subtitles.enchant.thorns.hit",
+    "value": "Thorns prick"
+  },
+  {
+    "id": "subtitles.entity.allay.ambient_with_item",
+    "value": "Allay seeks"
+  },
+  {
+    "id": "subtitles.entity.allay.ambient_without_item",
+    "value": "Allay yearns"
+  },
+  {
+    "id": "subtitles.entity.allay.death",
+    "value": "Allay dies"
+  },
+  {
+    "id": "subtitles.entity.allay.hurt",
+    "value": "Allay hurts"
+  },
+  {
+    "id": "subtitles.entity.allay.item_given",
+    "value": "Allay chortles"
+  },
+  {
+    "id": "subtitles.entity.allay.item_taken",
+    "value": "Allay allays"
+  },
+  {
+    "id": "subtitles.entity.allay.item_thrown",
+    "value": "Allay tosses"
+  },
+  {
+    "id": "subtitles.entity.armadillo.ambient",
+    "value": "Armadillo grunts"
+  },
+  {
+    "id": "subtitles.entity.armadillo.brush",
+    "value": "Scute is brushed off"
+  },
+  {
+    "id": "subtitles.entity.armadillo.death",
+    "value": "Armadillo dies"
+  },
+  {
+    "id": "subtitles.entity.armadillo.eat",
+    "value": "Armadillo eats"
+  },
+  {
+    "id": "subtitles.entity.armadillo.hurt",
+    "value": "Armadillo hurts"
+  },
+  {
+    "id": "subtitles.entity.armadillo.hurt_reduced",
+    "value": "Armadillo shields itself"
+  },
+  {
+    "id": "subtitles.entity.armadillo.land",
+    "value": "Armadillo lands"
+  },
+  {
+    "id": "subtitles.entity.armadillo.peek",
+    "value": "Armadillo peeks"
+  },
+  {
+    "id": "subtitles.entity.armadillo.roll",
+    "value": "Armadillo rolls up"
+  },
+  {
+    "id": "subtitles.entity.armadillo.scute_drop",
+    "value": "Armadillo sheds scute"
+  },
+  {
+    "id": "subtitles.entity.armadillo.unroll_finish",
+    "value": "Armadillo unrolls"
+  },
+  {
+    "id": "subtitles.entity.armadillo.unroll_start",
+    "value": "Armadillo peeks"
+  },
+  {
+    "id": "subtitles.entity.armor_stand.fall",
+    "value": "Something fell"
+  },
+  {
+    "id": "subtitles.entity.arrow.hit",
+    "value": "Arrow hits"
+  },
+  {
+    "id": "subtitles.entity.arrow.hit_player",
+    "value": "Player hit"
+  },
+  {
+    "id": "subtitles.entity.arrow.shoot",
+    "value": "Arrow fired"
+  },
+  {
+    "id": "subtitles.entity.axolotl.attack",
+    "value": "Axolotl attacks"
+  },
+  {
+    "id": "subtitles.entity.axolotl.death",
+    "value": "Axolotl dies"
+  },
+  {
+    "id": "subtitles.entity.axolotl.hurt",
+    "value": "Axolotl hurts"
+  },
+  {
+    "id": "subtitles.entity.axolotl.idle_air",
+    "value": "Axolotl chirps"
+  },
+  {
+    "id": "subtitles.entity.axolotl.idle_water",
+    "value": "Axolotl chirps"
+  },
+  {
+    "id": "subtitles.entity.axolotl.splash",
+    "value": "Axolotl splashes"
+  },
+  {
+    "id": "subtitles.entity.axolotl.swim",
+    "value": "Axolotl swims"
+  },
+  {
+    "id": "subtitles.entity.baby_nautilus.ambient",
+    "value": "Baby Nautilus chitters"
+  },
+  {
+    "id": "subtitles.entity.baby_nautilus.ambient_land",
+    "value": "Baby Nautilus chitters"
+  },
+  {
+    "id": "subtitles.entity.baby_nautilus.death",
+    "value": "Baby Nautilus dies"
+  },
+  {
+    "id": "subtitles.entity.baby_nautilus.death_land",
+    "value": "Baby Nautilus dies"
+  },
+  {
+    "id": "subtitles.entity.baby_nautilus.eat",
+    "value": "Baby Nautilus eats"
+  },
+  {
+    "id": "subtitles.entity.baby_nautilus.hurt",
+    "value": "Baby Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.baby_nautilus.hurt_land",
+    "value": "Baby Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.bat.ambient",
+    "value": "Bat screeches"
+  },
+  {
+    "id": "subtitles.entity.bat.death",
+    "value": "Bat dies"
+  },
+  {
+    "id": "subtitles.entity.bat.hurt",
+    "value": "Bat hurts"
+  },
+  {
+    "id": "subtitles.entity.bat.takeoff",
+    "value": "Bat takes off"
+  },
+  {
+    "id": "subtitles.entity.bee.ambient",
+    "value": "Bee buzzes"
+  },
+  {
+    "id": "subtitles.entity.bee.death",
+    "value": "Bee dies"
+  },
+  {
+    "id": "subtitles.entity.bee.hurt",
+    "value": "Bee hurts"
+  },
+  {
+    "id": "subtitles.entity.bee.loop",
+    "value": "Bee buzzes"
+  },
+  {
+    "id": "subtitles.entity.bee.loop_aggressive",
+    "value": "Bee buzzes angrily"
+  },
+  {
+    "id": "subtitles.entity.bee.pollinate",
+    "value": "Bee buzzes happily"
+  },
+  {
+    "id": "subtitles.entity.bee.sting",
+    "value": "Bee stings"
+  },
+  {
+    "id": "subtitles.entity.blaze.ambient",
+    "value": "Blaze breathes"
+  },
+  {
+    "id": "subtitles.entity.blaze.burn",
+    "value": "Blaze crackles"
+  },
+  {
+    "id": "subtitles.entity.blaze.death",
+    "value": "Blaze dies"
+  },
+  {
+    "id": "subtitles.entity.blaze.hurt",
+    "value": "Blaze hurts"
+  },
+  {
+    "id": "subtitles.entity.blaze.shoot",
+    "value": "Blaze shoots"
+  },
+  {
+    "id": "subtitles.entity.boat.paddle_land",
+    "value": "Rowing"
+  },
+  {
+    "id": "subtitles.entity.boat.paddle_water",
+    "value": "Rowing"
+  },
+  {
+    "id": "subtitles.entity.bogged.ambient",
+    "value": "Bogged rattles"
+  },
+  {
+    "id": "subtitles.entity.bogged.death",
+    "value": "Bogged dies"
+  },
+  {
+    "id": "subtitles.entity.bogged.hurt",
+    "value": "Bogged hurts"
+  },
+  {
+    "id": "subtitles.entity.breeze.charge",
+    "value": "Breeze charges"
+  },
+  {
+    "id": "subtitles.entity.breeze.death",
+    "value": "Breeze dies"
+  },
+  {
+    "id": "subtitles.entity.breeze.deflect",
+    "value": "Breeze deflects"
+  },
+  {
+    "id": "subtitles.entity.breeze.hurt",
+    "value": "Breeze hurts"
+  },
+  {
+    "id": "subtitles.entity.breeze.idle_air",
+    "value": "Breeze flies"
+  },
+  {
+    "id": "subtitles.entity.breeze.idle_ground",
+    "value": "Breeze whirs"
+  },
+  {
+    "id": "subtitles.entity.breeze.inhale",
+    "value": "Breeze inhales"
+  },
+  {
+    "id": "subtitles.entity.breeze.jump",
+    "value": "Breeze jumps"
+  },
+  {
+    "id": "subtitles.entity.breeze.land",
+    "value": "Breeze lands"
+  },
+  {
+    "id": "subtitles.entity.breeze.shoot",
+    "value": "Breeze shoots"
+  },
+  {
+    "id": "subtitles.entity.breeze.slide",
+    "value": "Breeze slides"
+  },
+  {
+    "id": "subtitles.entity.breeze.whirl",
+    "value": "Breeze whirls"
+  },
+  {
+    "id": "subtitles.entity.breeze.wind_burst",
+    "value": "Wind Charge bursts"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.ambient",
+    "value": "Camel Husk grumphs"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.dash",
+    "value": "Camel Husk yeets"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.dash_ready",
+    "value": "Camel Husk recovers"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.death",
+    "value": "Camel Husk dies"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.eat",
+    "value": "Camel Husk eats"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.hurt",
+    "value": "Camel Husk hurts"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.sit",
+    "value": "Camel Husk sits down"
+  },
+  {
+    "id": "subtitles.entity.camel_husk.stand",
+    "value": "Camel Husk stands up"
+  },
+  {
+    "id": "subtitles.entity.camel.ambient",
+    "value": "Camel grunts"
+  },
+  {
+    "id": "subtitles.entity.camel.dash",
+    "value": "Camel yeets"
+  },
+  {
+    "id": "subtitles.entity.camel.dash_ready",
+    "value": "Camel recovers"
+  },
+  {
+    "id": "subtitles.entity.camel.death",
+    "value": "Camel dies"
+  },
+  {
+    "id": "subtitles.entity.camel.eat",
+    "value": "Camel eats"
+  },
+  {
+    "id": "subtitles.entity.camel.hurt",
+    "value": "Camel hurts"
+  },
+  {
+    "id": "subtitles.entity.camel.saddle",
+    "value": "Saddle equips"
+  },
+  {
+    "id": "subtitles.entity.camel.sit",
+    "value": "Camel sits down"
+  },
+  {
+    "id": "subtitles.entity.camel.stand",
+    "value": "Camel stands up"
+  },
+  {
+    "id": "subtitles.entity.camel.step",
+    "value": "Camel steps"
+  },
+  {
+    "id": "subtitles.entity.camel.step_sand",
+    "value": "Camel sands"
+  },
+  {
+    "id": "subtitles.entity.cat.ambient",
+    "value": "Cat meows"
+  },
+  {
+    "id": "subtitles.entity.cat.beg_for_food",
+    "value": "Cat begs"
+  },
+  {
+    "id": "subtitles.entity.cat.death",
+    "value": "Cat dies"
+  },
+  {
+    "id": "subtitles.entity.cat.eat",
+    "value": "Cat eats"
+  },
+  {
+    "id": "subtitles.entity.cat.hiss",
+    "value": "Cat hisses"
+  },
+  {
+    "id": "subtitles.entity.cat.hurt",
+    "value": "Cat hurts"
+  },
+  {
+    "id": "subtitles.entity.cat.purr",
+    "value": "Cat purrs"
+  },
+  {
+    "id": "subtitles.entity.chicken.ambient",
+    "value": "Chicken clucks"
+  },
+  {
+    "id": "subtitles.entity.chicken.death",
+    "value": "Chicken dies"
+  },
+  {
+    "id": "subtitles.entity.chicken.egg",
+    "value": "Chicken plops"
+  },
+  {
+    "id": "subtitles.entity.chicken.hurt",
+    "value": "Chicken hurts"
+  },
+  {
+    "id": "subtitles.entity.cod.death",
+    "value": "Cod dies"
+  },
+  {
+    "id": "subtitles.entity.cod.flop",
+    "value": "Cod flops"
+  },
+  {
+    "id": "subtitles.entity.cod.hurt",
+    "value": "Cod hurts"
+  },
+  {
+    "id": "subtitles.entity.copper_golem_oxidized.death",
+    "value": "Copper Golem dies"
+  },
+  {
+    "id": "subtitles.entity.copper_golem_oxidized.hurt",
+    "value": "Copper Golem hurts"
+  },
+  {
+    "id": "subtitles.entity.copper_golem_oxidized.spin",
+    "value": "Copper Golem's head spins"
+  },
+  {
+    "id": "subtitles.entity.copper_golem_weathered.death",
+    "value": "Copper Golem dies"
+  },
+  {
+    "id": "subtitles.entity.copper_golem_weathered.hurt",
+    "value": "Copper Golem hurts"
+  },
+  {
+    "id": "subtitles.entity.copper_golem_weathered.spin",
+    "value": "Copper Golem's head spins"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.death",
+    "value": "Copper Golem dies"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.hurt",
+    "value": "Copper Golem hurts"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.item_drop",
+    "value": "Copper Golem is placing an item"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.item_no_drop",
+    "value": "Copper Golem can't place item"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.no_item_get",
+    "value": "Copper Golem is picking up item"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.no_item_no_get",
+    "value": "Copper Golem can't pick up item"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.spawn",
+    "value": "Copper Golem appears"
+  },
+  {
+    "id": "subtitles.entity.copper_golem.spin",
+    "value": "Copper Golem's head spins"
+  },
+  {
+    "id": "subtitles.entity.cow.ambient",
+    "value": "Cow moos"
+  },
+  {
+    "id": "subtitles.entity.cow.death",
+    "value": "Cow dies"
+  },
+  {
+    "id": "subtitles.entity.cow.hurt",
+    "value": "Cow hurts"
+  },
+  {
+    "id": "subtitles.entity.cow.milk",
+    "value": "Cow gets milked"
+  },
+  {
+    "id": "subtitles.entity.creaking.activate",
+    "value": "Creaking watches"
+  },
+  {
+    "id": "subtitles.entity.creaking.ambient",
+    "value": "Creaking creaks"
+  },
+  {
+    "id": "subtitles.entity.creaking.attack",
+    "value": "Creaking attacks"
+  },
+  {
+    "id": "subtitles.entity.creaking.deactivate",
+    "value": "Creaking calms"
+  },
+  {
+    "id": "subtitles.entity.creaking.death",
+    "value": "Creaking crumbles"
+  },
+  {
+    "id": "subtitles.entity.creaking.freeze",
+    "value": "Creaking stops"
+  },
+  {
+    "id": "subtitles.entity.creaking.spawn",
+    "value": "Creaking manifests"
+  },
+  {
+    "id": "subtitles.entity.creaking.sway",
+    "value": "Creaking is hit"
+  },
+  {
+    "id": "subtitles.entity.creaking.twitch",
+    "value": "Creaking twitches"
+  },
+  {
+    "id": "subtitles.entity.creaking.unfreeze",
+    "value": "Creaking moves"
+  },
+  {
+    "id": "subtitles.entity.creeper.death",
+    "value": "Creeper dies"
+  },
+  {
+    "id": "subtitles.entity.creeper.hurt",
+    "value": "Creeper hurts"
+  },
+  {
+    "id": "subtitles.entity.creeper.primed",
+    "value": "Creeper hisses"
+  },
+  {
+    "id": "subtitles.entity.dolphin.ambient",
+    "value": "Dolphin chirps"
+  },
+  {
+    "id": "subtitles.entity.dolphin.ambient_water",
+    "value": "Dolphin whistles"
+  },
+  {
+    "id": "subtitles.entity.dolphin.attack",
+    "value": "Dolphin attacks"
+  },
+  {
+    "id": "subtitles.entity.dolphin.death",
+    "value": "Dolphin dies"
+  },
+  {
+    "id": "subtitles.entity.dolphin.eat",
+    "value": "Dolphin eats"
+  },
+  {
+    "id": "subtitles.entity.dolphin.hurt",
+    "value": "Dolphin hurts"
+  },
+  {
+    "id": "subtitles.entity.dolphin.jump",
+    "value": "Dolphin jumps"
+  },
+  {
+    "id": "subtitles.entity.dolphin.play",
+    "value": "Dolphin plays"
+  },
+  {
+    "id": "subtitles.entity.dolphin.splash",
+    "value": "Dolphin splashes"
+  },
+  {
+    "id": "subtitles.entity.dolphin.swim",
+    "value": "Dolphin swims"
+  },
+  {
+    "id": "subtitles.entity.donkey.ambient",
+    "value": "Donkey hee-haws"
+  },
+  {
+    "id": "subtitles.entity.donkey.angry",
+    "value": "Donkey neighs"
+  },
+  {
+    "id": "subtitles.entity.donkey.chest",
+    "value": "Donkey Chest equips"
+  },
+  {
+    "id": "subtitles.entity.donkey.death",
+    "value": "Donkey dies"
+  },
+  {
+    "id": "subtitles.entity.donkey.eat",
+    "value": "Donkey eats"
+  },
+  {
+    "id": "subtitles.entity.donkey.hurt",
+    "value": "Donkey hurts"
+  },
+  {
+    "id": "subtitles.entity.donkey.jump",
+    "value": "Donkey jumps"
+  },
+  {
+    "id": "subtitles.entity.drowned.ambient",
+    "value": "Drowned gurgles"
+  },
+  {
+    "id": "subtitles.entity.drowned.ambient_water",
+    "value": "Drowned gurgles"
+  },
+  {
+    "id": "subtitles.entity.drowned.death",
+    "value": "Drowned dies"
+  },
+  {
+    "id": "subtitles.entity.drowned.hurt",
+    "value": "Drowned hurts"
+  },
+  {
+    "id": "subtitles.entity.drowned.shoot",
+    "value": "Drowned throws Trident"
+  },
+  {
+    "id": "subtitles.entity.drowned.step",
+    "value": "Drowned steps"
+  },
+  {
+    "id": "subtitles.entity.drowned.swim",
+    "value": "Drowned swims"
+  },
+  {
+    "id": "subtitles.entity.egg.throw",
+    "value": "Egg flies"
+  },
+  {
+    "id": "subtitles.entity.elder_guardian.ambient",
+    "value": "Elder Guardian moans"
+  },
+  {
+    "id": "subtitles.entity.elder_guardian.ambient_land",
+    "value": "Elder Guardian flaps"
+  },
+  {
+    "id": "subtitles.entity.elder_guardian.curse",
+    "value": "Elder Guardian curses"
+  },
+  {
+    "id": "subtitles.entity.elder_guardian.death",
+    "value": "Elder Guardian dies"
+  },
+  {
+    "id": "subtitles.entity.elder_guardian.flop",
+    "value": "Elder Guardian flops"
+  },
+  {
+    "id": "subtitles.entity.elder_guardian.hurt",
+    "value": "Elder Guardian hurts"
+  },
+  {
+    "id": "subtitles.entity.ender_dragon.ambient",
+    "value": "Dragon roars"
+  },
+  {
+    "id": "subtitles.entity.ender_dragon.death",
+    "value": "Dragon dies"
+  },
+  {
+    "id": "subtitles.entity.ender_dragon.flap",
+    "value": "Dragon flaps"
+  },
+  {
+    "id": "subtitles.entity.ender_dragon.growl",
+    "value": "Dragon growls"
+  },
+  {
+    "id": "subtitles.entity.ender_dragon.hurt",
+    "value": "Dragon hurts"
+  },
+  {
+    "id": "subtitles.entity.ender_dragon.shoot",
+    "value": "Dragon shoots"
+  },
+  {
+    "id": "subtitles.entity.ender_eye.death",
+    "value": "Eye of Ender falls"
+  },
+  {
+    "id": "subtitles.entity.ender_eye.launch",
+    "value": "Eye of Ender shoots"
+  },
+  {
+    "id": "subtitles.entity.ender_pearl.throw",
+    "value": "Ender Pearl flies"
+  },
+  {
+    "id": "subtitles.entity.enderman.ambient",
+    "value": "Enderman vwoops"
+  },
+  {
+    "id": "subtitles.entity.enderman.death",
+    "value": "Enderman dies"
+  },
+  {
+    "id": "subtitles.entity.enderman.hurt",
+    "value": "Enderman hurts"
+  },
+  {
+    "id": "subtitles.entity.enderman.scream",
+    "value": "Enderman screams"
+  },
+  {
+    "id": "subtitles.entity.enderman.stare",
+    "value": "Enderman cries out"
+  },
+  {
+    "id": "subtitles.entity.enderman.teleport",
+    "value": "Enderman teleports"
+  },
+  {
+    "id": "subtitles.entity.endermite.ambient",
+    "value": "Endermite scuttles"
+  },
+  {
+    "id": "subtitles.entity.endermite.death",
+    "value": "Endermite dies"
+  },
+  {
+    "id": "subtitles.entity.endermite.hurt",
+    "value": "Endermite hurts"
+  },
+  {
+    "id": "subtitles.entity.evoker_fangs.attack",
+    "value": "Fangs snap"
+  },
+  {
+    "id": "subtitles.entity.evoker.ambient",
+    "value": "Evoker murmurs"
+  },
+  {
+    "id": "subtitles.entity.evoker.cast_spell",
+    "value": "Evoker casts spell"
+  },
+  {
+    "id": "subtitles.entity.evoker.celebrate",
+    "value": "Evoker cheers"
+  },
+  {
+    "id": "subtitles.entity.evoker.death",
+    "value": "Evoker dies"
+  },
+  {
+    "id": "subtitles.entity.evoker.hurt",
+    "value": "Evoker hurts"
+  },
+  {
+    "id": "subtitles.entity.evoker.prepare_attack",
+    "value": "Evoker prepares attack"
+  },
+  {
+    "id": "subtitles.entity.evoker.prepare_summon",
+    "value": "Evoker prepares summoning"
+  },
+  {
+    "id": "subtitles.entity.evoker.prepare_wololo",
+    "value": "Evoker prepares charming"
+  },
+  {
+    "id": "subtitles.entity.experience_orb.pickup",
+    "value": "Experience gained"
+  },
+  {
+    "id": "subtitles.entity.firework_rocket.blast",
+    "value": "Firework blasts"
+  },
+  {
+    "id": "subtitles.entity.firework_rocket.launch",
+    "value": "Firework launches"
+  },
+  {
+    "id": "subtitles.entity.firework_rocket.twinkle",
+    "value": "Firework twinkles"
+  },
+  {
+    "id": "subtitles.entity.fish.swim",
+    "value": "Splashes"
+  },
+  {
+    "id": "subtitles.entity.fishing_bobber.retrieve",
+    "value": "Bobber retrieved"
+  },
+  {
+    "id": "subtitles.entity.fishing_bobber.splash",
+    "value": "Fishing Bobber splashes"
+  },
+  {
+    "id": "subtitles.entity.fishing_bobber.throw",
+    "value": "Bobber thrown"
+  },
+  {
+    "id": "subtitles.entity.fox.aggro",
+    "value": "Fox angers"
+  },
+  {
+    "id": "subtitles.entity.fox.ambient",
+    "value": "Fox squeaks"
+  },
+  {
+    "id": "subtitles.entity.fox.bite",
+    "value": "Fox bites"
+  },
+  {
+    "id": "subtitles.entity.fox.death",
+    "value": "Fox dies"
+  },
+  {
+    "id": "subtitles.entity.fox.eat",
+    "value": "Fox eats"
+  },
+  {
+    "id": "subtitles.entity.fox.hurt",
+    "value": "Fox hurts"
+  },
+  {
+    "id": "subtitles.entity.fox.screech",
+    "value": "Fox screeches"
+  },
+  {
+    "id": "subtitles.entity.fox.sleep",
+    "value": "Fox snores"
+  },
+  {
+    "id": "subtitles.entity.fox.sniff",
+    "value": "Fox sniffs"
+  },
+  {
+    "id": "subtitles.entity.fox.spit",
+    "value": "Fox spits"
+  },
+  {
+    "id": "subtitles.entity.fox.teleport",
+    "value": "Fox teleports"
+  },
+  {
+    "id": "subtitles.entity.frog.ambient",
+    "value": "Frog croaks"
+  },
+  {
+    "id": "subtitles.entity.frog.death",
+    "value": "Frog dies"
+  },
+  {
+    "id": "subtitles.entity.frog.eat",
+    "value": "Frog eats"
+  },
+  {
+    "id": "subtitles.entity.frog.hurt",
+    "value": "Frog hurts"
+  },
+  {
+    "id": "subtitles.entity.frog.lay_spawn",
+    "value": "Frog lays spawn"
+  },
+  {
+    "id": "subtitles.entity.frog.long_jump",
+    "value": "Frog jumps"
+  },
+  {
+    "id": "subtitles.entity.generic.big_fall",
+    "value": "Something fell"
+  },
+  {
+    "id": "subtitles.entity.generic.burn",
+    "value": "Burning"
+  },
+  {
+    "id": "subtitles.entity.generic.death",
+    "value": "Dying"
+  },
+  {
+    "id": "subtitles.entity.generic.drink",
+    "value": "Sipping"
+  },
+  {
+    "id": "subtitles.entity.generic.eat",
+    "value": "Eating"
+  },
+  {
+    "id": "subtitles.entity.generic.explode",
+    "value": "Explosion"
+  },
+  {
+    "id": "subtitles.entity.generic.extinguish_fire",
+    "value": "Fire extinguishes"
+  },
+  {
+    "id": "subtitles.entity.generic.hurt",
+    "value": "Something hurts"
+  },
+  {
+    "id": "subtitles.entity.generic.small_fall",
+    "value": "Something trips"
+  },
+  {
+    "id": "subtitles.entity.generic.splash",
+    "value": "Splashing"
+  },
+  {
+    "id": "subtitles.entity.generic.swim",
+    "value": "Swimming"
+  },
+  {
+    "id": "subtitles.entity.generic.wind_burst",
+    "value": "Wind Charge bursts"
+  },
+  {
+    "id": "subtitles.entity.ghast.ambient",
+    "value": "Ghast cries"
+  },
+  {
+    "id": "subtitles.entity.ghast.death",
+    "value": "Ghast dies"
+  },
+  {
+    "id": "subtitles.entity.ghast.hurt",
+    "value": "Ghast hurts"
+  },
+  {
+    "id": "subtitles.entity.ghast.shoot",
+    "value": "Ghast shoots"
+  },
+  {
+    "id": "subtitles.entity.ghastling.ambient",
+    "value": "Ghastling coos"
+  },
+  {
+    "id": "subtitles.entity.ghastling.death",
+    "value": "Ghastling dies"
+  },
+  {
+    "id": "subtitles.entity.ghastling.hurt",
+    "value": "Ghastling hurts"
+  },
+  {
+    "id": "subtitles.entity.ghastling.spawn",
+    "value": "Ghastling appears"
+  },
+  {
+    "id": "subtitles.entity.glow_item_frame.add_item",
+    "value": "Glow Item Frame fills"
+  },
+  {
+    "id": "subtitles.entity.glow_item_frame.break",
+    "value": "Glow Item Frame broken"
+  },
+  {
+    "id": "subtitles.entity.glow_item_frame.place",
+    "value": "Glow Item Frame placed"
+  },
+  {
+    "id": "subtitles.entity.glow_item_frame.remove_item",
+    "value": "Glow Item Frame empties"
+  },
+  {
+    "id": "subtitles.entity.glow_item_frame.rotate_item",
+    "value": "Glow Item Frame clicks"
+  },
+  {
+    "id": "subtitles.entity.glow_squid.ambient",
+    "value": "Glow Squid swims"
+  },
+  {
+    "id": "subtitles.entity.glow_squid.death",
+    "value": "Glow Squid dies"
+  },
+  {
+    "id": "subtitles.entity.glow_squid.hurt",
+    "value": "Glow Squid hurts"
+  },
+  {
+    "id": "subtitles.entity.glow_squid.squirt",
+    "value": "Glow Squid shoots ink"
+  },
+  {
+    "id": "subtitles.entity.goat.ambient",
+    "value": "Goat bleats"
+  },
+  {
+    "id": "subtitles.entity.goat.death",
+    "value": "Goat dies"
+  },
+  {
+    "id": "subtitles.entity.goat.eat",
+    "value": "Goat eats"
+  },
+  {
+    "id": "subtitles.entity.goat.horn_break",
+    "value": "Goat Horn breaks off"
+  },
+  {
+    "id": "subtitles.entity.goat.hurt",
+    "value": "Goat hurts"
+  },
+  {
+    "id": "subtitles.entity.goat.long_jump",
+    "value": "Goat leaps"
+  },
+  {
+    "id": "subtitles.entity.goat.milk",
+    "value": "Goat gets milked"
+  },
+  {
+    "id": "subtitles.entity.goat.prepare_ram",
+    "value": "Goat stomps"
+  },
+  {
+    "id": "subtitles.entity.goat.ram_impact",
+    "value": "Goat rams"
+  },
+  {
+    "id": "subtitles.entity.goat.screaming.ambient",
+    "value": "Goat bellows"
+  },
+  {
+    "id": "subtitles.entity.goat.step",
+    "value": "Goat steps"
+  },
+  {
+    "id": "subtitles.entity.guardian.ambient",
+    "value": "Guardian moans"
+  },
+  {
+    "id": "subtitles.entity.guardian.ambient_land",
+    "value": "Guardian flaps"
+  },
+  {
+    "id": "subtitles.entity.guardian.attack",
+    "value": "Guardian shoots"
+  },
+  {
+    "id": "subtitles.entity.guardian.death",
+    "value": "Guardian dies"
+  },
+  {
+    "id": "subtitles.entity.guardian.flop",
+    "value": "Guardian flops"
+  },
+  {
+    "id": "subtitles.entity.guardian.hurt",
+    "value": "Guardian hurts"
+  },
+  {
+    "id": "subtitles.entity.happy_ghast.ambient",
+    "value": "Happy Ghast croons"
+  },
+  {
+    "id": "subtitles.entity.happy_ghast.death",
+    "value": "Happy Ghast dies"
+  },
+  {
+    "id": "subtitles.entity.happy_ghast.equip",
+    "value": "Harness equips"
+  },
+  {
+    "id": "subtitles.entity.happy_ghast.harness_goggles_down",
+    "value": "Happy Ghast is ready"
+  },
+  {
+    "id": "subtitles.entity.happy_ghast.harness_goggles_up",
+    "value": "Happy Ghast stops"
+  },
+  {
+    "id": "subtitles.entity.happy_ghast.hurt",
+    "value": "Happy Ghast hurts"
+  },
+  {
+    "id": "subtitles.entity.happy_ghast.unequip",
+    "value": "Harness unequips"
+  },
+  {
+    "id": "subtitles.entity.hoglin.ambient",
+    "value": "Hoglin growls"
+  },
+  {
+    "id": "subtitles.entity.hoglin.angry",
+    "value": "Hoglin growls angrily"
+  },
+  {
+    "id": "subtitles.entity.hoglin.attack",
+    "value": "Hoglin attacks"
+  },
+  {
+    "id": "subtitles.entity.hoglin.converted_to_zombified",
+    "value": "Hoglin converts to Zoglin"
+  },
+  {
+    "id": "subtitles.entity.hoglin.death",
+    "value": "Hoglin dies"
+  },
+  {
+    "id": "subtitles.entity.hoglin.hurt",
+    "value": "Hoglin hurts"
+  },
+  {
+    "id": "subtitles.entity.hoglin.retreat",
+    "value": "Hoglin retreats"
+  },
+  {
+    "id": "subtitles.entity.hoglin.step",
+    "value": "Hoglin steps"
+  },
+  {
+    "id": "subtitles.entity.horse.ambient",
+    "value": "Horse neighs"
+  },
+  {
+    "id": "subtitles.entity.horse.angry",
+    "value": "Horse neighs"
+  },
+  {
+    "id": "subtitles.entity.horse.armor",
+    "value": "Horse armor equips"
+  },
+  {
+    "id": "subtitles.entity.horse.breathe",
+    "value": "Horse breathes"
+  },
+  {
+    "id": "subtitles.entity.horse.death",
+    "value": "Horse dies"
+  },
+  {
+    "id": "subtitles.entity.horse.eat",
+    "value": "Horse eats"
+  },
+  {
+    "id": "subtitles.entity.horse.gallop",
+    "value": "Horse gallops"
+  },
+  {
+    "id": "subtitles.entity.horse.hurt",
+    "value": "Horse hurts"
+  },
+  {
+    "id": "subtitles.entity.horse.jump",
+    "value": "Horse jumps"
+  },
+  {
+    "id": "subtitles.entity.horse.saddle",
+    "value": "Saddle equips"
+  },
+  {
+    "id": "subtitles.entity.husk.ambient",
+    "value": "Husk groans"
+  },
+  {
+    "id": "subtitles.entity.husk.converted_to_zombie",
+    "value": "Husk converts to Zombie"
+  },
+  {
+    "id": "subtitles.entity.husk.death",
+    "value": "Husk dies"
+  },
+  {
+    "id": "subtitles.entity.husk.hurt",
+    "value": "Husk hurts"
+  },
+  {
+    "id": "subtitles.entity.illusioner.ambient",
+    "value": "Illusioner murmurs"
+  },
+  {
+    "id": "subtitles.entity.illusioner.cast_spell",
+    "value": "Illusioner casts spell"
+  },
+  {
+    "id": "subtitles.entity.illusioner.death",
+    "value": "Illusioner dies"
+  },
+  {
+    "id": "subtitles.entity.illusioner.hurt",
+    "value": "Illusioner hurts"
+  },
+  {
+    "id": "subtitles.entity.illusioner.mirror_move",
+    "value": "Illusioner displaces"
+  },
+  {
+    "id": "subtitles.entity.illusioner.prepare_blindness",
+    "value": "Illusioner prepares blindness"
+  },
+  {
+    "id": "subtitles.entity.illusioner.prepare_mirror",
+    "value": "Illusioner prepares mirror image"
+  },
+  {
+    "id": "subtitles.entity.iron_golem.attack",
+    "value": "Iron Golem attacks"
+  },
+  {
+    "id": "subtitles.entity.iron_golem.damage",
+    "value": "Iron Golem breaks"
+  },
+  {
+    "id": "subtitles.entity.iron_golem.death",
+    "value": "Iron Golem dies"
+  },
+  {
+    "id": "subtitles.entity.iron_golem.hurt",
+    "value": "Iron Golem hurts"
+  },
+  {
+    "id": "subtitles.entity.iron_golem.repair",
+    "value": "Iron Golem repaired"
+  },
+  {
+    "id": "subtitles.entity.item_frame.add_item",
+    "value": "Item Frame fills"
+  },
+  {
+    "id": "subtitles.entity.item_frame.break",
+    "value": "Item Frame broken"
+  },
+  {
+    "id": "subtitles.entity.item_frame.place",
+    "value": "Item Frame placed"
+  },
+  {
+    "id": "subtitles.entity.item_frame.remove_item",
+    "value": "Item Frame empties"
+  },
+  {
+    "id": "subtitles.entity.item_frame.rotate_item",
+    "value": "Item Frame clicks"
+  },
+  {
+    "id": "subtitles.entity.item.break",
+    "value": "Item breaks"
+  },
+  {
+    "id": "subtitles.entity.item.pickup",
+    "value": "Item plops"
+  },
+  {
+    "id": "subtitles.entity.leash_knot.break",
+    "value": "Leash Knot broken"
+  },
+  {
+    "id": "subtitles.entity.leash_knot.place",
+    "value": "Leash Knot tied"
+  },
+  {
+    "id": "subtitles.entity.lightning_bolt.impact",
+    "value": "Lightning strikes"
+  },
+  {
+    "id": "subtitles.entity.lightning_bolt.thunder",
+    "value": "Thunder roars"
+  },
+  {
+    "id": "subtitles.entity.llama.ambient",
+    "value": "Llama bleats"
+  },
+  {
+    "id": "subtitles.entity.llama.angry",
+    "value": "Llama bleats angrily"
+  },
+  {
+    "id": "subtitles.entity.llama.chest",
+    "value": "Llama Chest equips"
+  },
+  {
+    "id": "subtitles.entity.llama.death",
+    "value": "Llama dies"
+  },
+  {
+    "id": "subtitles.entity.llama.eat",
+    "value": "Llama eats"
+  },
+  {
+    "id": "subtitles.entity.llama.hurt",
+    "value": "Llama hurts"
+  },
+  {
+    "id": "subtitles.entity.llama.spit",
+    "value": "Llama spits"
+  },
+  {
+    "id": "subtitles.entity.llama.step",
+    "value": "Llama steps"
+  },
+  {
+    "id": "subtitles.entity.llama.swag",
+    "value": "Llama is decorated"
+  },
+  {
+    "id": "subtitles.entity.magma_cube.death",
+    "value": "Magma Cube dies"
+  },
+  {
+    "id": "subtitles.entity.magma_cube.hurt",
+    "value": "Magma Cube hurts"
+  },
+  {
+    "id": "subtitles.entity.magma_cube.squish",
+    "value": "Magma Cube squishes"
+  },
+  {
+    "id": "subtitles.entity.minecart.inside",
+    "value": "Minecart jangles"
+  },
+  {
+    "id": "subtitles.entity.minecart.inside_underwater",
+    "value": "Minecart jangles underwater"
+  },
+  {
+    "id": "subtitles.entity.minecart.riding",
+    "value": "Minecart rolls"
+  },
+  {
+    "id": "subtitles.entity.mooshroom.convert",
+    "value": "Mooshroom transforms"
+  },
+  {
+    "id": "subtitles.entity.mooshroom.eat",
+    "value": "Mooshroom eats"
+  },
+  {
+    "id": "subtitles.entity.mooshroom.milk",
+    "value": "Mooshroom gets milked"
+  },
+  {
+    "id": "subtitles.entity.mooshroom.suspicious_milk",
+    "value": "Mooshroom gets milked suspiciously"
+  },
+  {
+    "id": "subtitles.entity.mule.ambient",
+    "value": "Mule hee-haws"
+  },
+  {
+    "id": "subtitles.entity.mule.angry",
+    "value": "Mule neighs"
+  },
+  {
+    "id": "subtitles.entity.mule.chest",
+    "value": "Mule Chest equips"
+  },
+  {
+    "id": "subtitles.entity.mule.death",
+    "value": "Mule dies"
+  },
+  {
+    "id": "subtitles.entity.mule.eat",
+    "value": "Mule eats"
+  },
+  {
+    "id": "subtitles.entity.mule.hurt",
+    "value": "Mule hurts"
+  },
+  {
+    "id": "subtitles.entity.mule.jump",
+    "value": "Mule jumps"
+  },
+  {
+    "id": "subtitles.entity.nautilus.ambient",
+    "value": "Nautilus clacks"
+  },
+  {
+    "id": "subtitles.entity.nautilus.ambient_land",
+    "value": "Nautilus clacks"
+  },
+  {
+    "id": "subtitles.entity.nautilus.dash",
+    "value": "Nautilus jets"
+  },
+  {
+    "id": "subtitles.entity.nautilus.dash_ready",
+    "value": "Nautilus recovers"
+  },
+  {
+    "id": "subtitles.entity.nautilus.death",
+    "value": "Nautilus dies"
+  },
+  {
+    "id": "subtitles.entity.nautilus.death_land",
+    "value": "Nautilus dies"
+  },
+  {
+    "id": "subtitles.entity.nautilus.eat",
+    "value": "Nautilus eats"
+  },
+  {
+    "id": "subtitles.entity.nautilus.hurt",
+    "value": "Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.nautilus.hurt_land",
+    "value": "Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.painting.break",
+    "value": "Painting broken"
+  },
+  {
+    "id": "subtitles.entity.painting.place",
+    "value": "Painting placed"
+  },
+  {
+    "id": "subtitles.entity.panda.aggressive_ambient",
+    "value": "Panda huffs"
+  },
+  {
+    "id": "subtitles.entity.panda.ambient",
+    "value": "Panda pants"
+  },
+  {
+    "id": "subtitles.entity.panda.bite",
+    "value": "Panda bites"
+  },
+  {
+    "id": "subtitles.entity.panda.cant_breed",
+    "value": "Panda bleats"
+  },
+  {
+    "id": "subtitles.entity.panda.death",
+    "value": "Panda dies"
+  },
+  {
+    "id": "subtitles.entity.panda.eat",
+    "value": "Panda eats"
+  },
+  {
+    "id": "subtitles.entity.panda.hurt",
+    "value": "Panda hurts"
+  },
+  {
+    "id": "subtitles.entity.panda.pre_sneeze",
+    "value": "Panda's nose tickles"
+  },
+  {
+    "id": "subtitles.entity.panda.sneeze",
+    "value": "Panda sneezes"
+  },
+  {
+    "id": "subtitles.entity.panda.step",
+    "value": "Panda steps"
+  },
+  {
+    "id": "subtitles.entity.panda.worried_ambient",
+    "value": "Panda whimpers"
+  },
+  {
+    "id": "subtitles.entity.parched.ambient",
+    "value": "Parched crackles"
+  },
+  {
+    "id": "subtitles.entity.parched.death",
+    "value": "Parched dies"
+  },
+  {
+    "id": "subtitles.entity.parched.hurt",
+    "value": "Parched hurts"
+  },
+  {
+    "id": "subtitles.entity.parrot.ambient",
+    "value": "Parrot talks"
+  },
+  {
+    "id": "subtitles.entity.parrot.death",
+    "value": "Parrot dies"
+  },
+  {
+    "id": "subtitles.entity.parrot.eats",
+    "value": "Parrot eats"
+  },
+  {
+    "id": "subtitles.entity.parrot.fly",
+    "value": "Parrot flutters"
+  },
+  {
+    "id": "subtitles.entity.parrot.hurts",
+    "value": "Parrot hurts"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.blaze",
+    "value": "Parrot breathes"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.bogged",
+    "value": "Parrot rattles"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.breeze",
+    "value": "Parrot whirs"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.creaking",
+    "value": "Parrot creaks"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.creeper",
+    "value": "Parrot hisses"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.drowned",
+    "value": "Parrot gurgles"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.elder_guardian",
+    "value": "Parrot moans"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.ender_dragon",
+    "value": "Parrot roars"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.endermite",
+    "value": "Parrot scuttles"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.evoker",
+    "value": "Parrot murmurs"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.ghast",
+    "value": "Parrot cries"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.guardian",
+    "value": "Parrot moans"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.hoglin",
+    "value": "Parrot growls"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.husk",
+    "value": "Parrot groans"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.illusioner",
+    "value": "Parrot murmurs"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.magma_cube",
+    "value": "Parrot squishes"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.phantom",
+    "value": "Parrot screeches"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.piglin",
+    "value": "Parrot snorts"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.piglin_brute",
+    "value": "Parrot snorts"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.pillager",
+    "value": "Parrot murmurs"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.ravager",
+    "value": "Parrot grunts"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.shulker",
+    "value": "Parrot lurks"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.silverfish",
+    "value": "Parrot hisses"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.skeleton",
+    "value": "Parrot rattles"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.slime",
+    "value": "Parrot squishes"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.spider",
+    "value": "Parrot hisses"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.stray",
+    "value": "Parrot rattles"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.vex",
+    "value": "Parrot vexes"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.vindicator",
+    "value": "Parrot mutters"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.warden",
+    "value": "Parrot whines"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.witch",
+    "value": "Parrot giggles"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.wither",
+    "value": "Parrot angers"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.wither_skeleton",
+    "value": "Parrot rattles"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.zoglin",
+    "value": "Parrot growls"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.zombie",
+    "value": "Parrot groans"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.zombie_villager",
+    "value": "Parrot groans"
+  },
+  {
+    "id": "subtitles.entity.phantom.ambient",
+    "value": "Phantom screeches"
+  },
+  {
+    "id": "subtitles.entity.phantom.bite",
+    "value": "Phantom bites"
+  },
+  {
+    "id": "subtitles.entity.phantom.death",
+    "value": "Phantom dies"
+  },
+  {
+    "id": "subtitles.entity.phantom.flap",
+    "value": "Phantom flaps"
+  },
+  {
+    "id": "subtitles.entity.phantom.hurt",
+    "value": "Phantom hurts"
+  },
+  {
+    "id": "subtitles.entity.phantom.swoop",
+    "value": "Phantom swoops"
+  },
+  {
+    "id": "subtitles.entity.pig.ambient",
+    "value": "Pig oinks"
+  },
+  {
+    "id": "subtitles.entity.pig.death",
+    "value": "Pig dies"
+  },
+  {
+    "id": "subtitles.entity.pig.hurt",
+    "value": "Pig hurts"
+  },
+  {
+    "id": "subtitles.entity.pig.saddle",
+    "value": "Saddle equips"
+  },
+  {
+    "id": "subtitles.entity.piglin_brute.ambient",
+    "value": "Piglin Brute snorts"
+  },
+  {
+    "id": "subtitles.entity.piglin_brute.angry",
+    "value": "Piglin Brute snorts angrily"
+  },
+  {
+    "id": "subtitles.entity.piglin_brute.converted_to_zombified",
+    "value": "Piglin Brute converts to Zombified Piglin"
+  },
+  {
+    "id": "subtitles.entity.piglin_brute.death",
+    "value": "Piglin Brute dies"
+  },
+  {
+    "id": "subtitles.entity.piglin_brute.hurt",
+    "value": "Piglin Brute hurts"
+  },
+  {
+    "id": "subtitles.entity.piglin_brute.step",
+    "value": "Piglin Brute steps"
+  },
+  {
+    "id": "subtitles.entity.piglin.admiring_item",
+    "value": "Piglin admires item"
+  },
+  {
+    "id": "subtitles.entity.piglin.ambient",
+    "value": "Piglin snorts"
+  },
+  {
+    "id": "subtitles.entity.piglin.angry",
+    "value": "Piglin snorts angrily"
+  },
+  {
+    "id": "subtitles.entity.piglin.celebrate",
+    "value": "Piglin celebrates"
+  },
+  {
+    "id": "subtitles.entity.piglin.converted_to_zombified",
+    "value": "Piglin converts to Zombified Piglin"
+  },
+  {
+    "id": "subtitles.entity.piglin.death",
+    "value": "Piglin dies"
+  },
+  {
+    "id": "subtitles.entity.piglin.hurt",
+    "value": "Piglin hurts"
+  },
+  {
+    "id": "subtitles.entity.piglin.jealous",
+    "value": "Piglin snorts enviously"
+  },
+  {
+    "id": "subtitles.entity.piglin.retreat",
+    "value": "Piglin retreats"
+  },
+  {
+    "id": "subtitles.entity.piglin.step",
+    "value": "Piglin steps"
+  },
+  {
+    "id": "subtitles.entity.pillager.ambient",
+    "value": "Pillager murmurs"
+  },
+  {
+    "id": "subtitles.entity.pillager.celebrate",
+    "value": "Pillager cheers"
+  },
+  {
+    "id": "subtitles.entity.pillager.death",
+    "value": "Pillager dies"
+  },
+  {
+    "id": "subtitles.entity.pillager.hurt",
+    "value": "Pillager hurts"
+  },
+  {
+    "id": "subtitles.entity.player.attack.crit",
+    "value": "Critical attack"
+  },
+  {
+    "id": "subtitles.entity.player.attack.knockback",
+    "value": "Knockback attack"
+  },
+  {
+    "id": "subtitles.entity.player.attack.strong",
+    "value": "Strong attack"
+  },
+  {
+    "id": "subtitles.entity.player.attack.sweep",
+    "value": "Sweeping attack"
+  },
+  {
+    "id": "subtitles.entity.player.attack.weak",
+    "value": "Weak attack"
+  },
+  {
+    "id": "subtitles.entity.player.burp",
+    "value": "Burp"
+  },
+  {
+    "id": "subtitles.entity.player.death",
+    "value": "Player dies"
+  },
+  {
+    "id": "subtitles.entity.player.freeze_hurt",
+    "value": "Player freezes"
+  },
+  {
+    "id": "subtitles.entity.player.hurt",
+    "value": "Player hurts"
+  },
+  {
+    "id": "subtitles.entity.player.hurt_drown",
+    "value": "Player drowning"
+  },
+  {
+    "id": "subtitles.entity.player.hurt_on_fire",
+    "value": "Player burns"
+  },
+  {
+    "id": "subtitles.entity.player.levelup",
+    "value": "Player dings"
+  },
+  {
+    "id": "subtitles.entity.player.teleport",
+    "value": "Player teleports"
+  },
+  {
+    "id": "subtitles.entity.polar_bear.ambient",
+    "value": "Polar Bear groans"
+  },
+  {
+    "id": "subtitles.entity.polar_bear.ambient_baby",
+    "value": "Baby Polar Bear hums"
+  },
+  {
+    "id": "subtitles.entity.polar_bear.death",
+    "value": "Polar Bear dies"
+  },
+  {
+    "id": "subtitles.entity.polar_bear.hurt",
+    "value": "Polar Bear hurts"
+  },
+  {
+    "id": "subtitles.entity.polar_bear.warning",
+    "value": "Polar Bear roars"
+  },
+  {
+    "id": "subtitles.entity.potion.splash",
+    "value": "Bottle smashes"
+  },
+  {
+    "id": "subtitles.entity.potion.throw",
+    "value": "Bottle thrown"
+  },
+  {
+    "id": "subtitles.entity.puffer_fish.blow_out",
+    "value": "Pufferfish deflates"
+  },
+  {
+    "id": "subtitles.entity.puffer_fish.blow_up",
+    "value": "Pufferfish inflates"
+  },
+  {
+    "id": "subtitles.entity.puffer_fish.death",
+    "value": "Pufferfish dies"
+  },
+  {
+    "id": "subtitles.entity.puffer_fish.flop",
+    "value": "Pufferfish flops"
+  },
+  {
+    "id": "subtitles.entity.puffer_fish.hurt",
+    "value": "Pufferfish hurts"
+  },
+  {
+    "id": "subtitles.entity.puffer_fish.sting",
+    "value": "Pufferfish stings"
+  },
+  {
+    "id": "subtitles.entity.rabbit.ambient",
+    "value": "Rabbit squeaks"
+  },
+  {
+    "id": "subtitles.entity.rabbit.attack",
+    "value": "Rabbit attacks"
+  },
+  {
+    "id": "subtitles.entity.rabbit.death",
+    "value": "Rabbit dies"
+  },
+  {
+    "id": "subtitles.entity.rabbit.hurt",
+    "value": "Rabbit hurts"
+  },
+  {
+    "id": "subtitles.entity.rabbit.jump",
+    "value": "Rabbit hops"
+  },
+  {
+    "id": "subtitles.entity.ravager.ambient",
+    "value": "Ravager grunts"
+  },
+  {
+    "id": "subtitles.entity.ravager.attack",
+    "value": "Ravager bites"
+  },
+  {
+    "id": "subtitles.entity.ravager.celebrate",
+    "value": "Ravager cheers"
+  },
+  {
+    "id": "subtitles.entity.ravager.death",
+    "value": "Ravager dies"
+  },
+  {
+    "id": "subtitles.entity.ravager.hurt",
+    "value": "Ravager hurts"
+  },
+  {
+    "id": "subtitles.entity.ravager.roar",
+    "value": "Ravager roars"
+  },
+  {
+    "id": "subtitles.entity.ravager.step",
+    "value": "Ravager steps"
+  },
+  {
+    "id": "subtitles.entity.ravager.stunned",
+    "value": "Ravager stunned"
+  },
+  {
+    "id": "subtitles.entity.salmon.death",
+    "value": "Salmon dies"
+  },
+  {
+    "id": "subtitles.entity.salmon.flop",
+    "value": "Salmon flops"
+  },
+  {
+    "id": "subtitles.entity.salmon.hurt",
+    "value": "Salmon hurts"
+  },
+  {
+    "id": "subtitles.entity.sheep.ambient",
+    "value": "Sheep baahs"
+  },
+  {
+    "id": "subtitles.entity.sheep.death",
+    "value": "Sheep dies"
+  },
+  {
+    "id": "subtitles.entity.sheep.hurt",
+    "value": "Sheep hurts"
+  },
+  {
+    "id": "subtitles.entity.shulker_bullet.hit",
+    "value": "Shulker Bullet explodes"
+  },
+  {
+    "id": "subtitles.entity.shulker_bullet.hurt",
+    "value": "Shulker Bullet breaks"
+  },
+  {
+    "id": "subtitles.entity.shulker.ambient",
+    "value": "Shulker lurks"
+  },
+  {
+    "id": "subtitles.entity.shulker.close",
+    "value": "Shulker closes"
+  },
+  {
+    "id": "subtitles.entity.shulker.death",
+    "value": "Shulker dies"
+  },
+  {
+    "id": "subtitles.entity.shulker.hurt",
+    "value": "Shulker hurts"
+  },
+  {
+    "id": "subtitles.entity.shulker.open",
+    "value": "Shulker opens"
+  },
+  {
+    "id": "subtitles.entity.shulker.shoot",
+    "value": "Shulker shoots"
+  },
+  {
+    "id": "subtitles.entity.shulker.teleport",
+    "value": "Shulker teleports"
+  },
+  {
+    "id": "subtitles.entity.silverfish.ambient",
+    "value": "Silverfish hisses"
+  },
+  {
+    "id": "subtitles.entity.silverfish.death",
+    "value": "Silverfish dies"
+  },
+  {
+    "id": "subtitles.entity.silverfish.hurt",
+    "value": "Silverfish hurts"
+  },
+  {
+    "id": "subtitles.entity.skeleton_horse.ambient",
+    "value": "Skeleton Horse cries"
+  },
+  {
+    "id": "subtitles.entity.skeleton_horse.death",
+    "value": "Skeleton Horse dies"
+  },
+  {
+    "id": "subtitles.entity.skeleton_horse.hurt",
+    "value": "Skeleton Horse hurts"
+  },
+  {
+    "id": "subtitles.entity.skeleton_horse.jump_water",
+    "value": "Skeleton Horse jumps"
+  },
+  {
+    "id": "subtitles.entity.skeleton_horse.swim",
+    "value": "Skeleton Horse swims"
+  },
+  {
+    "id": "subtitles.entity.skeleton.ambient",
+    "value": "Skeleton rattles"
+  },
+  {
+    "id": "subtitles.entity.skeleton.converted_to_stray",
+    "value": "Skeleton converts to Stray"
+  },
+  {
+    "id": "subtitles.entity.skeleton.death",
+    "value": "Skeleton dies"
+  },
+  {
+    "id": "subtitles.entity.skeleton.hurt",
+    "value": "Skeleton hurts"
+  },
+  {
+    "id": "subtitles.entity.skeleton.shoot",
+    "value": "Skeleton shoots"
+  },
+  {
+    "id": "subtitles.entity.slime.attack",
+    "value": "Slime attacks"
+  },
+  {
+    "id": "subtitles.entity.slime.death",
+    "value": "Slime dies"
+  },
+  {
+    "id": "subtitles.entity.slime.hurt",
+    "value": "Slime hurts"
+  },
+  {
+    "id": "subtitles.entity.slime.squish",
+    "value": "Slime squishes"
+  },
+  {
+    "id": "subtitles.entity.sniffer.death",
+    "value": "Sniffer dies"
+  },
+  {
+    "id": "subtitles.entity.sniffer.digging",
+    "value": "Sniffer digs"
+  },
+  {
+    "id": "subtitles.entity.sniffer.digging_stop",
+    "value": "Sniffer stands up"
+  },
+  {
+    "id": "subtitles.entity.sniffer.drop_seed",
+    "value": "Sniffer drops seed"
+  },
+  {
+    "id": "subtitles.entity.sniffer.eat",
+    "value": "Sniffer eats"
+  },
+  {
+    "id": "subtitles.entity.sniffer.egg_crack",
+    "value": "Sniffer Egg cracks"
+  },
+  {
+    "id": "subtitles.entity.sniffer.egg_hatch",
+    "value": "Sniffer Egg hatches"
+  },
+  {
+    "id": "subtitles.entity.sniffer.happy",
+    "value": "Sniffer delights"
+  },
+  {
+    "id": "subtitles.entity.sniffer.hurt",
+    "value": "Sniffer hurts"
+  },
+  {
+    "id": "subtitles.entity.sniffer.idle",
+    "value": "Sniffer grunts"
+  },
+  {
+    "id": "subtitles.entity.sniffer.scenting",
+    "value": "Sniffer scents"
+  },
+  {
+    "id": "subtitles.entity.sniffer.searching",
+    "value": "Sniffer searches"
+  },
+  {
+    "id": "subtitles.entity.sniffer.sniffing",
+    "value": "Sniffer sniffs"
+  },
+  {
+    "id": "subtitles.entity.sniffer.step",
+    "value": "Sniffer steps"
+  },
+  {
+    "id": "subtitles.entity.snow_golem.death",
+    "value": "Snow Golem dies"
+  },
+  {
+    "id": "subtitles.entity.snow_golem.hurt",
+    "value": "Snow Golem hurts"
+  },
+  {
+    "id": "subtitles.entity.snowball.throw",
+    "value": "Snowball flies"
+  },
+  {
+    "id": "subtitles.entity.spider.ambient",
+    "value": "Spider hisses"
+  },
+  {
+    "id": "subtitles.entity.spider.death",
+    "value": "Spider dies"
+  },
+  {
+    "id": "subtitles.entity.spider.hurt",
+    "value": "Spider hurts"
+  },
+  {
+    "id": "subtitles.entity.squid.ambient",
+    "value": "Squid swims"
+  },
+  {
+    "id": "subtitles.entity.squid.death",
+    "value": "Squid dies"
+  },
+  {
+    "id": "subtitles.entity.squid.hurt",
+    "value": "Squid hurts"
+  },
+  {
+    "id": "subtitles.entity.squid.squirt",
+    "value": "Squid shoots ink"
+  },
+  {
+    "id": "subtitles.entity.stray.ambient",
+    "value": "Stray rattles"
+  },
+  {
+    "id": "subtitles.entity.stray.death",
+    "value": "Stray dies"
+  },
+  {
+    "id": "subtitles.entity.stray.hurt",
+    "value": "Stray hurts"
+  },
+  {
+    "id": "subtitles.entity.strider.death",
+    "value": "Strider dies"
+  },
+  {
+    "id": "subtitles.entity.strider.eat",
+    "value": "Strider eats"
+  },
+  {
+    "id": "subtitles.entity.strider.happy",
+    "value": "Strider warbles"
+  },
+  {
+    "id": "subtitles.entity.strider.hurt",
+    "value": "Strider hurts"
+  },
+  {
+    "id": "subtitles.entity.strider.idle",
+    "value": "Strider chirps"
+  },
+  {
+    "id": "subtitles.entity.strider.retreat",
+    "value": "Strider retreats"
+  },
+  {
+    "id": "subtitles.entity.tadpole.death",
+    "value": "Tadpole dies"
+  },
+  {
+    "id": "subtitles.entity.tadpole.flop",
+    "value": "Tadpole flops"
+  },
+  {
+    "id": "subtitles.entity.tadpole.grow_up",
+    "value": "Tadpole grows up"
+  },
+  {
+    "id": "subtitles.entity.tadpole.hurt",
+    "value": "Tadpole hurts"
+  },
+  {
+    "id": "subtitles.entity.tnt.primed",
+    "value": "TNT fizzes"
+  },
+  {
+    "id": "subtitles.entity.tropical_fish.death",
+    "value": "Tropical Fish dies"
+  },
+  {
+    "id": "subtitles.entity.tropical_fish.flop",
+    "value": "Tropical Fish flops"
+  },
+  {
+    "id": "subtitles.entity.tropical_fish.hurt",
+    "value": "Tropical Fish hurts"
+  },
+  {
+    "id": "subtitles.entity.turtle.ambient_land",
+    "value": "Turtle chirps"
+  },
+  {
+    "id": "subtitles.entity.turtle.death",
+    "value": "Turtle dies"
+  },
+  {
+    "id": "subtitles.entity.turtle.death_baby",
+    "value": "Baby Turtle dies"
+  },
+  {
+    "id": "subtitles.entity.turtle.egg_break",
+    "value": "Turtle Egg breaks"
+  },
+  {
+    "id": "subtitles.entity.turtle.egg_crack",
+    "value": "Turtle Egg cracks"
+  },
+  {
+    "id": "subtitles.entity.turtle.egg_hatch",
+    "value": "Turtle Egg hatches"
+  },
+  {
+    "id": "subtitles.entity.turtle.hurt",
+    "value": "Turtle hurts"
+  },
+  {
+    "id": "subtitles.entity.turtle.hurt_baby",
+    "value": "Baby Turtle hurts"
+  },
+  {
+    "id": "subtitles.entity.turtle.lay_egg",
+    "value": "Turtle lays egg"
+  },
+  {
+    "id": "subtitles.entity.turtle.shamble",
+    "value": "Turtle shambles"
+  },
+  {
+    "id": "subtitles.entity.turtle.shamble_baby",
+    "value": "Baby Turtle shambles"
+  },
+  {
+    "id": "subtitles.entity.turtle.swim",
+    "value": "Turtle swims"
+  },
+  {
+    "id": "subtitles.entity.vex.ambient",
+    "value": "Vex vexes"
+  },
+  {
+    "id": "subtitles.entity.vex.charge",
+    "value": "Vex shrieks"
+  },
+  {
+    "id": "subtitles.entity.vex.death",
+    "value": "Vex dies"
+  },
+  {
+    "id": "subtitles.entity.vex.hurt",
+    "value": "Vex hurts"
+  },
+  {
+    "id": "subtitles.entity.villager.ambient",
+    "value": "Villager mumbles"
+  },
+  {
+    "id": "subtitles.entity.villager.celebrate",
+    "value": "Villager cheers"
+  },
+  {
+    "id": "subtitles.entity.villager.death",
+    "value": "Villager dies"
+  },
+  {
+    "id": "subtitles.entity.villager.hurt",
+    "value": "Villager hurts"
+  },
+  {
+    "id": "subtitles.entity.villager.no",
+    "value": "Villager disagrees"
+  },
+  {
+    "id": "subtitles.entity.villager.trade",
+    "value": "Villager trades"
+  },
+  {
+    "id": "subtitles.entity.villager.work_armorer",
+    "value": "Armorer works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_butcher",
+    "value": "Butcher works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_cartographer",
+    "value": "Cartographer works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_cleric",
+    "value": "Cleric works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_farmer",
+    "value": "Farmer works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_fisherman",
+    "value": "Fisherman works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_fletcher",
+    "value": "Fletcher works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_leatherworker",
+    "value": "Leatherworker works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_librarian",
+    "value": "Librarian works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_mason",
+    "value": "Mason works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_shepherd",
+    "value": "Shepherd works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_toolsmith",
+    "value": "Toolsmith works"
+  },
+  {
+    "id": "subtitles.entity.villager.work_weaponsmith",
+    "value": "Weaponsmith works"
+  },
+  {
+    "id": "subtitles.entity.villager.yes",
+    "value": "Villager agrees"
+  },
+  {
+    "id": "subtitles.entity.vindicator.ambient",
+    "value": "Vindicator mutters"
+  },
+  {
+    "id": "subtitles.entity.vindicator.celebrate",
+    "value": "Vindicator cheers"
+  },
+  {
+    "id": "subtitles.entity.vindicator.death",
+    "value": "Vindicator dies"
+  },
+  {
+    "id": "subtitles.entity.vindicator.hurt",
+    "value": "Vindicator hurts"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.ambient",
+    "value": "Wandering Trader mumbles"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.death",
+    "value": "Wandering Trader dies"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.disappeared",
+    "value": "Wandering Trader disappears"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.drink_milk",
+    "value": "Wandering Trader drinks milk"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.drink_potion",
+    "value": "Wandering Trader drinks potion"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.hurt",
+    "value": "Wandering Trader hurts"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.no",
+    "value": "Wandering Trader disagrees"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.reappeared",
+    "value": "Wandering Trader appears"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.trade",
+    "value": "Wandering Trader trades"
+  },
+  {
+    "id": "subtitles.entity.wandering_trader.yes",
+    "value": "Wandering Trader agrees"
+  },
+  {
+    "id": "subtitles.entity.warden.agitated",
+    "value": "Warden groans angrily"
+  },
+  {
+    "id": "subtitles.entity.warden.ambient",
+    "value": "Warden whines"
+  },
+  {
+    "id": "subtitles.entity.warden.angry",
+    "value": "Warden rages"
+  },
+  {
+    "id": "subtitles.entity.warden.attack_impact",
+    "value": "Warden lands hit"
+  },
+  {
+    "id": "subtitles.entity.warden.death",
+    "value": "Warden dies"
+  },
+  {
+    "id": "subtitles.entity.warden.dig",
+    "value": "Warden digs"
+  },
+  {
+    "id": "subtitles.entity.warden.emerge",
+    "value": "Warden emerges"
+  },
+  {
+    "id": "subtitles.entity.warden.heartbeat",
+    "value": "Warden's heart beats"
+  },
+  {
+    "id": "subtitles.entity.warden.hurt",
+    "value": "Warden hurts"
+  },
+  {
+    "id": "subtitles.entity.warden.listening",
+    "value": "Warden takes notice"
+  },
+  {
+    "id": "subtitles.entity.warden.listening_angry",
+    "value": "Warden takes notice angrily"
+  },
+  {
+    "id": "subtitles.entity.warden.nearby_close",
+    "value": "Warden approaches"
+  },
+  {
+    "id": "subtitles.entity.warden.nearby_closer",
+    "value": "Warden advances"
+  },
+  {
+    "id": "subtitles.entity.warden.nearby_closest",
+    "value": "Warden draws close"
+  },
+  {
+    "id": "subtitles.entity.warden.roar",
+    "value": "Warden roars"
+  },
+  {
+    "id": "subtitles.entity.warden.sniff",
+    "value": "Warden sniffs"
+  },
+  {
+    "id": "subtitles.entity.warden.sonic_boom",
+    "value": "Warden booms"
+  },
+  {
+    "id": "subtitles.entity.warden.sonic_charge",
+    "value": "Warden charges"
+  },
+  {
+    "id": "subtitles.entity.warden.step",
+    "value": "Warden steps"
+  },
+  {
+    "id": "subtitles.entity.warden.tendril_clicks",
+    "value": "Warden's tendrils click"
+  },
+  {
+    "id": "subtitles.entity.wind_charge.throw",
+    "value": "Wind Charge flies"
+  },
+  {
+    "id": "subtitles.entity.wind_charge.wind_burst",
+    "value": "Wind Charge bursts"
+  },
+  {
+    "id": "subtitles.entity.witch.ambient",
+    "value": "Witch giggles"
+  },
+  {
+    "id": "subtitles.entity.witch.celebrate",
+    "value": "Witch cheers"
+  },
+  {
+    "id": "subtitles.entity.witch.death",
+    "value": "Witch dies"
+  },
+  {
+    "id": "subtitles.entity.witch.drink",
+    "value": "Witch drinks"
+  },
+  {
+    "id": "subtitles.entity.witch.hurt",
+    "value": "Witch hurts"
+  },
+  {
+    "id": "subtitles.entity.witch.throw",
+    "value": "Witch throws"
+  },
+  {
+    "id": "subtitles.entity.wither_skeleton.ambient",
+    "value": "Wither Skeleton rattles"
+  },
+  {
+    "id": "subtitles.entity.wither_skeleton.death",
+    "value": "Wither Skeleton dies"
+  },
+  {
+    "id": "subtitles.entity.wither_skeleton.hurt",
+    "value": "Wither Skeleton hurts"
+  },
+  {
+    "id": "subtitles.entity.wither.ambient",
+    "value": "Wither angers"
+  },
+  {
+    "id": "subtitles.entity.wither.death",
+    "value": "Wither dies"
+  },
+  {
+    "id": "subtitles.entity.wither.hurt",
+    "value": "Wither hurts"
+  },
+  {
+    "id": "subtitles.entity.wither.shoot",
+    "value": "Wither attacks"
+  },
+  {
+    "id": "subtitles.entity.wither.spawn",
+    "value": "Wither released"
+  },
+  {
+    "id": "subtitles.entity.wolf.ambient",
+    "value": "Wolf pants"
+  },
+  {
+    "id": "subtitles.entity.wolf.bark",
+    "value": "Wolf barks"
+  },
+  {
+    "id": "subtitles.entity.wolf.death",
+    "value": "Wolf dies"
+  },
+  {
+    "id": "subtitles.entity.wolf.growl",
+    "value": "Wolf growls"
+  },
+  {
+    "id": "subtitles.entity.wolf.hurt",
+    "value": "Wolf hurts"
+  },
+  {
+    "id": "subtitles.entity.wolf.pant",
+    "value": "Wolf pants"
+  },
+  {
+    "id": "subtitles.entity.wolf.shake",
+    "value": "Wolf shakes"
+  },
+  {
+    "id": "subtitles.entity.wolf.whine",
+    "value": "Wolf whines"
+  },
+  {
+    "id": "subtitles.entity.zoglin.ambient",
+    "value": "Zoglin growls"
+  },
+  {
+    "id": "subtitles.entity.zoglin.angry",
+    "value": "Zoglin growls angrily"
+  },
+  {
+    "id": "subtitles.entity.zoglin.attack",
+    "value": "Zoglin attacks"
+  },
+  {
+    "id": "subtitles.entity.zoglin.death",
+    "value": "Zoglin dies"
+  },
+  {
+    "id": "subtitles.entity.zoglin.hurt",
+    "value": "Zoglin hurts"
+  },
+  {
+    "id": "subtitles.entity.zoglin.step",
+    "value": "Zoglin steps"
+  },
+  {
+    "id": "subtitles.entity.zombie_horse.ambient",
+    "value": "Zombie Horse cries"
+  },
+  {
+    "id": "subtitles.entity.zombie_horse.angry",
+    "value": "Zombie Horse neighs"
+  },
+  {
+    "id": "subtitles.entity.zombie_horse.death",
+    "value": "Zombie Horse dies"
+  },
+  {
+    "id": "subtitles.entity.zombie_horse.hurt",
+    "value": "Zombie Horse hurts"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.ambient",
+    "value": "Zombie Nautilus burbles"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.ambient_land",
+    "value": "Zombie Nautilus burbles"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.dash_ready",
+    "value": "Zombie Nautilus recovers"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.death",
+    "value": "Zombie Nautilus dies"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.death_land",
+    "value": "Zombie Nautilus dies"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.hurt",
+    "value": "Zombie Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.hurt_land",
+    "value": "Zombie Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.zombie_villager.ambient",
+    "value": "Zombie Villager groans"
+  },
+  {
+    "id": "subtitles.entity.zombie_villager.converted",
+    "value": "Zombie Villager vociferates"
+  },
+  {
+    "id": "subtitles.entity.zombie_villager.cure",
+    "value": "Zombie Villager snuffles"
+  },
+  {
+    "id": "subtitles.entity.zombie_villager.death",
+    "value": "Zombie Villager dies"
+  },
+  {
+    "id": "subtitles.entity.zombie_villager.hurt",
+    "value": "Zombie Villager hurts"
+  },
+  {
+    "id": "subtitles.entity.zombie.ambient",
+    "value": "Zombie groans"
+  },
+  {
+    "id": "subtitles.entity.zombie.attack_wooden_door",
+    "value": "Door shakes"
+  },
+  {
+    "id": "subtitles.entity.zombie.break_wooden_door",
+    "value": "Door breaks"
+  },
+  {
+    "id": "subtitles.entity.zombie.converted_to_drowned",
+    "value": "Zombie converts to Drowned"
+  },
+  {
+    "id": "subtitles.entity.zombie.death",
+    "value": "Zombie dies"
+  },
+  {
+    "id": "subtitles.entity.zombie.destroy_egg",
+    "value": "Turtle Egg stomped"
+  },
+  {
+    "id": "subtitles.entity.zombie.hurt",
+    "value": "Zombie hurts"
+  },
+  {
+    "id": "subtitles.entity.zombie.infect",
+    "value": "Zombie infects"
+  },
+  {
+    "id": "subtitles.entity.zombified_piglin.ambient",
+    "value": "Zombified Piglin grunts"
+  },
+  {
+    "id": "subtitles.entity.zombified_piglin.angry",
+    "value": "Zombified Piglin grunts angrily"
+  },
+  {
+    "id": "subtitles.entity.zombified_piglin.death",
+    "value": "Zombified Piglin dies"
+  },
+  {
+    "id": "subtitles.entity.zombified_piglin.hurt",
+    "value": "Zombified Piglin hurts"
+  },
+  {
+    "id": "subtitles.event.mob_effect.bad_omen",
+    "value": "Omen takes hold"
+  },
+  {
+    "id": "subtitles.event.mob_effect.raid_omen",
+    "value": "Raid looms nearby"
+  },
+  {
+    "id": "subtitles.event.mob_effect.trial_omen",
+    "value": "Ominous trial looms nearby"
+  },
+  {
+    "id": "subtitles.event.raid.horn",
+    "value": "Ominous horn blares"
+  },
+  {
+    "id": "subtitles.item.armor.equip",
+    "value": "Gear equips"
+  },
+  {
+    "id": "subtitles.item.armor.equip_chain",
+    "value": "Chain armor jingles"
+  },
+  {
+    "id": "subtitles.item.armor.equip_copper",
+    "value": "Copper armor clonks"
+  },
+  {
+    "id": "subtitles.item.armor.equip_diamond",
+    "value": "Diamond armor clangs"
+  },
+  {
+    "id": "subtitles.item.armor.equip_elytra",
+    "value": "Elytra rustle"
+  },
+  {
+    "id": "subtitles.item.armor.equip_gold",
+    "value": "Gold armor clinks"
+  },
+  {
+    "id": "subtitles.item.armor.equip_iron",
+    "value": "Iron armor clanks"
+  },
+  {
+    "id": "subtitles.item.armor.equip_leather",
+    "value": "Leather armor rustles"
+  },
+  {
+    "id": "subtitles.item.armor.equip_netherite",
+    "value": "Netherite armor clanks"
+  },
+  {
+    "id": "subtitles.item.armor.equip_turtle",
+    "value": "Turtle Shell thunks"
+  },
+  {
+    "id": "subtitles.item.armor.equip_wolf",
+    "value": "Wolf Armor is fastened"
+  },
+  {
+    "id": "subtitles.item.armor.unequip_wolf",
+    "value": "Wolf Armor snips away"
+  },
+  {
+    "id": "subtitles.item.axe.scrape",
+    "value": "Axe scrapes"
+  },
+  {
+    "id": "subtitles.item.axe.strip",
+    "value": "Axe strips"
+  },
+  {
+    "id": "subtitles.item.axe.wax_off",
+    "value": "Wax off"
+  },
+  {
+    "id": "subtitles.item.bone_meal.use",
+    "value": "Bone Meal crinkles"
+  },
+  {
+    "id": "subtitles.item.book.page_turn",
+    "value": "Page rustles"
+  },
+  {
+    "id": "subtitles.item.book.put",
+    "value": "Book thumps"
+  },
+  {
+    "id": "subtitles.item.bottle.empty",
+    "value": "Bottle empties"
+  },
+  {
+    "id": "subtitles.item.bottle.fill",
+    "value": "Bottle fills"
+  },
+  {
+    "id": "subtitles.item.brush.brushing.generic",
+    "value": "Brushing"
+  },
+  {
+    "id": "subtitles.item.brush.brushing.gravel",
+    "value": "Brushing Gravel"
+  },
+  {
+    "id": "subtitles.item.brush.brushing.gravel.complete",
+    "value": "Brushing Gravel completed"
+  },
+  {
+    "id": "subtitles.item.brush.brushing.sand",
+    "value": "Brushing Sand"
+  },
+  {
+    "id": "subtitles.item.brush.brushing.sand.complete",
+    "value": "Brushing Sand completed"
+  },
+  {
+    "id": "subtitles.item.bucket.empty",
+    "value": "Bucket empties"
+  },
+  {
+    "id": "subtitles.item.bucket.fill",
+    "value": "Bucket fills"
+  },
+  {
+    "id": "subtitles.item.bucket.fill_axolotl",
+    "value": "Axolotl scooped"
+  },
+  {
+    "id": "subtitles.item.bucket.fill_fish",
+    "value": "Fish captured"
+  },
+  {
+    "id": "subtitles.item.bucket.fill_tadpole",
+    "value": "Tadpole captured"
+  },
+  {
+    "id": "subtitles.item.bundle.drop_contents",
+    "value": "Bundle empties"
+  },
+  {
+    "id": "subtitles.item.bundle.insert",
+    "value": "Item packed"
+  },
+  {
+    "id": "subtitles.item.bundle.insert_fail",
+    "value": "Bundle full"
+  },
+  {
+    "id": "subtitles.item.bundle.remove_one",
+    "value": "Item unpacked"
+  },
+  {
+    "id": "subtitles.item.chorus_fruit.teleport",
+    "value": "Player teleports"
+  },
+  {
+    "id": "subtitles.item.crop.plant",
+    "value": "Crop planted"
+  },
+  {
+    "id": "subtitles.item.crossbow.charge",
+    "value": "Crossbow charges up"
+  },
+  {
+    "id": "subtitles.item.crossbow.hit",
+    "value": "Arrow hits"
+  },
+  {
+    "id": "subtitles.item.crossbow.load",
+    "value": "Crossbow loads"
+  },
+  {
+    "id": "subtitles.item.crossbow.shoot",
+    "value": "Crossbow fires"
+  },
+  {
+    "id": "subtitles.item.dye.use",
+    "value": "Dye stains"
+  },
+  {
+    "id": "subtitles.item.elytra.flying",
+    "value": "Swoosh"
+  },
+  {
+    "id": "subtitles.item.firecharge.use",
+    "value": "Fireball whooshes"
+  },
+  {
+    "id": "subtitles.item.flintandsteel.use",
+    "value": "Flint and Steel click"
+  },
+  {
+    "id": "subtitles.item.glow_ink_sac.use",
+    "value": "Glow Ink Sac splotches"
+  },
+  {
+    "id": "subtitles.item.goat_horn.play",
+    "value": "Goat Horn plays"
+  },
+  {
+    "id": "subtitles.item.hoe.till",
+    "value": "Hoe tills"
+  },
+  {
+    "id": "subtitles.item.honey_bottle.drink",
+    "value": "Gulping"
+  },
+  {
+    "id": "subtitles.item.honeycomb.wax_on",
+    "value": "Wax on"
+  },
+  {
+    "id": "subtitles.item.horse_armor.unequip",
+    "value": "Horse Armor snips away"
+  },
+  {
+    "id": "subtitles.item.ink_sac.use",
+    "value": "Ink Sac splotches"
+  },
+  {
+    "id": "subtitles.item.lead.break",
+    "value": "Lead snaps"
+  },
+  {
+    "id": "subtitles.item.lead.tied",
+    "value": "Lead tied"
+  },
+  {
+    "id": "subtitles.item.lead.untied",
+    "value": "Lead untied"
+  },
+  {
+    "id": "subtitles.item.llama_carpet.unequip",
+    "value": "Carpet snips away"
+  },
+  {
+    "id": "subtitles.item.lodestone_compass.lock",
+    "value": "Lodestone Compass locks onto Lodestone"
+  },
+  {
+    "id": "subtitles.item.mace.smash_air",
+    "value": "Mace smashes"
+  },
+  {
+    "id": "subtitles.item.mace.smash_ground",
+    "value": "Mace smashes"
+  },
+  {
+    "id": "subtitles.item.nautilus_saddle_equip",
+    "value": "Saddle equips"
+  },
+  {
+    "id": "subtitles.item.nether_wart.plant",
+    "value": "Crop planted"
+  },
+  {
+    "id": "subtitles.item.ominous_bottle.dispose",
+    "value": "Bottle breaks"
+  },
+  {
+    "id": "subtitles.item.saddle.unequip",
+    "value": "Saddle snips away"
+  },
+  {
+    "id": "subtitles.item.shears.shear",
+    "value": "Shears click"
+  },
+  {
+    "id": "subtitles.item.shears.snip",
+    "value": "Shears snip"
+  },
+  {
+    "id": "subtitles.item.shield.block",
+    "value": "Shield blocks"
+  },
+  {
+    "id": "subtitles.item.shovel.flatten",
+    "value": "Shovel flattens"
+  },
+  {
+    "id": "subtitles.item.spear.hit",
+    "value": "Spear hits"
+  },
+  {
+    "id": "subtitles.item.spear.use",
+    "value": "Charges with Spear"
+  },
+  {
+    "id": "subtitles.item.spyglass.stop_using",
+    "value": "Spyglass retracts"
+  },
+  {
+    "id": "subtitles.item.spyglass.use",
+    "value": "Spyglass expands"
+  },
+  {
+    "id": "subtitles.item.totem.use",
+    "value": "Totem activates"
+  },
+  {
+    "id": "subtitles.item.trident.hit",
+    "value": "Trident stabs"
+  },
+  {
+    "id": "subtitles.item.trident.hit_ground",
+    "value": "Trident vibrates"
+  },
+  {
+    "id": "subtitles.item.trident.return",
+    "value": "Trident returns"
+  },
+  {
+    "id": "subtitles.item.trident.riptide",
+    "value": "Trident zooms"
+  },
+  {
+    "id": "subtitles.item.trident.throw",
+    "value": "Trident clangs"
+  },
+  {
+    "id": "subtitles.item.trident.thunder",
+    "value": "Trident thunder cracks"
+  },
+  {
+    "id": "subtitles.item.wolf_armor.break",
+    "value": "Wolf Armor breaks"
+  },
+  {
+    "id": "subtitles.item.wolf_armor.crack",
+    "value": "Wolf Armor cracks"
+  },
+  {
+    "id": "subtitles.item.wolf_armor.damage",
+    "value": "Wolf Armor takes damage"
+  },
+  {
+    "id": "subtitles.item.wolf_armor.repair",
+    "value": "Wolf Armor is repaired"
+  },
+  {
+    "id": "subtitles.particle.soul_escape",
+    "value": "Soul escapes"
+  },
+  {
+    "id": "subtitles.ui.cartography_table.take_result",
+    "value": "Map drawn"
+  },
+  {
+    "id": "subtitles.ui.hud.bubble_pop",
+    "value": "Breath meter dropping"
+  },
+  {
+    "id": "subtitles.ui.loom.take_result",
+    "value": "Loom used"
+  },
+  {
+    "id": "subtitles.ui.stonecutter.take_result",
+    "value": "Stonecutter used"
+  },
+  {
+    "id": "subtitles.weather.end_flash",
+    "value": "End Flash rumbles"
+  },
+  {
+    "id": "subtitles.weather.rain",
+    "value": "Rain falls"
+  },
+  {
     "id": "sunsetting.banner.play.friendsTab",
     "value": "Your version may not connect to multiplayer"
   },
@@ -40057,8 +44421,16 @@ export const Langs: Lang[] = [
     "value": "Acacia Button"
   },
   {
+    "id": "tile.acacia_door.name",
+    "value": "Acacia Door"
+  },
+  {
     "id": "tile.acacia_fence_gate.name",
     "value": "Acacia Fence Gate"
+  },
+  {
+    "id": "tile.acacia_hanging_sign.name",
+    "value": "Acacia Hanging Sign"
   },
   {
     "id": "tile.acacia_pressure_plate.name",
@@ -40079,6 +44451,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.acacia_trapdoor.name",
     "value": "Acacia Trapdoor"
+  },
+  {
+    "id": "tile.acacia_wall_sign.name",
+    "value": "Acacia Wall Sign"
   },
   {
     "id": "tile.acaciaFence.name",
@@ -40149,12 +44525,28 @@ export const Langs: Lang[] = [
     "value": "Bamboo Button"
   },
   {
+    "id": "tile.bamboo_door.name",
+    "value": "Bamboo Door"
+  },
+  {
+    "id": "tile.bamboo_double_slab.name",
+    "value": "Bamboo Double Slab"
+  },
+  {
     "id": "tile.bamboo_fence_gate.name",
     "value": "Bamboo Fence Gate"
   },
   {
     "id": "tile.bamboo_fence.name",
     "value": "Bamboo Fence"
+  },
+  {
+    "id": "tile.bamboo_hanging_sign.name",
+    "value": "Bamboo Hanging Sign"
+  },
+  {
+    "id": "tile.bamboo_mosaic_double_slab.name",
+    "value": "Bamboo Mosaic Double Slab"
   },
   {
     "id": "tile.bamboo_mosaic_slab.name",
@@ -40177,6 +44569,10 @@ export const Langs: Lang[] = [
     "value": "Bamboo Pressure Plate"
   },
   {
+    "id": "tile.bamboo_sapling.name",
+    "value": "Bamboo Sapling"
+  },
+  {
     "id": "tile.bamboo_shelf.name",
     "value": "Bamboo Shelf"
   },
@@ -40189,8 +44585,16 @@ export const Langs: Lang[] = [
     "value": "Bamboo Stairs"
   },
   {
+    "id": "tile.bamboo_standing_sign.name",
+    "value": "Bamboo Sign"
+  },
+  {
     "id": "tile.bamboo_trapdoor.name",
     "value": "Bamboo Trapdoor"
+  },
+  {
+    "id": "tile.bamboo_wall_sign.name",
+    "value": "Bamboo Wall Sign"
   },
   {
     "id": "tile.bamboo.name",
@@ -40234,7 +44638,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "tile.bed.noSleep",
-    "value": "You can only sleep at night and during thunderstorms"
+    "value": "You can only sleep at night or during thunderstorms"
   },
   {
     "id": "tile.bed.notSafe",
@@ -40289,8 +44693,16 @@ export const Langs: Lang[] = [
     "value": "Birch Button"
   },
   {
+    "id": "tile.birch_door.name",
+    "value": "Birch Door"
+  },
+  {
     "id": "tile.birch_fence_gate.name",
     "value": "Birch Fence Gate"
+  },
+  {
+    "id": "tile.birch_hanging_sign.name",
+    "value": "Birch Hanging Sign"
   },
   {
     "id": "tile.birch_pressure_plate.name",
@@ -40313,6 +44725,10 @@ export const Langs: Lang[] = [
     "value": "Birch Trapdoor"
   },
   {
+    "id": "tile.birch_wall_sign.name",
+    "value": "Birch Wall Sign"
+  },
+  {
     "id": "tile.birchFence.name",
     "value": "Birch Fence"
   },
@@ -40323,6 +44739,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.black_candle.name",
     "value": "Black Candle"
+  },
+  {
+    "id": "tile.blackstone_double_slab.name",
+    "value": "Blackstone Double Slab"
   },
   {
     "id": "tile.blackstone_slab.name",
@@ -40369,6 +44789,10 @@ export const Langs: Lang[] = [
     "value": "Border"
   },
   {
+    "id": "tile.brain_coral_wall_fan.name",
+    "value": "Brain Coral Wall Fan"
+  },
+  {
     "id": "tile.brick_block.name",
     "value": "Bricks"
   },
@@ -40399,6 +44823,14 @@ export const Langs: Lang[] = [
   {
     "id": "tile.brown_mushroom.name",
     "value": "Brown Mushroom"
+  },
+  {
+    "id": "tile.bubble_column.name",
+    "value": "Bubble Column"
+  },
+  {
+    "id": "tile.bubble_coral_wall_fan.name",
+    "value": "Bubble Coral Wall Fan"
   },
   {
     "id": "tile.budding_amethyst.name",
@@ -40549,6 +44981,10 @@ export const Langs: Lang[] = [
     "value": "Chain"
   },
   {
+    "id": "tile.chalkboard.name",
+    "value": "Chalkboard"
+  },
+  {
     "id": "tile.chalkboard.oneByOne.name",
     "value": "Slate"
   },
@@ -40565,6 +45001,10 @@ export const Langs: Lang[] = [
     "value": "Cherry Button"
   },
   {
+    "id": "tile.cherry_door.name",
+    "value": "Cherry Door"
+  },
+  {
     "id": "tile.cherry_double_slab.name",
     "value": "Cherry Double Slab"
   },
@@ -40575,6 +45015,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.cherry_fence.name",
     "value": "Cherry Fence"
+  },
+  {
+    "id": "tile.cherry_hanging_sign.name",
+    "value": "Cherry Hanging Sign"
   },
   {
     "id": "tile.cherry_leaves.name",
@@ -40609,8 +45053,16 @@ export const Langs: Lang[] = [
     "value": "Cherry Stairs"
   },
   {
+    "id": "tile.cherry_standing_sign.name",
+    "value": "Cherry Sign"
+  },
+  {
     "id": "tile.cherry_trapdoor.name",
     "value": "Cherry Trapdoor"
+  },
+  {
+    "id": "tile.cherry_wall_sign.name",
+    "value": "Cherry Wall Sign"
   },
   {
     "id": "tile.cherry_wood.name",
@@ -41121,6 +45573,10 @@ export const Langs: Lang[] = [
     "value": "Crimson Fungus"
   },
   {
+    "id": "tile.crimson_hanging_sign.name",
+    "value": "Crimson Hanging Sign"
+  },
+  {
     "id": "tile.crimson_hyphae.name",
     "value": "Crimson Hyphae"
   },
@@ -41197,8 +45653,16 @@ export const Langs: Lang[] = [
     "value": "Dark Oak Button"
   },
   {
+    "id": "tile.dark_oak_door.name",
+    "value": "Dark Oak Door"
+  },
+  {
     "id": "tile.dark_oak_fence_gate.name",
     "value": "Dark Oak Fence Gate"
+  },
+  {
+    "id": "tile.dark_oak_hanging_sign.name",
+    "value": "Dark Oak Hanging Sign"
   },
   {
     "id": "tile.dark_oak_pressure_plate.name",
@@ -41225,12 +45689,40 @@ export const Langs: Lang[] = [
     "value": "Dark Oak Sign"
   },
   {
+    "id": "tile.darkoak_wall_sign.name",
+    "value": "Dark Oak Wall Sign"
+  },
+  {
     "id": "tile.darkOakFence.name",
     "value": "Dark Oak Fence"
   },
   {
+    "id": "tile.daylight_detector_inverted.name",
+    "value": "Daylight Detector Inverted"
+  },
+  {
     "id": "tile.daylight_detector.name",
     "value": "Daylight Detector"
+  },
+  {
+    "id": "tile.dead_brain_coral_wall_fan.name",
+    "value": "Dead Brain Coral Wall Fan"
+  },
+  {
+    "id": "tile.dead_bubble_coral_wall_fan.name",
+    "value": "Dead Bubble Coral Wall Fan"
+  },
+  {
+    "id": "tile.dead_fire_coral_wall_fan.name",
+    "value": "Dead Fire Coral Wall Fan"
+  },
+  {
+    "id": "tile.dead_horn_coral_wall_fan.name",
+    "value": "Dead Horn Coral Wall Fan"
+  },
+  {
+    "id": "tile.dead_tube_coral_wall_fan.name",
+    "value": "Dead Tube Coral Wall Fan"
   },
   {
     "id": "tile.deadbush.name",
@@ -41361,6 +45853,10 @@ export const Langs: Lang[] = [
     "value": "Wooden Door"
   },
   {
+    "id": "tile.double_cut_copper_slab.name",
+    "value": "Cut Copper Double Slab"
+  },
+  {
     "id": "tile.double_plant.fern.name",
     "value": "Large Fern"
   },
@@ -41425,8 +45921,112 @@ export const Langs: Lang[] = [
     "value": "Wooden Slab"
   },
   {
+    "id": "tile.double_stone_slab2.mossy_cobblestone.name",
+    "value": "Mossy Cobblestone Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab2.prismarine.bricks.name",
+    "value": "Prismarine Brick Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab2.prismarine.dark.name",
+    "value": "Dark Prismarine Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab2.prismarine.rough.name",
+    "value": "Prismarine DoubleSlab"
+  },
+  {
+    "id": "tile.double_stone_slab2.purpur.name",
+    "value": "Purpur Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab2.red_nether_brick.name",
+    "value": "Red Nether Brick Double Slab"
+  },
+  {
     "id": "tile.double_stone_slab2.red_sandstone.name",
     "value": "Red Sandstone Slab"
+  },
+  {
+    "id": "tile.double_stone_slab2.sandstone.smooth.name",
+    "value": "Smooth Sandstone Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.andesite.name",
+    "value": "Andesite Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.andesite.smooth.name",
+    "value": "Polished Andesite Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.diorite.name",
+    "value": "Diorite Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.diorite.smooth.name",
+    "value": "Polished Diorite Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.end_brick.name",
+    "value": "End Stone Brick Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.granite.name",
+    "value": "Granite Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.granite.smooth.name",
+    "value": "Polished Granite Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab3.red_sandstone.smooth.name",
+    "value": "Smooth Red Sandstone Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab4.cut_red_sandstone.name",
+    "value": "Cut Red Sandstone Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab4.cut_sandstone.name",
+    "value": "Cut Sandstone Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab4.mossy_stone_brick.name",
+    "value": "Mossy Stone Brick Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab4.smooth_quartz.name",
+    "value": "Smooth Quartz Double Slab"
+  },
+  {
+    "id": "tile.double_stone_slab4.stone.name",
+    "value": "Stone Double Slab"
+  },
+  {
+    "id": "tile.double_wooden_slab.acacia.name",
+    "value": "Acacia Double Slab"
+  },
+  {
+    "id": "tile.double_wooden_slab.big_oak.name",
+    "value": "Dark Oak Double Slab"
+  },
+  {
+    "id": "tile.double_wooden_slab.birch.name",
+    "value": "Birch Double Slab"
+  },
+  {
+    "id": "tile.double_wooden_slab.jungle.name",
+    "value": "Jungle Double Slab"
+  },
+  {
+    "id": "tile.double_wooden_slab.oak.name",
+    "value": "Oak Double Slab"
+  },
+  {
+    "id": "tile.double_wooden_slab.spruce.name",
+    "value": "Spruce Double Slab"
   },
   {
     "id": "tile.dragon_egg.name",
@@ -41469,8 +46069,16 @@ export const Langs: Lang[] = [
     "value": "End Stone Bricks"
   },
   {
+    "id": "tile.end_gateway.name",
+    "value": "End Gateway"
+  },
+  {
     "id": "tile.end_portal_frame.name",
     "value": "End Portal Frame"
+  },
+  {
+    "id": "tile.end_portal.name",
+    "value": "End Portal"
   },
   {
     "id": "tile.end_rod.name",
@@ -41545,6 +46153,10 @@ export const Langs: Lang[] = [
     "value": "Exposed Cut Copper"
   },
   {
+    "id": "tile.exposed_double_cut_copper_slab.name",
+    "value": "Exposed Cut Copper Double Slab"
+  },
+  {
     "id": "tile.exposed_lightning_rod.name",
     "value": "Exposed Lightning Rod"
   },
@@ -41561,6 +46173,10 @@ export const Langs: Lang[] = [
     "value": "Oak Fence"
   },
   {
+    "id": "tile.fire_coral_wall_fan.name",
+    "value": "Fire Coral Wall Fan"
+  },
+  {
     "id": "tile.fire.name",
     "value": "Fire"
   },
@@ -41573,6 +46189,10 @@ export const Langs: Lang[] = [
     "value": "Fletching Table"
   },
   {
+    "id": "tile.flower_pot.name",
+    "value": "Flower Pot"
+  },
+  {
     "id": "tile.flowering_azalea.name",
     "value": "Flowering Azalea"
   },
@@ -41583,6 +46203,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.flowing_water.name",
     "value": "Water"
+  },
+  {
+    "id": "tile.frame.name",
+    "value": "Item Frame"
   },
   {
     "id": "tile.frog_spawn.name",
@@ -41737,8 +46361,16 @@ export const Langs: Lang[] = [
     "value": "Yellow Glazed Terracotta"
   },
   {
+    "id": "tile.glow_frame.name",
+    "value": "Glow Frame"
+  },
+  {
     "id": "tile.glow_lichen.name",
     "value": "Glow Lichen"
+  },
+  {
+    "id": "tile.glowingobsidian.name",
+    "value": "Glowing Obsidian"
   },
   {
     "id": "tile.glowstone.name",
@@ -41825,6 +46457,10 @@ export const Langs: Lang[] = [
     "value": "Hopper"
   },
   {
+    "id": "tile.horn_coral_wall_fan.name",
+    "value": "Horn Coral Wall Fan"
+  },
+  {
     "id": "tile.ice.name",
     "value": "Ice"
   },
@@ -41873,8 +46509,16 @@ export const Langs: Lang[] = [
     "value": "Jungle Button"
   },
   {
+    "id": "tile.jungle_door.name",
+    "value": "Jungle Door"
+  },
+  {
     "id": "tile.jungle_fence_gate.name",
     "value": "Jungle Fence Gate"
+  },
+  {
+    "id": "tile.jungle_hanging_sign.name",
+    "value": "Jungle Hanging Sign"
   },
   {
     "id": "tile.jungle_pressure_plate.name",
@@ -41897,8 +46541,16 @@ export const Langs: Lang[] = [
     "value": "Jungle Trapdoor"
   },
   {
+    "id": "tile.jungle_wall_sign.name",
+    "value": "Jungle Wall Sign"
+  },
+  {
     "id": "tile.jungleFence.name",
     "value": "Jungle Fence"
+  },
+  {
+    "id": "tile.kelp.name",
+    "value": "Kelp"
   },
   {
     "id": "tile.ladder.name",
@@ -42009,8 +46661,32 @@ export const Langs: Lang[] = [
     "value": "Lime Candle"
   },
   {
+    "id": "tile.lit_blast_furnace.name",
+    "value": "Lit Blast Furnace"
+  },
+  {
+    "id": "tile.lit_deepslate_redstone_ore.name",
+    "value": "Lit Deepslate Redstone Ore"
+  },
+  {
+    "id": "tile.lit_furnace.name",
+    "value": "Lit Furnace"
+  },
+  {
     "id": "tile.lit_pumpkin.name",
     "value": "Jack o'Lantern"
+  },
+  {
+    "id": "tile.lit_redstone_lamp.name",
+    "value": "Lit Redstone Lamp"
+  },
+  {
+    "id": "tile.lit_redstone_ore.name",
+    "value": "Lit Redstone Ore"
+  },
+  {
+    "id": "tile.lit_smoker.name",
+    "value": "Lit Smoker"
   },
   {
     "id": "tile.lockedchest.name",
@@ -42069,12 +46745,24 @@ export const Langs: Lang[] = [
     "value": "Mangrove Button"
   },
   {
+    "id": "tile.mangrove_door.name",
+    "value": "Mangrove Door"
+  },
+  {
+    "id": "tile.mangrove_double_slab.name",
+    "value": "Mangrove Double Slab"
+  },
+  {
     "id": "tile.mangrove_fence_gate.name",
     "value": "Mangrove Fence Gate"
   },
   {
     "id": "tile.mangrove_fence.name",
     "value": "Mangrove Fence"
+  },
+  {
+    "id": "tile.mangrove_hanging_sign.name",
+    "value": "Mangrove Hanging Sign"
   },
   {
     "id": "tile.mangrove_leaves.name",
@@ -42113,8 +46801,16 @@ export const Langs: Lang[] = [
     "value": "Mangrove Stairs"
   },
   {
+    "id": "tile.mangrove_standing_sign.name",
+    "value": "Mangrove Sign"
+  },
+  {
     "id": "tile.mangrove_trapdoor.name",
     "value": "Mangrove Trapdoor"
+  },
+  {
+    "id": "tile.mangrove_wall_sign.name",
+    "value": "Mangrove Wall Sign"
   },
   {
     "id": "tile.mangrove_wood.name",
@@ -42127,6 +46823,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.melon_block.name",
     "value": "Melon"
+  },
+  {
+    "id": "tile.melon_stem.name",
+    "value": "Melon Stem"
   },
   {
     "id": "tile.mob_spawner.name",
@@ -42182,6 +46882,10 @@ export const Langs: Lang[] = [
   },
   {
     "id": "tile.mud_brick_double_slab",
+    "value": "Mud Brick Double Slab"
+  },
+  {
+    "id": "tile.mud_brick_double_slab.name",
     "value": "Mud Brick Double Slab"
   },
   {
@@ -42285,6 +46989,10 @@ export const Langs: Lang[] = [
     "value": "Note Block"
   },
   {
+    "id": "tile.oak_hanging_sign.name",
+    "value": "Oak Hanging Sign"
+  },
+  {
     "id": "tile.oak_shelf.name",
     "value": "Oak Shelf"
   },
@@ -42377,6 +47085,10 @@ export const Langs: Lang[] = [
     "value": "Oxidized Cut Copper"
   },
   {
+    "id": "tile.oxidized_double_cut_copper_slab.name",
+    "value": "Oxidized Cut Copper Double Slab"
+  },
+  {
     "id": "tile.oxidized_lightning_rod.name",
     "value": "Oxidized Lightning Rod"
   },
@@ -42405,6 +47117,10 @@ export const Langs: Lang[] = [
     "value": "Pale Oak Button"
   },
   {
+    "id": "tile.pale_oak_door.name",
+    "value": "Pale Oak Door"
+  },
+  {
     "id": "tile.pale_oak_double_slab.name",
     "value": "Pale Oak Double Slab"
   },
@@ -42415,6 +47131,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.pale_oak_fence.name",
     "value": "Pale Oak Fence"
+  },
+  {
+    "id": "tile.pale_oak_hanging_sign.name",
+    "value": "Pale Oak Hanging Sign"
   },
   {
     "id": "tile.pale_oak_leaves.name",
@@ -42449,8 +47169,16 @@ export const Langs: Lang[] = [
     "value": "Pale Oak Stairs"
   },
   {
+    "id": "tile.pale_oak_standing_sign.name",
+    "value": "Pale Oak Sign"
+  },
+  {
     "id": "tile.pale_oak_trapdoor.name",
     "value": "Pale Oak Trapdoor"
+  },
+  {
+    "id": "tile.pale_oak_wall_sign.name",
+    "value": "Pale Oak Wall Sign"
   },
   {
     "id": "tile.pale_oak_wood.name",
@@ -42473,8 +47201,16 @@ export const Langs: Lang[] = [
     "value": "Pink Petals"
   },
   {
+    "id": "tile.piston_arm_collision.name",
+    "value": "Piston Arm Collision"
+  },
+  {
     "id": "tile.piston.name",
     "value": "Piston"
+  },
+  {
+    "id": "tile.pitcher_crop.name",
+    "value": "Pitcher Crop"
   },
   {
     "id": "tile.pitcher_plant.name",
@@ -42525,6 +47261,10 @@ export const Langs: Lang[] = [
     "value": "Polished Basalt"
   },
   {
+    "id": "tile.polished_blackstone_brick_double_slab.name",
+    "value": "Polished Blackstone Brick Double Slab"
+  },
+  {
     "id": "tile.polished_blackstone_brick_slab.name",
     "value": "Polished Blackstone Brick Slab"
   },
@@ -42543,6 +47283,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.polished_blackstone_button.name",
     "value": "Polished Blackstone Button"
+  },
+  {
+    "id": "tile.polished_blackstone_double_slab.name",
+    "value": "Polished Blackstone Double Slab"
   },
   {
     "id": "tile.polished_blackstone_pressure_plate.name",
@@ -42593,6 +47337,10 @@ export const Langs: Lang[] = [
     "value": "Polished Granite Stairs"
   },
   {
+    "id": "tile.polished_tuff_double_slab.name",
+    "value": "Polished Tuff Double Slab"
+  },
+  {
     "id": "tile.polished_tuff_slab.name",
     "value": "Polished Tuff Slab"
   },
@@ -42619,6 +47367,14 @@ export const Langs: Lang[] = [
   {
     "id": "tile.powder_snow.name",
     "value": "Powder Snow"
+  },
+  {
+    "id": "tile.powered_comparator.name",
+    "value": "Powered Comparator"
+  },
+  {
+    "id": "tile.powered_repeater.name",
+    "value": "Powered Repeater"
   },
   {
     "id": "tile.prismarine_bricks_stairs.name",
@@ -43153,8 +47909,16 @@ export const Langs: Lang[] = [
     "value": "Spruce Button"
   },
   {
+    "id": "tile.spruce_door.name",
+    "value": "Spruce Door"
+  },
+  {
     "id": "tile.spruce_fence_gate.name",
     "value": "Spruce Fence Gate"
+  },
+  {
+    "id": "tile.spruce_hanging_sign.name",
+    "value": "Spruce Hanging Sign"
   },
   {
     "id": "tile.spruce_pressure_plate.name",
@@ -43175,6 +47939,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.spruce_trapdoor.name",
     "value": "Spruce Trapdoor"
+  },
+  {
+    "id": "tile.spruce_wall_sign.name",
+    "value": "Spruce Wall Sign"
   },
   {
     "id": "tile.spruceFence.name",
@@ -43447,6 +48215,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.standing_sign.name",
     "value": "Sign"
+  },
+  {
+    "id": "tile.sticky_piston_arm_collision.name",
+    "value": "Sticky Sticky Piston Arm Collision"
   },
   {
     "id": "tile.sticky_piston.name",
@@ -43773,6 +48545,10 @@ export const Langs: Lang[] = [
     "value": "Torch"
   },
   {
+    "id": "tile.torchflower_crop.name",
+    "value": "Torchflower Crop"
+  },
+  {
     "id": "tile.torchflower.name",
     "value": "Torchflower"
   },
@@ -43797,6 +48573,14 @@ export const Langs: Lang[] = [
     "value": "Tripwire"
   },
   {
+    "id": "tile.tube_coral_wall_fan.name",
+    "value": "Tube Coral Wall Fan"
+  },
+  {
+    "id": "tile.tuff_brick_double_slab.name",
+    "value": "Tuff Brick Double Slab"
+  },
+  {
     "id": "tile.tuff_brick_slab.name",
     "value": "Tuff Brick Slab"
   },
@@ -43811,6 +48595,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.tuff_bricks.name",
     "value": "Tuff Bricks"
+  },
+  {
+    "id": "tile.tuff_double_slab.name",
+    "value": "Tuff Double Slab"
   },
   {
     "id": "tile.tuff_slab.name",
@@ -43845,6 +48633,14 @@ export const Langs: Lang[] = [
     "value": "Redstone Torch"
   },
   {
+    "id": "tile.unpowered_comparator.name",
+    "value": "Unpowered Comparator"
+  },
+  {
+    "id": "tile.unpowered_repeater.name",
+    "value": "Unpowered Repeater"
+  },
+  {
     "id": "tile.vault.name",
     "value": "Vault"
   },
@@ -43855,6 +48651,14 @@ export const Langs: Lang[] = [
   {
     "id": "tile.vine.name",
     "value": "Vines"
+  },
+  {
+    "id": "tile.wall_banner.name",
+    "value": "Wall Banner"
+  },
+  {
+    "id": "tile.wall_sign.name",
+    "value": "Wall Sign"
   },
   {
     "id": "tile.warped_button.name",
@@ -43879,6 +48683,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.warped_fungus.name",
     "value": "Warped Fungus"
+  },
+  {
+    "id": "tile.warped_hanging_sign.name",
+    "value": "Warped Hanging Sign"
   },
   {
     "id": "tile.warped_hyphae.name",
@@ -43997,6 +48805,10 @@ export const Langs: Lang[] = [
     "value": "Waxed Cut Copper"
   },
   {
+    "id": "tile.waxed_double_cut_copper_slab.name",
+    "value": "Waxed Cut Copper Double Slab"
+  },
+  {
     "id": "tile.waxed_exposed_chiseled_copper.name",
     "value": "Waxed Exposed Chiseled Copper"
   },
@@ -44051,6 +48863,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.waxed_exposed_cut_copper.name",
     "value": "Waxed Exposed Cut Copper"
+  },
+  {
+    "id": "tile.waxed_exposed_double_cut_copper_slab.name",
+    "value": "Waxed Exposed Cut Copper Double Slab"
   },
   {
     "id": "tile.waxed_exposed_lightning_rod.name",
@@ -44117,6 +48933,10 @@ export const Langs: Lang[] = [
     "value": "Waxed Oxidized Cut Copper"
   },
   {
+    "id": "tile.waxed_oxidized_double_cut_copper_slab.name",
+    "value": "Waxed Oxidized Cut Copper Double Slab"
+  },
+  {
     "id": "tile.waxed_oxidized_lightning_rod.name",
     "value": "Waxed Oxidized Lightning Rod"
   },
@@ -44177,6 +48997,10 @@ export const Langs: Lang[] = [
     "value": "Waxed Weathered Cut Copper"
   },
   {
+    "id": "tile.waxed_weathered_double_cut_copper_slab.name",
+    "value": "Waxed Weathered Cut Copper Double Slab"
+  },
+  {
     "id": "tile.waxed_weathered_lightning_rod.name",
     "value": "Waxed Weathered Lightning Rod"
   },
@@ -44235,6 +49059,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.weathered_cut_copper.name",
     "value": "Weathered Cut Copper"
+  },
+  {
+    "id": "tile.weathered_double_cut_copper_slab.name",
+    "value": "Weathered Cut Copper Double Slab"
   },
   {
     "id": "tile.weathered_lightning_rod.name",
@@ -44319,6 +49147,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.wooden_button.name",
     "value": "Oak Button"
+  },
+  {
+    "id": "tile.wooden_door.name",
+    "value": "Wooden Door"
   },
   {
     "id": "tile.wooden_pressure_plate.name",

@@ -406,6 +406,7 @@ export const Entities: Entity[] = [
     "id": "minecraft:dolphin",
     "events": [
       "minecraft:entity_spawned",
+      "minecraft:entity_born",
       "ageable_grow_up",
       "become_angry",
       "on_calm",
@@ -449,8 +450,12 @@ export const Entities: Entity[] = [
     "id": "minecraft:drowned",
     "events": [
       "minecraft:entity_spawned",
+      "minecraft:entity_born",
       "minecraft:as_baby",
+      "minecraft:as_baby_jockey",
       "minecraft:as_adult",
+      "minecraft:as_ranged_baby",
+      "minecraft:as_ranged_baby_jockey",
       "minecraft:as_ranged_adult",
       "minecraft:switch_to_melee",
       "minecraft:switch_to_ranged",
@@ -460,6 +465,7 @@ export const Entities: Entity[] = [
     ],
     "families": [
       "drowned",
+      "baby_undead",
       "zombie",
       "undead",
       "monster",
@@ -632,7 +638,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:glow_squid",
     "events": [
-      "minecraft:entity_spawned"
+      "minecraft:entity_spawned",
+      "minecraft:entity_born"
     ],
     "families": [
       "aquatic",
@@ -673,6 +680,7 @@ export const Entities: Entity[] = [
     "id": "minecraft:happy_ghast",
     "events": [
       "minecraft:entity_spawned",
+      "minecraft:entity_born",
       "minecraft:spawn_adult",
       "minecraft:spawn_baby",
       "minecraft:ageable_grow_up",
@@ -759,6 +767,7 @@ export const Entities: Entity[] = [
       "minecraft:as_baby",
       "minecraft:as_baby_jockey",
       "minecraft:spawn_as_rider",
+      "minecraft:entity_born",
       "minecraft:start_transforming",
       "minecraft:stop_transforming",
       "minecraft:convert_to_zombie",
@@ -771,7 +780,7 @@ export const Entities: Entity[] = [
       "undead",
       "monster",
       "mob",
-      "baby_husk",
+      "baby_undead ",
       "husk_rider"
     ]
   },
@@ -912,6 +921,7 @@ export const Entities: Entity[] = [
       "minecraft:entity_spawned",
       "minecraft:entity_born",
       "minecraft:spawn_wild_adult",
+      "minecraft:spawn_tame_adult",
       "minecraft:spawn_wild_baby",
       "minecraft:spawn_tame_baby",
       "minecraft:ageable_grow_up",
@@ -919,13 +929,12 @@ export const Entities: Entity[] = [
       "minecraft:on_saddled_in_water",
       "minecraft:on_saddled_out_of_water",
       "minecraft:on_unsaddled",
+      "minecraft:on_armor_equip",
       "minecraft:on_tame",
       "minecraft:on_unleashed",
       "minecraft:on_stop_tempting",
       "minecraft:on_mount",
       "minecraft:on_dismount",
-      "minecraft:start_charge",
-      "minecraft:stop_charge",
       "minecraft:become_angry",
       "minecraft:on_calm",
       "minecraft:switch_to_player_controlled",
@@ -1065,8 +1074,10 @@ export const Entities: Entity[] = [
     ],
     "families": [
       "piglin",
-      "piglin_hunter",
-      "monster"
+      "baby_piglin",
+      "monster",
+      "mob",
+      "piglin_hunter"
     ]
   },
   {
@@ -1297,6 +1308,7 @@ export const Entities: Entity[] = [
     "id": "minecraft:skeleton_horse",
     "events": [
       "minecraft:entity_spawned",
+      "minecraft:entity_born",
       "minecraft:set_trap",
       "minecraft:spring_trap"
     ],
@@ -1391,7 +1403,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:squid",
     "events": [
-      "minecraft:entity_spawned"
+      "minecraft:entity_spawned",
+      "minecraft:entity_born"
     ],
     "families": [
       "aquatic",
@@ -1839,6 +1852,7 @@ export const Entities: Entity[] = [
       "become_calm_event",
       "minecraft:entity_transformed",
       "minecraft:entity_spawned",
+      "minecraft:entity_born",
       "minecraft:as_adult",
       "minecraft:as_baby"
     ],
@@ -1855,6 +1869,7 @@ export const Entities: Entity[] = [
     "id": "minecraft:zombie",
     "events": [
       "minecraft:entity_spawned",
+      "minecraft:entity_born",
       "minecraft:as_adult",
       "minecraft:as_baby",
       "minecraft:as_baby_jockey",
@@ -1870,7 +1885,7 @@ export const Entities: Entity[] = [
       "undead",
       "monster",
       "mob",
-      "baby_zombie",
+      "baby_undead",
       "zombie_rider"
     ]
   },
@@ -1899,10 +1914,13 @@ export const Entities: Entity[] = [
     "id": "minecraft:zombie_nautilus",
     "events": [
       "minecraft:entity_spawned",
+      "minecraft:spawn_wild",
+      "minecraft:spawn_tame",
       "minecraft:on_saddled",
       "minecraft:on_saddled_in_water",
       "minecraft:on_saddled_out_of_water",
       "minecraft:on_unsaddled",
+      "minecraft:on_armor_equip",
       "minecraft:on_tame",
       "minecraft:on_unleashed",
       "minecraft:on_stop_tempting",
@@ -1912,8 +1930,6 @@ export const Entities: Entity[] = [
       "minecraft:on_player_dismount",
       "minecraft:become_angry",
       "minecraft:on_calm",
-      "minecraft:start_charge",
-      "minecraft:stop_charge",
       "minecraft:switch_to_player_controlled",
       "minecraft:switch_to_ai_controlled"
     ],
@@ -1921,6 +1937,7 @@ export const Entities: Entity[] = [
       "aquatic",
       "zombie_nautilus",
       "undead",
+      "monster",
       "mob"
     ]
   },
@@ -1931,15 +1948,19 @@ export const Entities: Entity[] = [
       "minecraft:entity_spawned",
       "spawn_adult",
       "spawn_baby",
+      "minecraft:entity_born",
+      "minecraft:as_baby",
       "minecraft:on_calm",
       "minecraft:become_angry",
       "minecraft:spawn_as_strider_jockey"
     ],
     "families": [
-      "zombie_pigman",
+      "baby_undead",
+      "baby_zombie_pigman",
       "undead",
       "monster",
-      "mob"
+      "mob",
+      "zombie_pigman"
     ]
   },
   {
@@ -1976,6 +1997,8 @@ export const Entities: Entity[] = [
     "events": [
       "villager_converted",
       "minecraft:entity_spawned",
+      "minecraft:entity_born",
+      "minecraft:as_baby",
       "minecraft:spawn_skilled_adult",
       "minecraft:entity_transformed",
       "minecraft:become_cleric",
@@ -1983,12 +2006,13 @@ export const Entities: Entity[] = [
       "minecraft:add_biome_and_skin"
     ],
     "families": [
-      "unskilled",
+      "baby_undead",
       "zombie",
       "zombie_villager",
       "undead",
       "monster",
       "mob",
+      "unskilled",
       "farmer",
       "fisherman",
       "shepherd",

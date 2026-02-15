@@ -2885,18 +2885,6 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.nautilus.charge_warning",
-    "bones": [
-      "nautilus",
-      "body",
-      "mouth_top",
-      "inner_mouth",
-      "mouth_bottom"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
     "id": "animation.nautilus.dashing",
     "bones": [],
     "particles": [],
@@ -3495,17 +3483,17 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.player.first_person.attack_item_rotation",
+    "id": "animation.player.first_person.attack_rotation",
     "bones": [
-      "rightitem"
+      "rightarm"
     ],
     "particles": [],
     "sounds": []
   },
   {
-    "id": "animation.player.first_person.attack_rotation",
+    "id": "animation.player.first_person.attack_rotation_item",
     "bones": [
-      "rightarm"
+      "rightitem"
     ],
     "particles": [],
     "sounds": []
