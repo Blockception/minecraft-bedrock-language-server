@@ -747,6 +747,30 @@ export namespace General {
       documentation: "Returns the total number of active particles of the callee's particle effect type",
     },
     {
+      id: 'entity_biome_has_all_tags',
+      documentation: 'Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if all of the tag names match. Only supported in resource packs (client-side).',
+      parameters: [
+        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
+      ],
+      packType: 'resource',
+    },
+    {
+      id: 'entity_biome_has_any_identifier',
+      documentation: 'Compares the biome the entity is standing in with one or more identifier names, and returns either 0 or 1 based on if any of the identifier names match. Only supported in resource packs (client-side).',
+      parameters: [
+        { id: 'identifier', documentation: 'biome identifier to check', type: 'string', repeatable: true },
+      ],
+      packType: 'resource',
+    },
+    {
+      id: 'entity_biome_has_any_tags',
+      documentation: 'Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if any of the tag names match. Only supported in resource packs (client-side).',
+      parameters: [
+        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
+      ],
+      packType: 'resource',
+    },
+    {
       id: 'equipment_count',
       documentation: 'Returns the equipment count for an actor',
     },
@@ -1856,28 +1880,8 @@ export namespace General {
     { id: 'yaw_speed', documentation: "Returns the entity's yaw speed" },
     // Experimental
     {
-      id: 'entity_biome_has_all_tags',
-      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if all of the tag names match. Only supported in resource packs (client-side).',
-      parameters: [
-        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
-      ],
-      packType: 'resource',
-    },
-    {
-      id: 'entity_biome_has_any_identifier',
-      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more identifier names, and returns either 0 or 1 based on if any of the identifier names match. Only supported in resource packs (client-side).',
-      parameters: [
-        { id: 'identifier', documentation: 'biome identifier to check', type: 'string', repeatable: true },
-      ],
-      packType: 'resource',
-    },
-    {
-      id: 'entity_biome_has_any_tags',
-      documentation: '(EXPERIMENTAL) Compares the biome the entity is standing in with one or more tag names, and returns either 0 or 1 based on if any of the tag names match. Only supported in resource packs (client-side).',
-      parameters: [
-        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
-      ],
-      packType: 'resource',
+      id: 'get_level_seed_based_fraction',
+      documentation: '(EXPERIMENTAL) Returns a value in range [0.0, 1.0] based on the level seed.'
     },
     //DEPRECATED
     {
