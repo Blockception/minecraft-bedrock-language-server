@@ -60,12 +60,17 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Biome>
     });
   },
   'minecraft:replace_biomes': (name, component, context, diagnoser) => {
-    if (Array.isArray(component.replacements))
-      component.replacements.forEach((entry: any) => {
-        entry.targets.forEach((id: string) => {
-          is_biome_defined(id, diagnoser, true); // TODO: Is this limited to replacing vanilla biomes only?
-        });
+    if (!Array.isArray(component.replacements)) return;
+    const dimensions = new Set();
+    component.replacements.forEach((entry: any) => {
+      dimensions.add(entry.dimension);
+      entry.targets.forEach((id: string) => {
+        is_biome_defined(id, diagnoser, true); // TODO: Is this limited to replacing vanilla biomes only?
       });
+    });
+
+    const dimension = dimensions.values().next().value
+    if (dimensions.size > 1 && typeof dimension == 'string') diagnoser.add(dimension, 'Using Biome Replacement for Overworld and Nether for the same Biome is discouraged but not prohibited', DiagnosticSeverity.warning, 'behaviorpack.biome.components.replace_biomes.multiple_dimensions')
   },
 };
 
