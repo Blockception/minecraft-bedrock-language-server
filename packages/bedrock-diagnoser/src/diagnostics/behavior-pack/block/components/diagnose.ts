@@ -181,6 +181,18 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   'minecraft:movable': (name, component, context, diagnoser) => {
     minimum_version_required(context.source, name, [1, 21, 100], diagnoser);
   },
+  'minecraft:redstone_consumer': (name, component, context, diagnoser) => {
+    minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
+  },
+  'minecraft:connection_rule': (name, component, context, diagnoser) => {
+    minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
+  },
+  'minecraft:support': (name, component, context, diagnoser) => {
+    minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
+  },
+  'minecraft:leashable': (name, component, context, diagnoser) => {
+    minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
+  },
 };
 
 function minimum_version_required(
