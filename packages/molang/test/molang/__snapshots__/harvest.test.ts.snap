@@ -8618,6 +8618,430 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 90. c.other->q.remaining_durability 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "c.other->q.remaining_durability" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "other",
+            ],
+            "position": 47,
+            "scope": "c",
+            "type": 12,
+          },
+          "operator": "->",
+          "position": 54,
+          "right": {
+            "arguments": [],
+            "names": [
+              "remaining_durability",
+            ],
+            "position": 56,
+            "scope": "q",
+            "type": 4,
+          },
+          "type": 2,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [],
+      "names": [
+        "remaining_durability",
+      ],
+      "position": 56,
+      "scope": "q",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "other",
+      ],
+      "position": 47,
+      "scope": "c",
+      "type": 12,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 91. c.other->q.max_durability 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "c.other->q.max_durability" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "other",
+            ],
+            "position": 47,
+            "scope": "c",
+            "type": 12,
+          },
+          "operator": "->",
+          "position": 54,
+          "right": {
+            "arguments": [],
+            "names": [
+              "max_durability",
+            ],
+            "position": 56,
+            "scope": "q",
+            "type": 4,
+          },
+          "type": 2,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [],
+      "names": [
+        "max_durability",
+      ],
+      "position": 56,
+      "scope": "q",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "other",
+      ],
+      "position": 47,
+      "scope": "c",
+      "type": 12,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 92. math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability / 20), c.other->q.max_durability) 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability / 20), c.other->q.max_durability)" => [
+        {
+          "arguments": [
+            {
+              "_processed": true,
+              "left": {
+                "_processed": true,
+                "left": {
+                  "arguments": [],
+                  "names": [
+                    "remaining_durability",
+                  ],
+                  "position": 56,
+                  "scope": "q",
+                  "type": 4,
+                },
+                "operator": "+",
+                "position": 79,
+                "right": {
+                  "_processed": true,
+                  "left": {
+                    "names": [
+                      "other",
+                    ],
+                    "position": 81,
+                    "scope": "c",
+                    "type": 12,
+                  },
+                  "operator": "->",
+                  "position": 88,
+                  "right": {
+                    "arguments": [],
+                    "names": [
+                      "remaining_durability",
+                    ],
+                    "position": 90,
+                    "scope": "q",
+                    "type": 4,
+                  },
+                  "type": 2,
+                },
+                "type": 2,
+              },
+              "operator": "+",
+              "position": 113,
+              "right": {
+                "arguments": [
+                  {
+                    "_processed": true,
+                    "left": {
+                      "arguments": [],
+                      "names": [
+                        "max_durability",
+                      ],
+                      "position": 126,
+                      "scope": "q",
+                      "type": 4,
+                    },
+                    "operator": "/",
+                    "position": 143,
+                    "right": {
+                      "position": 145,
+                      "type": 5,
+                      "value": "20",
+                    },
+                    "type": 2,
+                  },
+                ],
+                "names": [
+                  "floor",
+                ],
+                "position": 115,
+                "scope": "math",
+                "type": 4,
+              },
+              "type": 2,
+            },
+            {
+              "_processed": true,
+              "left": {
+                "names": [
+                  "other",
+                ],
+                "position": 150,
+                "scope": "c",
+                "type": 12,
+              },
+              "operator": "->",
+              "position": 157,
+              "right": {
+                "arguments": [],
+                "names": [
+                  "max_durability",
+                ],
+                "position": 159,
+                "scope": "q",
+                "type": 4,
+              },
+              "type": 2,
+            },
+          ],
+          "names": [
+            "min",
+          ],
+          "position": 47,
+          "scope": "math",
+          "type": 4,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [
+        {
+          "_processed": true,
+          "left": {
+            "_processed": true,
+            "left": {
+              "arguments": [],
+              "names": [
+                "remaining_durability",
+              ],
+              "position": 56,
+              "scope": "q",
+              "type": 4,
+            },
+            "operator": "+",
+            "position": 79,
+            "right": {
+              "_processed": true,
+              "left": {
+                "names": [
+                  "other",
+                ],
+                "position": 81,
+                "scope": "c",
+                "type": 12,
+              },
+              "operator": "->",
+              "position": 88,
+              "right": {
+                "arguments": [],
+                "names": [
+                  "remaining_durability",
+                ],
+                "position": 90,
+                "scope": "q",
+                "type": 4,
+              },
+              "type": 2,
+            },
+            "type": 2,
+          },
+          "operator": "+",
+          "position": 113,
+          "right": {
+            "arguments": [
+              {
+                "_processed": true,
+                "left": {
+                  "arguments": [],
+                  "names": [
+                    "max_durability",
+                  ],
+                  "position": 126,
+                  "scope": "q",
+                  "type": 4,
+                },
+                "operator": "/",
+                "position": 143,
+                "right": {
+                  "position": 145,
+                  "type": 5,
+                  "value": "20",
+                },
+                "type": 2,
+              },
+            ],
+            "names": [
+              "floor",
+            ],
+            "position": 115,
+            "scope": "math",
+            "type": 4,
+          },
+          "type": 2,
+        },
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "other",
+            ],
+            "position": 150,
+            "scope": "c",
+            "type": 12,
+          },
+          "operator": "->",
+          "position": 157,
+          "right": {
+            "arguments": [],
+            "names": [
+              "max_durability",
+            ],
+            "position": 159,
+            "scope": "q",
+            "type": 4,
+          },
+          "type": 2,
+        },
+      ],
+      "names": [
+        "min",
+      ],
+      "position": 47,
+      "scope": "math",
+      "type": 4,
+    },
+    {
+      "arguments": [
+        {
+          "_processed": true,
+          "left": {
+            "arguments": [],
+            "names": [
+              "max_durability",
+            ],
+            "position": 126,
+            "scope": "q",
+            "type": 4,
+          },
+          "operator": "/",
+          "position": 143,
+          "right": {
+            "position": 145,
+            "type": 5,
+            "value": "20",
+          },
+          "type": 2,
+        },
+      ],
+      "names": [
+        "floor",
+      ],
+      "position": 115,
+      "scope": "math",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "max_durability",
+      ],
+      "position": 159,
+      "scope": "q",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "remaining_durability",
+      ],
+      "position": 56,
+      "scope": "q",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "remaining_durability",
+      ],
+      "position": 90,
+      "scope": "q",
+      "type": 4,
+    },
+    {
+      "arguments": [],
+      "names": [
+        "max_durability",
+      ],
+      "position": 126,
+      "scope": "q",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "other",
+      ],
+      "position": 150,
+      "scope": "c",
+      "type": 12,
+    },
+    {
+      "names": [
+        "other",
+      ],
+      "position": 81,
+      "scope": "c",
+      "type": 12,
+    },
+  },
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {

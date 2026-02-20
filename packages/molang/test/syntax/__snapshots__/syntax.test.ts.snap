@@ -4689,3 +4689,171 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 90. c.other->q.remaining_durability 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "other",
+      ],
+      "position": 0,
+      "scope": "c",
+      "type": "Variable",
+    },
+    "operator": "->",
+    "position": 7,
+    "right": {
+      "arguments": [],
+      "names": [
+        "remaining_durability",
+      ],
+      "position": 9,
+      "scope": "q",
+      "type": "FunctionCall",
+    },
+    "type": "BinaryOperation",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 91. c.other->q.max_durability 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "other",
+      ],
+      "position": 0,
+      "scope": "c",
+      "type": "Variable",
+    },
+    "operator": "->",
+    "position": 7,
+    "right": {
+      "arguments": [],
+      "names": [
+        "max_durability",
+      ],
+      "position": 9,
+      "scope": "q",
+      "type": "FunctionCall",
+    },
+    "type": "BinaryOperation",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 92. math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability / 20), c.other->q.max_durability) 1`] = `
+[
+  {
+    "arguments": [
+      {
+        "_processed": true,
+        "left": {
+          "_processed": true,
+          "left": {
+            "arguments": [],
+            "names": [
+              "remaining_durability",
+            ],
+            "position": 9,
+            "scope": "q",
+            "type": "FunctionCall",
+          },
+          "operator": "+",
+          "position": 32,
+          "right": {
+            "_processed": true,
+            "left": {
+              "names": [
+                "other",
+              ],
+              "position": 34,
+              "scope": "c",
+              "type": "Variable",
+            },
+            "operator": "->",
+            "position": 41,
+            "right": {
+              "arguments": [],
+              "names": [
+                "remaining_durability",
+              ],
+              "position": 43,
+              "scope": "q",
+              "type": "FunctionCall",
+            },
+            "type": "BinaryOperation",
+          },
+          "type": "BinaryOperation",
+        },
+        "operator": "+",
+        "position": 66,
+        "right": {
+          "arguments": [
+            {
+              "_processed": true,
+              "left": {
+                "arguments": [],
+                "names": [
+                  "max_durability",
+                ],
+                "position": 79,
+                "scope": "q",
+                "type": "FunctionCall",
+              },
+              "operator": "/",
+              "position": 96,
+              "right": {
+                "position": 98,
+                "type": "Literal",
+                "value": "20",
+              },
+              "type": "BinaryOperation",
+            },
+          ],
+          "names": [
+            "floor",
+          ],
+          "position": 68,
+          "scope": "math",
+          "type": "FunctionCall",
+        },
+        "type": "BinaryOperation",
+      },
+      {
+        "_processed": true,
+        "left": {
+          "names": [
+            "other",
+          ],
+          "position": 103,
+          "scope": "c",
+          "type": "Variable",
+        },
+        "operator": "->",
+        "position": 110,
+        "right": {
+          "arguments": [],
+          "names": [
+            "max_durability",
+          ],
+          "position": 112,
+          "scope": "q",
+          "type": "FunctionCall",
+        },
+        "type": "BinaryOperation",
+      },
+    ],
+    "names": [
+      "min",
+    ],
+    "position": 0,
+    "scope": "math",
+    "type": "FunctionCall",
+  },
+]
+`;
