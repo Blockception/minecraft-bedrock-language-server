@@ -48,7 +48,7 @@ export namespace Position {
     //Line count
     let count = 0;
     //Offset of the last newline found
-    let index = 0;
+    let index: number;
 
     for (let i = 0; i < text.length; i++) {
       const c = text.charCodeAt(i);

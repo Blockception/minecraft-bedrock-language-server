@@ -50,9 +50,7 @@ export namespace Documentation {
     if (index < 0) index = text.length;
 
     let line = text.slice(startoffset, index);
-    const length = line.length;
     line = line.trimStart();
-    startoffset += length - line.length;
 
     //Comment
     if (doc.uri.endsWith('.mcfunction') || doc.uri.endsWith('.lang')) {

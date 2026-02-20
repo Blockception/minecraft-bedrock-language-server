@@ -254,7 +254,7 @@ export function diagnose_molang_function(fn: FunctionCallNode, diagnoser: Diagno
 
     diagnoser.add(
       OffsetWord.create(ExpressionNode.getIdentifier(fn), fn.position),
-      `molang function has been deprecated: ${fnData.deprecated}`,
+      `molang function has been deprecated: ${msg}`,
       DiagnosticSeverity.error,
       'molang.function.deprecated',
     );
