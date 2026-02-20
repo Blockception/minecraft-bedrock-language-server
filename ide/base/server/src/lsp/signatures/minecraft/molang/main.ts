@@ -56,8 +56,8 @@ export function provideWordSignature(
   parameters: OffsetWord[],
 ): SignatureHelp | undefined {
   const index = text.text.indexOf('.');
-  let main: string | undefined = undefined;
-  let sub: string | undefined = undefined;
+  let main: string | undefined;
+  let sub: string | undefined;
 
   if (index === -1) {
     main = text.text;
