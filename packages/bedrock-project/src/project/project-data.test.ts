@@ -3,10 +3,35 @@ import { MolangSet } from 'bc-minecraft-molang';
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../internal/types';
 import { TextProjectContext } from '../test/utility';
+import { Documents, TextDocument } from '../types';
 import { Defined, References, Using } from '../types/references';
 import { BehaviorPack } from './behavior-pack';
 import { ProjectData } from './project-data';
 import { ResourcePack } from './resource-pack';
+
+/** A context that returns a document with the given fixed content for any URI */
+class FixedContentContext implements Documents<TextDocument> {
+  constructor(private readonly content: string) {}
+
+  getDocument(uri: string): TextDocument {
+    return { uri, getText: () => this.content };
+  }
+
+  getFiles(): string[] {
+    return [];
+  }
+}
+
+/** A context that returns undefined for every document request */
+class NoDocumentContext implements Documents<TextDocument> {
+  getDocument(_uri: string): undefined {
+    return undefined;
+  }
+
+  getFiles(): string[] {
+    return [];
+  }
+}
 
 describe('ProjectData', () => {
   describe('Sanity Check', () => {
@@ -404,6 +429,38 @@ describe('ProjectData', () => {
     test.each(ids)(`find id %s`, (id) => {
       const item = data.find((item) => item.id === id);
       expect(item).toBeDefined();
+    });
+  });
+
+  describe('addPack', () => {
+    const context = MCProject.createEmpty();
+
+    it('registers behavior pack when manifest is empty (path-based detection)', () => {
+      const P = new ProjectData(new FixedContentContext(''));
+      const pack = P.addPack('file:///workspace/behavior_packs/manifest.json', context);
+      expect(pack).toBeDefined();
+      expect(P.behaviorPacks.count()).toEqual(1);
+    });
+
+    it('registers resource pack when manifest is empty (path-based detection)', () => {
+      const P = new ProjectData(new FixedContentContext(''));
+      const pack = P.addPack('file:///workspace/resource_packs/manifest.json', context);
+      expect(pack).toBeDefined();
+      expect(P.resourcePacks.count()).toEqual(1);
+    });
+
+    it('registers behavior pack when manifest cannot be read (path-based detection)', () => {
+      const P = new ProjectData(new NoDocumentContext());
+      const pack = P.addPack('file:///workspace/behavior_packs/manifest.json', context);
+      expect(pack).toBeDefined();
+      expect(P.behaviorPacks.count()).toEqual(1);
+    });
+
+    it('returns undefined for unknown pack type even when manifest is missing', () => {
+      const P = new ProjectData(new NoDocumentContext());
+      const pack = P.addPack('file:///workspace/unknown_folder/manifest.json', context);
+      expect(pack).toBeUndefined();
+      expect(P.behaviorPacks.count()).toEqual(0);
     });
   });
 });

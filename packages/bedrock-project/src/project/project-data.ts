@@ -165,20 +165,22 @@ export class ProjectData {
    */
   addPack(manifestUri: string, context: string | MCProject): Pack | undefined {
     const manifest = Manifest.getManifest(manifestUri, this.documents.getDocument.bind(this.documents));
-    if (!manifest) return;
 
-    const types = Manifest.detectTypeUri(manifestUri, manifest);
+    // Fall back to an empty manifest so that path-based detection still works
+    // even when manifest.json exists but has no content or invalid JSON.
+    const effectiveManifest = manifest ?? ({} as Manifest);
+    const types = Manifest.detectTypeUri(manifestUri, effectiveManifest);
     const parent = manifestUri.replace(/[\\/]manifest.json/gi, '');
 
     switch (types) {
       case PackType.behavior_pack:
-        return this.behaviorPacks.add(parent, context, manifest);
+        return this.behaviorPacks.add(parent, context, effectiveManifest);
 
       case PackType.resource_pack:
-        return this.resourcePacks.add(parent, context, manifest);
+        return this.resourcePacks.add(parent, context, effectiveManifest);
 
       case PackType.world:
-        return this.worlds.add(parent, context, manifest);
+        return this.worlds.add(parent, context, effectiveManifest);
 
       case PackType.skin_pack:
       case PackType.unknown:
