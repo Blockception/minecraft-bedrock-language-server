@@ -1453,3 +1453,46 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 90. c.other->q.remaining_durability 1`] = `
+[
+  "c.other NamespacedIdentifier",
+  "-> Operator",
+  "q.remaining_durability NamespacedIdentifier",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 91. c.other->q.max_durability 1`] = `
+[
+  "c.other NamespacedIdentifier",
+  "-> Operator",
+  "q.max_durability NamespacedIdentifier",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 92. math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability / 20), c.other->q.max_durability) 1`] = `
+[
+  "math.min NamespacedIdentifier",
+  "( OpenParen",
+  "q.remaining_durability NamespacedIdentifier",
+  "+ Operator",
+  "c.other NamespacedIdentifier",
+  "-> Operator",
+  "q.remaining_durability NamespacedIdentifier",
+  "+ Operator",
+  "math.floor NamespacedIdentifier",
+  "( OpenParen",
+  "q.max_durability NamespacedIdentifier",
+  "/ Operator",
+  "20 Number",
+  ") CloseParen",
+  ", Comma",
+  "c.other NamespacedIdentifier",
+  "-> Operator",
+  "q.max_durability NamespacedIdentifier",
+  ") CloseParen",
+  "  EOF",
+]
+`;

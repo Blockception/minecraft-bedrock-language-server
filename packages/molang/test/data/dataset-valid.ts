@@ -108,4 +108,9 @@ export const valid_syntaxes = [
 
   // Issue: Unable to process ) - complex nested parentheses with negation
   'query.mark_variant < 1200 && ((query.is_on_ground && !query.is_moving) || (!query.is_on_ground && query.vertical_speed < 0))',
+
+  // c.other-> syntax: accessing queries on context entities
+  'c.other->q.remaining_durability',
+  'c.other->q.max_durability',
+  'math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability / 20), c.other->q.max_durability)',
 ];

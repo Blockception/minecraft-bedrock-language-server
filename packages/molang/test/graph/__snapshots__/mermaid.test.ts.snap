@@ -2217,3 +2217,70 @@ flowchart TD
     node4 -->|right| node9
     node0 -->|right| node4"
 `;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 90. c.other->q.remaining_durability 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"\\->@7"}
+    node1[["c.other@0"]]
+    node2{{"q.remaining_durability()@9"}}
+    start-->node0
+    node0 -->|left| node1
+    node0 -->|right| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 91. c.other->q.max_durability 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"\\->@7"}
+    node1[["c.other@0"]]
+    node2{{"q.max_durability()@9"}}
+    start-->node0
+    node0 -->|left| node1
+    node0 -->|right| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 92. math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability / 20), c.other->q.max_durability) 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{{"math.min()@0"}}
+    node1{"\\+@66"}
+    node2{"\\+@32"}
+    node3{{"q.remaining_durability()@9"}}
+    node4{"\\->@41"}
+    node5[["c.other@34"]]
+    node6{{"q.remaining_durability()@43"}}
+    node7{{"math.floor()@68"}}
+    node8{"\\/@96"}
+    node9{{"q.max_durability()@79"}}
+    node10["20@98"]
+    node11{"\\->@110"}
+    node12[["c.other@103"]]
+    node13{{"q.max_durability()@112"}}
+    start-->node0
+    node2 -->|left| node3
+    node4 -->|left| node5
+    node4 -->|right| node6
+    node2 -->|right| node4
+    node1 -->|left| node2
+    node8 -->|left| node9
+    node8 -->|right| node10
+    node7 -->|arg0| node8
+    node1 -->|right| node7
+    node0 -->|arg0| node1
+    node11 -->|left| node12
+    node11 -->|right| node13
+    node0 -->|arg1| node11"
+`;
