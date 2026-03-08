@@ -37,7 +37,7 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
   //check components
   block['minecraft:block']?.permutations?.forEach((p) => {
     context.components.push(...getUsedComponents(p));
-    behaviorpack_diagnose_block_components(p, context, diagnoser);
+    behaviorpack_diagnose_block_components(p, { ...context, isPermutation: true }, diagnoser);
   });
 
   if (block['minecraft:block']['events']) {

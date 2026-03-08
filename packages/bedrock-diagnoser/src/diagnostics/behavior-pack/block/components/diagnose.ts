@@ -86,6 +86,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   'minecraft:geometry': (name, component, context, diagnoser) => {
     try {
       if (
+        !context.isPermutation &&
         !context.components.includes('minecraft:material_instances') &&
         FormatVersion.isGreaterOrEqualThan(context.source.format_version as FormatVersion, [1, 21, 80])
       )
@@ -114,6 +115,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   'minecraft:material_instances': (name, component, context, diagnoser) => {
     try {
       if (
+        !context.isPermutation &&
         !context.components.includes('minecraft:geometry') &&
         FormatVersion.isGreaterOrEqualThan(context.source.format_version as FormatVersion, [1, 21, 80])
       )
