@@ -17,6 +17,7 @@ export class Output {
     const out = new Output();
     out.edu = OutputSet.load(path.join(folder, 'edu'));
     out.vanilla = OutputSet.load(path.join(folder, 'vanilla'));
+    out.general = General.load(path.join(folder, 'general'));
 
     return out;
   }
