@@ -484,6 +484,18 @@
         "title": "Fill block/item ID by name",
         "command": "bc.minecraft.id.fill",
         "category": "Blockception"
+      },
+      {
+        "title": "Export pack as .mcpack",
+        "command": "bc.minecraft.export.pack",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Export add-on as .mcaddon",
+        "command": "bc.minecraft.export.addon",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
       }
     ],
     "grammars": [

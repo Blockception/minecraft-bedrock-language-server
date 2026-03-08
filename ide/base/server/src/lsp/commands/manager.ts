@@ -1,6 +1,7 @@
 import { Commands } from '@blockception/ide-shared';
 import { Context } from '../context/context';
 import { diagnoseProject, rescanProject } from './commands/diagnose-project';
+import { exportAsAddon, exportAsPack } from './commands/export-pack';
 import { appendToFile } from './commands/files';
 import { addAllItems } from './commands/language';
 import { createMcProject } from './commands/mcproject';
@@ -81,7 +82,9 @@ export class CommandManager implements ICommand {
       .add(Commands.ScanProjects, rescanProject, true)
       .add(Commands.StoreProject, storeProject, true)
       .add(Commands.Files.Append, appendToFile, true)
-      .add(Commands.MCProject.Create, createMcProject);
+      .add(Commands.MCProject.Create, createMcProject)
+      .add(Commands.Export.Pack, exportAsPack, true)
+      .add(Commands.Export.Addon, exportAsAddon, true);
 
     setupCreate(manager);
     setupTemplates(manager);
