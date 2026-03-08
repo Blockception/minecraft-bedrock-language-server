@@ -1,3 +1,4 @@
+import AdmZip from 'adm-zip';
 import * as fs from 'fs';
 import * as path from 'path';
 import { Context } from '../../context/context';
@@ -5,62 +6,16 @@ import { CommandContext } from '../context';
 import { getWorkspace } from '../util';
 import { Fs } from '../../../util';
 
-// Minimal types for yazl (no official @types/yazl package available)
-interface YazlZipFile {
-  addFile(realPath: string, metadataPath: string): void;
-  end(): void;
-  outputStream: NodeJS.ReadableStream;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const yazl = require('yazl') as { ZipFile: new () => YazlZipFile };
-
-/**
- * Recursively collects all file paths under the given directory using async I/O
- */
-async function getAllFiles(dir: string): Promise<string[]> {
-  const results: string[] = [];
-  const entries = await fs.promises.readdir(dir, { withFileTypes: true });
-
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-
-    if (entry.isDirectory()) {
-      results.push(...(await getAllFiles(fullPath)));
-    } else {
-      results.push(fullPath);
-    }
-  }
-
-  return results;
-}
-
 /**
  * Creates a ZIP archive of the given source directory and writes it to outputPath.
  * @param sourceDir The directory whose contents will be added to the archive.
  * @param outputPath The file path where the archive will be written.
  * @param prefix Optional folder prefix to use inside the archive.
  */
-async function createZip(sourceDir: string, outputPath: string, prefix: string = ''): Promise<void> {
-  const files = await getAllFiles(sourceDir);
-
-  return new Promise<void>((resolve, reject) => {
-    const zip = new yazl.ZipFile();
-
-    for (const file of files) {
-      const relative = path.relative(sourceDir, file).replace(/\\/g, '/');
-      const entryPath = prefix ? `${prefix}/${relative}` : relative;
-      zip.addFile(file, entryPath);
-    }
-
-    zip.end();
-
-    const output = fs.createWriteStream(outputPath);
-    zip.outputStream.pipe(output);
-    output.on('finish', resolve);
-    output.on('error', reject);
-    zip.outputStream.on('error', reject);
-  });
+function createZip(sourceDir: string, outputPath: string, prefix: string = ''): void {
+  const zip = new AdmZip();
+  zip.addLocalFolder(sourceDir, prefix);
+  zip.writeZip(outputPath);
 }
 
 /**
@@ -84,13 +39,11 @@ export async function exportAsPack(context: Context<CommandContext>): Promise<{ 
 
   const sourceDir = Fs.FromVscode(packFolderUri);
 
-  try {
-    await fs.promises.access(sourceDir);
-  } catch {
+  if (!fs.existsSync(sourceDir)) {
     throw new Error(`Pack folder does not exist: ${sourceDir}`);
   }
 
-  await createZip(sourceDir, outputPath);
+  createZip(sourceDir, outputPath);
 
   return { success: true, path: outputPath };
 }
@@ -126,36 +79,19 @@ export async function exportAsAddon(context: Context<CommandContext>): Promise<{
     throw new Error('No packs found in workspace');
   }
 
-  const zip = new yazl.ZipFile();
+  const zip = new AdmZip();
 
   for (const pack of packs) {
     const sourceDir = Fs.FromVscode(pack.folder);
 
-    try {
-      await fs.promises.access(sourceDir);
-    } catch {
-      continue;
-    }
+    if (!fs.existsSync(sourceDir)) continue;
 
     const packName = path.basename(sourceDir);
-    const files = await getAllFiles(sourceDir);
-
-    for (const file of files) {
-      const relative = path.relative(sourceDir, file).replace(/\\/g, '/');
-      zip.addFile(file, `${packName}/${relative}`);
-    }
+    zip.addLocalFolder(sourceDir, packName);
   }
 
-  await new Promise<void>((resolve, reject) => {
-    zip.end();
-
-    const output = fs.createWriteStream(outputPath);
-    zip.outputStream.pipe(output);
-
-    output.on('finish', resolve);
-    output.on('error', reject);
-    zip.outputStream.on('error', reject);
-  });
+  zip.writeZip(outputPath);
 
   return { success: true, path: outputPath };
 }
+
