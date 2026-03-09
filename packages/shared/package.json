@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "typescript": "^5.8.3",
-    "@types/node": "^25.3.3",
+    "@types/node": "^25.4.0",
     "@types/picomatch": "^4.0.2",
     "@types/jest": "^30.0.0"
   }
