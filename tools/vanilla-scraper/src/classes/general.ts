@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Container as BPContainer } from '../bp/container';
 import { cleanStrings, duplicateWithoutNamespace } from '../static/identifier-extension';
+import { loadStringArray } from '../static/json';
 import { saveArray, saveSingle } from '../static/typescript';
 import { GeneralEntity } from './general-entity';
 import { Output } from './output';
@@ -22,6 +23,16 @@ export class General {
   potionModifiers: string[] = [];
   potionTypes: string[] = [];
   features?: string[];
+
+  /**
+   * Load general base data from a folder
+   */
+  static load(folder: string): General {
+    const out = new General();
+    out.potionModifiers = loadStringArray(path.join(folder, 'potion_modifiers.json'));
+    out.potionTypes = loadStringArray(path.join(folder, 'potion_types.json'));
+    return out;
+  }
 
   /**
    * Scrape from output

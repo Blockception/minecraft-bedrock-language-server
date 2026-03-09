@@ -49,6 +49,36 @@ export function loadEnsure<T>(filepath: string): T[] {
 }
 
 /**
+ * Load a JSON file containing a string array, returning an empty array if file doesn't exist.
+ * Handles both plain string arrays and arrays of objects with an 'id' or 'name' property.
+ */
+export function loadStringArray(filepath: string): string[] {
+  if (!fs.existsSync(filepath)) {
+    return [];
+  }
+
+  try {
+    const data = fs.readFileSync(filepath, 'utf-8');
+    const cleaned = removeCommentsAndTrailingCommas(data);
+    const result = JSON.parse(cleaned);
+
+    if (!Array.isArray(result)) return [];
+
+    return result.map((item): string => {
+      if (typeof item === 'string') return item;
+      if (typeof item === 'object' && item !== null) {
+        const obj = item as Record<string, unknown>;
+        return (typeof obj.id === 'string' ? obj.id : null) ?? (typeof obj.name === 'string' ? obj.name : null) ?? '';
+      }
+      return '';
+    }).filter((s) => s.length > 0);
+  } catch (ex) {
+    console.error(ex);
+    return [];
+  }
+}
+
+/**
  * Save data to a JSON file
  */
 export function save<T>(data: T, filepath: string): void {
