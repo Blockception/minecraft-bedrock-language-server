@@ -11,6 +11,8 @@ export interface Context<T> {
   source: Readonly<T>;
   /** The components used by the source collected from multiple sources */
   components: string[];
+  /** Whether the current components being checked belong to a permutation (not the top-level block) */
+  isPermutation?: boolean;
 }
 
 /**Checks if components dependencies are present, a component might need others to be present
