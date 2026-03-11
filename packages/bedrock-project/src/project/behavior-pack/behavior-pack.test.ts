@@ -49,6 +49,10 @@ describe('BehaviorPack', () => {
     it('trading', () => {
       expect(typeof BP.trading === 'object').toBeTruthy();
     });
+
+    it('voxel_shapes', () => {
+      expect(typeof BP.voxel_shapes === 'object').toBeTruthy();
+    });
   });
 
   describe('is', () => {
