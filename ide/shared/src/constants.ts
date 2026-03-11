@@ -183,6 +183,14 @@ export namespace Commands {
   }
 
   /** */
+  export namespace Export {
+    /** Export a single behavior pack or resource pack as a .mcpack file */
+    export const Pack: string = 'bc.minecraft.export.pack';
+    /** Export the full add-on (all packs) as a .mcaddon file */
+    export const Addon: string = 'bc.minecraft.export.addon';
+  }
+
+  /** */
   export namespace Errors {
     /** */
     export const OpenLastest = 'bc.errors.open_lastest';

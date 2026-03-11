@@ -28,13 +28,14 @@
     "clean": "rimraf ./dist tsconfig.tsbuildinfo"
   },
   "dependencies": {
-    "bc-minecraft-bedrock-shared": "*",
     "@blockception/ide-shared": "*",
     "@daanv2/queue-processor": "^2.2.1",
     "@types/vscode": "^1.108.1",
+    "adm-zip": "^0.5.16",
     "bc-minecraft-bedrock-command": "*",
     "bc-minecraft-bedrock-diagnoser": "*",
     "bc-minecraft-bedrock-project": "*",
+    "bc-minecraft-bedrock-shared": "*",
     "bc-minecraft-bedrock-types": "*",
     "bc-minecraft-bedrock-vanilla-data": "*",
     "bc-minecraft-molang": "*",
@@ -49,6 +50,7 @@
     "vscode-uri": "^3.1.0"
   },
   "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.4.0",
     "json-loader": "^0.5.7",
