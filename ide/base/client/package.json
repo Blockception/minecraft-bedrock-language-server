@@ -33,6 +33,6 @@
     "vscode-languageclient": "^10.0.0-next.21"
   },
   "devDependencies": {
-    "@types/node": "^25.3.3"
+    "@types/node": "^25.4.0"
   }
 }
