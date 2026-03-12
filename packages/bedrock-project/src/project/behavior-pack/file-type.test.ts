@@ -17,6 +17,7 @@ describe('BP Filetype', () => {
       ['F:\\Example-bp\\spawn_rules\\pig.json', FileType.spawn_rule],
       ['F:\\Example-bp\\structures\\build\\data.mcstructure', FileType.structure],
       ['F:\\Example-bp\\trading\\master_block.trades.json', FileType.trading],
+      ['F:\\Example-bp\\shapes\\custom_shape.json', FileType.voxel_shape],
 
       ['F:\\Example\\animations\\sheep.run.animation.json', FileType.animation],
       ['F:\\Example\\animation_controllers\\sheep.walk.controller.json', FileType.animation_controller],
@@ -29,6 +30,7 @@ describe('BP Filetype', () => {
       ['F:\\Example\\spawn_rules\\pig.json', FileType.spawn_rule],
       ['F:\\Example\\structures\\build\\data.mcstructure', FileType.structure],
       ['F:\\Example\\trading\\master_block.trades.json', FileType.trading],
+      ['F:\\Example\\shapes\\custom_shape.json', FileType.voxel_shape],
     ];
 
     DetectTests.forEach((item) => {

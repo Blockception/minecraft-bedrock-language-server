@@ -19,6 +19,8 @@ import * as Recipe from './recipe';
 import * as Structure from './structure';
 import * as Trading from './trading';
 
+import * as VoxelShape from './voxel-shape';
+
 type CollectFieldsOfType<T> = {
   [K in keyof T]: T[K] extends DataSet<infer U> ? U : never;
 };
@@ -70,6 +72,8 @@ export class BehaviorPack implements Container, Pack {
   readonly structures: DataSet<Structure.Structure>;
   /**The collection of trading tables*/
   readonly trading: DataSet<Trading.Trading>;
+  /**The collection of voxel shapes*/
+  readonly voxel_shapes: DataSet<VoxelShape.VoxelShape>;
 
   /**
    * @param folder The folder of the behavior
@@ -93,6 +97,7 @@ export class BehaviorPack implements Container, Pack {
     this.features = new DataSet();
     this.features_rules = new DataSet();
     this.item_groups = new DataSet();
+    this.voxel_shapes = new DataSet();
   }
 
   /**
@@ -146,6 +151,9 @@ export class BehaviorPack implements Container, Pack {
 
       case FileType.recipe:
         return this.recipes.set(Recipe.process(doc));
+
+      case FileType.voxel_shape:
+        return this.voxel_shapes.set(VoxelShape.process(doc));
     }
 
     return undefined;
@@ -202,6 +210,9 @@ export class BehaviorPack implements Container, Pack {
       case FileType.recipe:
         return this.recipes;
 
+      case FileType.voxel_shape:
+        return this.voxel_shapes;
+
       default:
         return undefined;
     }
@@ -229,6 +240,7 @@ export class BehaviorPack implements Container, Pack {
     out = this.recipes.deleteFile(uri) || out;
     out = this.structures.deleteFile(uri) || out;
     out = this.trading.deleteFile(uri) || out;
+    out = this.voxel_shapes.deleteFile(uri) || out;
 
     return out;
   }
@@ -254,6 +266,7 @@ export class BehaviorPack implements Container, Pack {
     out = this.recipes.deleteFolder(uri) || out;
     out = this.structures.deleteFolder(uri) || out;
     out = this.trading.deleteFolder(uri) || out;
+    out = this.voxel_shapes.deleteFolder(uri) || out;
 
     return out;
   }
@@ -280,6 +293,7 @@ export class BehaviorPack implements Container, Pack {
     if ((value = this.recipes.find(predicate))) return value;
     if ((value = this.structures.find(predicate))) return value;
     if ((value = this.trading.find(predicate))) return value;
+    if ((value = this.voxel_shapes.find(predicate))) return value;
 
     return value;
   }
@@ -304,6 +318,7 @@ export class BehaviorPack implements Container, Pack {
     this.recipes.forEach(callbackfn);
     this.structures.forEach(callbackfn);
     this.trading.forEach(callbackfn);
+    this.voxel_shapes.forEach(callbackfn);
   }
 }
 
@@ -335,6 +350,7 @@ export namespace BehaviorPack {
       if (typeof temp.item_groups !== 'object') return false;
       if (typeof temp.biomes !== 'object') return false;
       if (typeof temp.recipes !== 'object') return false;
+      if (typeof temp.voxel_shapes !== 'object') return false;
 
       if (typeof temp.context !== 'object') return false;
       if (typeof temp.folder !== 'string') return false;

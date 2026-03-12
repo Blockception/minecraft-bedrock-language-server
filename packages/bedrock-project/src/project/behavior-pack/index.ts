@@ -13,6 +13,7 @@ export * as McFunction from './mcfunction';
 export * as Recipe from './recipe';
 export * as Structure from './structure';
 export * as Trading from './trading';
+export * as VoxelShape from './voxel-shape';
 export * from './behavior-pack';
 export * from './behavior-pack-collection';
 export * from './file-type';

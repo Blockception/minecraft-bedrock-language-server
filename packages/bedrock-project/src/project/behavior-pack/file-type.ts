@@ -35,6 +35,8 @@ export enum FileType {
   /***/
   trading,
   /***/
+  voxel_shape,
+  /***/
   unknown,
 }
 
@@ -59,6 +61,7 @@ export namespace FileType {
     if (/[\\/]item_catalog[\\/]/.test(uri)) return FileType.item_catalog;
     if (/[\\/]biomes[\\/]/.test(uri)) return FileType.biome;
     if (/[\\/]recipes[\\/]/.test(uri)) return FileType.recipe;
+    if (/[\\/]shapes[\\/]/.test(uri)) return FileType.voxel_shape;
     //These can also be subfolders
     if (/[\\/]blocks[\\/]/.test(uri)) return FileType.block;
     if (/[\\/]entities[\\/]/.test(uri)) return FileType.entity;
