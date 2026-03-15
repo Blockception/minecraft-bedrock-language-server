@@ -77,7 +77,7 @@ export function resolveJsonPath(path: string, doc: vstd.TextDocument): Range {
   const index = path.lastIndexOf('/');
   const length = index > -1 ? path.length - index : path.length;
 
-  let offset = -1;
+  let offset: number;
   const text = doc.getText();
 
   if (index === -1) {

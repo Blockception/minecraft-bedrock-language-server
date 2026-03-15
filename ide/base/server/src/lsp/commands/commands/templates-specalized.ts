@@ -232,7 +232,7 @@ export function setupCreate(manager: CommandManager) {
       if (!fs.existsSync(rootFs)) return dirs;
 
       function walk(dir: string) {
-        let entries: string[] = [];
+        let entries: string[];
         try {
           entries = fs.readdirSync(dir);
         } catch (err) {
@@ -269,7 +269,7 @@ export function setupCreate(manager: CommandManager) {
     const deletable = new Set<string>();
 
     for (const dirFs of allDirs) {
-      let entries: string[] = [];
+      let entries: string[];
       try {
         entries = fs.readdirSync(dirFs);
       } catch (err) {
