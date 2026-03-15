@@ -79,7 +79,7 @@ export class GeneralCollection {
    * @returns
    */
   find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined {
-    let value = undefined;
+    let value: BaseObject | undefined;
 
     if ((value = this.fakeEntities.find(predicate))) return value;
     if ((value = this.objectives.find(predicate))) return value;

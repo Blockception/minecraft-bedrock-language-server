@@ -91,7 +91,7 @@ export class ProjectData {
 
   /** */
   find(predicate: (value: BaseObject) => boolean): BaseObject | undefined {
-    let value = undefined;
+    let value: BaseObject | undefined;
 
     if ((value = this.behaviorPacks.find(predicate))) return value;
     if ((value = this.resourcePacks.find(predicate))) return value;

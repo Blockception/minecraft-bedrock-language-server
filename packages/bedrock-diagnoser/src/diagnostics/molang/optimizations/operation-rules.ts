@@ -33,7 +33,7 @@ export function optimizeOperation(node: BinaryOperationNode): Optimization | nul
   };
   
   // Run multiple optimization passes until no changes occur
-  let changed = false;
+  let changed: boolean;
   let iterations = 0;
   const maxIterations = 10;
   

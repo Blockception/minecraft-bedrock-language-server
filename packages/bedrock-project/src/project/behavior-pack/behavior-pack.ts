@@ -277,7 +277,7 @@ export class BehaviorPack implements Container, Pack {
    * @returns
    */
   find(predicate: (value: ItemTypes, key: string) => boolean): ItemTypes | undefined {
-    let value = undefined;
+    let value: ItemTypes | undefined;
 
     if ((value = this.animations.find(predicate))) return value;
     if ((value = this.animation_controllers.find(predicate))) return value;
