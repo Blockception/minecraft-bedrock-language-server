@@ -27,7 +27,7 @@ function ProcessCircleCommand(Command: Command, doc: TextDocument): GeneralInfo 
   if (parameters.length < 7) return;
 
   let Name = '';
-  let offset: number = 0;
+  let offset: number;
 
   if (parameters.length > 7) {
     Name = parameters[7].text;
@@ -61,7 +61,7 @@ function ProcessBoxCommand(Command: Command, doc: TextDocument): GeneralInfo | u
   if (parameters.length < 8) return undefined;
 
   let Name = '';
-  let offset: number = 0;
+  let offset: number;
 
   if (parameters.length > 8) {
     Name = parameters[8].text;
