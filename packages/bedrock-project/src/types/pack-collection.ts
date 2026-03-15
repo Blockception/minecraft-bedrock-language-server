@@ -100,7 +100,7 @@ export class PackCollection<T extends Pack> {
    * @returns
    */
   find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined {
-    let value = undefined;
+    let value: BaseObject | undefined;
 
     for (let i = 0; i < this.packs.length; i++) {
       if ((value = this.packs[i].find(predicate))) return value;

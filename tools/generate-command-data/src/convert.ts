@@ -36,7 +36,7 @@ export function convert(data: MinecraftCommandData): Record<string, CommandInfo[
   console.log('==== Sorting ====');
   for (const [key, value] of Object.entries(result)) {
     result[key] = value.sort((a, b) => {
-      let i: number = 0;
+      let i: number;
       if ((i = a.name.localeCompare(b.name)) != 0) return i;
 
       const m = Math.min(a.parameters.length, b.parameters.length);
