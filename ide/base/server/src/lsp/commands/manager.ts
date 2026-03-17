@@ -83,8 +83,8 @@ export class CommandManager implements ICommand {
       .add(Commands.StoreProject, storeProject, true)
       .add(Commands.Files.Append, appendToFile, true)
       .add(Commands.MCProject.Create, createMcProject)
-      .add(Commands.Export.Pack, exportAsPack, true)
-      .add(Commands.Export.Addon, exportAsAddon, true);
+      .add(Commands.Export.Pack, exportAsPack)
+      .add(Commands.Export.Addon, exportAsAddon);
 
     setupCreate(manager);
     setupTemplates(manager);
