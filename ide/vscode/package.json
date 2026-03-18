@@ -1401,17 +1401,6 @@
             ]
           },
           {
-            "id": "bc-create-language-all",
-            "title": "Create all language files",
-            "description": "Create all language files, using the command palette.\n[Run Command](command:bc-create-language-all)",
-            "media": {
-              "markdown": "media/bc-create-language-all.md"
-            },
-            "completionEvents": [
-              "onCommand:bc-create-language-all"
-            ]
-          },
-          {
             "id": "bc-templates-tutorial",
             "title": "Using Templates",
             "description": "Learn how to customize file creation with templates and the .mcattributes file.\n[View Documentation](https://github.com/Blockception/minecraft-bedrock-language-server/blob/main/documentation/template/templates.md)",
@@ -1474,6 +1463,52 @@
             ],
             "media": {
               "markdown": "media/bc-mcignore.md"
+            }
+          }
+        ]
+      },
+      {
+        "id": "bc-language-files",
+        "title": "Minecraft language files",
+        "description": "Learn how to create and manage localization files for your Minecraft Bedrock packs",
+        "icon": "./resources/logo.png",
+        "steps": [
+          {
+            "id": "bc-language-intro",
+            "title": "What are language files?",
+            "description": "Learn about `.lang` files and the `key=value` format used by Minecraft Bedrock for localization.",
+            "media": {
+              "markdown": "media/bc-language-intro.md"
+            }
+          },
+          {
+            "id": "bc-create-language-all",
+            "title": "Create all language files",
+            "description": "Generate language files for every pack in your workspace in one step.\n[Run Command](command:bc-create-language-all)",
+            "media": {
+              "markdown": "media/bc-create-language-all.md"
+            },
+            "completionEvents": [
+              "onCommand:bc-create-language-all"
+            ]
+          },
+          {
+            "id": "bc-language-add-keys",
+            "title": "Auto-populate translation keys",
+            "description": "Use the `bc.minecraft.language.add` command to insert missing keys from your pack into an open `.lang` file.\n[Run Command](command:bc.minecraft.language.add)",
+            "media": {
+              "markdown": "media/bc-language-add-keys.md"
+            },
+            "completionEvents": [
+              "onCommand:bc.minecraft.language.add"
+            ]
+          },
+          {
+            "id": "bc-language-dynamic-completion",
+            "title": "Dynamic key completion",
+            "description": "Enable the `BC-MC.Completion.Lang.Dynamic` setting for IntelliSense suggestions on translation keys as you type.",
+            "media": {
+              "markdown": "media/bc-language-dynamic-completion.md"
             }
           }
         ]
