@@ -1,5 +1,5 @@
 import { MCProject } from 'bc-minecraft-project';
-import { Manifest } from '../../internal/types';
+import { Manifest } from '../internal/types';
 import { BehaviorPack } from './behavior-pack/behavior-pack';
 import { PackType } from './pack-type';
 import { ResourcePack } from './resource-pack';
