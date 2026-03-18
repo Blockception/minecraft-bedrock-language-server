@@ -683,7 +683,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
   'minecraft:entity_sensor': (name, component, context, diagnoser) => {
     if (component.subsensors === undefined) return;
     try {
-      if (FormatVersion.isLessThan(FormatVersion.parse(context.source.format_version), [1, 21, 0])) {
+      if (FormatVersion.isLessThan(context.source.format_version, [1, 21, 0])) {
         diagnoser.add(
           name,
           `To use "minecraft:entity_sensor/subsensors", you need a "format_version" of 1.21.0 or higher`,

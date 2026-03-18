@@ -33,7 +33,7 @@ export function diagnose_biome_document(diagnoser: DocumentDiagnosticsBuilder): 
   );
 
   try {
-    if (FormatVersion.isLessThan(biome.format_version as FormatVersion, [1, 21, 110])) {
+    if (FormatVersion.isLessThan(biome.format_version, [1, 21, 110])) {
       diagnoser.add(
         'format_version',
         `Server side biome JSON files should be version 1.21.110 or higher`,

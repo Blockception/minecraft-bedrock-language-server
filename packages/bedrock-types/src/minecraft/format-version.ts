@@ -4,6 +4,9 @@
 export type FormatVersion = `${string}.${string}.${string}` | `${string}.${string}`;
 export type Version = [number, number, number];
 
+
+type Versioned = FormatVersion | Version | string;
+
 /**
  * Parses the given data into a format version.
  */
@@ -25,13 +28,13 @@ export namespace FormatVersion {
     return [major, minor, patch];
   }
 
-  export function unwrap(value: Version | FormatVersion): Version {
+  export function unwrap(value: Versioned): Version {
     if (typeof value === 'string') return parse(value);
 
     return value;
   }
 
-  export function isEqual(a: Version | FormatVersion, b: Version | FormatVersion) {
+  export function isEqual(a: Versioned, b: Versioned) {
     a = unwrap(a);
     b = unwrap(b);
 
@@ -42,7 +45,7 @@ export namespace FormatVersion {
    * Checks if a is lower then b
    * @example isLessThan("1.12.00", [1.30.0]) => true
    */
-  export function isLessThan(a: Version | FormatVersion, b: Version | FormatVersion) {
+  export function isLessThan(a: Versioned, b: Versioned) {
     a = unwrap(a);
     b = unwrap(b);
 
@@ -56,7 +59,7 @@ export namespace FormatVersion {
     return false;
   }
 
-  export function isLessOrEqualThan(a: Version | FormatVersion, b: Version | FormatVersion) {
+  export function isLessOrEqualThan(a: Versioned, b: Versioned) {
     a = unwrap(a);
     b = unwrap(b);
 
@@ -70,7 +73,7 @@ export namespace FormatVersion {
     return true;
   }
 
-  export function isGreaterThan(a: Version | FormatVersion, b: Version | FormatVersion): boolean {
+  export function isGreaterThan(a: Versioned, b: Versioned): boolean {
     a = unwrap(a);
     b = unwrap(b);
 
@@ -84,7 +87,7 @@ export namespace FormatVersion {
     return false;
   }
 
-  export function isGreaterOrEqualThan(a: Version | FormatVersion, b: Version | FormatVersion): boolean {
+  export function isGreaterOrEqualThan(a: Versioned, b: Versioned): boolean {
     a = unwrap(a);
     b = unwrap(b);
 

@@ -83,7 +83,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Item>>
     }
     if (component.aligned_placement === true) {
       try {
-        if (FormatVersion.isLessThan(FormatVersion.parse(context.source.format_version), [1, 26, 0]))
+        if (FormatVersion.isLessThan(context.source.format_version, [1, 26, 0]))
           diagnoser.add(
             context.source.format_version,
             `To use "aligned_placement" in "minecraft:block_placer", a minimum format version of 1.26.0 is required`,
@@ -143,7 +143,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Item>>
   },
   'minecraft:custom_components': (name, component, context, diagnoser) => {
     try {
-      if (FormatVersion.isLessThan(FormatVersion.parse(context.source.format_version), [1, 21, 10]))
+      if (FormatVersion.isLessThan(context.source.format_version, [1, 21, 10]))
         diagnoser.add(
           context.source.format_version,
           `To use custom components, a minimum format version of 1.21.10 is required`,
@@ -168,7 +168,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Item>>
   },
   'minecraft:rarity': (name, component, context, diagnoser) => {
     try {
-      if (FormatVersion.isLessThan(FormatVersion.parse(context.source.format_version), [1, 21, 30]))
+      if (FormatVersion.isLessThan(context.source.format_version, [1, 21, 30]))
         diagnoser.add(
           context.source.format_version,
           `To use "minecraft:rarity", a minimum format version of 1.21.30 is required`,

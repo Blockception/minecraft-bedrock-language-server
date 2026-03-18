@@ -204,7 +204,7 @@ function minimum_version_required(
   diagnoser: DocumentDiagnosticsBuilder,
 ) {
   try {
-    if (FormatVersion.isLessThan(block.format_version as FormatVersion, version)) {
+    if (FormatVersion.isLessThan(block.format_version, version)) {
       diagnoser.add(
         name,
         `${name} requires a format version of ${version.join('.')} or greater to use.`,
