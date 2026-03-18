@@ -1412,17 +1412,6 @@
             ]
           },
           {
-            "id": "bc-mcproject-files",
-            "title": "Configuring Your Project",
-            "description": "Learn how to configure the extension using .mcattributes, .mcdefinitions and .mcignore.\n[Create MCProject Files](command:bc.mcproject.create)",
-            "completionEvents": [
-              "onCommand:bc.mcproject.create"
-            ],
-            "media": {
-              "markdown": "media/bc-mcproject-files.md"
-            }
-          },
-          {
             "id": "bc-templates-tutorial",
             "title": "Using Templates",
             "description": "Learn how to customize file creation with templates and the .mcattributes file.\n[View Documentation](https://github.com/Blockception/minecraft-bedrock-language-server/blob/main/documentation/template/templates.md)",
@@ -1444,6 +1433,47 @@
             "description": "Learn how to use workspace symbols to search across your entire project.\nPress `Ctrl+T` (Windows/Linux) or `Cmd+T` (Mac) to try it.",
             "media": {
               "markdown": "media/bc-workspace-symbols.md"
+            }
+          }
+        ]
+      },
+      {
+        "id": "blockception-minecraft-project-files",
+        "title": "MCProject Configuration Files",
+        "description": "Learn how to configure your Minecraft Bedrock project using .mcattributes, .mcdefinitions and .mcignore",
+        "icon": "./resources/logo.png",
+        "steps": [
+          {
+            "id": "bc-mcattributes",
+            "title": "Configuring with .mcattributes",
+            "description": "The primary configuration file for the extension. Controls which packs are recognized and how the extension behaves.\n[Create MCProject Files](command:bc.mcproject.create)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mcattributes.md"
+            }
+          },
+          {
+            "id": "bc-mcdefinitions",
+            "title": "Injecting Custom Definitions with .mcdefinitions",
+            "description": "Inject custom identifiers, fake players, scoreboard objectives and tags into the extension's knowledge base.\n[Create MCProject Files](command:bc.mcproject.create)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mcdefinitions.md"
+            }
+          },
+          {
+            "id": "bc-mcignore",
+            "title": "Excluding Files with .mcignore",
+            "description": "Exclude files and folders from the extension's scanning and diagnostics using glob patterns, just like .gitignore.\n[Create MCProject Files](command:bc.mcproject.create)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mcignore.md"
             }
           }
         ]
