@@ -1436,6 +1436,47 @@
             }
           }
         ]
+      },
+      {
+        "id": "blockception-minecraft-project-files",
+        "title": "MCProject Configuration Files",
+        "description": "Learn how to configure your Minecraft Bedrock project using .mcattributes, .mcdefinitions and .mcignore",
+        "icon": "./resources/logo.png",
+        "steps": [
+          {
+            "id": "bc-mcattributes",
+            "title": "Configuring with .mcattributes",
+            "description": "The primary configuration file for the extension. Controls which packs are recognized and how the extension behaves.\n[Create MCProject Files](command:bc.mcproject.create)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mcattributes.md"
+            }
+          },
+          {
+            "id": "bc-mcdefinitions",
+            "title": "Injecting Custom Definitions with .mcdefinitions",
+            "description": "Inject custom identifiers, fake players, scoreboard objectives and tags into the extension's knowledge base.\n[Create MCProject Files](command:bc.mcproject.create)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mcdefinitions.md"
+            }
+          },
+          {
+            "id": "bc-mcignore",
+            "title": "Excluding Files with .mcignore",
+            "description": "Exclude files and folders from the extension's scanning and diagnostics using glob patterns, just like .gitignore.\n[Create MCProject Files](command:bc.mcproject.create)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mcignore.md"
+            }
+          }
+        ]
       }
     ]
   }
