@@ -1412,6 +1412,17 @@
             ]
           },
           {
+            "id": "bc-mcproject-files",
+            "title": "Configuring Your Project",
+            "description": "Learn how to configure the extension using .mcattributes, .mcdefinitions and .mcignore.\n[Create MCProject Files](command:bc.mcproject.create)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mcproject-files.md"
+            }
+          },
+          {
             "id": "bc-templates-tutorial",
             "title": "Using Templates",
             "description": "Learn how to customize file creation with templates and the .mcattributes file.\n[View Documentation](https://github.com/Blockception/minecraft-bedrock-language-server/blob/main/documentation/template/templates.md)",
