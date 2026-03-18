@@ -81,6 +81,19 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Item>>
         is_block_defined((component.block as { name: string }).name, diagnoser);
       else if (typeof component.block == 'string') is_block_defined(component.block, diagnoser);
     }
+    if (component.aligned_placement === true) {
+      try {
+        if (FormatVersion.isLessThan(FormatVersion.parse(context.source.format_version), [1, 26, 0]))
+          diagnoser.add(
+            context.source.format_version,
+            `To use "aligned_placement" in "minecraft:block_placer", a minimum format version of 1.26.0 is required`,
+            DiagnosticSeverity.error,
+            'behaviorpack.item.components.block_placer.aligned_placement_min_version',
+          );
+      } catch (err) {
+        // Leaving empty as the base diagnoser should flag an invalid format version
+      }
+    }
   },
   'minecraft:projectile': (name, component, context, diagnoser) => {
     if (component.projectile_entity) behaviorpack_entityid_diagnose(component.projectile_entity, diagnoser);
