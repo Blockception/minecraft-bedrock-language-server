@@ -130,6 +130,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
     }
 
     safeObjectKeys(component)
+      .filter((value) => typeof component[value] === 'object' && component[value] !== null)
       .map((value) => component[value].texture)
       .forEach((textureId) => {
         if (
@@ -147,7 +148,13 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
         }
       });
 
-    if (new Set(safeObjectKeys(component).map((value) => component[value].render_method)).size > 1)
+    if (
+      new Set(
+        safeObjectKeys(component)
+          .filter((value) => typeof component[value] === 'object' && component[value] !== null)
+          .map((value) => component[value].render_method),
+      ).size > 1
+    )
       diagnoser.add(
         name,
         'Custom blocks were never intended to support multiple different render_method inside this component',

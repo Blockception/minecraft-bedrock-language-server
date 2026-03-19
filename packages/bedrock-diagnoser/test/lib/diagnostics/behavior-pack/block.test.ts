@@ -116,5 +116,53 @@ describe('BehaviorPack', () => {
         expect(diagnoser.hasCode('behaviorpack.block.components.material_instances_x_geometry')).toBe(false);
       });
     });
+
+    describe('minecraft:material_instances shorthand reference syntax', () => {
+      it('does not throw when a material instance value is a string reference to another instance', () => {
+        const diagnoser = TestDiagnoser.create();
+        const block = makeBlock(FORMAT_VERSION_1_20_0);
+        const context = makeContext(block, ['minecraft:geometry', 'minecraft:material_instances']);
+
+        expect(() => {
+          behaviorpack_diagnose_block_components(
+            {
+              components: {
+                'minecraft:material_instances': {
+                  '*': { texture: 'conduit_pillar', render_method: 'opaque' },
+                  myinstance: { texture: 'conduit_pillar_top', render_method: 'opaque' },
+                  up: 'myinstance',
+                  down: 'myinstance',
+                },
+              },
+            },
+            context,
+            diagnoser,
+          );
+        }).not.toThrow();
+      });
+
+      it('does not report texture errors for string shorthand references', () => {
+        const diagnoser = TestDiagnoser.create();
+        const block = makeBlock(FORMAT_VERSION_1_20_0);
+        const context = makeContext(block, ['minecraft:geometry', 'minecraft:material_instances']);
+
+        behaviorpack_diagnose_block_components(
+          {
+            components: {
+              'minecraft:material_instances': {
+                '*': { texture: 'acacia_log_side', render_method: 'opaque' },
+                myinstance: { texture: 'acacia_log_top', render_method: 'opaque' },
+                up: 'myinstance',
+                down: 'myinstance',
+              },
+            },
+          },
+          context,
+          diagnoser,
+        );
+
+        expect(diagnoser.hasCode('behaviorpack.block.components.texture_not_found')).toBe(false);
+      });
+    });
   });
 });
