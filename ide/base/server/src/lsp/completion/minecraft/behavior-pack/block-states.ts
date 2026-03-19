@@ -3,6 +3,7 @@ import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { MinecraftData, Types } from 'bc-minecraft-bedrock-vanilla-data';
 import { MolangSet } from 'bc-minecraft-molang';
 import { CompletionItemKind } from 'vscode-languageserver';
+import { OffsetWord } from 'bc-vscode-words';
 import { Kinds } from '../../../../constants';
 import { GetPossibleBlockID } from '../../../../minecraft/commands';
 import { IsEducationEnabled } from '../../../../project/attributes';
@@ -39,7 +40,7 @@ export function provideCompletion(context: Context<CommandCompletionContext>): v
 }
 
 function provideDefaultCompletion(b: BehaviorPack.Block.Block, context: CommandCompletionContext): void {
-  const pars = b.states.map((state) => `"${state.name}":${stateValue(state, state.values[0])}`);
+  const pars = b.states.map((state) => `"${state.name}"=${stateValue(state, state.values[0])}`);
 
   context.builder.add({
     label: `[${pars.join(',')}]`,
@@ -57,6 +58,12 @@ function provideStateCompletion(states: BehaviorPack.Block.BlockState[], context
   const inValue = context.current ? IsEditingValue(context.current, context.cursor) : false;
 
   if (inValue) {
+    const stateName = GetCurrentStateName(context.current!, context.cursor);
+    const state = states.find((s) => s.name === stateName);
+    if (state) {
+      const values = state.values.map((value) => String(stateValue(state, value)));
+      context.builder.generate(values, () => `value for block state ${stateName}`, CompletionItemKind.Value);
+    }
     return;
   }
 
@@ -65,9 +72,37 @@ function provideStateCompletion(states: BehaviorPack.Block.BlockState[], context
     const name = `"${state.name}"`;
     const values = state.values.map((value) => stateValue(state, value));
 
-    const items = values.map((value) => `${name}:${value}`);
+    const items = values.map((value) => `${name}=${value}`);
     context.builder.generate(items, (item) => `block state ${item}`, CompletionItemKind.Property);
   }
+}
+
+function GetCurrentStateName(current: OffsetWord, pos: number): string {
+  let startIndex = pos - current.offset;
+
+  while (startIndex > 1) {
+    const character = current.text.charAt(startIndex);
+
+    if (character === ',' || character === '[') {
+      break;
+    }
+
+    startIndex--;
+  }
+
+  startIndex++;
+  let endIndex = current.text.indexOf('=', startIndex);
+
+  if (endIndex < 0) endIndex = current.text.length;
+
+  const name = current.text.slice(startIndex, endIndex).trim();
+
+  // Remove quotes if present
+  if (name.startsWith('"') && name.endsWith('"')) {
+    return name.slice(1, name.length - 1);
+  }
+
+  return name;
 }
 
 function vanillaBlockToBlock(block: Types.BehaviorPack.Block | undefined): BehaviorPack.Block.Block | undefined {
