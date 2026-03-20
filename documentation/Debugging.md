@@ -1,28 +1,32 @@
 # Debugging
 
-to be able to start debugging or building the extensions.
+This guide explains how to build and run the extension locally for development and debugging.
 
-In the terminal type the following lines:
+## Prerequisites
 
-```
+Before you can build or debug the extension, install the required dependencies:
+
+```sh
 npm install -g vsce
 npm install
 ```
 
 ## Building
 
-Run the following script to build the extension
+Compile all packages and the extension with:
 
-```cmd
-  npm run compile
+```sh
+npm run compile
 ```
 
-## Local Running the plugin
+## Running the Extension Locally
 
-In vscode, goto `Run and Debug`
+1. Open the repository in VSCode.
+2. Switch to the **Run and Debug** panel (`Ctrl+Shift+D` / `Cmd+Shift+D`).
+3. Ensure the extension has been built (see [Building](#building) above).
+4. Select the **`Client + Server (vscode-plugin)`** launch configuration from the dropdown.
+5. Press **Play** (or `F5`) to launch a new Extension Development Host window.
 
-- Make sure the plugin has been built
-- Select: `Client + Server (vscode-plugin)`
-- And press play
+The new window runs with only this extension active. You can open any Minecraft Bedrock workspace there to test your changes. If you modify code, rebuild and restart the debug session to pick up the changes.
 
-A new windows with only the this plugin should be running, you can select other workspace to test against, but you probally need to restart the session
+> **Note:** You may need to restart the debug session after switching workspaces for all features to initialize correctly.

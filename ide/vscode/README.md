@@ -30,7 +30,7 @@ Automatic JSON validation is applied if the files follow a given pattern for nam
 For resource packs, have the files in a folder with the letter `RP` or `rp` in the name, or the world folder: `resource_packs`.  
 For behavior packs, have the files in a folder with the letter `BP` or `bp` in the name, or the world folder: `behavior_packs`.
 
-[Full list of JSON validation](https://github.com/Blockception/minecraft-bedrock-language-server/blob/main/documentation/Json%20Validation.md)
+[Full list of JSON validation](../../documentation/Json%20Validation.md)
 
 ---
 
