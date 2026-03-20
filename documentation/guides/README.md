@@ -12,6 +12,7 @@ These guides are designed for developers who want to:
 
 ## Contents
 
+- [Contributing Features](./contributing-features.md) - Workflow-centric guide for contributors: how to add diagnostics, completions, or definitions, submit a PR, and get help
 - [JSON Completion](./completion-json.md) - Comprehensive guide for adding JSON completion (autocomplete) support to new file types
 - [Creating Diagnostics](./creating-diagnostics.md) - Guide for adding new diagnostic error codes to the language server
 - [Working with Ignore Files](./ignore-files.md) - User guide for `.mcignore`: syntax, practical scenarios, common mistakes, and best practices

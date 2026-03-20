@@ -4,3 +4,7 @@ When contributing to this repository, please first discuss the change you wish t
 change, creating an issue for a feature request is also acceptable. For smaller fixes, additions or changes a simple fork and pull request is sufficient.
 
 Please note we have a [code of conduct](CODE_OF_CONDUCT.md), please follow it in all your interactions with the project.
+
+## Contributing Features
+
+Looking to add diagnostics, autocompletions, or custom type definitions? See the [Contributing Features Guide](documentation/guides/contributing-features.md) for a step-by-step workflow covering setup, implementation, testing, and submitting a pull request.
