@@ -12,6 +12,7 @@ These guides are designed for developers who want to:
 
 ## Contents
 
+- [Setting Up a Bedrock Project](./setting-up-bedrock-project.md) - Step-by-step guide for new users starting a Minecraft Bedrock Edition project from scratch
 - [JSON Completion](./completion-json.md) - Comprehensive guide for adding JSON completion (autocomplete) support to new file types
 - [Creating Diagnostics](./creating-diagnostics.md) - Guide for adding new diagnostic error codes to the language server
 
