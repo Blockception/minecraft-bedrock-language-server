@@ -34,7 +34,7 @@ resource pack to exist.
 | `Create BP-RP entities files`                       | Creates resource pack and behavior pack entities file                            |
 | `Create all language files`                         | Creates for all known worlds, resourcepacks, and behaviorpacks `texts` folders   |
 | `Create all manifests`                              | Creates for all known worlds, resourcepacks, and behaviorpacks `texts` manifests |
-| `Open lastest errors`                               | Tries to look for the lastest content log produced by minecraft and opens it     |
+| `Open latest errors`                                | Tries to look for the latest content log produced by minecraft and opens it      |
 | `Create MCProject files`                            | Creates minecraft project related files to the workspaces                        |
 | **Behavior pack**                                   |                                                                                  |
 | `Behavior Pack: Create animation controllers file`  | Creates an animation controller for the behavior pack                            |
@@ -61,7 +61,7 @@ resource pack to exist.
 | `Resource Pack: Create item texture file`           | Creates the `item_texture.json` file in the resource pack                        |
 | `Resource Pack: Create manifest`                    | Creates a manifest for the resource pack                                         |
 | `Resource Pack: Create model file`                  | Creates a model for the resource pack                                            |
-| `Resource Pack: Create the music definitions file`  | Creates the `biomes_client.json` file in the resource pack                       |
+| `Resource Pack: Create the music definitions file`  | Creates the `music_definitions.json` file in the resource pack                   |
 | `Resource Pack: Create the particle file`           | Creates a particle file for the resource pack                                    |
 | `Resource Pack: Create the render controller file`  | Creates a render controller for the resource pack                                |
 | `Resource Pack: Create the sounds file`             | Creates the `sounds.json` file in the resource pack                              |
