@@ -14,6 +14,7 @@ These guides are designed for developers who want to:
 
 - [JSON Completion](./completion-json.md) - Comprehensive guide for adding JSON completion (autocomplete) support to new file types
 - [Creating Diagnostics](./creating-diagnostics.md) - Guide for adding new diagnostic error codes to the language server
+- [Project Templates and Recommended Practices](./project-templates.md) - How to find, use, adapt, and maintain project templates for rapid onboarding
 
 ## Guide Structure
 
