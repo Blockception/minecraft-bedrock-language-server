@@ -25,6 +25,7 @@ Step-by-step guides for implementing features.
 
 - [JSON Completion](./guides/completion-json.md) - How to add JSON completion support
 - [Creating Diagnostics](./guides/creating-diagnostics.md) - How to add diagnostic error codes
+- [Molang Language Support](./guides/molang.md) - Guide to Molang scripting assistance, completions, diagnostics, and debugging
 
 #### [Project Configuration](./project/)
 Documentation for project-level configuration files.
