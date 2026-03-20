@@ -23,8 +23,10 @@ Documentation for autocomplete and IntelliSense features.
 #### [Guides](./guides/)
 Step-by-step guides for implementing features.
 
+- [Contributing Features](./guides/contributing-features.md) - Workflow-centric guide for contributors: adding diagnostics, completions, or definitions, submitting PRs, and getting help
 - [JSON Completion](./guides/completion-json.md) - How to add JSON completion support
 - [Creating Diagnostics](./guides/creating-diagnostics.md) - How to add diagnostic error codes
+- [Working with Ignore Files](./guides/ignore-files.md) - Using `.mcignore` to control which files are validated
 
 #### [Project Configuration](./project/)
 Documentation for project-level configuration files.
