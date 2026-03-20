@@ -23,6 +23,7 @@ Documentation for autocomplete and IntelliSense features.
 #### [Guides](./guides/)
 Step-by-step guides for implementing features.
 
+- [Setting Up a Bedrock Project](./guides/setting-up-bedrock-project.md) - How to start a new Minecraft Bedrock Edition project from scratch
 - [Contributing Features](./guides/contributing-features.md) - Workflow-centric guide for contributors: adding diagnostics, completions, or definitions, submitting PRs, and getting help
 - [JSON Completion](./guides/completion-json.md) - How to add JSON completion support
 - [Creating Diagnostics](./guides/creating-diagnostics.md) - How to add diagnostic error codes

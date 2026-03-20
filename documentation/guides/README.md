@@ -11,6 +11,7 @@ These guides are designed for both **end users** and **developers**:
 
 ## Contents
 
+- [Setting Up a Bedrock Project](./setting-up-bedrock-project.md) - Step-by-step guide for new users starting a Minecraft Bedrock Edition project from scratch
 - [Command Autocompletion](./command-autocompletion.md) - User guide for using and extending command autocomplete features (MCfunction, JSON, MoLang, custom commands)
 - [Contributing Features](./contributing-features.md) - Workflow-centric guide for contributors: how to add diagnostics, completions, or definitions, submit a PR, and get help
 - [JSON Completion](./completion-json.md) - Comprehensive guide for adding JSON completion (autocomplete) support to new file types
