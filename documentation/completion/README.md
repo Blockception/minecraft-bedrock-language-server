@@ -14,6 +14,12 @@ The completion system provides intelligent suggestions while editing Minecraft B
 
 - [Mcfunctions](./Mcfunctions.md) - Completion for mcfunction files, including how comments are used for completion text
 
+## User Guides
+
+For end-user guides on using completion features, see:
+
+- [Command Autocompletion Guide](../guides/command-autocompletion.md) - How to use and extend command autocompletion in MCfunction and JSON files
+
 ## Related Documentation
 
 For detailed guides on implementing JSON completion features, see:
