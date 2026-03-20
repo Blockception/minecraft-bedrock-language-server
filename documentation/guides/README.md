@@ -16,6 +16,7 @@ These guides are designed for both **end users** and **developers**:
 - [Contributing Features](./contributing-features.md) - Workflow-centric guide for contributors: how to add diagnostics, completions, or definitions, submit a PR, and get help
 - [JSON Completion](./completion-json.md) - Comprehensive guide for adding JSON completion (autocomplete) support to new file types
 - [Creating Diagnostics](./creating-diagnostics.md) - Guide for adding new diagnostic error codes to the language server
+- [Project Templates and Recommended Practices](./project-templates.md) - How to find, use, adapt, and maintain project templates for rapid onboarding
 - [Working with Ignore Files](./ignore-files.md) - User guide for `.mcignore`: syntax, practical scenarios, common mistakes, and best practices
 
 ## Guide Structure
