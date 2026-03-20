@@ -22,6 +22,7 @@ import * as SoundsDefinitions from './sounds-definitions/entry';
 import * as Texture from './texture/entry';
 import * as TextureAtlas from './texture-atlas/entry';
 import * as Flipbook from './texture-atlas/flipbook';
+import * as UI from './ui/entry';
 
 /** The namespace that deals with resourcepack diagnostics */
 export namespace ResourcePack {
@@ -119,6 +120,10 @@ export namespace ResourcePack {
       case FileType.texture_item_atlas:
       case FileType.texture_terrain_atlas:
         TextureAtlas.diagnose_atlas_document(diagnoser);
+        break;
+
+      case FileType.ui:
+        UI.diagnose_ui_document(diagnoser);
         break;
 
       default:
