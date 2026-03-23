@@ -26,14 +26,14 @@
     "@types/eslint__js": "^9.14.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.0",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "eslint-plugin-jest": "^29.15.0",
     "jest": "^30.3.0",
     "prettier": "^3.8.1",
     "ts-jest": "^29.4.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.57.1"
+    "typescript-eslint": "^8.57.2"
   },
   "scripts": {
     "build": "npm run compile --workspaces",
