@@ -8,8 +8,10 @@ import { IService } from '../services/service';
 
 /** Parameters for a dataset request */
 export interface DataSetRequestParams {
-  /** The identifier of the dataset to retrieve */
-  id: string;
+  /** The type of dataset to retrieve (e.g. 'vanilla/behavior_pack/blocks') */
+  datatype: string;
+  /** Optional identifier to filter results to a single entry within the dataset */
+  id?: string;
 }
 
 /** The service that handles dataset requests from the client */
@@ -30,16 +32,35 @@ export class DataSetService extends BaseService implements Partial<IService> {
 
   private onDataSetRequest(params: DataSetRequestParams): unknown {
     this.logger.debug('dataset request', params);
-    return getDataSet(params.id);
+    const data = getDataSet(params.datatype);
+
+    if (params.id === undefined || data === undefined) return data;
+    return filterDataSet(data, params.id);
   }
 }
 
 /**
- * Returns the dataset for the given identifier, or undefined if not found.
- * @param id The dataset identifier (e.g. 'vanilla/behavior_pack/blocks')
+ * Filters a dataset to entries whose id matches the given value.
+ * Works for arrays of strings and arrays of objects with an `id` property.
+ * @param data The full dataset to filter
+ * @param id The identifier to filter by
  */
-function getDataSet(id: string): unknown {
-  switch (id) {
+function filterDataSet(data: unknown, id: string): unknown {
+  if (!Array.isArray(data)) return data;
+
+  return data.filter((item) => {
+    if (typeof item === 'string') return item === id;
+    if (typeof item === 'object' && item !== null && 'id' in item) return (item as { id: unknown }).id === id;
+    return false;
+  });
+}
+
+/**
+ * Returns the dataset for the given datatype identifier, or undefined if not found.
+ * @param datatype The dataset type identifier (e.g. 'vanilla/behavior_pack/blocks')
+ */
+function getDataSet(datatype: string): unknown {
+  switch (datatype) {
     // Vanilla Behavior Pack
     case DataSets.Vanilla.BehaviorPack.Biomes:
       return MinecraftData.vanilla.BehaviorPack.biomes;
