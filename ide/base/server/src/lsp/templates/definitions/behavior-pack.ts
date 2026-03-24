@@ -228,3 +228,42 @@ export const item_catalog: string = `{
   }
 }
 `;
+
+export const feature: string = `{
+  "format_version": "1.16.0",
+  "minecraft:single_block_feature": {
+    "description": {
+      "identifier": "$\{{id}}"
+    },
+    "places_block": "minecraft:stone",
+    "enforce_survivability_rules": false,
+    "enforce_placement_rules": false
+  }
+}`;
+
+export const feature_rule: string = `{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "$\{{id}}",
+      "places_feature": "namespace:feature_name"
+    },
+    "conditions": {
+      "placement_pass": "surface_pass",
+      "minecraft:biome_filter": [
+        {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "overworld"
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 1,
+      "x": { "extent": [0, 15] },
+      "y": { "extent": [0, 64] },
+      "z": { "extent": [0, 15] },
+      "scatter_chance": 100
+    }
+  }
+}`;

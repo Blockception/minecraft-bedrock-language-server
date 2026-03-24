@@ -117,6 +117,10 @@ export namespace Commands {
       export const Volume: string = BPBase + 'volume';
       /**The command to create item catalog files */
       export const Item_Catalog: string = BPBase + 'item_catalog';
+      /**The command to create feature files */
+      export const Feature: string = BPBase + 'feature';
+      /**The command to create feature rule files */
+      export const Feature_Rule: string = BPBase + 'feature_rule';
     }
 
     /**The namespace that stores all resourcepack creation commands */
