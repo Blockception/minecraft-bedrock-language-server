@@ -26,6 +26,8 @@ const SpawnRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example
 const TradingID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
 const VolumeID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'example.foo | example' };
 const ItemCatalogID: IDExample = { ID: /^[0-9a-zA-Z_\\.\\-]+$/, example: 'example.foo | example' };
+const FeatureID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:feature' };
+const FeatureRuleID: IDExample = { ID: /^[0-9a-zA-Z:_\\.\\-]+$/, example: 'namespace:feature_rule' };
 
 const ProjectID: IDExample = { ID: /^[A-Za-z]+$/, example: 'EP' };
 
@@ -158,6 +160,8 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.Behaviorpack.Trading, 'Create trading', TradingID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Volume, 'Create volume', VolumeID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Item_Catalog, 'Create item catalog', ItemCatalogID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Feature, 'Create feature', FeatureID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.Feature_Rule, 'Create feature rule', FeatureRuleID);
 
   //Resource pack
   createCommand(context, Commands.Create.Resourcepack.Biomes_Client);

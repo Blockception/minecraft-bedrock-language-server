@@ -339,6 +339,18 @@
         "enablement": "ext:is_active"
       },
       {
+        "title": "Behavior Pack: Create feature file",
+        "command": "bc-create-behavior-feature",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
+        "title": "Behavior Pack: Create feature rule file",
+        "command": "bc-create-behavior-feature_rule",
+        "category": "Blockception",
+        "enablement": "ext:is_active"
+      },
+      {
         "title": "Resource Pack: Create animation controllers files",
         "command": "bc-create-resource-animation_controllers",
         "category": "Blockception",
