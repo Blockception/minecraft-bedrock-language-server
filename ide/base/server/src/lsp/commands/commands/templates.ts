@@ -92,6 +92,8 @@ export const TemplateCommands: TemplateItem[] = [
   new TemplateItem(BPC.Trading, BPT.trading, 'trading', '${{id.safe}}.trades.json'),
   new TemplateItem(BPC.Volume, BPT.volume, 'volumes', '${{id.safe}}.volume.json'),
   new TemplateItem(BPC.Item_Catalog, BPT.item_catalog, 'item_catalog', '${{id.safe}}.item_catalog.json'),
+  new TemplateItem(BPC.Feature, BPT.feature, 'features', '${{id.safe}}.feature.json'),
+  new TemplateItem(BPC.Feature_Rule, BPT.feature_rule, 'feature_rules', '${{id.safe}}.feature_rule.json'),
   //RPS
   new TemplateItem(
     RPC.Animation_Controller,

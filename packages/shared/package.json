@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-shared",
-  "version": "1.0.3-4",
+  "version": "1.0.3-5",
   "author": {
     "name": "Blockception Ltd",
     "url": "https://www.blockception.com/"
@@ -32,7 +32,7 @@
   "dependencies": {
     "fast-glob": "^3.3.3",
     "jsonc": "^2.0.0",
-    "picomatch": "^4.0.3"
+    "picomatch": "^4.0.4"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
