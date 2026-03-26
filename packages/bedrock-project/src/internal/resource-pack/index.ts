@@ -13,3 +13,4 @@ export * from './particle';
 export * from './render-controller';
 export * from './sound-definitions';
 export * from './texture-atlas';
+export * from './ui';

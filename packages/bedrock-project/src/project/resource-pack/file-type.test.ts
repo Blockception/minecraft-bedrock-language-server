@@ -25,6 +25,7 @@ describe('RP Filetype', () => {
       { file: 'F:\\Example-rp\\textures\\flipbook_textures.json', type: FileType.texture_flipbook_atlas },
       { file: 'F:\\Example-rp\\textures\\item_texture.json', type: FileType.texture_item_atlas },
       { file: 'F:\\Example-rp\\textures\\terrain_texture.json', type: FileType.texture_terrain_atlas },
+      { file: 'F:\\Example-rp\\ui\\hud_screen.json', type: FileType.ui },
       { file: 'F:\\Example\\animation_controllers\\example.json', type: FileType.animation_controller },
       { file: 'F:\\Example\\animations\\example.json', type: FileType.animation },
       { file: 'F:\\Example\\attachables\\example.json', type: FileType.attachable },
@@ -44,6 +45,7 @@ describe('RP Filetype', () => {
       { file: 'F:\\Example\\textures\\flipbook_textures.json', type: FileType.texture_flipbook_atlas },
       { file: 'F:\\Example\\textures\\item_texture.json', type: FileType.texture_item_atlas },
       { file: 'F:\\Example\\textures\\terrain_texture.json', type: FileType.texture_terrain_atlas },
+      { file: 'F:\\Example\\ui\\hud_screen.json', type: FileType.ui },
     ];
 
     it.each(DetectTests)('$file', (item) => {
