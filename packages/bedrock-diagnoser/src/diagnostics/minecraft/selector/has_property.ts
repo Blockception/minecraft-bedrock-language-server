@@ -49,6 +49,29 @@ function entity_has_property(attr: CompactJson.IKeyNode, diagnoser: DiagnosticsB
   const key = OffsetWord.create(attr.key, attr.offset);
   const value = CompactJson.valueToOffsetWord(attr);
 
+  // Special case: `property=<property_id>` checks if an entity has a property at all,
+  // equivalent to the `q.has_property` molang query. The value is the property identifier.
+  if (key.text === 'property') {
+    let hasAnyEntity = false;
+    entityData.forEach((entity) => {
+      if (entity.properties.some((item) => item.name === value.text)) {
+        hasAnyEntity = true;
+      }
+    });
+
+    if (!hasAnyEntity) {
+      diagnoser.add(
+        value,
+        `No entity has the property '${value.text}'`,
+        DiagnosticSeverity.error,
+        'minecraft.selector.has_property.notfound',
+      );
+      return false;
+    }
+
+    return true;
+  }
+
   let entities: Array<Entity.Entity> = [];
   entityData.forEach((entity) => {
     if (entity.properties.some((item) => item.name === key.text)) {
