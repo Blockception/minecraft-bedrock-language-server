@@ -2,6 +2,7 @@ import { BulkRegistration, createConnection, InitializeResult, ProposedFeatures 
 import { CodeActionService } from '../code-action/service';
 import { CodeLensService } from '../code-lens/service';
 import { CommandService } from '../commands/service';
+import { DataSetService } from '../dataset/service';
 import { CompletionService } from '../completion/service';
 import { ConfigurationService } from '../configuration/service';
 import { Database } from '../database/database';
@@ -50,6 +51,7 @@ export function setupServer(config: LSPConfig) {
       new CodeActionService(logger, extension),
       new CodeLensService(logger, extension),
       new CommandService(logger, extension),
+      new DataSetService(logger, extension),
       new CompletionService(logger, extension),
       new DefinitionService(logger, extension),
       new DocumentSymbolService(logger, extension),
