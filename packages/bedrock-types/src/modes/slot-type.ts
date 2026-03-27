@@ -21,6 +21,7 @@ export interface SlotTypeMode extends Mode {
 export const SlotTypeModes: SlotTypeModeCollection = {
   name: 'Slot Type',
   modes: [
+    { name: 'slot.armor.body', documentation: 'The slot that targets the body armor slot (e.g. wolf armor)' },
     { name: 'slot.armor.chest', documentation: 'The slot that targets the chest area of armor' },
     { name: 'slot.armor.feet', documentation: 'The slot that targets the feet area of armor' },
     { name: 'slot.armor.head', documentation: 'The slot that targets the helemt/head area of armor' },
