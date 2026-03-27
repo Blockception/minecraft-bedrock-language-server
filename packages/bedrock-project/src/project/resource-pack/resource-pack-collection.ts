@@ -15,6 +15,7 @@ import * as Particle from './particle';
 import * as RenderController from './render-controller';
 import * as Sound from './sound';
 import * as Texture from './texture';
+import * as UI from './ui';
 
 /** */
 export class ResourcePackCollection extends PackCollection<ResourcePack> {
@@ -46,6 +47,8 @@ export class ResourcePackCollection extends PackCollection<ResourcePack> {
   readonly itemTextures: DataSetConnector<Texture.Texture, ResourcePack>;
   /**The collection of textures from terrain_texture.json*/
   readonly terrainTextures: DataSetConnector<Texture.Texture, ResourcePack>;
+  /**The collection of UI elements*/
+  readonly ui_elements: DataSetConnector<UI.UIElement, ResourcePack>;
 
   /**Creates a new instances of the class*/
   constructor() {
@@ -66,6 +69,7 @@ export class ResourcePackCollection extends PackCollection<ResourcePack> {
     this.textures = new DataSetConnector(this, (pack) => pack.textures);
     this.itemTextures = new DataSetConnector(this, (pack) => pack.itemTextures);
     this.terrainTextures = new DataSetConnector(this, (pack) => pack.terrainTextures);
+    this.ui_elements = new DataSetConnector(this, (pack) => pack.ui_elements);
   }
 
   add(folder: string, context: MCProject | string, manifest: Manifest): ResourcePack {

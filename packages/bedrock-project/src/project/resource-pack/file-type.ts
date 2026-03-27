@@ -44,6 +44,8 @@ export enum FileType {
   texture_item_atlas,
   /**The file terrain_texture.json */
   texture_terrain_atlas,
+  /**UI definition files in the ui/ folder */
+  ui,
   /** */
   unknown,
 }
@@ -65,6 +67,7 @@ export namespace FileType {
     if (/[\\/]entity[\\/]/.test(uri)) return FileType.entity;
     if (/[\\/]particles[\\/]/.test(uri)) return FileType.particle;
     if (/[\\/]render_controllers[\\/]/.test(uri)) return FileType.render_controller;
+    if (/[\\/]ui[\\/]/.test(uri)) return FileType.ui;
 
     const filename = path.basename(uri);
 

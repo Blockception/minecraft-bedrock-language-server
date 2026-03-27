@@ -200,3 +200,140 @@ export namespace Commands {
     export const OpenLastest = 'bc.errors.open_lastest';
   }
 }
+
+/** Custom LSP request method identifiers */
+export namespace RequestTypes {
+  /** The method for requesting a dataset from the server */
+  export const DataSet: string = 'bc/minecraft/dataset';
+}
+
+/** Dataset identifiers for use with RequestTypes.DataSet */
+export namespace DataSets {
+  /** Vanilla behavior pack datasets */
+  export namespace Vanilla {
+    /** Vanilla behavior pack datasets */
+    export namespace BehaviorPack {
+      /** Vanilla biome definitions */
+      export const Biomes: string = 'vanilla/behavior_pack/biomes';
+      /** Vanilla block definitions */
+      export const Blocks: string = 'vanilla/behavior_pack/blocks';
+      /** Vanilla entity definitions */
+      export const Entities: string = 'vanilla/behavior_pack/entities';
+      /** Vanilla feature definitions */
+      export const Features: string = 'vanilla/behavior_pack/features';
+      /** Vanilla item definitions */
+      export const Items: string = 'vanilla/behavior_pack/items';
+      /** Vanilla loot table definitions */
+      export const LootTables: string = 'vanilla/behavior_pack/loot_tables';
+      /** Vanilla trading definitions */
+      export const Trading: string = 'vanilla/behavior_pack/trading';
+    }
+
+    /** Vanilla resource pack datasets */
+    export namespace ResourcePack {
+      /** Vanilla animation controller definitions */
+      export const AnimationControllers: string = 'vanilla/resource_pack/animation_controllers';
+      /** Vanilla animation definitions */
+      export const Animations: string = 'vanilla/resource_pack/animations';
+      /** Vanilla resource pack entity definitions */
+      export const Entities: string = 'vanilla/resource_pack/entities';
+      /** Vanilla fog definitions */
+      export const Fogs: string = 'vanilla/resource_pack/fogs';
+      /** Vanilla material definitions */
+      export const Materials: string = 'vanilla/resource_pack/materials';
+      /** Vanilla model definitions */
+      export const Models: string = 'vanilla/resource_pack/models';
+      /** Vanilla particle definitions */
+      export const Particles: string = 'vanilla/resource_pack/particles';
+      /** Vanilla render controller definitions */
+      export const RenderControllers: string = 'vanilla/resource_pack/render_controllers';
+      /** Vanilla sound definitions */
+      export const Sounds: string = 'vanilla/resource_pack/sounds';
+      /** Vanilla sound file paths */
+      export const SoundFiles: string = 'vanilla/resource_pack/sound_files';
+      /** Vanilla texture definitions */
+      export const Textures: string = 'vanilla/resource_pack/textures';
+      /** Vanilla item texture atlas definitions */
+      export const TextureAtlasItems: string = 'vanilla/resource_pack/texture_atlas_items';
+      /** Vanilla terrain texture atlas definitions */
+      export const TextureAtlasTerrain: string = 'vanilla/resource_pack/texture_atlas_terrain';
+    }
+  }
+
+  /** Education edition datasets */
+  export namespace Edu {
+    /** Education edition behavior pack datasets */
+    export namespace BehaviorPack {
+      /** Education edition biome definitions */
+      export const Biomes: string = 'edu/behavior_pack/biomes';
+      /** Education edition block definitions */
+      export const Blocks: string = 'edu/behavior_pack/blocks';
+      /** Education edition entity definitions */
+      export const Entities: string = 'edu/behavior_pack/entities';
+      /** Education edition feature definitions */
+      export const Features: string = 'edu/behavior_pack/features';
+      /** Education edition item definitions */
+      export const Items: string = 'edu/behavior_pack/items';
+      /** Education edition loot table definitions */
+      export const LootTables: string = 'edu/behavior_pack/loot_tables';
+      /** Education edition trading definitions */
+      export const Trading: string = 'edu/behavior_pack/trading';
+    }
+
+    /** Education edition resource pack datasets */
+    export namespace ResourcePack {
+      /** Education edition animation controller definitions */
+      export const AnimationControllers: string = 'edu/resource_pack/animation_controllers';
+      /** Education edition animation definitions */
+      export const Animations: string = 'edu/resource_pack/animations';
+      /** Education edition resource pack entity definitions */
+      export const Entities: string = 'edu/resource_pack/entities';
+      /** Education edition fog definitions */
+      export const Fogs: string = 'edu/resource_pack/fogs';
+      /** Education edition material definitions */
+      export const Materials: string = 'edu/resource_pack/materials';
+      /** Education edition model definitions */
+      export const Models: string = 'edu/resource_pack/models';
+      /** Education edition particle definitions */
+      export const Particles: string = 'edu/resource_pack/particles';
+      /** Education edition render controller definitions */
+      export const RenderControllers: string = 'edu/resource_pack/render_controllers';
+      /** Education edition sound definitions */
+      export const Sounds: string = 'edu/resource_pack/sounds';
+      /** Education edition sound file paths */
+      export const SoundFiles: string = 'edu/resource_pack/sound_files';
+      /** Education edition texture definitions */
+      export const Textures: string = 'edu/resource_pack/textures';
+      /** Education edition item texture atlas definitions */
+      export const TextureAtlasItems: string = 'edu/resource_pack/texture_atlas_items';
+      /** Education edition terrain texture atlas definitions */
+      export const TextureAtlasTerrain: string = 'edu/resource_pack/texture_atlas_terrain';
+    }
+  }
+
+  /** General Minecraft datasets */
+  export namespace General {
+    /** Summarized biome identifiers */
+    export const Biomes: string = 'general/biomes';
+    /** Summarized block data including block states */
+    export const Blocks: string = 'general/blocks';
+    /** Camera preset identifiers */
+    export const CameraPresets: string = 'general/camera_presets';
+    /** Item cooldown category identifiers */
+    export const CooldownCategories: string = 'general/cooldown_categories';
+    /** Dimension identifiers */
+    export const Dimensions: string = 'general/dimensions';
+    /** Status effect identifiers */
+    export const Effects: string = 'general/effects';
+    /** Enchantment identifiers */
+    export const Enchantments: string = 'general/enchantments';
+    /** Summarized entity data including events and families */
+    export const Entities: string = 'general/entities';
+    /** Potion effect identifiers */
+    export const PotionEffects: string = 'general/potion_effects';
+    /** Potion type identifiers */
+    export const PotionTypes: string = 'general/potion_types';
+    /** Potion modifier identifiers */
+    export const PotionModifiers: string = 'general/potion_modifiers';
+  }
+}

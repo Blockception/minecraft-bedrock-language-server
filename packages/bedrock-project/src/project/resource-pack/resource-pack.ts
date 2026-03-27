@@ -16,6 +16,7 @@ import * as Particle from './particle';
 import * as RenderController from './render-controller';
 import * as Sound from './sound';
 import * as Texture from './texture';
+import * as UI from './ui';
 
 type CollectFieldsOfType<T> = {
   [K in keyof T]: T[K] extends DataSet<infer U> ? U : never;
@@ -68,6 +69,8 @@ export class ResourcePack implements Container, Pack {
   readonly itemTextures: DataSet<Texture.Texture>;
   /**The collection of textures from terrain_texture.json*/
   readonly terrainTextures: DataSet<Texture.Texture>;
+  /**The collection of UI elements*/
+  readonly ui_elements: DataSet<UI.UIElement>;
 
   /**
    * Creates a new instance of ResourcePack
@@ -92,6 +95,7 @@ export class ResourcePack implements Container, Pack {
     this.textures = new DataSet();
     this.itemTextures = new DataSet();
     this.terrainTextures = new DataSet();
+    this.ui_elements = new DataSet();
   }
 
   /**
@@ -142,6 +146,8 @@ export class ResourcePack implements Container, Pack {
         return this.itemTextures.set(Texture.ProcessTextureAtlas(doc));
       case FileType.texture_terrain_atlas:
         return this.terrainTextures.set(Texture.ProcessTextureAtlas(doc));
+      case FileType.ui:
+        return this.ui_elements.set(UI.process(doc));
     }
 
     return undefined;
@@ -195,6 +201,8 @@ export class ResourcePack implements Container, Pack {
         return this.itemTextures;
       case FileType.texture_terrain_atlas:
         return this.terrainTextures;
+      case FileType.ui:
+        return this.ui_elements;
 
       default:
         return undefined;
@@ -221,6 +229,7 @@ export class ResourcePack implements Container, Pack {
     out = this.textures.deleteFolder(uri) || out;
     out = this.itemTextures.deleteFolder(uri) || out;
     out = this.terrainTextures.deleteFolder(uri) || out;
+    out = this.ui_elements.deleteFolder(uri) || out;
 
     return out;
   }
@@ -246,6 +255,7 @@ export class ResourcePack implements Container, Pack {
     out = this.textures.deleteFile(uri) || out;
     out = this.itemTextures.deleteFile(uri) || out;
     out = this.terrainTextures.deleteFile(uri) || out;
+    out = this.ui_elements.deleteFile(uri) || out;
 
     return out;
   }
@@ -272,6 +282,7 @@ export class ResourcePack implements Container, Pack {
     if ((value = this.itemTextures.find(predicate))) return value;
     if ((value = this.terrainTextures.find(predicate))) return value;
     if ((value = this.textures.find(predicate))) return value;
+    if ((value = this.ui_elements.find(predicate))) return value;
 
     return value;
   }
@@ -295,6 +306,7 @@ export class ResourcePack implements Container, Pack {
     this.textures.forEach(callbackfn);
     this.itemTextures.forEach(callbackfn);
     this.terrainTextures.forEach(callbackfn);
+    this.ui_elements.forEach(callbackfn);
   }
 }
 

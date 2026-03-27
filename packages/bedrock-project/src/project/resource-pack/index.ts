@@ -13,3 +13,4 @@ export * from './resource-pack';
 export * from './resource-pack-collection';
 export * as Sound from './sound';
 export * as Texture from './texture';
+export * as UI from './ui';
