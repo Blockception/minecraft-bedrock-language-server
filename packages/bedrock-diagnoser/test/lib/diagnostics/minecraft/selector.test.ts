@@ -1,6 +1,8 @@
 import { ParameterInfo, ParameterType } from "bc-minecraft-bedrock-command";
 import { GeneralInfo } from "bc-minecraft-bedrock-project/src/project/general/types";
 import { Location, OffsetWord } from "bc-minecraft-bedrock-shared";
+import { MolangSet } from "bc-minecraft-molang";
+import { Defined, References } from "bc-minecraft-bedrock-project/src/types/references";
 import { minecraft_selector_diagnose } from "../../../../src/diagnostics/minecraft/selector";
 import { TestDiagnoser } from "../../../diagnoser";
 import { TestProjectData } from "../../../testprojectdata";
@@ -50,6 +52,60 @@ describe("Selector", () => {
     minecraft_selector_diagnose(pi, OffsetWord.create("@e[m=!1,m=!2,m=0]"), B);
 
     B.expectEmpty();
+  });
+
+  describe("has_property property variant", () => {
+    const entityLoc = Location.create("file:///bp/entities/test.json");
+
+    it("property=<known_property_id> should not produce errors", () => {
+      const diagnoser = TestDiagnoser.create();
+      const data = diagnoser.context.getProjectData().projectData;
+      data.behaviorPacks.packs[0].entities.set({
+        id: "test:entity",
+        animations: References.create(),
+        documentation: "",
+        events: Defined.create(),
+        families: Defined.create(),
+        groups: Defined.create(),
+        location: entityLoc,
+        molang: new MolangSet(),
+        properties: [{ name: "test:property", type: "bool", default: false }],
+        runtime_identifier: "",
+      });
+
+      minecraft_selector_diagnose(pi, OffsetWord.create("@e[has_property={property=test:property}]"), diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+
+    it("property=!<known_property_id> (negated) should not produce errors", () => {
+      const diagnoser = TestDiagnoser.create();
+      const data = diagnoser.context.getProjectData().projectData;
+      data.behaviorPacks.packs[0].entities.set({
+        id: "test:entity",
+        animations: References.create(),
+        documentation: "",
+        events: Defined.create(),
+        families: Defined.create(),
+        groups: Defined.create(),
+        location: entityLoc,
+        molang: new MolangSet(),
+        properties: [{ name: "test:property", type: "bool", default: false }],
+        runtime_identifier: "",
+      });
+
+      minecraft_selector_diagnose(pi, OffsetWord.create("@e[has_property={property=!test:property}]"), diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+
+    it("property=<unknown_property_id> should produce an error", () => {
+      const diagnoser = TestDiagnoser.create();
+
+      minecraft_selector_diagnose(pi, OffsetWord.create("@e[has_property={property=unknown:property}]"), diagnoser);
+
+      diagnoser.expectAny();
+    });
   });
 
   describe("Expecting no errors", () => {
