@@ -25,6 +25,7 @@ effect @s clear
 execute run function test
 execute as @initiator unless entity @s[scores={foo=1..}] run scoreboard players add bar q 1
 execute as @initiator unless entity @s[scores={foo=1..}] run scoreboard players operation @s foo = bar q
+scoreboard players operation TEST foo += TEST foo
 execute as @s at @s run scoreboard players set @s foo 1
 
 give @p foo:bar
