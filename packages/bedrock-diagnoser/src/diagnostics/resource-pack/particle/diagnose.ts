@@ -8,6 +8,6 @@ export function particle_is_defined(id: string | OffsetWord, diagnoser: Diagnost
   //Project has particle
   const particle = diagnoser.context.getProjectData().resources.particles.get(strId, diagnoser.project);
   if (particle === undefined) {
-    return Errors.missing('behaviors', 'animations', strId, diagnoser, id);
+    return Errors.missing('resources', 'particles', strId, diagnoser, id);
   }
 }
