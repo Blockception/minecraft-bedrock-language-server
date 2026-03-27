@@ -4,6 +4,7 @@ import {
   EntityIntProperty,
   EntityProperty,
 } from 'bc-minecraft-bedrock-project/src/project/behavior-pack/entity';
+import { isMolang } from 'bc-minecraft-molang';
 import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
 
 export function diagnose_entity_properties_definition(
@@ -132,18 +133,7 @@ function diagnose_entity_enum_property_definition(
 
   // default needs to be in the list
   if (def !== undefined) {
-    if (
-      property.values?.indexOf(def) === -1 &&
-      !(
-        def.includes('q.') ||
-        def.includes('query.') ||
-        def.includes('math.') ||
-        def.includes('v.') ||
-        def.includes('variable.') ||
-        def.includes('c.') ||
-        def.includes('context.')
-      )
-    ) {
+    if (property.values?.indexOf(def) === -1 && !isMolang(def)) {
       diagnoser.add(
         `properties/${name}/${def}`,
         `Default value is not in the list of values: ${def}`,
@@ -282,7 +272,7 @@ function check_entity_property_usage(
       }
 
       // Value needs to be in the list
-      if (definition.values?.indexOf(value) === -1) {
+      if (definition.values?.indexOf(value) === -1 && !isMolang(value)) {
         diagnoser.add(
           `${parent}/${name}/${value}`,
           `Property value is not in the list of enum values: ${value}, expecting ${definition.values?.join(', ')}`,
