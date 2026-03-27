@@ -133,7 +133,7 @@ export const scoreboard: CommandInfo[] = [
       { text: 'scoreboard', type: ParameterType.keyword, required: true },
       { text: 'players', type: ParameterType.keyword, required: true },
       { text: 'operation', type: ParameterType.keyword, required: true },
-      { text: 'target name', type: ParameterType.selector, required: true },
+      { text: 'target name', type: ParameterType.selector, required: true, options: { allowFakePlayers: true } },
       { text: 'target objective', type: ParameterType.objective, required: true },
       { text: 'operation', type: ParameterType.operation, required: true },
       { text: 'selector', type: ParameterType.selector, required: true, options: { allowFakePlayers: true } },
