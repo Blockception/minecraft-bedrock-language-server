@@ -12,6 +12,7 @@ import {
 import {
   minecraft_check_command,
   minecraft_coordinate_diagnose,
+  minecraft_coordinate_set_diagnose,
   minecraft_effect_diagnose,
   minecraft_objectives_diagnose,
   minecraft_selector_diagnose,
@@ -213,6 +214,9 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
   for (let i = 0; i < max; i++) {
     mcfunction_diagnoseparameter(data.parameters[i], command.parameters[i], diagnoser, command, edu);
   }
+
+  // Validate coordinate groups: each x,y,z triplet must be fully provided and must not mix local/non-local types
+  minecraft_coordinate_set_diagnose(data.parameters, command.parameters, diagnoser);
 }
 
 type DiagnoseCommand = (value: OffsetWord, diagnoser: DocumentDiagnosticsBuilder) => void | boolean;
