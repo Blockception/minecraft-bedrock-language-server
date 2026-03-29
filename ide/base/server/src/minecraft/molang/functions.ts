@@ -29,14 +29,14 @@ export function IsMolang(text: string): boolean {
 
   if (word.startsWith('/')) {
     word = word.substring(1, word.length);
+  }
 
-    //command test
-    if (CommandData.Vanilla[word] !== undefined) {
-      return true;
-    }
-    if (CommandData.Edu[word] !== undefined) {
-      return true;
-    }
+  //command test
+  if (CommandData.Vanilla[word] !== undefined) {
+    return true;
+  }
+  if (CommandData.Edu[word] !== undefined) {
+    return true;
   }
 
   //general test
