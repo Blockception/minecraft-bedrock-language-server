@@ -9042,6 +9042,70 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 93. 'value1' 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "'value1'" => [
+        {
+          "position": 47,
+          "type": 10,
+          "value": "value1",
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 94. 1 > 3 ? 'a' : 'b' 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "1 > 3 ? 'a' : 'b'" => [
+        {
+          "_processed": true,
+          "condition": {
+            "_processed": true,
+            "left": {
+              "position": 47,
+              "type": 5,
+              "value": "1",
+            },
+            "operator": ">",
+            "position": 49,
+            "right": {
+              "position": 51,
+              "type": 5,
+              "value": "3",
+            },
+            "type": 2,
+          },
+          "falseExpression": {
+            "position": 61,
+            "type": 10,
+            "value": "b",
+          },
+          "position": 53,
+          "trueExpression": {
+            "position": 55,
+            "type": 10,
+            "value": "a",
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {

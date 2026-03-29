@@ -30,7 +30,29 @@ export function isMolangType(data: string): MolangType {
 }
 
 export function isMolang(data: string) {
-  return molangRegexp.test(data) && data !== 'this';
+  // Match traditional molang identifiers (query., math., v., etc.)
+  if (molangRegexp.test(data) && data !== 'this') return true;
+
+  const trimmed = data.trim();
+
+  // Match standalone molang string literals (e.g. 'value1'). Molang uses
+  // single-quoted strings; we require the trimmed value to start and end with
+  // a single quote and have balanced quotes/brackets via isValidMolang to
+  // avoid false positives from apostrophes in plain text like: rock 'n' roll.
+  if (trimmed.length >= 2 && trimmed.startsWith("'") && trimmed.endsWith("'") && isValidMolang(trimmed)) {
+    return true;
+  }
+
+  // Match expressions that mix string literals with molang operators
+  // (e.g. 1 > 3 ? 'a' : 'b'). Molang operators (>, <, ?, :, etc.) never
+  // appear in plain enum values (which are restricted to alphanumeric and
+  // underscores), so their presence alongside single quotes reliably
+  // distinguishes molang from apostrophes in plain text.
+  if (trimmed.includes("'") && /[><=!?+\-*/|&]/.test(trimmed) && isValidMolang(trimmed)) {
+    return true;
+  }
+
+  return false;
 }
 
 /**

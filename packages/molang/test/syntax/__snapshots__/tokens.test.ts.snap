@@ -1496,3 +1496,23 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 93. 'value1' 1`] = `
+[
+  "value1 StringLiteral",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 94. 1 > 3 ? 'a' : 'b' 1`] = `
+[
+  "1 Number",
+  "> Operator",
+  "3 Number",
+  "? QuestionMark",
+  "a StringLiteral",
+  ": Colon",
+  "b StringLiteral",
+  "  EOF",
+]
+`;

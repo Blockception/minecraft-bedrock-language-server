@@ -47,6 +47,18 @@ describe('BehaviorPack', () => {
         diagnose_entity_property_usage([enumDefinition], 'test:prop', 'math.random(0,1)', 'events', diagnoser);
         diagnoser.expectEmpty();
       });
+
+      it('accepts a molang string literal', () => {
+        const diagnoser = new TestDiagnoser();
+        diagnose_entity_property_usage([enumDefinition], 'test:prop', "'val1'", 'events', diagnoser);
+        diagnoser.expectEmpty();
+      });
+
+      it('accepts a molang ternary expression with string literals', () => {
+        const diagnoser = new TestDiagnoser();
+        diagnose_entity_property_usage([enumDefinition], 'test:prop', "1 > 3 ? 'val1' : 'val2'", 'events', diagnoser);
+        diagnoser.expectEmpty();
+      });
     });
   });
 });
