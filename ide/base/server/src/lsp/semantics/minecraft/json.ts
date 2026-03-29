@@ -9,7 +9,7 @@ import { McfunctionSemanticTokensBuilder } from '../builders/mcfunction';
 import { McfunctionLineTokens } from './mcfunctions';
 import { ConvertWords } from './molang';
 
-export function provideJsonSemanticTokens(doc: Pick<TextDocument, "getText" | "offsetAt" | "uri" | "positionAt">, range?: Range | undefined): SemanticTokens {
+export function provideJsonSemanticTokens(doc: Pick<TextDocument, "getText" | "offsetAt" | "uri" | "positionAt" | "configuration">, range?: Range | undefined): SemanticTokens {
   //Not related to minecraft
   const types = PackType.detect(doc.uri);
   if (types == PackType.unknown) return { data: [] };
