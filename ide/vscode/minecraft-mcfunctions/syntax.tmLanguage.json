@@ -280,7 +280,7 @@
       ]
     },
     "comments": {
-      "patterns": [{ "name": "comment", "begin": "^\\s*#", "end": "$" }]
+      "patterns": [{ "name": "comment", "begin": "#", "end": "$" }]
     }
   }
 }
