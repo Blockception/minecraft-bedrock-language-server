@@ -32,11 +32,21 @@ export function isMolangType(data: string): MolangType {
 export function isMolang(data: string) {
   // Match traditional molang identifiers (query., math., v., etc.)
   if (molangRegexp.test(data) && data !== 'this') return true;
-  // Match molang string literals (e.g. 'value1') and expressions that contain
-  // single-quoted string literals (e.g. 1 > 3 ? 'a' : 'b'). Molang uses
-  // single-quoted strings; we also require balanced quotes/brackets via
-  // isValidMolang to avoid false positives from apostrophes in plain text.
-  if (data.includes("'") && isValidMolang(data)) return true;
+
+  // Match standalone molang string literals (e.g. 'value1'). Molang uses
+  // single-quoted strings; we require the trimmed value to be a single
+  // quoted literal and also require balanced quotes/brackets via
+  // isValidMolang to avoid false positives from apostrophes in plain text
+  // like: rock 'n' roll.
+  const trimmed = data.trim();
+  if (
+    trimmed.length >= 2 &&
+    trimmed.startsWith("'") &&
+    trimmed.endsWith("'") &&
+    isValidMolang(trimmed)
+  ) {
+    return true;
+  }
   return false;
 }
 

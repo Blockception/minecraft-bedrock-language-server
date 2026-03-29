@@ -50,13 +50,13 @@ describe('BehaviorPack', () => {
 
       it('accepts a molang string literal', () => {
         const diagnoser = new TestDiagnoser();
-        diagnose_entity_property_usage([enumDefinition], 'test:prop', "'value1'", 'events', diagnoser);
+        diagnose_entity_property_usage([enumDefinition], 'test:prop', "'val1'", 'events', diagnoser);
         diagnoser.expectEmpty();
       });
 
       it('accepts a molang ternary expression with string literals', () => {
         const diagnoser = new TestDiagnoser();
-        diagnose_entity_property_usage([enumDefinition], 'test:prop', "1 > 3 ? 'a' : 'b'", 'events', diagnoser);
+        diagnose_entity_property_usage([enumDefinition], 'test:prop', "1 > 3 ? 'val1' : 'val2'", 'events', diagnoser);
         diagnoser.expectEmpty();
       });
     });
