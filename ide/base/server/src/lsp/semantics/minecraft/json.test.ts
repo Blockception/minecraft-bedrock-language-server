@@ -1,6 +1,7 @@
 import { TextDocument as VscodeTextDocument } from 'vscode-languageserver-textdocument';
 import { TextDocument } from '../../documents/text-document';
 import { provideJsonSemanticTokens } from './json';
+import { MCProject } from 'bc-minecraft-project';
 
 function createTestDoc(content: string): TextDocument {
   const PACK_URI = 'file:///c:/projects/MyAddon/behavior_pack/entities/example.json';
@@ -11,6 +12,7 @@ function createTestDoc(content: string): TextDocument {
     getText: (range?: any) => vscDoc.getText(range),
     positionAt: (offset: number) => vscDoc.positionAt(offset),
     offsetAt: (position: any) => vscDoc.offsetAt(position),
+    configuration: () => MCProject.createEmpty(),
   } as unknown as TextDocument;
 }
 

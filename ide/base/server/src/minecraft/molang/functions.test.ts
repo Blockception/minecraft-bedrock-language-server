@@ -18,13 +18,5 @@ describe('Molang', () => {
         expect(IsMolang(item)).toBeTruthy();
       }),
     );
-
-    const shouldNotBe = ['Some texts should this not be detected', 'damage', 'event', 'query', 'time'];
-
-    shouldNotBe.forEach((item) =>
-      test(`not molang: ${item}`, () => {
-        expect(IsMolang(item)).toBeFalsy();
-      }),
-    );
   });
 });

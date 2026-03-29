@@ -9,13 +9,13 @@ import { SemanticModifiersEnum, SemanticTokensEnum } from '../constants';
  */
 export class BaseSemanticTokensBuilder {
   public builder: SemanticTokensBuilder;
-  public document: TextDocument;
+  public document: Pick<TextDocument, "positionAt">;
 
   /**
    *
    * @param doc
    */
-  constructor(doc: TextDocument) {
+  constructor(doc: Pick<TextDocument, "positionAt">) {
     this.document = doc;
     this.builder = new SemanticTokensBuilder();
   }
