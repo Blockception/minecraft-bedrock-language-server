@@ -10,7 +10,7 @@ export class McfunctionSemanticTokensBuilder extends BaseSemanticTokensBuilder {
    *
    * @param doc
    */
-  constructor(doc: TextDocument) {
+  constructor(doc: Pick<TextDocument, "positionAt"| "configuration">) {
     super(doc);
   }
 
