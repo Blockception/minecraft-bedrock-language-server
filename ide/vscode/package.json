@@ -45,7 +45,8 @@
     "vscode": "^1.69.2"
   },
   "extensionKind": [
-    "workspace"
+    "workspace",
+    "web"
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -59,7 +60,9 @@
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.57.2",
-    "webpack": "^5.105.4"
+    "webpack": "^5.105.4",
+    "@vscode/test-web": "^0.0.51",
+    "path-browserify": "^1.0.1"
   },
   "dependencies": {
     "bc-minecraft-lsp": "*",
@@ -91,7 +94,9 @@
     "prewebpack": "npm run storeversion && npm run cp-schemas",
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",
-    "webpack": "npm run webpack:client && npm run webpack:server"
+    "webpack": "npm run webpack:client && npm run webpack:server && npm run webpack:browser",
+    "webpack:browser": "webpack --mode production --config ./webpack.browser.js",
+    "chrome": "npm run webpack:browser && vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
   },
   "contributes": {
     "configuration": [
@@ -1587,5 +1592,6 @@
         ]
       }
     ]
-  }
+  },
+  "browser": "./lsp/client.browser.js"
 }
