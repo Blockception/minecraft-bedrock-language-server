@@ -102,7 +102,7 @@ function minecraft_selector_diagnose_hard(
     result = false;
     diagnoser.add(
       value,
-      `Unknown selector type: ${selector.type}`,
+      `Unknown selector type: ${selector.selectorType}`,
       DiagnosticSeverity.error,
       'minecraft.selector.type.invalid',
     );
