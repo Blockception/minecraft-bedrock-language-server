@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-types",
-  "version": "1.22.6-7",
+  "version": "1.22.6-8",
   "description": "The typescript library that provides default types for minecraft bedrock",
   "author": {
     "name": "Blockception Ltd",
