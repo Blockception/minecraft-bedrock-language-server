@@ -528,15 +528,16 @@ const component_checks: Record<string, ComponentCheck<T>> = {
 ### Example Test
 
 ```typescript
+import { TestDiagnoser } from '../../../../test/diagnoser';
 import { diagnose } from '../src/diagnostics/your-diagnostic';
 
 describe('Your Diagnostic', () => {
   it('should report error for invalid value', () => {
-    const diagnoser = createTestDiagnoser();
+    const diagnoser = TestDiagnoser.create();
     const value = { text: 'invalid', offset: 0 };
-    
+
     diagnose(value, diagnoser);
-    
+
     expect(diagnoser.hasCode('your.diagnostic.code')).toBe(true);
   });
 });
