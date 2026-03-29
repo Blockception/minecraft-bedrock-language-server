@@ -95,9 +95,7 @@
     "webpack:client": "webpack --mode production --config ./webpack.client.js",
     "webpack:server": "webpack --mode production --config ./webpack.server.js",
     "webpack": "npm run webpack:client && npm run webpack:server && npm run webpack:browser",
-    "webpack:client:browser": "webpack --mode production --config ./webpack.client.browser.js",
-    "webpack:server:browser": "webpack --mode production --config ./webpack.server.browser.js",
-    "webpack:browser": "npm run webpack:client:browser && npm run webpack:server:browser",
+    "webpack:browser": "webpack --mode production --config ./webpack.browser.js",
     "chrome": "npm run webpack:browser && vscode-test-web --browserType=chromium --extensionDevelopmentPath=. ."
   },
   "contributes": {
