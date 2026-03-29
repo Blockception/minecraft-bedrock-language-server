@@ -127,7 +127,13 @@ export function commandsCheck(commandText: string, diagnoser: DocumentDiagnostic
   if (commandText.length < 3) return;
 
   const edu = education_enabled(diagnoser);
-  const offset = diagnoser.document.getText().indexOf(commandText);
+  let offset = diagnoser.document.getText().indexOf(commandText);
+  if (offset < 0) {
+    // json escape the commandText and try again
+    const escaped = JSON.stringify(commandText).slice(1, -1);
+    offset = diagnoser.document.getText().indexOf(escaped);
+  }
+
   let comm: Command | undefined = Command.parse(commandText, offset);
 
   if (comm.isEmpty()) return;

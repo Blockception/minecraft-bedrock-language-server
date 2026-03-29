@@ -18,7 +18,15 @@
       "address": "localhost",
       "port": 6009,
       "sourceMaps": true,
-      "outFiles": ["${workspaceFolder}/ide/vscode/lsp/server.js"]
+      "outFiles": [
+        "${workspaceFolder}/ide/vscode/lsp/server.js",
+        "${workspaceFolder}/ide/**/*.js",
+        "${workspaceFolder}/packages/**/*.js"
+      ],
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ]
     },
     {
       "type": "node",

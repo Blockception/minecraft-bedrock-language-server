@@ -22,9 +22,7 @@
   "eslint.run": "onSave",
   "eslint.lintTask.enable": true,
 
-  "typescript.preferences.quoteStyle": "single",
-  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
-  "typescript.tsserver.log": "verbose",
+  "js/ts.experimental.useTsgo": true,
 
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

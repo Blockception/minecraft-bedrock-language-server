@@ -9,7 +9,7 @@ export class JsonSemanticTokensBuilder extends BaseSemanticTokensBuilder {
    *
    * @param doc
    */
-  constructor(doc: TextDocument) {
+  constructor(doc: Pick<TextDocument, 'positionAt' | 'configuration'>) {
     super(doc);
   }
 }
