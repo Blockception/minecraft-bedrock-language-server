@@ -221,8 +221,9 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
     mcfunction_diagnoseparameter(data.parameters[i], command.parameters[i], diagnoser, command, edu);
   }
 
-  // Validate coordinate groups: each x,y,z triplet must be fully provided and must not mix local/non-local types
-  minecraft_coordinate_set_diagnose(data.parameters, command.parameters, diagnoser);
+  // Validate coordinate groups: each x,y,z triplet must be fully provided and must not mix local/non-local types.
+  // Pass all matching overloads so the best coordinate layout is selected automatically.
+  minecraft_coordinate_set_diagnose(info, command.parameters, diagnoser);
 }
 
 type DiagnoseCommand = (value: OffsetWord, diagnoser: DocumentDiagnosticsBuilder) => void | boolean;
