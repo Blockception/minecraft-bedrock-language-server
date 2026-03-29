@@ -30,9 +30,15 @@ say Hello World
 
 When you have a diagnostic in your code, you now have three quick fix options:
 
-1. **Disable in project** - Adds the diagnostic code to your `.mcattributes` file (project-wide)
+1. **Disable in project** - Appends `diagnostic.disable.<code>=true` to your `.mcattributes` file (project-wide)
 2. **Disable for this file** - Adds a `// mc-disable` comment at the top of the current file
 3. **Disable for this line** - Adds a `// mc-disable-next-line` comment on the line before the diagnostic
+
+You can also manually add `diagnostic.disable.<code>=true` to your `.mcattributes` file to disable a code project-wide. For example:
+
+```ini
+diagnostic.disable.behaviorpack.entity.missing=true
+```
 
 ## Examples
 

@@ -89,40 +89,39 @@ This creates `.mcattributes`, `.mcdefinitions`, and `.mcignore` with sensible de
 
 ### `.mcattributes`
 
-This is the **primary configuration file**. It tells the extension what kind of project this is and which diagnostics to enable.
+This is the **primary configuration file**. It controls which diagnostics and completions the extension enables for this project.
 
 **Minimal starting configuration:**
 
 ```ini
-project.nature=Minecraft Bedrock
+diagnostic.enable=true
 ```
 
 **Recommended configuration with diagnostics enabled:**
 
 ```ini
-project.nature=Minecraft Bedrock
-
-diagnostics.enable=true
-diagnostics.json=true
-diagnostics.mcfunction=true
-diagnostics.lang=true
-diagnostics.objective=true
-diagnostics.tag=true
+diagnostic.enable=true
+diagnostic.json=true
+diagnostic.mcfunction=true
+diagnostic.lang=true
+diagnostic.objective=true
+diagnostic.tags=true
 ```
 
 **All supported settings:**
 
 | Setting | Description |
 |---------|-------------|
-| `project.nature` | Must be `Minecraft Bedrock` to activate Bedrock-specific features |
-| `diagnostics.enable` | Master switch for all diagnostics |
-| `diagnostics.json` | Validate JSON files (entities, items, blocks, etc.) |
-| `diagnostics.lang` | Validate `.lang` translation files |
-| `diagnostics.mcfunction` | Validate `.mcfunction` command files |
-| `diagnostics.objective` | Check scoreboard objective references |
-| `diagnostics.tag` | Check entity tag references |
+| `diagnostic.enable` | Master switch for all diagnostics |
+| `diagnostic.json` | Validate JSON files (entities, items, blocks, etc.) |
+| `diagnostic.lang` | Validate `.lang` translation files |
+| `diagnostic.mcfunction` | Validate `.mcfunction` command files |
+| `diagnostic.objective` | Check scoreboard objective references |
+| `diagnostic.tags` | Check entity tag references |
 | `education.enable` | Enable Education Edition content (`true`/`false`) |
-| `template.folder` | Path to a custom templates folder |
+| `completion.json` | Enable JSON completion suggestions |
+| `completion.lang.comments` | Enable lang file comment completion |
+| `completion.lang.dynamic` | Enable dynamic lang file completion |
 
 > **See also:** [MCAttributes reference](../project/MCAttributes.md) and the [`.mcattributes` guide](../../ide/vscode/media/bc-mcattributes.md)
 
@@ -286,7 +285,7 @@ Add an intentional error to a `.mcfunction` file, such as a misspelled command. 
 ### Unexpected errors on valid files
 
 - Check `.mcdefinitions` — an entry with an incorrect prefix or syntax can cause false positives.
-- Temporarily set `diagnostics.enable=false` in `.mcattributes` and rescan to confirm the extension is the source of the errors.
+- Temporarily set `diagnostic.enable=false` in `.mcattributes` and rescan to confirm the extension is the source of the errors.
 - Re-enable individual diagnostic categories one at a time to isolate the problem.
 
 ### Everything looks fine but errors persist

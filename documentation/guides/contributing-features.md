@@ -323,7 +323,7 @@ describe('diagnose_loot_table_pool', () => {
     const diagnoser = TestDiagnoser.create();
     diagnose_loot_table_pool({} as any, 'pools/0', diagnoser);
 
-    expect(diagnoser.count).toBeGreaterThan(0);
+    expect(diagnoser.items.length).toBeGreaterThan(0);
     expect(diagnoser.items[0].code).toBe('behaviorpack.loot_table.pool.rolls.missing');
   });
 
@@ -331,7 +331,7 @@ describe('diagnose_loot_table_pool', () => {
     const diagnoser = TestDiagnoser.create();
     diagnose_loot_table_pool({ rolls: 1 } as any, 'pools/0', diagnoser);
 
-    expect(diagnoser.count).toBe(0);
+    expect(diagnoser.items).toHaveLength(0);
   });
 });
 ```
