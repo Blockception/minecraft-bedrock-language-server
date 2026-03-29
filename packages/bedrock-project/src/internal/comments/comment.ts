@@ -3,9 +3,10 @@ import { TextDocument } from '../../types';
 
 export function GetComment(doc: TextDocument, lineIndex: number): string {
   const line = doc.getText(Range.createR(lineIndex, 0, lineIndex, Number.MAX_SAFE_INTEGER));
-  const Index = line.indexOf('#');
+  const trimmed = line.trimStart();
 
-  if (Index < 0) return '';
+  if (!trimmed.startsWith('#')) return '';
 
+  const Index = line.length - trimmed.length;
   return line.slice(Index + 1, line.length);
 }

@@ -19,9 +19,10 @@ export function provideSemanticToken(doc: TextDocument, range?: Range | undefine
 
   for (let I = startIndex; I < endIndex; I++) {
     const line = doc.getLine(I);
-    const CommentIndex = line.indexOf('#');
+    const trimmed = line.trimStart();
 
-    if (CommentIndex >= 0) {
+    if (trimmed.startsWith('#')) {
+      const CommentIndex = line.length - trimmed.length;
       builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);
     }
 

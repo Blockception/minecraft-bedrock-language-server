@@ -18,7 +18,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const lineIndex = position.line;
   const line = document.getLine(lineIndex);
 
-  const commandIndex = line.indexOf('#');
+  const commandIndex = line.trimStart().startsWith('#') ? line.indexOf('#') : -1;
 
   if (commandIndex >= 0) {
     if (position.character > commandIndex) return;

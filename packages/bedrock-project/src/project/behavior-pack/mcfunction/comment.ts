@@ -1,7 +1,8 @@
 export function GetComment(line: string): string {
-  const index = line.indexOf('#');
+  const trimmed = line.trimStart();
 
-  if (index < 0) return '';
+  if (!trimmed.startsWith('#')) return '';
 
+  const index = line.length - trimmed.length;
   return line.slice(index + 1, line.length);
 }
