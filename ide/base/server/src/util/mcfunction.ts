@@ -5,7 +5,7 @@
  * This correctly identifies inline comments (e.g. `kill @s # comment`)
  * while ignoring `#` inside string arguments (e.g. `summon cow "#asdf"`).
  */
-export function findMcfunctionCommentStart(line: string): number {
+export function findCommentStart(line: string): number {
   let inString = false;
   for (let i = 0; i < line.length; i++) {
     if (line[i] === '\\' && inString) {
@@ -17,10 +17,4 @@ export function findMcfunctionCommentStart(line: string): number {
     }
   }
   return -1;
-}
-
-export function GetComment(line: string): string {
-  const index = findMcfunctionCommentStart(line);
-  if (index < 0) return '';
-  return line.slice(index + 1);
 }

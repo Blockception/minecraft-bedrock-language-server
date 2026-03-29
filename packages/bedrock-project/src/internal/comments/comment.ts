@@ -1,11 +1,10 @@
 import { Range } from 'bc-minecraft-bedrock-shared';
 import { TextDocument } from '../../types';
+import { findMcfunctionCommentStart } from '../../project/behavior-pack/mcfunction/comment';
 
 export function GetComment(doc: TextDocument, lineIndex: number): string {
   const line = doc.getText(Range.createR(lineIndex, 0, lineIndex, Number.MAX_SAFE_INTEGER));
-  const Index = line.indexOf('#');
-
-  if (Index < 0) return '';
-
-  return line.slice(Index + 1, line.length);
+  const index = findMcfunctionCommentStart(line);
+  if (index < 0) return '';
+  return line.slice(index + 1);
 }

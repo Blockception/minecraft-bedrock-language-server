@@ -5,6 +5,7 @@ import { TextDocument } from '../../documents/text-document';
 import { McfunctionSemanticTokensBuilder } from '../builders/mcfunction';
 import { SemanticModifiersEnum, SemanticTokensEnum } from '../constants';
 import { CreateNamespaced, CreateRangeTokensWord } from '../functions';
+import { findCommentStart } from '../../../util/mcfunction';
 import { CreateSelectorTokens } from './selectors';
 
 export function provideSemanticToken(doc: TextDocument, range?: Range | undefined): SemanticTokens {
@@ -19,7 +20,7 @@ export function provideSemanticToken(doc: TextDocument, range?: Range | undefine
 
   for (let I = startIndex; I < endIndex; I++) {
     const line = doc.getLine(I);
-    const CommentIndex = line.indexOf('#');
+    const CommentIndex = findCommentStart(line);
 
     if (CommentIndex >= 0) {
       builder.AddAt(I, CommentIndex, line.length - CommentIndex, SemanticTokensEnum.comment);

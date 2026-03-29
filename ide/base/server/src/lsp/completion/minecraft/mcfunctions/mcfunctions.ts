@@ -3,6 +3,7 @@ import { CompletionItemKind } from 'vscode-languageserver';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
 import { CommandCompletionContext, CompletionContext } from '../../context';
+import { findCommentStart } from '../../../../util/mcfunction';
 
 import * as CCommand from '../commands/commands';
 import * as Parameter from '../commands/parameters';
@@ -18,7 +19,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const lineIndex = position.line;
   const line = document.getLine(lineIndex);
 
-  const commandIndex = line.indexOf('#');
+  const commandIndex = findCommentStart(line);
 
   if (commandIndex >= 0) {
     if (position.character > commandIndex) return;
