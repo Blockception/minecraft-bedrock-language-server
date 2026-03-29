@@ -508,6 +508,7 @@ export const TextureTerrain: string[] = [
   "glowstone",
   "gold_block",
   "gold_ore",
+  "golden_dandelion",
   "granite",
   "granite_slab",
   "granite_wall",

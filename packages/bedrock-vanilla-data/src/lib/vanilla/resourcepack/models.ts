@@ -45,6 +45,21 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.armadillo.baby",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "right_ear",
+      "left_ear",
+      "right_hind_leg",
+      "left_hind_leg",
+      "right_front_leg",
+      "left_front_leg",
+      "body_rolled_up"
+    ]
+  },
+  {
     "id": "geometry.armor_stand",
     "bones": [
       "baseplate",
@@ -68,6 +83,22 @@ export const Models: Model[] = [
   },
   {
     "id": "geometry.axolotl",
+    "bones": [
+      "root",
+      "body",
+      "right_arm",
+      "right_leg",
+      "left_arm",
+      "left_leg",
+      "tail",
+      "head",
+      "left_gills",
+      "right_gills",
+      "top_gills"
+    ]
+  },
+  {
+    "id": "geometry.axolotl.baby",
     "bones": [
       "root",
       "body",
@@ -121,6 +152,18 @@ export const Models: Model[] = [
   },
   {
     "id": "geometry.bee",
+    "bones": [
+      "body",
+      "stinger",
+      "rightwing_bone",
+      "leftwing_bone",
+      "leg_front",
+      "leg_mid",
+      "leg_back"
+    ]
+  },
+  {
+    "id": "geometry.bee.baby",
     "bones": [
       "body",
       "stinger",
@@ -288,6 +331,21 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.camel.baby",
+    "bones": [
+      "root",
+      "body",
+      "tail",
+      "head",
+      "right_ear",
+      "left_ear",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg"
+    ]
+  },
+  {
     "id": "geometry.cape",
     "bones": [
       "root",
@@ -303,6 +361,19 @@ export const Models: Model[] = [
       "head",
       "tail1",
       "tail2",
+      "backLegL",
+      "backLegR",
+      "frontLegL",
+      "frontLegR"
+    ]
+  },
+  {
+    "id": "geometry.cat.baby",
+    "bones": [
+      "body",
+      "belly",
+      "head",
+      "tail1",
       "backLegL",
       "backLegR",
       "frontLegL",
@@ -339,6 +410,16 @@ export const Models: Model[] = [
       "head",
       "comb",
       "beak",
+      "leg0",
+      "leg1",
+      "wing0",
+      "wing1"
+    ]
+  },
+  {
+    "id": "geometry.chicken.baby",
+    "bones": [
+      "body",
       "leg0",
       "leg1",
       "wing0",
@@ -400,6 +481,8 @@ export const Models: Model[] = [
     "bones": [
       "root",
       "body",
+      "right_arm",
+      "rightItem",
       "head",
       "flower"
     ]
@@ -446,6 +529,18 @@ export const Models: Model[] = [
     "bones": [
       "body",
       "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3"
+    ]
+  },
+  {
+    "id": "geometry.cow.baby",
+    "bones": [
+      "root",
+      "head",
+      "body",
       "leg0",
       "leg1",
       "leg2",
@@ -606,6 +701,35 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.dolphin.baby",
+    "bones": [
+      "body",
+      "head",
+      "nose",
+      "tail",
+      "tail_fin",
+      "back_fin",
+      "left_fin",
+      "right_fin"
+    ]
+  },
+  {
+    "id": "geometry.donkeymule.baby",
+    "bones": [
+      "root",
+      "Body",
+      "Tail",
+      "LegBL",
+      "LegBR",
+      "LegFL",
+      "LegFR",
+      "left_ear",
+      "right_ear",
+      "Head",
+      "Neck"
+    ]
+  },
+  {
     "id": "geometry.dragon",
     "bones": [
       "root",
@@ -752,13 +876,29 @@ export const Models: Model[] = [
     "bones": [
       "world",
       "root",
+      "body",
       "head",
       "head_sleeping",
-      "body",
+      "held_item",
       "leg0",
       "leg1",
       "leg2",
       "leg3",
+      "tail"
+    ]
+  },
+  {
+    "id": "geometry.fox.baby",
+    "bones": [
+      "root",
+      "head",
+      "held_item",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "body",
+      "lead",
       "tail"
     ]
   },
@@ -819,6 +959,17 @@ export const Models: Model[] = [
       "head",
       "right_horn",
       "left_horn"
+    ]
+  },
+  {
+    "id": "geometry.goat.baby",
+    "bones": [
+      "left_back_leg",
+      "right_back_leg",
+      "right_front_leg",
+      "left_front_leg",
+      "body",
+      "head"
     ]
   },
   {
@@ -908,6 +1059,20 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.hoglin.baby",
+    "bones": [
+      "bb_main",
+      "body",
+      "head",
+      "right_ear",
+      "left_ear",
+      "leg_back_right",
+      "leg_back_left",
+      "leg_front_right",
+      "leg_front_left"
+    ]
+  },
+  {
     "id": "geometry.horse",
     "bones": [
       "Body",
@@ -949,6 +1114,21 @@ export const Models: Model[] = [
       "SaddleMouthLineR",
       "Mane",
       "HeadSaddle"
+    ]
+  },
+  {
+    "id": "geometry.horse.baby",
+    "bones": [
+      "Body",
+      "Tail",
+      "LegBL",
+      "LegBR",
+      "LegFL",
+      "LegFR",
+      "Neck",
+      "Head",
+      "EarL",
+      "EarR"
     ]
   },
   {
@@ -1092,6 +1272,39 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.humanoid.baby.armor.boots",
+    "bones": [
+      "armor1",
+      "RightLeg",
+      "LeftLeg"
+    ]
+  },
+  {
+    "id": "geometry.humanoid.baby.armor.chestplate",
+    "bones": [
+      "armor1",
+      "Body",
+      "RightArm",
+      "LeftArm"
+    ]
+  },
+  {
+    "id": "geometry.humanoid.baby.armor.helmet",
+    "bones": [
+      "armor1",
+      "Head"
+    ]
+  },
+  {
+    "id": "geometry.humanoid.baby.armor.leggings",
+    "bones": [
+      "armor2",
+      "Body",
+      "RightLeg",
+      "LeftLeg"
+    ]
+  },
+  {
     "id": "geometry.humanoid.custom",
     "bones": [
       "root",
@@ -1183,6 +1396,18 @@ export const Models: Model[] = [
       "leg1",
       "leg2",
       "leg3"
+    ]
+  },
+  {
+    "id": "geometry.llama.baby",
+    "bones": [
+      "root",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "body"
     ]
   },
   {
@@ -1367,6 +1592,17 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.panda.baby",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3"
+    ]
+  },
+  {
     "id": "geometry.parched",
     "bones": [
       "parched",
@@ -1421,6 +1657,18 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.pig.baby",
+    "bones": [
+      "root",
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg3",
+      "leg2"
+    ]
+  },
+  {
     "id": "geometry.pig.v1.8",
     "bones": [
       "body",
@@ -1457,6 +1705,21 @@ export const Models: Model[] = [
       "leftItem",
       "rightleg",
       "leftleg"
+    ]
+  },
+  {
+    "id": "geometry.piglin.baby",
+    "bones": [
+      "Body",
+      "head",
+      "leftear",
+      "rightear",
+      "LeftArm",
+      "leftItem",
+      "RightArm",
+      "rightItem",
+      "RightLeg",
+      "LeftLeg"
     ]
   },
   {
@@ -1594,6 +1857,18 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.polar_bear.baby",
+    "bones": [
+      "root",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "body"
+    ]
+  },
+  {
     "id": "geometry.polarbear",
     "bones": [
       "head",
@@ -1723,6 +1998,22 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.rabbit.baby",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "right_ear",
+      "left_ear",
+      "frontlegs",
+      "leftFrontLeg",
+      "rightFrontLeg",
+      "backlegs",
+      "leftBackLeg",
+      "rightBackLeg"
+    ]
+  },
+  {
     "id": "geometry.rabbit.v1.8",
     "bones": [
       "body",
@@ -1737,6 +2028,22 @@ export const Models: Model[] = [
       "earLeft",
       "tail",
       "nose"
+    ]
+  },
+  {
+    "id": "geometry.rabbit.v2",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "left_ear",
+      "right_ear",
+      "frontlegs",
+      "rightFrontLeg",
+      "leftFrontLeg",
+      "backlegs",
+      "rightBackLeg",
+      "leftBackLeg"
     ]
   },
   {
@@ -1775,6 +2082,18 @@ export const Models: Model[] = [
       "leg1",
       "leg2",
       "leg3"
+    ]
+  },
+  {
+    "id": "geometry.sheep.baby",
+    "bones": [
+      "root",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "body"
     ]
   },
   {
@@ -1996,6 +2315,25 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.sniffer.baby",
+    "bones": [
+      "bb_main",
+      "bone",
+      "body",
+      "head",
+      "left_ear",
+      "right_ear",
+      "nose",
+      "lower_beak",
+      "right_front_leg",
+      "right_mid_leg",
+      "right_hind_leg",
+      "left_front_leg",
+      "left_mid_leg",
+      "left_back_leg"
+    ]
+  },
+  {
     "id": "geometry.snowgolem",
     "bones": [
       "head",
@@ -2074,6 +2412,20 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.squid.baby",
+    "bones": [
+      "body",
+      "tentacle1",
+      "tentacle2",
+      "tentacle3",
+      "tentacle4",
+      "tentacle5",
+      "tentacle6",
+      "tentacle7",
+      "tentacle8"
+    ]
+  },
+  {
     "id": "geometry.stray.armor",
     "bones": [
       "body",
@@ -2113,6 +2465,17 @@ export const Models: Model[] = [
       "bristle2",
       "bristle1",
       "bristle0"
+    ]
+  },
+  {
+    "id": "geometry.strider.baby",
+    "bones": [
+      "right_leg",
+      "left_leg",
+      "body",
+      "bristle0",
+      "bristle1",
+      "bristle2"
     ]
   },
   {
@@ -2163,6 +2526,17 @@ export const Models: Model[] = [
       "head",
       "eggbelly",
       "body",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3"
+    ]
+  },
+  {
+    "id": "geometry.turtle.baby",
+    "bones": [
+      "body",
+      "head",
       "leg0",
       "leg1",
       "leg2",
@@ -2221,6 +2595,20 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.villager.baby",
+    "bones": [
+      "body",
+      "head",
+      "helmet",
+      "brim",
+      "nose",
+      "arms",
+      "held_item",
+      "leg0",
+      "leg1"
+    ]
+  },
+  {
     "id": "geometry.villager.v1.8",
     "bones": [
       "head",
@@ -2249,6 +2637,23 @@ export const Models: Model[] = [
       "hat2",
       "hat3",
       "hat4"
+    ]
+  },
+  {
+    "id": "geometry.villagerzombie.baby",
+    "bones": [
+      "waist",
+      "body",
+      "head",
+      "helmet",
+      "brim",
+      "nose",
+      "rightArm",
+      "rightItem",
+      "leftArm",
+      "leftItem",
+      "rightLeg",
+      "leftLeg"
     ]
   },
   {
@@ -2372,6 +2777,20 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.wolf.baby",
+    "bones": [
+      "head",
+      "right_ear",
+      "left_ear",
+      "body",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "tail"
+    ]
+  },
+  {
     "id": "geometry.zombie",
     "bones": []
   },
@@ -2389,6 +2808,19 @@ export const Models: Model[] = [
       "pink_coral",
       "blue_coral",
       "red_coral"
+    ]
+  },
+  {
+    "id": "geometry.zombie.baby",
+    "bones": [
+      "Body",
+      "Head",
+      "rightArm",
+      "rightItem",
+      "leftArm",
+      "leftItem",
+      "rightLeg",
+      "leftLeg"
     ]
   },
   {

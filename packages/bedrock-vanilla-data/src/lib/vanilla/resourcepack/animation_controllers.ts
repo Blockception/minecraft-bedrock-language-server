@@ -122,15 +122,21 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
-    "id": "controller.animation.axolotl.move",
+    "id": "controller.animation.axolotl.move.v2",
     "animations": [
       "idle_float",
       "idle_floor",
       "idle_floor_water",
+      "baby_idle_float",
+      "baby_idle_floor",
+      "baby_idle_floor_water",
       "look_at_target",
       "swim",
       "walk_floor",
-      "walk_floor_water"
+      "walk_floor_water",
+      "baby_swim",
+      "baby_walk_floor",
+      "baby_walk_floor_water"
     ],
     "particles": [],
     "sounds": []
@@ -245,6 +251,27 @@ export const AnimationControllers: AnimationController[] = [
     ]
   },
   {
+    "id": "controller.animation.camel_husk.general",
+    "animations": [
+      "moving",
+      "sitting",
+      "sit_down",
+      "stand_up",
+      "dashing",
+      "dashing_sound"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.camel_husk.idle",
+    "animations": [
+      "idle"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "controller.animation.camel.general",
     "animations": [
       "moving",
@@ -285,7 +312,9 @@ export const AnimationControllers: AnimationController[] = [
     "id": "controller.animation.cat.move",
     "animations": [
       "lie_down",
+      "baby_lie_down",
       "sit",
+      "baby_sit",
       "sneak",
       "sprint",
       "walk"
@@ -402,7 +431,9 @@ export const AnimationControllers: AnimationController[] = [
     "id": "controller.animation.drowned.attack.rotations",
     "animations": [
       "zombie_attack_bare_hand",
-      "attack_rotations"
+      "baby_zombie_attack_bare_hand",
+      "attack_rotations",
+      "baby_attack_rotations"
     ],
     "particles": [],
     "sounds": []
@@ -903,8 +934,11 @@ export const AnimationControllers: AnimationController[] = [
       "walk",
       "look_at_target",
       "lying",
+      "baby_lying",
       "rolling",
-      "sitting"
+      "baby_rolling",
+      "sitting",
+      "baby_sitting"
     ],
     "particles": [],
     "sounds": []
@@ -1120,15 +1154,7 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
-    "id": "controller.animation.polarbear.baby",
-    "animations": [
-      "baby_transform"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
-    "id": "controller.animation.polarbear.move",
+    "id": "controller.animation.polar_bear.move",
     "animations": [
       "walk",
       "move",
@@ -1150,6 +1176,17 @@ export const AnimationControllers: AnimationController[] = [
     "animations": [
       "move",
       "look_at_target"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.rabbit.general.v2",
+    "animations": [
+      "look_at_target",
+      "idle_head_tilt",
+      "move",
+      "move_baby"
     ],
     "particles": [],
     "sounds": []
@@ -1610,7 +1647,8 @@ export const AnimationControllers: AnimationController[] = [
     "id": "controller.animation.wolf.sitting",
     "animations": [
       "wolf_leg_default",
-      "wolf_sitting"
+      "wolf_sitting",
+      "wolf_baby_sitting"
     ],
     "particles": [],
     "sounds": []
@@ -1626,7 +1664,8 @@ export const AnimationControllers: AnimationController[] = [
   {
     "id": "controller.animation.zombie.attack_bare_hand",
     "animations": [
-      "zombie_attack_bare_hand"
+      "zombie_attack_bare_hand",
+      "baby_zombie_attack_bare_hand"
     ],
     "particles": [],
     "sounds": []

@@ -2426,6 +2426,10 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:golden_dandelion",
+    "properties": []
+  },
+  {
     "id": "minecraft:golden_rail",
     "properties": [
       "rail_data_bit",

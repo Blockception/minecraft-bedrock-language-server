@@ -7,9 +7,9 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:allay",
     "events": [
-      "pickup_item_delay",
+      "minecraft:entity_spawned",
       "pickup_item_delay_complete",
-      "minecraft:entity_spawned"
+      "pickup_item_delay"
     ],
     "families": [
       "allay",
@@ -124,10 +124,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:blaze",
     "events": [
-      "minecraft:entity_spawned",
       "switch_to_melee",
-      "switch_to_ranged",
-      "minecraft:on_hurt_event"
+      "minecraft:entity_spawned",
+      "minecraft:on_hurt_event",
+      "switch_to_ranged"
     ],
     "families": [
       "blaze",
@@ -138,11 +138,11 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:boat",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:add_can_ride",
       "minecraft:entered_bubble_column_down",
-      "minecraft:entered_bubble_column_up",
       "minecraft:exited_bubble_column",
+      "minecraft:entered_bubble_column_up",
+      "minecraft:entity_spawned",
       "minecraft:sink"
     ],
     "families": [
@@ -153,10 +153,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:bogged",
     "events": [
-      "minecraft:entity_spawned",
+      "be_sheared",
       "minecraft:melee_mode",
-      "minecraft:ranged_mode",
-      "be_sheared"
+      "minecraft:entity_spawned",
+      "minecraft:ranged_mode"
     ],
     "families": [
       "bogged",
@@ -169,8 +169,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:breeze",
     "events": [
-      "minecraft:start_playing_idle_ground_sound",
-      "minecraft:stop_playing_idle_ground_sound"
+      "minecraft:stop_playing_idle_ground_sound",
+      "minecraft:start_playing_idle_ground_sound"
     ],
     "families": [
       "breeze",
@@ -207,13 +207,13 @@ export const Entities: Entity[] = [
     "id": "minecraft:camel_husk",
     "events": [
       "minecraft:entity_spawned",
-      "minecraft:spawn_with_rider",
+      "minecraft:all_riders_dismounted",
       "minecraft:camel_husk_saddled",
       "minecraft:camel_husk_unsaddled",
-      "minecraft:start_sitting",
+      "minecraft:rider_mounted",
       "minecraft:stop_sitting",
-      "minecraft:all_riders_dismounted",
-      "minecraft:rider_mounted"
+      "minecraft:start_sitting",
+      "minecraft:spawn_with_rider"
     ],
     "families": [
       "camel_husk",
@@ -235,7 +235,8 @@ export const Entities: Entity[] = [
       "minecraft:ageable_grow_up",
       "minecraft:on_tame",
       "minecraft:pet_slept_with_owner",
-      "minecraft:cat_gifted_owner"
+      "minecraft:cat_gifted_owner",
+      "minecraft:randomize_sound_variant"
     ],
     "families": [
       "cat",
@@ -245,13 +246,13 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:cave_spider",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:entity_spawned_with_default_jockey",
-      "minecraft:entity_spawned_with_biome_specific_jockey",
-      "minecraft:become_hostile",
-      "minecraft:become_neutral",
       "minecraft:become_angry",
-      "minecraft:on_calm"
+      "minecraft:become_hostile",
+      "minecraft:entity_spawned_with_biome_specific_jockey",
+      "minecraft:become_neutral",
+      "minecraft:entity_spawned",
+      "minecraft:on_calm",
+      "minecraft:entity_spawned_with_default_jockey"
     ],
     "families": [
       "cavespider",
@@ -263,11 +264,11 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:chest_boat",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:add_can_ride",
       "minecraft:entered_bubble_column_down",
-      "minecraft:entered_bubble_column_up",
       "minecraft:exited_bubble_column",
+      "minecraft:entered_bubble_column_up",
+      "minecraft:entity_spawned",
       "minecraft:sink"
     ],
     "families": [
@@ -291,7 +292,8 @@ export const Entities: Entity[] = [
       "minecraft:ageable_grow_up",
       "minecraft:spawn_adult",
       "minecraft:hatch_warm",
-      "minecraft:hatch_cold"
+      "minecraft:hatch_cold",
+      "minecraft:randomize_sound_variant"
     ],
     "families": [
       "chicken",
@@ -310,9 +312,9 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:command_block_minecart",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:command_block_activate",
-      "minecraft:command_block_deactivate"
+      "minecraft:command_block_deactivate",
+      "minecraft:entity_spawned"
     ],
     "families": [
       "minecart",
@@ -322,29 +324,29 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:copper_golem",
     "events": [
-      "minecraft:entity_spawned",
+      "minecraft:become_statue",
       "minecraft:begin_oxidizing",
-      "minecraft:from_player_spawned",
-      "minecraft:from_player_default",
-      "minecraft:from_player_exposed",
       "minecraft:from_player_weathered",
+      "minecraft:from_player_default",
+      "minecraft:entity_spawned",
+      "minecraft:from_player_exposed",
+      "minecraft:transport_items.start_take_succeed",
+      "minecraft:from_player_spawned",
       "minecraft:from_player_oxidized",
+      "minecraft:transport_items.stop_interaction",
       "minecraft:from_serialized_entity",
-      "minecraft:wax_on",
-      "minecraft:wax_off",
-      "minecraft:restart_oxidation_timer",
       "minecraft:maximum_oxidation",
+      "minecraft:on_sheared",
+      "minecraft:on_take_flower",
       "minecraft:oxidize_copper",
       "minecraft:remove_oxidation_layer",
-      "minecraft:transport_items.start_take_succeed",
+      "minecraft:transport_items.start_place_fail",
+      "minecraft:restart_oxidation_timer",
+      "minecraft:serialize_entity_succeeded",
       "minecraft:transport_items.start_take_fail",
       "minecraft:transport_items.start_place_succeed",
-      "minecraft:transport_items.start_place_fail",
-      "minecraft:transport_items.stop_interaction",
-      "minecraft:become_statue",
-      "minecraft:serialize_entity_succeeded",
-      "minecraft:on_take_flower",
-      "minecraft:on_sheared"
+      "minecraft:wax_off",
+      "minecraft:wax_on"
     ],
     "families": [
       "copper_golem",
@@ -358,7 +360,8 @@ export const Entities: Entity[] = [
       "minecraft:entity_born",
       "minecraft:entity_transformed",
       "minecraft:ageable_grow_up",
-      "minecraft:spawn_adult"
+      "minecraft:spawn_adult",
+      "minecraft:randomize_sound_variant"
     ],
     "families": [
       "cow",
@@ -368,19 +371,19 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:creaking",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:entity_spawned_by_creaking_heart",
+      "minecraft:crumble",
       "minecraft:become_hostile",
       "minecraft:become_neutral",
+      "minecraft:entity_spawned_by_creaking_heart",
+      "minecraft:crumble_and_notify_creaking_heart",
+      "minecraft:damaged_by_entity",
+      "minecraft:damaged_by_player",
+      "minecraft:entity_spawned",
+      "minecraft:increment_swaying_ticks",
       "minecraft:on_target_start_looking",
       "minecraft:on_target_stop_looking",
-      "minecraft:start_twitching",
-      "minecraft:crumble",
-      "minecraft:crumble_and_notify_creaking_heart",
-      "minecraft:damaged_by_player",
-      "minecraft:damaged_by_entity",
-      "minecraft:increment_swaying_ticks",
-      "minecraft:reset_swaying_ticks"
+      "minecraft:reset_swaying_ticks",
+      "minecraft:start_twitching"
     ],
     "families": [
       "creaking",
@@ -391,10 +394,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:creeper",
     "events": [
-      "minecraft:start_exploding_forced",
-      "minecraft:start_exploding",
+      "minecraft:become_charged",
       "minecraft:stop_exploding",
-      "minecraft:become_charged"
+      "minecraft:start_exploding",
+      "minecraft:start_exploding_forced"
     ],
     "families": [
       "creeper",
@@ -449,19 +452,19 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:drowned",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:entity_born",
-      "minecraft:as_baby",
-      "minecraft:as_baby_jockey",
+      "minecraft:as_rider",
       "minecraft:as_adult",
-      "minecraft:as_ranged_baby",
-      "minecraft:as_ranged_baby_jockey",
+      "minecraft:as_baby_jockey",
+      "minecraft:as_baby",
       "minecraft:as_ranged_adult",
-      "minecraft:switch_to_melee",
-      "minecraft:switch_to_ranged",
+      "minecraft:as_ranged_baby_jockey",
+      "minecraft:as_ranged_baby",
+      "minecraft:entity_spawned",
       "minecraft:has_target",
       "minecraft:lost_target",
-      "minecraft:as_rider"
+      "minecraft:switch_to_melee",
+      "minecraft:switch_to_ranged"
     ],
     "families": [
       "drowned",
@@ -475,8 +478,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:egg",
     "events": [
-      "minecraft:spawn_temperate",
       "minecraft:spawn_cold",
+      "minecraft:spawn_temperate",
       "minecraft:spawn_warm"
     ],
     "families": []
@@ -502,9 +505,9 @@ export const Entities: Entity[] = [
     "id": "minecraft:ender_dragon",
     "events": [
       "minecraft:entity_spawned",
-      "minecraft:start_land",
+      "minecraft:start_death",
       "minecraft:start_fly",
-      "minecraft:start_death"
+      "minecraft:start_land"
     ],
     "families": [
       "dragon",
@@ -547,10 +550,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:evocation_illager",
     "events": [
+      "minecraft:raid_expired",
       "minecraft:spawn_for_raid",
-      "minecraft:start_celebrating",
       "minecraft:stop_celebrating",
-      "minecraft:raid_expired"
+      "minecraft:start_celebrating"
     ],
     "families": [
       "evocation_illager",
@@ -613,13 +616,13 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:frog",
     "events": [
-      "minecraft:entity_spawned",
-      "spawn_temperate",
-      "spawn_cold",
       "spawn_warm",
-      "minecraft:entity_transformed",
       "become_pregnant",
-      "laid_egg"
+      "laid_egg",
+      "spawn_temperate",
+      "minecraft:entity_spawned",
+      "spawn_cold",
+      "minecraft:entity_transformed"
     ],
     "families": [
       "frog",
@@ -638,8 +641,9 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:glow_squid",
     "events": [
+      "minecraft:entity_born",
       "minecraft:entity_spawned",
-      "minecraft:entity_born"
+      "minecraft:ageable_grow_up"
     ],
     "families": [
       "aquatic",
@@ -666,8 +670,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:guardian",
     "events": [
-      "minecraft:target_too_close",
-      "minecraft:target_far_enough"
+      "minecraft:target_far_enough",
+      "minecraft:target_too_close"
     ],
     "families": [
       "aquatic",
@@ -726,8 +730,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:hopper_minecart",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:hopper_activate",
+      "minecraft:entity_spawned",
       "minecraft:hopper_deactivate"
     ],
     "families": [
@@ -762,17 +766,17 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:husk",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:as_adult",
-      "minecraft:as_baby",
-      "minecraft:as_baby_jockey",
-      "minecraft:spawn_as_rider",
       "minecraft:entity_born",
-      "minecraft:start_transforming",
+      "minecraft:spawn_as_rider",
+      "minecraft:as_adult",
       "minecraft:stop_transforming",
+      "minecraft:on_stop_riding_camel_husk",
+      "minecraft:as_baby_jockey",
+      "minecraft:as_baby",
       "minecraft:convert_to_zombie",
+      "minecraft:entity_spawned",
       "minecraft:on_start_riding_camel_husk",
-      "minecraft:on_stop_riding_camel_husk"
+      "minecraft:start_transforming"
     ],
     "families": [
       "husk",
@@ -780,7 +784,7 @@ export const Entities: Entity[] = [
       "undead",
       "monster",
       "mob",
-      "baby_undead ",
+      "baby_undead",
       "husk_rider"
     ]
   },
@@ -845,12 +849,12 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:magma_cube",
     "events": [
-      "minecraft:entity_spawned",
-      "spawn_small",
-      "spawn_medium",
-      "spawn_large",
+      "minecraft:become_aggressive",
       "minecraft:become_calm",
-      "minecraft:become_aggressive"
+      "spawn_small",
+      "spawn_large",
+      "minecraft:entity_spawned",
+      "spawn_medium"
     ],
     "families": [
       "magmacube",
@@ -998,8 +1002,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:parched",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:melee_mode",
+      "minecraft:entity_spawned",
       "minecraft:ranged_mode"
     ],
     "families": [
@@ -1015,13 +1019,13 @@ export const Entities: Entity[] = [
     "events": [
       "minecraft:entity_spawned",
       "minecraft:on_tame",
-      "minecraft:on_riding_player",
-      "minecraft:on_not_riding_player"
+      "minecraft:on_not_riding_player",
+      "minecraft:on_riding_player"
     ],
     "families": [
-      "parrot_wild",
+      "parrot_tame",
       "mob",
-      "parrot_tame"
+      "parrot_wild"
     ]
   },
   {
@@ -1043,7 +1047,8 @@ export const Entities: Entity[] = [
       "minecraft:ageable_grow_up",
       "minecraft:on_saddled",
       "minecraft:on_unsaddled",
-      "minecraft:spawn_adult"
+      "minecraft:spawn_adult",
+      "minecraft:randomize_sound_variant"
     ],
     "families": [
       "pig",
@@ -1083,14 +1088,14 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:piglin_brute",
     "events": [
-      "minecraft:entity_spawned",
       "stop_zombification_event",
-      "start_zombification_event",
-      "become_angry_event",
       "become_calm_event",
-      "become_zombie_event",
+      "become_angry_event",
       "important_block_destroyed_event",
-      "go_back_to_spawn_failed"
+      "become_zombie_event",
+      "go_back_to_spawn_failed",
+      "minecraft:entity_spawned",
+      "start_zombification_event"
     ],
     "families": [
       "piglin",
@@ -1102,18 +1107,18 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:pillager",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:spawn_for_raid",
-      "minecraft:spawn_as_patrol_follower",
-      "minecraft:spawn_as_illager_captain",
-      "minecraft:promote_to_illager_captain",
-      "minecraft:promote_to_patrol_captain",
-      "minecraft:melee_mode",
       "minecraft:ranged_mode",
-      "minecraft:start_celebrating",
-      "minecraft:stop_celebrating",
+      "minecraft:calm",
+      "minecraft:entity_spawned",
       "minecraft:raid_expired",
-      "minecraft:calm"
+      "minecraft:melee_mode",
+      "minecraft:promote_to_illager_captain",
+      "minecraft:spawn_as_illager_captain",
+      "minecraft:promote_to_patrol_captain",
+      "minecraft:spawn_as_patrol_follower",
+      "minecraft:spawn_for_raid",
+      "minecraft:start_celebrating",
+      "minecraft:stop_celebrating"
     ],
     "families": [
       "pillager",
@@ -1125,10 +1130,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:player",
     "events": [
-      "minecraft:gain_raid_omen",
       "minecraft:clear_add_raid_omen",
-      "minecraft:trigger_raid",
-      "minecraft:remove_raid_trigger"
+      "minecraft:remove_raid_trigger",
+      "minecraft:gain_raid_omen",
+      "minecraft:trigger_raid"
     ],
     "families": [
       "player"
@@ -1153,15 +1158,15 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:pufferfish",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:to_full_puff",
-      "minecraft:start_half_puff",
-      "minecraft:on_half_puff",
-      "minecraft:start_full_puff",
-      "minecraft:on_full_puff",
       "minecraft:from_full_puff",
+      "minecraft:entity_spawned",
+      "minecraft:on_normal_puff",
       "minecraft:on_deflate",
-      "minecraft:on_normal_puff"
+      "minecraft:on_full_puff",
+      "minecraft:on_half_puff",
+      "minecraft:start_half_puff",
+      "minecraft:start_full_puff",
+      "minecraft:to_full_puff"
     ],
     "families": [
       "aquatic",
@@ -1243,18 +1248,18 @@ export const Entities: Entity[] = [
     "id": "minecraft:shulker",
     "events": [
       "minecraft:entity_spawned",
-      "minecraft:turn_purple",
+      "minecraft:turn_magenta",
+      "minecraft:turn_green",
       "minecraft:turn_black",
       "minecraft:turn_blue",
+      "minecraft:turn_pink",
       "minecraft:turn_brown",
-      "minecraft:turn_cyan",
       "minecraft:turn_gray",
-      "minecraft:turn_green",
+      "minecraft:turn_cyan",
       "minecraft:turn_light_blue",
       "minecraft:turn_lime",
-      "minecraft:turn_magenta",
       "minecraft:turn_orange",
-      "minecraft:turn_pink",
+      "minecraft:turn_purple",
       "minecraft:turn_red",
       "minecraft:turn_silver",
       "minecraft:turn_white",
@@ -1274,8 +1279,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:silverfish",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:become_angry",
+      "minecraft:entity_spawned",
       "minecraft:on_calm"
     ],
     "families": [
@@ -1289,13 +1294,13 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:skeleton",
     "events": [
-      "minecraft:entity_spawned",
       "become_stray_event",
       "got_in_powder_snow",
       "got_out_of_powder_snow",
-      "minecraft:spring_trap",
       "minecraft:melee_mode",
-      "minecraft:ranged_mode"
+      "minecraft:entity_spawned",
+      "minecraft:ranged_mode",
+      "minecraft:spring_trap"
     ],
     "families": [
       "skeleton",
@@ -1321,12 +1326,12 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:slime",
     "events": [
-      "minecraft:entity_spawned",
-      "spawn_small",
-      "spawn_medium",
-      "spawn_large",
+      "minecraft:become_aggressive",
       "minecraft:become_calm",
-      "minecraft:become_aggressive"
+      "spawn_small",
+      "spawn_large",
+      "minecraft:entity_spawned",
+      "spawn_medium"
     ],
     "families": [
       "slime",
@@ -1380,13 +1385,13 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:spider",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:entity_spawned_with_default_jockey",
-      "minecraft:entity_spawned_with_biome_specific_jockey",
-      "minecraft:become_hostile",
-      "minecraft:become_neutral",
       "minecraft:become_angry",
-      "minecraft:become_calm"
+      "minecraft:entity_spawned_with_default_jockey",
+      "minecraft:become_calm",
+      "minecraft:become_hostile",
+      "minecraft:entity_spawned_with_biome_specific_jockey",
+      "minecraft:become_neutral",
+      "minecraft:entity_spawned"
     ],
     "families": [
       "spider",
@@ -1403,8 +1408,9 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:squid",
     "events": [
+      "minecraft:entity_born",
       "minecraft:entity_spawned",
-      "minecraft:entity_born"
+      "minecraft:ageable_grow_up"
     ],
     "families": [
       "aquatic",
@@ -1415,9 +1421,9 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:stray",
     "events": [
-      "minecraft:entity_spawned",
       "change_to_skeleton",
       "minecraft:melee_mode",
+      "minecraft:entity_spawned",
       "minecraft:ranged_mode"
     ],
     "families": [
@@ -1482,8 +1488,8 @@ export const Entities: Entity[] = [
     "id": "minecraft:tnt_minecart",
     "events": [
       "minecraft:entity_spawned",
-      "minecraft:on_prime",
-      "minecraft:on_instant_prime"
+      "minecraft:on_instant_prime",
+      "minecraft:on_prime"
     ],
     "families": [
       "minecart",
@@ -1521,28 +1527,28 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:tropicalfish",
     "events": [
+      "minecraft:become_red_snapper",
       "minecraft:become_anenonme",
+      "minecraft:become_cichlid",
       "minecraft:become_black_tang",
       "minecraft:become_blue_dory",
-      "minecraft:become_butterfly_fish",
-      "minecraft:become_cichlid",
-      "minecraft:become_clownfish",
-      "minecraft:become_cc_betta",
       "minecraft:become_dog_fish",
+      "minecraft:become_triggerfish",
+      "minecraft:become_butterfly_fish",
+      "minecraft:become_cc_betta",
+      "minecraft:become_clownfish",
       "minecraft:become_e_red_snapper",
       "minecraft:become_goat_fish",
       "minecraft:become_moorish_idol",
       "minecraft:become_ornate_butterfly",
-      "minecraft:become_parrot_fish",
       "minecraft:become_queen_angel_fish",
+      "minecraft:become_parrot_fish",
+      "minecraft:become_tomato_clown",
       "minecraft:become_red_cichlid",
       "minecraft:become_red_lipped_benny",
-      "minecraft:become_red_snapper",
       "minecraft:become_threadfin",
-      "minecraft:become_tomato_clown",
-      "minecraft:become_triggerfish",
-      "minecraft:become_yellow_tang",
       "minecraft:become_yellow_tail_parrot",
+      "minecraft:become_yellow_tang",
       "minecraft:entity_spawned"
     ],
     "families": [
@@ -1571,8 +1577,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:vex",
     "events": [
-      "minecraft:add_damage_timer",
-      "minecraft:add_periodic_damage"
+      "minecraft:add_periodic_damage",
+      "minecraft:add_damage_timer"
     ],
     "families": [
       "vex",
@@ -1584,39 +1590,39 @@ export const Entities: Entity[] = [
     "id": "minecraft:villager",
     "events": [
       "become_witch",
-      "become_zombie",
-      "minecraft:entity_spawned",
       "minecraft:entity_transformed",
+      "become_zombie",
+      "minecraft:ageable_grow_up",
+      "minecraft:entity_spawned",
+      "minecraft:become_cleric",
       "minecraft:entity_born",
-      "minecraft:spawn_farmer",
-      "minecraft:spawn_librarian",
       "minecraft:spawn_cleric",
       "minecraft:spawn_armorer",
       "minecraft:spawn_butcher",
-      "minecraft:ageable_grow_up",
-      "minecraft:become_cleric",
+      "minecraft:spawn_farmer",
+      "minecraft:spawn_librarian",
       "minecraft:start_celebrating",
       "minecraft:stop_celebrating"
     ],
     "families": [
       "villager",
       "mob",
-      "peasant",
-      "farmer",
-      "fisherman",
-      "shepherd",
-      "fletcher",
-      "librarian",
-      "cartographer",
-      "priest",
-      "cleric",
       "blacksmith",
       "armorer",
       "weaponsmith",
-      "toolsmith",
       "artisan",
       "butcher",
-      "leatherworker"
+      "cartographer",
+      "priest",
+      "cleric",
+      "peasant",
+      "farmer",
+      "fisherman",
+      "fletcher",
+      "leatherworker",
+      "librarian",
+      "shepherd",
+      "toolsmith"
     ]
   },
   {
@@ -1624,83 +1630,83 @@ export const Entities: Entity[] = [
     "events": [
       "become_witch",
       "become_zombie",
-      "minecraft:entity_spawned",
-      "minecraft:spawn_from_village",
+      "minecraft:stop_celebrating",
+      "minecraft:schedule_work_fisher",
+      "minecraft:become_farmer",
+      "minecraft:start_celebrating",
+      "minecraft:become_butcher",
+      "minecraft:ageable_grow_up",
+      "minecraft:schedule_work_pro_villager",
+      "minecraft:become_cleric",
+      "minecraft:become_armorer",
+      "minecraft:become_cartographer",
+      "minecraft:become_fletcher",
+      "minecraft:become_fisherman",
+      "minecraft:become_leatherworker",
+      "minecraft:become_librarian",
+      "minecraft:become_mason",
       "minecraft:entity_transformed",
+      "minecraft:become_sheperd",
+      "minecraft:schedule_play_villager",
+      "minecraft:become_toolsmith",
+      "minecraft:spawn_from_village",
+      "minecraft:schedule_work_farmer",
+      "minecraft:become_unskilled",
+      "minecraft:become_weaponsmith",
       "minecraft:entity_born",
-      "minecraft:spawn_farmer",
-      "minecraft:spawn_librarian",
+      "minecraft:entity_spawned",
+      "minecraft:resupply_trades",
+      "minecraft:schedule_home_villager",
+      "minecraft:schedule_bed_villager",
+      "minecraft:schedule_gather_villager",
+      "minecraft:schedule_wander_villager",
+      "minecraft:schedule_work_librarian",
       "minecraft:spawn_cleric",
       "minecraft:spawn_armorer",
       "minecraft:spawn_butcher",
-      "minecraft:ageable_grow_up",
-      "minecraft:become_unskilled",
-      "minecraft:become_cleric",
-      "minecraft:become_farmer",
-      "minecraft:become_fisherman",
-      "minecraft:become_fletcher",
-      "minecraft:become_librarian",
-      "minecraft:become_cartographer",
-      "minecraft:become_armorer",
-      "minecraft:become_weaponsmith",
-      "minecraft:become_toolsmith",
-      "minecraft:become_butcher",
-      "minecraft:become_leatherworker",
-      "minecraft:become_sheperd",
-      "minecraft:become_mason",
-      "minecraft:schedule_wander_villager",
-      "minecraft:schedule_gather_villager",
-      "minecraft:schedule_home_villager",
-      "minecraft:schedule_bed_villager",
-      "minecraft:schedule_play_villager",
-      "minecraft:schedule_work_pro_villager",
-      "minecraft:schedule_work_farmer",
-      "minecraft:schedule_work_fisher",
-      "minecraft:schedule_work_librarian",
-      "minecraft:resupply_trades",
-      "minecraft:start_celebrating",
-      "minecraft:stop_celebrating"
+      "minecraft:spawn_farmer",
+      "minecraft:spawn_librarian"
     ],
     "families": [
       "villager",
       "mob",
-      "peasant",
-      "unskilled",
-      "farmer",
-      "fisherman",
-      "shepherd",
-      "fletcher",
-      "librarian",
-      "cartographer",
-      "priest",
-      "cleric",
       "blacksmith",
       "armorer",
+      "cartographer",
       "weaponsmith",
-      "toolsmith",
       "artisan",
       "butcher",
+      "priest",
+      "cleric",
+      "peasant",
+      "farmer",
+      "fisherman",
+      "fletcher",
+      "librarian",
       "leatherworker",
       "stone_mason",
-      "nitwit"
+      "nitwit",
+      "unskilled",
+      "shepherd",
+      "toolsmith"
     ]
   },
   {
     "id": "minecraft:vindicator",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:spawn_as_patrol_follower",
-      "minecraft:become_aggro",
-      "minecraft:stop_aggro",
-      "minecraft:start_johnny",
-      "minecraft:stop_johnny",
       "minecraft:spawn_for_raid",
-      "minecraft:spawn_as_illager_captain",
+      "minecraft:become_aggro",
+      "minecraft:entity_spawned",
+      "minecraft:raid_expired",
       "minecraft:promote_to_illager_captain",
+      "minecraft:spawn_as_illager_captain",
       "minecraft:promote_to_patrol_captain",
+      "minecraft:spawn_as_patrol_follower",
+      "minecraft:stop_johnny",
       "minecraft:start_celebrating",
-      "minecraft:stop_celebrating",
-      "minecraft:raid_expired"
+      "minecraft:start_johnny",
+      "minecraft:stop_aggro",
+      "minecraft:stop_celebrating"
     ],
     "families": [
       "vindicator",
@@ -1712,10 +1718,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:wandering_trader",
     "events": [
-      "minecraft:scheduled",
-      "minecraft:start_despawn",
+      "minecraft:become_calm",
       "minecraft:become_scared",
-      "minecraft:become_calm"
+      "minecraft:scheduled",
+      "minecraft:start_despawn"
     ],
     "families": [
       "wandering_trader",
@@ -1726,8 +1732,8 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:warden",
     "events": [
-      "minecraft:spawn_emerging",
       "minecraft:emerged",
+      "minecraft:spawn_emerging",
       "minecraft:entity_spawned",
       "on_digging_event"
     ],
@@ -1748,10 +1754,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:witch",
     "events": [
+      "minecraft:raid_expired",
       "minecraft:spawn_for_raid",
-      "minecraft:start_celebrating",
       "minecraft:stop_celebrating",
-      "minecraft:raid_expired"
+      "minecraft:start_celebrating"
     ],
     "families": [
       "witch",
@@ -1848,37 +1854,37 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:zoglin",
     "events": [
-      "become_angry_event",
       "become_calm_event",
-      "minecraft:entity_transformed",
-      "minecraft:entity_spawned",
+      "become_angry_event",
       "minecraft:entity_born",
       "minecraft:as_adult",
-      "minecraft:as_baby"
+      "minecraft:as_baby",
+      "minecraft:entity_spawned",
+      "minecraft:entity_transformed"
     ],
     "families": [
       "zoglin",
-      "zoglin_baby",
+      "zoglin_adult",
       "undead",
       "monster",
       "mob",
-      "zoglin_adult"
+      "zoglin_baby"
     ]
   },
   {
     "id": "minecraft:zombie",
     "events": [
-      "minecraft:entity_spawned",
       "minecraft:entity_born",
-      "minecraft:as_adult",
-      "minecraft:as_baby",
-      "minecraft:as_baby_jockey",
-      "minecraft:start_transforming",
-      "minecraft:stop_transforming",
-      "minecraft:convert_to_drowned",
+      "minecraft:on_stop_riding_zombie_horse",
       "minecraft:spawn_as_rider",
+      "minecraft:as_adult",
+      "minecraft:as_baby_jockey",
+      "minecraft:as_baby",
+      "minecraft:convert_to_drowned",
+      "minecraft:entity_spawned",
       "minecraft:on_start_riding_zombie_horse",
-      "minecraft:on_stop_riding_zombie_horse"
+      "minecraft:start_transforming",
+      "minecraft:stop_transforming"
     ],
     "families": [
       "zombie",
@@ -1913,25 +1919,25 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:zombie_nautilus",
     "events": [
-      "minecraft:entity_spawned",
-      "minecraft:spawn_wild",
-      "minecraft:spawn_tame",
-      "minecraft:on_saddled",
       "minecraft:on_saddled_in_water",
-      "minecraft:on_saddled_out_of_water",
-      "minecraft:on_unsaddled",
-      "minecraft:on_armor_equip",
-      "minecraft:on_tame",
-      "minecraft:on_unleashed",
-      "minecraft:on_stop_tempting",
-      "minecraft:on_drowned_mount",
       "minecraft:on_drowned_dismount",
-      "minecraft:on_player_mount",
-      "minecraft:on_player_dismount",
+      "minecraft:on_saddled",
       "minecraft:become_angry",
+      "minecraft:on_armor_equip",
+      "minecraft:entity_spawned",
+      "minecraft:on_player_dismount",
       "minecraft:on_calm",
-      "minecraft:switch_to_player_controlled",
-      "minecraft:switch_to_ai_controlled"
+      "minecraft:on_unleashed",
+      "minecraft:on_drowned_mount",
+      "minecraft:on_player_mount",
+      "minecraft:on_saddled_out_of_water",
+      "minecraft:on_stop_tempting",
+      "minecraft:on_tame",
+      "minecraft:on_unsaddled",
+      "minecraft:spawn_tame",
+      "minecraft:spawn_wild",
+      "minecraft:switch_to_ai_controlled",
+      "minecraft:switch_to_player_controlled"
     ],
     "families": [
       "aquatic",
@@ -1944,15 +1950,15 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:zombie_pigman",
     "events": [
-      "minecraft:entity_transformed",
+      "minecraft:on_calm",
+      "minecraft:as_baby",
+      "minecraft:entity_born",
+      "minecraft:become_angry",
       "minecraft:entity_spawned",
       "spawn_adult",
-      "spawn_baby",
-      "minecraft:entity_born",
-      "minecraft:as_baby",
-      "minecraft:on_calm",
-      "minecraft:become_angry",
-      "minecraft:spawn_as_strider_jockey"
+      "minecraft:entity_transformed",
+      "minecraft:spawn_as_strider_jockey",
+      "spawn_baby"
     ],
     "families": [
       "baby_undead",
@@ -1967,66 +1973,66 @@ export const Entities: Entity[] = [
     "id": "minecraft:zombie_villager",
     "events": [
       "villager_converted",
+      "from_village",
       "minecraft:entity_spawned",
-      "minecraft:entity_transformed",
       "minecraft:become_cleric",
-      "from_village"
+      "minecraft:entity_transformed"
     ],
     "families": [
-      "farmer",
-      "zombie",
+      "armorer",
       "zombie_villager",
+      "zombie",
       "undead",
       "monster",
       "mob",
-      "fisherman",
-      "shepherd",
-      "fletcher",
-      "librarian",
       "cartographer",
-      "cleric",
-      "armorer",
       "weaponsmith",
-      "toolsmith",
       "butcher",
-      "leatherworker"
+      "cleric",
+      "farmer",
+      "fisherman",
+      "fletcher",
+      "leatherworker",
+      "librarian",
+      "shepherd",
+      "toolsmith"
     ]
   },
   {
     "id": "minecraft:zombie_villager_v2",
     "events": [
-      "villager_converted",
-      "minecraft:entity_spawned",
-      "minecraft:entity_born",
-      "minecraft:as_baby",
-      "minecraft:spawn_skilled_adult",
-      "minecraft:entity_transformed",
-      "minecraft:become_cleric",
       "from_village",
-      "minecraft:add_biome_and_skin"
+      "minecraft:entity_spawned",
+      "minecraft:become_cleric",
+      "minecraft:add_biome_and_skin",
+      "minecraft:as_baby",
+      "minecraft:entity_born",
+      "minecraft:entity_transformed",
+      "minecraft:spawn_skilled_adult",
+      "villager_converted"
     ],
     "families": [
-      "baby_undead",
-      "zombie",
+      "cartographer",
       "zombie_villager",
+      "zombie",
       "undead",
       "monster",
       "mob",
-      "unskilled",
+      "armorer",
+      "baby_undead",
+      "weaponsmith",
+      "butcher",
+      "cleric",
       "farmer",
       "fisherman",
-      "shepherd",
       "fletcher",
       "librarian",
-      "cartographer",
-      "cleric",
-      "armorer",
-      "weaponsmith",
-      "toolsmith",
-      "butcher",
       "leatherworker",
       "stone_mason",
-      "nitwit"
+      "nitwit",
+      "unskilled",
+      "shepherd",
+      "toolsmith"
     ]
   }
 ];

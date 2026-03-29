@@ -27,7 +27,13 @@ export const Entities: Entity[] = [
       "peek",
       "unroll",
       "unroll_fast",
-      "roll_up_controller"
+      "roll_up_controller",
+      "baby_walk",
+      "baby_roll_up",
+      "baby_rolled_up",
+      "baby_peek",
+      "baby_unroll",
+      "baby_unroll_fast"
     ]
   },
   {
@@ -66,7 +72,13 @@ export const Entities: Entity[] = [
       "walk_floor_water",
       "play_dead",
       "swim_angle",
-      "look_at_target"
+      "look_at_target",
+      "baby_idle_floor",
+      "baby_idle_floor_water",
+      "baby_idle_float",
+      "baby_swim",
+      "baby_walk_floor",
+      "baby_walk_floor_water"
     ]
   },
   {
@@ -163,7 +175,13 @@ export const Entities: Entity[] = [
       "look_at_target",
       "dashing",
       "dashing_sound",
-      "idle"
+      "idle",
+      "baby_moving",
+      "baby_sit_down",
+      "baby_sitting",
+      "baby_stand_up",
+      "baby_dashing",
+      "baby_idle"
     ]
   },
   {
@@ -190,7 +208,9 @@ export const Entities: Entity[] = [
       "sit",
       "look_at_target",
       "baby_transform",
-      "lie_down"
+      "lie_down",
+      "baby_lie_down",
+      "baby_sit"
     ]
   },
   {
@@ -447,7 +467,12 @@ export const Entities: Entity[] = [
       "wiggle",
       "stuck",
       "pounce",
-      "move"
+      "move",
+      "baby_walk",
+      "baby_pounce",
+      "baby_sit",
+      "baby_sleep",
+      "baby_wiggle"
     ]
   },
   {
@@ -659,7 +684,10 @@ export const Entities: Entity[] = [
       "baby_transform",
       "sitting",
       "rolling",
-      "lying"
+      "lying",
+      "baby_sitting",
+      "baby_rolling",
+      "baby_lying"
     ]
   },
   {
@@ -1081,7 +1109,9 @@ export const Entities: Entity[] = [
     "animations": [
       "look_at_target",
       "walk",
-      "bristle_flow"
+      "bristle_flow",
+      "walk_baby",
+      "bristle_flow_baby"
     ]
   },
   {
@@ -1169,7 +1199,8 @@ export const Entities: Entity[] = [
       "move",
       "raise_arms",
       "baby_transform",
-      "get_in_bed"
+      "get_in_bed",
+      "get_in_bed_baby"
     ]
   },
   {
@@ -1285,7 +1316,8 @@ export const Entities: Entity[] = [
       "wolf_angry",
       "wolf_sitting",
       "wolf_shaking",
-      "wolf_leg_default"
+      "wolf_leg_default",
+      "wolf_baby_sitting"
     ]
   },
   {
@@ -1445,7 +1477,8 @@ export const Entities: Entity[] = [
       "swimming_controller",
       "melee_spear_use",
       "melee_spear_hold",
-      "melee_spear_controller"
+      "melee_spear_controller",
+      "baby_zombie_attack_bare_hand"
     ]
   }
 ];
