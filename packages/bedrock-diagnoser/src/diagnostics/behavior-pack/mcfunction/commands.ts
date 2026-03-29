@@ -215,8 +215,46 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
     mcfunction_diagnoseparameter(data.parameters[i], command.parameters[i], diagnoser, command, edu);
   }
 
-  // Validate coordinate groups: each x,y,z triplet must be fully provided and must not mix local/non-local types
-  minecraft_coordinate_set_diagnose(data.parameters, command.parameters, diagnoser);
+  // Validate coordinate groups: each x,y,z triplet must be fully provided and must not mix local/non-local types.
+  // When multiple overloads match, prefer one with a valid coordinate layout to avoid false positives
+  // (e.g., "summon creeper 100 200 300" should not error because the name-tag overload was tried first).
+  const coordData =
+    info.length > 1
+      ? (info.find((o) => !hasCoordinateGroupErrors(o.parameters, command.parameters)) ?? data)
+      : data;
+  minecraft_coordinate_set_diagnose(coordData.parameters, command.parameters, diagnoser);
+}
+
+/**
+ * Returns true if the given overload's coordinate groups contain errors
+ * (incomplete triplets or mixed local/non-local coordinates) for the given command parameters.
+ * Used to pick the best-matching overload when multiple overloads are valid.
+ */
+function hasCoordinateGroupErrors(patternParams: ParameterInfo[], commandParams: Parameter[]): boolean {
+  let i = 0;
+  while (i < patternParams.length) {
+    if (patternParams[i].type !== ParameterType.coordinate) {
+      i++;
+      continue;
+    }
+    let runEnd = i;
+    while (runEnd + 1 < patternParams.length && patternParams[runEnd + 1].type === ParameterType.coordinate) {
+      runEnd++;
+    }
+    for (let g = i; g + 2 <= runEnd; g += 3) {
+      const provided = [commandParams[g], commandParams[g + 1], commandParams[g + 2]].filter(
+        (p): p is Parameter => p !== undefined,
+      );
+      if (provided.length > 0 && provided.length < 3) return true;
+      if (provided.length === 3) {
+        const hasLocal = provided.some((p) => p.text.startsWith('^'));
+        const hasNonLocal = provided.some((p) => !p.text.startsWith('^'));
+        if (hasLocal && hasNonLocal) return true;
+      }
+    }
+    i = runEnd + 1;
+  }
+  return false;
 }
 
 type DiagnoseCommand = (value: OffsetWord, diagnoser: DocumentDiagnosticsBuilder) => void | boolean;

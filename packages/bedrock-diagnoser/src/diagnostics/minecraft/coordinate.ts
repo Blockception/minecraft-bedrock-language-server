@@ -41,6 +41,22 @@ export function minecraft_coordinate_set_diagnose(
       runEnd++;
     }
 
+    // Handle 2-coordinate groups (e.g., spreadplayers x,z)
+    // Local coordinates (^) are not valid for 2D positions because ^ requires all 3 axes
+    if (runEnd === i + 1) {
+      for (let g = i; g <= runEnd; g++) {
+        const p = commandParams[g];
+        if (p !== undefined && p.text.startsWith('^')) {
+          diagnoser.add(
+            p,
+            `Cannot use local coordinates (^) for a 2D position`,
+            DiagnosticSeverity.error,
+            'minecraft.coordinate.local',
+          );
+        }
+      }
+    }
+
     // Process each triplet (x, y, z) within the run
     for (let g = i; g + 2 <= runEnd; g += 3) {
       const x = commandParams[g];

@@ -22,6 +22,13 @@ describe("BehaviorPack", () => {
         "setblock ~ ~ ~ stone",
         "setblock 1 2 3 stone",
         "setblock ^ ^ ^ stone",
+        // summon with entity + 3 coordinates (should not be treated as name-tag overload)
+        "summon creeper 100 200 300",
+        "summon creeper ~ ~ ~",
+        "summon creeper ^ ^ ^",
+        // spreadplayers with absolute coordinates (2-coord pair)
+        "spreadplayers 100 200 1 10 @a",
+        "spreadplayers ~ ~ 1 10 @a",
       ];
 
       // Commands with invalid coordinate usage
@@ -40,6 +47,12 @@ describe("BehaviorPack", () => {
         "setblock ~ 5",
         // Only 2 coordinates for setblock
         "setblock ~ ~ stone",
+        // spreadplayers with local coordinates (^ not valid for 2D position)
+        "spreadplayers ^ ^ 1 10 @a",
+        "spreadplayers ^1 ^2 1 10 @a",
+        // spreadplayers with mixed local and non-local (also disallowed)
+        "spreadplayers ^ ~ 1 10 @a",
+        "spreadplayers ~ ^ 1 10 @a",
       ];
 
       for (const command of validCommands) {
