@@ -2529,6 +2529,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:golden_dandelion",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:golden_helmet",
     "max_damage": 0
   },

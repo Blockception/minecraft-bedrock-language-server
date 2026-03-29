@@ -873,6 +873,14 @@ export const Langs: Lang[] = [
     "value": "Notification"
   },
   {
+    "id": "accessibility.toast.button",
+    "value": "Press %s to %s"
+  },
+  {
+    "id": "accessibility.toast.notification.ButtonTtsTouch",
+    "value": "Double tap the button at the top of the screen to %s"
+  },
+  {
     "id": "accessibility.toggle.tts.title",
     "value": "Toggle"
   },
@@ -1549,6 +1557,10 @@ export const Langs: Lang[] = [
     "value": "Mount"
   },
   {
+    "id": "action.interact.mount.touch",
+    "value": ":horse_ride: Mount"
+  },
+  {
     "id": "action.interact.name",
     "value": "Name"
   },
@@ -1601,16 +1613,32 @@ export const Langs: Lang[] = [
     "value": "Board"
   },
   {
+    "id": "action.interact.ride.boat.touch",
+    "value": ":boat_ride: Board"
+  },
+  {
     "id": "action.interact.ride.horse",
     "value": "Ride"
+  },
+  {
+    "id": "action.interact.ride.horse.touch",
+    "value": ":horse_ride: Ride"
   },
   {
     "id": "action.interact.ride.minecart",
     "value": "Ride"
   },
   {
+    "id": "action.interact.ride.minecart.touch",
+    "value": ":boat_ride: Ride"
+  },
+  {
     "id": "action.interact.ride.strider",
     "value": "Ride"
+  },
+  {
+    "id": "action.interact.ride.strider.touch",
+    "value": ":horse_ride: Ride"
   },
   {
     "id": "action.interact.saddle",
@@ -3111,6 +3139,10 @@ export const Langs: Lang[] = [
   {
     "id": "commands.allowlist.list",
     "value": "There are %1$d (out of %2$d seen) allowlisted players:"
+  },
+  {
+    "id": "commands.allowlist.noOnlineAuth",
+    "value": "Using an allowlist without online authentication can be dangerous and is not allowed."
   },
   {
     "id": "commands.allowlist.reloaded",
@@ -7353,12 +7385,20 @@ export const Langs: Lang[] = [
     "value": "You need to collect blocks to craft!"
   },
   {
+    "id": "craftingScreen.tab.allRecipes",
+    "value": "All recipes"
+  },
+  {
     "id": "craftingScreen.tab.armor",
     "value": "Armor"
   },
   {
     "id": "craftingScreen.tab.construction",
     "value": "Construction"
+  },
+  {
+    "id": "craftingScreen.tab.craftableRecipes",
+    "value": "Craftable recipes"
   },
   {
     "id": "craftingScreen.tab.equipment",
@@ -7929,6 +7969,14 @@ export const Langs: Lang[] = [
     "value": "Enable the deferred rendering pipeline. Requires a PBR-enabled resource pack and compatible hardware."
   },
   {
+    "id": "createWorldScreen.experimentalFurnaceRecipeBook",
+    "value": "Furnace Recipe Book"
+  },
+  {
+    "id": "createWorldScreen.experimentalFurnaceRecipeBookDescription",
+    "value": "Add a recipe book in the furnace screen, similar to the one in the crafting table"
+  },
+  {
     "id": "createWorldScreen.experimentalgameplay",
     "value": "Experiments"
   },
@@ -7953,12 +8001,12 @@ export const Langs: Lang[] = [
     "value": "Contains updated trades for villagers for the purpose of rebalancing"
   },
   {
-    "id": "createWorldScreen.experimentalY2026Drop1",
-    "value": "Drop 1 of 2026"
+    "id": "createWorldScreen.experimentalVoxelShapeFeatures",
+    "value": "Experimental Voxel Shape Features"
   },
   {
-    "id": "createWorldScreen.experimentalY2026Drop1Description",
-    "value": "Make lots of tiny friends with a whole cast of cute new baby mobs"
+    "id": "createWorldScreen.experimentalVoxelShapeFeaturesDescription",
+    "value": "Enables the use of voxel shapes for some vanilla and custom blocks"
   },
   {
     "id": "createWorldScreen.fireSpreads",
@@ -8039,6 +8087,10 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.gameMode.personal.description",
     "value": "Select your preferred game mode"
+  },
+  {
+    "id": "createWorldScreen.gameMode.personal.disabled",
+    "value": "Enable cheats to select a preferred game mode"
   },
   {
     "id": "createWorldScreen.gameMode.personal.name",
@@ -8443,6 +8495,10 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldUpsell.price.realm",
     "value": "%1$s/Month"
+  },
+  {
+    "id": "createWorldUpsell.price.realm.30days",
+    "value": "%1$s/30 days"
   },
   {
     "id": "createWorldUpsell.price.world",
@@ -11017,6 +11073,10 @@ export const Langs: Lang[] = [
     "value": "Skin blocked from multiplayer for violating Community Standards."
   },
   {
+    "id": "dr.notification.custom_banned.equpped_skin_subtitle",
+    "value": "This skin will not be shown to other players."
+  },
+  {
     "id": "dr.notification.equipped_classic_skin",
     "value": "You just equipped %s"
   },
@@ -11261,52 +11321,108 @@ export const Langs: Lang[] = [
     "value": "Disabled Server"
   },
   {
-    "id": "edu.servers_screen.error_add_server_forbidden_text",
-    "value": "Server not available for your tenant."
+    "id": "edu.servers_screen.error_add_server_forbidden_body",
+    "value": "You don't have access to the server ID you entered. Try double checking that you entered the correct server ID or contacting your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_add_server_forbidden_title",
+    "value": "Insufficient permissions"
+  },
+  {
+    "id": "edu.servers_screen.error_add_server_not_found_body",
+    "value": "The server you tried to add could not be found. It may not exist or may have been removed. Try double checking that you entered the correct server ID or contacting your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_add_server_not_found_title",
+    "value": "Server not found"
+  },
+  {
+    "id": "edu.servers_screen.error_add_server_unknown_error_body",
+    "value": "Oops! Something went wrong while adding the server. Please try again. If the problem persists, please contact your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_add_server_unknown_error_title",
+    "value": "Add server error"
   },
   {
     "id": "edu.servers_screen.error_join_server_feature_disabled_body",
-    "value": "Your Minecraft Education servers have been disabled. Please contact your IT administrator."
+    "value": "Your Minecraft Education servers have been disabled. For more information, please contact your IT administrator."
   },
   {
     "id": "edu.servers_screen.error_join_server_feature_disabled_title",
-    "value": "Servers disabled"
+    "value": "Dedicated servers disabled"
   },
   {
-    "id": "edu.servers_screen.error_join_server_forbidden_text",
-    "value": "Incorrect Passcode. Sorry, but you need to enter the correct passcode to access this server."
+    "id": "edu.servers_screen.error_join_server_incorrect_passcode_body",
+    "value": "The passcode you entered is incorrect. Please try again."
   },
   {
-    "id": "edu.servers_screen.error_join_server_forbidden_title",
-    "value": "Can't join"
+    "id": "edu.servers_screen.error_join_server_incorrect_passcode_title",
+    "value": "Incorrect passcode"
+  },
+  {
+    "id": "edu.servers_screen.error_join_server_removed_body",
+    "value": "This Minecraft Education server has been permanently removed. For more information, please contact your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_join_server_removed_title",
+    "value": "Server removed"
+  },
+  {
+    "id": "edu.servers_screen.error_join_server_unavailable_body",
+    "value": "The server became unavailable while attempting to join. For more information, please contact your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_join_server_unavailable_title",
+    "value": "Server unavailable"
   },
   {
     "id": "edu.servers_screen.error_join_server_unexpectedly_disabled_body",
-    "value": "This Minecraft Education server has been disabled. It will be removed until re-enabled. For information, please contact your IT administrator."
+    "value": "This Minecraft Education server has been disabled. For more information, please contact your IT administrator."
   },
   {
     "id": "edu.servers_screen.error_join_server_unexpectedly_disabled_title",
     "value": "Server disabled"
   },
   {
-    "id": "edu.servers_screen.error_load_server_feature_disabled_banner",
-    "value": "Your Minecraft Education servers have been disabled. Please contact your IT administrator or try again later."
+    "id": "edu.servers_screen.error_join_server_unknown_error_body",
+    "value": "Oops! Something went wrong while joining the server. Please try again. If the problem persists, please contact your IT administrator."
   },
   {
-    "id": "edu.servers_screen.error_load_server_service_unavailable_banner",
-    "value": "We’re sorry. We’re having some trouble retrieving information about your Minecraft Education servers. Please try again later."
+    "id": "edu.servers_screen.error_join_server_unknown_error_title",
+    "value": "Join server error"
   },
   {
-    "id": "edu.servers_screen.generic_error_code",
-    "value": "Error code:"
+    "id": "edu.servers_screen.error_load_server_feature_disabled_body",
+    "value": "Your Minecraft Education servers have been disabled. For more information, please contact your IT administrator."
   },
   {
-    "id": "edu.servers_screen.generic_error_text",
-    "value": "Something went wrong. Please try again or contact your IT administrator."
+    "id": "edu.servers_screen.error_load_server_feature_disabled_title",
+    "value": "Dedicated servers disabled"
   },
   {
-    "id": "edu.servers_screen.generic_error_title",
-    "value": "Server Error"
+    "id": "edu.servers_screen.error_load_server_unknown_error_body",
+    "value": "Oops! Something went wrong while fetching your servers. Please try again. If the problem persists, please contact your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.error_load_server_unknown_error_title",
+    "value": "Fetch servers error"
+  },
+  {
+    "id": "edu.servers_screen.generic_error_expired_body",
+    "value": "We can't fetch your servers right now. Please try again later. If the problem persists, try restarting the app, or signing out and signing in again."
+  },
+  {
+    "id": "edu.servers_screen.generic_error_expired_title",
+    "value": "Session expired"
+  },
+  {
+    "id": "edu.servers_screen.generic_error_unavailable_body",
+    "value": "We're unable to connect to the service. Please check your internet connection and try again. If the problem persists, contact your IT administrator."
+  },
+  {
+    "id": "edu.servers_screen.generic_error_unavailable_title",
+    "value": "Service unavailable"
   },
   {
     "id": "edu.servers_screen.new",
@@ -17463,6 +17579,14 @@ export const Langs: Lang[] = [
   {
     "id": "invite.pageCounter",
     "value": "%d/%d"
+  },
+  {
+    "id": "invite.partyWithGameInvite.description",
+    "value": "You can also send a party invite along with your game invite"
+  },
+  {
+    "id": "invite.partyWithGameInvite.title",
+    "value": "Also invite to party"
   },
   {
     "id": "invite.realm.add_member",
@@ -24025,6 +24149,10 @@ export const Langs: Lang[] = [
     "value": "Decline"
   },
   {
+    "id": "key.describeBlock",
+    "value": "Identify"
+  },
+  {
     "id": "key.drop",
     "value": "Drop Item"
   },
@@ -24209,6 +24337,10 @@ export const Langs: Lang[] = [
     "value": "Move Right"
   },
   {
+    "id": "key.openToast",
+    "value": "Open"
+  },
+  {
     "id": "key.pause",
     "value": "Pause"
   },
@@ -24265,6 +24397,14 @@ export const Langs: Lang[] = [
     "value": "Sneak / Fly Down"
   },
   {
+    "id": "key.socialDrawer",
+    "value": "Social Drawer"
+  },
+  {
+    "id": "key.socialdrawermobeffectsandinteractwithtoast",
+    "value": "Open Notification/Social Drawer/Mob Effects"
+  },
+  {
     "id": "key.spectatorOutlines",
     "value": "Highlight Players (Spectators)"
   },
@@ -24303,10 +24443,6 @@ export const Langs: Lang[] = [
   {
     "id": "key.use",
     "value": "Use Item / Place Block"
-  },
-  {
-    "id": "key.viewToast",
-    "value": "View"
   },
   {
     "id": "keyboard.keyName.0",
@@ -25314,7 +25450,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.account.changeGamertag.buttonLabel",
-    "value": "Change"
+    "value": "Open"
   },
   {
     "id": "menu.account.changeGamertag.title",
@@ -25349,6 +25485,10 @@ export const Langs: Lang[] = [
     "value": "Clear Account Sign-in Data"
   },
   {
+    "id": "menu.account.copyInfo.buttonLabel",
+    "value": "Copy text"
+  },
+  {
     "id": "menu.account.deleteMicrosoftAccount.buttonLabel",
     "value": "Delete"
   },
@@ -25362,7 +25502,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.account.manageAccount.buttonLabel",
-    "value": "Manage"
+    "value": "Open"
   },
   {
     "id": "menu.account.manageAccount.title",
@@ -25378,7 +25518,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.account.privacyAndSafety.buttonLabel",
-    "value": "View"
+    "value": "Open"
   },
   {
     "id": "menu.account.privacyAndSafety.title",
@@ -25479,6 +25619,22 @@ export const Langs: Lang[] = [
   {
     "id": "menu.classroom_settings.caps",
     "value": "CLASSROOM SETTINGS"
+  },
+  {
+    "id": "menu.controller.tab.description",
+    "value": "Input options, sensitivity settings and button mapping for controllers"
+  },
+  {
+    "id": "menu.controller.tab.mappings.description",
+    "value": "Remap any and all controller buttons to play your way"
+  },
+  {
+    "id": "menu.controller.tab.mappings.title",
+    "value": "Button mapping"
+  },
+  {
+    "id": "menu.controller.tab.title",
+    "value": "Controller"
   },
   {
     "id": "menu.convertingLevel",
@@ -25821,10 +25977,6 @@ export const Langs: Lang[] = [
     "value": "Friends (%s)"
   },
   {
-    "id": "menu.onlinefriends.tts.msg",
-    "value": "Friends"
-  },
-  {
     "id": "menu.openMainMenu",
     "value": "Open main menu"
   },
@@ -25850,6 +26002,10 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.preview",
+    "value": "Preview"
+  },
+  {
+    "id": "menu.preview.tab.title",
     "value": "Preview"
   },
   {
@@ -25973,6 +26129,14 @@ export const Langs: Lang[] = [
     "value": "Switching worlds"
   },
   {
+    "id": "menu.touch.tab.description",
+    "value": "Input options, sensitivity settings and button mapping for touch screens"
+  },
+  {
+    "id": "menu.touch.tab.title",
+    "value": "Touch"
+  },
+  {
     "id": "menu.trialLabel",
     "value": "Jump into trial mode and explore, gather and craft - all free, for a limited time."
   },
@@ -26047,6 +26211,14 @@ export const Langs: Lang[] = [
   {
     "id": "menu.video.tab.title",
     "value": "Video"
+  },
+  {
+    "id": "menu.video.texture_streaming",
+    "value": "Texture streaming"
+  },
+  {
+    "id": "menu.video.texture_streaming.description",
+    "value": "Load textures only when needed to reduce memory usage. Requires game restart."
   },
   {
     "id": "menu.worldtemplates",
@@ -26833,6 +27005,10 @@ export const Langs: Lang[] = [
     "value": "Worlds"
   },
   {
+    "id": "offer.preview.open",
+    "value": "Open"
+  },
+  {
     "id": "onlinePlay.Back",
     "value": "Back"
   },
@@ -26993,6 +27169,14 @@ export const Langs: Lang[] = [
     "value": "Highlight Always On"
   },
   {
+    "id": "options.alwaysHighlightHoveringBoxInCrosshair.description",
+    "value": "Adds a colored border to blocks you’re looking at, to make it easier to see which block is currently targeted"
+  },
+  {
+    "id": "options.alwaysHighlightHoveringBoxInCrosshair.name",
+    "value": "Outline selection"
+  },
+  {
     "id": "options.anaglyph",
     "value": "3D Anaglyph"
   },
@@ -27026,7 +27210,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.attribution.buttonLabel",
-    "value": "View"
+    "value": "Open"
   },
   {
     "id": "options.attribution.description",
@@ -27229,6 +27413,10 @@ export const Langs: Lang[] = [
     "value": "Clear Hotbar"
   },
   {
+    "id": "options.clearhotbar.description",
+    "value": "Turns on the option to remove all items from your hotbar while in the inventory menu"
+  },
+  {
     "id": "options.cloudQuality",
     "value": "Cloud range"
   },
@@ -27329,12 +27517,68 @@ export const Langs: Lang[] = [
     "value": "Controller"
   },
   {
+    "id": "options.controller.resetMappings",
+    "value": "Reset mapping to default"
+  },
+  {
+    "id": "options.controller.resetMappings.buttonLabel",
+    "value": "Reset"
+  },
+  {
+    "id": "options.controller.resetMappings.description",
+    "value": "Restore all controller button mappings to their original values"
+  },
+  {
+    "id": "options.controller.resetSettings",
+    "value": "Reset settings to default"
+  },
+  {
+    "id": "options.controller.resetSettings.buttonLabel",
+    "value": "Reset"
+  },
+  {
+    "id": "options.controller.resetSettings.description",
+    "value": "Restore all the above controller options to their original values"
+  },
+  {
+    "id": "options.controller.sensitivity.description",
+    "value": "Adjust the speed of the camera when looking around"
+  },
+  {
+    "id": "options.controller.sensitivity.name",
+    "value": "Camera Sensitivity"
+  },
+  {
     "id": "options.controllerLayout",
     "value": "Controller Layout"
   },
   {
     "id": "options.controllerSettings",
     "value": "Controller Settings"
+  },
+  {
+    "id": "options.controlMode.classic.description",
+    "value": "Tap arrows to move. Drag anywhere else to look around. Tap and hold blocks to interact with them."
+  },
+  {
+    "id": "options.controlMode.classicLabel",
+    "value": "D-Pad & tap to interact"
+  },
+  {
+    "id": "options.controlMode.crosshair.description",
+    "value": "Drag joystick to move. Drag anywhere else to look around. Aim crosshair and use buttons to interact with blocks."
+  },
+  {
+    "id": "options.controlMode.crosshairLabel",
+    "value": "Joystick & aim crosshair"
+  },
+  {
+    "id": "options.controlMode.label",
+    "value": "Change control mode"
+  },
+  {
+    "id": "options.controlMode.name",
+    "value": "Control mode"
   },
   {
     "id": "options.controlMode.selectControlMode",
@@ -27349,6 +27593,14 @@ export const Langs: Lang[] = [
     "value": "Control Mode"
   },
   {
+    "id": "options.controlMode.touch.description",
+    "value": "Drag joystick to move. Drag anywhere else to look around. Tap and hold blocks to interact with them."
+  },
+  {
+    "id": "options.controlMode.touchLabel",
+    "value": "Joystick & tap to interact"
+  },
+  {
     "id": "options.controls",
     "value": "Controls..."
   },
@@ -27359,6 +27611,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.creativeDelayedBlockBreaking",
     "value": "Delayed Block Breaking (Creative Only)"
+  },
+  {
+    "id": "options.creativeDelayedBlockBreaking.description",
+    "value": "Turns on slower block breaking in creative mode, which can help prevent accidental block breaking"
+  },
+  {
+    "id": "options.creativeDelayedBlockBreaking.name",
+    "value": "Delayed block breaking (Creative mode only)"
   },
   {
     "id": "options.creator",
@@ -27457,8 +27717,20 @@ export const Langs: Lang[] = [
     "value": "Script Diagnostics Settings"
   },
   {
+    "id": "options.creator.editor.collectNetworkMetrics",
+    "value": "Collect Network Metrics"
+  },
+  {
+    "id": "options.creator.editor.heading",
+    "value": "Editor Settings"
+  },
+  {
     "id": "options.creator.serverboundClientDiagnosticsEnabled",
     "value": "Enable Client Diagnostics"
+  },
+  {
+    "id": "options.creator.serverboundClientDiagnosticsEnabled.tooltip",
+    "value": "Requires restart for client memory statistics"
   },
   {
     "id": "options.creator.watchdogHangFormat",
@@ -27559,6 +27831,18 @@ export const Langs: Lang[] = [
   {
     "id": "options.csbInfoLine03",
     "value": "Exclusive deals"
+  },
+  {
+    "id": "options.customiseTouchControls.description",
+    "value": "Change on-screen button size and position to fit your play style"
+  },
+  {
+    "id": "options.customiseTouchControls.label",
+    "value": "Customize"
+  },
+  {
+    "id": "options.customiseTouchControls.name",
+    "value": "Customize controls"
   },
   {
     "id": "options.customizeTitle",
@@ -27667,6 +27951,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.destroyvibration",
     "value": "Vibrate When Breaking Blocks"
+  },
+  {
+    "id": "options.destroyvibration.Touch.description",
+    "value": "Turns on haptic feedback for mining and and other destructive behavior"
+  },
+  {
+    "id": "options.destroyvibration.Touch.name",
+    "value": "Vibrate when breaking blocks"
   },
   {
     "id": "options.dev_achievementsAlwaysEnabled",
@@ -28662,7 +28954,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.ecoMode",
-    "value": "Experimental Power-Saving Features"
+    "value": "Power-Saving Features"
   },
   {
     "id": "options.edgeHighlightEnable",
@@ -28755,6 +29047,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.enableGameplaySubtitles",
     "value": "Closed Captions"
+  },
+  {
+    "id": "options.enableGameplaySubtitles.description",
+    "value": "Subtitles for all the sounds in Minecraft"
   },
   {
     "id": "options.enableNewTouchControlSchemes",
@@ -28882,7 +29178,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.font_license.buttonLabel",
-    "value": "Open"
+    "value": "View"
   },
   {
     "id": "options.font_license.description",
@@ -28979,6 +29275,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.gamepadcursorsensitivity",
     "value": "Controller Cursor Sensitivity"
+  },
+  {
+    "id": "options.gamepadcursorsensitivity.description",
+    "value": "Adjust the speed of the cursor in menus"
   },
   {
     "id": "options.gamertag",
@@ -29325,6 +29625,10 @@ export const Langs: Lang[] = [
     "value": "Hide Controller Cursor"
   },
   {
+    "id": "options.hidegamepadcursor.description",
+    "value": "Removes the cursor for in-game menus"
+  },
+  {
     "id": "options.hidegui",
     "value": "Hide GUI"
   },
@@ -29357,12 +29661,24 @@ export const Langs: Lang[] = [
     "value": "Hide Controller Hints"
   },
   {
+    "id": "options.hidetooltips.description",
+    "value": "Removes button prompts from the on-screen UI"
+  },
+  {
     "id": "options.hold",
     "value": "Hold"
   },
   {
     "id": "options.hotbarOnlyTouch",
     "value": "Touch Only Affects Hotbar"
+  },
+  {
+    "id": "options.hotbarOnlyTouch.description",
+    "value": "Turns off touch input for everything except the hotbar. Designed to be used alongside a controller"
+  },
+  {
+    "id": "options.hotbarOnlyTouch.name",
+    "value": "Touch input for hotbar only"
   },
   {
     "id": "options.hotbarScale",
@@ -29457,8 +29773,16 @@ export const Langs: Lang[] = [
     "value": "Reverses up and down when looking around"
   },
   {
+    "id": "options.invertYAxis.Mouse.description",
+    "value": "Reverses up and down when looking around. A less common option for keyboard and mouse users, but you do you"
+  },
+  {
     "id": "options.invertYAxis.name",
     "value": "Invert camera Y-axis"
+  },
+  {
+    "id": "options.invertYAxis.Touch.description",
+    "value": "Reverses up and down when looking around. Some users find this more comfortable"
   },
   {
     "id": "options.joystickMoveVisible",
@@ -29469,16 +29793,36 @@ export const Langs: Lang[] = [
     "value": "Joystick Visibility Option"
   },
   {
+    "id": "options.joystickVisibilityOption.description",
+    "value": "Choose when you can see the on-screen joystick"
+  },
+  {
     "id": "options.joystickVisibilityOption.hiddenJoystick",
     "value": "Hidden Joystick"
+  },
+  {
+    "id": "options.joystickVisibilityOption.hiddenJoystick.name",
+    "value": "Always hidden"
   },
   {
     "id": "options.joystickVisibilityOption.hiddenJoystickWhenUnused",
     "value": "Hidden Joystick When Unused"
   },
   {
+    "id": "options.joystickVisibilityOption.hiddenJoystickWhenUnused.name",
+    "value": "Hidden when unused"
+  },
+  {
+    "id": "options.joystickVisibilityOption.name",
+    "value": "Joystick visibility"
+  },
+  {
     "id": "options.joystickVisibilityOption.visibleJoystick",
     "value": "Visible Joystick"
+  },
+  {
+    "id": "options.joystickVisibilityOption.visibleJoystick.name",
+    "value": "Always visible"
   },
   {
     "id": "options.key.reset.buttonLabel",
@@ -29555,6 +29899,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.lefthanded",
     "value": "Left Hand Mode"
+  },
+  {
+    "id": "options.lefthanded.description",
+    "value": "Places the inventory button on the left of the hotbar, rather than the right. Great for left-handed  players"
+  },
+  {
+    "id": "options.lefthanded.name",
+    "value": "Left-handed inventory access"
   },
   {
     "id": "options.licensed_content",
@@ -29901,6 +30253,14 @@ export const Langs: Lang[] = [
     "value": "A single-player feature that pauses gameplay while the game menu is open"
   },
   {
+    "id": "options.pauseMenuOnFocusLost",
+    "value": "Show Pause Menu on Focus Lost"
+  },
+  {
+    "id": "options.pauseMenuOnFocusLost.description",
+    "value": "Shows the pause menu when switching to another application"
+  },
+  {
     "id": "options.percent.format",
     "value": "%s%%"
   },
@@ -30222,7 +30582,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.sensitivity.description",
-    "value": "Speed and sensitivity of the camera when looking around with the mouse"
+    "value": "Adjust the speed of the camera when looking around"
   },
   {
     "id": "options.sensitivity.max",
@@ -30233,8 +30593,16 @@ export const Langs: Lang[] = [
     "value": "*yawn*"
   },
   {
-    "id": "options.sensitivity.name",
+    "id": "options.sensitivity.Mouse.description",
+    "value": "Adjust the speed of the camera when looking around with the mouse"
+  },
+  {
+    "id": "options.sensitivity.Mouse.name",
     "value": "Camera sensitivity (mouse)"
+  },
+  {
+    "id": "options.sensitivity.name",
+    "value": "Camera sensitivity"
   },
   {
     "id": "options.servervisible",
@@ -30269,6 +30637,14 @@ export const Langs: Lang[] = [
     "value": "Show Action Buttons"
   },
   {
+    "id": "options.showActionButton.description",
+    "value": "Turns on additional on-screen buttons for advanced play"
+  },
+  {
+    "id": "options.showActionButton.name",
+    "value": "Show action buttons"
+  },
+  {
     "id": "options.showAdvancedVideoSettings",
     "value": "Show Advanced Video Settings"
   },
@@ -30289,8 +30665,16 @@ export const Langs: Lang[] = [
     "value": "Pick Block"
   },
   {
+    "id": "options.showBlockSelectButton.description",
+    "value": "Turns on a feature that quickly allows you to equip any block you can see in the world. Useful after explosions..."
+  },
+  {
     "id": "options.showBlockSelectButton.message",
     "value": "Quickly equip any block you can see in the world. Useful after explosions..."
+  },
+  {
+    "id": "options.showBlockSelectButton.name",
+    "value": "Pick block"
   },
   {
     "id": "options.ShowComfortSelectScreen",
@@ -30307,6 +30691,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.showToggleCameraPerspectiveButton",
     "value": "Show Camera Perspective Button"
+  },
+  {
+    "id": "options.showToggleCameraPerspectiveButton.description",
+    "value": "Turns on an on-screen button which changes the perspective of the camera from first-person to third-person. And back again"
+  },
+  {
+    "id": "options.showToggleCameraPerspectiveButton.name",
+    "value": "Camera perspective button"
   },
   {
     "id": "options.showTouchControlSelectionScreen",
@@ -30361,12 +30753,28 @@ export const Langs: Lang[] = [
     "value": "Sneak"
   },
   {
+    "id": "options.sneakOption.description",
+    "value": "Choose your preferred control method for crouching"
+  },
+  {
     "id": "options.sneakOption.hold",
     "value": "Hold down button to sneak"
   },
   {
+    "id": "options.sneakOption.hold.name",
+    "value": "Hold button down"
+  },
+  {
+    "id": "options.sneakOption.name",
+    "value": "Sneak button behaviour"
+  },
+  {
     "id": "options.sneakOption.toggle",
     "value": "Tap button once to sneak"
+  },
+  {
+    "id": "options.sneakOption.toggle.name",
+    "value": "Tap button once"
   },
   {
     "id": "options.snooper",
@@ -30457,6 +30865,14 @@ export const Langs: Lang[] = [
     "value": "Vibrate When Splitting Items"
   },
   {
+    "id": "options.splitvibration.Touch.description",
+    "value": "Turns on haptic feedback for inventory management"
+  },
+  {
+    "id": "options.splitvibration.Touch.name",
+    "value": "Vibrate when splitting items"
+  },
+  {
     "id": "options.sprintOnMovement",
     "value": "Sprint Using The Joystick"
   },
@@ -30465,12 +30881,20 @@ export const Langs: Lang[] = [
     "value": "Run automatically when the joystick is tilted to the max"
   },
   {
+    "id": "options.sprintOnMovement.message",
+    "value": "Turns on buttonless sprinting, allowing you to sprint when the joystick is fully pressed. No buttons required"
+  },
+  {
+    "id": "options.sprintOnMovement.name",
+    "value": "Easy sprint"
+  },
+  {
     "id": "options.spyglassdampen",
     "value": "Spyglass Damping"
   },
   {
     "id": "options.spyglassdampen.description",
-    "value": "Speed of the camera when using a spyglass"
+    "value": "Adjust the speed of the camera when using a spyglass"
   },
   {
     "id": "options.spyglassdampen.name",
@@ -30613,6 +31037,10 @@ export const Langs: Lang[] = [
     "value": "A/B Button Swap"
   },
   {
+    "id": "options.swapGamepadAB.description",
+    "value": "Reverses the functions of the A and B buttons"
+  },
+  {
     "id": "options.swapGamepadAB.tts",
     "value": "A/B Button Swap"
   },
@@ -30621,12 +31049,24 @@ export const Langs: Lang[] = [
     "value": "X/Y Button Swap"
   },
   {
+    "id": "options.swapGamepadXY.description",
+    "value": "Reverses the functions of the X and Y buttons"
+  },
+  {
     "id": "options.swapGamepadXY.tts",
     "value": "X/Y Button Swap"
   },
   {
     "id": "options.swapJumpAndSneak",
     "value": "Swap Jump and Sneak"
+  },
+  {
+    "id": "options.swapJumpAndSneak.description",
+    "value": "Some players like to swap these buttons"
+  },
+  {
+    "id": "options.swapJumpAndSneak.name",
+    "value": "Swap jump and sneak"
   },
   {
     "id": "options.termsAndConditions",
@@ -30682,7 +31122,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.tinkeringList.buttonLabel",
-    "value": "Open"
+    "value": "View"
   },
   {
     "id": "options.tinkeringList.description",
@@ -30717,8 +31157,16 @@ export const Langs: Lang[] = [
     "value": "Big"
   },
   {
+    "id": "options.topButtonScale.description",
+    "value": "Select a size for top row buttons on the HUD"
+  },
+  {
     "id": "options.topButtonScale.medium",
     "value": "Medium"
+  },
+  {
+    "id": "options.topButtonScale.name",
+    "value": "Top button size"
   },
   {
     "id": "options.topButtonScale.small",
@@ -30727,6 +31175,18 @@ export const Langs: Lang[] = [
   {
     "id": "options.touch",
     "value": "Touch"
+  },
+  {
+    "id": "options.touch.resetSettings.description",
+    "value": "Return all touch settings and sliders to their initial values"
+  },
+  {
+    "id": "options.touch.resetSettings.label",
+    "value": "Reset"
+  },
+  {
+    "id": "options.touch.resetSettings.name",
+    "value": "Reset to default"
   },
   {
     "id": "options.touchscreen",
@@ -30917,6 +31377,14 @@ export const Langs: Lang[] = [
     "value": "Split Controls"
   },
   {
+    "id": "options.usetouchpad.description",
+    "value": "Adds a crosshair to the HUD for better accuracy"
+  },
+  {
+    "id": "options.usetouchpad.name",
+    "value": "Split controls"
+  },
+  {
     "id": "options.usetouchscreen",
     "value": "Play with Touch"
   },
@@ -30999,6 +31467,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.viewSubscriptions.button.pricePerMonth",
     "value": "%s/month"
+  },
+  {
+    "id": "options.viewSubscriptions.button.pricePerMonth.30days",
+    "value": "%s/30 days"
   },
   {
     "id": "options.viewSubscriptions.buyAnAdditionalRealm",
@@ -31337,6 +31809,26 @@ export const Langs: Lang[] = [
     "value": "Missing '%s' element in pack manifest; Defaulting to '%s'."
   },
   {
+    "id": "parties.chat.joinedParty",
+    "value": "You joined the party"
+  },
+  {
+    "id": "parties.chat.leaderChanged",
+    "value": "%s is now the party leader"
+  },
+  {
+    "id": "parties.chat.memberJoined",
+    "value": "%s joined the party"
+  },
+  {
+    "id": "parties.chat.memberLeft",
+    "value": "%s left the party"
+  },
+  {
+    "id": "parties.chat.startedParty",
+    "value": "You started the party"
+  },
+  {
     "id": "parties.chat.unavailable",
     "value": "Not in a party or party chat not available"
   },
@@ -31411,6 +31903,10 @@ export const Langs: Lang[] = [
   {
     "id": "parties.toast.travelToWorld",
     "value": "Party moving to %s"
+  },
+  {
+    "id": "parties.worldChat.label",
+    "value": "Party"
   },
   {
     "id": "patchNotes.continue",
@@ -32777,6 +33273,14 @@ export const Langs: Lang[] = [
     "value": "Wait"
   },
   {
+    "id": "progressScreen.dialog.message.partyNotEligible",
+    "value": "Your party does not have permission to play content exclusive to this world."
+  },
+  {
+    "id": "progressScreen.dialog.message.partyPartiallyEligible",
+    "value": "Some party members don't have permission to play content exclusive to this world. If you choose to join this world, they won't be able to join you."
+  },
+  {
     "id": "progressScreen.dialog.message.resourcePack.noRayTracingSupport.optional",
     "value": "Some optional resource packs applied to this world include ray tracing. Your device is not compatible with advanced lighting and texture features so you will see the world without these advanced effects."
   },
@@ -32827,6 +33331,14 @@ export const Langs: Lang[] = [
   {
     "id": "progressScreen.dialog.message.worldCorrupted",
     "value": "The world has been corrupted. Please report this at bugs.mojang.com"
+  },
+  {
+    "id": "progressScreen.dialog.title.exclusiveContent",
+    "value": "Exclusive content"
+  },
+  {
+    "id": "progressScreen.dialog.title.partyEligibilityCheck",
+    "value": "Checking Party Eligibility"
   },
   {
     "id": "progressScreen.dialog.title.resourcePack",
@@ -32890,7 +33402,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "progressScreen.label.serverRegion",
-    "value": "Server region:"
+    "value": "Server region: %s"
   },
   {
     "id": "progressScreen.loading",
@@ -33569,6 +34081,10 @@ export const Langs: Lang[] = [
     "value": "Create For Free!%s(%s/month after first 30 days)"
   },
   {
+    "id": "realmsCreateScreen.subscription.trial.30days",
+    "value": "Create For Free!%s(%s/30 days after first 30 days)"
+  },
+  {
     "id": "realmsCreateScreen.tenUsers",
     "value": "10 Players"
   },
@@ -33745,6 +34261,10 @@ export const Langs: Lang[] = [
     "value": "Something went wrong. We could not add the players you selected to your Realm. Please try again later."
   },
   {
+    "id": "realmsInvitationScreen.sendingInvitesFailed.forbidden",
+    "value": "You are currently not allowed to do this action."
+  },
+  {
     "id": "realmsInvitationScreen.setDefaultPermissionFail",
     "value": "Failed to set default permissions."
   },
@@ -33783,6 +34303,10 @@ export const Langs: Lang[] = [
   {
     "id": "realmsInvitationScreen.unableToAddPlayers",
     "value": "Could Not Add Players"
+  },
+  {
+    "id": "realmsInvitationScreen.unableToChangePlayers.forbidden",
+    "value": "Failed to update players"
   },
   {
     "id": "realmsInvitationScreen.unblock",
@@ -33881,10 +34405,6 @@ export const Langs: Lang[] = [
     "value": "Inactive. Click to view automatic saves."
   },
   {
-    "id": "realmsSettingsScreen.backupInfo",
-    "value": "You can restore the world on your Realm with a backup found in this list."
-  },
-  {
     "id": "realmsSettingsScreen.backupInProgress",
     "value": "Replacing Realm world with backup"
   },
@@ -33893,32 +34413,12 @@ export const Langs: Lang[] = [
     "value": "By replacing your Realm with this backup, you will erase all recent progress from your Realm. The Realm will restart and all active players will need to reconnect."
   },
   {
-    "id": "realmsSettingsScreen.backupReplaced",
-    "value": "World has been replaced with the selected backup."
-  },
-  {
-    "id": "realmsSettingsScreen.backupReplacedFailed",
-    "value": "Replacing the world with the selected backup failed."
-  },
-  {
-    "id": "realmsSettingsScreen.backupReplacedTimeout",
-    "value": "Replacing the world with the selected backup timed out."
-  },
-  {
     "id": "realmsSettingsScreen.backupRestoreHeader",
     "value": "Replacing World"
   },
   {
-    "id": "realmsSettingsScreen.backupSection",
-    "value": "Backups"
-  },
-  {
     "id": "realmsSettingsScreen.backupVersion",
     "value": "Version: %s"
-  },
-  {
-    "id": "realmsSettingsScreen.backupVersionUnknown",
-    "value": "Version: Unknown"
   },
   {
     "id": "realmsSettingsScreen.berwickStoreDisplayName",
@@ -34825,8 +35325,12 @@ export const Langs: Lang[] = [
     "value": "Save active world"
   },
   {
+    "id": "realmsSettingsScreen.savedWorldFailed",
+    "value": "Settings failed to update"
+  },
+  {
     "id": "realmsSettingsScreen.savedWorldSuccessful",
-    "value": "%1$s saved"
+    "value": "Settings updated"
   },
   {
     "id": "realmsSettingsScreen.saveProgressModal.delete",
@@ -35010,7 +35514,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "realmsSettingsScreen.windowsStoreDisplayName",
-    "value": "Windows Store"
+    "value": "Microsoft Store"
   },
   {
     "id": "realmsSettingsScreen.worldSectionTitle",
@@ -35173,6 +35677,10 @@ export const Langs: Lang[] = [
     "value": "Start Your Free 30 Day Trial%s(%s/mo after the first month)"
   },
   {
+    "id": "realmsWorld.newRealmTrial.30days",
+    "value": "Start Your Free 30 Day Trial%s(%s/30 days after the first 30 days)"
+  },
+  {
     "id": "realmsWorld.notAvailable",
     "value": "Your device does not support Minecraft Realms."
   },
@@ -35247,6 +35755,10 @@ export const Langs: Lang[] = [
   {
     "id": "recipeToast.newUnlock.tts",
     "value": " new recipes unlocked"
+  },
+  {
+    "id": "reconnectOnResumeScreen.title",
+    "value": "Reconnecting you to your game"
   },
   {
     "id": "record.nowPlaying",
@@ -35791,6 +36303,18 @@ export const Langs: Lang[] = [
   {
     "id": "review.item.post.rating.submit.button",
     "value": "Rate this pack"
+  },
+  {
+    "id": "review.item.post.rating.submit.toast.error.line1",
+    "value": "Unable to rate this pack."
+  },
+  {
+    "id": "review.item.post.rating.submit.toast.error.line2.general",
+    "value": "Unable to submit your rating. Please try again later."
+  },
+  {
+    "id": "review.item.post.rating.submit.toast.error.line2.not.owned",
+    "value": " Please purchase this pack to rate it."
   },
   {
     "id": "review.item.post.rating.submit.toast.line1",
@@ -37973,6 +38497,10 @@ export const Langs: Lang[] = [
     "value": "Purchase for %s/month"
   },
   {
+    "id": "store.csb.buyNowPerMonth.30days",
+    "value": "Purchase for %s/30 days"
+  },
+  {
     "id": "store.csb.buyNowTrialPerMonth",
     "value": "Start Trial"
   },
@@ -38263,6 +38791,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.csb.upsell.price",
     "value": "%s/Month"
+  },
+  {
+    "id": "store.csb.upsell.price.30days",
+    "value": "%s/30 days"
   },
   {
     "id": "store.csb.upsell.realmsPlus",
@@ -39277,6 +39809,10 @@ export const Langs: Lang[] = [
     "value": "Subscribe Now %s/month"
   },
   {
+    "id": "store.realmsPlus.buyNowPerMonth.30days",
+    "value": "Subscribe Now %s/30 days"
+  },
+  {
     "id": "store.realmsPlus.buyNowTrialPerMonth",
     "value": "Start Trial"
   },
@@ -39393,6 +39929,10 @@ export const Langs: Lang[] = [
     "value": "%s per month. Add infinite members, play online with 10 other players at the same time. Plus, enjoy a catalog of premium Marketplace content for free."
   },
   {
+    "id": "store.realmsPlus.faq.answer5.contentSub.30days",
+    "value": "%s per 30 days. Add infinite members, play online with 10 other players at the same time. Plus, enjoy a catalog of premium Marketplace content for free."
+  },
+  {
     "id": "store.realmsPlus.faq.answer6",
     "value": "New packs are added to Realms Plus monthly."
   },
@@ -39473,6 +40013,10 @@ export const Langs: Lang[] = [
     "value": "Free 30 Day Trial, then %s/month"
   },
   {
+    "id": "store.realmsPlus.landing.headerTrial.30days",
+    "value": "Free 30 Day Trial, then %s/30 days"
+  },
+  {
     "id": "store.realmsPlus.landing.info1.line1",
     "value": "Your own personal Realm server: a persistent world always online for you and your friends!"
   },
@@ -39515,6 +40059,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.realmsPlus.landing.info2.subscribe",
     "value": "Subscribe now for %s/month"
+  },
+  {
+    "id": "store.realmsPlus.landing.info2.subscribe.30days",
+    "value": "Subscribe now for %s/30 days"
   },
   {
     "id": "store.realmsPlus.landing.info3.para1",
@@ -39573,8 +40121,16 @@ export const Langs: Lang[] = [
     "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every month until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! Your first 30 days will be free, and you'll be billed %s/month afterwards. You can cancel your subscription to stop future charges by accessing subscriptions settings."
   },
   {
+    "id": "store.realmsPlus.recurring.offerTrial.contentSub.30days",
+    "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every 30 days until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! Your first 30 days will be free, and you'll be billed %s/30 days afterwards. You can cancel your subscription to stop future charges by accessing subscriptions settings."
+  },
+  {
     "id": "store.realmsPlus.recurring.withoutTrial.contentSub",
     "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every month until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! You'll be billed %s/month and you can cancel your subscription to stop future charges by accessing subscriptions settings."
+  },
+  {
+    "id": "store.realmsPlus.recurring.withoutTrial.contentSub.30days",
+    "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every 30 days until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! You'll be billed %s/30 days and you can cancel your subscription to stop future charges by accessing subscriptions settings."
   },
   {
     "id": "store.realmsPlus.signInToSubscribe",
@@ -40669,6 +41225,30 @@ export const Langs: Lang[] = [
     "value": "Candle extinguishes"
   },
   {
+    "id": "subtitles.block.cauldron.add_dye",
+    "value": "Cauldron water gets dyed"
+  },
+  {
+    "id": "subtitles.block.cauldron.clean_armor",
+    "value": "Leather armor gets cleaned"
+  },
+  {
+    "id": "subtitles.block.cauldron.clean_banner",
+    "value": "Banner gets cleaned"
+  },
+  {
+    "id": "subtitles.block.cauldron.dye_armor",
+    "value": "Leather armor gets dyed"
+  },
+  {
+    "id": "subtitles.block.cauldron.fill_potion",
+    "value": "Potion pours into Cauldron"
+  },
+  {
+    "id": "subtitles.block.cauldron.take_potion",
+    "value": "Potion taken from Cauldron"
+  },
+  {
     "id": "subtitles.block.chest.close",
     "value": "Chest closes"
   },
@@ -41019,6 +41599,30 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.block.sculk.spread",
     "value": "Sculk spreads"
+  },
+  {
+    "id": "subtitles.block.shelf.activate",
+    "value": "Shelf activates"
+  },
+  {
+    "id": "subtitles.block.shelf.deactivate",
+    "value": "Shelf deactivates"
+  },
+  {
+    "id": "subtitles.block.shelf.multi_swap",
+    "value": "Items swap"
+  },
+  {
+    "id": "subtitles.block.shelf.place_item",
+    "value": "Item placed"
+  },
+  {
+    "id": "subtitles.block.shelf.single_swap",
+    "value": "Item swaps"
+  },
+  {
+    "id": "subtitles.block.shelf.take_item",
+    "value": "Item taken"
   },
   {
     "id": "subtitles.block.shulker_box.close",
@@ -41509,6 +42113,10 @@ export const Langs: Lang[] = [
     "value": "Camel Husk hurts"
   },
   {
+    "id": "subtitles.entity.camel_husk.saddle",
+    "value": "Saddle equips"
+  },
+  {
     "id": "subtitles.entity.camel_husk.sit",
     "value": "Camel Husk sits down"
   },
@@ -41615,6 +42223,10 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.entity.cod.hurt",
     "value": "Cod hurts"
+  },
+  {
+    "id": "subtitles.entity.copper_golem_become_statue",
+    "value": "Copper Golem is petrified"
   },
   {
     "id": "subtitles.entity.copper_golem_oxidized.death",
@@ -42581,7 +43193,15 @@ export const Langs: Lang[] = [
     "value": "Nautilus jets"
   },
   {
+    "id": "subtitles.entity.nautilus.dash_land",
+    "value": "Nautilus jets"
+  },
+  {
     "id": "subtitles.entity.nautilus.dash_ready",
+    "value": "Nautilus recovers"
+  },
+  {
+    "id": "subtitles.entity.nautilus.dash_ready_land",
     "value": "Nautilus recovers"
   },
   {
@@ -42603,6 +43223,10 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.entity.nautilus.hurt_land",
     "value": "Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.nautilus.swim",
+    "value": "Nautilus swims"
   },
   {
     "id": "subtitles.entity.painting.break",
@@ -42701,6 +43325,10 @@ export const Langs: Lang[] = [
     "value": "Parrot whirs"
   },
   {
+    "id": "subtitles.entity.parrot.imitate.camel_husk",
+    "value": "Parrot grumphs"
+  },
+  {
     "id": "subtitles.entity.parrot.imitate.creaking",
     "value": "Parrot creaks"
   },
@@ -42751,6 +43379,10 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.entity.parrot.imitate.magma_cube",
     "value": "Parrot squishes"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.parched",
+    "value": "Parrot crackles"
   },
   {
     "id": "subtitles.entity.parrot.imitate.phantom",
@@ -42827,6 +43459,14 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.entity.parrot.imitate.zombie",
     "value": "Parrot groans"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.zombie_horse",
+    "value": "Parrot groans"
+  },
+  {
+    "id": "subtitles.entity.parrot.imitate.zombie_nautilus",
+    "value": "Parrot gargles"
   },
   {
     "id": "subtitles.entity.parrot.imitate.zombie_villager",
@@ -43825,7 +44465,19 @@ export const Langs: Lang[] = [
     "value": "Zombie Nautilus burbles"
   },
   {
+    "id": "subtitles.entity.zombie_nautilus.dash",
+    "value": "Zombie Nautilus jets"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.dash_land",
+    "value": "Zombie Nautilus jets"
+  },
+  {
     "id": "subtitles.entity.zombie_nautilus.dash_ready",
+    "value": "Zombie Nautilus recovers"
+  },
+  {
+    "id": "subtitles.entity.zombie_nautilus.dash_ready_land",
     "value": "Zombie Nautilus recovers"
   },
   {
@@ -43961,6 +44613,10 @@ export const Langs: Lang[] = [
     "value": "Leather armor rustles"
   },
   {
+    "id": "subtitles.item.armor.equip_nautilus",
+    "value": "Nautilus Armor equips"
+  },
+  {
     "id": "subtitles.item.armor.equip_netherite",
     "value": "Netherite armor clanks"
   },
@@ -43971,6 +44627,10 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.item.armor.equip_wolf",
     "value": "Wolf Armor is fastened"
+  },
+  {
+    "id": "subtitles.item.armor.unequip_nautilus",
+    "value": "Nautilus Armor unequips"
   },
   {
     "id": "subtitles.item.armor.unequip_wolf",
@@ -44165,6 +44825,10 @@ export const Langs: Lang[] = [
     "value": "Saddle equips"
   },
   {
+    "id": "subtitles.item.nautilus_saddle_underwater_equip",
+    "value": "Saddle equips"
+  },
+  {
     "id": "subtitles.item.nether_wart.plant",
     "value": "Crop planted"
   },
@@ -44193,8 +44857,32 @@ export const Langs: Lang[] = [
     "value": "Shovel flattens"
   },
   {
+    "id": "subtitles.item.spear_wood.attack",
+    "value": "Spear jabs"
+  },
+  {
+    "id": "subtitles.item.spear_wood.hit",
+    "value": "Spear hits"
+  },
+  {
+    "id": "subtitles.item.spear_wood.lunge",
+    "value": "Spear lunges"
+  },
+  {
+    "id": "subtitles.item.spear_wood.use",
+    "value": "Charges with Spear"
+  },
+  {
+    "id": "subtitles.item.spear.attack",
+    "value": "Spear jabs"
+  },
+  {
     "id": "subtitles.item.spear.hit",
     "value": "Spear hits"
+  },
+  {
+    "id": "subtitles.item.spear.lunge",
+    "value": "Spear lunges"
   },
   {
     "id": "subtitles.item.spear.use",
@@ -44235,6 +44923,10 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.item.trident.thunder",
     "value": "Trident thunder cracks"
+  },
+  {
+    "id": "subtitles.item.underwater_saddle.equip",
+    "value": "Saddle equips"
   },
   {
     "id": "subtitles.item.wolf_armor.break",
@@ -46385,6 +47077,10 @@ export const Langs: Lang[] = [
     "value": "Gold Ore"
   },
   {
+    "id": "tile.golden_dandelion.name",
+    "value": "Golden Dandelion"
+  },
+  {
     "id": "tile.golden_rail.name",
     "value": "Powered Rail"
   },
@@ -48218,7 +48914,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "tile.sticky_piston_arm_collision.name",
-    "value": "Sticky Sticky Piston Arm Collision"
+    "value": "Sticky Piston Arm Collision"
   },
   {
     "id": "tile.sticky_piston.name",

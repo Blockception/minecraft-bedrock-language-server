@@ -4,8 +4,9 @@ import { FormatVersionData } from './general';
 
 
 export const Versions: FormatVersionData = {
-  "latest": "1.26.0.2",
+  "latest": "1.26.10.4",
   "versions": [
+    "1.26.10.4",
     "1.26.0.2",
     "1.21.130.3",
     "1.21.120.4",

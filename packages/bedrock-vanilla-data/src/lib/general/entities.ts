@@ -18,7 +18,6 @@ export const EntityData: GeneralEntity = {
     "baby_piglin",
     "baby_turtle",
     "baby_undead",
-    "baby_undead ",
     "baby_zombie_pigman",
     "bat",
     "bee",

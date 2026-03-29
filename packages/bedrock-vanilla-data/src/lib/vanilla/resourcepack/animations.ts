@@ -108,6 +108,111 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.armadillo.baby_peek",
+    "bones": [
+      "head",
+      "right_hind_leg",
+      "left_hind_leg",
+      "right_front_leg",
+      "left_front_leg",
+      "cube",
+      "left_ear",
+      "right_ear",
+      "body_rolled_up"
+    ],
+    "particles": [],
+    "sounds": [
+      "peek"
+    ]
+  },
+  {
+    "id": "animation.armadillo.baby_roll_up",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "right_hind_leg",
+      "left_hind_leg",
+      "right_front_leg",
+      "left_front_leg",
+      "cube",
+      "body_rolled_up"
+    ],
+    "particles": [],
+    "sounds": [
+      "roll",
+      "land"
+    ]
+  },
+  {
+    "id": "animation.armadillo.baby_rolled_up",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "left_ear",
+      "right_ear",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg",
+      "body_rolled_up"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.armadillo.baby_unroll",
+    "bones": [
+      "head",
+      "right_hind_leg",
+      "left_hind_leg",
+      "right_front_leg",
+      "left_front_leg",
+      "body",
+      "cube",
+      "left_ear",
+      "right_ear",
+      "body_rolled_up"
+    ],
+    "particles": [],
+    "sounds": [
+      "unroll_start",
+      "unroll_finish"
+    ]
+  },
+  {
+    "id": "animation.armadillo.baby_unroll_fast",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "right_hind_leg",
+      "left_hind_leg",
+      "right_front_leg",
+      "left_front_leg",
+      "body_rolled_up"
+    ],
+    "particles": [],
+    "sounds": [
+      "unroll_finish"
+    ]
+  },
+  {
+    "id": "animation.armadillo.baby_walk",
+    "bones": [
+      "body",
+      "tail",
+      "right_hind_leg",
+      "left_hind_leg",
+      "right_front_leg",
+      "left_front_leg",
+      "head"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.armadillo.look_at_target",
     "bones": [
       "head"
@@ -454,6 +559,107 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.axolotl.baby_idle_floor",
+    "bones": [
+      "body",
+      "right_arm",
+      "right_leg",
+      "left_arm",
+      "left_leg",
+      "tail",
+      "head",
+      "left_gills",
+      "right_gills",
+      "top_gills"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.axolotl.baby_idle_floor_underwater",
+    "bones": [
+      "body",
+      "right_arm",
+      "right_leg",
+      "left_arm",
+      "left_leg",
+      "tail",
+      "left_gills",
+      "right_gills",
+      "top_gills"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.axolotl.baby_idle_underwater",
+    "bones": [
+      "body",
+      "right_arm",
+      "right_leg",
+      "left_arm",
+      "left_leg",
+      "tail",
+      "head",
+      "left_gills",
+      "right_gills",
+      "top_gills"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.axolotl.baby_swim",
+    "bones": [
+      "body",
+      "right_arm",
+      "right_leg",
+      "left_arm",
+      "left_leg",
+      "tail",
+      "head",
+      "left_gills",
+      "right_gills",
+      "top_gills"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.axolotl.baby_walk_floor",
+    "bones": [
+      "body",
+      "right_arm",
+      "right_leg",
+      "left_arm",
+      "left_leg",
+      "tail",
+      "head",
+      "left_gills",
+      "right_gills",
+      "top_gills"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.axolotl.baby_walk_floor_underwater",
+    "bones": [
+      "body",
+      "right_arm",
+      "right_leg",
+      "left_arm",
+      "left_leg",
+      "tail",
+      "head",
+      "left_gills",
+      "right_gills",
+      "top_gills"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.axolotl.idle_floor",
     "bones": [
       "body",
@@ -750,6 +956,100 @@ export const Animations: Animation[] = [
     ]
   },
   {
+    "id": "animation.camel.baby_dash",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg",
+      "left_ear",
+      "right_ear"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.camel.baby_idle",
+    "bones": [
+      "tail",
+      "head",
+      "left_ear",
+      "right_ear",
+      "body"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.camel.baby_sit",
+    "bones": [
+      "body",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg",
+      "head",
+      "tail",
+      "left_ear",
+      "right_ear",
+      "root"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.camel.baby_sit_down",
+    "bones": [
+      "body",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg",
+      "head",
+      "tail",
+      "left_ear",
+      "right_ear"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.camel.baby_stand_up",
+    "bones": [
+      "body",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg",
+      "head",
+      "tail",
+      "right_ear",
+      "left_ear"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.camel.baby_walk",
+    "bones": [
+      "root",
+      "head",
+      "right_front_leg",
+      "left_front_leg",
+      "left_hind_leg",
+      "right_hind_leg",
+      "left_ear",
+      "right_ear",
+      "tail",
+      "body"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.camel.dash",
     "bones": [
       "body",
@@ -843,6 +1143,38 @@ export const Animations: Animation[] = [
       "left_ear",
       "right_ear",
       "tail"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.cat.baby_lie_down",
+    "bones": [
+      "backLegL",
+      "backLegR",
+      "body",
+      "frontLegL",
+      "frontLegR",
+      "head",
+      "tail1",
+      "tail2",
+      "belly"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.cat.baby_sit",
+    "bones": [
+      "backLegL",
+      "backLegR",
+      "body",
+      "frontLegL",
+      "frontLegR",
+      "tail1",
+      "tail2",
+      "head",
+      "belly"
     ],
     "particles": [],
     "sounds": []
@@ -1256,6 +1588,16 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.drowned.attack.baby_rotations",
+    "bones": [
+      "body",
+      "leftarm",
+      "rightarm"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.drowned.attack.rotations",
     "bones": [
       "body",
@@ -1560,9 +1902,73 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.fox.baby_transform",
+    "id": "animation.fox.baby_pounce",
     "bones": [
-      "head"
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "tail"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.fox.baby_sit",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "tail",
+      "root"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.fox.baby_sleep",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "tail",
+      "root"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.fox.baby_walk",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "tail"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.fox.baby_wiggle",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "tail"
     ],
     "particles": [],
     "sounds": []
@@ -3093,6 +3499,45 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.panda.baby_lying",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.panda.baby_rolling",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.panda.baby_sitting",
+    "bones": [
+      "body",
+      "head",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.panda.baby_transform",
     "bones": [
       "body",
@@ -3975,6 +4420,21 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.rabbit.idle_head_tilt",
+    "bones": [
+      "body",
+      "tail",
+      "head",
+      "left_ear",
+      "right_ear",
+      "rightFrontLeg",
+      "leftFrontLeg",
+      "frontlegs"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.rabbit.move",
     "bones": [
       "earleft",
@@ -3986,6 +4446,42 @@ export const Animations: Animation[] = [
       "nose",
       "rearfootleft",
       "rearfootright"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.rabbit.move.baby",
+    "bones": [
+      "body",
+      "head",
+      "backlegs",
+      "frontlegs",
+      "rightFrontLeg",
+      "leftFrontLeg",
+      "left_ear",
+      "right_ear",
+      "rightBackLeg",
+      "leftBackLeg",
+      "tail"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.rabbit.move.v2",
+    "bones": [
+      "body",
+      "head",
+      "backlegs",
+      "frontlegs",
+      "rightFrontLeg",
+      "leftFrontLeg",
+      "left_ear",
+      "right_ear",
+      "rightBackLeg",
+      "leftBackLeg",
+      "tail"
     ],
     "particles": [],
     "sounds": []
@@ -4536,7 +5032,7 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.sheep.grazing",
+    "id": "animation.sheep.grazing.v2",
     "bones": [
       "head"
     ],
@@ -4544,7 +5040,7 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.sheep.setup",
+    "id": "animation.sheep.setup.v2",
     "bones": [
       "body",
       "head"
@@ -4908,6 +5404,26 @@ export const Animations: Animation[] = [
   {
     "id": "animation.squid.rotate",
     "bones": [
+      "body"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.strider.baby.bristle_flow",
+    "bones": [
+      "bristle0",
+      "bristle1",
+      "bristle2"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.strider.baby.walk",
+    "bones": [
+      "right_leg",
+      "left_leg",
       "body"
     ],
     "particles": [],
@@ -5397,6 +5913,20 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.wolf.baby_sitting",
+    "bones": [
+      "body",
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3",
+      "tail",
+      "upperbody"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.wolf.head_rot_z",
     "bones": [
       "head"
@@ -5462,6 +5992,15 @@ export const Animations: Animation[] = [
   },
   {
     "id": "animation.zombie.attack_bare_hand",
+    "bones": [
+      "leftarm",
+      "rightarm"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.zombie.baby_attack_bare_hand",
     "bones": [
       "leftarm",
       "rightarm"
