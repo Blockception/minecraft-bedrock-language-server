@@ -113,4 +113,9 @@ export const valid_syntaxes = [
   'c.other->q.remaining_durability',
   'c.other->q.max_durability',
   'math.min(q.remaining_durability + c.other->q.remaining_durability + math.floor(q.max_durability / 20), c.other->q.max_durability)',
+
+  // Simple molang string literals and expressions with string literals
+  // (issue: these were previously not detected as molang)
+  "'value1'",
+  "1 > 3 ? 'a' : 'b'",
 ];

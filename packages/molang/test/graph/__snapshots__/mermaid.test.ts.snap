@@ -2284,3 +2284,35 @@ flowchart TD
     node11 -->|right| node13
     node0 -->|arg1| node11"
 `;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 93. 'value1' 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0["'value1'@0"]
+    start-->node0"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 94. 1 > 3 ? 'a' : 'b' 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@6"}
+    node1{"\\>@2"}
+    node2["1@0"]
+    node3["3@4"]
+    node4["'a'@8"]
+    node5["'b'@14"]
+    start-->node0
+    node1 -->|left| node2
+    node1 -->|right| node3
+    node0 -->|condition| node1
+    node0 -->|true| node4
+    node0 -->|false| node5"
+`;
