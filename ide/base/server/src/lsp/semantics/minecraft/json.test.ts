@@ -24,7 +24,8 @@ describe('provideJsonSemanticTokens', () => {
     `{ "value": "c.is_owner" }`,
     `{ "value": "t.foo * 2.0" }`,
     `{ "value": "array.my_array[q.anim_time]" }`,
-    `{ "queue_command": { "command": [ "kill @notreal" ] } }`
+    `{ "queue_command": { "command": [ "kill @notreal" ] } }`,
+    `{ "queue_command": { "command": [ "/kill @notreal" ] } }`
   ];
 
   test.each(validInputs)('produces tokens for: %s', (content) => {
