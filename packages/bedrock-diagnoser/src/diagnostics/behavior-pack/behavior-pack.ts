@@ -1,5 +1,7 @@
 import { FileType } from 'bc-minecraft-bedrock-project/src/project/behavior-pack';
+import { PackType } from 'bc-minecraft-bedrock-project';
 import { DocumentDiagnosticsBuilder } from '../../types/diagnostics-builder';
+import { resolveCommandContext } from '../command-context';
 
 import * as AnimationController from './animation-controllers/document';
 import * as Animation from './animation/document';
@@ -109,6 +111,7 @@ export namespace BehaviorPack {
         return false;
     }
 
+    resolveCommandContext(diagnoser, PackType.behavior_pack);
     return true;
   }
 }

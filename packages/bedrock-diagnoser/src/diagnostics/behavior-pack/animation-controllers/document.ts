@@ -4,7 +4,6 @@ import { Json } from '../../json';
 import { general_animation_controllers } from '../../minecraft/animation-controllers';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 import { no_other_duplicates } from '../../packs/duplicate-check';
-import { json_commandsCheck } from '../mcfunction/commands';
 
 /**
  * Diagnoses the given document as an animation controller
@@ -27,10 +26,5 @@ export function diagnose_animation_controller_document(diagnoser: DocumentDiagno
       id,
       diagnoser,
     );
-
-    Object.values(controller.states).forEach((state) => {
-      state.on_entry?.forEach((item) => json_commandsCheck(item, diagnoser));
-      state.on_exit?.forEach((item) => json_commandsCheck(item, diagnoser));
-    });
   });
 }

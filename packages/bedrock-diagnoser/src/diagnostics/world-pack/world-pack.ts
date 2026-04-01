@@ -1,4 +1,6 @@
 import { DocumentDiagnosticsBuilder } from '../../types/diagnostics-builder';
+import { PackType } from 'bc-minecraft-bedrock-project';
+import { resolveCommandContext } from '../command-context';
 
 import * as Manifest from './manifest/entry';
 
@@ -12,9 +14,9 @@ export namespace WorldPack {
     //retrieve filter doc type
     if (diagnoser.document.uri.endsWith('manifest.json')) {
       Manifest.Diagnose(diagnoser);
-      return true;
     }
 
+    resolveCommandContext(diagnoser, PackType.world);
     return true;
   }
 }

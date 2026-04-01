@@ -1,5 +1,6 @@
 /*	Auto generated	*/
 export * as BehaviorPack from './behavior-pack';
+export * from './command-context';
 export * as Errors from './errors';
 export * as Format from './format';
 export * as General from './general';

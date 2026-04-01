@@ -1,5 +1,7 @@
 import { DocumentDiagnosticsBuilder } from '../../types';
 import { FileType } from 'bc-minecraft-bedrock-project/src/project/resource-pack';
+import { PackType } from 'bc-minecraft-bedrock-project';
+import { resolveCommandContext } from '../command-context';
 
 import * as Animation from './animation/document';
 import * as AnimationController from './animation-controllers/document';
@@ -131,6 +133,7 @@ export namespace ResourcePack {
         return false;
     }
 
+    resolveCommandContext(diagnoser, PackType.resource_pack);
     return true;
   }
 }
