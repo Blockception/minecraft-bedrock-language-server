@@ -9,6 +9,8 @@ export enum FileType {
   /***/
   block,
   /***/
+  dialogue,
+  /***/
   entity,
   /***/
   feature,
@@ -51,6 +53,7 @@ export namespace FileType {
     if (/[\\/]animation_controllers[\\/]/.test(uri)) return FileType.animation_controller;
     if (/[\\/]animations[\\/]/.test(uri)) return FileType.animation;
     if (/[\\/]functions[\\/]/.test(uri)) return FileType.function;
+    if (/[\\/]dialogue[\\/]/.test(uri)) return FileType.dialogue;
     if (/[\\/]loot_tables[\\/]/.test(uri)) return FileType.loot_table;
     if (/[\\/]scripts[\\/]/.test(uri)) return FileType.script;
     if (/[\\/]spawn_rules[\\/]/.test(uri)) return FileType.spawn_rule;
