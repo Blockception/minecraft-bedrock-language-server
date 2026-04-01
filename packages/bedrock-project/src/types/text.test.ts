@@ -4,7 +4,7 @@ describe('Text', () => {
   const tests = [
     ['"example"', 'example'],
     ['example', 'example'],
-    ['"I am too complex"', '"I am too complex"'],
+    ['"I am too complex"', 'I am too complex'],
   ];
 
   describe('unQuote', () => {
