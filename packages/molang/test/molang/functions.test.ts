@@ -14,6 +14,9 @@ describe('Functions', () => {
       '@s to:anger',
       '@s to:Angrey_wolf',
       'query.variant == 1',
+      // Simple string literals and ternary expressions without scoped identifiers
+      "'value'",
+      '1 ? 1 : 0',
     ];
 
     test.each(shouldbe)('should be valid: %#. %s', (item) => {

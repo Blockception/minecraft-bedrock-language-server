@@ -118,4 +118,8 @@ export const valid_syntaxes = [
   // (issue: these were previously not detected as molang)
   "'value1'",
   "1 > 3 ? 'a' : 'b'",
+
+  // Ternary expressions without string literals (e.g. 1 ? 1 : 0)
+  '1 ? 1 : 0',
+  '0 ? 0 : 1',
 ];
