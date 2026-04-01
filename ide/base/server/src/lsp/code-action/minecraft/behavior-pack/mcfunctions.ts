@@ -6,6 +6,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic) {
   switch (diag.code) {
     case 'minecraft.mcfunction.missing':
     case 'behaviorpack.mcfunction.missing':
+    case 'behaviorpack.functions.missing':
       return definition(builder, diag, 'function');
   }
 }

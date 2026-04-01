@@ -9,7 +9,7 @@ export function mcfunction_is_defined(value: OffsetWord, diagnoser: DiagnosticsB
   //Project has mcfunction
   const fn = diagnoser.context.getProjectData().behaviors.functions.get(id, diagnoser.project);
   if (fn === undefined) {
-    Errors.missing('behaviors', 'trading', id, diagnoser, value);
+    Errors.missing('behaviors', 'functions', id, diagnoser, value);
     return false;
   }
 

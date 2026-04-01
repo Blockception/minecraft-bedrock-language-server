@@ -264,7 +264,14 @@ export const executeSubCommands: CommandContainer = {
         },
         { text: 'objective', type: ParameterType.objective, required: true },
         { text: 'operation', type: ParameterType.scoreComparator, required: true },
-        { text: 'source', type: ParameterType.selector, required: true },
+        {
+          text: 'source',
+          type: ParameterType.selector,
+          required: true,
+          options: {
+            allowFakePlayers: true,
+          },
+        },
         { text: 'objective', type: ParameterType.objective, required: true },
         { text: 'next', type: ParameterType.executeSubcommand, required: true },
       ],
@@ -277,7 +284,14 @@ export const executeSubCommands: CommandContainer = {
       parameters: [
         { text: 'if', type: ParameterType.keyword, required: true },
         { text: 'score', type: ParameterType.keyword, required: true },
-        { text: 'target', type: ParameterType.selector, required: true },
+        {
+          text: 'target',
+          type: ParameterType.selector,
+          required: true,
+          options: {
+            allowFakePlayers: true,
+          },
+        },
         { text: 'objective', type: ParameterType.objective, required: true },
         { text: 'matches', type: ParameterType.keyword, required: true },
         { text: 'range', type: ParameterType.integer_range, required: true },
@@ -359,10 +373,24 @@ export const executeSubCommands: CommandContainer = {
       parameters: [
         { text: 'unless', type: ParameterType.keyword, required: true },
         { text: 'score', type: ParameterType.keyword, required: true },
-        { text: 'target', type: ParameterType.selector, required: true },
+        {
+          text: 'target',
+          type: ParameterType.selector,
+          required: true,
+          options: {
+            allowFakePlayers: true,
+          },
+        },
         { text: 'objective', type: ParameterType.objective, required: true },
         { text: 'operation', type: ParameterType.scoreComparator, required: true },
-        { text: 'source', type: ParameterType.selector, required: true },
+        {
+          text: 'source',
+          type: ParameterType.selector,
+          required: true,
+          options: {
+            allowFakePlayers: true,
+          },
+        },
         { text: 'objective', type: ParameterType.objective, required: true },
         { text: 'next', type: ParameterType.executeSubcommand, required: true },
       ],
@@ -375,7 +403,14 @@ export const executeSubCommands: CommandContainer = {
       parameters: [
         { text: 'unless', type: ParameterType.keyword, required: true },
         { text: 'score', type: ParameterType.keyword, required: true },
-        { text: 'target', type: ParameterType.selector, required: true },
+        {
+          text: 'target',
+          type: ParameterType.selector,
+          required: true,
+          options: {
+            allowFakePlayers: true,
+          },
+        },
         { text: 'objective', type: ParameterType.objective, required: true },
         { text: 'matches', type: ParameterType.keyword, required: true },
         { text: 'range', type: ParameterType.integer_range, required: true },
