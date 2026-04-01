@@ -13,6 +13,7 @@ describe("Selector", () => {
   const cache = context.getProjectData().projectData;
   cache.general.objectives.set(GeneralInfo.create("data", Location.create("test"), "test objective"));
   cache.general.tags.set(GeneralInfo.create("foo", Location.create("test"), "test tag"));
+  cache.general.tags.set(GeneralInfo.create("hello there", Location.create("test"), "test tag with spaces"));
 
   it("Double negative types should not return errors", () => {
     const B = new TestDiagnoser(context);
@@ -120,6 +121,7 @@ describe("Selector", () => {
       "@s[y=15,dy=-100,z=~,x=~]",
       "@s[scores={data=..3,data=5..}]",
       '@e[name="main",tag=foo]',
+      '@e[tag="hello there"]',
       "@e[x=0,y=2,z=3,dx=4,dy=5,dz=6,type=minecraft:sheep,c=1]",
       "@a[hasitem={item=diamond,location=slot.inventory,slot=5}]",
       "@a[hasitem={item=diamond,location=slot.inventory,slot=5..8}]",

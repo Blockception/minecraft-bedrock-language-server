@@ -60,4 +60,17 @@ describe("Tag", () => {
 
     B.expectEmpty();
   });
+
+  it("diagnose no errors for quoted tags with spaces", () => {
+    const B = TestDiagnoser.create();
+    const data = B.context.getProjectData().projectData;
+
+    // Tag defined with spaces (stored unquoted after Text.UnQuote fix)
+    data.general.tags.set(GeneralInfo.create("hello there", Location.create(""), "tag with spaces"));
+
+    // When the selector tag= argument is quoted, the value arrives with surrounding quotes
+    minecraft_tag_diagnose(OffsetWord.create('"hello there"'), B);
+
+    B.expectEmpty();
+  });
 });

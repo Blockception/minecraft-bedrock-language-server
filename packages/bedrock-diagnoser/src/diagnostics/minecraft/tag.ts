@@ -8,15 +8,19 @@ export function minecraft_tag_diagnose(value: OffsetWord | string, diagnoser: Di
     return true;
   }
 
-  const id = typeof value === 'string' ? value : value.text;
+  const rawText = typeof value === 'string' ? value : value.text;
 
   //Empty tags are valid as they are used to represent either no items or any items
-  if (id === '') {
+  if (rawText === '') {
     return true;
   }
 
-  if (!/^[a-zA-Z0-9\-_.]+$/gim.test(id)) {
-    diagnoser.add(value, `Illegal character found in tag: ${id}`, DiagnosticSeverity.error, 'minecraft.tag.invalid');
+  //Quoted tags (e.g. tag="hello there") can contain any characters
+  const isQuoted = rawText.length >= 2 && rawText.startsWith('"') && rawText.endsWith('"');
+  const id = isQuoted ? rawText.slice(1, rawText.length - 1) : rawText;
+
+  if (!isQuoted && !/^[a-zA-Z0-9\-_.]+$/gim.test(id)) {
+    diagnoser.add(value, `Illegal character found in tag: ${rawText}`, DiagnosticSeverity.error, 'minecraft.tag.invalid');
   }
 
   //Defined in McProject
