@@ -263,7 +263,7 @@ export const executeSubCommands: CommandContainer = {
           },
         },
         { text: 'objective', type: ParameterType.objective, required: true },
-        { text: 'operation', type: ParameterType.operation, required: true },
+        { text: 'operation', type: ParameterType.scoreComparator, required: true },
         {
           text: 'source',
           type: ParameterType.selector,
@@ -382,7 +382,7 @@ export const executeSubCommands: CommandContainer = {
           },
         },
         { text: 'objective', type: ParameterType.objective, required: true },
-        { text: 'operation', type: ParameterType.operation, required: true },
+        { text: 'operation', type: ParameterType.scoreComparator, required: true },
         {
           text: 'source',
           type: ParameterType.selector,

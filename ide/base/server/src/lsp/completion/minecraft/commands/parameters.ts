@@ -112,6 +112,7 @@ const DataMap: Record<number, functionCall> = {
   [ParameterType.musicRepeatMode]: modeCompletion(Modes.MusicRepeat.name),
   [ParameterType.oldBlockMode]: modeCompletion(Modes.OldBlock.name),
   [ParameterType.operation]: modeCompletion(Modes.Operation.name),
+  [ParameterType.scoreComparator]: modeCompletion(Modes.ScoreComparator.name),
   [ParameterType.permission]: modeCompletion(Modes.Permission.name),
   [ParameterType.permissionState]: modeCompletion(Modes.PermissionState.name),
   [ParameterType.replaceMode]: modeCompletion(Modes.Replace.name),
