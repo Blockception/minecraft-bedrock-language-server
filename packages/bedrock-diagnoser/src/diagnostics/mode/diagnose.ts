@@ -23,6 +23,7 @@ export const mode_mirror_diagnose = mode_generic_diagnose(Modes.Mirror);
 export const mode_music_repeat_diagnose = mode_generic_diagnose(Modes.MusicRepeat);
 export const mode_old_block_diagnose = mode_generic_diagnose(Modes.OldBlock);
 export const mode_operation_diagnose = mode_generic_diagnose(Modes.Operation);
+export const mode_score_comparator_diagnose = mode_generic_diagnose(Modes.ScoreComparator);
 export const mode_permission_diagnose = mode_generic_diagnose(Modes.Permission);
 export const mode_permission_state_diagnose = mode_generic_diagnose(Modes.PermissionState);
 export const mode_replace_diagnose = mode_generic_diagnose(Modes.Replace);

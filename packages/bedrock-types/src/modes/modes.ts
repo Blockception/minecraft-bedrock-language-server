@@ -17,6 +17,7 @@ import { MusicRepeatMode } from './music-repeat';
 import { OldBlockMode } from './old-block';
 import { OperationMode } from './operation';
 import { PermissionMode, PermissionStateMode } from './permissions';
+import { ScoreComparatorMode } from './score-comparator';
 import { ReplaceMode } from './replace';
 import { RideFillMode } from './ride-fill';
 import { RideRulesMode } from './ride-rules';
@@ -66,6 +67,8 @@ export namespace Modes {
   export const OldBlock = new ModeHandler(OldBlockMode);
   /** The mode: Operation **/
   export const Operation = new ModeHandler(OperationMode);
+  /** The mode: ScoreComparator **/
+  export const ScoreComparator = new ModeHandler(ScoreComparatorMode);
   /** The mode: Permission **/
   export const Permission = new ModeHandler(PermissionMode);
   /** The mode: Permission State **/

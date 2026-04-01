@@ -90,6 +90,8 @@ export enum ParameterType {
   oldBlockMode,
   /** Operation mode */
   operation,
+  /** Score comparator mode */
+  scoreComparator,
   /** Particle identifier */
   particle,
   /** Permission */

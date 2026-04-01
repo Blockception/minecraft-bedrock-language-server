@@ -158,6 +158,10 @@ ${sumMode(Modes.OldBlock)}`,
 A mathematical operation.
 ${sumMode(Modes.Operation)}`,
 
+  [ParameterType.scoreComparator]: `## Score Comparator
+A comparison operator for comparing scores.
+${sumMode(Modes.ScoreComparator)}`,
+
   [ParameterType.particle]: `## Particle
 The identifier of a particle.`,
 
