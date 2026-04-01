@@ -2316,3 +2316,37 @@ flowchart TD
     node0 -->|true| node4
     node0 -->|false| node5"
 `;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 95. 1 ? 1 : 0 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@2"}
+    node1["1@0"]
+    node2["1@4"]
+    node3["0@8"]
+    start-->node0
+    node0 -->|condition| node1
+    node0 -->|true| node2
+    node0 -->|false| node3"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 96. 0 ? 0 : 1 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@2"}
+    node1["0@0"]
+    node2["0@4"]
+    node3["1@8"]
+    start-->node0
+    node0 -->|condition| node1
+    node0 -->|true| node2
+    node0 -->|false| node3"
+`;

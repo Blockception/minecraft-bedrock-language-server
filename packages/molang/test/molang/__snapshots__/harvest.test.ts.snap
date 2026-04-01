@@ -9106,6 +9106,74 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 95. 1 ? 1 : 0 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "1 ? 1 : 0" => [
+        {
+          "_processed": true,
+          "condition": {
+            "position": 47,
+            "type": 5,
+            "value": "1",
+          },
+          "falseExpression": {
+            "position": 55,
+            "type": 5,
+            "value": "0",
+          },
+          "position": 49,
+          "trueExpression": {
+            "position": 51,
+            "type": 5,
+            "value": "1",
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 96. 0 ? 0 : 1 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "0 ? 0 : 1" => [
+        {
+          "_processed": true,
+          "condition": {
+            "position": 47,
+            "type": 5,
+            "value": "0",
+          },
+          "falseExpression": {
+            "position": 55,
+            "type": 5,
+            "value": "1",
+          },
+          "position": 49,
+          "trueExpression": {
+            "position": 51,
+            "type": 5,
+            "value": "0",
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {

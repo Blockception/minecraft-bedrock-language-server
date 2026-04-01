@@ -25,6 +25,7 @@ export function isMolangType(data: string): MolangType {
   if (commandRegex.test(data)) return MolangType.command;
   if (eventRegex.test(data)) return MolangType.event;
   if (molangRegexp.test(data)) return MolangType.molang;
+  if (isMolang(data)) return MolangType.molang;
 
   return MolangType.unknown;
 }
@@ -49,6 +50,13 @@ export function isMolang(data: string) {
   // underscores), so their presence alongside single quotes reliably
   // distinguishes molang from apostrophes in plain text.
   if (trimmed.includes("'") && /[><=!?+\-*/|&]/.test(trimmed) && isValidMolang(trimmed)) {
+    return true;
+  }
+
+  // Match ternary expressions without string literals (e.g. 1 ? 1 : 0).
+  // The ternary operator ? is unique to molang and does not appear in plain
+  // JSON identifiers or enum values.
+  if (trimmed.includes('?') && isValidMolang(trimmed)) {
     return true;
   }
 

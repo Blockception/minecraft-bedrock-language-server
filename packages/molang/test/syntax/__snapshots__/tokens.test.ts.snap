@@ -1516,3 +1516,25 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 95. 1 ? 1 : 0 1`] = `
+[
+  "1 Number",
+  "? QuestionMark",
+  "1 Number",
+  ": Colon",
+  "0 Number",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 96. 0 ? 0 : 1 1`] = `
+[
+  "0 Number",
+  "? QuestionMark",
+  "0 Number",
+  ": Colon",
+  "1 Number",
+  "  EOF",
+]
+`;

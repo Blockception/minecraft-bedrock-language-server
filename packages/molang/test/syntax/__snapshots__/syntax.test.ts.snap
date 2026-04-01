@@ -4903,3 +4903,53 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 95. 1 ? 1 : 0 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "position": 0,
+      "type": "Literal",
+      "value": "1",
+    },
+    "falseExpression": {
+      "position": 8,
+      "type": "Literal",
+      "value": "0",
+    },
+    "position": 2,
+    "trueExpression": {
+      "position": 4,
+      "type": "Literal",
+      "value": "1",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 96. 0 ? 0 : 1 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "position": 0,
+      "type": "Literal",
+      "value": "0",
+    },
+    "falseExpression": {
+      "position": 8,
+      "type": "Literal",
+      "value": "1",
+    },
+    "position": 2,
+    "trueExpression": {
+      "position": 4,
+      "type": "Literal",
+      "value": "0",
+    },
+    "type": "Conditional",
+  },
+]
+`;
