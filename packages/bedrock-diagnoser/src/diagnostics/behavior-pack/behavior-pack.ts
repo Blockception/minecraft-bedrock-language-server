@@ -5,6 +5,7 @@ import * as AnimationController from './animation-controllers/document';
 import * as Animation from './animation/document';
 import * as Biome from './biome/document';
 import * as Block from './block/document';
+import * as Dialogue from './dialogue/document';
 import * as Entity from './entity/document';
 import * as FeatureRule from './feature-rule/document';
 import * as Feature from './feature/document';
@@ -42,6 +43,10 @@ export namespace BehaviorPack {
 
       case FileType.block:
         Block.diagnose_block_document(diagnoser);
+        break;
+
+      case FileType.dialogue:
+        Dialogue.diagnose_dialogue_document(diagnoser);
         break;
 
       case FileType.entity:

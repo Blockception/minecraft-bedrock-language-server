@@ -3,6 +3,7 @@ export * as Animation from './animation';
 export * as Animation_Controllers from './animation-controllers';
 export * as Block from './block';
 export * as BlockState from './block-state';
+export * as Dialogue from './dialogue';
 export * as Entity from './entity';
 export * as Events from './events';
 export * as Functions from './functions';
