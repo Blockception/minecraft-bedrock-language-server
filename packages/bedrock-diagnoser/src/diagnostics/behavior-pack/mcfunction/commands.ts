@@ -187,7 +187,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
       );
     }
 
-    return;
+    return minecraft_check_command(command.parameters[0], diagnoser, edu);
   }
 
   const data = info[0];
