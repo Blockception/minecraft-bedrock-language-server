@@ -2,7 +2,7 @@
 import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../../internal/types';
-import { Container, DataSetBase, Pack } from '../../types';
+import { Container, DataSetBase, Pack, TextDocument } from '../../types';
 import { PackType } from '../pack-type';
 
 /** */
@@ -23,58 +23,61 @@ export class WorldPack implements Container, Pack {
   }
 
   /**
-   *
-   * @param doc
+   * Processes the given document and adds it to the world pack data.
+   * @param doc The document to process
+   * @returns The dataset the document was added to, or undefined
+   * TODO: Implement indexing of world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  process(): DataSetBase | undefined {
-    this.deleteFile();
-
+  process(doc: TextDocument): DataSetBase | undefined {
     return undefined;
   }
 
   /**
-   *
-   * @param uri
-   * @returns
+   * Returns the dataset that corresponds to the given uri.
+   * @param uri The uri of the document
+   * @returns The dataset, or undefined
+   * TODO: Implement dataset lookup for world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  getDataset(): DataSetBase | undefined {
+  getDataset(uri: string): DataSetBase | undefined {
     return undefined;
   }
 
   /**
-   *
-   * @param uri
-   * @returns
+   * Removes the given file from all datasets.
+   * @param uri The uri of the file to remove
+   * @returns true if any data was removed
+   * TODO: Implement file removal for world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  deleteFile(): boolean {
+  deleteFile(uri: string): boolean {
     return false;
   }
 
   /**
-   *
-   * @param uri
+   * Removes all files under the given folder from all datasets.
+   * @param uri The uri of the folder to remove
+   * @returns true if any data was removed
+   * TODO: Implement folder removal for world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  deleteFolder(): boolean {
+  deleteFolder(uri: string): boolean {
     return false;
   }
 
   /**
-   *
-   * @param predicate
-   * @returns
+   * Searches all datasets for the first item matching the predicate.
+   * @param predicate The predicate function to match items against
+   * @returns The first matching item, or undefined
+   * TODO: Implement find for world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  find(): BaseObject | undefined {
-    const value = undefined;
-
-    return value;
+  find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined {
+    return undefined;
   }
 
   /**
-   *
-   * @param predicate
-   * @returns
+   * Iterates over all items in all datasets.
+   * @param callbackfn The callback to invoke for each item
+   * TODO: Implement forEach for world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  forEach(): void {}
+  forEach(callbackfn: (value: BaseObject) => boolean): void {}
 }
 
 /**
