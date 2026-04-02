@@ -2,7 +2,7 @@ import { Internal } from 'bc-minecraft-bedrock-project';
 import { EntityProperty } from 'bc-minecraft-bedrock-project/src/project/behavior-pack/entity';
 import { ComponentGroups } from 'bc-minecraft-bedrock-types/src/minecraft/components';
 import { DiagnosticSeverity, DiagnosticsBuilder, DocumentDiagnosticsBuilder } from '../../../types';
-import { commandsCheck } from '../mcfunction';
+import { commandsCheck, offsetIntoJsonString } from '../mcfunction';
 import { behaviorpack_entity_components_filters } from './components/filters';
 import { diagnose_entity_property_usage } from './properties';
 
@@ -130,9 +130,15 @@ export function behaviorpack_entity_check_event(
   if (event.queue_command) {
     const c = event.queue_command.command;
     const command = typeof c === 'string' ? [c] : c;
+    const docText = diagnoser.document.getText();
+    // Track the search position so that identical commands in the same array are
+    // matched against their correct document occurrences in order.
+    let searchFrom = 0;
 
     command.forEach((cmd) => {
-      if (cmd.startsWith('/')) {
+      const hasSlash = cmd.startsWith('/');
+
+      if (hasSlash) {
         diagnoser.add(
           `events/${event_id}/cmd`,
           `Commands in queue_command should not start with a /, remove it`,
@@ -143,7 +149,19 @@ export function behaviorpack_entity_check_event(
         cmd = cmd.slice(1);
       }
 
-      commandsCheck(cmd, diagnoser);
+      // Find the JSON string node in the document using its full JSON
+      // representation (with quotes and any escaping) to compute the correct
+      // base offset, matching the approach used in json_commandsCheck.
+      const originalCmd = hasSlash ? '/' + cmd : cmd;
+      const jsonRepr = JSON.stringify(originalCmd);
+      const nodeStart = docText.indexOf(jsonRepr, searchFrom);
+
+      if (nodeStart >= 0) {
+        searchFrom = nodeStart + jsonRepr.length;
+        commandsCheck(cmd, diagnoser, offsetIntoJsonString(0, nodeStart, hasSlash));
+      } else {
+        commandsCheck(cmd, diagnoser);
+      }
     });
   }
 }

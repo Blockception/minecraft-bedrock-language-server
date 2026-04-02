@@ -1,6 +1,7 @@
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { Command, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { offsetIntoJsonString } from './offset';
 import { education_enabled } from '../../definitions';
 import {
   general_boolean_diagnose,
@@ -110,9 +111,34 @@ export function json_commandsCheck(prop: string | string[], diagnoser: DocumentD
     prop = [prop];
   }
 
+  const docText = diagnoser.document.getText();
+  // Track the search position so that identical commands in the same array are
+  // matched against their correct document occurrences in order.
+  let searchFrom = 0;
+
   prop.forEach((p) => {
     if (p.startsWith('/')) {
-      commandsCheck(p.substring(1), diagnoser);
+      const cmdText = p.substring(1);
+
+      // Find the JSON string node in the document. Searching for the full
+      // JSON-serialised representation (including quotes and any escape sequences)
+      // is more reliable than searching for the bare command text, because it
+      // avoids false matches in keys, values, or comments that share the same
+      // substring.
+      const jsonRepr = JSON.stringify(p); // e.g. '"/say hello"'
+      const nodeStart = docText.indexOf(jsonRepr, searchFrom);
+
+      if (nodeStart >= 0) {
+        // Advance the cursor past this match so the next identical command in
+        // the same array is resolved to its own occurrence.
+        searchFrom = nodeStart + jsonRepr.length;
+        // nodeStart is the document offset of the opening `"`.
+        // offsetIntoJsonString(0, nodeStart) gives the offset of the first
+        // character of the command text (after the `"` and `/`).
+        commandsCheck(cmdText, diagnoser, offsetIntoJsonString(0, nodeStart));
+      } else {
+        commandsCheck(cmdText, diagnoser);
+      }
     }
   });
 }
@@ -122,17 +148,26 @@ export function json_commandsCheck(prop: string | string[], diagnoser: DocumentD
  * @param commandText
  * @param doc
  * @param diagnoser
+ * @param baseOffset  Optional. When provided (obtained via {@link offsetIntoJsonString}),
+ *                    this is used directly as the document offset of the first character
+ *                    of `commandText`, bypassing the fragile `indexOf` search.
  * @returns
  */
-export function commandsCheck(commandText: string, diagnoser: DocumentDiagnosticsBuilder): void {
+export function commandsCheck(commandText: string, diagnoser: DocumentDiagnosticsBuilder, baseOffset?: number): void {
   if (commandText.length < 3) return;
 
   const edu = education_enabled(diagnoser);
-  let offset = diagnoser.document.getText().indexOf(commandText);
-  if (offset < 0) {
-    // json escape the commandText and try again
-    const escaped = JSON.stringify(commandText).slice(1, -1);
-    offset = diagnoser.document.getText().indexOf(escaped);
+  let offset: number;
+
+  if (baseOffset !== undefined) {
+    offset = baseOffset;
+  } else {
+    offset = diagnoser.document.getText().indexOf(commandText);
+    if (offset < 0) {
+      // json escape the commandText and try again
+      const escaped = JSON.stringify(commandText).slice(1, -1);
+      offset = diagnoser.document.getText().indexOf(escaped);
+    }
   }
 
   let comm: Command | undefined = Command.parse(commandText, offset);
