@@ -18,7 +18,7 @@ import { FormatContext } from './context';
 import { formatLangauge, formatLangaugeRange } from './language';
 import { formatMcfunction, formatMcfunctionRange } from './mcfunction';
 
-export class FormatService extends BaseService implements Partial<IService> {
+export class FormatService extends BaseService implements IService {
   name: string = 'workspace processor';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

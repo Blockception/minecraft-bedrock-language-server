@@ -15,7 +15,7 @@ import { IService } from '../services/service';
 
 import { getCurrentWord } from './function';
 
-export class TypeDefinitionService extends BaseService implements Partial<IService> {
+export class TypeDefinitionService extends BaseService implements IService {
   name: string = 'type-definitions';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

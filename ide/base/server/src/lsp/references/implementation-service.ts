@@ -14,7 +14,7 @@ import { CapabilityBuilder } from '../services/capabilities';
 import { IService } from '../services/service';
 import { getCurrentWord } from './function';
 
-export class ImplementationService extends BaseService implements Partial<IService> {
+export class ImplementationService extends BaseService implements IService {
   name: string = 'implementation';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

@@ -23,7 +23,7 @@ export type IDocumentManager = Pick<
 export class DocumentManager
   extends BaseService
   implements
-    Partial<IService>,
+    IService,
     Pick<TextDocuments<TextDocument>, 'onDidChangeContent' | 'onDidClose' | 'onDidOpen' | 'onDidSave'>
 {
   public readonly name: string = 'documents';

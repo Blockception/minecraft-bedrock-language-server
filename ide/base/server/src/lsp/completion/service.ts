@@ -21,7 +21,7 @@ import { onCompletionRequest } from './on-request';
 
 const triggerCharacters = ' abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,\'"'.split('');
 
-export class CompletionService extends BaseService implements Partial<IService> {
+export class CompletionService extends BaseService implements IService {
   readonly name: string = 'completion';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

@@ -13,7 +13,7 @@ import * as Molang from './minecraft/molang/main';
 
 const triggerCharacters = ' abcdefghijklmnopqrstuvwxyz[]{}:.@=+-*/\\|!#$%^&*()<>?,\'"'.split('');
 
-export class SignatureService extends BaseService implements Partial<IService> {
+export class SignatureService extends BaseService implements IService {
   readonly name: string = 'signatures';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

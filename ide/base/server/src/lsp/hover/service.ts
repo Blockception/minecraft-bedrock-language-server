@@ -12,7 +12,7 @@ import * as Json from './minecraft/json';
 import * as Mcfunction from './minecraft/mcfunction';
 import * as Molang from './minecraft/molang';
 
-export class HoverService extends BaseService implements Partial<IService> {
+export class HoverService extends BaseService implements IService {
   name: string = 'hover';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

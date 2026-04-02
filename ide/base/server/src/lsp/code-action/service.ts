@@ -23,7 +23,7 @@ import * as Minecraft from './minecraft/code-actions';
 import * as Molang from './minecraft/molang/main';
 import * as ResourcePack from './minecraft/resource-pack/main';
 
-export class CodeActionService extends BaseService implements Partial<IService> {
+export class CodeActionService extends BaseService implements IService {
   name: string = 'code-actions';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

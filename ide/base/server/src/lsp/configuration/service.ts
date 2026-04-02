@@ -11,7 +11,7 @@ import { IExtendedLogger } from '../logger/logger';
 import { BaseService } from '../services/base';
 import { IService } from '../services/service';
 
-export class ConfigurationService extends BaseService implements Partial<IService> {
+export class ConfigurationService extends BaseService implements IService {
   name: string = 'configuration';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
