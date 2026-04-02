@@ -188,6 +188,16 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
       );
     }
 
+    //Execute subcommand exists but its syntax is invalid
+    if (command.subType === ParameterType.executeSubcommand && CommandData.ExecuteSubcommands[keyCommand] !== undefined) {
+      return diagnoser.add(
+        command.parameters[0].offset,
+        `Unknown syntax for: "${keyCommand}"`,
+        DiagnosticSeverity.error,
+        `minecraft.commands.${keyCommand}.syntax`,
+      );
+    }
+
     return minecraft_check_command(command.parameters[0], diagnoser, edu);
   }
 
