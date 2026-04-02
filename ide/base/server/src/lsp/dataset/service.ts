@@ -73,13 +73,13 @@ function getDataSet(datatype: string): unknown {
     case DataSets.Vanilla.BehaviorPack.Items:
       return MinecraftData.vanilla.BehaviorPack.items;
     case DataSets.Vanilla.BehaviorPack.LootTables:
-      return MinecraftData.vanilla.BehaviorPack.loot_tables;
+      return MinecraftData.vanilla.BehaviorPack.lootTables;
     case DataSets.Vanilla.BehaviorPack.Trading:
       return MinecraftData.vanilla.BehaviorPack.trading;
 
     // Vanilla Resource Pack
     case DataSets.Vanilla.ResourcePack.AnimationControllers:
-      return MinecraftData.vanilla.ResourcePack.animation_controllers;
+      return MinecraftData.vanilla.ResourcePack.animationControllers;
     case DataSets.Vanilla.ResourcePack.Animations:
       return MinecraftData.vanilla.ResourcePack.animations;
     case DataSets.Vanilla.ResourcePack.Entities:
@@ -93,17 +93,17 @@ function getDataSet(datatype: string): unknown {
     case DataSets.Vanilla.ResourcePack.Particles:
       return MinecraftData.vanilla.ResourcePack.particles;
     case DataSets.Vanilla.ResourcePack.RenderControllers:
-      return MinecraftData.vanilla.ResourcePack.render_controllers;
+      return MinecraftData.vanilla.ResourcePack.renderControllers;
     case DataSets.Vanilla.ResourcePack.Sounds:
       return MinecraftData.vanilla.ResourcePack.sounds;
     case DataSets.Vanilla.ResourcePack.SoundFiles:
-      return MinecraftData.vanilla.ResourcePack.sound_files;
+      return MinecraftData.vanilla.ResourcePack.soundFiles;
     case DataSets.Vanilla.ResourcePack.Textures:
       return MinecraftData.vanilla.ResourcePack.textures;
     case DataSets.Vanilla.ResourcePack.TextureAtlasItems:
-      return MinecraftData.vanilla.ResourcePack.texture_atlas_items;
+      return MinecraftData.vanilla.ResourcePack.textureAtlasItems;
     case DataSets.Vanilla.ResourcePack.TextureAtlasTerrain:
-      return MinecraftData.vanilla.ResourcePack.texture_atlas_terrain;
+      return MinecraftData.vanilla.ResourcePack.textureAtlasTerrain;
 
     // Edu Behavior Pack
     case DataSets.Edu.BehaviorPack.Biomes:
@@ -117,13 +117,13 @@ function getDataSet(datatype: string): unknown {
     case DataSets.Edu.BehaviorPack.Items:
       return MinecraftData.edu.BehaviorPack.items;
     case DataSets.Edu.BehaviorPack.LootTables:
-      return MinecraftData.edu.BehaviorPack.loot_tables;
+      return MinecraftData.edu.BehaviorPack.lootTables;
     case DataSets.Edu.BehaviorPack.Trading:
       return MinecraftData.edu.BehaviorPack.trading;
 
     // Edu Resource Pack
     case DataSets.Edu.ResourcePack.AnimationControllers:
-      return MinecraftData.edu.ResourcePack.animation_controllers;
+      return MinecraftData.edu.ResourcePack.animationControllers;
     case DataSets.Edu.ResourcePack.Animations:
       return MinecraftData.edu.ResourcePack.animations;
     case DataSets.Edu.ResourcePack.Entities:
@@ -137,17 +137,17 @@ function getDataSet(datatype: string): unknown {
     case DataSets.Edu.ResourcePack.Particles:
       return MinecraftData.edu.ResourcePack.particles;
     case DataSets.Edu.ResourcePack.RenderControllers:
-      return MinecraftData.edu.ResourcePack.render_controllers;
+      return MinecraftData.edu.ResourcePack.renderControllers;
     case DataSets.Edu.ResourcePack.Sounds:
       return MinecraftData.edu.ResourcePack.sounds;
     case DataSets.Edu.ResourcePack.SoundFiles:
-      return MinecraftData.edu.ResourcePack.sound_files;
+      return MinecraftData.edu.ResourcePack.soundFiles;
     case DataSets.Edu.ResourcePack.Textures:
       return MinecraftData.edu.ResourcePack.textures;
     case DataSets.Edu.ResourcePack.TextureAtlasItems:
-      return MinecraftData.edu.ResourcePack.texture_atlas_items;
+      return MinecraftData.edu.ResourcePack.textureAtlasItems;
     case DataSets.Edu.ResourcePack.TextureAtlasTerrain:
-      return MinecraftData.edu.ResourcePack.texture_atlas_terrain;
+      return MinecraftData.edu.ResourcePack.textureAtlasTerrain;
 
     // General
     case DataSets.General.Biomes:

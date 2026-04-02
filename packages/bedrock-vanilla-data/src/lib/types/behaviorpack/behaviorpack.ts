@@ -24,7 +24,7 @@ export interface BehaviorPack {
   readonly items: Item[];
 
   /**The collection of loot tables*/
-  readonly loot_tables: LootTable[];
+  readonly lootTables: LootTable[];
 
   /**The collection of trading*/
   readonly trading: Trading[];

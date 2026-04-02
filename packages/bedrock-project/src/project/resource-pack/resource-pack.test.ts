@@ -7,7 +7,7 @@ describe('Resourcepack', () => {
     const RP = new ResourcePack('c:\\test', MCProject.createEmpty(), {} as Manifest);
 
     it('animation controllers', () => {
-      expect(typeof RP.animation_controllers === 'object').toBeTruthy();
+      expect(typeof RP.animationControllers === 'object').toBeTruthy();
     });
     it('animations', () => {
       expect(typeof RP.animations === 'object').toBeTruthy();
@@ -16,7 +16,7 @@ describe('Resourcepack', () => {
       expect(typeof RP.attachables === 'object').toBeTruthy();
     });
     it('block_culling', () => {
-      expect(typeof RP.block_culling_rules === 'object').toBeTruthy();
+      expect(typeof RP.blockCullingRules === 'object').toBeTruthy();
     });
     it('context', () => {
       expect(typeof RP.context === 'object').toBeTruthy();

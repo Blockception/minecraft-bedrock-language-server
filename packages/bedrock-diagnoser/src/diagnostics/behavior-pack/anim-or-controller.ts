@@ -51,7 +51,7 @@ export enum anim_or_contr {
 export function is_animation_or_controller(id: string, diagnoser: DiagnosticsBuilder): anim_or_contr {
   const bp = diagnoser.context.getProjectData().behaviors;
   if (bp.animations.has(id, diagnoser.project)) return anim_or_contr.animation;
-  if (bp.animation_controllers.has(id, diagnoser.project)) return anim_or_contr.controller;
+  if (bp.animationControllers.has(id, diagnoser.project)) return anim_or_contr.controller;
 
   return anim_or_contr.neither;
 }

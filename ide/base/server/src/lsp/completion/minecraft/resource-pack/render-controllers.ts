@@ -13,12 +13,12 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const generateV = (item: string) => `The vanilla render controller: ${item}`;
 
   context.builder.generate(
-    context.database.ProjectData.resourcePacks.render_controllers,
+    context.database.ProjectData.resourcePacks.renderControllers,
     generateDoc,
     Kinds.Completion.RenderController,
   );
   context.builder.generate(
-    MinecraftData.vanilla.ResourcePack.render_controllers,
+    MinecraftData.vanilla.ResourcePack.renderControllers,
     generateV,
     Kinds.Completion.RenderController,
   );
@@ -26,7 +26,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   //Education data
   if (IsEducationEnabled(context.document))
     context.builder.generate(
-      MinecraftData.edu.ResourcePack.render_controllers,
+      MinecraftData.edu.ResourcePack.renderControllers,
       generateV,
       Kinds.Completion.RenderController,
     );

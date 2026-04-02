@@ -105,7 +105,7 @@ scoreboard players set global id 0`,
     const out = P.process(doc);
 
     expect(out).toBeDefined();
-    expect(P.behaviorPacks.animation_controllers.get('controller.animation.example')).toBeDefined();
+    expect(P.behaviorPacks.animationControllers.get('controller.animation.example')).toBeDefined();
     expect(P.general.tags.count()).toEqual(1);
     expect(P.general.objectives.count()).toEqual(1);
     expect(P.general.fakeEntities.count()).toEqual(1);

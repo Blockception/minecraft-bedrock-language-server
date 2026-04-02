@@ -47,7 +47,7 @@ export class BehaviorPack implements Container, Pack {
   /**The collection of animations*/
   readonly animations: DataSet<Animation.Animation>;
   /**The collection of animations controllers*/
-  readonly animation_controllers: DataSet<AnimationController.AnimationController>;
+  readonly animationControllers: DataSet<AnimationController.AnimationController>;
   /**The collection of biomes*/
   readonly biomes: DataSet<Biome.Biome>;
   /**The collection of blocks*/
@@ -57,15 +57,15 @@ export class BehaviorPack implements Container, Pack {
   /**The collection of features*/
   readonly features: DataSet<Feature.Feature>;
   /**The collection of features*/
-  readonly features_rules: DataSet<FeatureRule.FeatureRule>;
+  readonly featuresRules: DataSet<FeatureRule.FeatureRule>;
   /**The collection of mcfunctions*/
   readonly functions: DataSet<Function.Function>;
   /**The collection of items*/
-  readonly item_groups: DataSet<ItemCatalog.Group>;
+  readonly itemGroups: DataSet<ItemCatalog.Group>;
   /**The collection of items*/
   readonly items: DataSet<Item.Item>;
   /**The collection of loot tables*/
-  readonly loot_tables: DataSet<LootTable.LootTable>;
+  readonly lootTables: DataSet<LootTable.LootTable>;
   /**The collection of recipes*/
   readonly recipes: DataSet<Recipe.Recipe>;
   /**The collection of structures*/
@@ -73,7 +73,7 @@ export class BehaviorPack implements Container, Pack {
   /**The collection of trading tables*/
   readonly trading: DataSet<Trading.Trading>;
   /**The collection of voxel shapes*/
-  readonly voxel_shapes: DataSet<VoxelShape.VoxelShape>;
+  readonly voxelShapes: DataSet<VoxelShape.VoxelShape>;
 
   /**
    * @param folder The folder of the behavior
@@ -84,20 +84,20 @@ export class BehaviorPack implements Container, Pack {
     this.context = typeof context === 'object' ? context : MCProject.loadSync(context);
 
     this.animations = new DataSet();
-    this.animation_controllers = new DataSet();
+    this.animationControllers = new DataSet();
     this.biomes = new DataSet();
     this.blocks = new DataSet();
     this.entities = new DataSet();
     this.functions = new DataSet();
     this.items = new DataSet();
-    this.loot_tables = new DataSet();
+    this.lootTables = new DataSet();
     this.recipes = new DataSet();
     this.structures = new DataSet();
     this.trading = new DataSet();
     this.features = new DataSet();
-    this.features_rules = new DataSet();
-    this.item_groups = new DataSet();
-    this.voxel_shapes = new DataSet();
+    this.featuresRules = new DataSet();
+    this.itemGroups = new DataSet();
+    this.voxelShapes = new DataSet();
   }
 
   /**
@@ -114,7 +114,7 @@ export class BehaviorPack implements Container, Pack {
         return this.animations.set(Animation.process(doc));
 
       case FileType.animation_controller:
-        return this.animation_controllers.set(AnimationController.process(doc));
+        return this.animationControllers.set(AnimationController.process(doc));
 
       case FileType.block:
         return this.blocks.set(Block.process(doc));
@@ -129,7 +129,7 @@ export class BehaviorPack implements Container, Pack {
         return this.items.set(Item.process(doc));
 
       case FileType.loot_table:
-        return this.loot_tables.set(LootTable.process(doc));
+        return this.lootTables.set(LootTable.process(doc));
 
       case FileType.structure:
         return this.structures.set(Structure.process(doc));
@@ -141,10 +141,10 @@ export class BehaviorPack implements Container, Pack {
         return this.features.set(Feature.process(doc));
 
       case FileType.feature_rule:
-        return this.features_rules.set(FeatureRule.process(doc));
+        return this.featuresRules.set(FeatureRule.process(doc));
 
       case FileType.item_catalog:
-        return this.item_groups.set(ItemCatalog.process(doc));
+        return this.itemGroups.set(ItemCatalog.process(doc));
 
       case FileType.biome:
         return this.biomes.set(Biome.process(doc));
@@ -153,7 +153,7 @@ export class BehaviorPack implements Container, Pack {
         return this.recipes.set(Recipe.process(doc));
 
       case FileType.voxel_shape:
-        return this.voxel_shapes.set(VoxelShape.process(doc));
+        return this.voxelShapes.set(VoxelShape.process(doc));
     }
 
     return undefined;
@@ -172,7 +172,7 @@ export class BehaviorPack implements Container, Pack {
         return this.animations;
 
       case FileType.animation_controller:
-        return this.animation_controllers;
+        return this.animationControllers;
 
       case FileType.block:
         return this.blocks;
@@ -184,7 +184,7 @@ export class BehaviorPack implements Container, Pack {
         return this.features;
 
       case FileType.feature_rule:
-        return this.features_rules;
+        return this.featuresRules;
 
       case FileType.function:
         return this.functions;
@@ -193,10 +193,10 @@ export class BehaviorPack implements Container, Pack {
         return this.items;
 
       case FileType.item_catalog:
-        return this.item_groups;
+        return this.itemGroups;
 
       case FileType.loot_table:
-        return this.loot_tables;
+        return this.lootTables;
 
       case FileType.structure:
         return this.structures;
@@ -211,7 +211,7 @@ export class BehaviorPack implements Container, Pack {
         return this.recipes;
 
       case FileType.voxel_shape:
-        return this.voxel_shapes;
+        return this.voxelShapes;
 
       default:
         return undefined;
@@ -227,20 +227,20 @@ export class BehaviorPack implements Container, Pack {
     let out = false;
 
     out = this.animations.deleteFile(uri) || out;
-    out = this.animation_controllers.deleteFile(uri) || out;
+    out = this.animationControllers.deleteFile(uri) || out;
     out = this.biomes.deleteFile(uri) || out;
     out = this.blocks.deleteFile(uri) || out;
     out = this.entities.deleteFile(uri) || out;
     out = this.features.deleteFile(uri) || out;
-    out = this.features_rules.deleteFile(uri) || out;
+    out = this.featuresRules.deleteFile(uri) || out;
     out = this.functions.deleteFile(uri) || out;
     out = this.items.deleteFile(uri) || out;
-    out = this.item_groups.deleteFile(uri) || out;
-    out = this.loot_tables.deleteFile(uri) || out;
+    out = this.itemGroups.deleteFile(uri) || out;
+    out = this.lootTables.deleteFile(uri) || out;
     out = this.recipes.deleteFile(uri) || out;
     out = this.structures.deleteFile(uri) || out;
     out = this.trading.deleteFile(uri) || out;
-    out = this.voxel_shapes.deleteFile(uri) || out;
+    out = this.voxelShapes.deleteFile(uri) || out;
 
     return out;
   }
@@ -253,20 +253,20 @@ export class BehaviorPack implements Container, Pack {
     let out = false;
 
     out = this.animations.deleteFolder(uri) || out;
-    out = this.animation_controllers.deleteFolder(uri) || out;
+    out = this.animationControllers.deleteFolder(uri) || out;
     out = this.biomes.deleteFolder(uri) || out;
     out = this.blocks.deleteFolder(uri) || out;
     out = this.entities.deleteFolder(uri) || out;
     out = this.features.deleteFolder(uri) || out;
-    out = this.features_rules.deleteFolder(uri) || out;
+    out = this.featuresRules.deleteFolder(uri) || out;
     out = this.functions.deleteFolder(uri) || out;
     out = this.items.deleteFolder(uri) || out;
-    out = this.item_groups.deleteFolder(uri) || out;
-    out = this.loot_tables.deleteFolder(uri) || out;
+    out = this.itemGroups.deleteFolder(uri) || out;
+    out = this.lootTables.deleteFolder(uri) || out;
     out = this.recipes.deleteFolder(uri) || out;
     out = this.structures.deleteFolder(uri) || out;
     out = this.trading.deleteFolder(uri) || out;
-    out = this.voxel_shapes.deleteFolder(uri) || out;
+    out = this.voxelShapes.deleteFolder(uri) || out;
 
     return out;
   }
@@ -280,20 +280,20 @@ export class BehaviorPack implements Container, Pack {
     let value: ItemTypes | undefined;
 
     if ((value = this.animations.find(predicate))) return value;
-    if ((value = this.animation_controllers.find(predicate))) return value;
+    if ((value = this.animationControllers.find(predicate))) return value;
     if ((value = this.biomes.find(predicate))) return value;
     if ((value = this.blocks.find(predicate))) return value;
     if ((value = this.entities.find(predicate))) return value;
     if ((value = this.features.find(predicate))) return value;
-    if ((value = this.features_rules.find(predicate))) return value;
+    if ((value = this.featuresRules.find(predicate))) return value;
     if ((value = this.functions.find(predicate))) return value;
     if ((value = this.items.find(predicate))) return value;
-    if ((value = this.item_groups.find(predicate))) return value;
-    if ((value = this.loot_tables.find(predicate))) return value;
+    if ((value = this.itemGroups.find(predicate))) return value;
+    if ((value = this.lootTables.find(predicate))) return value;
     if ((value = this.recipes.find(predicate))) return value;
     if ((value = this.structures.find(predicate))) return value;
     if ((value = this.trading.find(predicate))) return value;
-    if ((value = this.voxel_shapes.find(predicate))) return value;
+    if ((value = this.voxelShapes.find(predicate))) return value;
 
     return value;
   }
@@ -305,20 +305,20 @@ export class BehaviorPack implements Container, Pack {
    */
   forEach(callbackfn: (value: ItemTypes) => void): void {
     this.animations.forEach(callbackfn);
-    this.animation_controllers.forEach(callbackfn);
+    this.animationControllers.forEach(callbackfn);
     this.biomes.forEach(callbackfn);
     this.blocks.forEach(callbackfn);
     this.entities.forEach(callbackfn);
     this.features.forEach(callbackfn);
-    this.features_rules.forEach(callbackfn);
+    this.featuresRules.forEach(callbackfn);
     this.functions.forEach(callbackfn);
     this.items.forEach(callbackfn);
-    this.item_groups.forEach(callbackfn);
-    this.loot_tables.forEach(callbackfn);
+    this.itemGroups.forEach(callbackfn);
+    this.lootTables.forEach(callbackfn);
     this.recipes.forEach(callbackfn);
     this.structures.forEach(callbackfn);
     this.trading.forEach(callbackfn);
-    this.voxel_shapes.forEach(callbackfn);
+    this.voxelShapes.forEach(callbackfn);
   }
 }
 
@@ -337,20 +337,20 @@ export namespace BehaviorPack {
       //Order is determined buy likely / unlikely it is that it missing
       if (typeof temp.functions !== 'object') return false;
       if (typeof temp.items !== 'object') return false;
-      if (typeof temp.loot_tables !== 'object') return false;
+      if (typeof temp.lootTables !== 'object') return false;
       if (typeof temp.structures !== 'object') return false;
       if (typeof temp.trading !== 'object') return false;
 
       if (typeof temp.animations !== 'object') return false;
-      if (typeof temp.animation_controllers !== 'object') return false;
+      if (typeof temp.animationControllers !== 'object') return false;
       if (typeof temp.blocks !== 'object') return false;
       if (typeof temp.entities !== 'object') return false;
       if (typeof temp.features !== 'object') return false;
-      if (typeof temp.features_rules !== 'object') return false;
-      if (typeof temp.item_groups !== 'object') return false;
+      if (typeof temp.featuresRules !== 'object') return false;
+      if (typeof temp.itemGroups !== 'object') return false;
       if (typeof temp.biomes !== 'object') return false;
       if (typeof temp.recipes !== 'object') return false;
-      if (typeof temp.voxel_shapes !== 'object') return false;
+      if (typeof temp.voxelShapes !== 'object') return false;
 
       if (typeof temp.context !== 'object') return false;
       if (typeof temp.folder !== 'string') return false;

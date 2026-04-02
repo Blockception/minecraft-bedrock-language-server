@@ -40,17 +40,17 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
   //#region animations
   //Check animations / animation controllers
   const anim_data: AnimationUsage = {
-    animation_controllers: {},
+    animationControllers: {},
     animations: description.animations ?? {},
     script: description.scripts ?? {},
   };
   description.animation_controllers?.forEach((controller) => {
     if (typeof controller === 'string') {
-      anim_data.animation_controllers[controller] = controller;
+      anim_data.animationControllers[controller] = controller;
       return;
     }
 
-    Definition.forEach(controller, (ref, anim_id) => (anim_data.animation_controllers[ref] = anim_id));
+    Definition.forEach(controller, (ref, anim_id) => (anim_data.animationControllers[ref] = anim_id));
   });
 
   Definition.forEach(anim_data.animations, (reference, anim_id) =>
@@ -62,7 +62,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
       description.sound_effects,
     ),
   );
-  Definition.forEach(anim_data.animation_controllers, (ref, anim_id) =>
+  Definition.forEach(anim_data.animationControllers, (ref, anim_id) =>
     animation_or_controller_diagnose_implementation(
       anim_id,
       attachableGathered,

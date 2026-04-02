@@ -17,7 +17,7 @@ export function diagnose_animation_controller_implementation(
   diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
 ): void {
   //Project has animation controller
-  const anim = diagnoser.context.getProjectData().behaviors.animation_controllers.get(id, diagnoser.project);
+  const anim = diagnoser.context.getProjectData().behaviors.animationControllers.get(id, diagnoser.project);
   if (anim === undefined) {
     return Errors.missing('behaviors', 'animation_controllers', id, diagnoser);
   }

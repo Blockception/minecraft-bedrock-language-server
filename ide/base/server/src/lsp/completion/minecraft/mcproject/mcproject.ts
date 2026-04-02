@@ -133,7 +133,7 @@ function provideDefinitions(context: Context<CompletionContext>): void {
         return projectData.behaviorPacks.items.forEach((item) => add(context, item));
 
       case 'loot_table':
-        return projectData.behaviorPacks.loot_tables.forEach((loot_table) => add(context, loot_table));
+        return projectData.behaviorPacks.lootTables.forEach((loot_table) => add(context, loot_table));
 
       case 'name':
         return projectData.general.fakeEntities.forEach((entity) => add(context, entity));

@@ -28,7 +28,7 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
       return AnimationControllers.provideJsonCompletion(context);
     case FileType.attachable:
       return Attachables.provideJsonCompletion(context);
-    case FileType.block_culling_rules:
+    case FileType.blockCullingRules:
       return BlockCulling.provideJsonCompletion(context);
     case FileType.entity:
       return Entities.provideJsonCompletion(context);

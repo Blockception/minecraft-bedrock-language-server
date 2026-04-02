@@ -22,8 +22,8 @@ export function diagnose_animation_controller_document(diagnoser: DocumentDiagno
   Object.entries(controllers.animation_controllers).forEach(([id, controller]) => {
     // check that no other exists with this id
     no_other_duplicates(
-      'behaviorpack.animation_controllers',
-      diagnoser.context.getProjectData().projectData.behaviorPacks.animation_controllers,
+      'behaviorpack.animationControllers',
+      diagnoser.context.getProjectData().projectData.behaviorPacks.animationControllers,
       id,
       diagnoser,
     );

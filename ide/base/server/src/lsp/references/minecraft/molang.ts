@@ -56,14 +56,14 @@ function GetVariables(context: Context<any>, variable: string): Location[] {
     if (isDefined(item.molang, variable)) locations.push(item);
   };
 
-  database.ProjectData.behaviorPacks.animation_controllers.forEach(map);
+  database.ProjectData.behaviorPacks.animationControllers.forEach(map);
   database.ProjectData.behaviorPacks.animations.forEach(map);
   database.ProjectData.behaviorPacks.entities.forEach(map);
 
-  database.ProjectData.resourcePacks.animation_controllers.forEach(map);
+  database.ProjectData.resourcePacks.animationControllers.forEach(map);
   database.ProjectData.resourcePacks.animations.forEach(map);
   database.ProjectData.resourcePacks.entities.forEach(map);
-  database.ProjectData.resourcePacks.render_controllers.forEach(map);
+  database.ProjectData.resourcePacks.renderControllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
   return References.convertLocation(locations, documents);
@@ -76,14 +76,14 @@ function GetTemp(context: Context<any>, variable: string): Location[] {
     if (isDefined(item.molang, variable)) locations.push(item);
   };
 
-  database.ProjectData.behaviorPacks.animation_controllers.forEach(map);
+  database.ProjectData.behaviorPacks.animationControllers.forEach(map);
   database.ProjectData.behaviorPacks.animations.forEach(map);
   database.ProjectData.behaviorPacks.entities.forEach(map);
 
-  database.ProjectData.resourcePacks.animation_controllers.forEach(map);
+  database.ProjectData.resourcePacks.animationControllers.forEach(map);
   database.ProjectData.resourcePacks.animations.forEach(map);
   database.ProjectData.resourcePacks.entities.forEach(map);
-  database.ProjectData.resourcePacks.render_controllers.forEach(map);
+  database.ProjectData.resourcePacks.renderControllers.forEach(map);
   //Database.ProjectData.ResourcePacks.particles.forEach(map);
 
   return References.convertLocation(locations, documents);

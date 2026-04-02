@@ -91,7 +91,7 @@ export function diagnose_entity_document(diag: DocumentDiagnosticsBuilder): void
 
   //Check used animations
   const anim_data: AnimationUsage = {
-    animation_controllers: {},
+    animationControllers: {},
     animations: container.description.animations ?? {},
     script: container.description.scripts ?? {},
   };

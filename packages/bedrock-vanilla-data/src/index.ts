@@ -13,23 +13,23 @@ export namespace MinecraftData {
       entities: Vanilla.BehaviorPack.Entities,
       features: Vanilla.BehaviorPack.Features,
       items: Vanilla.BehaviorPack.Items,
-      loot_tables: Vanilla.BehaviorPack.LootTables,
+      lootTables: Vanilla.BehaviorPack.LootTables,
       trading: Vanilla.BehaviorPack.Trading,
     },
     ResourcePack: {
-      animation_controllers: Vanilla.ResourcePack.AnimationControllers,
+      animationControllers: Vanilla.ResourcePack.AnimationControllers,
       animations: Vanilla.ResourcePack.Animations,
       entities: Vanilla.ResourcePack.Entities,
       fogs: Vanilla.ResourcePack.Fogs,
       materials: Vanilla.ResourcePack.Materials,
       models: Vanilla.ResourcePack.Models,
       particles: Vanilla.ResourcePack.Particles,
-      render_controllers: Vanilla.ResourcePack.RenderControllers,
+      renderControllers: Vanilla.ResourcePack.RenderControllers,
       sounds: Vanilla.ResourcePack.Sounds,
-      sound_files: Vanilla.ResourcePack.SoundFiles,
+      soundFiles: Vanilla.ResourcePack.SoundFiles,
       textures: Vanilla.ResourcePack.Textures,
-      texture_atlas_items: Vanilla.ResourcePack.TextureItems,
-      texture_atlas_terrain: Vanilla.ResourcePack.TextureTerrain,
+      textureAtlasItems: Vanilla.ResourcePack.TextureItems,
+      textureAtlasTerrain: Vanilla.ResourcePack.TextureTerrain,
     },
   };
 
@@ -41,23 +41,23 @@ export namespace MinecraftData {
       entities: Edu.BehaviorPack.Entities,
       features: Edu.BehaviorPack.Features,
       items: Edu.BehaviorPack.Items,
-      loot_tables: Edu.BehaviorPack.LootTables,
+      lootTables: Edu.BehaviorPack.LootTables,
       trading: Edu.BehaviorPack.Trading,
     },
     ResourcePack: {
-      animation_controllers: Edu.ResourcePack.AnimationControllers,
+      animationControllers: Edu.ResourcePack.AnimationControllers,
       animations: Edu.ResourcePack.Animations,
       entities: Edu.ResourcePack.Entities,
       fogs: Edu.ResourcePack.Fogs,
       materials: Edu.ResourcePack.Materials,
       models: Edu.ResourcePack.Models,
       particles: Edu.ResourcePack.Particles,
-      render_controllers: Edu.ResourcePack.RenderControllers,
+      renderControllers: Edu.ResourcePack.RenderControllers,
       sounds: Edu.ResourcePack.Sounds,
-      sound_files: Edu.ResourcePack.SoundFiles,
+      soundFiles: Edu.ResourcePack.SoundFiles,
       textures: Edu.ResourcePack.Textures,
-      texture_atlas_items: Vanilla.ResourcePack.TextureItems,
-      texture_atlas_terrain: Vanilla.ResourcePack.TextureTerrain,
+      textureAtlasItems: Vanilla.ResourcePack.TextureItems,
+      textureAtlasTerrain: Vanilla.ResourcePack.TextureTerrain,
     },
   };
 
@@ -144,8 +144,8 @@ export namespace MinecraftData {
       return getStr(
         id,
         edu,
-        MinecraftData.vanilla.BehaviorPack.loot_tables,
-        MinecraftData.edu.BehaviorPack.loot_tables,
+        MinecraftData.vanilla.BehaviorPack.lootTables,
+        MinecraftData.edu.BehaviorPack.lootTables,
       );
     }
 
@@ -227,8 +227,8 @@ export namespace MinecraftData {
       return get(
         id,
         edu,
-        MinecraftData.vanilla.ResourcePack.animation_controllers,
-        MinecraftData.edu.ResourcePack.animation_controllers,
+        MinecraftData.vanilla.ResourcePack.animationControllers,
+        MinecraftData.edu.ResourcePack.animationControllers,
       );
     }
 
@@ -291,8 +291,8 @@ export namespace MinecraftData {
       return getStr(
         id,
         edu,
-        MinecraftData.vanilla.ResourcePack.render_controllers,
-        MinecraftData.edu.ResourcePack.render_controllers,
+        MinecraftData.vanilla.ResourcePack.renderControllers,
+        MinecraftData.edu.ResourcePack.renderControllers,
       );
     }
 
@@ -312,8 +312,8 @@ export namespace MinecraftData {
       return getStr(
         file,
         edu,
-        MinecraftData.vanilla.ResourcePack.sound_files,
-        MinecraftData.edu.ResourcePack.sound_files,
+        MinecraftData.vanilla.ResourcePack.soundFiles,
+        MinecraftData.edu.ResourcePack.soundFiles,
       );
     }
 

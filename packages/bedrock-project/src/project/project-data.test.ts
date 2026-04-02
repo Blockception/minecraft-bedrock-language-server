@@ -101,7 +101,7 @@ describe('ProjectData', () => {
       const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
 
       beforeEach(() => {
-        pack.loot_tables.set({
+        pack.lootTables.set({
           id: 'empty.loot.json',
           location: Location.create(uri),
         });
@@ -120,42 +120,42 @@ describe('ProjectData', () => {
       it('Has loot_tables', () => {
         const data = P.get(uri);
         if (!BehaviorPack.is(data)) throw new Error();
-        expect(data.loot_tables.has('empty.loot.json')).toBeTruthy();
+        expect(data.lootTables.has('empty.loot.json')).toBeTruthy();
       });
     });
 
     it('Remove File', () => {
       const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
 
-      pack.loot_tables.set({
+      pack.lootTables.set({
         id: 'empty.loot.json',
         location: Location.create(uri),
       });
 
       expect(P.behaviorPacks.packs).toBeDefined();
-      expect(P.behaviorPacks.loot_tables).toBeDefined();
-      expect(P.behaviorPacks.loot_tables.has('empty.loot.json')).toBeTruthy();
+      expect(P.behaviorPacks.lootTables).toBeDefined();
+      expect(P.behaviorPacks.lootTables.has('empty.loot.json')).toBeTruthy();
 
       expect(P.deleteFile(uri)).toBeTruthy();
 
       expect(P.behaviorPacks.packs).toBeDefined();
-      expect(P.behaviorPacks.loot_tables.has('empty.loot.json')).toBeFalsy();
+      expect(P.behaviorPacks.lootTables.has('empty.loot.json')).toBeFalsy();
     });
 
     it('Remove Folder', () => {
       const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
 
-      pack.loot_tables.set({
+      pack.lootTables.set({
         id: 'empty.loot.json',
         location: Location.create(uri),
       });
 
-      expect(P.behaviorPacks.loot_tables).toBeDefined();
-      expect(P.behaviorPacks.loot_tables.has('empty.loot.json')).toBeTruthy();
+      expect(P.behaviorPacks.lootTables).toBeDefined();
+      expect(P.behaviorPacks.lootTables.has('empty.loot.json')).toBeTruthy();
 
       expect(P.deleteFolder('c:\\temp\\bp\\loot_tables')).toBeTruthy();
 
-      expect(P.behaviorPacks.loot_tables.has('empty.loot.json')).toBeFalsy();
+      expect(P.behaviorPacks.lootTables.has('empty.loot.json')).toBeFalsy();
     });
 
     it('Remove Folder - Entire Pack', () => {
@@ -163,16 +163,16 @@ describe('ProjectData', () => {
 
       const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
 
-      pack.loot_tables.set({
+      pack.lootTables.set({
         id: 'empty.loot.json',
         location: Location.create(uri),
       });
 
-      expect(P.behaviorPacks.loot_tables.has('empty.loot.json')).toBeTruthy();
+      expect(P.behaviorPacks.lootTables.has('empty.loot.json')).toBeTruthy();
 
       expect(P.deleteFolder('c:\\temp\\bp')).toBeTruthy();
 
-      expect(P.behaviorPacks.loot_tables.has('empty.loot.json')).toBeFalsy();
+      expect(P.behaviorPacks.lootTables.has('empty.loot.json')).toBeFalsy();
       expect(P.behaviorPacks.count()).toEqual(0);
     });
   });
@@ -292,7 +292,7 @@ describe('ProjectData', () => {
     const doc = 'Documentation';
     const emptyDefinedUsing = References.create();
 
-    bp.animation_controllers.set({
+    bp.animationControllers.set({
       animations: emptyDefinedUsing,
       id: 'bp.animation_controller',
       location: loc,
@@ -334,7 +334,7 @@ describe('ProjectData', () => {
       documentation: doc,
       isFood: false,
     });
-    bp.loot_tables.set({
+    bp.lootTables.set({
       id: 'bp.loot_table',
       location: loc,
       documentation: doc,
@@ -346,7 +346,7 @@ describe('ProjectData', () => {
     });
     bp.trading.set({ id: 'bp.trading', location: loc, documentation: doc });
 
-    rp.animation_controllers.set({
+    rp.animationControllers.set({
       animations: emptyDefinedUsing,
       id: 'rp.animation_controller',
       location: loc,
@@ -370,8 +370,8 @@ describe('ProjectData', () => {
       molang: molang,
       documentation: doc,
     });
-    rp.block_culling_rules.set({
-      id: 'rp.block_culling_rules',
+    rp.blockCullingRules.set({
+      id: 'rp.blockCullingRules',
       location: loc,
       documentation: doc,
       affected_bones: Defined.create(),
@@ -394,7 +394,7 @@ describe('ProjectData', () => {
       locators: Defined.create(),
     });
     rp.particles.set({ id: 'rp.particle', location: loc, documentation: doc });
-    rp.render_controllers.set({
+    rp.renderControllers.set({
       id: 'rp.render_controller',
       location: loc,
       documentation: doc,
