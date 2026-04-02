@@ -15,7 +15,7 @@ export interface forEachfn<T extends BaseObject> {
   forEach(callbackfn: (value: T) => void): void;
 }
 
-export class Database implements Partial<IService> {
+export class Database implements IService {
   readonly name: string = 'database';
   public logger: IExtendedLogger;
   public ProjectData: ProjectData;

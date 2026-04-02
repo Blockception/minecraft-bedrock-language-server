@@ -15,7 +15,7 @@ import { BaseService } from '../services/base';
 import { IService } from '../services/service';
 import { PackProcessor } from './pack-processor';
 
-export class WorkspaceProcessor extends BaseService implements Partial<IService> {
+export class WorkspaceProcessor extends BaseService implements IService {
   name: string = 'workspace processor';
   private _packProcessor: PackProcessor;
 

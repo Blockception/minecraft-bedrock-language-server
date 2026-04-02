@@ -77,7 +77,7 @@ export class WorldPack implements Container, Pack {
    * @param callbackfn The callback to invoke for each item
    * TODO: Implement forEach for world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  forEach(callbackfn: (value: BaseObject) => boolean): void {}
+  forEach(callbackfn: (value: BaseObject) => void): void {}
 }
 
 /**

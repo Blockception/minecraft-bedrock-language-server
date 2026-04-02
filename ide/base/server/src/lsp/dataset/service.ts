@@ -15,7 +15,7 @@ export interface DataSetRequestParams {
 }
 
 /** The service that handles dataset requests from the client */
-export class DataSetService extends BaseService implements Partial<IService> {
+export class DataSetService extends BaseService implements IService {
   readonly name: string = 'dataset';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

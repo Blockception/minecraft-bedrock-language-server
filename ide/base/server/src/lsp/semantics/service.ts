@@ -19,7 +19,7 @@ import { provideMolangSemanticTokens } from './minecraft/molang';
 
 import * as Mcfunction from './minecraft/mcfunctions';
 
-export class SemanticsServer extends BaseService implements Partial<IService> {
+export class SemanticsServer extends BaseService implements IService {
   name: string = 'definitions';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

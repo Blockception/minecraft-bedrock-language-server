@@ -9,17 +9,15 @@ import { IExtendedLogger } from '../logger/logger';
 import { CapabilityBuilder } from './capabilities';
 import { IService } from './service';
 
-type NamedService = Pick<IService, 'name'> & Partial<IService>;
-
 /**
  * Represents a collection of services
  */
-export class ServiceManager implements NamedService {
+export class ServiceManager implements IService {
   /** @inheritdoc */
   readonly name: string = 'ServiceManager';
 
   private logger: IExtendedLogger;
-  public services: NamedService[];
+  public services: IService[];
 
   constructor(logger: IExtendedLogger) {
     this.logger = logger.withPrefix('[service manager]');
@@ -30,7 +28,7 @@ export class ServiceManager implements NamedService {
    * Adds a service to the collection
    * @param service The service to add
    */
-  add(...services: NamedService[]): this {
+  add(...services: IService[]): this {
     services.forEach((s) => {
       this.logger.info(`Adding service ${s.name}`);
       this.services.push(s);

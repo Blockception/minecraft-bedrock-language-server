@@ -1,12 +1,11 @@
 import { Disposable } from 'vscode-languageserver';
 import { ExtensionContext } from '../extension';
 import { IExtendedLogger } from '../logger/logger';
-import { IService } from './service';
 
 /**
  * The class that holds the base information most service will use
  */
-export class BaseService implements Partial<IService> {
+export class BaseService {
   public disposables: Disposable[];
   public logger: IExtendedLogger;
   public extension: ExtensionContext;

@@ -14,7 +14,7 @@ import { IService } from '../services/service';
 import { SymbolBuilder } from './builder';
 import { convertBehaviorPacks, convertResourcePack } from './functions';
 
-export class WorkspaceSymbolService extends BaseService implements Partial<IService> {
+export class WorkspaceSymbolService extends BaseService implements IService {
   readonly name: string = 'workspace-symbols';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {
