@@ -17,6 +17,9 @@ export class Diagnoser<T extends TextDocument = TextDocument> {
   /**The context needed to perform diagnostics*/
   readonly context: DiagnoserContext<T>;
 
+  /**Cache for projectData.get() results, active only during processFolder/processPack*/
+  private _packCache: Map<string, Pack> | null = null;
+
   /**Create a new instance of Diagnoser
    * @param context The context needed to perform diagnostics*/
   constructor(context: DiagnoserContext<T>) {
@@ -34,7 +37,18 @@ export class Diagnoser<T extends TextDocument = TextDocument> {
       doc = temp;
     }
 
-    const pack = this.context.getProjectData().projectData.get(doc);
+    let pack: Pack | undefined;
+    if (this._packCache !== null) {
+      pack = this._packCache.get(doc.uri);
+      if (pack === undefined) {
+        pack = this.context.getProjectData().projectData.get(doc);
+        if (pack !== undefined) {
+          this._packCache.set(doc.uri, pack);
+        }
+      }
+    } else {
+      pack = this.context.getProjectData().projectData.get(doc);
+    }
     if (!pack) return false;
 
     //Check if diagnostics was disabled
@@ -100,8 +114,13 @@ export class Diagnoser<T extends TextDocument = TextDocument> {
     const files = this.context.getFiles(folder, ['*'], ignores);
     let out = false;
 
-    for (let I = 0; I < files.length; I++) {
-      out = this.process(files[I]) || out;
+    this._packCache = new Map();
+    try {
+      for (let I = 0; I < files.length; I++) {
+        out = this.process(files[I]) || out;
+      }
+    } finally {
+      this._packCache = null;
     }
 
     return out;
