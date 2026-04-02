@@ -1,5 +1,5 @@
 import { Diagnoser } from 'bc-minecraft-bedrock-diagnoser';
-import { Connection, DeleteFilesParams, Diagnostic } from 'vscode-languageserver';
+import { CancellationToken, Connection, DeleteFilesParams, Diagnostic } from 'vscode-languageserver';
 import { getFilename } from '../../util';
 import { TextDocument } from '../documents';
 import { IDocumentManager } from '../documents/manager';
@@ -28,11 +28,13 @@ export class DiagnoserService extends BaseService implements Partial<IService> {
     this.addDisposable(connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)));
   }
 
-  diagnose(doc: TextDocument): void {
+  diagnose(doc: TextDocument, token?: CancellationToken): void {
     if (this.extension.state.workspaces.traversed === false) {
       this.logger.debug(`skipping diagnostics: ${getFilename(doc.uri)}`);
       return;
     }
+
+    if (token?.isCancellationRequested) return;
 
     const start = Date.now();
     this._diagnoser.process(doc);

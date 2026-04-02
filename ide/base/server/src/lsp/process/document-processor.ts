@@ -1,4 +1,6 @@
 import {
+  CancellationToken,
+  CancellationTokenSource,
   Connection,
   CreateFilesParams,
   DeleteFilesParams,
@@ -17,6 +19,10 @@ import { IService } from '../services/service';
 export class DocumentProcessor extends BaseService implements Partial<IService> {
   name: string = 'document processor';
   private _diagnoser: DiagnoserService;
+  private _debounceTimers: Map<string, ReturnType<typeof setTimeout>> = new Map();
+  private _cancellationSources: Map<string, CancellationTokenSource> = new Map();
+
+  private static readonly DIAGNOSE_DEBOUNCE_MS = 300;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext, diagnoser: DiagnoserService) {
     super(logger.withPrefix('[doc pros]'), extension);
@@ -42,8 +48,38 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
     const doc = this.extension.documents.get(e.document.uri, e.document, e.document.languageId);
     if (doc === undefined) return;
 
+    // Process immediately (data indexing)
     this.process(doc);
-    return this.diagnose(doc);
+
+    // Cancel any pending debounce timer for this document
+    const existingTimer = this._debounceTimers.get(doc.uri);
+    if (existingTimer !== undefined) {
+      clearTimeout(existingTimer);
+    }
+
+    // Cancel any in-flight diagnose for this document
+    const existingSource = this._cancellationSources.get(doc.uri);
+    if (existingSource !== undefined) {
+      existingSource.cancel();
+      existingSource.dispose();
+      this._cancellationSources.delete(doc.uri);
+    }
+
+    // Debounce: schedule diagnose after a short delay so rapid changes only trigger one run
+    const timer = setTimeout(() => {
+      this._debounceTimers.delete(doc.uri);
+      const source = new CancellationTokenSource();
+      this._cancellationSources.set(doc.uri, source);
+
+      Promise.resolve(this.diagnose(doc, source.token)).finally(() => {
+        if (this._cancellationSources.get(doc.uri) === source) {
+          this._cancellationSources.delete(doc.uri);
+        }
+        source.dispose();
+      });
+    }, DocumentProcessor.DIAGNOSE_DEBOUNCE_MS);
+
+    this._debounceTimers.set(doc.uri, timer);
   }
 
   get(uri: string): TextDocument;
@@ -76,8 +112,8 @@ export class DocumentProcessor extends BaseService implements Partial<IService> 
     }
   }
 
-  diagnose(doc: TextDocument): void | Promise<void> {
-    return this._diagnoser.diagnose(doc);
+  diagnose(doc: TextDocument, token?: CancellationToken): void | Promise<void> {
+    return this._diagnoser.diagnose(doc, token);
   }
 
   private onDidDeleteFiles(params: DeleteFilesParams) {
