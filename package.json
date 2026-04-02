@@ -19,7 +19,8 @@
     "ide/base/client",
     "ide/base/server",
     "ide/vscode",
-    "tools/generate-command-data"
+    "tools/generate-command-data",
+    "tools/generate-package-globs"
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -42,7 +43,9 @@
     "lint": "npm run lint --workspaces",
     "test": "npm run test --workspaces",
     "test:all": "npx jest --coverage",
-    "clean": "npm run clean --workspaces"
+    "clean": "npm run clean --workspaces",
+    "generate:globs": "npm run generate -w generate-package-globs",
+    "check:globs": "npm run check -w generate-package-globs"
   },
   "dependencies": {
     "rimraf": "^6.1.3"

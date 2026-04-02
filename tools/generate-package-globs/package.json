@@ -1,0 +1,24 @@
+{
+  "name": "generate-package-globs",
+  "version": "1.0.0",
+  "description": "Generates the jsonValidation glob patterns in ide/vscode/package.json from a typed config",
+  "private": true,
+  "author": {
+    "name": "Blockception Ltd",
+    "url": "https://www.blockception.com/"
+  },
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "generate": "tsx ./src/generate.ts",
+    "check": "tsx ./src/generate.ts --check",
+    "compile": "echo 'This tool does not require compilation'",
+    "clean": "echo 'Nothing to clean'",
+    "test": "echo 'No tests for this tool'",
+    "lint": "eslint --config ../../eslint.config.mjs ."
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.2"
+  }
+}

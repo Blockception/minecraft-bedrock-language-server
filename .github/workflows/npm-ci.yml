@@ -41,6 +41,9 @@ jobs:
       - name: 🔍 Linting
         run: npm run lint
 
+      - name: 🔍 Check jsonValidation globs are up to date
+        run: npm run check:globs
+
       - name: '📦 Package test: vscode'
         working-directory: ./ide/vscode
         run: |
