@@ -4,6 +4,7 @@ export * from './container';
 export * from './data-set';
 export * from './data-set-connector';
 export * from './documentation';
+export * from './find-in-packs';
 export * from './i-data-set';
 export * from './json-path';
 export * from './pack';
