@@ -8,6 +8,11 @@ export namespace Json {
    * @param diagnoser The diagnoser to load from
    * @returns Either the object cast to the specific type, or undefined if failed*/
   export function LoadReport<T>(diagnoser: DocumentDiagnosticsBuilder): T | undefined {
+    // Return cached parsed content if already available (avoids re-parsing on multiple calls per pass)
+    if (Object.hasOwn(diagnoser, 'parsedContent')) {
+      return diagnoser.parsedContent as T;
+    }
+
     try {
       //get text
       const text = diagnoser.document.getText();
@@ -17,6 +22,9 @@ export namespace Json {
 
       // Format version
       // diagnoseFormatVersionIf(temp, diagnoser);
+
+      // Cache the parsed content on the diagnoser for reuse within the same diagnostic pass
+      diagnoser.parsedContent = temp;
 
       return temp as T;
 

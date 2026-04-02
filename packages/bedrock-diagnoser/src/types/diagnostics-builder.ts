@@ -40,6 +40,16 @@ export interface DiagnosticsBuilder<T extends TextDocument = TextDocument> {
 export interface DocumentDiagnosticsBuilder<T extends TextDocument = TextDocument> extends DiagnosticsBuilder<T> {
   /**The document to add the diagnostics to*/
   document: T;
+
+  /**Lazily-cached parsed content of the document (populated on first JSON parse, shared across all diagnostics in a single pass)*/
+  parsedContent?: unknown;
+}
+
+/**A typed variant of DocumentDiagnosticsBuilder for use when the parsed JSON content type is known*/
+export interface JsonDocumentDiagnosticsBuilder<TDoc extends TextDocument = TextDocument, TContent = unknown>
+  extends DocumentDiagnosticsBuilder<TDoc> {
+  /**The parsed JSON content of the document*/
+  parsedContent: TContent;
 }
 
 export namespace DocumentDiagnosticsBuilder {
