@@ -24,7 +24,7 @@ export function diagnose_animation_controller_implementation(
   //Project has animation controllers
   const anim = diagnoser.context.getProjectData().resources.animationControllers.get(id, diagnoser.project);
   if (anim === undefined) {
-    return Errors.missing('resources', 'animation_controllers', id, diagnoser);
+    return Errors.missing('resources', 'animationControllers', id, diagnoser);
   }
   if (!ProjectItem.is(anim)) {
     return; // Skip anything but a project defined item
