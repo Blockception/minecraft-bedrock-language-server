@@ -887,7 +887,7 @@
           "*resource*pack*/ui/*.{json,jsonc,json5}",
           "*Resource*Pack*/ui/*.{json,jsonc,json5}",
           "*RP*/ui/*.{json,jsonc,json5}",
-          "*rp*/items/*.{json,jsonc,json5}",
+          "*rp*/ui/*.{json,jsonc,json5}",
           "resource_packs/*/ui/**/*.{json,jsonc,json5}",
           "*resource*pack*/ui/**/*.{json,jsonc,json5}",
           "*Resource*Pack*/ui/**/*.{json,jsonc,json5}",
