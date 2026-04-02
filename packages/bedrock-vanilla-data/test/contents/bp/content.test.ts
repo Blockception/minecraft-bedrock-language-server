@@ -29,8 +29,8 @@ describe('bp content', () => {
   });
 
   it('loot_tables', () => {
-    Check_Identifiable(MinecraftData.edu.BehaviorPack.loot_tables);
-    Check_Identifiable(MinecraftData.vanilla.BehaviorPack.loot_tables);
+    Check_Identifiable(MinecraftData.edu.BehaviorPack.lootTables);
+    Check_Identifiable(MinecraftData.vanilla.BehaviorPack.lootTables);
   });
 
   it('trading', () => {

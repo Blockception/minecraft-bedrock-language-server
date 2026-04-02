@@ -34,6 +34,15 @@ export default defineConfig([
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       'no-case-declarations': 'off',
+      '@typescript-eslint/naming-convention': [
+        'warn',
+        {
+          selector: 'classProperty',
+          format: ['camelCase'],
+          leadingUnderscore: 'allow',
+          trailingUnderscore: 'allow',
+        },
+      ],
     },
   },
 ]);

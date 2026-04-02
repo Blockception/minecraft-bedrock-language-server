@@ -5,8 +5,8 @@ import { Check_Identifiable, Check_IsFunction, Test_Identifiable } from '../../i
 
 describe('rp content', () => {
   it('animation controllers', () => {
-    Check_Identifiable(MinecraftData.edu.ResourcePack.animation_controllers);
-    Check_Identifiable(MinecraftData.vanilla.ResourcePack.animation_controllers);
+    Check_Identifiable(MinecraftData.edu.ResourcePack.animationControllers);
+    Check_Identifiable(MinecraftData.vanilla.ResourcePack.animationControllers);
 
     expect(MinecraftData.ResourcePack.getAnimationController('controller.animation.wolf.shaking')).toBeDefined();
   });
@@ -42,8 +42,8 @@ describe('rp content', () => {
   });
 
   it('render_controllers', () => {
-    Check_Identifiable(MinecraftData.edu.ResourcePack.render_controllers);
-    Check_Identifiable(MinecraftData.vanilla.ResourcePack.render_controllers);
+    Check_Identifiable(MinecraftData.edu.ResourcePack.renderControllers);
+    Check_Identifiable(MinecraftData.vanilla.ResourcePack.renderControllers);
   });
 
   it('sounds', () => {

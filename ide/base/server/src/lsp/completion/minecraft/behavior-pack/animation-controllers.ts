@@ -18,7 +18,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   );
 
   context.builder.generate(
-    context.database.ProjectData.behaviorPacks.animation_controllers,
+    context.database.ProjectData.behaviorPacks.animationControllers,
     (item) => `The bp animation controller: ${item.id}`,
     Kinds.Completion.AnimationControllers,
   );

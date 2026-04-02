@@ -123,7 +123,7 @@ export class Database implements IService {
             });
           });
           this.ProjectData.resourcePacks.animations.forEach(addIfIDMatch);
-          this.ProjectData.resourcePacks.animation_controllers.forEach(addIfIDMatch);
+          this.ProjectData.resourcePacks.animationControllers.forEach(addIfIDMatch);
           break;
 
         case ParameterType.block:

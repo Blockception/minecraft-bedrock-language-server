@@ -20,7 +20,7 @@ export function diagnose_feature_rules_document(diagnoser: DocumentDiagnosticsBu
   // check that no other exists with this id
   no_other_duplicates(
     'behaviorpack.components',
-    diagnoser.context.getProjectData().projectData.behaviorPacks.features_rules,
+    diagnoser.context.getProjectData().projectData.behaviorPacks.featuresRules,
     identifier,
     diagnoser,
   );
@@ -35,7 +35,7 @@ export function diagnose_feature_rules_document(diagnoser: DocumentDiagnosticsBu
         feature,
         pass + ' is reserved for carver features',
         DiagnosticSeverity.error,
-        'behaviorpack.features_rules.pregeneration_pass',
+        'behaviorpack.featuresRules.pregeneration_pass',
       );
   }
 

@@ -61,7 +61,7 @@ export function animation_reference_diagnose(value: OffsetWord, diagnoser: Diagn
   if (data.resourcePacks.animations.find((anim) => anim.id === id) !== undefined) {
     return;
   }
-  if (data.resourcePacks.animation_controllers.find((anim) => anim.id === id) !== undefined) {
+  if (data.resourcePacks.animationControllers.find((anim) => anim.id === id) !== undefined) {
     return;
   }
 
@@ -72,7 +72,7 @@ export function animation_reference_diagnose(value: OffsetWord, diagnoser: Diagn
   if (MinecraftData.vanilla.ResourcePack.animations.some((anim) => anim.id === id)) {
     return;
   }
-  if (MinecraftData.vanilla.ResourcePack.animation_controllers.some((anim) => anim.id === id)) {
+  if (MinecraftData.vanilla.ResourcePack.animationControllers.some((anim) => anim.id === id)) {
     return;
   }
 
@@ -99,7 +99,7 @@ export enum anim_or_contr {
 export function is_animation_or_controller(id: string, diagnoser: DiagnosticsBuilder): anim_or_contr {
   const rp = diagnoser.context.getProjectData().resources;
   if (rp.animations.has(id, diagnoser.project)) return anim_or_contr.animation;
-  if (rp.animation_controllers.has(id, diagnoser.project)) return anim_or_contr.controller;
+  if (rp.animationControllers.has(id, diagnoser.project)) return anim_or_contr.controller;
 
   return anim_or_contr.neither;
 }

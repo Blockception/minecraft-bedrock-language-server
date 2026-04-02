@@ -45,12 +45,12 @@ export class Storage {
     return this.singleton('__bp', () => {
       return {
         animations: this.exporter(this.cache.behaviorPacks.animations),
-        animation_controllers: this.exporter(this.cache.behaviorPacks.animation_controllers),
+        animationControllers: this.exporter(this.cache.behaviorPacks.animationControllers),
         blocks: this.exporter(this.cache.behaviorPacks.blocks, MinecraftData.BehaviorPack.getBlock),
         entities: this.exporter(this.cache.behaviorPacks.entities, MinecraftData.BehaviorPack.getEntity),
         functions: this.exporter(this.cache.behaviorPacks.functions),
         items: this.exporter(this.cache.behaviorPacks.items, MinecraftData.BehaviorPack.getItem),
-        loot_tables: this.exporter(this.cache.behaviorPacks.loot_tables, MinecraftData.BehaviorPack.getLootTable),
+        lootTables: this.exporter(this.cache.behaviorPacks.lootTables, MinecraftData.BehaviorPack.getLootTable),
         structures: this.exporter(this.cache.behaviorPacks.structures),
         trading: this.exporter(this.cache.behaviorPacks.trading, MinecraftData.BehaviorPack.getTrading),
       };
@@ -61,19 +61,19 @@ export class Storage {
     return this.singleton('__rp', () => {
       return {
         animations: this.exporter(this.cache.resourcePacks.animations, MinecraftData.ResourcePack.getAnimation),
-        animation_controllers: this.exporter(
-          this.cache.resourcePacks.animation_controllers,
+        animationControllers: this.exporter(
+          this.cache.resourcePacks.animationControllers,
           MinecraftData.ResourcePack.getAnimationController,
         ),
         attachables: this.exporter(this.cache.resourcePacks.attachables),
-        block_culling_rules: this.exporter(this.cache.resourcePacks.block_culling_rules),
+        blockCullingRules: this.exporter(this.cache.resourcePacks.blockCullingRules),
         entities: this.exporter(this.cache.resourcePacks.entities, MinecraftData.ResourcePack.getEntity),
         fogs: this.exporter(this.cache.resourcePacks.fogs, MinecraftData.ResourcePack.getFog),
         materials: this.exporter(this.cache.resourcePacks.materials, MinecraftData.ResourcePack.getMaterial),
         models: this.exporter(this.cache.resourcePacks.models, MinecraftData.ResourcePack.getModel),
         particles: this.exporter(this.cache.resourcePacks.particles, MinecraftData.ResourcePack.getParticle),
-        render_controllers: this.exporter(
-          this.cache.resourcePacks.render_controllers,
+        renderControllers: this.exporter(
+          this.cache.resourcePacks.renderControllers,
           MinecraftData.ResourcePack.getRenderController,
         ),
         sounds: this.exporter(this.cache.resourcePacks.sounds, MinecraftData.ResourcePack.getSound),

@@ -7,7 +7,7 @@ describe('BehaviorPack', () => {
     const BP = new BehaviorPack.BehaviorPack('c:\\test', MCProject.createEmpty(), {} as Manifest);
 
     it('animation controllers', () => {
-      expect(typeof BP.animation_controllers === 'object').toBeTruthy();
+      expect(typeof BP.animationControllers === 'object').toBeTruthy();
     });
 
     it('animations', () => {
@@ -39,7 +39,7 @@ describe('BehaviorPack', () => {
     });
 
     it('loot_tables', () => {
-      expect(typeof BP.loot_tables === 'object').toBeTruthy();
+      expect(typeof BP.lootTables === 'object').toBeTruthy();
     });
 
     it('structures', () => {
@@ -51,7 +51,7 @@ describe('BehaviorPack', () => {
     });
 
     it('voxel_shapes', () => {
-      expect(typeof BP.voxel_shapes === 'object').toBeTruthy();
+      expect(typeof BP.voxelShapes === 'object').toBeTruthy();
     });
   });
 

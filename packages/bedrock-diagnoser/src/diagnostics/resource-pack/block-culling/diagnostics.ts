@@ -4,7 +4,7 @@ import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
 export function diagnose_block_culling_geo_and_rules(geoId: string, cullingId: string, diagnoser: DiagnosticsBuilder) {
   const resources = diagnoser.context.getProjectData().resources;
   const modelItem = resources.models.get(geoId, diagnoser.project);
-  const cullingRuleItem = resources.block_culling_rules.get(cullingId, diagnoser.project);
+  const cullingRuleItem = resources.blockCullingRules.get(cullingId, diagnoser.project);
 
   if (!modelItem || DefinitionItem.is(modelItem)) return;
   if (!cullingRuleItem || DefinitionItem.is(cullingRuleItem)) return;

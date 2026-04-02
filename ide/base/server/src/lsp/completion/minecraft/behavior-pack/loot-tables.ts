@@ -41,11 +41,11 @@ function generate_items(context: Context<CompletionContext>) {
   // Add loot tables from .mcdefinitions
   builder.generate(data.definitions.loot_table?.defined, generateDoc);
 
-  builder.generate(context.database.ProjectData.behaviorPacks.loot_tables, generateDoc);
-  builder.generate(MinecraftData.vanilla.BehaviorPack.loot_tables, generatesDoc);
+  builder.generate(context.database.ProjectData.behaviorPacks.lootTables, generateDoc);
+  builder.generate(MinecraftData.vanilla.BehaviorPack.lootTables, generatesDoc);
 
   //Education data
-  if (IsEducationEnabled(context.document)) builder.generate(MinecraftData.edu.BehaviorPack.loot_tables, generatesDoc);
+  if (IsEducationEnabled(context.document)) builder.generate(MinecraftData.edu.BehaviorPack.lootTables, generatesDoc);
 }
 
 function short_id(id: string): string {

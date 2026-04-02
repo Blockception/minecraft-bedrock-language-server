@@ -60,7 +60,7 @@ describe('BehaviorPackCollection', () => {
     const pack = P.add('c:\\temp\\bp', MCProject.createEmpty(), {} as Manifest);
 
     const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
-    pack.loot_tables.set({
+    pack.lootTables.set({
       id: 'empty.loot.json',
       location: Location.create(uri),
     });
@@ -75,18 +75,18 @@ describe('BehaviorPackCollection', () => {
 
     const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
 
-    pack.loot_tables.set({
+    pack.lootTables.set({
       id: 'empty.loot.json',
       location: Location.create(uri),
     });
 
     expect(P.packs).toBeDefined();
-    expect(P.loot_tables.has('empty.loot.json')).toBeTruthy();
+    expect(P.lootTables.has('empty.loot.json')).toBeTruthy();
 
     expect(P.deleteFile(uri)).toBeTruthy();
 
     expect(P.packs).toBeDefined();
-    expect(P.loot_tables.has('empty.loot.json')).toBeFalsy();
+    expect(P.lootTables.has('empty.loot.json')).toBeFalsy();
   });
 
   it('Remove Folder', () => {
@@ -95,16 +95,16 @@ describe('BehaviorPackCollection', () => {
 
     const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
 
-    pack.loot_tables.set({
+    pack.lootTables.set({
       id: 'empty.loot.json',
       location: Location.create(uri),
     });
 
-    expect(P.loot_tables.has('empty.loot.json')).toBeTruthy();
+    expect(P.lootTables.has('empty.loot.json')).toBeTruthy();
 
     expect(P.deleteFolder('c:\\temp\\bp\\loot_tables')).toBeTruthy();
 
-    expect(P.loot_tables.has('empty.loot.json')).toBeFalsy();
+    expect(P.lootTables.has('empty.loot.json')).toBeFalsy();
   });
 
   it('Remove Folder - Entire Pack', () => {
@@ -113,16 +113,16 @@ describe('BehaviorPackCollection', () => {
 
     const uri = 'c:\\temp\\bp\\loot_tables\\empty.loot.json';
 
-    pack.loot_tables.set({
+    pack.lootTables.set({
       id: 'empty.loot.json',
       location: Location.create(uri),
     });
 
-    expect(P.loot_tables.has('empty.loot.json')).toBeTruthy();
+    expect(P.lootTables.has('empty.loot.json')).toBeTruthy();
 
     expect(P.deleteFolder('c:\\temp\\bp')).toBeTruthy();
 
-    expect(P.loot_tables.has('empty.loot.json')).toBeFalsy();
+    expect(P.lootTables.has('empty.loot.json')).toBeFalsy();
     expect(P.count()).toEqual(0);
   });
 });

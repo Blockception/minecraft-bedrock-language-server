@@ -16,12 +16,12 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   // Add animation controllers from .mcdefinitions
   builder.generate(data.definitions.animation_controller?.defined, generateDoc);
 
-  builder.generate(context.database.ProjectData.resourcePacks.animation_controllers, generateDoc);
-  builder.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc);
+  builder.generate(context.database.ProjectData.resourcePacks.animationControllers, generateDoc);
+  builder.generate(MinecraftData.vanilla.ResourcePack.animationControllers, generateDoc);
 
   //Education data
   if (IsEducationEnabled(context.document))
-    builder.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc);
+    builder.generate(MinecraftData.edu.ResourcePack.animationControllers, generateDoc);
 }
 
 export function provideJsonCompletion(context: Context<CompletionContext>): void {

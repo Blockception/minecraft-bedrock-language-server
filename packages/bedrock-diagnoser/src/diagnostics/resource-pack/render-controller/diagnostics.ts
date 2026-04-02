@@ -14,7 +14,7 @@ export function render_controller_diagnose_implementation(
   user: EntityAnimationMolangCarrier,
   diagnoser: WithMetadata<DiagnosticsBuilder, MolangMetadata>,
 ): void {
-  const controller = diagnoser.context.getProjectData().resources.render_controllers.get(id, diagnoser.project);
+  const controller = diagnoser.context.getProjectData().resources.renderControllers.get(id, diagnoser.project);
   if (controller === undefined) {
     Errors.missing('behaviors', 'trading', id, diagnoser);
     return;

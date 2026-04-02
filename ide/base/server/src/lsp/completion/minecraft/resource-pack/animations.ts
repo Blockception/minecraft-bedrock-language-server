@@ -15,7 +15,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   builder.generate(data.definitions.animation?.defined, generateDoc);
 
   builder.generate(context.database.ProjectData.resourcePacks.animations, generateDoc);
-  builder.generate(context.database.ProjectData.resourcePacks.animation_controllers, generateDoc);
+  builder.generate(context.database.ProjectData.resourcePacks.animationControllers, generateDoc);
 
   context.database.ProjectData.resourcePacks.entities.forEach((entity) => {
     builder.generate(entity.animations.defined, (item) => `The entity animation: ${item}`);
@@ -23,7 +23,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
 
   //Vanilla data
   builder.generate(MinecraftData.vanilla.ResourcePack.animations, generateDoc);
-  builder.generate(MinecraftData.vanilla.ResourcePack.animation_controllers, generateDoc);
+  builder.generate(MinecraftData.vanilla.ResourcePack.animationControllers, generateDoc);
   MinecraftData.vanilla.ResourcePack.entities.forEach((entity) => {
     builder.generate(entity.animations, (item) => `The vanilla entity animation: ${item}`);
   });
@@ -31,7 +31,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   //Education data
   if (IsEducationEnabled(context.document)) {
     builder.generate(MinecraftData.edu.ResourcePack.animations, generateDoc);
-    builder.generate(MinecraftData.edu.ResourcePack.animation_controllers, generateDoc);
+    builder.generate(MinecraftData.edu.ResourcePack.animationControllers, generateDoc);
     MinecraftData.edu.ResourcePack.entities.forEach((entity) => {
       builder.generate(entity.animations, (item) => `The edu entity animation: ${item}`);
     });

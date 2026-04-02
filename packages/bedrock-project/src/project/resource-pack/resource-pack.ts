@@ -44,11 +44,11 @@ export class ResourcePack implements Container, Pack {
   /**The collection of  animations*/
   readonly animations: DataSet<Animation.Animation>;
   /**The collection of animations controllers*/
-  readonly animation_controllers: DataSet<AnimationController.AnimationController>;
+  readonly animationControllers: DataSet<AnimationController.AnimationController>;
   /**The collection of animations controllers*/
   readonly attachables: DataSet<Attachable.Attachable>;
   /**The collection of blocks culling rules*/
-  readonly block_culling_rules: DataSet<BlockCulling.BlockCulling>;
+  readonly blockCullingRules: DataSet<BlockCulling.BlockCulling>;
   /**The collection of entities*/
   readonly entities: DataSet<Entity.Entity>;
   /**The collection of fogs*/
@@ -62,7 +62,7 @@ export class ResourcePack implements Container, Pack {
   /**The collection of sounds*/
   readonly sounds: DataSet<Sound.Sound>;
   /**The collection of sounds*/
-  readonly render_controllers: DataSet<RenderController.RenderController>;
+  readonly renderControllers: DataSet<RenderController.RenderController>;
   /**The collection of textures*/
   readonly textures: DataSet<Texture.Texture>;
   /**The collection of textures from item_texture.json*/
@@ -70,7 +70,7 @@ export class ResourcePack implements Container, Pack {
   /**The collection of textures from terrain_texture.json*/
   readonly terrainTextures: DataSet<Texture.Texture>;
   /**The collection of UI elements*/
-  readonly ui_elements: DataSet<UI.UIElement>;
+  readonly uiElements: DataSet<UI.UIElement>;
 
   /**
    * Creates a new instance of ResourcePack
@@ -81,21 +81,21 @@ export class ResourcePack implements Container, Pack {
     this.folder = folder;
     this.context = typeof Context === 'object' ? Context : MCProject.loadSync(Context);
 
-    this.animation_controllers = new DataSet();
+    this.animationControllers = new DataSet();
     this.animations = new DataSet();
     this.attachables = new DataSet();
-    this.block_culling_rules = new DataSet();
+    this.blockCullingRules = new DataSet();
     this.entities = new DataSet();
     this.fogs = new DataSet();
     this.materials = new DataSet();
     this.models = new DataSet();
     this.particles = new DataSet();
-    this.render_controllers = new DataSet();
+    this.renderControllers = new DataSet();
     this.sounds = new DataSet();
     this.textures = new DataSet();
     this.itemTextures = new DataSet();
     this.terrainTextures = new DataSet();
-    this.ui_elements = new DataSet();
+    this.uiElements = new DataSet();
   }
 
   /**
@@ -111,10 +111,10 @@ export class ResourcePack implements Container, Pack {
         return this.animations.set(Animation.process(doc));
 
       case FileType.animation_controller:
-        return this.animation_controllers.set(AnimationController.process(doc));
+        return this.animationControllers.set(AnimationController.process(doc));
 
-      case FileType.block_culling_rules:
-        return this.block_culling_rules.set(BlockCulling.process(doc));
+      case FileType.blockCullingRules:
+        return this.blockCullingRules.set(BlockCulling.process(doc));
 
       case FileType.attachable:
         return this.attachables.set(Attachable.process(doc));
@@ -132,7 +132,7 @@ export class ResourcePack implements Container, Pack {
         return this.models.set(Model.process(doc));
 
       case FileType.render_controller:
-        return this.render_controllers.set(RenderController.process(doc));
+        return this.renderControllers.set(RenderController.process(doc));
 
       case FileType.particle:
         return this.particles.set(Particle.process(doc));
@@ -147,7 +147,7 @@ export class ResourcePack implements Container, Pack {
       case FileType.texture_terrain_atlas:
         return this.terrainTextures.set(Texture.ProcessTextureAtlas(doc));
       case FileType.ui:
-        return this.ui_elements.set(UI.process(doc));
+        return this.uiElements.set(UI.process(doc));
     }
 
     return undefined;
@@ -166,13 +166,13 @@ export class ResourcePack implements Container, Pack {
         return this.animations;
 
       case FileType.animation_controller:
-        return this.animation_controllers;
+        return this.animationControllers;
 
       case FileType.attachable:
         return this.attachables;
 
-      case FileType.block_culling_rules:
-        return this.block_culling_rules;
+      case FileType.blockCullingRules:
+        return this.blockCullingRules;
 
       case FileType.entity:
         return this.entities;
@@ -202,7 +202,7 @@ export class ResourcePack implements Container, Pack {
       case FileType.texture_terrain_atlas:
         return this.terrainTextures;
       case FileType.ui:
-        return this.ui_elements;
+        return this.uiElements;
 
       default:
         return undefined;
@@ -217,9 +217,9 @@ export class ResourcePack implements Container, Pack {
     let out = false;
 
     out = this.animations.deleteFolder(uri) || out;
-    out = this.animation_controllers.deleteFolder(uri) || out;
+    out = this.animationControllers.deleteFolder(uri) || out;
     out = this.attachables.deleteFolder(uri) || out;
-    out = this.block_culling_rules.deleteFolder(uri) || out;
+    out = this.blockCullingRules.deleteFolder(uri) || out;
     out = this.entities.deleteFolder(uri) || out;
     out = this.fogs.deleteFolder(uri) || out;
     out = this.materials.deleteFolder(uri) || out;
@@ -229,7 +229,7 @@ export class ResourcePack implements Container, Pack {
     out = this.textures.deleteFolder(uri) || out;
     out = this.itemTextures.deleteFolder(uri) || out;
     out = this.terrainTextures.deleteFolder(uri) || out;
-    out = this.ui_elements.deleteFolder(uri) || out;
+    out = this.uiElements.deleteFolder(uri) || out;
 
     return out;
   }
@@ -243,9 +243,9 @@ export class ResourcePack implements Container, Pack {
     let out = false;
 
     out = this.animations.deleteFile(uri) || out;
-    out = this.animation_controllers.deleteFile(uri) || out;
+    out = this.animationControllers.deleteFile(uri) || out;
     out = this.attachables.deleteFile(uri) || out;
-    out = this.block_culling_rules.deleteFile(uri) || out;
+    out = this.blockCullingRules.deleteFile(uri) || out;
     out = this.entities.deleteFile(uri) || out;
     out = this.fogs.deleteFile(uri) || out;
     out = this.materials.deleteFile(uri) || out;
@@ -255,7 +255,7 @@ export class ResourcePack implements Container, Pack {
     out = this.textures.deleteFile(uri) || out;
     out = this.itemTextures.deleteFile(uri) || out;
     out = this.terrainTextures.deleteFile(uri) || out;
-    out = this.ui_elements.deleteFile(uri) || out;
+    out = this.uiElements.deleteFile(uri) || out;
 
     return out;
   }
@@ -268,21 +268,21 @@ export class ResourcePack implements Container, Pack {
   find(predicate: (value: ItemTypes, key: string) => boolean): ItemTypes | undefined {
     let value: ItemTypes | undefined;
 
-    if ((value = this.animation_controllers.find(predicate))) return value;
+    if ((value = this.animationControllers.find(predicate))) return value;
     if ((value = this.animations.find(predicate))) return value;
     if ((value = this.attachables.find(predicate))) return value;
-    if ((value = this.block_culling_rules.find(predicate))) return value;
+    if ((value = this.blockCullingRules.find(predicate))) return value;
     if ((value = this.entities.find(predicate))) return value;
     if ((value = this.fogs.find(predicate))) return value;
     if ((value = this.materials.find(predicate))) return value;
     if ((value = this.models.find(predicate))) return value;
     if ((value = this.particles.find(predicate))) return value;
-    if ((value = this.render_controllers.find(predicate))) return value;
+    if ((value = this.renderControllers.find(predicate))) return value;
     if ((value = this.sounds.find(predicate))) return value;
     if ((value = this.itemTextures.find(predicate))) return value;
     if ((value = this.terrainTextures.find(predicate))) return value;
     if ((value = this.textures.find(predicate))) return value;
-    if ((value = this.ui_elements.find(predicate))) return value;
+    if ((value = this.uiElements.find(predicate))) return value;
 
     return value;
   }
@@ -293,7 +293,7 @@ export class ResourcePack implements Container, Pack {
    * @returns
    */
   forEach(callbackfn: (value: ItemTypes) => void): void {
-    this.animation_controllers.forEach(callbackfn);
+    this.animationControllers.forEach(callbackfn);
     this.animations.forEach(callbackfn);
     this.attachables.forEach(callbackfn);
     this.entities.forEach(callbackfn);
@@ -301,12 +301,12 @@ export class ResourcePack implements Container, Pack {
     this.materials.forEach(callbackfn);
     this.models.forEach(callbackfn);
     this.particles.forEach(callbackfn);
-    this.render_controllers.forEach(callbackfn);
+    this.renderControllers.forEach(callbackfn);
     this.sounds.forEach(callbackfn);
     this.textures.forEach(callbackfn);
     this.itemTextures.forEach(callbackfn);
     this.terrainTextures.forEach(callbackfn);
-    this.ui_elements.forEach(callbackfn);
+    this.uiElements.forEach(callbackfn);
   }
 }
 
@@ -328,13 +328,13 @@ export namespace ResourcePack {
       if (typeof temp.materials !== 'object') return false;
       if (typeof temp.models !== 'object') return false;
       if (typeof temp.particles !== 'object') return false;
-      if (typeof temp.render_controllers !== 'object') return false;
+      if (typeof temp.renderControllers !== 'object') return false;
       if (typeof temp.sounds !== 'object') return false;
       if (typeof temp.textures !== 'object') return false;
 
       if (typeof temp.animations !== 'object') return false;
-      if (typeof temp.animation_controllers !== 'object') return false;
-      if (typeof temp.block_culling_rules !== 'object') return false;
+      if (typeof temp.animationControllers !== 'object') return false;
+      if (typeof temp.blockCullingRules !== 'object') return false;
       if (typeof temp.entities !== 'object') return false;
 
       if (typeof temp.context !== 'object') return false;

@@ -16,7 +16,7 @@ const whitelist = [
 ];
 
 export interface AnimationUsage {
-  animation_controllers: Definition;
+  animationControllers: Definition;
   animations: Definition;
   script: Script;
 }
@@ -34,9 +34,9 @@ export function minecraft_animation_used(
 ): void {
   // Scripts, animation controller use a reference name to an animation
   const refsUsed: Record<string, boolean> = {};
-  const { animation_controllers, animations, script } = data;
+  const { animationControllers, animations, script } = data;
 
-  const controllersUsed = Object.values(animation_controllers)
+  const controllersUsed = Object.values(animationControllers)
     .concat(Object.values(animations))
     .filter((id) => id.startsWith('controller.'));
 
@@ -55,7 +55,7 @@ export function minecraft_animation_used(
   Conditional.forEach(script.animate, (id) => (refsUsed[id] = true));
 
   // Animation controllers are assumed to be always active
-  Definition.forEach(animation_controllers, (ref, id) => {
+  Definition.forEach(animationControllers, (ref, id) => {
     refsUsed[ref] = true;
 
     controllers.get(id)?.animations.using.forEach((anim) => (refsUsed[anim] = true));

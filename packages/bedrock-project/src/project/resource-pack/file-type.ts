@@ -9,7 +9,7 @@ export enum FileType {
   /** */
   attachable,
   /** */
-  block_culling_rules,
+  blockCullingRules,
   /**The file biomes_client */
   biomes_client,
   /** */
@@ -59,7 +59,7 @@ export namespace FileType {
     if (/[\\/]animation_controllers[\\/]/.test(uri)) return FileType.animation_controller;
     if (/[\\/]animations[\\/]/.test(uri)) return FileType.animation;
     if (/[\\/]attachables[\\/]/.test(uri)) return FileType.attachable;
-    if (/[\\/]block_culling[\\/]/.test(uri)) return FileType.block_culling_rules;
+    if (/[\\/]block_culling[\\/]/.test(uri)) return FileType.blockCullingRules;
     // Check more specific model paths before general entity path to avoid conflicts
     if (/[\\/]models[\\/]entities[\\/]/.test(uri)) return FileType.model;
     if (/[\\/]models[\\/]entity[\\/]/.test(uri)) return FileType.model;

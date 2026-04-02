@@ -23,7 +23,7 @@ export class BehaviorPackCollection extends PackCollection<BehaviorPack> {
   /**The collection of animations*/
   readonly animations: DataSetConnector<Animation.Animation, BehaviorPack>;
   /**The collection of animations controllers*/
-  readonly animation_controllers: DataSetConnector<AnimationController.AnimationController, BehaviorPack>;
+  readonly animationControllers: DataSetConnector<AnimationController.AnimationController, BehaviorPack>;
   /**The collection of blocks*/
   readonly blocks: DataSetConnector<Block.Block, BehaviorPack>;
   /**The collection of biomes*/
@@ -33,15 +33,15 @@ export class BehaviorPackCollection extends PackCollection<BehaviorPack> {
   /**The collection of features*/
   readonly features: DataSetConnector<Feature.Feature, BehaviorPack>;
   /**The collection of features rules*/
-  readonly features_rules: DataSetConnector<FeatureRule.FeatureRule, BehaviorPack>;
+  readonly featuresRules: DataSetConnector<FeatureRule.FeatureRule, BehaviorPack>;
   /**The collection of mcfunctions*/
   readonly functions: DataSetConnector<Function.Function, BehaviorPack>;
   /**The collection of items*/
   readonly items: DataSetConnector<Item.Item, BehaviorPack>;
   /**The collection of items*/
-  readonly items_groups: DataSetConnector<ItemCatalog.Group, BehaviorPack>;
+  readonly itemGroups: DataSetConnector<ItemCatalog.Group, BehaviorPack>;
   /**The collection of loot tables*/
-  readonly loot_tables: DataSetConnector<LootTable.LootTable, BehaviorPack>;
+  readonly lootTables: DataSetConnector<LootTable.LootTable, BehaviorPack>;
   /**The collection of recipes*/
   readonly recipes: DataSetConnector<Recipe.Recipe, BehaviorPack>;
   /**The collection of structures*/
@@ -54,19 +54,19 @@ export class BehaviorPackCollection extends PackCollection<BehaviorPack> {
 
     //Connections
     this.animations = new DataSetConnector(this, (pack) => pack.animations);
-    this.animation_controllers = new DataSetConnector(this, (pack) => pack.animation_controllers);
+    this.animationControllers = new DataSetConnector(this, (pack) => pack.animationControllers);
     this.blocks = new DataSetConnector(this, (pack) => pack.blocks);
     this.biomes = new DataSetConnector(this, (pack) => pack.biomes);
     this.entities = new DataSetConnector(this, (pack) => pack.entities);
     this.functions = new DataSetConnector(this, (pack) => pack.functions);
     this.items = new DataSetConnector(this, (pack) => pack.items);
-    this.items_groups = new DataSetConnector(this, (pack) => pack.item_groups);
-    this.loot_tables = new DataSetConnector(this, (pack) => pack.loot_tables);
+    this.itemGroups = new DataSetConnector(this, (pack) => pack.itemGroups);
+    this.lootTables = new DataSetConnector(this, (pack) => pack.lootTables);
     this.recipes = new DataSetConnector(this, (pack) => pack.recipes);
     this.structures = new DataSetConnector(this, (pack) => pack.structures);
     this.trading = new DataSetConnector(this, (pack) => pack.trading);
     this.features = new DataSetConnector(this, (pack) => pack.features);
-    this.features_rules = new DataSetConnector(this, (pack) => pack.features_rules);
+    this.featuresRules = new DataSetConnector(this, (pack) => pack.featuresRules);
   }
 
   /**

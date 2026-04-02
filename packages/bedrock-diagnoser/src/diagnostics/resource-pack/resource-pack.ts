@@ -48,7 +48,7 @@ export namespace ResourcePack {
         Attachable.diagnose_attachable_document(diagnoser);
         break;
 
-      case FileType.block_culling_rules:
+      case FileType.blockCullingRules:
         BlockCulling.diagnose_block_culling_document(diagnoser);
         break;
 

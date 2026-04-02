@@ -49,9 +49,9 @@ export function behaviorpack_loot_table_short_diagnose(
 
 function has_loot_table(id: string, diagnoser: DiagnosticsBuilder): boolean {
   //Project has loot table
-  const table = diagnoser.context.getProjectData().behaviors.loot_tables.get(id, diagnoser.project);
+  const table = diagnoser.context.getProjectData().behaviors.lootTables.get(id, diagnoser.project);
   if (table === undefined) {
-    Errors.missing('behaviors', 'loot_tables', id, diagnoser);
+    Errors.missing('behaviors', 'lootTables', id, diagnoser);
     return false;
   }
 

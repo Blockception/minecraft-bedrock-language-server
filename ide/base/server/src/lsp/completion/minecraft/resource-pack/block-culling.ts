@@ -7,7 +7,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: Kinds.Completion.Block });
 
   builder.generate(
-    context.database.ProjectData.resourcePacks.block_culling_rules,
+    context.database.ProjectData.resourcePacks.blockCullingRules,
     (bc) => `Block culling defined by ${bc.id}`,
   );
 }

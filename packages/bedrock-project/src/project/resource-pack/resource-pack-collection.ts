@@ -22,11 +22,11 @@ export class ResourcePackCollection extends PackCollection<ResourcePack> {
   /**The collection of  animations*/
   readonly animations: DataSetConnector<Animation.Animation, ResourcePack>;
   /**The collection of animations controllers*/
-  readonly animation_controllers: DataSetConnector<AnimationController.AnimationController, ResourcePack>;
+  readonly animationControllers: DataSetConnector<AnimationController.AnimationController, ResourcePack>;
   /**The collection of animations controllers*/
   readonly attachables: DataSetConnector<Attachable.Attachable, ResourcePack>;
   /**The collection of block_culling_rules*/
-  readonly block_culling_rules: DataSetConnector<BlockCulling.BlockCulling, ResourcePack>;
+  readonly blockCullingRules: DataSetConnector<BlockCulling.BlockCulling, ResourcePack>;
   /**The collection of entities*/
   readonly entities: DataSetConnector<Entity.Entity, ResourcePack>;
   /**The collection of fogs*/
@@ -38,7 +38,7 @@ export class ResourcePackCollection extends PackCollection<ResourcePack> {
   /**The collection of models*/
   readonly particles: DataSetConnector<Particle.Particle, ResourcePack>;
   /**The collection of sounds*/
-  readonly render_controllers: DataSetConnector<RenderController.RenderController, ResourcePack>;
+  readonly renderControllers: DataSetConnector<RenderController.RenderController, ResourcePack>;
   /**The collection of sounds*/
   readonly sounds: DataSetConnector<Sound.Sound, ResourcePack>;
   /**The collection of textures*/
@@ -48,7 +48,7 @@ export class ResourcePackCollection extends PackCollection<ResourcePack> {
   /**The collection of textures from terrain_texture.json*/
   readonly terrainTextures: DataSetConnector<Texture.Texture, ResourcePack>;
   /**The collection of UI elements*/
-  readonly ui_elements: DataSetConnector<UI.UIElement, ResourcePack>;
+  readonly uiElements: DataSetConnector<UI.UIElement, ResourcePack>;
 
   /**Creates a new instances of the class*/
   constructor() {
@@ -56,20 +56,20 @@ export class ResourcePackCollection extends PackCollection<ResourcePack> {
 
     //Connections
     this.animations = new DataSetConnector(this, (pack) => pack.animations);
-    this.animation_controllers = new DataSetConnector(this, (pack) => pack.animation_controllers);
+    this.animationControllers = new DataSetConnector(this, (pack) => pack.animationControllers);
     this.attachables = new DataSetConnector(this, (pack) => pack.attachables);
-    this.block_culling_rules = new DataSetConnector(this, (pack) => pack.block_culling_rules);
+    this.blockCullingRules = new DataSetConnector(this, (pack) => pack.blockCullingRules);
     this.entities = new DataSetConnector(this, (pack) => pack.entities);
     this.fogs = new DataSetConnector(this, (pack) => pack.fogs);
     this.materials = new DataSetConnector(this, (pack) => pack.materials);
     this.models = new DataSetConnector(this, (pack) => pack.models);
     this.particles = new DataSetConnector(this, (pack) => pack.particles);
-    this.render_controllers = new DataSetConnector(this, (pack) => pack.render_controllers);
+    this.renderControllers = new DataSetConnector(this, (pack) => pack.renderControllers);
     this.sounds = new DataSetConnector(this, (pack) => pack.sounds);
     this.textures = new DataSetConnector(this, (pack) => pack.textures);
     this.itemTextures = new DataSetConnector(this, (pack) => pack.itemTextures);
     this.terrainTextures = new DataSetConnector(this, (pack) => pack.terrainTextures);
-    this.ui_elements = new DataSetConnector(this, (pack) => pack.ui_elements);
+    this.uiElements = new DataSetConnector(this, (pack) => pack.uiElements);
   }
 
   add(folder: string, context: MCProject | string, manifest: Manifest): ResourcePack {

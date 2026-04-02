@@ -86,9 +86,9 @@ export class BehaviorData {
     // No Vanilla
   );
 
-  animation_controllers = firstReturn(
+  animationControllers = firstReturn(
     fromDefinition('animation_controller'),
-    fromProject(() => this._behaviorpacks.animation_controllers),
+    fromProject(() => this._behaviorpacks.animationControllers),
     // No Vanilla
   );
   biomes = firstReturn(
@@ -114,9 +114,9 @@ export class BehaviorData {
     fromProject(() => this._behaviorpacks.features),
     fromVanilla(VanillaData.BehaviorPack.getFeature),
   );
-  features_rules = firstReturn(
+  featuresRules = firstReturn(
     fromDefinition('features_rule'),
-    fromProject(() => this._behaviorpacks.features_rules),
+    fromProject(() => this._behaviorpacks.featuresRules),
     // No Vanilla
   );
   functions = firstReturn(
@@ -129,14 +129,14 @@ export class BehaviorData {
     fromProject(() => this._behaviorpacks.items),
     fromVanilla(VanillaData.BehaviorPack.getItem),
   );
-  items_groups = firstReturn(
+  itemGroups = firstReturn(
     fromDefinition('item_group'),
-    fromProject(() => this._behaviorpacks.items_groups),
+    fromProject(() => this._behaviorpacks.itemGroups),
     // No Vanilla
   );
-  loot_tables = firstReturn(
+  lootTables = firstReturn(
     fromDefinition('loot_table'),
-    fromProject(() => this._behaviorpacks.loot_tables),
+    fromProject(() => this._behaviorpacks.lootTables),
     fromVanilla(VanillaData.BehaviorPack.getLootTable),
   );
   structures = firstReturn(
@@ -163,9 +163,9 @@ export class ResourceData {
     fromProject(() => this._resourcepacks.animations),
     fromVanilla(VanillaData.ResourcePack.getAnimation),
   );
-  animation_controllers = firstReturn(
+  animationControllers = firstReturn(
     fromDefinition('animation_controller'),
-    fromProject(() => this._resourcepacks.animation_controllers),
+    fromProject(() => this._resourcepacks.animationControllers),
     fromVanilla(VanillaData.ResourcePack.getAnimationController),
   );
   attachables = firstReturn(
@@ -173,9 +173,9 @@ export class ResourceData {
     fromProject(() => this._resourcepacks.attachables),
     // No Vanilla
   );
-  block_culling_rules = firstReturn(
+  blockCullingRules = firstReturn(
     fromDefinition('block_culling_rule'),
-    fromProject(() => this._resourcepacks.block_culling_rules),
+    fromProject(() => this._resourcepacks.blockCullingRules),
     // No Vanilla
   );
   entities = firstReturn(
@@ -203,9 +203,9 @@ export class ResourceData {
     fromProject(() => this._resourcepacks.particles),
     fromVanilla(VanillaData.ResourcePack.getParticle),
   );
-  render_controllers = firstReturn(
+  renderControllers = firstReturn(
     fromDefinition('render_controller'),
-    fromProject(() => this._resourcepacks.render_controllers),
+    fromProject(() => this._resourcepacks.renderControllers),
     fromVanilla(VanillaData.ResourcePack.getRenderController),
   );
   sounds = firstReturn(
@@ -218,12 +218,12 @@ export class ResourceData {
     fromProject(() => this._resourcepacks.textures),
     fromVanilla(VanillaData.ResourcePack.getTexture),
   );
-  item_textures = firstReturn(
+  itemTextures = firstReturn(
     fromDefinition('item_texture'),
     fromProject(() => this._resourcepacks.itemTextures),
     // No Vanilla
   );
-  terrain_textures = firstReturn(
+  terrainTextures = firstReturn(
     fromDefinition('terrain_texture'),
     fromProject(() => this._resourcepacks.terrainTextures),
     // No Vanilla

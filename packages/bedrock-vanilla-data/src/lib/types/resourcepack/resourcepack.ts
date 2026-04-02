@@ -13,7 +13,7 @@ import { TextureAtlas } from "./texture_atlas";
 /**The interface that stores vanilla resource pack data*/
 export interface ResourcePack {
   /**The collection of animation controllers*/
-  readonly animation_controllers: AnimationController[];
+  readonly animationControllers: AnimationController[];
 
   /**The collection of animations*/
   readonly animations: Animation[];
@@ -34,20 +34,20 @@ export interface ResourcePack {
   readonly particles: Particle[];
 
   /**The collection of render controllers*/
-  readonly render_controllers: RenderController[];
+  readonly renderControllers: RenderController[];
 
   /**The collection of sounds*/
   readonly sounds: Sound[];
 
   /**The collection of sounds files*/
-  readonly sound_files: string[];
+  readonly soundFiles: string[];
 
   /**The collection of textures*/
   readonly textures: Texture[];
 
   /**The collection of definitions from the texture atlas*/
-  readonly texture_atlas_items: TextureAtlas[];
+  readonly textureAtlasItems: TextureAtlas[];
 
   /**The collection of definitions from the texture atlas*/
-  readonly texture_atlas_terrain: TextureAtlas[];
+  readonly textureAtlasTerrain: TextureAtlas[];
 }
