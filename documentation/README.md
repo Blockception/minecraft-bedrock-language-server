@@ -6,6 +6,7 @@ Welcome to the Minecraft Bedrock Language Server documentation! This folder cont
 
 ### Core Documentation
 
+- [Architecture](./architecture.md) - Package dependency graph, LSP server composition, data flow, and contribution how-tos
 - [Commands](./Commands.md) - Available commands in the extension
 - [Debugging](./Debugging.md) - How to debug the language server
 - [JSON Validation](./Json%20Validation.md) - JSON schema validation guide
