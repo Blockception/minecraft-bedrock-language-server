@@ -1,6 +1,7 @@
 
 import { Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { DataSet } from './data-set';
+import { findInPacks } from './find-in-packs';
 import { IDataSet } from './i-data-set';
 import { Pack } from './pack';
 import { PackCollection } from './pack-collection';
@@ -22,14 +23,7 @@ export class DataSetConnector<T extends Identifiable & Locatable, U extends Pack
     const packs = this._collection.packs;
     if (!packs) return undefined;
 
-    for (let I = 0; I < packs.length; I++) {
-      const p = packs[I];
-
-      const item = this._getDataset(p)?.get(id);
-      if (item) return item;
-    }
-
-    return undefined;
+    return findInPacks(packs, (p) => this._getDataset(p)?.get(id));
   }
 
   /** @inheritdoc */
@@ -44,11 +38,8 @@ export class DataSetConnector<T extends Identifiable & Locatable, U extends Pack
     const packs = this._collection.packs;
     if (!packs) return undefined;
 
-    for (let I = 0; I < packs.length; I++) {
-      const p = packs[I];
-      const dataset = this._getDataset(p);
-      dataset?.forEach(callbackfn, thisArg);
-    }
+    // All packs must be visited (no early-exit), so Array.forEach is used here.
+    packs.forEach((p) => this._getDataset(p)?.forEach(callbackfn, thisArg));
   }
 
   /** @inheritdoc */
@@ -56,14 +47,6 @@ export class DataSetConnector<T extends Identifiable & Locatable, U extends Pack
     const packs = this._collection.packs;
     if (!packs) return undefined;
 
-    for (let I = 0; I < packs.length; I++) {
-      const p = packs[I];
-      const dataset = this._getDataset(p);
-      const out = dataset?.find(predicate);
-
-      if (out) return out;
-    }
-
-    return undefined;
+    return findInPacks(packs, (p) => this._getDataset(p)?.find(predicate));
   }
 }

@@ -1,5 +1,6 @@
 import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { DataSetBase } from './data-set';
+import { findInPacks } from './find-in-packs';
 import { Pack } from './pack';
 import { TextDocument } from './text-document';
 
@@ -40,14 +41,7 @@ export class PackCollection<T extends Pack> {
   get(doc: TextDocument | string): T | undefined {
     const uri = typeof doc === 'string' ? doc : doc.uri;
 
-    for (let I = 0; I < this.packs.length; I++) {
-      const current = this.packs[I];
-      if (uri.startsWith(current.folder)) {
-        return current;
-      }
-    }
-
-    return undefined;
+    return findInPacks(this.packs, (pack) => (uri.startsWith(pack.folder) ? pack : undefined));
   }
 
   /**
@@ -100,12 +94,6 @@ export class PackCollection<T extends Pack> {
    * @returns
    */
   find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined {
-    let value: BaseObject | undefined;
-
-    for (let i = 0; i < this.packs.length; i++) {
-      if ((value = this.packs[i].find(predicate))) return value;
-    }
-
-    return value;
+    return findInPacks(this.packs, (pack) => pack.find(predicate));
   }
 }
