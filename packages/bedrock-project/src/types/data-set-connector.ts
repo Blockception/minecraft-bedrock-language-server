@@ -7,7 +7,13 @@ import { Pack } from './pack';
 import { PackCollection } from './pack-collection';
 
 /**
- * The class DataSetConnector description
+ * Connects a {@link PackCollection} to a specific {@link DataSet} field on each pack,
+ * exposing a unified {@link IDataSet} view across all packs in the collection.
+ *
+ * **Lookup order / priority**: packs are queried in the order they appear in
+ * {@link PackCollection.packs}. When multiple packs contain an item with the
+ * same ID the pack that appears *first* wins and its value is returned. This is
+ * the intended behaviour – pack priority is determined by insertion order.
  */
 export class DataSetConnector<T extends Identifiable & Locatable, U extends Pack> implements IDataSet<T> {
   private _collection: PackCollection<U>;
