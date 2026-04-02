@@ -8,7 +8,7 @@ import { IService } from '../services/service';
 import { CommandContext } from './context';
 import { CommandManager } from './manager';
 
-export class CommandService extends BaseService implements Partial<IService> {
+export class CommandService extends BaseService implements IService {
   readonly name: string = 'commands';
   private manager: CommandManager;
 

@@ -9,7 +9,7 @@ import { BaseService } from '../services/base';
 import { IService } from '../services/service';
 import { InternalContext } from './context';
 
-export class DiagnoserService extends BaseService implements Partial<IService> {
+export class DiagnoserService extends BaseService implements IService {
   name: string = 'diagnoser';
   private _context: InternalContext;
   private _diagnoser: Diagnoser;

@@ -17,7 +17,7 @@ import { CapabilityBuilder } from '../services/capabilities';
 import { IService } from '../services/service';
 import { SymbolBuilder } from './builder';
 
-export class DocumentSymbolService extends BaseService implements Partial<IService> {
+export class DocumentSymbolService extends BaseService implements IService {
   readonly name: string = 'document-symbols';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

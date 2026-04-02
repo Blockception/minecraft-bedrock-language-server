@@ -14,7 +14,7 @@ import { IService } from '../services/service';
 import { CodeLensContext } from './context';
 import { internalRequest } from './on-request';
 
-export class CodeLensService extends BaseService implements Partial<IService> {
+export class CodeLensService extends BaseService implements IService {
   name: string = 'code-lens';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

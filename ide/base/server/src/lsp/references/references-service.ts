@@ -12,7 +12,7 @@ import { CapabilityBuilder } from '../services/capabilities';
 import { IService } from '../services/service';
 import { getCurrentWord } from './function';
 
-export class ReferenceService extends BaseService implements Partial<IService> {
+export class ReferenceService extends BaseService implements IService {
   name: string = 'references';
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext) {

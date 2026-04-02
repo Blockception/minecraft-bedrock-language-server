@@ -14,7 +14,7 @@ import { IExtendedLogger } from '../logger/logger';
 import { BaseService } from '../services/base';
 import { IService } from '../services/service';
 
-export class DocumentProcessor extends BaseService implements Partial<IService> {
+export class DocumentProcessor extends BaseService implements IService {
   name: string = 'document processor';
   private _diagnoser: DiagnoserService;
 

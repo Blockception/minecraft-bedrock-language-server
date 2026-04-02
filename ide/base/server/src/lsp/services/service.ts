@@ -13,13 +13,13 @@ export interface IService {
   /**
    * Disposes the service
    */
-  dispose(): void;
+  dispose?(): void;
 
   /**
    * Registers the service dynamically, the service should add tp the register
    * @param register The register to add the service to
    */
-  dynamicRegister(register: BulkRegistration): void;
+  dynamicRegister?(register: BulkRegistration): void;
 
   /**
    * Initializes the service, the service should add to the receiver
@@ -27,21 +27,21 @@ export interface IService {
    * @param params The initialization parameters
    * @param connection The lsp connection
    */
-  onInitialize(capabilities: CapabilityBuilder, params: InitializeParams): void;
+  onInitialize?(capabilities: CapabilityBuilder, params: InitializeParams): void;
 
   /**
    * Setup function handlers
    * @param connection The connection to set it to
    */
-  setupHandlers(connection: Connection): void;
+  setupHandlers?(connection: Connection): void;
 
   /**
    * Starts the service, called after initialization
    */
-  start(): void | Promise<void>;
+  start?(): void | Promise<void>;
 
   /**
-   * Stios the service, called on Exit
+   * Stops the service, called on Exit
    */
-  stop(): void;
+  stop?(): void;
 }
