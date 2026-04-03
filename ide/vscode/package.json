@@ -7,7 +7,7 @@
   "main": "./lsp/client.js",
   "name": "blockceptionvscodeminecraftbedrockdevelopmentextension",
   "publisher": "BlockceptionLtd",
-  "version": "9.0.28",
+  "version": "9.0.29",
   "pricing": "Free",
   "activationEvents": [
     "onLanguage:bc-minecraft-language",
