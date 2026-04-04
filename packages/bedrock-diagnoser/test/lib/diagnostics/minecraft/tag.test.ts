@@ -20,6 +20,7 @@ describe("Tag", () => {
     minecraft_tag_diagnose(OffsetWord.create("Follow"), B);
     minecraft_tag_diagnose(OffsetWord.create("Attack"), B);
     minecraft_tag_diagnose(OffsetWord.create(""), B);
+    minecraft_tag_diagnose(OffsetWord.create('""'), B);
 
     B.expectEmpty();
   });

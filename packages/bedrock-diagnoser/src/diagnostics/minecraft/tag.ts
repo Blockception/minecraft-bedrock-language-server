@@ -19,6 +19,11 @@ export function minecraft_tag_diagnose(value: OffsetWord | string, diagnoser: Di
   const isQuoted = rawText.length >= 2 && rawText.startsWith('"') && rawText.endsWith('"');
   const id = isQuoted ? rawText.slice(1, rawText.length - 1) : rawText;
 
+  //Empty quoted tags (e.g. tag="") are valid - same as tag= - represents entities with no tags
+  if (id === '') {
+    return true;
+  }
+
   if (!isQuoted && !/^[a-zA-Z0-9\-_.]+$/gim.test(id)) {
     diagnoser.add(value, `Illegal character found in tag: ${rawText}`, DiagnosticSeverity.error, 'minecraft.tag.invalid');
   }
