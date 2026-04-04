@@ -3,6 +3,7 @@
 export * from './container';
 export * from './data-set';
 export * from './data-set-connector';
+export * from './sqlite-data-set';
 export * from './documentation';
 export * from './find-in-packs';
 export * from './i-data-set';
