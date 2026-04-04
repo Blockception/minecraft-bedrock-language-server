@@ -122,6 +122,7 @@ describe("Selector", () => {
       "@s[scores={data=..3,data=5..}]",
       '@e[name="main",tag=foo]',
       '@e[tag="hello there"]',
+      '@e[tag=""]',
       "@e[x=0,y=2,z=3,dx=4,dy=5,dz=6,type=minecraft:sheep,c=1]",
       "@a[hasitem={item=diamond,location=slot.inventory,slot=5}]",
       "@a[hasitem={item=diamond,location=slot.inventory,slot=5..8}]",
