@@ -15,6 +15,18 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
   if (IsEditingValue(selector, pos)) {
     const propertyName = GetCurrentAttribute(selector, pos);
 
+    // Special case: `property=<property_id>` checks if the entity has a property at all.
+    // The value should be a property identifier.
+    if (propertyName === 'property') {
+      context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
+        entity.properties.forEach((property) => {
+          const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
+          builder.add({ label: property.name, documentation: msg, kind: Kinds.Completion.Property });
+        });
+      });
+      return;
+    }
+
     context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
       entity.properties.forEach((property) => {
         if (property.name !== propertyName) return;
@@ -50,13 +62,19 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
         }
       });
     });
-  }
-
-  context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
-    entity.properties.forEach((property) => {
-      const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
-
-      builder.add({ label: property.name, documentation: msg, kind: Kinds.Completion.Property });
+  } else {
+    // Editing a key — suggest the special `property` key and all entity property names.
+    builder.add({
+      label: 'property',
+      documentation: 'Checks if the entity has the specified property (equivalent to q.has_property)',
+      kind: Kinds.Completion.Property,
     });
-  });
+
+    context.database.ProjectData.behaviorPacks.entities.forEach((entity) => {
+      entity.properties.forEach((property) => {
+        const msg = `property: ${property.name} of type ${property.type}.<br/>defaults: ${property.default}.<br/>defined by ${entity.id}.`;
+        builder.add({ label: property.name, documentation: msg, kind: Kinds.Completion.Property });
+      });
+    });
+  }
 }
