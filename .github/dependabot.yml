@@ -19,22 +19,32 @@ updates:
           - "node-fetch"
       nodejs:
         patterns:
-          - "typescript"
-          - "ts-*"
           - "@types/node"
           - "node"
           - "webpack"
           - "webpack-cli"
         exclude-patterns:
           - "node-fetch"
-      test:
+      typescript:
         patterns:
-          - "jest"
+          - "typescript"
+          - "ts-node"
+          - "tslib"
+      eslint:
+        patterns:
           - "eslint"
           - "*eslint*"
-          - "*jest*"
           - "@types/eslint"
+      ts-jest:
+        patterns:
+          - "ts-jest"
+      jest:
+        patterns:
+          - "jest"
+          - "*jest*"
           - "@types/jest"
+        exclude-patterns:
+          - "ts-jest"
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
