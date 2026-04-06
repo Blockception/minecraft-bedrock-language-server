@@ -54,7 +54,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^25.5.2",
     "json-loader": "^0.5.7",
-    "ts-jest": "^29.4.1",
+    "ts-jest": "^29.4.9",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
