@@ -79,7 +79,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
   }
 
   /**@inheritdoc*/
-  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
+  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number, data?: unknown): void {
     //Was diagnostics code disabled in project settings
     if (this.project.attributes['diagnostic.disable.' + code] === 'true') return;
     
@@ -101,6 +101,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
       severity: getSeverity(severity),
       range: GetRange(position, this.doc),
       source: 'mc',
+      data,
     };
 
     if (typeof code === 'number') {

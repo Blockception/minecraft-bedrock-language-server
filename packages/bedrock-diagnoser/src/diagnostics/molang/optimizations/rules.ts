@@ -3,10 +3,7 @@ import {
   ConditionalNode,
   ExpressionNode,
   LiteralNode,
-  NodeType,
-  ResourceReferenceNode,
   UnaryOperationNode,
-  VariableNode,
 } from 'bc-minecraft-molang';
 import { DiagnosticSeverity } from '../../../types';
 import { OptimizationCategory } from './framework';
@@ -36,37 +33,33 @@ export function createIdentityOperationsCategory(): OptimizationCategory {
     rules: [
       ...createBinaryLeftOrRightLiteralRules('+', '0', 'molang.optimization.identity-operation', (node, side) => {
         const otherSide = side === 'left' ? node.right : node.left;
-        // Try to get a simple representation
-        let replacement = 'the other operand';
-        if (otherSide.type === NodeType.Variable || otherSide.type === NodeType.ResourceReference) {
-          const varNode = otherSide as any;
-          replacement = ExpressionNode.getIdentifier(varNode);
-        }
-        return `addition with 0 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(otherSide);
+        return {
+          message: `addition with 0 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
       createBinaryRightLiteralRule('-', '0', 'molang.optimization.identity-operation', (node) => {
-        let replacement = 'the left operand';
-        if (node.left.type === NodeType.Variable || node.left.type === NodeType.ResourceReference) {
-          const varNode = node.left as any;
-          replacement = ExpressionNode.getIdentifier(varNode);
-        }
-        return `subtraction with 0 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(node.left);
+        return {
+          message: `subtraction with 0 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
       ...createBinaryLeftOrRightLiteralRules('*', '1', 'molang.optimization.identity-operation', (node, side) => {
         const otherSide = side === 'left' ? node.right : node.left;
-        let replacement = 'the other operand';
-        if (VariableNode.is(otherSide) || ResourceReferenceNode.is(otherSide)) {
-          replacement = ExpressionNode.getIdentifier(otherSide);
-        }
-        return `multiplication by 1 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(otherSide);
+        return {
+          message: `multiplication by 1 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
       createBinaryRightLiteralRule('/', '1', 'molang.optimization.identity-operation', (node) => {
-        let replacement = 'the left operand';
-        if (node.left.type === NodeType.Variable || node.left.type === NodeType.ResourceReference) {
-          const varNode = node.left as any;
-          replacement = ExpressionNode.getIdentifier(varNode);
-        }
-        return `division by 1 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(node.left);
+        return {
+          message: `division by 1 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
     ],
   };
@@ -79,37 +72,33 @@ export function createSimplifyOperationsCategory(): OptimizationCategory {
     rules: [
       ...createBinaryLeftOrRightLiteralRules('+', '0', 'molang.optimization.identity-operation', (node, side) => {
         const otherSide = side === 'left' ? node.right : node.left;
-        // Try to get a simple representation
-        let replacement = 'the other operand';
-        if (otherSide.type === NodeType.Variable || otherSide.type === NodeType.ResourceReference) {
-          const varNode = otherSide as any;
-          replacement = ExpressionNode.getIdentifier(varNode);
-        }
-        return `addition with 0 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(otherSide);
+        return {
+          message: `addition with 0 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
       createBinaryRightLiteralRule('-', '0', 'molang.optimization.identity-operation', (node) => {
-        let replacement = 'the left operand';
-        if (node.left.type === NodeType.Variable || node.left.type === NodeType.ResourceReference) {
-          const varNode = node.left as any;
-          replacement = ExpressionNode.getIdentifier(varNode);
-        }
-        return `subtraction with 0 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(node.left);
+        return {
+          message: `subtraction with 0 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
       ...createBinaryLeftOrRightLiteralRules('*', '1', 'molang.optimization.identity-operation', (node, side) => {
         const otherSide = side === 'left' ? node.right : node.left;
-        let replacement = 'the other operand';
-        if (VariableNode.is(otherSide) || ResourceReferenceNode.is(otherSide)) {
-          replacement = ExpressionNode.getIdentifier(otherSide);
-        }
-        return `multiplication by 1 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(otherSide);
+        return {
+          message: `multiplication by 1 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
       createBinaryRightLiteralRule('/', '1', 'molang.optimization.identity-operation', (node) => {
-        let replacement = 'the left operand';
-        if (node.left.type === NodeType.Variable || node.left.type === NodeType.ResourceReference) {
-          const varNode = node.left as any;
-          replacement = ExpressionNode.getIdentifier(varNode);
-        }
-        return `division by 1 has no effect, replace with ${replacement}`;
+        const replacement = ExpressionNode.toString(node.left);
+        return {
+          message: `division by 1 has no effect, replace with ${replacement}`,
+          replacement,
+        };
       }),
     ],
   };
