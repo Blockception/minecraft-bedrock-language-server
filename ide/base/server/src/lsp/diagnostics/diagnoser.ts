@@ -101,7 +101,7 @@ export class InternalDiagnoser implements ManagedDiagnosticsBuilder<TextDocument
       severity: getSeverity(severity),
       range: GetRange(position, this.doc),
       source: 'mc',
-      data: data,
+      data,
     };
 
     if (typeof code === 'number') {
