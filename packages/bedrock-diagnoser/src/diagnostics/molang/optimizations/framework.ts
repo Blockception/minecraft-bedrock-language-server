@@ -62,4 +62,10 @@ export interface Optimization {
    * Typically 'info' for optimization suggestions
    */
   severity?: DiagnosticSeverity;
+  /**
+   * The suggested replacement expression for this optimization.
+   * When present, this is stored in the diagnostic's data field so that
+   * code action providers can offer a quick fix.
+   */
+  replacement?: string;
 }

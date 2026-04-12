@@ -32,8 +32,9 @@ export interface DiagnosticsBuilder<T extends TextDocument = TextDocument> {
    * @param position The position in the document to add this message to
    * @param message The message to add
    * @param severity The severity of the issue
-   * @param code The code of the diagnostic error*/
-  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void;
+   * @param code The code of the diagnostic error
+   * @param data Optional data to attach to the diagnostic (e.g. a replacement string for quick fixes)*/
+  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number, data?: unknown): void;
 }
 
 /** The interface of a diagnostics builder for a document*/

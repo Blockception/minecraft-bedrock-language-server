@@ -14,6 +14,7 @@ export interface Error {
   message: string;
   severity: DiagnosticSeverity;
   code: string | number;
+  data?: unknown;
 }
 
 export class TestDiagnoser<T extends TextDocument = TextDocument> implements ManagedDiagnosticsBuilder<T> {
@@ -43,14 +44,19 @@ export class TestDiagnoser<T extends TextDocument = TextDocument> implements Man
    * @param message
    * @param severity
    * @param code
+   * @param data
    */
-  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number): void {
-    this.items.push({
+  add(position: DocumentLocation, message: string, severity: DiagnosticSeverity, code: string | number, data?: unknown): void {
+    const error: Error = {
       code: code,
       message: message,
       position: position,
       severity: severity,
-    });
+    };
+    if (data !== undefined) {
+      error.data = data;
+    }
+    this.items.push(error);
   }
 
   expectDone(): void {

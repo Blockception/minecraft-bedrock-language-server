@@ -61,11 +61,13 @@ export class OptimizationRegistry {
       }
 
       for (const optimizedNode of result) {
+        const data = optimizedNode.replacement !== undefined ? { replacement: optimizedNode.replacement } : undefined;
         diagnoser.add(
           node.position,
           optimizedNode.message,
           optimizedNode.severity ?? rule.severity,
           optimizedNode.code ?? rule.code,
+          data,
         );
       }
     }

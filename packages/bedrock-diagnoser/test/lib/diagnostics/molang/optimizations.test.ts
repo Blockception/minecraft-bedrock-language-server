@@ -325,4 +325,43 @@ describe('Molang Optimization Diagnostics', () => {
       });
     }
   });
+
+  describe('Quick Fix Data (replacement field)', () => {
+    it('should include replacement data for identity operation: multiplication by 1', () => {
+      const diagnoser = new TestDiagnoser();
+      diagnose_molang_syntax_line('v.smooth_turn * 1', diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.identity-operation');
+      expect(diag).toBeDefined();
+      expect(diag?.data).toEqual({ replacement: 'v.smooth_turn' });
+    });
+
+    it('should include replacement data for identity operation: addition with 0', () => {
+      const diagnoser = new TestDiagnoser();
+      diagnose_molang_syntax_line('v.speed + 0', diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.identity-operation');
+      expect(diag).toBeDefined();
+      expect(diag?.data).toEqual({ replacement: 'v.speed' });
+    });
+
+    it('should include replacement data for constant folding', () => {
+      const diagnoser = new TestDiagnoser();
+      diagnose_molang_syntax_line('v.test + (1 + 2)', diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-folding');
+      expect(diag).toBeDefined();
+      expect(diag?.data).toHaveProperty('replacement');
+      expect(typeof (diag?.data as { replacement: string })?.replacement).toBe('string');
+    });
+
+    it('should include replacement data for constant result (both literals)', () => {
+      const diagnoser = new TestDiagnoser();
+      diagnose_molang_syntax_line('v.x + (2 * 3)', diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-result');
+      expect(diag).toBeDefined();
+      expect(diag?.data).toEqual({ replacement: '6' });
+    });
+  });
 });

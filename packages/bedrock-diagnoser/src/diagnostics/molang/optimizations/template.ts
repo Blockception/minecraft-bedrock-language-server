@@ -1,5 +1,5 @@
 import { BinaryOperationNode, ExpressionNode, LiteralNode } from 'bc-minecraft-molang';
-import { OptimizationRule } from '.';
+import { Optimization, OptimizationRule } from '.';
 import { DiagnosticSeverity } from '../../../types';
 import { isLiteralValue } from './util';
 
@@ -10,7 +10,7 @@ export function createBinaryRightLiteralRule(
   operator: string,
   literalValue: string,
   code: string,
-  message: string | ((node: BinaryOperationNode) => string),
+  message: string | ((node: BinaryOperationNode) => string | Optimization),
   severity: DiagnosticSeverity = DiagnosticSeverity.info,
 ): OptimizationRule {
   return {
@@ -20,9 +20,11 @@ export function createBinaryRightLiteralRule(
     getOptimizations(node) {
       if (!BinaryOperationNode.is(node)) return null;
       if (node.operator === operator && isLiteralValue(node.right, literalValue)) {
-        return {
-          message: typeof message === 'string' ? message : message(node),
-        };
+        if (typeof message === 'string') {
+          return { message };
+        }
+        const result = message(node);
+        return typeof result === 'string' ? { message: result } : result;
       }
 
       return null;
@@ -37,7 +39,7 @@ export function createBinaryLeftLiteralRule(
   operator: string,
   literalValue: string,
   code: string,
-  message: string | ((node: BinaryOperationNode) => string),
+  message: string | ((node: BinaryOperationNode) => string | Optimization),
   severity: DiagnosticSeverity = DiagnosticSeverity.info,
 ): OptimizationRule {
   return {
@@ -47,9 +49,11 @@ export function createBinaryLeftLiteralRule(
     getOptimizations(node: ExpressionNode) {
       if (!BinaryOperationNode.is(node)) return null;
       if (node.operator === operator && isLiteralValue(node.left, literalValue)) {
-        return {
-          message: typeof message === 'string' ? message : message(node),
-        };
+        if (typeof message === 'string') {
+          return { message };
+        }
+        const result = message(node);
+        return typeof result === 'string' ? { message: result } : result;
       }
       return null;
     },
@@ -64,7 +68,7 @@ export function createBinaryLeftOrRightLiteralRules(
   operator: string,
   literalValue: string,
   code: string,
-  messageTemplate: string | ((node: BinaryOperationNode, side: 'left' | 'right') => string),
+  messageTemplate: string | ((node: BinaryOperationNode, side: 'left' | 'right') => string | Optimization),
   severity: DiagnosticSeverity = DiagnosticSeverity.info,
 ): OptimizationRule[] {
   // If messageTemplate is a function, we need to adapt it for left/right
@@ -98,6 +102,7 @@ export function createBinaryBothLiteralRule(
       if (newValue !== undefined) {
         return {
           message: `Both sides of the '${node.operator}' operation are literals and can be pre-calculated to '${newValue}'`,
+          replacement: newValue,
         };
       }
 

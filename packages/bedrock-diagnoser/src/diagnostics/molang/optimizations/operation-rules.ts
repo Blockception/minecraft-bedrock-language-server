@@ -61,6 +61,7 @@ export function optimizeOperation(node: BinaryOperationNode): Optimization | nul
 
   return {
     message: `Can rewrite the operation to: \n  original: ${original}\n  rewrite: ${optimized}`,
+    replacement: optimized,
   };
 }
 
