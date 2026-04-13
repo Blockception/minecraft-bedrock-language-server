@@ -49,7 +49,7 @@
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^25.5.2",
+    "@types/node": "^25.6.0",
     "@vscode/vsce": "^3.7.1",
     "cpx": "^1.5.0",
     "eslint": "^10.2.0",
@@ -59,7 +59,7 @@
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.58.0",
-    "webpack": "^5.105.4"
+    "webpack": "^5.106.1"
   },
   "dependencies": {
     "bc-minecraft-lsp": "*",
