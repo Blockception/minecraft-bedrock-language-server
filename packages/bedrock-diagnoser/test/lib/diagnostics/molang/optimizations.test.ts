@@ -268,6 +268,10 @@ describe('Molang Optimization Diagnostics', () => {
         name: 'complex expression without optimizations',
         data: 'v.temp * 2 + v.other / 3',
       },
+      {
+        name: 'left-associative addition with no simplification',
+        data: 'q.position(0) + t.cam_pos_x + 2',
+      },
     ];
 
     for (const test of tests) {

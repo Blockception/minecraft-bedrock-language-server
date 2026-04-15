@@ -36,17 +36,20 @@ export function optimizeOperation(node: BinaryOperationNode): Optimization | nul
   let changed: boolean;
   let iterations = 0;
   const maxIterations = 10;
-  
+  let realOptimizationHappened = false;
+
   do {
     changed = false;
     changed ||= hoistUp(n);
-    changed ||= constantFold(n);
-    changed ||= applyIdentityRules(n);
+    const folded = constantFold(n);
+    const simplified = applyIdentityRules(n);
+    changed ||= folded || simplified;
+    if (folded || simplified) realOptimizationHappened = true;
     iterations++;
   } while (changed && iterations < maxIterations);
-  
-  // Early exit if no optimizations were made
-  if (iterations === 1 && !changed) {
+
+  // Early exit if no real optimizations were made (hoistUp alone is not an optimization)
+  if (!realOptimizationHappened) {
     return null;
   }
   
