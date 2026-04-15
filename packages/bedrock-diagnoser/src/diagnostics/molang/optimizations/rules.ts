@@ -461,7 +461,7 @@ export function createSelfDivisionCategory(): OptimizationCategory {
           if (left !== right) return null;
 
           return {
-            message: 'dividing an expression by itself always results in 1',
+            message: 'dividing an expression by itself always results in 1 (assuming the expression is non-zero)',
             replacement: '1',
           };
         },
