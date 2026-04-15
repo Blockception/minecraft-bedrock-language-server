@@ -332,12 +332,26 @@ export function createConstantConditionCategory(): OptimizationCategory {
         getOptimizations(node) {
           if (!ConditionalNode.is(node)) return null;
           const value = getLiteralValue(node.condition)?.toLowerCase();
-          if (value !== 'true' && value !== 'false' && value !== '0') return null;
+          if (value === undefined) return null;
 
-          const branch = value === '0' || value === 'false' ? 'false' : 'true';
-          return {
-            message: `conditional has constant condition, can be replaced with ${branch} branch`,
-          };
+          // Check for boolean literals
+          if (value === 'true' || value === 'false') {
+            const branch = value === 'false' ? 'false' : 'true';
+            return {
+              message: `conditional has constant condition, can be replaced with ${branch} branch`,
+            };
+          }
+
+          // Check for numeric literals (0 is falsy, any non-zero number is truthy)
+          const num = Number(value);
+          if (!isNaN(num)) {
+            const branch = num === 0 ? 'false' : 'true';
+            return {
+              message: `conditional has constant condition, can be replaced with ${branch} branch`,
+            };
+          }
+
+          return null;
         },
       },
     ],
@@ -390,6 +404,88 @@ export function createConstantFoldingCategory(): OptimizationCategory {
           return null;
         },
       },
+    ],
+  };
+}
+
+/**
+ * Creates Self-Cancellation Rules
+ * Detects when an expression is subtracted from itself (x - x = 0)
+ */
+export function createSelfCancellationCategory(): OptimizationCategory {
+  return {
+    name: 'Self-Cancellation',
+    description: 'Detects when an expression is subtracted from itself, which always results in 0',
+    rules: [
+      {
+        code: 'molang.optimization.self-cancellation',
+        name: 'Self-cancellation',
+        severity: DiagnosticSeverity.info,
+        getOptimizations(node) {
+          if (!BinaryOperationNode.is(node)) return null;
+          if (node.operator !== '-') return null;
+
+          const left = ExpressionNode.toString(node.left);
+          const right = ExpressionNode.toString(node.right);
+          if (left !== right) return null;
+
+          return {
+            message: 'subtracting an expression from itself always results in 0',
+            replacement: '0',
+          };
+        },
+      },
+    ],
+  };
+}
+
+/**
+ * Creates Self-Division Rules
+ * Detects when an expression is divided by itself (x / x = 1)
+ */
+export function createSelfDivisionCategory(): OptimizationCategory {
+  return {
+    name: 'Self-Division',
+    description: 'Detects when an expression is divided by itself, which always results in 1',
+    rules: [
+      {
+        code: 'molang.optimization.self-division',
+        name: 'Self-division',
+        severity: DiagnosticSeverity.info,
+        getOptimizations(node) {
+          if (!BinaryOperationNode.is(node)) return null;
+          if (node.operator !== '/') return null;
+
+          const left = ExpressionNode.toString(node.left);
+          const right = ExpressionNode.toString(node.right);
+          if (left !== right) return null;
+
+          return {
+            message: 'dividing an expression by itself always results in 1',
+            replacement: '1',
+          };
+        },
+      },
+    ],
+  };
+}
+
+/**
+ * Creates Division by Zero Rules
+ * Detects when an expression is divided by the literal 0
+ */
+export function createDivisionByZeroCategory(): OptimizationCategory {
+  return {
+    name: 'Division by Zero',
+    description: 'Detects division by zero which will produce unexpected results',
+    rules: [
+      createBinaryRightLiteralRule(
+        '/',
+        '0',
+        'molang.optimization.division-by-zero',
+        'division by zero will produce unexpected results',
+        DiagnosticSeverity.warning,
+      ),
     ],
   };
 }

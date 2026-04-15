@@ -227,6 +227,115 @@ describe('Molang Optimization Diagnostics', () => {
         data: 'v.test + (0 ? 1 : 2)',
         expectedCode: 'molang.optimization.constant-condition',
       },
+      {
+        name: 'ternary with 1 condition',
+        data: 'v.test + (1 ? 1 : 2)',
+        expectedCode: 'molang.optimization.constant-condition',
+      },
+      {
+        name: 'ternary with non-zero numeric condition',
+        data: 'v.test + (42 ? 1 : 2)',
+        expectedCode: 'molang.optimization.constant-condition',
+      },
+    ];
+
+    for (const test of tests) {
+      it(`should detect: ${test.name}`, () => {
+        const diagnoser = new TestDiagnoser();
+        diagnose_molang_syntax_line(test.data, diagnoser);
+
+        diagnoser.expectAny();
+        if (test.expectedCode) {
+          expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+        }
+      });
+    }
+  });
+
+  describe('Self-Cancellation', () => {
+    const tests: OptimizationTestCase[] = [
+      {
+        name: 'variable minus itself',
+        data: 'v.temp - v.temp',
+        expectedCode: 'molang.optimization.self-cancellation',
+      },
+      {
+        name: 'query minus itself',
+        data: 'q.body_y_rotation - q.body_y_rotation',
+        expectedCode: 'molang.optimization.self-cancellation',
+      },
+    ];
+
+    for (const test of tests) {
+      it(`should detect: ${test.name}`, () => {
+        const diagnoser = new TestDiagnoser();
+        diagnose_molang_syntax_line(test.data, diagnoser);
+
+        diagnoser.expectAny();
+        if (test.expectedCode) {
+          expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+        }
+      });
+    }
+
+    it('should include replacement data for self-cancellation', () => {
+      const diagnoser = new TestDiagnoser();
+      diagnose_molang_syntax_line('v.temp - v.temp', diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.self-cancellation');
+      expect(diag).toBeDefined();
+      expect(diag?.data).toEqual({ replacement: '0' });
+    });
+  });
+
+  describe('Self-Division', () => {
+    const tests: OptimizationTestCase[] = [
+      {
+        name: 'variable divided by itself',
+        data: 'v.temp / v.temp',
+        expectedCode: 'molang.optimization.self-division',
+      },
+      {
+        name: 'query divided by itself',
+        data: 'q.anim_time / q.anim_time',
+        expectedCode: 'molang.optimization.self-division',
+      },
+    ];
+
+    for (const test of tests) {
+      it(`should detect: ${test.name}`, () => {
+        const diagnoser = new TestDiagnoser();
+        diagnose_molang_syntax_line(test.data, diagnoser);
+
+        diagnoser.expectAny();
+        if (test.expectedCode) {
+          expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+        }
+      });
+    }
+
+    it('should include replacement data for self-division', () => {
+      const diagnoser = new TestDiagnoser();
+      diagnose_molang_syntax_line('v.temp / v.temp', diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.self-division');
+      expect(diag).toBeDefined();
+      expect(diag?.data).toEqual({ replacement: '1' });
+    });
+  });
+
+  describe('Division by Zero', () => {
+    const tests: OptimizationTestCase[] = [
+      {
+        name: 'division by literal zero',
+        data: 'v.temp / 0',
+        expectedCode: 'molang.optimization.division-by-zero',
+      },
+      {
+        name: 'division by literal zero in expression',
+        data: 'v.temp + v.other / 0',
+        expectedCode: 'molang.optimization.division-by-zero',
+      },
     ];
 
     for (const test of tests) {
@@ -263,6 +372,22 @@ describe('Molang Optimization Diagnostics', () => {
       {
         name: 'ternary with variable condition',
         data: 'v.temp ? 1 : 2',
+      },
+      {
+        name: 'ternary with variable condition (query)',
+        data: 'q.is_baby ? 1 : 2',
+      },
+      {
+        name: 'subtraction of different variables',
+        data: 'v.temp - v.other',
+      },
+      {
+        name: 'division of different variables',
+        data: 'v.temp / v.other',
+      },
+      {
+        name: 'division by non-zero constant',
+        data: 'v.temp / 2',
       },
       {
         name: 'complex expression without optimizations',

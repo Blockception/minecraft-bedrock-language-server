@@ -1,7 +1,7 @@
 import { ExpressionNode, walk } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder } from '../../../types';
 import { OptimizationCategory, OptimizationRule } from './framework';
-import { createConstantConditionCategory, createConstantFoldingCategory, createConstantResultCategory, createDoubleNegationCategory, createIdentityOperationsCategory, createRedundantComparisonCategory, createRedundantUnaryCategory } from './rules';
+import { createConstantConditionCategory, createConstantFoldingCategory, createConstantResultCategory, createDivisionByZeroCategory, createDoubleNegationCategory, createIdentityOperationsCategory, createRedundantComparisonCategory, createRedundantUnaryCategory, createSelfCancellationCategory, createSelfDivisionCategory } from './rules';
 
 /**
  * Creates and returns the default optimization registry with all built-in rules
@@ -17,6 +17,9 @@ export function createDefaultOptimizationRegistry(): OptimizationRegistry {
   registry.registerCategory(createDoubleNegationCategory());
   registry.registerCategory(createRedundantUnaryCategory());
   registry.registerCategory(createConstantConditionCategory());
+  registry.registerCategory(createSelfCancellationCategory());
+  registry.registerCategory(createSelfDivisionCategory());
+  registry.registerCategory(createDivisionByZeroCategory());
 
   return registry;
 }
