@@ -245,6 +245,9 @@ Optimization diagnostics are informational (`info` severity) – they do not pre
 | Double negation | `molang.optimization.double-negation` | `!!query.is_baby` |
 | Redundant unary plus | `molang.optimization.redundant-unary` | `+variable.speed` |
 | Constant condition in ternary | `molang.optimization.constant-condition` | `true ? 1.0 : 0.0` |
+| Self-cancellation | `molang.optimization.self-cancellation` | `variable.x - variable.x` |
+| Self-division | `molang.optimization.self-division` | `variable.x / variable.x` |
+| Division by zero | `molang.optimization.division-by-zero` | `variable.x / 0` |
 
 **Example messages:**
 
@@ -279,6 +282,9 @@ Optimization diagnostics are informational (`info` severity) – they do not pre
 | `molang.optimization.double-negation` | Info | `!!expr` can be simplified |
 | `molang.optimization.redundant-unary` | Info | Unary `+` has no effect |
 | `molang.optimization.constant-condition` | Info | Ternary condition is always true or false |
+| `molang.optimization.self-cancellation` | Info | Expression subtracted from itself (always 0) |
+| `molang.optimization.self-division` | Info | Expression divided by itself (always 1) |
+| `molang.optimization.division-by-zero` | Warning | Division by literal zero |
 
 ---
 

@@ -121,6 +121,24 @@ Detects conditional expressions with constant conditions.
 - `true ? a : b` → suggests replacing with `a`
 - `false ? a : b` → suggests replacing with `b`
 
+### 8. Self-Cancellation
+Detects when an expression is subtracted from itself.
+
+**Examples:**
+- `x - x` → always results in `0`
+
+### 9. Self-Division
+Detects when an expression is divided by itself.
+
+**Examples:**
+- `x / x` → always results in `1`
+
+### 10. Division by Zero
+Detects division by the literal zero, which is likely a bug.
+
+**Examples:**
+- `x / 0` → warns about division by zero
+
 ## Rule Interface
 
 Each optimization rule implements the `OptimizationRule` interface:
