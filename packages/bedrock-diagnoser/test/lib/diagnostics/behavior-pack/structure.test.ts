@@ -48,6 +48,18 @@ describe("BehaviorPack", () => {
       diagnoser.expectEmpty();
     });
 
+    it("quoted structure name is looked up unquoted", () => {
+      data.behaviorPacks.packs[0].structures.set({
+        id: "mystructure:house",
+        documentation: "",
+        location: { position: 0, uri: "" },
+      });
+
+      diagnose_structure_implementation({ offset: 0, text: '"mystructure:house"' }, diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+
     it("missing structure reports error", () => {
       diagnose_structure_implementation({ offset: 0, text: "puff:coin1" }, diagnoser);
 

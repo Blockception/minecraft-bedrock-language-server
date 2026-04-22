@@ -1,4 +1,5 @@
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
+import { Text } from 'bc-minecraft-bedrock-project';
 import { Errors } from '../..';
 import { DiagnosticsBuilder } from '../../../types';
 import { check_definition_value } from '../../definitions';
@@ -7,7 +8,7 @@ export function diagnose_structure_implementation(
   id: OffsetWord | string,
   diagnoser: DiagnosticsBuilder,
 ): boolean {
-  const strId = typeof id === 'string' ? id : id.text;
+  const strId = Text.UnQuote(typeof id === 'string' ? id : id.text);
 
   const data = diagnoser.context.getProjectData().projectData;
 
