@@ -54,7 +54,8 @@ const config = {
           {
             loader: 'ts-loader',
             options: {
-              transpileOnly: true
+              transpileOnly: true,
+              ignoreDiagnostics: [5011, 6059],
             },
           },
         ],

@@ -5,7 +5,6 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
-    "downlevelIteration": true,
     "target": "es2015",
     "esModuleInterop": true
   }
