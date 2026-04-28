@@ -109,6 +109,64 @@ describe("Selector", () => {
     });
   });
 
+  describe("has_property value variant", () => {
+    const entityLoc = Location.create("file:///bp/entities/test.json");
+
+    function makeEntity(diagnoser: TestDiagnoser, id: string, propName: string, values: string[]) {
+      diagnoser.context.getProjectData().projectData.behaviorPacks.packs[0].entities.set({
+        id,
+        animations: References.create(),
+        documentation: "",
+        events: Defined.create(),
+        families: Defined.create(),
+        groups: Defined.create(),
+        location: entityLoc,
+        molang: new MolangSet(),
+        properties: [{ name: propName, type: "enum", default: values[0], values }],
+        runtime_identifier: "",
+      });
+    }
+
+    it("valid value for its own property should not produce errors", () => {
+      const diagnoser = TestDiagnoser.create();
+      makeEntity(diagnoser, "test:entity1", "test:val1", ["a", "b", "c"]);
+      makeEntity(diagnoser, "test:entity2", "test:val2", ["d", "e", "f"]);
+
+      minecraft_selector_diagnose(pi, OffsetWord.create("@e[has_property={test:val1=a}]"), diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+
+    it("value from a different property on another entity should produce an error", () => {
+      const diagnoser = TestDiagnoser.create();
+      makeEntity(diagnoser, "test:entity1", "test:val1", ["a", "b", "c"]);
+      makeEntity(diagnoser, "test:entity2", "test:val2", ["d", "e", "f"]);
+
+      // "d" is only valid for test:val2, not test:val1
+      minecraft_selector_diagnose(pi, OffsetWord.create("@e[has_property={test:val1=d}]"), diagnoser);
+
+      diagnoser.expectAny();
+    });
+
+    it("invalid value with only one entity having the property should produce an error", () => {
+      const diagnoser = TestDiagnoser.create();
+      makeEntity(diagnoser, "test:entity3", "test:val3", ["a", "b", "c"]);
+
+      minecraft_selector_diagnose(pi, OffsetWord.create("@e[has_property={test:val3=q}]"), diagnoser);
+
+      diagnoser.expectAny();
+    });
+
+    it("valid value with only one entity having the property should not produce errors", () => {
+      const diagnoser = TestDiagnoser.create();
+      makeEntity(diagnoser, "test:entity3", "test:val3", ["a", "b", "c"]);
+
+      minecraft_selector_diagnose(pi, OffsetWord.create("@e[has_property={test:val3=a}]"), diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+  });
+
   describe("Expecting no errors", () => {
     const valid = [
       "@a[hasitem={item=minecraft:stone,data=1}]",

@@ -79,25 +79,26 @@ function entity_has_property(attr: CompactJson.IKeyNode, diagnoser: DiagnosticsB
     }
   });
 
-  // Filter on only entities match on type
-  if (entities.length > 1) {
-    entities = entities.filter((item) =>
-      item.properties.some((item) => {
-        switch (item.type) {
-          case 'bool':
-            return value.text === 'true' || value.text === 'false';
-          case 'float':
-            const frange = { min: item.range[0], max: item.range[1] };
-            return general_range_float_diagnose(value, new NoopDiagnoser(diagnoser), frange);
-          case 'int':
-            const irange = { min: item.range[0], max: item.range[1] };
-            return general_range_integer_diagnose(value, new NoopDiagnoser(diagnoser), irange);
-          case 'enum':
-            return item.values.includes(value.text);
+  // Filter on only entities that match both the property name and value type
+  entities = entities.filter((entity) =>
+    entity.properties.some((item) => {
+      if (item.name !== key.text) { return false; }
+      switch (item.type) {
+        case 'bool':
+          return value.text === 'true' || value.text === 'false';
+        case 'float': {
+          const frange = { min: item.range[0], max: item.range[1] };
+          return general_range_float_diagnose(value, new NoopDiagnoser(diagnoser), frange);
         }
-      }),
-    );
-  }
+        case 'int': {
+          const irange = { min: item.range[0], max: item.range[1] };
+          return general_range_integer_diagnose(value, new NoopDiagnoser(diagnoser), irange);
+        }
+        case 'enum':
+          return item.values.includes(value.text);
+      }
+    }),
+  );
 
   if (entities.length === 0) {
     diagnoser.add(
