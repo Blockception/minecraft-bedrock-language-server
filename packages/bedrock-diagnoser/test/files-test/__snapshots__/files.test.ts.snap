@@ -226,3 +226,14 @@ exports[`Files test testing file: {/test-rp/models/nested/test_model.geo.json} e
 exports[`Files test testing file: {/test-rp/models/root_model.geo.json} expect specific errors 1`] = `[]`;
 
 exports[`Files test testing file: {/test-rp/render_controllers/sample.render_controllers.json} expect specific errors 1`] = `[]`;
+
+exports[`Files test testing file: {/test-rp/ui/test_ui.json} expect specific errors 1`] = `
+[
+  {
+    "code": "resourcepack.ui.inheritance.missing",
+    "message": "UI element "missing_ns.missing_element" referenced in inheritance is not defined",
+    "position": "broken_ref@missing_ns.missing_element",
+    "severity": 2,
+  },
+]
+`;

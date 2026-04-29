@@ -1,0 +1,20 @@
+{
+  "namespace": "test_ui",
+  "base_panel": {
+    "type": "panel",
+    "$panel_width": 100,
+    "$panel_height": 50,
+    "bindings": [
+      {
+        "binding_name": "#player_name"
+      }
+    ]
+  },
+  "child_panel@test_ui.base_panel": {
+    "type": "panel",
+    "$panel_width": 200
+  },
+  "broken_ref@missing_ns.missing_element": {
+    "type": "panel"
+  }
+}
