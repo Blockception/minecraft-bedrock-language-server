@@ -1104,6 +1104,10 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:chiseled_cinnabar",
+    "properties": []
+  },
+  {
     "id": "minecraft:chiseled_copper",
     "properties": []
   },
@@ -1142,6 +1146,10 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:chiseled_sulfur",
+    "properties": []
+  },
+  {
     "id": "minecraft:chiseled_tuff",
     "properties": []
   },
@@ -1158,6 +1166,72 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:chorus_plant",
     "properties": []
+  },
+  {
+    "id": "minecraft:cinnabar",
+    "properties": []
+  },
+  {
+    "id": "minecraft:cinnabar_brick_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:cinnabar_brick_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:cinnabar_brick_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
+    "id": "minecraft:cinnabar_brick_wall",
+    "properties": [
+      "wall_connection_type_east",
+      "wall_connection_type_north",
+      "wall_connection_type_south",
+      "wall_connection_type_west",
+      "wall_post_bit"
+    ]
+  },
+  {
+    "id": "minecraft:cinnabar_bricks",
+    "properties": []
+  },
+  {
+    "id": "minecraft:cinnabar_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:cinnabar_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:cinnabar_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
+    "id": "minecraft:cinnabar_wall",
+    "properties": [
+      "wall_connection_type_east",
+      "wall_connection_type_north",
+      "wall_connection_type_south",
+      "wall_connection_type_west",
+      "wall_post_bit"
+    ]
   },
   {
     "id": "minecraft:clay",
@@ -4388,6 +4462,39 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:polished_cinnabar",
+    "properties": []
+  },
+  {
+    "id": "minecraft:polished_cinnabar_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:polished_cinnabar_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:polished_cinnabar_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
+    "id": "minecraft:polished_cinnabar_wall",
+    "properties": [
+      "wall_connection_type_east",
+      "wall_connection_type_north",
+      "wall_connection_type_south",
+      "wall_connection_type_west",
+      "wall_post_bit"
+    ]
+  },
+  {
     "id": "minecraft:polished_deepslate",
     "properties": []
   },
@@ -4467,6 +4574,39 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:polished_sulfur",
+    "properties": []
+  },
+  {
+    "id": "minecraft:polished_sulfur_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:polished_sulfur_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:polished_sulfur_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
+    "id": "minecraft:polished_sulfur_wall",
+    "properties": [
+      "wall_connection_type_east",
+      "wall_connection_type_north",
+      "wall_connection_type_south",
+      "wall_connection_type_west",
+      "wall_post_bit"
+    ]
+  },
+  {
     "id": "minecraft:polished_tuff",
     "properties": []
   },
@@ -4514,6 +4654,10 @@ export const Blocks: Block[] = [
     "properties": [
       "growth"
     ]
+  },
+  {
+    "id": "minecraft:potent_sulfur",
+    "properties": []
   },
   {
     "id": "minecraft:powder_snow",
@@ -5616,6 +5760,72 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:structure_void",
     "properties": []
+  },
+  {
+    "id": "minecraft:sulfur",
+    "properties": []
+  },
+  {
+    "id": "minecraft:sulfur_brick_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_brick_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_brick_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_brick_wall",
+    "properties": [
+      "wall_connection_type_east",
+      "wall_connection_type_north",
+      "wall_connection_type_south",
+      "wall_connection_type_west",
+      "wall_post_bit"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_bricks",
+    "properties": []
+  },
+  {
+    "id": "minecraft:sulfur_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_wall",
+    "properties": [
+      "wall_connection_type_east",
+      "wall_connection_type_north",
+      "wall_connection_type_south",
+      "wall_connection_type_west",
+      "wall_post_bit"
+    ]
   },
   {
     "id": "minecraft:sunflower",

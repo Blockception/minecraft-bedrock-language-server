@@ -1156,7 +1156,8 @@ export const Entities: Entity[] = [
       "general",
       "move",
       "ground_move",
-      "look_at_target"
+      "look_at_target",
+      "move_baby"
     ]
   },
   {

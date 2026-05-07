@@ -2603,7 +2603,6 @@ export const Models: Model[] = [
       "brim",
       "nose",
       "arms",
-      "held_item",
       "leg0",
       "leg1"
     ]
@@ -2644,16 +2643,16 @@ export const Models: Model[] = [
     "bones": [
       "waist",
       "body",
-      "head",
+      "Head",
       "helmet",
       "brim",
       "nose",
-      "rightArm",
-      "rightItem",
-      "leftArm",
-      "leftItem",
-      "rightLeg",
-      "leftLeg"
+      "RightArm",
+      "rightitem",
+      "LeftArm",
+      "leftitem",
+      "RightLeg",
+      "LeftLeg"
     ]
   },
   {
