@@ -5551,6 +5551,17 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.turtle.baby_move",
+    "bones": [
+      "leg0",
+      "leg1",
+      "leg2",
+      "leg3"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.turtle.general",
     "bones": [
       "body",

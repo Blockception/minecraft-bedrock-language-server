@@ -196,7 +196,11 @@ export const Entities: Entity[] = [
       "minecraft:camel_saddled",
       "minecraft:camel_unsaddled",
       "minecraft:start_sitting",
-      "minecraft:stop_sitting"
+      "minecraft:start_sitting_adult",
+      "minecraft:start_sitting_baby",
+      "minecraft:stop_sitting",
+      "minecraft:stop_sitting_adult",
+      "minecraft:stop_sitting_baby"
     ],
     "families": [
       "camel",
@@ -1457,6 +1461,11 @@ export const Entities: Entity[] = [
       "strider_baby",
       "strider_adult"
     ]
+  },
+  {
+    "id": "minecraft:sulfur_cube",
+    "events": [],
+    "families": []
   },
   {
     "id": "minecraft:tadpole",

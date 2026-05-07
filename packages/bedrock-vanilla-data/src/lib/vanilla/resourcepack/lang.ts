@@ -3913,6 +3913,10 @@ export const Langs: Lang[] = [
     "value": "Too many blocks in the specified area (%1$d > %2$d)"
   },
   {
+    "id": "commands.fill.unfillable",
+    "value": "Cannot fill block '%1$s' at %2$d"
+  },
+  {
     "id": "commands.fog.description",
     "value": "Add or remove fog settings file"
   },
@@ -7961,6 +7965,14 @@ export const Langs: Lang[] = [
     "value": "Includes actor properties and adjustable fog parameters"
   },
   {
+    "id": "createWorldScreen.experimentalCustomProjectiles",
+    "value": "Experimental Custom Projectile Features"
+  },
+  {
+    "id": "createWorldScreen.experimentalCustomProjectilesDescription",
+    "value": "Enables custom projectile improvements"
+  },
+  {
     "id": "createWorldScreen.experimentalDeferredTechnicalPreview",
     "value": "Render Dragon Features for Creators"
   },
@@ -8007,6 +8019,14 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.experimentalVoxelShapeFeaturesDescription",
     "value": "Enables the use of voxel shapes for some vanilla and custom blocks"
+  },
+  {
+    "id": "createWorldScreen.experimentalY2026Drop2",
+    "value": "Drop 2 of 2026"
+  },
+  {
+    "id": "createWorldScreen.experimentalY2026Drop2Description",
+    "value": "Explore a new underground biome where you can find a bouncy friend to play with"
   },
   {
     "id": "createWorldScreen.fireSpreads",
@@ -8497,7 +8517,7 @@ export const Langs: Lang[] = [
     "value": "%1$s/Month"
   },
   {
-    "id": "createWorldUpsell.price.realm.30days",
+    "id": "createWorldUpsell.price.realm.nx",
     "value": "%1$s/30 days"
   },
   {
@@ -12753,14 +12773,6 @@ export const Langs: Lang[] = [
     "value": "Like"
   },
   {
-    "id": "feed.manage",
-    "value": "Manage Feed"
-  },
-  {
-    "id": "feed.manage_feed",
-    "value": "Manage feed"
-  },
-  {
     "id": "feed.minutesAgo",
     "value": "%dm ago"
   },
@@ -13491,6 +13503,10 @@ export const Langs: Lang[] = [
   {
     "id": "gathering.caption.startsIn",
     "value": "Starts in %s"
+  },
+  {
+    "id": "gathering.caption.vote",
+    "value": "Vote Now!"
   },
   {
     "id": "gathering.connect.title",
@@ -24150,7 +24166,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "key.describeBlock",
-    "value": "Identify"
+    "value": "Identify Block"
   },
   {
     "id": "key.drop",
@@ -24167,6 +24183,10 @@ export const Langs: Lang[] = [
   {
     "id": "key.flyUpSlow",
     "value": "Fly Up Slow"
+  },
+  {
+    "id": "key.followToast",
+    "value": "Follow"
   },
   {
     "id": "key.forward",
@@ -25645,6 +25665,98 @@ export const Langs: Lang[] = [
     "value": "©Mojang AB"
   },
   {
+    "id": "menu.creator.contentLog.delete.buttonLabel",
+    "value": "Delete"
+  },
+  {
+    "id": "menu.creator.contentLog.delete.continue",
+    "value": "Continue"
+  },
+  {
+    "id": "menu.creator.contentLog.delete.description",
+    "value": "Removes existing content log files"
+  },
+  {
+    "id": "menu.creator.contentLog.delete.goBack",
+    "value": "Go Back"
+  },
+  {
+    "id": "menu.creator.contentLog.delete.title",
+    "value": "Delete old logs"
+  },
+  {
+    "id": "menu.creator.contentLog.history.buttonLabel",
+    "value": "View"
+  },
+  {
+    "id": "menu.creator.contentLog.history.description",
+    "value": "View all content log information"
+  },
+  {
+    "id": "menu.creator.contentLog.history.title",
+    "value": "Content log history"
+  },
+  {
+    "id": "menu.creator.contentLog.location.title",
+    "value": "Content Log Location:"
+  },
+  {
+    "id": "menu.creator.group.contentLog",
+    "value": "Content log settings"
+  },
+  {
+    "id": "menu.creator.group.deviceInfo",
+    "value": "Device info settings"
+  },
+  {
+    "id": "menu.creator.group.editor",
+    "value": "Editor settings"
+  },
+  {
+    "id": "menu.creator.group.scriptDebugger",
+    "value": "Script debugger settings"
+  },
+  {
+    "id": "menu.creator.group.scriptDiagnostic",
+    "value": "Script diagnostics settings"
+  },
+  {
+    "id": "menu.creator.group.scriptWatchdog",
+    "value": "Script watchdog settings"
+  },
+  {
+    "id": "menu.creator.group.textFiltering",
+    "value": "Text Filtering"
+  },
+  {
+    "id": "menu.creator.scriptDiagnostic.delete.buttonLabel",
+    "value": "Delete"
+  },
+  {
+    "id": "menu.creator.scriptDiagnostic.delete.continue",
+    "value": "Continue"
+  },
+  {
+    "id": "menu.creator.scriptDiagnostic.delete.description",
+    "value": "Delete files generated in the Minecraft log folder"
+  },
+  {
+    "id": "menu.creator.scriptDiagnostic.delete.goBack",
+    "value": "Go Back"
+  },
+  {
+    "id": "menu.creator.scriptDiagnostic.delete.title",
+    "value": "Delete diagnostics and profiler captures"
+  },
+  {
+    "id": "menu.creator.tab.description",
+    "value": "Adjust logs, debuggers, diagnostics, and more"
+  },
+  {
+    "id": "menu.creator.tab.title",
+    "value": "Creator"
+  },
+  {
     "id": "menu.disconnect",
     "value": "Disconnect"
   },
@@ -26113,6 +26225,14 @@ export const Langs: Lang[] = [
     "value": "Start playing"
   },
   {
+    "id": "menu.storage.tab.description",
+    "value": "Manage worlds, world templates, resource packs, behavior packs and cached data"
+  },
+  {
+    "id": "menu.storage.tab.title",
+    "value": "Storage"
+  },
+  {
     "id": "menu.storageManagement",
     "value": "Storage"
   },
@@ -26194,11 +26314,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "menu.video.mode_switch",
-    "value": "In-game graphics mode switching."
+    "value": "In-game graphics mode switching"
   },
   {
     "id": "menu.video.mode_switch.description",
-    "value": "Change graphics mode during play. Turn off in Main Menu settings if frame rate drops."
+    "value": "Change graphics mode during play. Turn off in Main Menu settings if frame rate drops"
   },
   {
     "id": "menu.video.mode.description",
@@ -27469,12 +27589,36 @@ export const Langs: Lang[] = [
     "value": "Enable Content Log File"
   },
   {
+    "id": "options.content_log_file_enabled",
+    "value": "Enable content log file"
+  },
+  {
+    "id": "options.content_log_file_enabled.description",
+    "value": "Get a log of warnings and errors useful for debugging creator content"
+  },
+  {
     "id": "options.content_log_gui",
     "value": "Enable Content Log GUI"
   },
   {
+    "id": "options.content_log_gui_enabled",
+    "value": "Show content log UI"
+  },
+  {
+    "id": "options.content_log_gui_enabled.description",
+    "value": "View the content log while playing the game"
+  },
+  {
     "id": "options.content_log_gui_show_on_errors",
     "value": "Show Content Log GUI On Error During Load"
+  },
+  {
+    "id": "options.content_log_gui_show_on_errors.description",
+    "value": "Display content errors in the UI once the world has finished loading"
+  },
+  {
+    "id": "options.content_log_gui_show_on_errors.name",
+    "value": "Show content log UI on error during load"
   },
   {
     "id": "options.content_log_gui.level",
@@ -27609,6 +27753,10 @@ export const Langs: Lang[] = [
     "value": "Enable Copy Coordinate UI"
   },
   {
+    "id": "options.copyCoordinateUI.description",
+    "value": "Copy and paste your relative in-world coordinates"
+  },
+  {
     "id": "options.creativeDelayedBlockBreaking",
     "value": "Delayed Block Breaking (Creative Only)"
   },
@@ -27625,8 +27773,20 @@ export const Langs: Lang[] = [
     "value": "Creator"
   },
   {
+    "id": "options.creator.debuggerAttachModeConnect",
+    "value": "Connect"
+  },
+  {
+    "id": "options.creator.debuggerAttachModeListen",
+    "value": "Listen"
+  },
+  {
     "id": "options.creator.debuggerAutoAttach",
     "value": "Attach Debugger on Load"
+  },
+  {
+    "id": "options.creator.debuggerAutoAttach.description",
+    "value": "If the script debugger attaches at level load"
   },
   {
     "id": "options.creator.debuggerAutoAttachTimeout",
@@ -27661,8 +27821,28 @@ export const Langs: Lang[] = [
     "value": "Require Passcode"
   },
   {
+    "id": "options.creator.debuggerPasscodeRequired.description",
+    "value": "Protect your debugger connection"
+  },
+  {
     "id": "options.creator.debuggerPort",
     "value": "Port"
+  },
+  {
+    "id": "options.creator.debugTextFiltering",
+    "value": "Text Filtering"
+  },
+  {
+    "id": "options.creator.debugTextFilteringDelaySec",
+    "value": "Text Filtering Delay"
+  },
+  {
+    "id": "options.creator.debugTextFilteringDelaySecFormat",
+    "value": "%s Second(s)"
+  },
+  {
+    "id": "options.creator.debugTextFilteringUseDelaySecOverride",
+    "value": "Enable Debug Text Filtering Delay Override"
   },
   {
     "id": "options.creator.deviceInfo",
@@ -27721,12 +27901,28 @@ export const Langs: Lang[] = [
     "value": "Collect Network Metrics"
   },
   {
+    "id": "options.creator.editor.collectNetworkMetrics.description",
+    "value": "Debugging info to improve the performance of extension scripts"
+  },
+  {
     "id": "options.creator.editor.heading",
     "value": "Editor Settings"
   },
   {
+    "id": "options.creator.scriptUseMemoryTierOverride",
+    "value": "Enable memory tier override"
+  },
+  {
+    "id": "options.creator.scriptUseMemoryTierOverride.description",
+    "value": "Allow manual choice of memory tier"
+  },
+  {
     "id": "options.creator.serverboundClientDiagnosticsEnabled",
     "value": "Enable Client Diagnostics"
+  },
+  {
+    "id": "options.creator.serverboundClientDiagnosticsEnabled.description",
+    "value": "View stats in VS Code to assess performance. Like number of entities, memory usage, chunks loaded, commands run per tick. You get the idea."
   },
   {
     "id": "options.creator.serverboundClientDiagnosticsEnabled.tooltip",
@@ -27743,6 +27939,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.creator.watchdogHangThreshold",
     "value": "Interrupt after"
+  },
+  {
+    "id": "options.creator.watchdogHangThreshold.description",
+    "value": "Adjust the script hang threshold"
   },
   {
     "id": "options.creator.watchdogHeading",
@@ -27765,6 +27965,10 @@ export const Langs: Lang[] = [
     "value": "Slow Script Warnings"
   },
   {
+    "id": "options.creator.watchdogSlowWarning.description",
+    "value": "Get warnings when there is a spike in script runtime, and adjust the threshold"
+  },
+  {
     "id": "options.creator.watchdogSpikeFormat",
     "value": "%s Milliseconds"
   },
@@ -27779,6 +27983,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.creator.watchdogSpikeWarning",
     "value": "Script Spike Warnings"
+  },
+  {
+    "id": "options.creator.watchdogSpikeWarning.description",
+    "value": "Get warnings when script runtime is delayed, and adjust the threshold"
   },
   {
     "id": "options.creatorTitle",
@@ -28014,7 +28222,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.dev_applyTreatments",
-    "value": "Apply Treatments"
+    "value": "Rebuild Treatment Pack Stack"
+  },
+  {
+    "id": "options.dev_applyTreatmentsDisabled",
+    "value": "We cannot change treatment packs while in a world"
   },
   {
     "id": "options.dev_assertions_debug_break",
@@ -28061,6 +28273,10 @@ export const Langs: Lang[] = [
     "value": "Clear Download Cache"
   },
   {
+    "id": "options.dev_clearDownloadeCache.name",
+    "value": "Clear download cache"
+  },
+  {
     "id": "options.dev_clearFlights",
     "value": "Clear"
   },
@@ -28073,8 +28289,16 @@ export const Langs: Lang[] = [
     "value": "Clear Screenshots Cache"
   },
   {
+    "id": "options.dev_clearScreenshotsCache.name",
+    "value": "Clear screenshots cache"
+  },
+  {
     "id": "options.dev_clearStoreCache",
     "value": "Clear Marketplace Cache"
+  },
+  {
+    "id": "options.dev_clearStoreCache.name",
+    "value": "Clear Marketplace cache"
   },
   {
     "id": "options.dev_connection_3g",
@@ -28163,6 +28387,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.dev_deleteLocalScreenshots",
     "value": "Delete Local Screenshots"
+  },
+  {
+    "id": "options.dev_deleteLocalScreenshots.name",
+    "value": "Delete local screenshots"
   },
   {
     "id": "options.dev_disable_client_blob_cache",
@@ -29050,7 +29278,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.enableGameplaySubtitles.description",
-    "value": "Subtitles for all the sounds in Minecraft"
+    "value": "Add subtitles for all sounds in Minecraft"
   },
   {
     "id": "options.enableNewTouchControlSchemes",
@@ -29613,6 +29841,14 @@ export const Langs: Lang[] = [
     "value": "Hidden"
   },
   {
+    "id": "options.hideAmbientGameplaySubtitles",
+    "value": "Hide weather and ambient sounds"
+  },
+  {
+    "id": "options.hideAmbientGameplaySubtitles.description",
+    "value": "Less captions for vibe sounds like “Rain falls” and “Eerie noise”"
+  },
+  {
     "id": "options.hideEndFlash",
     "value": "Hide Sky Flashes"
   },
@@ -29647,6 +29883,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.hidehud.description",
     "value": "Hide your Heads Up Display, including health, hunger, and item bars"
+  },
+  {
+    "id": "options.hideOwnGameplaySubtitles",
+    "value": "Hide your sounds"
+  },
+  {
+    "id": "options.hideOwnGameplaySubtitles.description",
+    "value": "Less captions for sounds you make, like “Burp” and “Footsteps”"
   },
   {
     "id": "options.hidepaperdoll",
@@ -31029,6 +31273,34 @@ export const Langs: Lang[] = [
     "value": "Twitch Broadcast Settings"
   },
   {
+    "id": "options.subtitleDuration",
+    "value": "Closed caption duration"
+  },
+  {
+    "id": "options.subtitleDuration.description",
+    "value": "Choose how long closed captions remain visible"
+  },
+  {
+    "id": "options.subtitleDuration.format",
+    "value": "%s seconds"
+  },
+  {
+    "id": "options.subtitlePosition",
+    "value": "Location of closed captions"
+  },
+  {
+    "id": "options.subtitlePosition.bottomRight",
+    "value": "Bottom right"
+  },
+  {
+    "id": "options.subtitlePosition.description",
+    "value": "Decide where captions show up on screen"
+  },
+  {
+    "id": "options.subtitlePosition.topRight",
+    "value": "Top right"
+  },
+  {
     "id": "options.superFancyWaterEnable",
     "value": "Super Fancy Water"
   },
@@ -31469,7 +31741,7 @@ export const Langs: Lang[] = [
     "value": "%s/month"
   },
   {
-    "id": "options.viewSubscriptions.button.pricePerMonth.30days",
+    "id": "options.viewSubscriptions.button.pricePerMonth.nx",
     "value": "%s/30 days"
   },
   {
@@ -31857,6 +32129,14 @@ export const Langs: Lang[] = [
     "value": "%s is now the party leader"
   },
   {
+    "id": "parties.toast.leaderTravelsToMenu",
+    "value": "Party leader is in the menus"
+  },
+  {
+    "id": "parties.toast.leaderTravelsToUnreachableServer",
+    "value": "Party leader is in an unreachable server"
+  },
+  {
     "id": "parties.toast.leaveFailed",
     "value": "Failed to leave party"
   },
@@ -31901,8 +32181,20 @@ export const Langs: Lang[] = [
     "value": "Party moving to Main Menu"
   },
   {
+    "id": "parties.toast.travelToServer",
+    "value": "Party has entered %s"
+  },
+  {
+    "id": "parties.toast.travelToServerSubtitle",
+    "value": "Your spot is reserved for %d min"
+  },
+  {
     "id": "parties.toast.travelToWorld",
-    "value": "Party moving to %s"
+    "value": "Party loading - %s"
+  },
+  {
+    "id": "parties.toast.travelToWorldSubtitle",
+    "value": "Follow to change experience"
   },
   {
     "id": "parties.worldChat.label",
@@ -31962,6 +32254,22 @@ export const Langs: Lang[] = [
   },
   {
     "id": "pauseScreen.betaFeedback",
+    "value": "Beta Feedback"
+  },
+  {
+    "id": "pauseScreen.betaFeedback.dialog.close",
+    "value": "Close"
+  },
+  {
+    "id": "pauseScreen.betaFeedback.dialog.continue",
+    "value": "Go to Feedback site"
+  },
+  {
+    "id": "pauseScreen.betaFeedback.dialog.message",
+    "value": "You are about to open the Minecraft feedback site in your browser. Share your thoughts and help us improve the game!"
+  },
+  {
+    "id": "pauseScreen.betaFeedback.dialog.title",
     "value": "Beta Feedback"
   },
   {
@@ -32027,6 +32335,10 @@ export const Langs: Lang[] = [
   {
     "id": "pauseScreen.quit",
     "value": "Save & Quit"
+  },
+  {
+    "id": "pauseScreen.realmsHub",
+    "value": "Realm Hub"
   },
   {
     "id": "pauseScreen.realmsStories",
@@ -33357,6 +33669,10 @@ export const Langs: Lang[] = [
     "value": "Syncing World Data Succeeded"
   },
   {
+    "id": "progressScreen.dialog.title.worldTransfer",
+    "value": "Loading World"
+  },
+  {
     "id": "progressScreen.editor.dialog.message.resourcePackOptional",
     "value": "This project has Resource Packs applied to it. Would you like to download them before you join?"
   },
@@ -33829,10 +34145,6 @@ export const Langs: Lang[] = [
     "value": "Create for %s"
   },
   {
-    "id": "realmsCreateScreen.consumable.extend",
-    "value": "Extend for %s"
-  },
-  {
     "id": "realmsCreateScreen.consumable.renew",
     "value": "Renew for %s"
   },
@@ -34033,10 +34345,6 @@ export const Langs: Lang[] = [
     "value": "Are you sure you want to create a Realm?"
   },
   {
-    "id": "realmsCreateScreen.purchaseConfirmation.extend.message",
-    "value": "Are you sure you want to extend a Realm?"
-  },
-  {
     "id": "realmsCreateScreen.purchaseConfirmation.renew.message",
     "value": "Are you sure you want to renew a Realm?"
   },
@@ -34081,8 +34389,8 @@ export const Langs: Lang[] = [
     "value": "Create For Free!%s(%s/month after first 30 days)"
   },
   {
-    "id": "realmsCreateScreen.subscription.trial.30days",
-    "value": "Create For Free!%s(%s/30 days after first 30 days)"
+    "id": "realmsCreateScreen.subscription.trial.nx",
+    "value": "Create For Free!%s(%s/30 days after first 28 days)"
   },
   {
     "id": "realmsCreateScreen.tenUsers",
@@ -34103,10 +34411,6 @@ export const Langs: Lang[] = [
   {
     "id": "realmsCreateScreen.title.create",
     "value": "Create a Realm Server"
-  },
-  {
-    "id": "realmsCreateScreen.title.extend",
-    "value": "Extend Your Realm"
   },
   {
     "id": "realmsCreateScreen.title.renew",
@@ -35674,11 +35978,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "realmsWorld.newRealmTrial",
-    "value": "Start Your Free 30 Day Trial%s(%s/mo after the first month)"
+    "value": "Start Your Free 30-day Trial%s(%s/mo after the first month)"
   },
   {
-    "id": "realmsWorld.newRealmTrial.30days",
-    "value": "Start Your Free 30 Day Trial%s(%s/30 days after the first 30 days)"
+    "id": "realmsWorld.newRealmTrial.nx",
+    "value": "Free 28-day Trial Available Now%s(%s/30 days after the first 28 days)"
   },
   {
     "id": "realmsWorld.notAvailable",
@@ -35725,12 +36029,20 @@ export const Langs: Lang[] = [
     "value": "Off"
   },
   {
+    "id": "recipeToast.newUnlock.descriptionBlastFurnace",
+    "value": "View in blast furnace"
+  },
+  {
     "id": "recipeToast.newUnlock.descriptionCartographyTable",
     "value": "View in cartography table"
   },
   {
     "id": "recipeToast.newUnlock.descriptionCraftingTable",
-    "value": "View in crafting table"
+    "value": "View in crafting table :crafting_table:"
+  },
+  {
+    "id": "recipeToast.newUnlock.descriptionFurnace",
+    "value": "View in furnace :furnace:"
   },
   {
     "id": "recipeToast.newUnlock.descriptionRecipeBook",
@@ -35739,6 +36051,10 @@ export const Langs: Lang[] = [
   {
     "id": "recipeToast.newUnlock.descriptionSmithingTable",
     "value": "View in smithing table"
+  },
+  {
+    "id": "recipeToast.newUnlock.descriptionSmoker",
+    "value": "View in smoker"
   },
   {
     "id": "recipeToast.newUnlock.descriptionStonecutterTable",
@@ -37393,10 +37709,6 @@ export const Langs: Lang[] = [
     "value": "Join as Player %s"
   },
   {
-    "id": "splitscreen.joyconError.toastHeader",
-    "value": "Can't Connect Joy-Con!"
-  },
-  {
     "id": "splitscreen.joyconError.toastMessage",
     "value": "You have too many controllers connected while in Local Network Mode to join this game."
   },
@@ -37742,15 +38054,15 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storage_migration.button.start",
-    "value": "Start moving files"
+    "value": "Start copying files"
   },
   {
     "id": "storage_migration.description.out_of_space",
-    "value": "You don't have enough free space to move your files to a new location."
+    "value": "You don't have enough free space to copy your files to a new location."
   },
   {
     "id": "storage_migration.finished.generic.description",
-    "value": "Your files have been moved successfully. Please restart Minecraft."
+    "value": "Your files have been copied successfully. Please restart Minecraft."
   },
   {
     "id": "storage_migration.finished.generic.title",
@@ -37794,7 +38106,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storage_migration.progress.message",
-    "value": "Moving \"%s\"..."
+    "value": "Copying \"%s\"..."
   },
   {
     "id": "storage_migration.progress.starting",
@@ -37802,7 +38114,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storage_migration.progress.title",
-    "value": "Moving files"
+    "value": "Copying files"
   },
   {
     "id": "storage_migration.resume_transfer.available",
@@ -37810,11 +38122,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storage_migration.resume_transfer.description",
-    "value": "We're in the middle of moving your data to a new location on your device. Please press resume to finish the move."
+    "value": "We're in the middle of copying your data to a new location on your device. Please press resume to finish the copy."
   },
   {
     "id": "storage_migration.resume_transfer.description.out_of_space",
-    "value": "We're in the middle of moving your data to a new location on your device, but you don't have enough free space."
+    "value": "We're in the middle of copying your data to a new location on your device, but you don't have enough free space."
   },
   {
     "id": "storage_migration.resume_transfer.free_up",
@@ -37826,15 +38138,15 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storage_migration.resume_transfer.need_to_move",
-    "value": "Need to move:"
+    "value": "Need to copy:"
   },
   {
     "id": "storage_migration.resume_transfer.title",
-    "value": "Move was interrupted"
+    "value": "Copy was interrupted"
   },
   {
     "id": "storage_migration.start_transfer.description",
-    "value": "We need to move your files to a different location on your device."
+    "value": "We need to copy your files to a different location on your device."
   },
   {
     "id": "storage_migration.start_transfer.generic.title",
@@ -37862,11 +38174,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storage_migration.transfer_error.description",
-    "value": "We couldn't move all your files. We encountered the following error: (%s)."
+    "value": "We couldn't copy all your files. We encountered the following error: (%s)."
   },
   {
     "id": "storage_migration.transfer_error.title",
-    "value": "Trouble moving files!"
+    "value": "Trouble copying files!"
   },
   {
     "id": "storage_migration.worlds_error",
@@ -37879,6 +38191,10 @@ export const Langs: Lang[] = [
   {
     "id": "storageManager.baseWorld",
     "value": "Base World"
+  },
+  {
+    "id": "storageManager.clear",
+    "value": "Clear"
   },
   {
     "id": "storageManager.contentType.behaviorPack",
@@ -37935,6 +38251,10 @@ export const Langs: Lang[] = [
   {
     "id": "storageManager.contentType.worldTemplates",
     "value": "World Templates"
+  },
+  {
+    "id": "storageManager.delete",
+    "value": "Delete"
   },
   {
     "id": "storageManager.delete.cancel",
@@ -38045,6 +38365,10 @@ export const Langs: Lang[] = [
     "value": "%s - %s Items"
   },
   {
+    "id": "storageManager.manage",
+    "value": "Manage"
+  },
+  {
     "id": "storageManager.mcaddon",
     "value": "Minecraft Add-On"
   },
@@ -38114,7 +38438,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storageManager.sync_legacy_worlds.conversion_complete.content",
-    "value": "You have converted your world. You can now find it in “all worlds”."
+    "value": "You have imported your world. You can now find it in “all worlds”."
   },
   {
     "id": "storageManager.sync_legacy_worlds.conversion_complete.title",
@@ -38122,7 +38446,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storageManager.sync_legacy_worlds.conversion_description",
-    "value": "Click a world to convert it into a playable world"
+    "value": "Click a world to import it into a playable world"
   },
   {
     "id": "storageManager.sync_legacy_worlds.conversion_explanation.cancel_button",
@@ -38130,15 +38454,15 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storageManager.sync_legacy_worlds.conversion_explanation.confirm_button",
-    "value": "Convert"
+    "value": "Import"
   },
   {
     "id": "storageManager.sync_legacy_worlds.conversion_explanation.content",
-    "value": "You need to convert \"%s\" into the latest version of Minecraft to make it playable."
+    "value": "You need to import \"%s\" to the latest version of Minecraft to make it playable."
   },
   {
     "id": "storageManager.sync_legacy_worlds.conversion_explanation.title",
-    "value": "Converting your world"
+    "value": "Importing your world"
   },
   {
     "id": "storageManager.sync_legacy_worlds.fetch_complete.content",
@@ -38158,7 +38482,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "storageManager.sync_retailtopreview_worlds.conversion_description",
-    "value": "Click a world to convert it into a playable preview world"
+    "value": "Click a world to import it into a playable preview world"
   },
   {
     "id": "storageManager.sync_retailtopreview_worlds.fetch_complete.content",
@@ -38462,7 +38786,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "store.csb.banner.offer",
-    "value": "Start your free 30 day trial now!"
+    "value": "Start your free 30-day trial now!"
+  },
+  {
+    "id": "store.csb.banner.offer.nx",
+    "value": "Free 28-day trial available now!"
   },
   {
     "id": "store.csb.brand.1",
@@ -38497,8 +38825,8 @@ export const Langs: Lang[] = [
     "value": "Purchase for %s/month"
   },
   {
-    "id": "store.csb.buyNowPerMonth.30days",
-    "value": "Purchase for %s/30 days"
+    "id": "store.csb.buyNowPerMonth.nx",
+    "value": "Available for %s/30 days"
   },
   {
     "id": "store.csb.buyNowTrialPerMonth",
@@ -38555,6 +38883,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.csb.faq.answer1",
     "value": "Monthly content subscription for just %s includes premium, curated community-made content."
+  },
+  {
+    "id": "store.csb.faq.answer1.nx",
+    "value": "30-day content subscription for just %s includes premium, curated community-made content."
   },
   {
     "id": "store.csb.faq.answer10",
@@ -38645,6 +38977,10 @@ export const Langs: Lang[] = [
     "value": "START FREE TRIAL"
   },
   {
+    "id": "store.csb.freeTrial.nx",
+    "value": "FREE 28-DAY TRIAL AVAILABLE NOW"
+  },
+  {
     "id": "store.csb.includedWithRealmsPlus",
     "value": "INCLUDED WITH REALMS PLUS"
   },
@@ -38653,12 +38989,24 @@ export const Langs: Lang[] = [
     "value": "Beta"
   },
   {
+    "id": "store.csb.landing.freeWeekend.body",
+    "value": "Head to the Content tab and jump in, no trial needed"
+  },
+  {
+    "id": "store.csb.landing.freeWeekend.title",
+    "value": "Free Marketplace Pass this weekend!"
+  },
+  {
     "id": "store.csb.landing.header",
     "value": "Start your Marketplace Pass Subscription"
   },
   {
     "id": "store.csb.landing.headerTrial",
-    "value": "Free 30 Day Trial, then %s/month"
+    "value": "Free 30-day Trial, then %s/month"
+  },
+  {
+    "id": "store.csb.landing.headerTrial.nx",
+    "value": "Free 28-day Trial, then %s/30 days"
   },
   {
     "id": "store.csb.landing.info",
@@ -38685,8 +39033,16 @@ export const Langs: Lang[] = [
     "value": "Subscription renews automatically each month until canceled"
   },
   {
+    "id": "store.csb.landing.info.line5.nx",
+    "value": "Subscription renews automatically every 30 days until canceled"
+  },
+  {
     "id": "store.csb.landing.info.line6",
     "value": "Cancel on the Subscriptions page of Minecraft Settings"
+  },
+  {
+    "id": "store.csb.landing.info.nx",
+    "value": "30-day subscription for just %s includes:"
   },
   {
     "id": "store.csb.landing.preview",
@@ -38761,6 +39117,10 @@ export const Langs: Lang[] = [
     "value": "Monthly subscription to a wide variety of premium Minecraft Marketplace content. You’ll be billed %s/month (subject to change) and can cancel to stop future charges at any time."
   },
   {
+    "id": "store.csb.subscription.nx",
+    "value": "30-day subscription to a wide variety of premium Minecraft Marketplace content. You’ll be billed %s/30 days (subject to change) and can cancel to stop future charges at any time."
+  },
+  {
     "id": "store.csb.terms",
     "value": "Marketplace Pass is a subscription for content to be used with supported versions of Minecraft (game sold separately) on Windows and other supported platforms on which you own the game (Minecraft Java & Amazon Kindle Fire Editions not supported); an active subscription is required to use Marketplace Pass content. Content varies over time and may not be available in all countries. After the free trial period, subscription continues to be charged at the then-current regular price (subject to change) plus applicable taxes unless cancelled. You can cancel your subscription by accessing Services & subscriptions in your Microsoft account. If your subscription terminates or a content item is removed from the catalog, you must reactivate your subscription or buy the content separately to continue using it. ISP fees may apply. We may occasionally provide content that remains available to you even after the end of your subscription, in which case we reserve the right to take down such content if it becomes incompatible or if our rights to the content expire. Subscription subject to change and/or retirement. Subject to the Microsoft Services Agreement (www.microsoft.com/msa) and the Minecraft EULA (https://www.minecraft.net/eula). Any translations of these terms are done for your convenience only, and in the event of a dispute between the English and any non-English versions, the English version of these terms shall govern."
   },
@@ -38770,7 +39130,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "store.csb.upsell.firstPeriodFree",
-    "value": "Free 30 day trial!"
+    "value": "Free 30-day trial!"
+  },
+  {
+    "id": "store.csb.upsell.firstPeriodFree.nx",
+    "value": "Free 28-day trial!"
   },
   {
     "id": "store.csb.upsell.learnMore",
@@ -38793,7 +39157,7 @@ export const Langs: Lang[] = [
     "value": "%s/Month"
   },
   {
-    "id": "store.csb.upsell.price.30days",
+    "id": "store.csb.upsell.price.nx",
     "value": "%s/30 days"
   },
   {
@@ -39777,320 +40141,12 @@ export const Langs: Lang[] = [
     "value": "Your Rating"
   },
   {
-    "id": "store.realmsBeta",
-    "value": "Realms Beta"
-  },
-  {
     "id": "store.realmsPlus",
     "value": "Realms Plus"
   },
   {
-    "id": "store.realmsPlus.buyNow",
-    "value": "SUBSCRIBE NOW"
-  },
-  {
-    "id": "store.realmsPlus.buyNow.buttonText",
-    "value": "BUY FOR %s"
-  },
-  {
-    "id": "store.realmsPlus.buyNow.title",
-    "value": "Start your Realms Plus Subscription"
-  },
-  {
-    "id": "store.realmsPlus.buyNow.viewPrivacyPolicy",
-    "value": "PRIVACY POLICY"
-  },
-  {
-    "id": "store.realmsPlus.buyNow.viewTerms",
-    "value": "TERMS & CONDITIONS"
-  },
-  {
-    "id": "store.realmsPlus.buyNowPerMonth",
-    "value": "Subscribe Now %s/month"
-  },
-  {
-    "id": "store.realmsPlus.buyNowPerMonth.30days",
-    "value": "Subscribe Now %s/30 days"
-  },
-  {
-    "id": "store.realmsPlus.buyNowTrialPerMonth",
-    "value": "Start Trial"
-  },
-  {
-    "id": "store.realmsPlus.consumable.offerTrial.contentSub",
-    "value": "Your Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! Your first 30 days will be free and you can renew for 30 days at the price of %s afterwards."
-  },
-  {
-    "id": "store.realmsPlus.consumable.withoutTrial.contentSub",
-    "value": "Your Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! Your subscription will be available for 30 days at the price of %s."
-  },
-  {
     "id": "store.realmsPlus.content",
     "value": "Content"
-  },
-  {
-    "id": "store.realmsPlus.content.contentDescription",
-    "value": "Premium, curated creator-made content, including top-rated creations and player favorites."
-  },
-  {
-    "id": "store.realmsPlus.content.friendsGetAccess",
-    "value": "Your Friends Get Access to the Content Used in Your Realm for Free"
-  },
-  {
-    "id": "store.realmsPlus.content.marketplacePass",
-    "value": "Realms Plus includes Marketplace Pass!"
-  },
-  {
-    "id": "store.realmsPlus.content.mashupDescription",
-    "value": "Try a bit of everything in mash-ups!"
-  },
-  {
-    "id": "store.realmsPlus.content.personaDescription",
-    "value": "Customize your look with Character Creator items!"
-  },
-  {
-    "id": "store.realmsPlus.content.personaDescription.contentSub",
-    "value": "Collect monthly items in the dressing room!"
-  },
-  {
-    "id": "store.realmsPlus.content.popularPacks",
-    "value": "Popular Packs in Realms Plus:"
-  },
-  {
-    "id": "store.realmsPlus.content.recentlyAdded",
-    "value": "Recently added"
-  },
-  {
-    "id": "store.realmsPlus.content.skinDescription",
-    "value": "Change your look with skins!"
-  },
-  {
-    "id": "store.realmsPlus.content.skinDescriptionPersona",
-    "value": "Dress up with skins!"
-  },
-  {
-    "id": "store.realmsPlus.content.skinDescriptionPersona.contentSub",
-    "value": "Expand your wardrobe with skins!"
-  },
-  {
-    "id": "store.realmsPlus.content.textureDescription",
-    "value": "New visuals for your worlds!"
-  },
-  {
-    "id": "store.realmsPlus.content.textureDescription.contentSub",
-    "value": "Apply new visuals to your world!"
-  },
-  {
-    "id": "store.realmsPlus.content.viewAllPacks",
-    "value": "VIEW ALL PACKS"
-  },
-  {
-    "id": "store.realmsPlus.content.worldDescription",
-    "value": "Explore popular content packs!"
-  },
-  {
-    "id": "store.realmsPlus.content.worldDescription.contentSub",
-    "value": "Play add-ons, themed worlds, and more!"
-  },
-  {
-    "id": "store.realmsPlus.errorNoOffer",
-    "value": "ERROR NO OFFER FOUND"
-  },
-  {
-    "id": "store.realmsPlus.faq",
-    "value": "FAQ"
-  },
-  {
-    "id": "store.realmsPlus.faq.answer1",
-    "value": "Realms Plus is a subscription to a personal server supporting up to 10 simultaneous players, along with unlimited access to a catalog of premium add-ons, worlds, texture packs, skin packs, and mash-ups for one low monthly price."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer10",
-    "value": "No. Marketplace Pass is a catalog of premium content for you to enjoy. Realms Plus is a 10 player Realm with Marketplace Pass included. We suggest that you subscribe to the one that’s right for you."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer11",
-    "value": "Realms Stories is a social hub for your Realm. Post to the Story Feed to let others know what you’re up to, and share your adventures and creations. Know who’s who with a handy list of all the members. See when other members are playing to check out their creations or plan to join them next time."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer2",
-    "value": "A personal server allows you to create a shared world that is always online and accessible from any device with Minecraft Marketplace. Players that you invite to your Realm can play this world at any time."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer3",
-    "value": "Your friends don’t need to purchase a Realms Plus subscription to play on your Realm. You can invite any friend (that has their multiplayer permissions enabled) to join your Realm for free."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer4",
-    "value": "Realms Plus is currently available on any platform where you can install Minecraft Bedrock Edition. You can play Realms and use any content from Realms Plus on any of these devices if you’re signed into your Microsoft account."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer5.contentSub",
-    "value": "%s per month. Add infinite members, play online with 10 other players at the same time. Plus, enjoy a catalog of premium Marketplace content for free."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer5.contentSub.30days",
-    "value": "%s per 30 days. Add infinite members, play online with 10 other players at the same time. Plus, enjoy a catalog of premium Marketplace content for free."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer6",
-    "value": "New packs are added to Realms Plus monthly."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer7",
-    "value": "Realms Plus members enjoy unlimited access to a catalog of premium Minecraft add-ons, worlds, texture packs, skin packs, and mash-ups, until either the subscription expires, or a pack leaves the catalog."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer8",
-    "value": "Worlds and packs included in the subscription can either be played online, played on your personal Realm, or played on a local device. You just need to play online once every 30 days to validate that your subscription is active."
-  },
-  {
-    "id": "store.realmsPlus.faq.answer9",
-    "value": "If your subscription ends, you and your friends will no longer be able to play online together on Realms, and you will no longer have access to Realms Plus packs. You can download any world saved to your Realm (within 18 months of ending your subscription). If you used Realms Plus worlds, texture packs, or mash-ups you will need to purchase those packs in the store or, if those packs are still in Realms Plus, re-subscribe, to play those world templates."
-  },
-  {
-    "id": "store.realmsPlus.faq.header",
-    "value": "FREQUENTLY ASKED QUESTIONS"
-  },
-  {
-    "id": "store.realmsPlus.faq.question1",
-    "value": "What is Realms Plus?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question10",
-    "value": "Do I need Realms Plus and Marketplace Pass?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question11",
-    "value": "What is Realms Stories?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question2",
-    "value": "What is a personal server?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question3",
-    "value": "Do my friends need to purchase Realms Plus to play on my Realm?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question4",
-    "value": "Which devices support Realms Plus for Minecraft?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question5",
-    "value": "How much does a Realms Plus subscription cost?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question6",
-    "value": "How often are new packs added to Realms Plus?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question7",
-    "value": "How long do I have access to Packs within Realms Plus?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question8",
-    "value": "Where can I use Realms Plus packs?"
-  },
-  {
-    "id": "store.realmsPlus.faq.question9",
-    "value": "What happens to my Realms and worlds when my subscription expires?"
-  },
-  {
-    "id": "store.realmsPlus.freeTrial",
-    "value": "START FREE TRIAL"
-  },
-  {
-    "id": "store.realmsPlus.landing.beta",
-    "value": "Beta"
-  },
-  {
-    "id": "store.realmsPlus.landing.header",
-    "value": "Subscription Includes:"
-  },
-  {
-    "id": "store.realmsPlus.landing.headerTrial",
-    "value": "Free 30 Day Trial, then %s/month"
-  },
-  {
-    "id": "store.realmsPlus.landing.headerTrial.30days",
-    "value": "Free 30 Day Trial, then %s/30 days"
-  },
-  {
-    "id": "store.realmsPlus.landing.info1.line1",
-    "value": "Your own personal Realm server: a persistent world always online for you and your friends!"
-  },
-  {
-    "id": "store.realmsPlus.landing.info1.line2",
-    "value": "Friends play on your Realm for free"
-  },
-  {
-    "id": "store.realmsPlus.landing.info1.line3",
-    "value": "Jump from console to mobile to PC - play your Realm on any device with the Minecraft Marketplace"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.backups",
-    "value": "Worlds on your Realm include free secure backups"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.cancel",
-    "value": "Cancel on the Subscriptions page of Minecraft Settings"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.contentSub",
-    "value": "Includes Marketplace Pass"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.persona",
-    "value": "Free Character Creator items - redeem a new set each month!"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.recentlyAdded",
-    "value": "Recently added"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.renews",
-    "value": "Subscription renews automatically each month until canceled"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.social",
-    "value": "Get social with Realms Stories"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.subscribe",
-    "value": "Subscribe now for %s/month"
-  },
-  {
-    "id": "store.realmsPlus.landing.info2.subscribe.30days",
-    "value": "Subscribe now for %s/30 days"
-  },
-  {
-    "id": "store.realmsPlus.landing.info3.para1",
-    "value": "Realms are available in Minecraft %s for all Realms subscribers for free! This is a new Realm that gives you the chance to try new features before their release."
-  },
-  {
-    "id": "store.realmsPlus.landing.info3.para2",
-    "value": "With a Realm subscription, you can create a new %s Realm using the “Create New” button in the main menu. If you don’t have a Realms subscription yet, please go to the full version of Minecraft to sign up."
-  },
-  {
-    "id": "store.realmsPlus.landing.info3.para3",
-    "value": "All Realms screens and functions are available in %s except purchasing a new subscription or managing the subscriptions of existing Realms."
-  },
-  {
-    "id": "store.realmsPlus.landing.info3.para4",
-    "value": "Your %s Realm will remain active for as long as you have the paid Realm subscription that your %s Realm is linked to."
-  },
-  {
-    "id": "store.realmsPlus.landing.preview",
-    "value": "Preview"
-  },
-  {
-    "id": "store.realmsPlus.manageSubscription",
-    "value": "MANAGE SUBSCRIPTION"
-  },
-  {
-    "id": "store.realmsPlus.nowActive",
-    "value": "Realms Plus is now active for this device. You now have access to a catalog of curated premium content at no additional cost. Up to 10 players can play on your Realms at one time, and get access to all the subscriber content in your Realm - for free!"
   },
   {
     "id": "store.realmsPlus.purchase.warningDialog.body",
@@ -40115,34 +40171,6 @@ export const Langs: Lang[] = [
   {
     "id": "store.realmsPlus.realmName.placeholder",
     "value": "%s's Realm"
-  },
-  {
-    "id": "store.realmsPlus.recurring.offerTrial.contentSub",
-    "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every month until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! Your first 30 days will be free, and you'll be billed %s/month afterwards. You can cancel your subscription to stop future charges by accessing subscriptions settings."
-  },
-  {
-    "id": "store.realmsPlus.recurring.offerTrial.contentSub.30days",
-    "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every 30 days until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! Your first 30 days will be free, and you'll be billed %s/30 days afterwards. You can cancel your subscription to stop future charges by accessing subscriptions settings."
-  },
-  {
-    "id": "store.realmsPlus.recurring.withoutTrial.contentSub",
-    "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every month until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! You'll be billed %s/month and you can cancel your subscription to stop future charges by accessing subscriptions settings."
-  },
-  {
-    "id": "store.realmsPlus.recurring.withoutTrial.contentSub.30days",
-    "value": "Realms Plus is an ongoing subscription with a recurring subscription fee which is charged automatically every 30 days until the subscription is cancelled.%sYour Realm and catalog of premium content included in Marketplace Pass will be immediately available. Up to 10 players can play at one time, and they get access to the worlds in your Realm for free! You'll be billed %s/30 days and you can cancel your subscription to stop future charges by accessing subscriptions settings."
-  },
-  {
-    "id": "store.realmsPlus.signInToSubscribe",
-    "value": "Sign in to subscribe to Realms plus"
-  },
-  {
-    "id": "store.realmsPlus.viewAllPacksTitle",
-    "value": "A GREAT VALUE - PACKS WORTH OVER §g$150 (USD)!§r"
-  },
-  {
-    "id": "store.realmsPreview",
-    "value": "Realms Preview"
   },
   {
     "id": "store.redeem",
@@ -40607,6 +40635,14 @@ export const Langs: Lang[] = [
   {
     "id": "store.uploadWorldTitle",
     "value": "Replace World?"
+  },
+  {
+    "id": "store.upsell.playscreen",
+    "value": "Featured Templates"
+  },
+  {
+    "id": "store.upsell.resourcepicker",
+    "value": "Get More Packs"
   },
   {
     "id": "store.vibrantvisuals.enabled.automatically.failed",
@@ -41925,6 +41961,58 @@ export const Langs: Lang[] = [
     "value": "Axolotl swims"
   },
   {
+    "id": "subtitles.entity.baby_cat.ambient",
+    "value": "Kitten meows"
+  },
+  {
+    "id": "subtitles.entity.baby_cat.death",
+    "value": "Kitten dies"
+  },
+  {
+    "id": "subtitles.entity.baby_cat.eat",
+    "value": "Kitten eats"
+  },
+  {
+    "id": "subtitles.entity.baby_cat.hurt",
+    "value": "Kitten hurts"
+  },
+  {
+    "id": "subtitles.entity.baby_chicken.ambient",
+    "value": "Chick peeps"
+  },
+  {
+    "id": "subtitles.entity.baby_chicken.death",
+    "value": "Chick dies"
+  },
+  {
+    "id": "subtitles.entity.baby_chicken.hurt",
+    "value": "Chick hurts"
+  },
+  {
+    "id": "subtitles.entity.baby_horse.ambient",
+    "value": "Foal neighs"
+  },
+  {
+    "id": "subtitles.entity.baby_horse.angry",
+    "value": "Foal neighs"
+  },
+  {
+    "id": "subtitles.entity.baby_horse.breathe",
+    "value": "Foal breathes"
+  },
+  {
+    "id": "subtitles.entity.baby_horse.death",
+    "value": "Foal dies"
+  },
+  {
+    "id": "subtitles.entity.baby_horse.eat",
+    "value": "Foal eats"
+  },
+  {
+    "id": "subtitles.entity.baby_horse.hurt",
+    "value": "Foal hurts"
+  },
+  {
     "id": "subtitles.entity.baby_nautilus.ambient",
     "value": "Baby Nautilus chitters"
   },
@@ -41951,6 +42039,46 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.entity.baby_nautilus.hurt_land",
     "value": "Baby Nautilus hurts"
+  },
+  {
+    "id": "subtitles.entity.baby_pig.ambient",
+    "value": "Baby Pig oinks"
+  },
+  {
+    "id": "subtitles.entity.baby_pig.death",
+    "value": "Baby Pig dies"
+  },
+  {
+    "id": "subtitles.entity.baby_pig.eat",
+    "value": "Baby Pig eats"
+  },
+  {
+    "id": "subtitles.entity.baby_pig.hurt",
+    "value": "Baby Pig hurts"
+  },
+  {
+    "id": "subtitles.entity.baby_wolf.ambient",
+    "value": "Puppy yips"
+  },
+  {
+    "id": "subtitles.entity.baby_wolf.death",
+    "value": "Puppy dies"
+  },
+  {
+    "id": "subtitles.entity.baby_wolf.growl",
+    "value": "Puppy growls"
+  },
+  {
+    "id": "subtitles.entity.baby_wolf.hurt",
+    "value": "Puppy hurts"
+  },
+  {
+    "id": "subtitles.entity.baby_wolf.pant",
+    "value": "Puppy pants"
+  },
+  {
+    "id": "subtitles.entity.baby_wolf.whine",
+    "value": "Puppy whines"
   },
   {
     "id": "subtitles.entity.bat.ambient",
@@ -50419,10 +50547,6 @@ export const Langs: Lang[] = [
   {
     "id": "translation.test.world",
     "value": "world"
-  },
-  {
-    "id": "travel.toast",
-    "value": "Travel to new World"
   },
   {
     "id": "trial.collection.1.description",

@@ -1049,6 +1049,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:chiseled_cinnabar",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:chiseled_copper",
     "max_damage": 0
   },
@@ -1085,6 +1089,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:chiseled_sulfur",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:chiseled_tuff",
     "max_damage": 0
   },
@@ -1102,6 +1110,38 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:chorus_plant",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar_brick_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar_brick_stairs",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar_brick_wall",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar_bricks",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar_stairs",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cinnabar_wall",
     "max_damage": 0
   },
   {
@@ -4665,6 +4705,22 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:polished_cinnabar",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:polished_cinnabar_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:polished_cinnabar_stairs",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:polished_cinnabar_wall",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:polished_deepslate",
     "max_damage": 0
   },
@@ -4709,6 +4765,22 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:polished_sulfur",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:polished_sulfur_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:polished_sulfur_stairs",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:polished_sulfur_wall",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:polished_tuff",
     "max_damage": 0
   },
@@ -4746,6 +4818,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:potatoes",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:potent_sulfur",
     "max_damage": 0
   },
   {
@@ -5850,6 +5926,46 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:sugar_cane",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_brick_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_brick_stairs",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_brick_wall",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_bricks",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_cube_bucket",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_cube_spawn_egg",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_stairs",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_wall",
     "max_damage": 0
   },
   {
