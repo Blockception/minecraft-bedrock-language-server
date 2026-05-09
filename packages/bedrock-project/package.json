@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-bedrock-project",
-  "version": "1.22.1-0",
+  "version": "1.22.2-0",
   "description": "The typescript library responsible for reading/parsing minecraft bedrock data",
   "author": {
     "name": "Blockception Ltd",
