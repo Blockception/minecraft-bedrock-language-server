@@ -30,12 +30,14 @@ describe('Selector', () => {
       ['"Fake player"', false, true],
       ['@initiator', true, true],
       ['*', true, true],
+      ['"*"', true, true],
     ];
     const invalid: Parameters<typeof Selector.isSelector>[] = [
       ['@x', true, true],
       ['test', false, false],
       ['"Fake player"', false, false],
       ['*', false, false],
+      ['"*"', false, false],
     ];
 
     valid.forEach((args) => {

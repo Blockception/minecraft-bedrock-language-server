@@ -69,11 +69,15 @@ function isJson(doc: TextDocument) {
 }
 
 function defaultRegex(id: string) {
-  return new RegExp(`\\b${id}\\b`, 'g');
+  return new RegExp(`\\b${escapeRegex(id)}\\b`, 'g');
 }
 
 function selectorThing(id: string, doc: TextDocument) {
-  return isJson(doc) ? new RegExp(`\\b(${id}=|=${id})\\b`, 'g') : defaultRegex(id);
+  return isJson(doc) ? new RegExp(`\\b(${escapeRegex(id)}=|=${escapeRegex(id)})\\b`, 'g') : defaultRegex(id);
+}
+
+function escapeRegex(id: string): string {
+  return id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function config(pd: ProjectData) {

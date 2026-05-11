@@ -159,4 +159,22 @@ scoreboard players set global id 0`,
     expect(P.general.objectives.count()).toEqual(1);
     expect(P.general.objectives.has('score')).toBeTruthy();
   });
+
+  it('scoreboard wildcard star should not register as fake entity', () => {
+    const P = new ProjectData(new TextProjectContext());
+
+    P.behaviorPacks.add('c:\\bp', MCProject.createEmpty(), {} as Manifest);
+
+    const doc: TextDocument = {
+      uri: 'c:\\bp\\functions\\example.mcfunction',
+      getText: () => `scoreboard players reset * test
+scoreboard players reset "*" test`,
+    };
+
+    P.process(doc);
+
+    // Neither bare * nor quoted "*" should be registered as a fake entity
+    expect(P.general.fakeEntities.count()).toEqual(0);
+    expect(P.general.fakeEntities.has('*')).toBeFalsy();
+  });
 });

@@ -1,6 +1,7 @@
 import { Command } from 'bc-minecraft-bedrock-command';
 import { Location } from 'bc-minecraft-bedrock-shared';
 import { Documentation, TextDocument } from '../../../../types';
+import { Text } from '../../../../types';
 import { GeneralCollection } from '../../general';
 import { GeneralInfo } from '../general-info';
 
@@ -68,7 +69,7 @@ function CheckPlayer(Com: Command, doc: TextDocument): GeneralInfo | undefined {
   if (Com.parameters.length > 3) {
     const Selector = Com.parameters[3];
 
-    if (!Selector.text.startsWith('@') && Selector.text !== '*') {
+    if (!Selector.text.startsWith('@') && Text.UnQuote(Selector.text) !== '*') {
       return GeneralInfo.create(
         Selector.text,
         Location.create(doc.uri, Selector.offset),

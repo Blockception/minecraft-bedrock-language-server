@@ -329,7 +329,7 @@ function mcfunction_diagnoseparameter(
   if (pattern.options) {
     //If wildcard is allowed and the text is an wildcard, then skip diagnose
     if (pattern.options.wildcard === true) {
-      if (data.text === '*') return;
+      if (data.text === '*' || data.text === '"*"') return;
     }
 
     //If accepted values is filled in and the text is a match, then skip diagnose
