@@ -58,7 +58,7 @@ export namespace Selector {
    */
   export function isSelector(value: string, wildcard?: boolean, allowFakePlayer?: boolean): boolean {
     if (wildcard === true) {
-      if (value === '*') return true;
+      if (value === '*' || value === '"*"') return true;
     }
 
     if (!value.startsWith('@')) {
