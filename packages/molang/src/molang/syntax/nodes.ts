@@ -297,6 +297,9 @@ export namespace ExpressionNode {
           node = max(node.right, node.left);
           break;
         case NodeType.FunctionCall:
+          if (node.arguments.length === 0) {
+            return node.position + getIdentifier(node).length;
+          }
           const args = node.arguments;
           args.forEach((arg) => (node = max(node, arg)));
           break;
@@ -315,5 +318,19 @@ export namespace ExpressionNode {
 
   export function toString(node: ExpressionNode): string {
     return nodesToString(node);
+  }
+
+  /**
+   * Gets the minimum (leftmost) character offset of an expression node and all its descendants.
+   * This is the true start of the expression in the source text.
+   */
+  export function getStartPosition(node: ExpressionNode): number {
+    let min = node.position;
+    const children = getChildern(node);
+    for (const child of children) {
+      const childMin = getStartPosition(child);
+      if (childMin < min) min = childMin;
+    }
+    return min;
   }
 }

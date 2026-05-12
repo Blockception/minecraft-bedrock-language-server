@@ -492,5 +492,17 @@ describe('Molang Optimization Diagnostics', () => {
       expect(diag).toBeDefined();
       expect(diag?.data).toEqual({ replacement: '6' });
     });
+
+    it('should not add parentheses to math constants like math.pi in replacement (regression)', () => {
+      const diagnoser = new TestDiagnoser();
+      diagnose_molang_syntax_line('5*3*math.pi', diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-folding');
+      expect(diag).toBeDefined();
+      const replacement = (diag?.data as { replacement: string })?.replacement;
+      expect(replacement).toBeDefined();
+      expect(replacement).toContain('math.pi');
+      expect(replacement).not.toContain('math.pi()');
+    });
   });
 });
