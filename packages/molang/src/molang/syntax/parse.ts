@@ -72,6 +72,7 @@ function parseTokens(tokens: Token[]): ExpressionNode {
       switch (n.type) {
         case NodeType.FunctionCall:
           n.arguments = bracketArgs;
+          n.hasParens = true;
           break;
         case NodeType.ResourceReference:
           if (bracketArgs.length > 0) {

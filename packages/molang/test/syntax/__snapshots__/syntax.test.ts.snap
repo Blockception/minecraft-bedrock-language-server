@@ -904,6 +904,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "1.0",
         },
       ],
+      "hasParens": true,
       "names": [
         "clamp",
       ],
@@ -973,6 +974,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "0.2",
           },
         ],
+        "hasParens": true,
         "names": [
           "random",
         ],
@@ -1024,6 +1026,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "value": "40",
             },
           ],
+          "hasParens": true,
           "names": [
             "random",
           ],
@@ -1081,6 +1084,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "type": "BinaryOperation",
         },
       ],
+      "hasParens": true,
       "names": [
         "sin",
       ],
@@ -1135,6 +1139,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "type": "BinaryOperation",
           },
         ],
+        "hasParens": true,
         "names": [
           "cos",
         ],
@@ -1208,6 +1213,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "type": "BinaryOperation",
           },
         ],
+        "hasParens": true,
         "names": [
           "pow",
         ],
@@ -1225,6 +1231,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "0",
           },
         ],
+        "hasParens": true,
         "names": [
           "camera_rotation",
         ],
@@ -1257,6 +1264,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                       "value": "0",
                     },
                   ],
+                  "hasParens": true,
                   "names": [
                     "position_delta",
                   ],
@@ -1270,6 +1278,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                   "value": "2.0",
                 },
               ],
+              "hasParens": true,
               "names": [
                 "pow",
               ],
@@ -1289,6 +1298,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                       "value": "2",
                     },
                   ],
+                  "hasParens": true,
                   "names": [
                     "position_delta",
                   ],
@@ -1302,6 +1312,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                   "value": "2.0",
                 },
               ],
+              "hasParens": true,
               "names": [
                 "pow",
               ],
@@ -1312,6 +1323,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "type": "BinaryOperation",
           },
         ],
+        "hasParens": true,
         "names": [
           "sqrt",
         ],
@@ -1330,6 +1342,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
         "value": "0.1",
       },
     ],
+    "hasParens": true,
     "names": [
       "clamp",
     ],
@@ -1366,6 +1379,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "type": "BinaryOperation",
         },
       ],
+      "hasParens": true,
       "names": [
         "sin",
       ],
@@ -1440,6 +1454,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                     "type": "BinaryOperation",
                   },
                 ],
+                "hasParens": true,
                 "names": [
                   "sin",
                 ],
@@ -1540,6 +1555,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                     "type": "BinaryOperation",
                   },
                 ],
+                "hasParens": true,
                 "names": [
                   "sin",
                 ],
@@ -1596,6 +1612,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "type": "BinaryOperation",
             },
           ],
+          "hasParens": true,
           "names": [
             "sin",
           ],
@@ -1667,6 +1684,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "minecraft:has_nectar",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -1795,6 +1813,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "minecraft:armadillo_state",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -1988,6 +2007,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "minecraft:armadillo_state",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -2032,6 +2052,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "minecraft:armadillo_state",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -2335,6 +2356,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                   "type": "FunctionCall",
                 },
               ],
+              "hasParens": true,
               "names": [
                 "lerp",
               ],
@@ -2343,6 +2365,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "type": "FunctionCall",
             },
           ],
+          "hasParens": true,
           "names": [
             "min",
           ],
@@ -2427,6 +2450,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                   "type": "FunctionCall",
                 },
               ],
+              "hasParens": true,
               "names": [
                 "lerp",
               ],
@@ -2435,6 +2459,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "type": "FunctionCall",
             },
           ],
+          "hasParens": true,
           "names": [
             "min",
           ],
@@ -2498,6 +2523,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "25",
         },
       ],
+      "hasParens": true,
       "names": [
         "clamp",
       ],
@@ -2609,6 +2635,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "32.5",
         },
       ],
+      "hasParens": true,
       "names": [
         "clamp",
       ],
@@ -2662,6 +2689,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "32.5",
         },
       ],
+      "hasParens": true,
       "names": [
         "clamp",
       ],
@@ -2753,6 +2781,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "25",
         },
       ],
+      "hasParens": true,
       "names": [
         "clamp",
       ],
@@ -2806,6 +2835,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "25",
         },
       ],
+      "hasParens": true,
       "names": [
         "clamp",
       ],
@@ -2841,6 +2871,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "minecraft:armadillo_state",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -2885,6 +2916,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "minecraft:armadillo_state",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -2929,6 +2961,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "minecraft:armadillo_state",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -3145,6 +3178,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                   "type": "FunctionCall",
                 },
               ],
+              "hasParens": true,
               "names": [
                 "lerp",
               ],
@@ -3153,6 +3187,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "type": "FunctionCall",
             },
           ],
+          "hasParens": true,
           "names": [
             "min",
           ],
@@ -3237,6 +3272,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
                   "type": "FunctionCall",
                 },
               ],
+              "hasParens": true,
               "names": [
                 "lerp",
               ],
@@ -3245,6 +3281,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "type": "FunctionCall",
             },
           ],
+          "hasParens": true,
           "names": [
             "min",
           ],
@@ -3308,6 +3345,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "25",
         },
       ],
+      "hasParens": true,
       "names": [
         "clamp",
       ],
@@ -3941,6 +3979,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "value": "foo:bar",
             },
           ],
+          "hasParens": true,
           "names": [
             "property",
           ],
@@ -3960,6 +3999,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
             "value": "foo:bar",
           },
         ],
+        "hasParens": true,
         "names": [
           "property",
         ],
@@ -3979,6 +4019,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
           "value": "foo:bar",
         },
       ],
+      "hasParens": true,
       "names": [
         "property",
       ],
@@ -4815,6 +4856,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
               "type": "BinaryOperation",
             },
           ],
+          "hasParens": true,
           "names": [
             "floor",
           ],
@@ -4848,6 +4890,7 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
         "type": "BinaryOperation",
       },
     ],
+    "hasParens": true,
     "names": [
       "min",
     ],

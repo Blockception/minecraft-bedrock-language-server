@@ -132,6 +132,9 @@ export interface FunctionCallNode extends SyntaxNode {
   scope: FunctionScope;
   names: [string] | [string, string];
   arguments: ExpressionNode[];
+  /** True when the original source contained parentheses (e.g. `math.abs(x)` or `q.actor_count()`).
+   * False/absent for bare constant-style references such as `math.pi`. */
+  hasParens?: boolean;
 }
 export namespace FunctionCallNode {
   export const create = createfn<FunctionCallNode>(NodeType.FunctionCall);

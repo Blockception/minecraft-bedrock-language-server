@@ -12,6 +12,7 @@ export function nodesToString(node: ExpressionNode): string {
       return `(${nodesToString(node.condition)} ? ${nodesToString(node.trueExpression)} : ${nodesToString(node.falseExpression!)})`;
     case NodeType.FunctionCall:
       const id = ExpressionNode.getIdentifier(node);
+      if (!node.hasParens && node.arguments.length === 0) return id;
       return `${id}(${node.arguments.map(nodesToString).join(', ')})`;
     case NodeType.Literal:
       return node.value;
