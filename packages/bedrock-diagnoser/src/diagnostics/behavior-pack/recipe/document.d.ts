@@ -1,0 +1,6 @@
+import { DocumentDiagnosticsBuilder } from '../../../types';
+/**Diagnoses the given document as an script
+ * @param doc The text document to diagnose
+ * @param diagnoser The diagnoser builder to receive the errors*/
+export declare function diagnose_recipe_document(diagnoser: DocumentDiagnosticsBuilder): void;
+//# sourceMappingURL=document.d.ts.map

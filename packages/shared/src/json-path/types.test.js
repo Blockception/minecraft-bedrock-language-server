@@ -1,0 +1,62 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const types_1 = require("./types");
+const jsonData = `{
+  "format_version": "1.17.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "example:foo",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {},
+    "components": {
+      "minecraft:type_family": { "family": ["foo"] },
+      "minecraft:health": { "value": 10, "max": 10 },
+      "minecraft:damage_sensor": {
+        "triggers": { "cause": "all", "deals_damage": false }
+      }
+    },
+    "events": {}
+  }
+}
+`;
+const jsonWrapper = {
+    getText() {
+        return jsonData;
+    },
+};
+describe('Json', () => {
+    it('Json Path - Resolve', () => {
+        const offset = types_1.JsonPath.resolve(jsonData, 'minecraft:entity/description/identifier');
+        expect(offset).toEqual(jsonData.indexOf('identifier'));
+    });
+    it('Json Path - Resolve2', () => {
+        const offset = types_1.JsonPath.resolve(jsonData, 'example:foo');
+        expect(offset).toEqual(jsonData.indexOf('example:foo'));
+    });
+    it('Json Path - Resolve3', () => {
+        const offset = types_1.JsonPath.resolve(jsonData, 'minecraft:damage_sensor');
+        expect(offset).toEqual(jsonData.indexOf('minecraft:damage_sensor'));
+    });
+    it('Json Path - Resolve4', () => {
+        const offset = types_1.JsonPath.resolve(jsonData, 'minecraft:entity/components/minecraft:damage_sensor');
+        expect(offset).toEqual(jsonData.indexOf('minecraft:damage_sensor'));
+    });
+    it('Json Path - Resolve Wrapper', () => {
+        const offset = types_1.JsonPath.resolve(jsonWrapper, 'minecraft:entity/description/identifier');
+        expect(offset).toEqual(jsonData.indexOf('identifier'));
+    });
+    it('Json Path - Create', () => {
+        const path = types_1.JsonPath.create('minecraft:entity', 'description', 'identifier');
+        expect(path).toEqual('minecraft:entity/description/identifier');
+    });
+    it('Json Path - Is', () => {
+        expect(types_1.JsonPath.is('some/path')).toBeTruthy();
+        expect(types_1.JsonPath.is(123)).toBeFalsy();
+        expect(types_1.JsonPath.is(null)).toBeFalsy();
+        expect(types_1.JsonPath.is(undefined)).toBeFalsy();
+        expect(types_1.JsonPath.is({})).toBeFalsy();
+    });
+});
+//# sourceMappingURL=types.test.js.map

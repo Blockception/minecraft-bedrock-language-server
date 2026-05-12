@@ -1,0 +1,13 @@
+import { BaseObject } from 'bc-minecraft-bedrock-types';
+import { MolangSet } from 'bc-minecraft-molang';
+import { Using } from '../../../types/references';
+/** */
+export interface Animation extends BaseObject {
+    /** */
+    molang: MolangSet;
+    /** */
+    particles: Using;
+    /** */
+    sounds: Using;
+}
+//# sourceMappingURL=animation.d.ts.map

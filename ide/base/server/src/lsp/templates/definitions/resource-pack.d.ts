@@ -1,0 +1,19 @@
+export declare const animation_controller: string;
+export declare const animation: string;
+export declare const attachable: string;
+export declare const blocks: string;
+export declare const block_culling: string;
+export declare const biomes_client: string;
+export declare const entity: string;
+export declare const fog: string;
+export declare const flipbook_textures: string;
+export declare const item_texture: string;
+export declare const manifest: string;
+export declare const model: string;
+export declare const music_definitions: string;
+export declare const particle: string;
+export declare const render_controller: string;
+export declare const sounds: string;
+export declare const sound_definitions: string;
+export declare const terrain_texture: string;
+//# sourceMappingURL=resource-pack.d.ts.map

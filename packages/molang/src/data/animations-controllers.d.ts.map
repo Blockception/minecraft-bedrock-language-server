@@ -1,0 +1,1 @@
+{"version":3,"file":"animations-controllers.d.ts","sourceRoot":"","sources":["animations-controllers.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,MAAM,QAAQ,CAAC;AAE9B,2CAA2C;AAC3C,yBAAiB,qBAAqB,CAAC;IACrC,wDAAwD;IACjD,MAAM,SAAS,EAAE,IAAI,EAA4B,CAAC;IACzD,gEAAgE;IACzD,MAAM,QAAQ,EAAE,IAAI,EAAqD,CAAC;IACjF,6DAA6D;IACtD,MAAM,KAAK,EAAE,IAAI,EAAO,CAAC;CACjC"}

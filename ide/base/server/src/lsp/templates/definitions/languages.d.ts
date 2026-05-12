@@ -1,0 +1,3 @@
+export declare const LanguageNames: string[];
+export declare const LanguageContent = "## Comments can be added anywhere on a valid line by starting with '##'\n##\n## Note, trailing spaces will NOT be trimmed. If you want room between the end of the string and the start of a\n## comment on the same line, use TABs.'\npack.name=Example pack name\npack.description=The text that describes this example pack\n";
+//# sourceMappingURL=languages.d.ts.map

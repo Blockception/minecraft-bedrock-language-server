@@ -1,0 +1,25 @@
+import { Biome } from './biome';
+import { Block } from "./block";
+import { Entity } from "./entity";
+import { Feature } from "./feature";
+import { Item } from "./item";
+import { LootTable } from "./loottable";
+import { Trading } from "./trading";
+/**The interface that stores vanilla behavior pack data*/
+export interface BehaviorPack {
+    /**The collection of biomes*/
+    readonly biomes: Biome[];
+    /**The collection of blocks*/
+    readonly blocks: Block[];
+    /**The collection of entities*/
+    readonly entities: Entity[];
+    /**The collection of features*/
+    readonly features: Feature[];
+    /**The collection of items*/
+    readonly items: Item[];
+    /**The collection of loot tables*/
+    readonly lootTables: LootTable[];
+    /**The collection of trading*/
+    readonly trading: Trading[];
+}
+//# sourceMappingURL=behaviorpack.d.ts.map

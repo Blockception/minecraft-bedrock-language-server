@@ -1,0 +1,31 @@
+import { Mode, ModeCollection } from './mode-collection';
+/**
+ * Handler class that provides convenient methods for working with mode collections.
+ * Implements ModeCollection interface and wraps common mode collection operations.
+ */
+export declare class ModeHandler implements ModeCollection {
+    /**The collection of different modes*/
+    modes: Mode[];
+    /**The name of the collection*/
+    name: string;
+    constructor(collection: ModeCollection);
+    /**
+     * Checks if a given value exists as a mode name in this collection.
+     * @param value The mode name to look for
+     * @returns True if the value exists as a mode name, false otherwise
+     */
+    isValue(value: string): boolean;
+    /**
+     * Retrieves a mode from this collection by name or index.
+     * @param index The mode name (string) or array index (number) to retrieve
+     * @returns The Mode object if found, undefined otherwise
+     */
+    get(index: string | number): Mode | undefined;
+    /**
+     * Iterates over all modes in the collection, calling the callback function for each mode.
+     * @param callbackfn Function to execute for each mode
+     * @param thisArg Optional value to use as 'this' when executing callback
+     */
+    foreach(callbackfn: (value: Mode, index: number, array: Mode[]) => void, thisArg?: any): void;
+}
+//# sourceMappingURL=mode-handler.d.ts.map

@@ -1,0 +1,9 @@
+export declare const cRawTextComponent = "{ \"rawtext\": [ ] }";
+export declare const cRawTextExample = "{ \"rawtext\": [ { \"translate\": \"example.key\" }, { \"text\": \"hello\" }, { \"translate\": \"example.key\", \"with\": [ \"Steve\" ] } ] }";
+export declare const cScoreComponent = "{ \"score\": {\"name\": \"@a\", \"objective\": \"\" } }";
+export declare const cSelectorComponent = "{ \"selector\": \"@a\" }";
+export declare const cTextComponent = "{ \"text\": \"\" }";
+export declare const cTranslationComponent = "{ \"translate\": \"\" }";
+export declare const cTranslationWith = "{ \"translate\": \"\", \"with\": [] }";
+export declare const cTranslationWithComplex = "{ \"translate\": \"\", \"with\": { \"rawtext\": [] } }";
+//# sourceMappingURL=constants.d.ts.map

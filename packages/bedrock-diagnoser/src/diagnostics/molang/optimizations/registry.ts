@@ -1,4 +1,5 @@
 import { ExpressionNode, walk } from 'bc-minecraft-molang';
+import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { DiagnosticsBuilder } from '../../../types';
 import { OptimizationCategory, OptimizationRule } from './framework';
 import { createConstantConditionCategory, createConstantFoldingCategory, createConstantResultCategory, createDivisionByZeroCategory, createDoubleNegationCategory, createIdentityOperationsCategory, createRedundantComparisonCategory, createRedundantUnaryCategory, createSelfCancellationCategory, createSelfDivisionCategory } from './rules';
@@ -65,8 +66,14 @@ export class OptimizationRegistry {
 
       for (const optimizedNode of result) {
         const data = optimizedNode.replacement !== undefined ? { replacement: optimizedNode.replacement } : undefined;
+        // Compute the source range of the full expression so the IDE code action
+        // replaces the whole expression, not just the operator token.
+        const startOffset = ExpressionNode.getStartOffset(node);
+        const endOffset = ExpressionNode.getLastEndPosition(node);
+        const length = Math.max(1, endOffset - startOffset);
+        const nodeRange = OffsetWord.create(' '.repeat(length), startOffset);
         diagnoser.add(
-          node.position,
+          nodeRange,
           optimizedNode.message,
           optimizedNode.severity ?? rule.severity,
           optimizedNode.code ?? rule.code,

@@ -1,0 +1,1 @@
+{"version":3,"file":"bones.d.ts","sourceRoot":"","sources":["bones.ts"],"names":[],"mappings":"AAAA,OAAO,EAAsB,kBAAkB,EAAE,MAAM,gBAAgB,CAAC;AAExE,MAAM,WAAW,SAAS;IACxB,OAAO,EAAE,MAAM,CAAC;IAChB,SAAS,EAAE,MAAM,CAAC;CACnB;AAED,wBAAgB,sBAAsB,CAAC,KAAK,EAAE,SAAS,EAAE,EAAE,SAAS,EAAE,kBAAkB,QAiBvF"}

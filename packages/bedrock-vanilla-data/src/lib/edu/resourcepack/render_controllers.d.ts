@@ -1,0 +1,3 @@
+/** Notice: Auto generated file, do not edit */
+export declare const RenderControllers: string[];
+//# sourceMappingURL=render_controllers.d.ts.map

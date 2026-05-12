@@ -1,0 +1,1 @@
+{"version":3,"file":"block-culling.d.ts","sourceRoot":"","sources":["block-culling.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,OAAO,EAAE,MAAM,0BAA0B,CAAC;AAEnD,OAAO,EAAE,iBAAiB,EAAE,MAAM,eAAe,CAAC;AAElD,wBAAgB,iBAAiB,CAAC,OAAO,EAAE,OAAO,CAAC,iBAAiB,CAAC,GAAG,IAAI,CAO3E;AAED,wBAAgB,qBAAqB,CAAC,OAAO,EAAE,OAAO,CAAC,iBAAiB,CAAC,GAAG,IAAI,CAE/E"}

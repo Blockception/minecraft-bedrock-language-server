@@ -1,0 +1,1 @@
+{"version":3,"file":"json.d.ts","sourceRoot":"","sources":["json.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,+BAA+B,CAAC;AAC7D,OAAO,EAAE,yBAAyB,EAAE,MAAM,QAAQ,CAAC;AAEnD;;GAEG;AACH,qBAAa,yBAA0B,SAAQ,yBAAyB;IACtE;;;OAGG;gBACS,GAAG,EAAE,IAAI,CAAC,YAAY,EAAE,YAAY,GAAG,eAAe,CAAC;CAGpE"}

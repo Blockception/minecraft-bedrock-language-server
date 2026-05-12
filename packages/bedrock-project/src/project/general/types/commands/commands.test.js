@@ -1,0 +1,153 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const bc_minecraft_project_1 = require("bc-minecraft-project");
+const utility_1 = require("../../../../test/utility");
+const project_data_1 = require("../../../project-data");
+describe('Commands', () => {
+    it('mcfunction', () => {
+        const P = new project_data_1.ProjectData(new utility_1.TextProjectContext());
+        P.behaviorPacks.add('c:\\bp', bc_minecraft_project_1.MCProject.createEmpty(), {});
+        const doc = {
+            uri: 'c:\\bp\\functions\\example.mcfunction',
+            getText: () => `tag @s add foo
+scoreboard objectives add id dummy
+tickingarea add 0 0 0 5 5 5 "main"
+tickingarea add circle 1 2 3 5 foo
+scoreboard players set global id 0`,
+        };
+        const out = P.process(doc);
+        expect(out).toBeDefined();
+        expect(P.behaviorPacks.functions.get('example')).toBeDefined();
+        expect(P.general.tags.count()).toEqual(1);
+        expect(P.general.objectives.count()).toEqual(1);
+        expect(P.general.fakeEntities.count()).toEqual(1);
+        expect(P.general.tickingAreas.count()).toEqual(2);
+        expect(P.general.tickingAreas.has('main')).toBeTruthy();
+        expect(P.general.tickingAreas.has('foo')).toBeTruthy();
+    });
+    it('animation', () => {
+        const P = new project_data_1.ProjectData(new utility_1.TextProjectContext());
+        P.behaviorPacks.add('c:\\bp', bc_minecraft_project_1.MCProject.createEmpty(), {});
+        const doc = {
+            uri: 'c:\\bp\\animations\\example.animation.json',
+            getText: () => `{
+        "format_version": "1.10.0",
+        "animations": {
+          "animation.example.foo": {
+            "animation_length": 4.5,
+            "loop": false,
+            "timeline": {
+              "0.0": ["/tag @s add foo", "/scoreboard objectives add id dummy"],
+              "1.0": ["/tickingarea add 0 0 0 5 5 5 \\"main\\""],
+              "2.0": ["/tickingarea add circle 1 2 3 5 foo"],
+              "3.0": ["/scoreboard players set global id 0"]
+            }
+          }
+        }
+      }`,
+        };
+        const out = P.process(doc);
+        expect(out).toBeDefined();
+        expect(P.behaviorPacks.animations.get('animation.example.foo')).toBeDefined();
+        expect(P.general.tags.count()).toEqual(1);
+        expect(P.general.objectives.count()).toEqual(1);
+        expect(P.general.fakeEntities.count()).toEqual(1);
+        expect(P.general.tickingAreas.count()).toEqual(2);
+        expect(P.general.tickingAreas.has('main')).toBeTruthy();
+        expect(P.general.tickingAreas.has('foo')).toBeTruthy();
+    });
+    it('animation_controller', () => {
+        const P = new project_data_1.ProjectData(new utility_1.TextProjectContext());
+        P.behaviorPacks.add('c:\\bp', bc_minecraft_project_1.MCProject.createEmpty(), {});
+        const doc = {
+            uri: 'c:\\bp\\animation_controllers\\controller.example.json',
+            getText: () => `{
+        "format_version": "1.10.0",
+        "animation_controllers": {
+          "controller.animation.example": {
+            "states": {
+              "default": {
+                "transitions": [{ "A": "query.has_armor_slot(0)" }, { "B": "query.has_armor_slot(1)" }, { "C": "query.has_armor_slot(2)" }, { "D": "query.has_armor_slot(3)" }]
+              },
+              "A": {
+                "on_entry": ["/tag @s add foo", "/scoreboard objectives add id dummy"]
+              },
+              "B": {
+                "on_entry": ["/tickingarea add 0 0 0 5 5 5 \\"main\\""]
+              },
+              "C": {
+                "on_entry": ["/tickingarea add circle 1 2 3 5 foo"]
+              },
+              "D": {
+                "on_entry": ["/scoreboard players set global id 0"]
+              }
+            }
+          }
+        }
+      }`,
+        };
+        const out = P.process(doc);
+        expect(out).toBeDefined();
+        expect(P.behaviorPacks.animationControllers.get('controller.animation.example')).toBeDefined();
+        expect(P.general.tags.count()).toEqual(1);
+        expect(P.general.objectives.count()).toEqual(1);
+        expect(P.general.fakeEntities.count()).toEqual(1);
+        expect(P.general.tickingAreas.count()).toEqual(2);
+        expect(P.general.tickingAreas.has('main')).toBeTruthy();
+        expect(P.general.tickingAreas.has('foo')).toBeTruthy();
+    });
+    it('entity queue_command', () => {
+        const P = new project_data_1.ProjectData(new utility_1.TextProjectContext());
+        P.behaviorPacks.add('c:\\bp', bc_minecraft_project_1.MCProject.createEmpty(), {});
+        const doc = {
+            uri: 'c:\\bp\\entities\\test.json',
+            getText: () => `{
+        "format_version": "1.21.0",
+        "minecraft:entity": {
+          "description": {
+            "identifier": "test:entity",
+            "is_spawnable": true,
+            "is_summonable": true
+          },
+          "components": {},
+          "events": {
+            "test_event": {
+              "queue_command": {
+                "command": "tag @a add test"
+              }
+            },
+            "multi_command_event": {
+              "queue_command": {
+                "command": [
+                  "tag @s add flying",
+                  "scoreboard objectives add score dummy"
+                ]
+              }
+            }
+          }
+        }
+      }`,
+        };
+        const out = P.process(doc);
+        expect(out).toBeDefined();
+        expect(P.general.tags.count()).toEqual(2);
+        expect(P.general.tags.has('test')).toBeTruthy();
+        expect(P.general.tags.has('flying')).toBeTruthy();
+        expect(P.general.objectives.count()).toEqual(1);
+        expect(P.general.objectives.has('score')).toBeTruthy();
+    });
+    it('scoreboard wildcard star should not register as fake entity', () => {
+        const P = new project_data_1.ProjectData(new utility_1.TextProjectContext());
+        P.behaviorPacks.add('c:\\bp', bc_minecraft_project_1.MCProject.createEmpty(), {});
+        const doc = {
+            uri: 'c:\\bp\\functions\\example.mcfunction',
+            getText: () => `scoreboard players reset * test
+scoreboard players reset "*" test`,
+        };
+        P.process(doc);
+        // Neither bare * nor quoted "*" should be registered as a fake entity
+        expect(P.general.fakeEntities.count()).toEqual(0);
+        expect(P.general.fakeEntities.has('*')).toBeFalsy();
+    });
+});
+//# sourceMappingURL=commands.test.js.map

@@ -1,0 +1,54 @@
+import { BaseObject } from 'bc-minecraft-bedrock-types';
+import { MCProject } from 'bc-minecraft-project';
+import { Manifest } from '../internal/types';
+import { PackType } from '../project/pack-type';
+import { DataSetBase } from './data-set';
+import { TextDocument } from './text-document';
+/** */
+export interface Pack {
+    /**The type of the pack */
+    readonly type: PackType;
+    /**The folder path of the pack*/
+    readonly folder: string;
+    /**The context of the project*/
+    readonly context: MCProject;
+    /**The manifest of the pack */
+    readonly manifest: Manifest;
+    /**
+     *
+     * @param doc
+     */
+    process(doc: TextDocument): DataSetBase | undefined;
+    /**
+     *
+     * @param uri
+     */
+    deleteFile(uri: string): boolean;
+    /**
+     *
+     * @param uri
+     */
+    deleteFolder(uri: string): boolean;
+    /**
+     *
+     * @param predicate
+     * @returns
+     */
+    find(predicate: (value: BaseObject, key: string) => boolean): BaseObject | undefined;
+    /**
+     *
+     * @param callbackfn
+     * @returns
+     */
+    forEach(callbackfn: (value: BaseObject) => boolean): void;
+}
+/** */
+export declare namespace Pack {
+    /**
+     *
+     * @param value
+     * @returns
+     */
+    function is(value: any): value is Pack;
+}
+//# sourceMappingURL=pack.d.ts.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"animation_controller.d.ts","sourceRoot":"","sources":["animation_controller.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,6BAA6B,CAAC;AAE3D;;GAEG;AACH,MAAM,WAAW,mBAAoB,SAAQ,YAAY;IACrD,UAAU,EAAE,MAAM,EAAE,CAAC;IACrB,SAAS,EAAE,MAAM,EAAE,CAAC;IACpB,MAAM,EAAE,MAAM,EAAE,CAAC;CACpB"}

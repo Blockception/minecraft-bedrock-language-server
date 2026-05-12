@@ -1,0 +1,454 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const molang_1 = require("../../../../src/diagnostics/molang");
+const diagnoser_1 = require("../../../diagnoser");
+describe('Molang Optimization Diagnostics', () => {
+    describe('Constant Folding', () => {
+        const tests = [
+            {
+                name: 'addition of two constants',
+                data: 'v.test + (1 + 2)',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+            {
+                name: 'multiplication of two constants',
+                data: 'v.test + (5 * 3)',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+            {
+                name: 'division of two constants',
+                data: 'v.test + (10 / 2)',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+            {
+                name: 'subtraction of two constants',
+                data: 'v.test + (10 - 5)',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Identity Operations', () => {
+        const tests = [
+            {
+                name: 'addition with 0 on right',
+                data: 'v.temp + 0',
+                expectedCode: 'molang.optimization.identity-operation',
+            },
+            {
+                name: 'addition with 0 on left',
+                data: '0 + v.temp',
+                expectedCode: 'molang.optimization.identity-operation',
+            },
+            {
+                name: 'subtraction with 0',
+                data: 'v.temp - 0',
+                expectedCode: 'molang.optimization.identity-operation',
+            },
+            {
+                name: 'multiplication by 1 on right',
+                data: 'v.temp * 1',
+                expectedCode: 'molang.optimization.identity-operation',
+            },
+            {
+                name: 'multiplication by 1 on left',
+                data: '1 * v.temp',
+                expectedCode: 'molang.optimization.identity-operation',
+            },
+            {
+                name: 'division by 1',
+                data: 'v.temp / 1',
+                expectedCode: 'molang.optimization.identity-operation',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Constant Result Operations', () => {
+        const tests = [
+            {
+                name: 'multiplication by 0 on right',
+                data: 'v.temp * 0',
+                expectedCode: 'molang.optimization.constant-result',
+            },
+            {
+                name: 'multiplication by 0 on left',
+                data: '0 * v.temp',
+                expectedCode: 'molang.optimization.constant-result',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Redundant Boolean Comparisons', () => {
+        const tests = [
+            {
+                name: 'comparison with true using ==',
+                data: 'v.temp == true',
+                expectedCode: 'molang.optimization.redundant-comparison',
+            },
+            {
+                name: 'comparison with false using ==',
+                data: 'v.temp == false',
+                expectedCode: 'molang.optimization.redundant-comparison',
+            },
+            {
+                name: 'comparison with true using !=',
+                data: 'v.temp != true',
+                expectedCode: 'molang.optimization.redundant-comparison',
+            },
+            {
+                name: 'comparison with false using !=',
+                data: 'v.temp != false',
+                expectedCode: 'molang.optimization.redundant-comparison',
+            },
+            {
+                name: 'true compared with variable',
+                data: 'true == v.temp',
+                expectedCode: 'molang.optimization.redundant-comparison',
+            },
+            {
+                name: 'false compared with variable',
+                data: 'false != v.temp',
+                expectedCode: 'molang.optimization.redundant-comparison',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Double Negation', () => {
+        const tests = [
+            {
+                name: 'double negation',
+                data: '!!v.temp',
+                expectedCode: 'molang.optimization.double-negation',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Redundant Unary Operators', () => {
+        const tests = [
+            {
+                name: 'unary plus operator',
+                data: '+v.temp',
+                expectedCode: 'molang.optimization.redundant-unary',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Constant Conditions', () => {
+        const tests = [
+            {
+                name: 'ternary with true condition',
+                data: 'v.test + (true ? 1 : 2)',
+                expectedCode: 'molang.optimization.constant-condition',
+            },
+            {
+                name: 'ternary with false condition',
+                data: 'v.test + (false ? 1 : 2)',
+                expectedCode: 'molang.optimization.constant-condition',
+            },
+            {
+                name: 'ternary with 0 condition',
+                data: 'v.test + (0 ? 1 : 2)',
+                expectedCode: 'molang.optimization.constant-condition',
+            },
+            {
+                name: 'ternary with 1 condition',
+                data: 'v.test + (1 ? 1 : 2)',
+                expectedCode: 'molang.optimization.constant-condition',
+            },
+            {
+                name: 'ternary with non-zero numeric condition',
+                data: 'v.test + (42 ? 1 : 2)',
+                expectedCode: 'molang.optimization.constant-condition',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Self-Cancellation', () => {
+        const tests = [
+            {
+                name: 'variable minus itself',
+                data: 'v.temp - v.temp',
+                expectedCode: 'molang.optimization.self-cancellation',
+            },
+            {
+                name: 'query minus itself',
+                data: 'q.body_y_rotation - q.body_y_rotation',
+                expectedCode: 'molang.optimization.self-cancellation',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+        it('should include replacement data for self-cancellation', () => {
+            const diagnoser = new diagnoser_1.TestDiagnoser();
+            (0, molang_1.diagnose_molang_syntax_line)('v.temp - v.temp', diagnoser);
+            const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.self-cancellation');
+            expect(diag).toBeDefined();
+            expect(diag?.data).toEqual({ replacement: '0' });
+        });
+    });
+    describe('Self-Division', () => {
+        const tests = [
+            {
+                name: 'variable divided by itself',
+                data: 'v.temp / v.temp',
+                expectedCode: 'molang.optimization.self-division',
+            },
+            {
+                name: 'query divided by itself',
+                data: 'q.anim_time / q.anim_time',
+                expectedCode: 'molang.optimization.self-division',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+        it('should include replacement data for self-division', () => {
+            const diagnoser = new diagnoser_1.TestDiagnoser();
+            (0, molang_1.diagnose_molang_syntax_line)('v.temp / v.temp', diagnoser);
+            const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.self-division');
+            expect(diag).toBeDefined();
+            expect(diag?.data).toEqual({ replacement: '1' });
+        });
+    });
+    describe('Division by Zero', () => {
+        const tests = [
+            {
+                name: 'division by literal zero',
+                data: 'v.temp / 0',
+                expectedCode: 'molang.optimization.division-by-zero',
+            },
+            {
+                name: 'division by literal zero in expression',
+                data: 'v.temp + v.other / 0',
+                expectedCode: 'molang.optimization.division-by-zero',
+            },
+        ];
+        for (const test of tests) {
+            it(`should detect: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                diagnoser.expectAny();
+                if (test.expectedCode) {
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('No False Positives', () => {
+        const tests = [
+            {
+                name: 'normal addition',
+                data: 'v.temp + v.other',
+            },
+            {
+                name: 'normal multiplication',
+                data: 'v.temp * v.other',
+            },
+            {
+                name: 'normal comparison',
+                data: 'v.temp == v.other',
+            },
+            {
+                name: 'single negation',
+                data: '!v.temp',
+            },
+            {
+                name: 'ternary with variable condition',
+                data: 'v.temp ? 1 : 2',
+            },
+            {
+                name: 'ternary with variable condition (query)',
+                data: 'q.is_baby ? 1 : 2',
+            },
+            {
+                name: 'subtraction of different variables',
+                data: 'v.temp - v.other',
+            },
+            {
+                name: 'division of different variables',
+                data: 'v.temp / v.other',
+            },
+            {
+                name: 'division by non-zero constant',
+                data: 'v.temp / 2',
+            },
+            {
+                name: 'complex expression without optimizations',
+                data: 'v.temp * 2 + v.other / 3',
+            },
+            {
+                name: 'left-associative addition with no simplification',
+                data: 'q.position(0) + t.cam_pos_x + 2',
+            },
+        ];
+        for (const test of tests) {
+            it(`should not flag: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                // Should not have optimization diagnostics
+                const hasOptimizationDiag = diagnoser.items.some((d) => typeof d.code === 'string' && d.code.includes('molang.optimization'));
+                expect(hasOptimizationDiag).toBe(false);
+            });
+        }
+    });
+    describe('Complex Expressions', () => {
+        const tests = [
+            {
+                name: 'nested expression with constant folding',
+                data: '(1 + 2) * v.temp',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+            {
+                name: 'multiple optimizations in sequence',
+                data: 'v.temp + 0 + v.other * 1',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+            {
+                name: 'x * 0 + 5 should optimize to 5',
+                data: 'v.x * 0 + 5',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+            {
+                name: '(a + 0) * 1 should optimize to a',
+                data: '(v.a + 0) * 1',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+            {
+                name: 'x - 0 + 3 + 2 should optimize to x + 5',
+                data: 'v.x - 0 + 3 + 2',
+                expectedCode: 'molang.optimization.constant-folding',
+            },
+        ];
+        for (const test of tests) {
+            it(`should handle: ${test.name}`, () => {
+                const diagnoser = new diagnoser_1.TestDiagnoser();
+                (0, molang_1.diagnose_molang_syntax_line)(test.data, diagnoser);
+                if (test.expectedCode) {
+                    diagnoser.expectAny();
+                    expect(diagnoser.items.some((d) => d.code === test.expectedCode)).toBe(true);
+                }
+            });
+        }
+    });
+    describe('Quick Fix Data (replacement field)', () => {
+        it('should include replacement data for identity operation: multiplication by 1', () => {
+            const diagnoser = new diagnoser_1.TestDiagnoser();
+            (0, molang_1.diagnose_molang_syntax_line)('v.smooth_turn * 1', diagnoser);
+            const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.identity-operation');
+            expect(diag).toBeDefined();
+            expect(diag?.data).toEqual({ replacement: 'v.smooth_turn' });
+        });
+        it('should include replacement data for identity operation: addition with 0', () => {
+            const diagnoser = new diagnoser_1.TestDiagnoser();
+            (0, molang_1.diagnose_molang_syntax_line)('v.speed + 0', diagnoser);
+            const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.identity-operation');
+            expect(diag).toBeDefined();
+            expect(diag?.data).toEqual({ replacement: 'v.speed' });
+        });
+        it('should include replacement data for constant folding', () => {
+            const diagnoser = new diagnoser_1.TestDiagnoser();
+            (0, molang_1.diagnose_molang_syntax_line)('v.test + (1 + 2)', diagnoser);
+            const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-folding');
+            expect(diag).toBeDefined();
+            expect(diag?.data).toHaveProperty('replacement');
+            expect(typeof diag?.data?.replacement).toBe('string');
+        });
+        it('should include replacement data for constant result (both literals)', () => {
+            const diagnoser = new diagnoser_1.TestDiagnoser();
+            (0, molang_1.diagnose_molang_syntax_line)('v.x + (2 * 3)', diagnoser);
+            const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-result');
+            expect(diag).toBeDefined();
+            expect(diag?.data).toEqual({ replacement: '6' });
+        });
+        it('should not add parentheses to math constants in rewrite replacement', () => {
+            const diagnoser = new diagnoser_1.TestDiagnoser();
+            (0, molang_1.diagnose_molang_syntax_line)('5*3*math.pi', diagnoser);
+            const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-folding');
+            expect(diag).toBeDefined();
+            const replacement = diag?.data?.replacement;
+            expect(replacement).toBeDefined();
+            // math.pi is a constant and must NOT be serialised with ()
+            expect(replacement).not.toContain('math.pi()');
+            expect(replacement).toContain('math.pi');
+        });
+    });
+});
+//# sourceMappingURL=optimizations.test.js.map

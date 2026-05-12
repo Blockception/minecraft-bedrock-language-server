@@ -1,0 +1,1 @@
+{"version":3,"file":"general-entity.d.ts","sourceRoot":"","sources":["general-entity.ts"],"names":[],"mappings":"AACA,OAAO,EAAE,SAAS,IAAI,WAAW,EAAE,MAAM,iBAAiB,CAAC;AAG3D;;GAEG;AACH,qBAAa,aAAa;IACxB,QAAQ,EAAE,MAAM,EAAE,CAAM;IACxB,MAAM,EAAE,MAAM,EAAE,CAAM;IAEtB;;OAEG;IACH,MAAM,CAAC,IAAI,EAAE,WAAW,GAAG,IAAI;IAgB/B;;OAEG;IACH,KAAK,IAAI,IAAI;CAId"}

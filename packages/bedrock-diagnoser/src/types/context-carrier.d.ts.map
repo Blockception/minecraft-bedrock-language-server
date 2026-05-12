@@ -1,0 +1,1 @@
+{"version":3,"file":"context-carrier.d.ts","sourceRoot":"","sources":["context-carrier.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,8BAA8B,CAAC;AAC5D,OAAO,EAAE,gBAAgB,EAAE,MAAM,qBAAqB,CAAC;AAEvD,8CAA8C;AAC9C,MAAM,WAAW,uBAAuB,CAAC,CAAC,SAAS,YAAY,GAAG,YAAY;IAC5E,mCAAmC;IACnC,QAAQ,CAAC,OAAO,EAAE,gBAAgB,CAAC,CAAC,CAAC,CAAC;CACvC"}

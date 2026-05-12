@@ -1,0 +1,1 @@
+{"version":3,"file":"sound-definitions.js","sourceRoot":"","sources":["sound-definitions.ts"],"names":[],"mappings":";;AAKA,sDAEC;AAND,2CAAmD;AAEnD,qCAAsD;AAEtD,SAAgB,qBAAqB,CAAC,OAAmC;IACvE,OAAO,8BAA8B,CAAC,YAAY,CAAC,OAAO,CAAC,CAAC;AAC9D,CAAC;AAED,MAAM,8BAA8B,GAAG,IAAI,4BAAkB,CAAC;IAC5D,KAAK,EAAE,iBAAiB;IACxB,YAAY,EAAE,mCAA0B;CACzC,CAAC,CAAC"}

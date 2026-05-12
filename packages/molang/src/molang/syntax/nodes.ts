@@ -272,6 +272,37 @@ export namespace ExpressionNode {
     return node.names.join('.');
   }
 
+  /**
+   * Returns the source offset of the leftmost token in an expression.
+   * For binary operations and assignments, this walks down the `left` chain.
+   */
+  export function getStartOffset(node: ExpressionNode): number {
+    let current = node;
+    while (true) {
+      switch (current.type) {
+        case NodeType.BinaryOperation:
+        case NodeType.Assignment:
+        case NodeType.NullishCoalescing:
+          current = current.left;
+          break;
+        case NodeType.ArrayAccess:
+          current = current.array;
+          break;
+        case NodeType.Conditional:
+          current = current.condition;
+          break;
+        case NodeType.StatementSequence:
+          if (current.statements.length > 0) {
+            current = current.statements[0];
+            break;
+          }
+          return current.position;
+        default:
+          return current.position;
+      }
+    }
+  }
+
   export function getLastEndPosition(node: ExpressionNode): number {
     function max(a: ExpressionNode, b: ExpressionNode): ExpressionNode {
       return a.position > b.position ? a : b;
@@ -299,17 +330,37 @@ export namespace ExpressionNode {
         case NodeType.Assignment:
           node = max(node.right, node.left);
           break;
-        case NodeType.FunctionCall:
+        case NodeType.FunctionCall: {
           const args = node.arguments;
-          args.forEach((arg) => (node = max(node, arg)));
+          if (args.length === 0) {
+            // No arguments — end is after the identifier plus optional "()"
+            const id = getIdentifier(node);
+            return node.position + id.length + (node.hasParens ? 2 : 0);
+          }
+          // Find the argument whose subtree ends last
+          let furthest: ExpressionNode = args[0];
+          for (let i = 1; i < args.length; i++) {
+            if (args[i].position > furthest.position) furthest = args[i];
+          }
+          node = furthest;
           break;
-        case NodeType.StatementSequence:
+        }
+        case NodeType.StatementSequence: {
           const stats = node.statements;
-          stats.forEach((arg) => (node = max(node, arg)));
+          if (stats.length === 0) return node.position;
+          let furthest: ExpressionNode = stats[0];
+          for (let i = 1; i < stats.length; i++) {
+            if (stats[i].position > furthest.position) furthest = stats[i];
+          }
+          node = furthest;
           break;
+        }
         case NodeType.Conditional:
           node = max(node.condition, max(node.falseExpression, node.trueExpression));
           break;
+        default:
+          // Unknown or undefined node type (e.g. malformed AST) — return the node's position
+          return (node as unknown as { position?: number }).position ?? 0;
       }
     }
 

@@ -505,5 +505,21 @@ describe('Molang Optimization Diagnostics', () => {
       expect(replacement).not.toContain('math.pi()');
       expect(replacement).toContain('math.pi');
     });
+
+    it('should emit a diagnostic range that covers the full expression for code action', () => {
+      const diagnoser = new TestDiagnoser();
+      const expr = '5*3*math.pi';
+      diagnose_molang_syntax_line(expr, diagnoser);
+
+      const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-folding');
+      expect(diag).toBeDefined();
+      // The position should be an OffsetWord covering the full expression "5*3*math.pi"
+      // offset=0, length=11 so the code action replaces the whole expression
+      const pos = diag?.position as { offset: number; text: string };
+      expect(pos).toHaveProperty('offset');
+      expect(pos).toHaveProperty('text');
+      expect(pos.offset).toBe(0);
+      expect(pos.text.length).toBe(expr.length); // 11 chars
+    });
   });
 });
