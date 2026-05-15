@@ -36,6 +36,7 @@ jobs:
         run: npm run compile
 
       - name: 📋 Run Tests
+        timeout-minutes: 10
         run: npm run test:all
 
       - name: 🔍 Linting
