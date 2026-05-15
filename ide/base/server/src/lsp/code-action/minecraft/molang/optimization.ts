@@ -4,6 +4,8 @@ import { CodeActionBuilder } from '../../builder';
 /** The shape of data attached to molang optimization diagnostics */
 interface OptimizationData {
   replacement: string;
+  startOffset?: number;
+  endOffset?: number;
 }
 
 function isOptimizationData(data: unknown): data is OptimizationData {
@@ -13,7 +15,14 @@ function isOptimizationData(data: unknown): data is OptimizationData {
 export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void {
   if (!isOptimizationData(diag.data)) return;
 
-  const replacement = diag.data.replacement;
+  const { replacement, startOffset, endOffset } = diag.data;
+  const hasOffsetRange = typeof startOffset === 'number' && typeof endOffset === 'number' && endOffset >= startOffset;
+  const editRange = hasOffsetRange
+    ? {
+        start: builder.context.document.positionAt(startOffset),
+        end: builder.context.document.positionAt(endOffset),
+      }
+    : diag.range;
 
   builder.push({
     title: `Rewrite to: ${replacement}`,
@@ -22,7 +31,7 @@ export function onCodeAction(builder: CodeActionBuilder, diag: Diagnostic): void
     isPreferred: true,
     edit: {
       changes: {
-        [builder.context.document.uri]: [TextEdit.replace(diag.range, replacement)],
+        [builder.context.document.uri]: [TextEdit.replace(editRange, replacement)],
       },
     },
   });
