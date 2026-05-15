@@ -31,6 +31,6 @@ dependencies:
           - go.work.sum
 
 bug:
-  - head-branch: ["^bug", "bug",, "^copilot/fix"]
+  - head-branch: ["^bug", "bug", "^copilot/fix"]
 feature:
   - head-branch: ["^feature", "feature", "^copilot/add"]
