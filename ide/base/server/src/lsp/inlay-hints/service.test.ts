@@ -15,11 +15,11 @@ describe('provideInlayHints', () => {
   });
 
   it('does not include hints for keyword parameters', () => {
-    const line = 'time set day';
+    const line = 'execute as @s run say hi';
     const result = provideInlayHints(line, line.length, false);
 
     expect(result.length).toBe(1);
-    expect(result[0]?.offset).toBe(9);
+    expect(result[0]?.offset).toBe(22);
   });
 
   it('returns no hints for empty input', () => {

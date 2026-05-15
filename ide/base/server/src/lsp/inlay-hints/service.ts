@@ -1,12 +1,12 @@
 import { Languages } from '@blockception/ide-shared';
 import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
 import {
+  CancellationToken,
   Connection,
   InlayHint,
   InlayHintKind,
   InlayHintParams,
   Position,
-  WorkDoneProgressReporter,
 } from 'vscode-languageserver';
 import { IsEducationEnabled } from '../../project/attributes';
 import { ExtensionContext } from '../extension';
@@ -32,7 +32,7 @@ export class InlayHintService extends BaseService implements IService {
     this.addDisposable(connection.languages.inlayHint.on(this.onInlayHint.bind(this)));
   }
 
-  private onInlayHint(params: InlayHintParams, _workDoneProgress: WorkDoneProgressReporter): InlayHint[] {
+  private onInlayHint(params: InlayHintParams, _token: CancellationToken): InlayHint[] {
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return [];
     if (document.languageId !== Languages.McFunctionIdentifier) return [];
