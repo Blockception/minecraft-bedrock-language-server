@@ -310,6 +310,8 @@ export namespace ExpressionNode {
         case NodeType.Conditional:
           node = max(node.condition, max(node.falseExpression, node.trueExpression));
           break;
+        default:
+          return (node as ExpressionNode)?.position ?? 0;
       }
     }
 
