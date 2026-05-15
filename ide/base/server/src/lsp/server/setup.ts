@@ -10,6 +10,7 @@ import { DiagnoserService } from '../diagnostics/service';
 import { DocumentManager, IDocumentManager } from '../documents/manager';
 import { ExtensionContext } from '../extension';
 import { FormatService } from '../format/service';
+import { InlineValueService } from '../inline-values/service';
 import { ExtendedLogger } from '../logger/logger';
 import { DocumentProcessor, PackProcessor, WorkspaceProcessor } from '../process';
 import { DefinitionService, ImplementationService, ReferenceService, TypeDefinitionService } from '../references';
@@ -57,6 +58,7 @@ export function setupServer(config: LSPConfig) {
       new DocumentSymbolService(logger, extension),
       new FormatService(logger, extension),
       new ImplementationService(logger, extension),
+      new InlineValueService(logger, extension),
       new ReferenceService(logger, extension),
       new SemanticsServer(logger, extension),
       new SignatureService(logger, extension),
