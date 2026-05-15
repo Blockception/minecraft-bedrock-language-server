@@ -1,11 +1,19 @@
 import { Diagnoser } from 'bc-minecraft-bedrock-diagnoser';
-import { Connection, DeleteFilesParams, Diagnostic } from 'vscode-languageserver';
+import {
+  Connection,
+  DeleteFilesParams,
+  Diagnostic,
+  DocumentDiagnosticParams,
+  DocumentDiagnosticReport,
+  DocumentDiagnosticReportKind,
+} from 'vscode-languageserver';
 import { getFilename } from '../../util';
 import { TextDocument } from '../documents';
 import { IDocumentManager } from '../documents/manager';
 import { ExtensionContext } from '../extension';
 import { IExtendedLogger } from '../logger/logger';
 import { BaseService } from '../services/base';
+import { CapabilityBuilder } from '../services/capabilities';
 import { IService } from '../services/service';
 import { InternalContext } from './context';
 
@@ -13,6 +21,7 @@ export class DiagnoserService extends BaseService implements IService {
   name: string = 'diagnoser';
   private _context: InternalContext;
   private _diagnoser: Diagnoser;
+  private _diagnostics: Map<string, Diagnostic[]>;
 
   constructor(logger: IExtendedLogger, extension: ExtensionContext, documents: IDocumentManager) {
     logger = logger.withPrefix('[diagnoser]');
@@ -20,12 +29,23 @@ export class DiagnoserService extends BaseService implements IService {
 
     this._context = new InternalContext(logger, documents, () => extension.database.ProjectData);
     this._diagnoser = new Diagnoser(this._context);
+    this._diagnostics = new Map();
 
     this._context.onDiagnosingFinished((e) => this.set(e.doc, e.items));
   }
 
+  onInitialize(capabilities: CapabilityBuilder): void {
+    capabilities.set('diagnosticProvider', {
+      interFileDependencies: true,
+      workspaceDiagnostics: false,
+    });
+  }
+
   setupHandlers(connection: Connection): void {
-    this.addDisposable(connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)));
+    this.addDisposable(
+      connection.workspace.onDidDeleteFiles(this.onDidDeleteFiles.bind(this)),
+      connection.languages.diagnostics.on(this.onPullDiagnostic.bind(this)),
+    );
   }
 
   diagnose(doc: TextDocument): void {
@@ -47,6 +67,8 @@ export class DiagnoserService extends BaseService implements IService {
   }
 
   set(doc: Pick<TextDocument, 'uri'> & Partial<Pick<TextDocument, 'version'>>, diagnostics: Diagnostic[]) {
+    this._diagnostics.set(doc.uri, diagnostics);
+
     return this.extension.connection.sendDiagnostics({
       diagnostics,
       uri: doc.uri,
@@ -60,5 +82,17 @@ export class DiagnoserService extends BaseService implements IService {
 
   onDidDeleteFiles(params: DeleteFilesParams) {
     params.files.forEach((file) => this.clear(file));
+  }
+
+  private onPullDiagnostic(params: DocumentDiagnosticParams): DocumentDiagnosticReport {
+    const doc = this.extension.documents.get(params.textDocument.uri);
+    if (doc) {
+      this.diagnose(doc);
+    }
+
+    return {
+      kind: DocumentDiagnosticReportKind.Full,
+      items: this._diagnostics.get(params.textDocument.uri) ?? [],
+    };
   }
 }

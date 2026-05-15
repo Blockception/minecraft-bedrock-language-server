@@ -4,6 +4,7 @@ export interface ExtensionCapabilities {
   client: {
     configuration: boolean;
     diagnostics: boolean;
+    diagnosticsPull: boolean;
     workspace: boolean;
   };
   server: {
@@ -17,6 +18,7 @@ export namespace ExtensionCapabilities {
       client: {
         configuration: false,
         diagnostics: false,
+        diagnosticsPull: false,
         workspace: false,
       },
       server: {
@@ -35,5 +37,6 @@ export namespace ExtensionCapabilities {
       capabilities.textDocument.publishDiagnostics &&
       capabilities.textDocument.publishDiagnostics.relatedInformation
     );
+    receiver.client.diagnosticsPull = !!(capabilities.textDocument && capabilities.textDocument.diagnostic);
   }
 }
