@@ -15,6 +15,7 @@ const config: Config = {
   },
   testMatch: ['**/*.{test,spec}.ts'],
   testTimeout: 10_000,
+  forceExit: true,
   reporters: [
     ['github-actions', {silent: false}], 
     'summary'

@@ -14,6 +14,7 @@ const config: Config = {
     '^.+\\.ts$': 'ts-jest',
   },
   testMatch: ['**/*.{test,spec}.ts'],
+  forceExit: true,
 };
 
 export default config;
