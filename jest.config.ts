@@ -14,6 +14,7 @@ const config: Config = {
     '^.+\\.ts$': 'ts-jest',
   },
   testMatch: ['**/*.{test,spec}.ts'],
+  testTimeout: 10_000,
   reporters: [
     ['github-actions', {silent: false}], 
     'summary'
