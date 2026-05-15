@@ -284,7 +284,7 @@ describe('Molang Optimization Diagnostics', () => {
 
       const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.self-cancellation');
       expect(diag).toBeDefined();
-      expect(diag?.data).toEqual({ replacement: '0' });
+      expect(diag?.data).toEqual(expect.objectContaining({ replacement: '0' }));
     });
   });
 
@@ -320,7 +320,7 @@ describe('Molang Optimization Diagnostics', () => {
 
       const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.self-division');
       expect(diag).toBeDefined();
-      expect(diag?.data).toEqual({ replacement: '1' });
+      expect(diag?.data).toEqual(expect.objectContaining({ replacement: '1' }));
     });
   });
 
@@ -462,7 +462,7 @@ describe('Molang Optimization Diagnostics', () => {
 
       const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.identity-operation');
       expect(diag).toBeDefined();
-      expect(diag?.data).toEqual({ replacement: 'v.smooth_turn' });
+      expect(diag?.data).toEqual(expect.objectContaining({ replacement: 'v.smooth_turn' }));
     });
 
     it('should include replacement data for identity operation: addition with 0', () => {
@@ -471,7 +471,7 @@ describe('Molang Optimization Diagnostics', () => {
 
       const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.identity-operation');
       expect(diag).toBeDefined();
-      expect(diag?.data).toEqual({ replacement: 'v.speed' });
+      expect(diag?.data).toEqual(expect.objectContaining({ replacement: 'v.speed' }));
     });
 
     it('should include replacement data for constant folding', () => {
@@ -490,7 +490,7 @@ describe('Molang Optimization Diagnostics', () => {
 
       const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-result');
       expect(diag).toBeDefined();
-      expect(diag?.data).toEqual({ replacement: '6' });
+      expect(diag?.data).toEqual(expect.objectContaining({ replacement: '6' }));
     });
 
     it('should not add parentheses to math constants like math.pi in replacement (regression)', () => {
@@ -499,10 +499,14 @@ describe('Molang Optimization Diagnostics', () => {
 
       const diag = diagnoser.items.find((d) => d.code === 'molang.optimization.constant-folding');
       expect(diag).toBeDefined();
-      const replacement = (diag?.data as { replacement: string })?.replacement;
+      const data = diag?.data as { replacement: string; startOffset?: number; endOffset?: number };
+      const replacement = data?.replacement;
       expect(replacement).toBeDefined();
       expect(replacement).toContain('math.pi');
       expect(replacement).not.toContain('math.pi()');
+      expect(typeof data?.startOffset).toBe('number');
+      expect(typeof data?.endOffset).toBe('number');
+      expect((data.endOffset ?? 0) - (data.startOffset ?? 0)).toBe('5*3*math.pi'.length);
     });
   });
 });

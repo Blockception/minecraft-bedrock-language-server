@@ -72,7 +72,10 @@ export class OptimizationRegistry {
       const nodeRange = OffsetWord.create('x'.repeat(length), startOffset);
 
       for (const optimizedNode of result) {
-        const data = optimizedNode.replacement !== undefined ? { replacement: optimizedNode.replacement } : undefined;
+        const data =
+          optimizedNode.replacement !== undefined
+            ? { replacement: optimizedNode.replacement, startOffset, endOffset }
+            : undefined;
         diagnoser.add(
           nodeRange,
           optimizedNode.message,
