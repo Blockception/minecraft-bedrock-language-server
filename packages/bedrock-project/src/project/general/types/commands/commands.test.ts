@@ -182,15 +182,25 @@ scoreboard players reset "*" test`,
 
   it('registers and unregisters script custom commands', () => {
     const P = new ProjectData(new TextProjectContext());
-    P.behaviorPacks.add('c:\\bp', MCProject.createEmpty(), {} as Manifest);
+    P.behaviorPacks.add('c:\\bp', MCProject.createEmpty(), {
+      modules: [{ type: 'script', language: 'typescript', entry: 'scripts\\main.ts', version: [1, 0, 0] }],
+    } as Manifest);
 
     const script: TextDocument = {
       uri: 'c:\\bp\\scripts\\custom.ts',
       getText: () => `CustomCommandRegistry.registerCommand({ name: "example:test" }, () => {});`,
     };
+    const entry: TextDocument = {
+      uri: 'c:\\bp\\scripts\\main.ts',
+      getText: () => `import './custom.ts';`,
+    };
 
     P.process(script);
     let custom = BehaviorPack.Script.toCommandContainer(P.behaviorPacks.customCommands);
+    expect(hasCommandData('example:test', false, custom)).toBeFalsy();
+
+    P.process(entry);
+    custom = BehaviorPack.Script.toCommandContainer(P.behaviorPacks.customCommands);
     expect(hasCommandData('example:test', false, custom)).toBeTruthy();
 
     P.deleteFile(script.uri);

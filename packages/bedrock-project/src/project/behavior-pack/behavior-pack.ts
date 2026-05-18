@@ -1,4 +1,5 @@
 import { MCProject } from 'bc-minecraft-project';
+import { Json } from '../../internal';
 import { Manifest } from '../../internal/types';
 import { Container, DataSet, Pack, TextDocument } from '../../types';
 import { PackType } from '../pack-type';
@@ -43,7 +44,7 @@ export class BehaviorPack implements Container, Pack {
   readonly type: PackType = PackType.behavior_pack;
   readonly folder: string;
   readonly context: MCProject;
-  readonly manifest: Manifest;
+  manifest: Manifest;
 
   /**The collection of animations*/
   readonly animations: DataSet<Animation.Animation>;
@@ -77,6 +78,8 @@ export class BehaviorPack implements Container, Pack {
   readonly voxelShapes: DataSet<VoxelShape.VoxelShape>;
   /**The collection of script-defined custom commands*/
   readonly customCommands: DataSet<Script.CustomCommand>;
+  /**Tracked script files for manifest-driven command indexing*/
+  private readonly scriptDocuments: Map<string, TextDocument>;
 
   /**
    * @param folder The folder of the behavior
@@ -102,6 +105,7 @@ export class BehaviorPack implements Container, Pack {
     this.itemGroups = new DataSet();
     this.voxelShapes = new DataSet();
     this.customCommands = new DataSet();
+    this.scriptDocuments = new Map();
   }
 
   /**
@@ -159,8 +163,15 @@ export class BehaviorPack implements Container, Pack {
       case FileType.voxel_shape:
         return this.voxelShapes.set(VoxelShape.process(doc));
 
+      case FileType.manifest:
+        this.manifest = Json.To<Manifest>(doc) ?? ({} as Manifest);
+        this.refreshCustomCommands();
+        return undefined;
+
       case FileType.script:
-        return this.customCommands.set(Script.process(doc));
+        this.scriptDocuments.set(doc.uri, doc);
+        this.refreshCustomCommands();
+        return this.customCommands;
     }
 
     return undefined;
@@ -235,6 +246,12 @@ export class BehaviorPack implements Container, Pack {
    */
   deleteFile(uri: string): boolean {
     let out = false;
+    const fileType = FileType.detect(uri);
+    const hadScript = this.scriptDocuments.delete(uri);
+
+    if (fileType === FileType.manifest) {
+      this.manifest = {} as Manifest;
+    }
 
     out = this.animations.deleteFile(uri) || out;
     out = this.animationControllers.deleteFile(uri) || out;
@@ -253,6 +270,11 @@ export class BehaviorPack implements Container, Pack {
     out = this.voxelShapes.deleteFile(uri) || out;
     out = this.customCommands.deleteFile(uri) || out;
 
+    if (fileType === FileType.script || fileType === FileType.manifest) {
+      this.refreshCustomCommands();
+      out = hadScript || out;
+    }
+
     return out;
   }
 
@@ -262,6 +284,7 @@ export class BehaviorPack implements Container, Pack {
    */
   deleteFolder(uri: string): boolean {
     let out = false;
+    let removedScript = false;
 
     out = this.animations.deleteFolder(uri) || out;
     out = this.animationControllers.deleteFolder(uri) || out;
@@ -280,7 +303,33 @@ export class BehaviorPack implements Container, Pack {
     out = this.voxelShapes.deleteFolder(uri) || out;
     out = this.customCommands.deleteFolder(uri) || out;
 
+    this.scriptDocuments.forEach((_doc, key) => {
+      if (key.startsWith(uri)) {
+        this.scriptDocuments.delete(key);
+        removedScript = true;
+      }
+    });
+
+    if (removedScript) this.refreshCustomCommands();
+
     return out;
+  }
+
+  private refreshCustomCommands(): void {
+    const graph = Script.resolveManifestScriptGraph({
+      folder: this.folder,
+      manifest: this.manifest,
+      getDocument: (uri) => this.scriptDocuments.get(uri),
+      getScriptFiles: () => Array.from(this.scriptDocuments.keys()),
+    });
+
+    this.customCommands.clear();
+    for (let i = 0; i < graph.reachableFiles.length; i++) {
+      const uri = graph.reachableFiles[i];
+      const doc = this.scriptDocuments.get(uri);
+      if (!doc) continue;
+      this.customCommands.set(Script.process(doc));
+    }
   }
 
   /**

@@ -21,6 +21,10 @@ export interface Manifest {
   /**
    *
    */
+  dependencies?: ManifestDependency[];
+  /**
+   *
+   */
   metadata?: ManifestMetadata;
 }
 
@@ -54,6 +58,23 @@ export interface ManifestModule {
   uuid?: string;
   /** */
   version: number[];
+  /** */
+  language?: string;
+  /** */
+  entry?: string;
+  /** */
+  dependencies?: ManifestDependency[];
+}
+
+export type ManifestDependency = string | ManifestDependencyModule;
+
+export interface ManifestDependencyModule {
+  /** */
+  module_name?: string;
+  /** */
+  name?: string;
+  /** */
+  version?: number[] | string;
 }
 
 /** */
