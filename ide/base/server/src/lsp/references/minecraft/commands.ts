@@ -1,4 +1,5 @@
 import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
+import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { OffsetWord } from 'bc-vscode-words';
 import { Location } from 'vscode-languageserver';
 import { IsEducationEnabled } from '../../../project/attributes';
@@ -13,9 +14,10 @@ export async function provideReferences(
   const { document, position } = context;
   const line = value.text;
   const offset = value.offset;
+  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
 
   const com = Command.parse(line, offset);
-  const data = com.getBestMatch(IsEducationEnabled(document));
+  const data = com.getBestMatch(IsEducationEnabled(document), custom);
 
   if (data.length == 0) return undefined;
 

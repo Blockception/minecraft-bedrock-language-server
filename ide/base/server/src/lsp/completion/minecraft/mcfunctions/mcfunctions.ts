@@ -1,4 +1,5 @@
 import { Command } from 'bc-minecraft-bedrock-command';
+import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { CompletionItemKind } from 'vscode-languageserver';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
@@ -16,6 +17,7 @@ import * as Parameter from '../commands/parameters';
  */
 export function provideCompletion(context: Context<CompletionContext>): void {
   const { document, position, cursor } = context;
+  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
   const lineIndex = position.line;
   const line = document.getLine(lineIndex);
 
@@ -42,14 +44,14 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const offset = document.offsetAt({ character: 0, line: lineIndex });
 
   let command = Command.parse(line, offset);
-  let subCommmand = command.isInSubCommand(cursor);
+  let subCommmand = command.isInSubCommand(cursor, false, custom);
 
   while (subCommmand) {
     if (subCommmand) {
       command = subCommmand;
     }
 
-    subCommmand = command.isInSubCommand(cursor);
+    subCommmand = command.isInSubCommand(cursor, false, custom);
   }
 
   provideCompletionCommand(context, command);
@@ -76,6 +78,7 @@ export function provideCompletionLine(context: Context<CompletionContext>, text:
  */
 export function provideCompletionCommand(context: Context<CompletionContext>, command: Command): void {
   const { cursor, document } = context;
+  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
 
   if (command == undefined || command.parameters.length == 0 || cursor < command.parameters[0].offset + 3) {
     CCommand.provideCompletion(context);
@@ -83,7 +86,7 @@ export function provideCompletionCommand(context: Context<CompletionContext>, co
   }
 
   const eduEnabled = IsEducationEnabled(document);
-  const matches = command.getBestMatch(eduEnabled);
+  const matches = command.getBestMatch(eduEnabled, custom);
   if (matches.length === 0) {
     if (cursor < 10) CCommand.provideCompletion(context);
 
@@ -92,7 +95,7 @@ export function provideCompletionCommand(context: Context<CompletionContext>, co
 
   const parameterIndex: number = command.findCursorIndex(cursor);
   const current = command.parameters[parameterIndex];
-  const bestMatch = command.getBestMatch(eduEnabled)[0];
+  const bestMatch = command.getBestMatch(eduEnabled, custom)[0];
 
   for (let I = 0; I < matches.length; I++) {
     const Match = matches[I];

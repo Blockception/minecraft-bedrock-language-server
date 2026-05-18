@@ -1,17 +1,9 @@
-import { CommandData } from '../src/data/command-data';
+import { CommandContainer } from '../src/data/command-container';
 import { getCommandData, hasCommandData, ParameterType } from '../src';
 
 describe('Data/Custom Commands', () => {
-  beforeEach(() => {
-    CommandData.clearCustomCommands();
-  });
-
-  afterEach(() => {
-    CommandData.clearCustomCommands();
-  });
-
-  it('registers and removes custom commands by uri', () => {
-    CommandData.setCustomCommands('c:\\bp\\scripts\\command.ts', {
+  it('supports custom command containers', () => {
+    const custom: CommandContainer = {
       'demo:ping': [
         {
           name: 'demo:ping',
@@ -24,14 +16,9 @@ describe('Data/Custom Commands', () => {
           source: { uri: 'c:\\bp\\scripts\\command.ts', line: 10, language: 'typescript' },
         },
       ],
-    });
+    };
 
-    expect(hasCommandData('demo:ping')).toBeTruthy();
-    expect(getCommandData('demo:ping')).toHaveLength(1);
-
-    CommandData.removeCustomCommandsByUri('c:\\bp\\scripts\\command.ts');
-
-    expect(hasCommandData('demo:ping')).toBeFalsy();
-    expect(getCommandData('demo:ping')).toHaveLength(0);
+    expect(hasCommandData('demo:ping', false, custom)).toBeTruthy();
+    expect(getCommandData('demo:ping', false, ParameterType.command, custom)).toHaveLength(1);
   });
 });

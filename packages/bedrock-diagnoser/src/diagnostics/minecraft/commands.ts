@@ -1,5 +1,5 @@
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
-import { hasCommandData } from 'bc-minecraft-bedrock-command';
+import { CommandContainer, hasCommandData } from 'bc-minecraft-bedrock-command';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 
 /**
@@ -7,8 +7,13 @@ import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
  * @param blockDescriptor
  * @param diagnoser
  */
-export function minecraft_check_command(command: OffsetWord, diagnoser: DiagnosticsBuilder, edu: boolean): void {
-  if (hasCommandData(command.text, edu)) return;
+export function minecraft_check_command(
+  command: OffsetWord,
+  diagnoser: DiagnosticsBuilder,
+  edu: boolean,
+  custom?: CommandContainer,
+): void {
+  if (hasCommandData(command.text, edu, custom)) return;
 
   diagnoser.add(
     command,

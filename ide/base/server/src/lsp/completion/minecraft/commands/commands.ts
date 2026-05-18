@@ -1,4 +1,5 @@
 import { CommandData, CommandInfo } from 'bc-minecraft-bedrock-command';
+import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { Kinds } from '../../../../constants';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
@@ -11,9 +12,10 @@ import { CompletionContext } from '../../context';
  */
 export function provideCompletion(context: Context<CompletionContext>): void {
   const edu = IsEducationEnabled(context.document);
+  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
 
   Object.values(CommandData.Vanilla).forEach((data) => getCompletion(data, context.builder));
-  Object.values(CommandData.Custom).forEach((data) => getCompletion(data, context.builder));
+  Object.values(custom).forEach((data) => getCompletion(data, context.builder));
   if (edu) Object.values(CommandData.Edu).forEach((data) => getCompletion(data, context.builder));
 }
 

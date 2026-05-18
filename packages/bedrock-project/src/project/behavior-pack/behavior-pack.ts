@@ -1,5 +1,4 @@
 import { MCProject } from 'bc-minecraft-project';
-import { CommandData } from 'bc-minecraft-bedrock-command';
 import { Manifest } from '../../internal/types';
 import { Container, DataSet, Pack, TextDocument } from '../../types';
 import { PackType } from '../pack-type';
@@ -76,6 +75,8 @@ export class BehaviorPack implements Container, Pack {
   readonly trading: DataSet<Trading.Trading>;
   /**The collection of voxel shapes*/
   readonly voxelShapes: DataSet<VoxelShape.VoxelShape>;
+  /**The collection of script-defined custom commands*/
+  readonly customCommands: DataSet<Script.CustomCommand>;
 
   /**
    * @param folder The folder of the behavior
@@ -100,6 +101,7 @@ export class BehaviorPack implements Container, Pack {
     this.featuresRules = new DataSet();
     this.itemGroups = new DataSet();
     this.voxelShapes = new DataSet();
+    this.customCommands = new DataSet();
   }
 
   /**
@@ -158,8 +160,7 @@ export class BehaviorPack implements Container, Pack {
         return this.voxelShapes.set(VoxelShape.process(doc));
 
       case FileType.script:
-        Script.process(doc);
-        return undefined;
+        return this.customCommands.set(Script.process(doc));
     }
 
     return undefined;
@@ -219,6 +220,9 @@ export class BehaviorPack implements Container, Pack {
       case FileType.voxel_shape:
         return this.voxelShapes;
 
+      case FileType.script:
+        return this.customCommands;
+
       default:
         return undefined;
     }
@@ -230,7 +234,6 @@ export class BehaviorPack implements Container, Pack {
    * @returns
    */
   deleteFile(uri: string): boolean {
-    CommandData.removeCustomCommandsByUri(uri);
     let out = false;
 
     out = this.animations.deleteFile(uri) || out;
@@ -248,6 +251,7 @@ export class BehaviorPack implements Container, Pack {
     out = this.structures.deleteFile(uri) || out;
     out = this.trading.deleteFile(uri) || out;
     out = this.voxelShapes.deleteFile(uri) || out;
+    out = this.customCommands.deleteFile(uri) || out;
 
     return out;
   }
@@ -257,7 +261,6 @@ export class BehaviorPack implements Container, Pack {
    * @param uri
    */
   deleteFolder(uri: string): boolean {
-    CommandData.removeCustomCommandsByFolder(uri);
     let out = false;
 
     out = this.animations.deleteFolder(uri) || out;
@@ -275,6 +278,7 @@ export class BehaviorPack implements Container, Pack {
     out = this.structures.deleteFolder(uri) || out;
     out = this.trading.deleteFolder(uri) || out;
     out = this.voxelShapes.deleteFolder(uri) || out;
+    out = this.customCommands.deleteFolder(uri) || out;
 
     return out;
   }
@@ -302,6 +306,7 @@ export class BehaviorPack implements Container, Pack {
     if ((value = this.structures.find(predicate))) return value;
     if ((value = this.trading.find(predicate))) return value;
     if ((value = this.voxelShapes.find(predicate))) return value;
+    if ((value = this.customCommands.find(predicate))) return value;
 
     return value;
   }
@@ -327,6 +332,7 @@ export class BehaviorPack implements Container, Pack {
     this.structures.forEach(callbackfn);
     this.trading.forEach(callbackfn);
     this.voxelShapes.forEach(callbackfn);
+    this.customCommands.forEach(callbackfn);
   }
 }
 
@@ -359,6 +365,7 @@ export namespace BehaviorPack {
       if (typeof temp.biomes !== 'object') return false;
       if (typeof temp.recipes !== 'object') return false;
       if (typeof temp.voxelShapes !== 'object') return false;
+      if (typeof temp.customCommands !== 'object') return false;
 
       if (typeof temp.context !== 'object') return false;
       if (typeof temp.folder !== 'string') return false;

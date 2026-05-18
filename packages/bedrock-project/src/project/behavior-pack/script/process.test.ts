@@ -1,17 +1,10 @@
-import { CommandData, hasCommandData, ParameterType } from 'bc-minecraft-bedrock-command';
+import { hasCommandData, ParameterType } from 'bc-minecraft-bedrock-command';
+import { toCommandContainer } from './custom-command';
 import { process } from './process';
 
 describe('Behavior Pack/Script custom command processing', () => {
-  beforeEach(() => {
-    CommandData.clearCustomCommands();
-  });
-
-  afterEach(() => {
-    CommandData.clearCustomCommands();
-  });
-
   it('parses inline command registration with parameter lists', () => {
-    process({
+    const commands = process({
       uri: 'c:\\bp\\scripts\\custom.js',
       getText: () => `
 CustomCommandRegistry.registerCommand({
@@ -27,9 +20,10 @@ CustomCommandRegistry.registerCommand({
 }, () => {});
 `,
     });
+    const container = toCommandContainer({ forEach: (callbackfn) => commands.forEach(callbackfn) });
 
-    expect(hasCommandData('example:hello')).toBeTruthy();
-    const command = CommandData.Custom['example:hello'][0];
+    expect(hasCommandData('example:hello', false, container)).toBeTruthy();
+    const command = commands[0].syntaxes[0];
     expect(command.source?.uri).toEqual('c:\\bp\\scripts\\custom.js');
     expect(command.parameters).toEqual([
       { text: 'example:hello', type: ParameterType.keyword, required: true },
@@ -39,7 +33,7 @@ CustomCommandRegistry.registerCommand({
   });
 
   it('resolves variable-based registration and replaces commands by file', () => {
-    process({
+    const first = process({
       uri: 'c:\\bp\\scripts\\custom.ts',
       getText: () => `
 const definition = {
@@ -50,15 +44,17 @@ const definition = {
 CustomCommandRegistry.registerCommand(definition, () => {});
 `,
     });
+    const firstContainer = toCommandContainer({ forEach: (callbackfn) => first.forEach(callbackfn) });
 
-    expect(hasCommandData('example:bye')).toBeTruthy();
+    expect(hasCommandData('example:bye', false, firstContainer)).toBeTruthy();
 
-    process({
+    const second = process({
       uri: 'c:\\bp\\scripts\\custom.ts',
       getText: () => `CustomCommandRegistry.registerCommand({ name: "example:new" }, () => {});`,
     });
+    const secondContainer = toCommandContainer({ forEach: (callbackfn) => second.forEach(callbackfn) });
 
-    expect(hasCommandData('example:bye')).toBeFalsy();
-    expect(hasCommandData('example:new')).toBeTruthy();
+    expect(hasCommandData('example:bye', false, secondContainer)).toBeFalsy();
+    expect(hasCommandData('example:new', false, secondContainer)).toBeTruthy();
   });
 });

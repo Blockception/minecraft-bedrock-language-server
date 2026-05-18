@@ -1,19 +1,12 @@
 import { MCProject } from 'bc-minecraft-project';
-import { CommandData, hasCommandData } from 'bc-minecraft-bedrock-command';
+import { hasCommandData } from 'bc-minecraft-bedrock-command';
+import * as BehaviorPack from '../../../behavior-pack';
 import { Manifest } from '../../../../internal/types';
 import { TextProjectContext } from '../../../../test/utility';
 import { TextDocument } from '../../../../types';
 import { ProjectData } from '../../../project-data';
 
 describe('Commands', () => {
-  beforeEach(() => {
-    CommandData.clearCustomCommands();
-  });
-
-  afterEach(() => {
-    CommandData.clearCustomCommands();
-  });
-
   it('mcfunction', () => {
     const P = new ProjectData(new TextProjectContext());
 
@@ -197,9 +190,11 @@ scoreboard players reset "*" test`,
     };
 
     P.process(script);
-    expect(hasCommandData('example:test')).toBeTruthy();
+    let custom = BehaviorPack.Script.toCommandContainer(P.behaviorPacks.customCommands);
+    expect(hasCommandData('example:test', false, custom)).toBeTruthy();
 
     P.deleteFile(script.uri);
-    expect(hasCommandData('example:test')).toBeFalsy();
+    custom = BehaviorPack.Script.toCommandContainer(P.behaviorPacks.customCommands);
+    expect(hasCommandData('example:test', false, custom)).toBeFalsy();
   });
 });

@@ -1,6 +1,7 @@
-import { CommandContainer, CommandData, CommandInfo, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
+import { CommandContainer, CommandInfo, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
 import { TextDocument } from '../../../types';
 import * as ts from 'typescript';
+import { CustomCommand } from './custom-command';
 
 type ResolvedValue = string | number | boolean | undefined | ResolvedObject | ResolvedArray;
 type ResolvedArray = ResolvedValue[];
@@ -9,11 +10,15 @@ interface ResolvedObject {
 }
 
 /**
- * Parses script files and registers script-defined custom commands.
+ * Parses script files and returns script-defined custom commands.
  */
-export function process(doc: TextDocument): void {
+export function process(doc: TextDocument): CustomCommand[] {
   const data = parseCustomCommands(doc);
-  CommandData.setCustomCommands(doc.uri, data);
+  const out: CustomCommand[] = [];
+
+  Object.keys(data).forEach((key) => out.push(CustomCommand.create(key, doc.uri, data[key])));
+
+  return out;
 }
 
 export function parseCustomCommands(doc: TextDocument): CommandContainer {

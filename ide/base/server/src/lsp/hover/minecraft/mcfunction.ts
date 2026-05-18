@@ -1,6 +1,6 @@
 import { Documentated, Identifiable, Locatable } from 'bc-minecraft-bedrock-shared';
 import { Command, ParameterInfo, ParameterType, ParameterTypeDocumentation } from 'bc-minecraft-bedrock-command';
-import { IDataSet } from 'bc-minecraft-bedrock-project';
+import { BehaviorPack, IDataSet } from 'bc-minecraft-bedrock-project';
 import { Hover, Range } from 'vscode-languageserver';
 import { IsEducationEnabled } from '../../../project/attributes';
 import { Context } from '../../context/context';
@@ -15,16 +15,17 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
   const Line = document.getLine(LineIndex);
   const offset = document.offsetAt({ character: 0, line: LineIndex });
   const Edu = IsEducationEnabled(document);
+  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
 
   let command: Command = Command.parse(Line, offset);
-  let subCommand = command.isInSubCommand(cursor, Edu);
+  let subCommand = command.isInSubCommand(cursor, Edu, custom);
 
   while (subCommand) {
     command = subCommand;
-    subCommand = subCommand.isInSubCommand(cursor, Edu);
+    subCommand = subCommand.isInSubCommand(cursor, Edu, custom);
   }
 
-  const data = command.getBestMatch(Edu);
+  const data = command.getBestMatch(Edu, custom);
 
   if (data.length >= 1) {
     const info = data[0];

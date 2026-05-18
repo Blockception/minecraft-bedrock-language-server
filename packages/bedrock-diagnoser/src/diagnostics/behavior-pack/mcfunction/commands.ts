@@ -1,5 +1,6 @@
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
-import { Command, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
+import { Command, CommandContainer, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
+import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { education_enabled } from '../../definitions';
 import {
@@ -154,7 +155,10 @@ export function commandsCheck(commandText: string, diagnoser: DocumentDiagnostic
  * @returns
  */
 function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagnosticsBuilder, edu: boolean): void {
-  const info = command.getBestMatch(edu);
+  const customCommands = BehaviorPack.Script.toCommandContainer(
+    diagnoser.context.getProjectData().projectData.behaviorPacks.customCommands,
+  );
+  const info = command.getBestMatch(edu, customCommands);
 
   if (info.length === 0) {
     const keyCommand = command.getKeyword();
@@ -188,7 +192,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
       );
     }
 
-    if (CommandData.Custom[keyCommand] !== undefined) {
+    if (customCommands[keyCommand] !== undefined) {
       return diagnoser.add(
         command.parameters[0].offset,
         `Unknown syntax for custom command: "${keyCommand}"`,
@@ -207,7 +211,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
       );
     }
 
-    return minecraft_check_command(command.parameters[0], diagnoser, edu);
+    return minecraft_check_command(command.parameters[0], diagnoser, edu, customCommands);
   }
 
   const data = info[0];
@@ -238,7 +242,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
   }
 
   for (let i = 0; i < max; i++) {
-    mcfunction_diagnoseparameter(data.parameters[i], command.parameters[i], diagnoser, command, edu);
+    mcfunction_diagnoseparameter(data.parameters[i], command.parameters[i], diagnoser, command, edu, customCommands);
   }
 
   // Validate coordinate groups: each x,y,z triplet must be fully provided and must not mix local/non-local types.
@@ -332,6 +336,7 @@ function mcfunction_diagnoseparameter(
   diagnoser: DocumentDiagnosticsBuilder,
   Com: Command,
   edu: boolean,
+  customCommands: CommandContainer,
 ): void | boolean {
   if (pattern === undefined || data === undefined) return;
 
@@ -366,7 +371,7 @@ function mcfunction_diagnoseparameter(
       return;
 
     case ParameterType.command:
-      return minecraft_check_command(data, diagnoser, edu);
+      return minecraft_check_command(data, diagnoser, edu, customCommands);
     case ParameterType.event:
       return command_entity_event_diagnose(data, diagnoser, Com);
     case ParameterType.keyword:
