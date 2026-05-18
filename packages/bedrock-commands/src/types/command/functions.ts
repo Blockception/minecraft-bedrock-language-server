@@ -172,6 +172,7 @@ export function getCommandData(
 
   if (type == ParameterType.command) {
     Add(out, CommandData.Vanilla[name]);
+    Add(out, CommandData.Custom[name]);
 
     if (edu) Add(out, CommandData.Edu[name]);
   }
@@ -185,6 +186,7 @@ export function getCommandData(
  * @returns An array with commands info*/
 export function hasCommandData(name: string, edu: boolean = false): boolean {
   if (CommandData.Vanilla[name]) return true;
+  if (CommandData.Custom[name]) return true;
   if (edu && CommandData.Edu[name]) return true;
 
   return false;
@@ -196,6 +198,7 @@ export function hasCommandData(name: string, edu: boolean = false): boolean {
  * @returns True or false*/
 export function IsCommand(command: string, edu: boolean = false): boolean {
   if (CommandData.Vanilla[command]) return true;
+  if (CommandData.Custom[command]) return true;
   if (edu && CommandData.Edu[command]) return true;
 
   return false;

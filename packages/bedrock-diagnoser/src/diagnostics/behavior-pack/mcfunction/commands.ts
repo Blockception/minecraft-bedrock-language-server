@@ -188,6 +188,15 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
       );
     }
 
+    if (CommandData.Custom[keyCommand] !== undefined) {
+      return diagnoser.add(
+        command.parameters[0].offset,
+        `Unknown syntax for custom command: "${keyCommand}"`,
+        DiagnosticSeverity.error,
+        `minecraft.commands.${keyCommand}.syntax`,
+      );
+    }
+
     //Execute subcommand exists but its syntax is invalid
     if (command.subType === ParameterType.executeSubcommand && CommandData.ExecuteSubcommands[keyCommand] !== undefined) {
       return diagnoser.add(

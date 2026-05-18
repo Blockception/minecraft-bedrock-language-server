@@ -175,9 +175,52 @@ export namespace CommandData {
 
   /** The execute sub command data set */
   export const ExecuteSubcommands = executeSubCommands;
+  /** The custom command data set */
+  export const Custom: CommandContainer = {};
 
   /** All the vanilla commands */
   export const VanillaCommands = Object.keys(Vanilla);
   /** All the edu commands */
   export const EduCommands = Object.keys(Edu);
+
+  /** Clears all registered custom command data */
+  export function clearCustomCommands(): void {
+    Object.keys(Custom).forEach((key) => delete Custom[key]);
+  }
+
+  /** Removes custom commands registered from a specific source uri */
+  export function removeCustomCommandsByUri(uri: string): void {
+    Object.keys(Custom).forEach((key) => {
+      const filtered = Custom[key].filter((item) => item.source?.uri !== uri);
+
+      if (filtered.length > 0) {
+        Custom[key] = filtered;
+      } else {
+        delete Custom[key];
+      }
+    });
+  }
+
+  /** Removes custom commands registered from files under a folder uri prefix */
+  export function removeCustomCommandsByFolder(uri: string): void {
+    Object.keys(Custom).forEach((key) => {
+      const filtered = Custom[key].filter((item) => !item.source?.uri.startsWith(uri));
+
+      if (filtered.length > 0) {
+        Custom[key] = filtered;
+      } else {
+        delete Custom[key];
+      }
+    });
+  }
+
+  /** Replaces all custom commands for a source file */
+  export function setCustomCommands(uri: string, commands: CommandContainer): void {
+    removeCustomCommandsByUri(uri);
+
+    Object.keys(commands).forEach((key) => {
+      const current = Custom[key] ?? [];
+      Custom[key] = current.concat(commands[key]);
+    });
+  }
 }

@@ -22,6 +22,17 @@ export interface CommandInfo {
   obsolete?: boolean | ObsoleteInfo;
   /**The permission level required to use this command*/
   permission_level: number;
+  /**Optional metadata about where this command is defined*/
+  source?: CommandSource;
+}
+
+export interface CommandSource {
+  /**The uri of the source file defining the command*/
+  uri: string;
+  /**1-based source line where the command is registered*/
+  line: number;
+  /**The source language that defined the command*/
+  language: 'javascript' | 'typescript';
 }
 
 /**The information of a single parameter.*/

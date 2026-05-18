@@ -1,4 +1,5 @@
 import { MCProject } from 'bc-minecraft-project';
+import { CommandData } from 'bc-minecraft-bedrock-command';
 import { Manifest } from '../../internal/types';
 import { Container, DataSet, Pack, TextDocument } from '../../types';
 import { PackType } from '../pack-type';
@@ -16,6 +17,7 @@ import * as ItemCatalog from './item_catalog';
 import * as LootTable from './loot-table';
 import * as Function from './mcfunction';
 import * as Recipe from './recipe';
+import * as Script from './script';
 import * as Structure from './structure';
 import * as Trading from './trading';
 
@@ -154,6 +156,10 @@ export class BehaviorPack implements Container, Pack {
 
       case FileType.voxel_shape:
         return this.voxelShapes.set(VoxelShape.process(doc));
+
+      case FileType.script:
+        Script.process(doc);
+        return undefined;
     }
 
     return undefined;
@@ -224,6 +230,7 @@ export class BehaviorPack implements Container, Pack {
    * @returns
    */
   deleteFile(uri: string): boolean {
+    CommandData.removeCustomCommandsByUri(uri);
     let out = false;
 
     out = this.animations.deleteFile(uri) || out;
@@ -250,6 +257,7 @@ export class BehaviorPack implements Container, Pack {
    * @param uri
    */
   deleteFolder(uri: string): boolean {
+    CommandData.removeCustomCommandsByFolder(uri);
     let out = false;
 
     out = this.animations.deleteFolder(uri) || out;

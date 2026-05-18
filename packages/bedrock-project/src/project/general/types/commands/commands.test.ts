@@ -1,10 +1,19 @@
 import { MCProject } from 'bc-minecraft-project';
+import { CommandData, hasCommandData } from 'bc-minecraft-bedrock-command';
 import { Manifest } from '../../../../internal/types';
 import { TextProjectContext } from '../../../../test/utility';
 import { TextDocument } from '../../../../types';
 import { ProjectData } from '../../../project-data';
 
 describe('Commands', () => {
+  beforeEach(() => {
+    CommandData.clearCustomCommands();
+  });
+
+  afterEach(() => {
+    CommandData.clearCustomCommands();
+  });
+
   it('mcfunction', () => {
     const P = new ProjectData(new TextProjectContext());
 
@@ -176,5 +185,21 @@ scoreboard players reset "*" test`,
     // Neither bare * nor quoted "*" should be registered as a fake entity
     expect(P.general.fakeEntities.count()).toEqual(0);
     expect(P.general.fakeEntities.has('*')).toBeFalsy();
+  });
+
+  it('registers and unregisters script custom commands', () => {
+    const P = new ProjectData(new TextProjectContext());
+    P.behaviorPacks.add('c:\\bp', MCProject.createEmpty(), {} as Manifest);
+
+    const script: TextDocument = {
+      uri: 'c:\\bp\\scripts\\custom.ts',
+      getText: () => `CustomCommandRegistry.registerCommand({ name: "example:test" }, () => {});`,
+    };
+
+    P.process(script);
+    expect(hasCommandData('example:test')).toBeTruthy();
+
+    P.deleteFile(script.uri);
+    expect(hasCommandData('example:test')).toBeFalsy();
   });
 });

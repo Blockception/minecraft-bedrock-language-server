@@ -41,9 +41,10 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
           document.positionAt(parameter.offset),
           document.positionAt(parameter.offset + parameter.text.length),
         );
+        const source = info.source ? `\nSource: ${info.source.uri}:${info.source.line}` : '';
 
         if (index == 0) {
-          return { contents: `## ${info.name}\n${info.documentation}\n${pdoc}`, range: r };
+          return { contents: `## ${info.name}\n${info.documentation}\n${pdoc}${source}`, range: r };
         } else {
           return GetHoverContent(context, parameterInfo, r, parameter.text, pdoc);
         }
