@@ -4,11 +4,14 @@ import { CommandContainer } from '../../data/command-container';
 import { ParameterType } from '../parameter-type';
 import { General, Minecraft, Modes } from 'bc-minecraft-bedrock-types';
 
+export type CustomCommandGetter = (name: string) => CommandInfo[] | undefined;
+export type CustomCommandLookup = CommandContainer | CustomCommandGetter;
+
 /**Gets the best matching commandInfo data, if multiple are returned, it unclear or somewhere not fully specified
  * @param command The command to search through
  * @param edu Whether or not to include education data
  * @returns An array with commands info*/
-export function getBestMatches(command: Command, edu: boolean = false, custom?: CommandContainer): CommandInfo[] {
+export function getBestMatches(command: Command, edu: boolean = false, custom?: CustomCommandLookup): CommandInfo[] {
   let m = command.getCommandData(edu, custom);
 
   if (m.length === 1) return m;
@@ -30,7 +33,7 @@ export function getBestMatches(command: Command, edu: boolean = false, custom?: 
  * @param data The commandInfo serving as the basis
  * @param edu If education content should be used or not
  * @returns true or false is this commandInfo matches the command*/
-export function isMatch(command: Command, data: CommandInfo, edu: boolean = false, custom?: CommandContainer): boolean {
+export function isMatch(command: Command, data: CommandInfo, edu: boolean = false, custom?: CustomCommandLookup): boolean {
   let Limit = data.parameters.length;
 
   if (Limit > command.parameters.length) {
@@ -164,7 +167,7 @@ export function getCommandData(
   name: string,
   edu: boolean = false,
   type: ParameterType = ParameterType.command,
-  custom?: CommandContainer,
+  custom?: CustomCommandLookup,
 ): CommandInfo[] {
   const out: CommandInfo[] = [];
 
@@ -174,7 +177,7 @@ export function getCommandData(
 
   if (type == ParameterType.command) {
     Add(out, CommandData.Vanilla[name]);
-    Add(out, custom?.[name]);
+    Add(out, getCustomCommandData(name, custom));
 
     if (edu) Add(out, CommandData.Edu[name]);
   }
@@ -186,9 +189,9 @@ export function getCommandData(
  * @param name The command to retrieve
  * @param edu Whether or not to include education commands
  * @returns An array with commands info*/
-export function hasCommandData(name: string, edu: boolean = false, custom?: CommandContainer): boolean {
+export function hasCommandData(name: string, edu: boolean = false, custom?: CustomCommandLookup): boolean {
   if (CommandData.Vanilla[name]) return true;
-  if (custom?.[name]) return true;
+  if (getCustomCommandData(name, custom)) return true;
   if (edu && CommandData.Edu[name]) return true;
 
   return false;
@@ -198,9 +201,9 @@ export function hasCommandData(name: string, edu: boolean = false, custom?: Comm
  * @param command The command to retrieve
  * @param edu Whether or not to include education commands
  * @returns True or false*/
-export function IsCommand(command: string, edu: boolean = false, custom?: CommandContainer): boolean {
+export function IsCommand(command: string, edu: boolean = false, custom?: CustomCommandLookup): boolean {
   if (CommandData.Vanilla[command]) return true;
-  if (custom?.[command]) return true;
+  if (getCustomCommandData(command, custom)) return true;
   if (edu && CommandData.Edu[command]) return true;
 
   return false;
@@ -215,4 +218,11 @@ export function IsExecuteSubcommand(command: string) {
 
 function Add(receiver: CommandInfo[], items: CommandInfo[] | undefined): void {
   if (items) receiver.push(...items);
+}
+
+function getCustomCommandData(name: string, custom?: CustomCommandLookup): CommandInfo[] | undefined {
+  if (!custom) return undefined;
+  if (typeof custom === 'function') return custom(name);
+
+  return custom[name];
 }

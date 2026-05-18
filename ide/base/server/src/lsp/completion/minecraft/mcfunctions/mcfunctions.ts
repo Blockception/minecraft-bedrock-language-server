@@ -1,5 +1,4 @@
 import { Command } from 'bc-minecraft-bedrock-command';
-import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { CompletionItemKind } from 'vscode-languageserver';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
@@ -17,7 +16,7 @@ import * as Parameter from '../commands/parameters';
  */
 export function provideCompletion(context: Context<CompletionContext>): void {
   const { document, position, cursor } = context;
-  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
+  const custom = (name: string) => context.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
   const lineIndex = position.line;
   const line = document.getLine(lineIndex);
 
@@ -78,7 +77,7 @@ export function provideCompletionLine(context: Context<CompletionContext>, text:
  */
 export function provideCompletionCommand(context: Context<CompletionContext>, command: Command): void {
   const { cursor, document } = context;
-  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
+  const custom = (name: string) => context.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
 
   if (command == undefined || command.parameters.length == 0 || cursor < command.parameters[0].offset + 3) {
     CCommand.provideCompletion(context);

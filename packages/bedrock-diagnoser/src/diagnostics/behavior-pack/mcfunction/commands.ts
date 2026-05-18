@@ -1,6 +1,5 @@
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
-import { Command, CommandContainer, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
-import { BehaviorPack } from 'bc-minecraft-bedrock-project';
+import { Command, CustomCommandLookup, CommandData, Parameter, ParameterInfo, ParameterType } from 'bc-minecraft-bedrock-command';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { education_enabled } from '../../definitions';
 import {
@@ -155,9 +154,8 @@ export function commandsCheck(commandText: string, diagnoser: DocumentDiagnostic
  * @returns
  */
 function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagnosticsBuilder, edu: boolean): void {
-  const customCommands = BehaviorPack.Script.toCommandContainer(
-    diagnoser.context.getProjectData().projectData.behaviorPacks.customCommands,
-  );
+  const customCommands = (name: string) =>
+    diagnoser.context.getProjectData().projectData.behaviorPacks.customCommands.get(name)?.syntaxes;
   const info = command.getBestMatch(edu, customCommands);
 
   if (info.length === 0) {
@@ -192,7 +190,7 @@ function diagnose_mcfunction_commands(command: Command, diagnoser: DocumentDiagn
       );
     }
 
-    if (customCommands[keyCommand] !== undefined) {
+    if (customCommands(keyCommand) !== undefined) {
       return diagnoser.add(
         command.parameters[0].offset,
         `Unknown syntax for custom command: "${keyCommand}"`,
@@ -336,7 +334,7 @@ function mcfunction_diagnoseparameter(
   diagnoser: DocumentDiagnosticsBuilder,
   Com: Command,
   edu: boolean,
-  customCommands: CommandContainer,
+  customCommands: CustomCommandLookup,
 ): void | boolean {
   if (pattern === undefined || data === undefined) return;
 

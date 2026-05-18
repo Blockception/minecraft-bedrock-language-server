@@ -1,7 +1,6 @@
 import { CommandInfo } from '../../data';
-import { CommandContainer } from '../../data/command-container';
 import { ParameterType } from '../parameter-type';
-import { getBestMatches, getCommandData } from './functions';
+import { CustomCommandLookup, getBestMatches, getCommandData } from './functions';
 import { Parameter } from './parameter';
 import { GetParameters, ParameterBuilder } from './parse';
 
@@ -28,21 +27,21 @@ export class Command {
   /**Gets all the command data that is the possible best match data
    * @param edu Whether or not to include education data
    * @returns An array with commands info*/
-  getCommandData(edu: boolean = false, custom?: CommandContainer): CommandInfo[] {
+  getCommandData(edu: boolean = false, custom?: CustomCommandLookup): CommandInfo[] {
     return getCommandData(this.getKeyword(), edu, this.subType, custom);
   }
 
   /**Gets the best matching commandInfo data, if multiple are returned, it unclear or somewhere not fully specified
    * @param edu Whether or not to include education data
    * @returns An array with commands info*/
-  getBestMatch(edu: boolean = false, custom?: CommandContainer): CommandInfo[] {
+  getBestMatch(edu: boolean = false, custom?: CustomCommandLookup): CommandInfo[] {
     return getBestMatches(this, edu, custom);
   }
 
   /**Gets the subcommand if there is any present
    * @param edu Whether or not to include education data
    * @returns A sub command or undefined if there is no subcommand*/
-  getSubCommand(edu: boolean = false, custom?: CommandContainer): Command | undefined {
+  getSubCommand(edu: boolean = false, custom?: CustomCommandLookup): Command | undefined {
     const matches = this.getBestMatch(edu, custom);
 
     for (let I = 0; I < matches.length; I++) {
@@ -110,7 +109,7 @@ export class Command {
   /**Checks if the given cursor offset is in the subcommand or in the main command (or outside)
    * @param cursor The cursor offset
    * @returns A subcommand if the cursor is in the subcommand else returned undefined*/
-  isInSubCommand(cursor: number, edu: boolean = false, custom?: CommandContainer): Command | undefined {
+  isInSubCommand(cursor: number, edu: boolean = false, custom?: CustomCommandLookup): Command | undefined {
     const get = this.getSubCommand(edu, custom);
 
     if (get && get.parameters[0].offset <= cursor) return get;

@@ -1,6 +1,5 @@
 import { Languages } from '@blockception/ide-shared';
-import { Command, CommandContainer, ParameterType } from 'bc-minecraft-bedrock-command';
-import { BehaviorPack } from 'bc-minecraft-bedrock-project';
+import { Command, CustomCommandLookup, ParameterType } from 'bc-minecraft-bedrock-command';
 import {
   CancellationToken,
   Connection,
@@ -42,7 +41,7 @@ export class InlayHintService extends BaseService implements IService {
     const maxLine = Math.min(document.lineCount - 1, params.range.end.line);
     const minLine = Math.max(0, params.range.start.line);
     const edu = IsEducationEnabled(document);
-    const custom = BehaviorPack.Script.toCommandContainer(this.extension.database.ProjectData.behaviorPacks.customCommands);
+    const custom = (name: string) => this.extension.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
 
     for (let lineIndex = minLine; lineIndex <= maxLine; lineIndex++) {
       const line = document.getLine(lineIndex);
@@ -79,7 +78,7 @@ export function provideInlayHints(
   line: string,
   cursorOffset: number,
   edu: boolean,
-  custom?: CommandContainer,
+  custom?: CustomCommandLookup,
 ): CommandInlayHint[] {
   let command: Command = Command.parse(line, 0);
   if (command.isEmpty()) return [];
