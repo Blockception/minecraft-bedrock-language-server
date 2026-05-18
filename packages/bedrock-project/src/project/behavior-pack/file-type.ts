@@ -48,6 +48,7 @@ export namespace FileType {
   export function detect(uri: string): FileType {
     if (uri.endsWith('.mcfunction')) return FileType.function;
     if (uri.endsWith('.js')) return FileType.script;
+    if (uri.endsWith('.ts')) return FileType.script;
 
     //Folders
     if (/[\\/]animation_controllers[\\/]/.test(uri)) return FileType.animation_controller;

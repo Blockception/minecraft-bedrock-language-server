@@ -15,16 +15,17 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
   const Line = document.getLine(LineIndex);
   const offset = document.offsetAt({ character: 0, line: LineIndex });
   const Edu = IsEducationEnabled(document);
+  const custom = (name: string) => context.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
 
   let command: Command = Command.parse(Line, offset);
-  let subCommand = command.isInSubCommand(cursor, Edu);
+  let subCommand = command.isInSubCommand(cursor, Edu, custom);
 
   while (subCommand) {
     command = subCommand;
-    subCommand = subCommand.isInSubCommand(cursor, Edu);
+    subCommand = subCommand.isInSubCommand(cursor, Edu, custom);
   }
 
-  const data = command.getBestMatch(Edu);
+  const data = command.getBestMatch(Edu, custom);
 
   if (data.length >= 1) {
     const info = data[0];
@@ -41,9 +42,10 @@ export function provideHover(context: Context<HoverContext>): Hover | undefined 
           document.positionAt(parameter.offset),
           document.positionAt(parameter.offset + parameter.text.length),
         );
+        const source = info.source ? `\nSource: ${info.source.uri}:${info.source.line}` : '';
 
         if (index == 0) {
-          return { contents: `## ${info.name}\n${info.documentation}\n${pdoc}`, range: r };
+          return { contents: `## ${info.name}\n${info.documentation}\n${pdoc}${source}`, range: r };
         } else {
           return GetHoverContent(context, parameterInfo, r, parameter.text, pdoc);
         }

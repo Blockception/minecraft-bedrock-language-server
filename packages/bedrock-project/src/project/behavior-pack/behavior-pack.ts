@@ -16,6 +16,7 @@ import * as ItemCatalog from './item_catalog';
 import * as LootTable from './loot-table';
 import * as Function from './mcfunction';
 import * as Recipe from './recipe';
+import * as Script from './script';
 import * as Structure from './structure';
 import * as Trading from './trading';
 
@@ -74,6 +75,8 @@ export class BehaviorPack implements Container, Pack {
   readonly trading: DataSet<Trading.Trading>;
   /**The collection of voxel shapes*/
   readonly voxelShapes: DataSet<VoxelShape.VoxelShape>;
+  /**The collection of script-defined custom commands*/
+  readonly customCommands: DataSet<Script.CustomCommand>;
 
   /**
    * @param folder The folder of the behavior
@@ -98,6 +101,7 @@ export class BehaviorPack implements Container, Pack {
     this.featuresRules = new DataSet();
     this.itemGroups = new DataSet();
     this.voxelShapes = new DataSet();
+    this.customCommands = new DataSet();
   }
 
   /**
@@ -154,6 +158,9 @@ export class BehaviorPack implements Container, Pack {
 
       case FileType.voxel_shape:
         return this.voxelShapes.set(VoxelShape.process(doc));
+
+      case FileType.script:
+        return this.customCommands.set(Script.process(doc));
     }
 
     return undefined;
@@ -213,6 +220,9 @@ export class BehaviorPack implements Container, Pack {
       case FileType.voxel_shape:
         return this.voxelShapes;
 
+      case FileType.script:
+        return this.customCommands;
+
       default:
         return undefined;
     }
@@ -241,6 +251,7 @@ export class BehaviorPack implements Container, Pack {
     out = this.structures.deleteFile(uri) || out;
     out = this.trading.deleteFile(uri) || out;
     out = this.voxelShapes.deleteFile(uri) || out;
+    out = this.customCommands.deleteFile(uri) || out;
 
     return out;
   }
@@ -267,6 +278,7 @@ export class BehaviorPack implements Container, Pack {
     out = this.structures.deleteFolder(uri) || out;
     out = this.trading.deleteFolder(uri) || out;
     out = this.voxelShapes.deleteFolder(uri) || out;
+    out = this.customCommands.deleteFolder(uri) || out;
 
     return out;
   }
@@ -294,6 +306,7 @@ export class BehaviorPack implements Container, Pack {
     if ((value = this.structures.find(predicate))) return value;
     if ((value = this.trading.find(predicate))) return value;
     if ((value = this.voxelShapes.find(predicate))) return value;
+    if ((value = this.customCommands.find(predicate))) return value;
 
     return value;
   }
@@ -319,6 +332,7 @@ export class BehaviorPack implements Container, Pack {
     this.structures.forEach(callbackfn);
     this.trading.forEach(callbackfn);
     this.voxelShapes.forEach(callbackfn);
+    this.customCommands.forEach(callbackfn);
   }
 }
 
@@ -351,6 +365,7 @@ export namespace BehaviorPack {
       if (typeof temp.biomes !== 'object') return false;
       if (typeof temp.recipes !== 'object') return false;
       if (typeof temp.voxelShapes !== 'object') return false;
+      if (typeof temp.customCommands !== 'object') return false;
 
       if (typeof temp.context !== 'object') return false;
       if (typeof temp.folder !== 'string') return false;

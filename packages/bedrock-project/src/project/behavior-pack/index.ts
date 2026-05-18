@@ -11,6 +11,7 @@ export * as ItemCatalog from './item_catalog';
 export * as LootTable from './loot-table';
 export * as McFunction from './mcfunction';
 export * as Recipe from './recipe';
+export * as Script from './script';
 export * as Structure from './structure';
 export * as Trading from './trading';
 export * as VoxelShape from './voxel-shape';

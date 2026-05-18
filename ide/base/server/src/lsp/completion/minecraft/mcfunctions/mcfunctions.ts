@@ -16,6 +16,7 @@ import * as Parameter from '../commands/parameters';
  */
 export function provideCompletion(context: Context<CompletionContext>): void {
   const { document, position, cursor } = context;
+  const custom = (name: string) => context.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
   const lineIndex = position.line;
   const line = document.getLine(lineIndex);
 
@@ -42,14 +43,14 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const offset = document.offsetAt({ character: 0, line: lineIndex });
 
   let command = Command.parse(line, offset);
-  let subCommmand = command.isInSubCommand(cursor);
+  let subCommmand = command.isInSubCommand(cursor, false, custom);
 
   while (subCommmand) {
     if (subCommmand) {
       command = subCommmand;
     }
 
-    subCommmand = command.isInSubCommand(cursor);
+    subCommmand = command.isInSubCommand(cursor, false, custom);
   }
 
   provideCompletionCommand(context, command);
@@ -76,6 +77,7 @@ export function provideCompletionLine(context: Context<CompletionContext>, text:
  */
 export function provideCompletionCommand(context: Context<CompletionContext>, command: Command): void {
   const { cursor, document } = context;
+  const custom = (name: string) => context.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
 
   if (command == undefined || command.parameters.length == 0 || cursor < command.parameters[0].offset + 3) {
     CCommand.provideCompletion(context);
@@ -83,7 +85,7 @@ export function provideCompletionCommand(context: Context<CompletionContext>, co
   }
 
   const eduEnabled = IsEducationEnabled(document);
-  const matches = command.getBestMatch(eduEnabled);
+  const matches = command.getBestMatch(eduEnabled, custom);
   if (matches.length === 0) {
     if (cursor < 10) CCommand.provideCompletion(context);
 
@@ -92,7 +94,7 @@ export function provideCompletionCommand(context: Context<CompletionContext>, co
 
   const parameterIndex: number = command.findCursorIndex(cursor);
   const current = command.parameters[parameterIndex];
-  const bestMatch = command.getBestMatch(eduEnabled)[0];
+  const bestMatch = command.getBestMatch(eduEnabled, custom)[0];
 
   for (let I = 0; I < matches.length; I++) {
     const Match = matches[I];

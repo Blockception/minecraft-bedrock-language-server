@@ -1,20 +1,17 @@
 import { CommandInfo } from '../../data';
 import { ParameterType } from '../parameter-type';
-import { getBestMatches, getCommandData } from './functions';
+import { CustomCommandLookup, getBestMatches, getCommandData } from './functions';
 import { Parameter } from './parameter';
 import { GetParameters, ParameterBuilder } from './parse';
 
 /**A class that helps interpreting written commands.*/
 export class Command {
-  private _matches: CommandInfo[] | undefined;
-
   /**The parameters of the command.*/
   public parameters: Parameter[];
   public subType: ParameterType;
 
   /**Creates a new instance of a command*/
   constructor() {
-    this._matches = undefined;
     this.parameters = [];
     this.subType = ParameterType.command;
   }
@@ -30,24 +27,22 @@ export class Command {
   /**Gets all the command data that is the possible best match data
    * @param edu Whether or not to include education data
    * @returns An array with commands info*/
-  getCommandData(edu: boolean = false): CommandInfo[] {
-    return getCommandData(this.getKeyword(), edu, this.subType);
+  getCommandData(edu: boolean = false, custom?: CustomCommandLookup): CommandInfo[] {
+    return getCommandData(this.getKeyword(), edu, this.subType, custom);
   }
 
   /**Gets the best matching commandInfo data, if multiple are returned, it unclear or somewhere not fully specified
    * @param edu Whether or not to include education data
    * @returns An array with commands info*/
-  getBestMatch(edu: boolean = false): CommandInfo[] {
-    if (this._matches) return this._matches;
-
-    return (this._matches = getBestMatches(this, edu));
+  getBestMatch(edu: boolean = false, custom?: CustomCommandLookup): CommandInfo[] {
+    return getBestMatches(this, edu, custom);
   }
 
   /**Gets the subcommand if there is any present
    * @param edu Whether or not to include education data
    * @returns A sub command or undefined if there is no subcommand*/
-  getSubCommand(edu: boolean = false): Command | undefined {
-    const matches = this.getBestMatch(edu);
+  getSubCommand(edu: boolean = false, custom?: CustomCommandLookup): Command | undefined {
+    const matches = this.getBestMatch(edu, custom);
 
     for (let I = 0; I < matches.length; I++) {
       const item = matches[I];
@@ -114,8 +109,8 @@ export class Command {
   /**Checks if the given cursor offset is in the subcommand or in the main command (or outside)
    * @param cursor The cursor offset
    * @returns A subcommand if the cursor is in the subcommand else returned undefined*/
-  isInSubCommand(cursor: number, edu: boolean = false): Command | undefined {
-    const get = this.getSubCommand(edu);
+  isInSubCommand(cursor: number, edu: boolean = false, custom?: CustomCommandLookup): Command | undefined {
+    const get = this.getSubCommand(edu, custom);
 
     if (get && get.parameters[0].offset <= cursor) return get;
 

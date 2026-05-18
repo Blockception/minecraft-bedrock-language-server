@@ -1,4 +1,5 @@
 import { CommandData, CommandInfo } from 'bc-minecraft-bedrock-command';
+import { BehaviorPack } from 'bc-minecraft-bedrock-project';
 import { Kinds } from '../../../../constants';
 import { IsEducationEnabled } from '../../../../project/attributes';
 import { Context } from '../../../context/context';
@@ -11,8 +12,10 @@ import { CompletionContext } from '../../context';
  */
 export function provideCompletion(context: Context<CompletionContext>): void {
   const edu = IsEducationEnabled(context.document);
+  const custom = BehaviorPack.Script.toCommandContainer(context.database.ProjectData.behaviorPacks.customCommands);
 
   Object.values(CommandData.Vanilla).forEach((data) => getCompletion(data, context.builder));
+  Object.values(custom).forEach((data) => getCompletion(data, context.builder));
   if (edu) Object.values(CommandData.Edu).forEach((data) => getCompletion(data, context.builder));
 }
 
@@ -30,7 +33,10 @@ function getCompletion(Data: CommandInfo[], receiver: CompletionBuilder) {
     const CInfo = Data[I];
     if (CInfo.obsolete) continue;
 
-    const doc = `## ${CInfo.name}\n${CInfo.documentation}\n[documentation](https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/${CInfo.name})`;
+    const source = CInfo.source;
+    const doc = source
+      ? `## ${CInfo.name}\n${CInfo.documentation}\nSource: \`${source.uri}:${source.line}\``
+      : `## ${CInfo.name}\n${CInfo.documentation}\n[documentation](https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/${CInfo.name})`;
 
     receiver.add({ label: CInfo.name, documentation: doc, kind: Kinds.Completion.Command });
     break;

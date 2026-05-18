@@ -13,9 +13,10 @@ export async function provideReferences(
   const { document, position } = context;
   const line = value.text;
   const offset = value.offset;
+  const custom = (name: string) => context.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
 
   const com = Command.parse(line, offset);
-  const data = com.getBestMatch(IsEducationEnabled(document));
+  const data = com.getBestMatch(IsEducationEnabled(document), custom);
 
   if (data.length == 0) return undefined;
 

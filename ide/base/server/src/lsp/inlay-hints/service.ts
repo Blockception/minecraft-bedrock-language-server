@@ -1,5 +1,5 @@
 import { Languages } from '@blockception/ide-shared';
-import { Command, ParameterType } from 'bc-minecraft-bedrock-command';
+import { Command, CustomCommandLookup, ParameterType } from 'bc-minecraft-bedrock-command';
 import {
   CancellationToken,
   Connection,
@@ -41,6 +41,7 @@ export class InlayHintService extends BaseService implements IService {
     const maxLine = Math.min(document.lineCount - 1, params.range.end.line);
     const minLine = Math.max(0, params.range.start.line);
     const edu = IsEducationEnabled(document);
+    const custom = (name: string) => this.extension.database.ProjectData.behaviorPacks.customCommands.get(name)?.syntaxes;
 
     for (let lineIndex = minLine; lineIndex <= maxLine; lineIndex++) {
       const line = document.getLine(lineIndex);
@@ -49,7 +50,7 @@ export class InlayHintService extends BaseService implements IService {
       const lineOffset = document.offsetAt({ line: lineIndex, character: 0 });
       const cursorOffset = line.length;
 
-      for (const hint of provideInlayHints(line, cursorOffset, edu)) {
+      for (const hint of provideInlayHints(line, cursorOffset, edu, custom)) {
         const position = document.positionAt(lineOffset + hint.offset);
         const inlayHint: InlayHint = {
           kind: InlayHintKind.Parameter,
@@ -73,17 +74,22 @@ export interface CommandInlayHint {
   offset: number;
 }
 
-export function provideInlayHints(line: string, cursorOffset: number, edu: boolean): CommandInlayHint[] {
+export function provideInlayHints(
+  line: string,
+  cursorOffset: number,
+  edu: boolean,
+  custom?: CustomCommandLookup,
+): CommandInlayHint[] {
   let command: Command = Command.parse(line, 0);
   if (command.isEmpty()) return [];
 
-  let subCommand = command.isInSubCommand(cursorOffset, edu);
+  let subCommand = command.isInSubCommand(cursorOffset, edu, custom);
   while (subCommand) {
     command = subCommand;
-    subCommand = command.isInSubCommand(cursorOffset, edu);
+    subCommand = command.isInSubCommand(cursorOffset, edu, custom);
   }
 
-  const bestMatch = command.getBestMatch(edu)[0];
+  const bestMatch = command.getBestMatch(edu, custom)[0];
   if (!bestMatch) return [];
 
   const max = Math.min(bestMatch.parameters.length, command.parameters.length);

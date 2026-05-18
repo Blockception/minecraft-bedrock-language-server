@@ -247,8 +247,10 @@ The extension automatically scans your workspace and indexes all custom content 
 - **Blocks** defined in your behavior pack (`blocks/` folder)
 - **Animations** and **animation controllers**
 - **Loot tables**, **particles**, **sounds**, **textures**, and more
+- **Script-registered custom commands** from behavior pack `scripts/**/*.js` and `scripts/**/*.ts` files using `CustomCommandRegistry.registerCommand(...)`
 
 Once indexed, these appear as completions wherever they are relevant. For example, custom entity IDs will appear in `summon` command completions, and custom sounds will appear in `playsound` completions.
+Script-registered commands are also recognized by diagnostics and hover/signature features in `.mcfunction` and supported JSON command fields.
 
 The indexing happens automatically when you open a project. If you add new files, they are picked up as your project is rescanned.
 
