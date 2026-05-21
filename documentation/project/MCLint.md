@@ -104,6 +104,27 @@ This is useful when you want to ensure your project never accidentally shadows v
 
 ---
 
+### `namespace.required`
+
+Requires that identifiers for entities, blocks, and items always include a namespace (i.e. the `namespace:name` format). Identifiers that do not contain a colon separator are flagged.
+
+**Options:** none
+
+**Example:**
+```json
+{
+  "rules": {
+    "namespace.required": "error"
+  }
+}
+```
+
+With this rule enabled, a definition such as `"identifier": "my_zombie"` is flagged because it is missing the namespace prefix. It must be written as `"my_namespace:my_zombie"`.
+
+> **Note:** This is different from `identity.format`, which validates the full `namespace:name` pattern (including character restrictions). `namespace.required` only checks that a namespace separator (`:`) is present.
+
+---
+
 ### `animation.naming`
 
 Validates animation IDs against a regular expression pattern.
@@ -228,6 +249,7 @@ This requires all fake player names to start with `#` followed by lowercase `sna
     "identity.format": "error",
     "namespace.allow": ["error", ["myns", "shared"]],
     "namespace.deny": "off",
+    "namespace.required": "error",
     "animation.naming": ["warn", "^animation\\.myns\\."],
     "animation-state.naming": ["warn", "^[a-z_]+$"],
     "bone.naming": "off",
@@ -263,6 +285,7 @@ Each lint rule produces a diagnostic with a code that can be referenced in inlin
 | `identity.format` | `lint.identity.format` |
 | `namespace.allow` | `lint.namespace.allow` |
 | `namespace.deny` | `lint.namespace.deny` |
+| `namespace.required` | `lint.namespace.required` |
 | `animation.naming` | `lint.animation.naming` |
 | `animation-state.naming` | `lint.animation-state.naming` |
 | `bone.naming` | `lint.bone.naming` |
