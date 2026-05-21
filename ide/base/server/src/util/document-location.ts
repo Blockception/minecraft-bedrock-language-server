@@ -53,9 +53,9 @@ export function GetRange(position: DocumentLocation, doc: vstd.TextDocument): Ra
     break;
   }
 
-  //If end is still undefined then make atleast one character big
+  //If end is still undefined then create a minimal, valid range
   if (!End) {
-    End = { character: Start.character + 1, line: Start.line };
+    End = doc.positionAt(Math.min(position + 1, text.length));
   }
 
   return { start: Start, end: End };
