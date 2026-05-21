@@ -178,6 +178,48 @@ This requires all MoLang variables to use `snake_case`.
 
 ---
 
+### `mcfunction.naming`
+
+Validates the name (ID) of each `.mcfunction` file against a regular expression pattern. The ID is the file path relative to the `functions/` directory, without the `.mcfunction` extension (e.g. `my_folder/my_function`).
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "mcfunction.naming": ["warn", "^[a-z][a-z0-9_/]*$"]
+  }
+}
+```
+
+This requires all function file names to use only lowercase letters, digits, underscores, and path separators.
+
+**Diagnostic code:** `lint.mcfunction.naming`
+
+---
+
+### `fake-player.naming`
+
+Validates **fake player names** used in commands such as `scoreboard players` against a regular expression pattern. Fake players are non-selector string targets like `#myScore` or `$counter`.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "fake-player.naming": ["warn", "^#[a-z][a-z0-9_]*$"]
+  }
+}
+```
+
+This requires all fake player names to start with `#` followed by lowercase `snake_case`.
+
+**Diagnostic code:** `lint.fake-player.naming`
+
+---
+
 ## Complete Example
 
 ```json
@@ -189,7 +231,9 @@ This requires all MoLang variables to use `snake_case`.
     "animation.naming": ["warn", "^animation\\.myns\\."],
     "animation-state.naming": ["warn", "^[a-z_]+$"],
     "bone.naming": "off",
-    "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"]
+    "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"],
+    "mcfunction.naming": ["warn", "^[a-z][a-z0-9_/]*$"],
+    "fake-player.naming": ["warn", "^#[a-z][a-z0-9_]*$"]
   }
 }
 ```
@@ -223,6 +267,8 @@ Each lint rule produces a diagnostic with a code that can be referenced in inlin
 | `animation-state.naming` | `lint.animation-state.naming` |
 | `bone.naming` | `lint.bone.naming` |
 | `molang.variable.naming` | `lint.molang.variable.naming` |
+| `mcfunction.naming` | `lint.mcfunction.naming` |
+| `fake-player.naming` | `lint.fake-player.naming` |
 
 ---
 
