@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-molang",
-  "version": "1.22.2-2",
+  "version": "1.22.2-3",
   "description": "The library designed to deal with minecraft bedrock molang",
   "author": {
     "name": "Blockception Ltd",
@@ -43,7 +43,6 @@
     "@eslint/js": "^10.0.1",
     "@types/eslint__js": "^9.14.0",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.7.0",
     "@types/node": "^25.8.0",
     "eslint": "^10.4.0",
     "rimraf": "^6.1.3",
