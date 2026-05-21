@@ -24,6 +24,12 @@ export interface MCLintRules {
    */
   'namespace.deny'?: MCLintRuleValue;
   /**
+   * Require that identifiers for items, entities, blocks, and similar types always include a namespace.
+   * When enabled, identifiers that do not contain a colon separator (e.g. `zombie` instead of `minecraft:zombie`)
+   * are flagged.
+   */
+  'namespace.required'?: MCLintRuleValue;
+  /**
    * Validate animation IDs against a regular expression pattern.
    * Options: `[severity, "regexPattern"]`
    */

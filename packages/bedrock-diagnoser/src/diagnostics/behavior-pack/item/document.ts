@@ -8,6 +8,7 @@ import { behaviorpack_diagnose_item_components } from './components/diagnose';
 import { no_other_duplicates } from '../../packs/duplicate-check';
 import { FormatVersion } from 'bc-minecraft-bedrock-types/src/minecraft';
 import { diagnose_molang_syntax_current_document } from '../../molang';
+import { lint_check_identity_format, lint_check_namespace, lint_check_namespace_required } from '../../lint';
 
 /**Diagnoses the given document as an item
  * @param diagnoser The diagnoser builder to receive the errors*/
@@ -17,6 +18,10 @@ export function diagnose_item_document(diagnoser: DocumentDiagnosticsBuilder): v
   diagnose_molang_syntax_current_document(diagnoser, item);
 
   const identifier = item['minecraft:item'].description.identifier;
+  // Run configurable lint checks for identity format and namespace
+  lint_check_identity_format(identifier, diagnoser);
+  lint_check_namespace(identifier, diagnoser);
+  lint_check_namespace_required(identifier, diagnoser);
   // check that no other exists with this id
   no_other_duplicates(
     'behaviorpack.block',
