@@ -178,6 +178,40 @@ This requires all MoLang variables to use `snake_case`.
 
 ---
 
+### `sound.extensions`
+
+Validates that sound path references in `sound_definitions.json` use only allowed file extensions. When a sound path explicitly includes a file extension, it must be one of the permitted values.
+
+Paths **without** an extension are always accepted — Minecraft Bedrock resolves the actual file at runtime, so extension-free paths are the normal and recommended pattern.
+
+**Options:** `[severity, [".ogg", ".wav"]]`
+
+- The second element is the list of allowed extensions (each must include the leading dot).
+- Defaults to `[".ogg", ".wav"]` when omitted.
+- Extension matching is **case-insensitive**.
+
+**Example — severity only (uses default allowed list):**
+```json
+{
+  "rules": {
+    "sound.extensions": "warn"
+  }
+}
+```
+
+**Example — custom allowed list:**
+```json
+{
+  "rules": {
+    "sound.extensions": ["error", [".ogg", ".wav", ".fsb"]]
+  }
+}
+```
+
+**What it checks:** Every `name` entry under `sound_definitions.json > sounds[].name`. A path like `sounds/ambient/rain.mp3` would be flagged because `.mp3` is not in the default allowed list, while `sounds/ambient/rain` (no extension) is always accepted.
+
+---
+
 ## Complete Example
 
 ```json
@@ -189,7 +223,8 @@ This requires all MoLang variables to use `snake_case`.
     "animation.naming": ["warn", "^animation\\.myns\\."],
     "animation-state.naming": ["warn", "^[a-z_]+$"],
     "bone.naming": "off",
-    "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"]
+    "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"],
+    "sound.extensions": ["warn", [".ogg", ".wav"]]
   }
 }
 ```
@@ -223,6 +258,7 @@ Each lint rule produces a diagnostic with a code that can be referenced in inlin
 | `animation-state.naming` | `lint.animation-state.naming` |
 | `bone.naming` | `lint.bone.naming` |
 | `molang.variable.naming` | `lint.molang.variable.naming` |
+| `sound.extensions` | `lint.sound.extensions` |
 
 ---
 
