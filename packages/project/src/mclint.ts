@@ -43,6 +43,18 @@ export interface MCLintRules {
    * Options: `[severity, "regexPattern"]`
    */
   'molang.variable.naming'?: MCLintRuleValue;
+  /**
+   * Validate mcfunction file names (function IDs) against a regular expression pattern.
+   * The function ID is the path relative to the `functions/` directory, without the `.mcfunction` extension.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'mcfunction.naming'?: MCLintRuleValue;
+  /**
+   * Validate fake player names against a regular expression pattern.
+   * Fake players are non-selector target values used in commands such as `scoreboard`.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'fake-player.naming'?: MCLintRuleValue;
   /** Additional user-defined rules */
   [key: string]: MCLintRuleValue | undefined;
 }

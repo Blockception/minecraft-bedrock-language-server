@@ -6,6 +6,7 @@ import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../types';
 import { check_definition_value } from '../definitions';
 import { Attribute } from './selector/attributes';
+import { lint_check_fake_player_naming } from '../lint';
 
 /**
  *
@@ -52,7 +53,10 @@ export function minecraft_selector_diagnose(
   if (check_definition_value(diagnoser.project.definitions.name, name, diagnoser)) return;
 
   //Project has defined this fake entity
-  if (data.general.fakeEntities.has(name)) return;
+  if (data.general.fakeEntities.has(name)) {
+    lint_check_fake_player_naming(name, diagnoser);
+    return;
+  }
 
   //Found nothing then report
   diagnoser.add(
