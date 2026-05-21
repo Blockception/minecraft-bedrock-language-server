@@ -39,7 +39,10 @@ export function setupClient(context: vscode.ExtensionContext) {
     ],
     synchronize: {
       // Notify the server about file changes to '.clientrc files contained in the workspace
-      fileEvents: vscode.workspace.createFileSystemWatcher('**/*.{mcfunction,json,jsonc}'),
+      fileEvents: [
+        vscode.workspace.createFileSystemWatcher('**/*.{mcfunction,json,jsonc}'),
+        vscode.workspace.createFileSystemWatcher('**/.mclint'),
+      ],
     },
     middleware: {
       resolveCodeLens: resolveCodeLens,

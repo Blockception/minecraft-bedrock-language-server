@@ -59,6 +59,7 @@ export class DocumentManager
       { pattern: { glob: '**/*.{mcfunction}', options: { ignoreCase: true } } },
       { pattern: { glob: '**/*.{json,jsonc}', options: { ignoreCase: true } } },
       { pattern: { glob: '**/*.{.mcignore,.mcattributes,.mcdefinitions}', options: { ignoreCase: true } } },
+      { pattern: { glob: '**/.mclint', options: { ignoreCase: true } } },
     ];
 
     capabilities.set('textDocumentSync', TextDocumentSyncKind.Incremental);
