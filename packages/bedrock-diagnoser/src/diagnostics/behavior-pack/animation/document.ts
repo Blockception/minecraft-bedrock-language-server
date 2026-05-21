@@ -1,6 +1,7 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json/json';
+import { lint_check_animation_naming } from '../../lint';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 import { no_other_duplicates } from '../../packs/duplicate-check';
 import { json_commandsCheck } from '../mcfunction/commands';
@@ -24,6 +25,9 @@ export function diagnose_animation_document(diagnoser: DocumentDiagnosticsBuilde
       id,
       diagnoser,
     );
+
+    // Run configurable lint check for animation naming
+    lint_check_animation_naming(id, diagnoser);
 
     //foreach time
     Object.entries(anim.timeline ?? {}).forEach(([time, data]) => {

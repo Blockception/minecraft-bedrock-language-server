@@ -5,6 +5,7 @@ import { DocumentDiagnosticsBuilder } from '../../../types';
 import { Context } from '../../../utility/components';
 import { education_enabled } from '../../definitions';
 import { Json } from '../../json';
+import { lint_check_identity_format, lint_check_namespace, lint_check_particle_naming } from '../../lint';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 import { texture_files_diagnose } from '../texture-atlas';
 import { resourcepack_diagnose_particle_components } from './components';
@@ -16,6 +17,13 @@ export function diagnose_particle_document(diagnoser: DocumentDiagnosticsBuilder
   const particle = Json.LoadReport<Internal.ResourcePack.Particle>(diagnoser);
   if (!Internal.ResourcePack.Particle.is(particle)) return;
   diagnose_molang_syntax_current_document(diagnoser, particle);
+
+  const particleId = particle.particle_effect.description.identifier;
+
+  // Run configurable lint checks for identity format, namespace, and particle naming
+  lint_check_identity_format(particleId, diagnoser);
+  lint_check_namespace(particleId, diagnoser);
+  lint_check_particle_naming(particleId, diagnoser);
 
   //check components
   const context: Context<Internal.ResourcePack.Particle> = {

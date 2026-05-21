@@ -3,6 +3,7 @@ import { getUsedComponents } from 'bc-minecraft-bedrock-types/src/minecraft/comp
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Context } from '../../../utility/components';
 import { Json } from '../../json';
+import { lint_check_identity_format, lint_check_item_naming, lint_check_namespace } from '../../lint';
 import { behaviorpack_item_components_dependencies } from './components/dependencies';
 import { behaviorpack_diagnose_item_components } from './components/diagnose';
 import { no_other_duplicates } from '../../packs/duplicate-check';
@@ -17,6 +18,12 @@ export function diagnose_item_document(diagnoser: DocumentDiagnosticsBuilder): v
   diagnose_molang_syntax_current_document(diagnoser, item);
 
   const identifier = item['minecraft:item'].description.identifier;
+
+  // Run configurable lint checks for identity format, namespace, and item naming
+  lint_check_identity_format(identifier, diagnoser);
+  lint_check_namespace(identifier, diagnoser);
+  lint_check_item_naming(identifier, diagnoser);
+
   // check that no other exists with this id
   no_other_duplicates(
     'behaviorpack.block',

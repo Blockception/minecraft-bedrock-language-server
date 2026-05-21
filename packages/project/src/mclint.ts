@@ -29,20 +29,75 @@ export interface MCLintRules {
    */
   'animation.naming'?: MCLintRuleValue;
   /**
+   * Validate animation controller IDs against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'animation-controller.naming'?: MCLintRuleValue;
+  /**
    * Validate animation controller state IDs against a regular expression pattern.
    * Options: `[severity, "regexPattern"]`
    */
   'animation-state.naming'?: MCLintRuleValue;
+  /**
+   * Validate biome identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'biome.naming'?: MCLintRuleValue;
+  /**
+   * Validate block identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'block.naming'?: MCLintRuleValue;
   /**
    * Validate bone names against a regular expression pattern.
    * Options: `[severity, "regexPattern"]`
    */
   'bone.naming'?: MCLintRuleValue;
   /**
+   * Validate entity identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'entity.naming'?: MCLintRuleValue;
+  /**
+   * Validate feature identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'feature.naming'?: MCLintRuleValue;
+  /**
+   * Validate feature rule identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'feature-rule.naming'?: MCLintRuleValue;
+  /**
+   * Validate fog setting identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'fog.naming'?: MCLintRuleValue;
+  /**
+   * Validate item identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'item.naming'?: MCLintRuleValue;
+  /**
+   * Validate model/geometry identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'model.naming'?: MCLintRuleValue;
+  /**
    * Validate molang variable names against a regular expression pattern.
    * Options: `[severity, "regexPattern"]`
    */
   'molang.variable.naming'?: MCLintRuleValue;
+  /**
+   * Validate particle identifiers against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'particle.naming'?: MCLintRuleValue;
+  /**
+   * Validate render controller IDs against a regular expression pattern.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'render-controller.naming'?: MCLintRuleValue;
   /** Additional user-defined rules */
   [key: string]: MCLintRuleValue | undefined;
 }

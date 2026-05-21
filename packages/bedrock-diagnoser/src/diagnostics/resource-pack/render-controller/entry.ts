@@ -1,6 +1,7 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
 import { DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json';
+import { lint_check_render_controller_naming } from '../../lint';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 import { BoneUsage, model_bones_must_exist } from '../model';
 
@@ -16,6 +17,9 @@ export function Diagnose(diagnoser: DocumentDiagnosticsBuilder): void {
   const bones: BoneUsage[] = [];
 
   Object.entries(model.render_controllers).forEach(([id, controller]) => {
+    // Run configurable lint check for render controller naming
+    lint_check_render_controller_naming(id, diagnoser);
+
     controller.part_visibility?.forEach((v) => {
       const key = Object.keys(v)[0];
       if (key) return;

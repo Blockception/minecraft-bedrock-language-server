@@ -1,6 +1,7 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json';
+import { lint_check_feature_naming, lint_check_identity_format, lint_check_namespace } from '../../lint';
 import { no_other_duplicates } from '../../packs/duplicate-check';
 import { behaviorpack_feature_diagnose } from './diagnose';
 import { is_block_defined } from '../block';
@@ -17,6 +18,11 @@ export function diagnose_feature_document(diagnoser: DocumentDiagnosticsBuilder)
 
   const identifier = findFeatureIdentifier(feature);
   if (!identifier) return;
+
+  // Run configurable lint checks for identity format, namespace, and feature naming
+  lint_check_identity_format(identifier, diagnoser);
+  lint_check_namespace(identifier, diagnoser);
+  lint_check_feature_naming(identifier, diagnoser);
 
   const path = diagnoser.document.uri.split('/');
   if (
