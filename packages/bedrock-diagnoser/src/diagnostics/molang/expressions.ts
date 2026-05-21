@@ -12,6 +12,7 @@ import {
 } from 'bc-minecraft-molang';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 import { Json } from '../json';
+import { lint_check_molang_variable } from '../lint';
 import { createDefaultOptimizationRegistry, traverseAndOptimize } from './optimizations/registry';
 
 export function diagnose_molang_syntax_current_document(
@@ -122,6 +123,11 @@ export function diagnose_molang_syntax(expression: ExpressionNode, diagnoser: Di
           case 'context':
           case 't':
           case 'temp':
+            // Run configurable lint check for molang variable naming
+            if (n.type === NodeType.Variable) {
+              const variableExpr = `${n.scope}.${n.names.join('.')}`;
+              lint_check_molang_variable(variableExpr, diagnoser);
+            }
             break;
           default:
             diagnoser.add(

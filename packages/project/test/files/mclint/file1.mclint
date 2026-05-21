@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "identity.format": "warn",
+    "namespace.allow": ["error", ["myns", "common"]],
+    "animation.naming": ["warn", "^animation\\."],
+    "bone.naming": "off",
+    "molang.variable.naming": ["warn", "^v\\."]
+  }
+}

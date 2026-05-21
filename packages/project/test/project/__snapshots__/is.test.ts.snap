@@ -53,6 +53,9 @@ exports[`MCProject is async p1 1`] = `
       "!BP/**/*.json",
     ],
   },
+  "linting": {
+    "rules": {},
+  },
 }
 `;
 
@@ -62,6 +65,9 @@ exports[`MCProject is it1 1`] = `
   "definitions": {},
   "ignores": {
     "patterns": [],
+  },
+  "linting": {
+    "rules": {},
   },
 }
 `;
@@ -118,6 +124,9 @@ exports[`MCProject is p1 1`] = `
       "Template/something",
       "!BP/**/*.json",
     ],
+  },
+  "linting": {
+    "rules": {},
   },
 }
 `;

@@ -7,6 +7,7 @@ import { getUsedComponents } from 'bc-minecraft-bedrock-types/src/minecraft/comp
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder, Metadata } from '../../../types';
 import { Context } from '../../../utility/components';
 import { Json } from '../../json';
+import { lint_check_identity_format, lint_check_namespace } from '../../lint';
 import { AnimationUsage } from '../../minecraft';
 import { diagnose_script } from '../../minecraft/script';
 import { diagnose_molang_syntax_current_document, MolangMetadata } from '../../molang';
@@ -38,6 +39,10 @@ export function diagnose_entity_document(diag: DocumentDiagnosticsBuilder): void
   diagnose_molang_syntax_current_document(diagnoser, entity);
   behaviorpack_entity_components_dependencies(entity, context, diagnoser);
   behaviorpack_entity_components_check(entity, context, diagnoser);
+
+  // Run configurable lint checks for identity format and namespace
+  lint_check_identity_format(identifier, diagnoser);
+  lint_check_namespace(identifier, diagnoser);
 
   //No resource-pack check, entities can exist without their rp side
   // check that no other exists with this id

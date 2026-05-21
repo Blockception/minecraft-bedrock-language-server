@@ -1,6 +1,6 @@
 import { Glob } from 'bc-minecraft-bedrock-shared';
 import { Documents, MinecraftData, ProjectData } from 'bc-minecraft-bedrock-project';
-import { MCAttributes, MCDefinition, MCIgnore, MCProject } from 'bc-minecraft-project';
+import { MCAttributes, MCDefinition, MCIgnore, MCLint, MCProject } from 'bc-minecraft-project';
 import { readFileSync } from 'fs';
 import path from 'path';
 import { TextDocument } from 'vscode-languageserver-textdocument';
@@ -75,6 +75,7 @@ function identifyDocument(uri: string) {
     case MCDefinition.filename:
     case MCIgnore.filename:
     case MCAttributes.filename:
+    case MCLint.filename:
       return 'bc-minecraft-project';
   }
 

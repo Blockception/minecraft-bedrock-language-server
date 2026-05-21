@@ -72,6 +72,29 @@ Template/
 !Template/settings.json
 ```
 
+### [MCLint](./MCLint.md)
+
+The `.mclint` file provides a configurable linting system, inspired by ESLint, allowing you to enforce naming and formatting rules for your project.
+
+**Key features:**
+- Validate identity string format (`namespace:name`)
+- Allow-list or deny-list namespaces
+- Enforce naming patterns for animations, animation states, and bones
+- Enforce naming conventions for MoLang variables
+- Per-rule severity control (`error`, `warn`, `off`)
+
+**Example:**
+```json
+{
+  "rules": {
+    "identity.format": "error",
+    "namespace.allow": ["error", ["myns", "shared"]],
+    "animation.naming": ["warn", "^animation\\.myns\\."],
+    "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"]
+  }
+}
+```
+
 ## File Locations
 
 These configuration files should be placed in the root of your Minecraft project:
@@ -81,6 +104,7 @@ my-project/
 ├── .mcattributes
 ├── .mcdefinitions
 ├── .mcignore
+├── .mclint
 ├── behavior_packs/
 └── resource_packs/
 ```
@@ -111,7 +135,7 @@ If configuration changes aren't taking effect:
 
 1. Check for syntax errors in your configuration files
 2. Reload the VSCode window
-3. Verify file names are exactly `.mcattributes`, `.mcdefinitions`, or `.mcignore`
+3. Verify file names are exactly `.mcattributes`, `.mcdefinitions`, `.mcignore`, or `.mclint`
 4. Check the language server output for error messages
 
 For more help, see the [Debugging](../Debugging.md) guide or open an issue on [GitHub](https://github.com/Blockception/minecraft-bedrock-language-server/issues).

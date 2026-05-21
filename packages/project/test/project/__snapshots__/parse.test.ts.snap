@@ -53,6 +53,9 @@ exports[`MCProject load file2 1`] = `
       "!BP/**/*.json",
     ],
   },
+  "linting": {
+    "rules": {},
+  },
 }
 `;
 
@@ -63,6 +66,9 @@ exports[`MCProject load not existing 1`] = `
   "ignores": {
     "patterns": [],
   },
+  "linting": {
+    "rules": {},
+  },
 }
 `;
 
@@ -72,6 +78,9 @@ exports[`MCProject loadSync not existing 1`] = `
   "definitions": {},
   "ignores": {
     "patterns": [],
+  },
+  "linting": {
+    "rules": {},
   },
 }
 `;
@@ -128,6 +137,9 @@ exports[`MCProject loadSync p1 1`] = `
       "Template/something",
       "!BP/**/*.json",
     ],
+  },
+  "linting": {
+    "rules": {},
   },
 }
 `;

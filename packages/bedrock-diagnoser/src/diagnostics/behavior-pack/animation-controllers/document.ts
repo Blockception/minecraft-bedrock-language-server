@@ -1,6 +1,7 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
 import { DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json';
+import { lint_check_animation_state_naming } from '../../lint';
 import { general_animation_controllers } from '../../minecraft/animation-controllers';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 import { no_other_duplicates } from '../../packs/duplicate-check';
@@ -28,7 +29,10 @@ export function diagnose_animation_controller_document(diagnoser: DocumentDiagno
       diagnoser,
     );
 
-    Object.values(controller.states).forEach((state) => {
+    Object.entries(controller.states).forEach(([stateId, state]) => {
+      // Run configurable lint checks for animation state naming
+      lint_check_animation_state_naming(stateId, diagnoser);
+
       state.on_entry?.forEach((item) => json_commandsCheck(item, diagnoser));
       state.on_exit?.forEach((item) => json_commandsCheck(item, diagnoser));
     });
