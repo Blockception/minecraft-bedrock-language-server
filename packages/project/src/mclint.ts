@@ -43,6 +43,13 @@ export interface MCLintRules {
    * Options: `[severity, "regexPattern"]`
    */
   'molang.variable.naming'?: MCLintRuleValue;
+  /**
+   * Validate that sound file paths use only allowed file extensions.
+   * When a sound path in `sound_definitions.json` explicitly specifies an extension,
+   * it must be one of the allowed extensions.
+   * Options: `[severity, [".ogg", ".wav"]]` — defaults to `[".ogg", ".wav"]` when omitted.
+   */
+  'sound.extensions'?: MCLintRuleValue;
   /** Additional user-defined rules */
   [key: string]: MCLintRuleValue | undefined;
 }

@@ -3,6 +3,7 @@ import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { education_enabled } from '../../definitions';
 import { Json } from '../../json/json';
+import { lint_check_sound_extension } from '../../lint';
 
 /**
  * Diagnoses the given document as a `sound_definitions` file
@@ -43,6 +44,9 @@ export function sound_files_diagnose(
   files: string[],
   diagnoser: DiagnosticsBuilder,
 ): void {
+  // Check extension lint rule before existence check
+  lint_check_sound_extension(file, diagnoser);
+
   // Encode the search term to match URI-encoded file paths (encodeURI keeps slashes as-is)
   const encodedFile = encodeURI(file);
   
