@@ -144,6 +144,25 @@ This requires all animations to begin with `animation.myns.`.
 
 ---
 
+### `animation-controller.naming`
+
+Validates animation controller IDs against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "animation-controller.naming": ["warn", "^controller\\.animation\\.myns\\."]
+  }
+}
+```
+
+This requires all animation controller IDs to begin with `controller.animation.myns.`.
+
+---
+
 ### `animation-state.naming`
 
 Validates animation controller **state** identifiers against a regular expression pattern.
@@ -163,6 +182,40 @@ This requires all animation state names to use only lowercase letters and unders
 
 ---
 
+### `biome.naming`
+
+Validates biome identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "biome.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
+### `block.naming`
+
+Validates block identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "block.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
 ### `bone.naming`
 
 Validates bone names in animations against a regular expression pattern.
@@ -177,6 +230,110 @@ Validates bone names in animations against a regular expression pattern.
   }
 }
 ```
+
+---
+
+### `entity.naming`
+
+Validates entity identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "entity.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
+### `feature.naming`
+
+Validates feature identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "feature.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
+### `feature-rule.naming`
+
+Validates feature rule identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "feature-rule.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
+### `fog.naming`
+
+Validates fog setting identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "fog.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
+### `item.naming`
+
+Validates item identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "item.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
+### `model.naming`
+
+Validates model/geometry identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "model.naming": ["warn", "^geometry\\.myns\\."]
+  }
+}
+```
+
+This requires all geometry identifiers to begin with `geometry.myns.`.
 
 ---
 
@@ -199,6 +356,42 @@ This requires all MoLang variables to use `snake_case`.
 
 ---
 
+### `particle.naming`
+
+Validates particle identifiers against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "particle.naming": ["warn", "^myns:[a-z_]+$"]
+  }
+}
+```
+
+---
+
+### `render-controller.naming`
+
+Validates render controller IDs against a regular expression pattern.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "render-controller.naming": ["warn", "^controller\\.render\\.myns\\."]
+  }
+}
+```
+
+This requires all render controller IDs to begin with `controller.render.myns.`.
+
+---
+
 ## Complete Example
 
 ```json
@@ -209,9 +402,20 @@ This requires all MoLang variables to use `snake_case`.
     "namespace.deny": "off",
     "namespace.required": "error",
     "animation.naming": ["warn", "^animation\\.myns\\."],
+    "animation-controller.naming": ["warn", "^controller\\.animation\\.myns\\."],
     "animation-state.naming": ["warn", "^[a-z_]+$"],
+    "biome.naming": ["warn", "^myns:[a-z_]+$"],
+    "block.naming": ["warn", "^myns:[a-z_]+$"],
     "bone.naming": "off",
-    "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"]
+    "entity.naming": ["warn", "^myns:[a-z_]+$"],
+    "feature.naming": ["warn", "^myns:[a-z_]+$"],
+    "feature-rule.naming": ["warn", "^myns:[a-z_]+$"],
+    "fog.naming": ["warn", "^myns:[a-z_]+$"],
+    "item.naming": ["warn", "^myns:[a-z_]+$"],
+    "model.naming": ["warn", "^geometry\\.myns\\."],
+    "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"],
+    "particle.naming": ["warn", "^myns:[a-z_]+$"],
+    "render-controller.naming": ["warn", "^controller\\.render\\.myns\\."]
   }
 }
 ```
@@ -243,9 +447,20 @@ Each lint rule produces a diagnostic with a code that can be referenced in inlin
 | `namespace.deny` | `lint.namespace.deny` |
 | `namespace.required` | `lint.namespace.required` |
 | `animation.naming` | `lint.animation.naming` |
+| `animation-controller.naming` | `lint.animation-controller.naming` |
 | `animation-state.naming` | `lint.animation-state.naming` |
+| `biome.naming` | `lint.biome.naming` |
+| `block.naming` | `lint.block.naming` |
 | `bone.naming` | `lint.bone.naming` |
+| `entity.naming` | `lint.entity.naming` |
+| `feature.naming` | `lint.feature.naming` |
+| `feature-rule.naming` | `lint.feature-rule.naming` |
+| `fog.naming` | `lint.fog.naming` |
+| `item.naming` | `lint.item.naming` |
+| `model.naming` | `lint.model.naming` |
 | `molang.variable.naming` | `lint.molang.variable.naming` |
+| `particle.naming` | `lint.particle.naming` |
+| `render-controller.naming` | `lint.render-controller.naming` |
 
 ---
 
@@ -263,14 +478,9 @@ diagnostic.disable.lint.namespace.allow=true
 
 Based on the project structure, future rules may include:
 
-- **`block.naming`** — validate block identifiers against a pattern
-- **`item.naming`** — validate item identifiers against a pattern
-- **`entity.naming`** — validate entity identifiers against a pattern
 - **`objective.naming`** — validate scoreboard objective names against a pattern
 - **`tag.naming`** — validate tag names against a pattern
 - **`sound.naming`** — validate sound event identifiers against a pattern
-- **`particle.naming`** — validate particle identifiers against a pattern
-- **`geometry.naming`** — validate geometry identifiers against a pattern
 - **`texture.naming`** — validate texture paths against a pattern
 - **`loot-table.naming`** — validate loot table file paths against a pattern
 
