@@ -1,5 +1,5 @@
 import { Languages } from '@blockception/ide-shared';
-import { MCAttributes, MCDefinition, MCIgnore } from 'bc-minecraft-project';
+import { MCAttributes, MCDefinition, MCIgnore, MCLint } from 'bc-minecraft-project';
 import { URI, Utils } from 'vscode-uri';
 
 /**
@@ -24,6 +24,7 @@ export function identifyDocument(uri: URI): string {
     case MCDefinition.filename:
     case MCAttributes.filename:
     case MCIgnore.filename:
+    case MCLint.filename:
       return Languages.McProjectIdentifier;
   }
 

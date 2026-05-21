@@ -1,0 +1,163 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "bc-minecraft-mclint",
+  "title": "MCLint Configuration",
+  "description": "Configurable linting rules for a Minecraft Bedrock project (`.mclint` file). Each rule can be set to \"off\", \"warn\", or \"error\", optionally with rule-specific options as an array.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "rules": {
+      "type": "object",
+      "description": "A map of lint rule IDs to their severity and optional configuration options.",
+      "additionalProperties": {
+        "$ref": "#/definitions/ruleValue"
+      },
+      "properties": {
+        "identity.format": {
+          "$ref": "#/definitions/ruleWithoutOptions",
+          "description": "Validates that identifiers follow the `namespace:name` format (e.g. `myns:my_entity`). Identifiers that do not contain a colon separator are flagged.\n\n**Diagnostic code:** `lint.identity.format`"
+        },
+        "namespace.allow": {
+          "$ref": "#/definitions/ruleWithStringArrayOption",
+          "description": "Restricts identifiers to a specific set of allowed namespaces. Any identifier whose namespace is **not** in the provided list is flagged.\n\n**Options:** `[severity, [allowedNamespace1, allowedNamespace2, ...]]`\n\n**Diagnostic code:** `lint.namespace.allow`"
+        },
+        "namespace.deny": {
+          "$ref": "#/definitions/ruleWithStringArrayOption",
+          "description": "Rejects identifiers whose namespace is in the provided deny list.\n\n**Options:** `[severity, [deniedNamespace1, deniedNamespace2, ...]]`\n\n**Diagnostic code:** `lint.namespace.deny`"
+        },
+        "animation.naming": {
+          "$ref": "#/definitions/ruleWithPatternOption",
+          "description": "Validates animation IDs against a regular expression pattern.\n\n**Options:** `[severity, \"regexPattern\"]`\n\n**Example:** `[\"warn\", \"^animation\\\\.myns\\\\.\"]`\n\n**Diagnostic code:** `lint.animation.naming`"
+        },
+        "animation-state.naming": {
+          "$ref": "#/definitions/ruleWithPatternOption",
+          "description": "Validates animation controller state IDs against a regular expression pattern.\n\n**Options:** `[severity, \"regexPattern\"]`\n\n**Example:** `[\"warn\", \"^[a-z_]+$\"]`\n\n**Diagnostic code:** `lint.animation-state.naming`"
+        },
+        "bone.naming": {
+          "$ref": "#/definitions/ruleWithPatternOption",
+          "description": "Validates bone names in animations against a regular expression pattern.\n\n**Options:** `[severity, \"regexPattern\"]`\n\n**Example:** `[\"warn\", \"^[a-z][a-z0-9_]*$\"]`\n\n**Diagnostic code:** `lint.bone.naming`"
+        },
+        "molang.variable.naming": {
+          "$ref": "#/definitions/ruleWithPatternOption",
+          "description": "Validates MoLang variable names (`v.*`, `variable.*`, `t.*`, `temp.*`) against a regular expression pattern. The pattern is tested against the variable name portion only (the part after the scope prefix).\n\n**Options:** `[severity, \"regexPattern\"]`\n\n**Example:** `[\"warn\", \"^[a-z][a-z0-9_]*$\"]`\n\n**Diagnostic code:** `lint.molang.variable.naming`"
+        }
+      }
+    }
+  },
+  "required": ["rules"],
+  "definitions": {
+    "severity": {
+      "description": "The severity of a lint rule violation.",
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": ["off", "warn", "error"],
+          "description": "off — rule disabled; warn — shown as a warning; error — shown as an error."
+        },
+        {
+          "type": "integer",
+          "enum": [0, 1, 2],
+          "description": "0 = off, 1 = warn, 2 = error."
+        }
+      ]
+    },
+    "ruleValue": {
+      "description": "A lint rule value: either a plain severity or an array starting with a severity followed by rule-specific options.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/severity"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": [
+            {
+              "$ref": "#/definitions/severity"
+            }
+          ],
+          "additionalItems": true
+        }
+      ]
+    },
+    "ruleWithoutOptions": {
+      "description": "A lint rule that takes no extra options — only a severity value.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/severity"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": [
+            {
+              "$ref": "#/definitions/severity"
+            }
+          ]
+        }
+      ]
+    },
+    "ruleWithPatternOption": {
+      "description": "A lint rule that takes an optional regex pattern as its first option.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/severity"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": [
+            {
+              "$ref": "#/definitions/severity"
+            },
+            {
+              "type": "string",
+              "description": "A JavaScript-compatible regular expression pattern to test names against. Violations are reported when the name does NOT match."
+            }
+          ]
+        }
+      ]
+    },
+    "ruleWithStringArrayOption": {
+      "description": "A lint rule that takes an optional array of strings (e.g. allowed or denied namespace names) as its first option.",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/severity"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 2,
+          "items": [
+            {
+              "$ref": "#/definitions/severity"
+            },
+            {
+              "type": "array",
+              "description": "The list of namespace strings to allow or deny.",
+              "items": {
+                "type": "string",
+                "description": "A namespace name (the portion before the `:` in `namespace:name` identifiers)."
+              },
+              "minItems": 1
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "examples": [
+    {
+      "rules": {
+        "identity.format": "error",
+        "namespace.allow": ["error", ["myns", "shared"]],
+        "namespace.deny": ["error", ["minecraft"]],
+        "animation.naming": ["warn", "^animation\\.myns\\."],
+        "animation-state.naming": ["warn", "^[a-z_]+$"],
+        "bone.naming": "off",
+        "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"]
+      }
+    }
+  ]
+}

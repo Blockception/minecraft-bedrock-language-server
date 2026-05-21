@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`MCLint load file2.mclint 1`] = `
+{
+  "rules": {
+    "animation-state.naming": [
+      "warn",
+      "^[a-z_]+$",
+    ],
+    "namespace.deny": [
+      "error",
+      [
+        "minecraft",
+      ],
+    ],
+  },
+}
+`;
+
+exports[`MCLint loadSync file1.mclint 1`] = `
+{
+  "rules": {
+    "animation.naming": [
+      "warn",
+      "^animation\\.",
+    ],
+    "bone.naming": "off",
+    "identity.format": "warn",
+    "molang.variable.naming": [
+      "warn",
+      "^v\\.",
+    ],
+    "namespace.allow": [
+      "error",
+      [
+        "myns",
+        "common",
+      ],
+    ],
+  },
+}
+`;
+
+exports[`MCLint parse empty rules object 1`] = `
+{
+  "rules": {},
+}
+`;
+
+exports[`MCLint parse full config 1`] = `
+{
+  "rules": {
+    "animation-state.naming": "off",
+    "animation.naming": [
+      "warn",
+      "^animation\\.",
+    ],
+    "bone.naming": "off",
+    "identity.format": "warn",
+    "molang.variable.naming": [
+      "warn",
+      "^v\\.",
+    ],
+    "namespace.allow": [
+      "error",
+      [
+        "myns",
+        "common",
+      ],
+    ],
+    "namespace.deny": [
+      "error",
+      [
+        "minecraft",
+      ],
+    ],
+  },
+}
+`;

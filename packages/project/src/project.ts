@@ -2,6 +2,7 @@ import * as path from 'path';
 import { MCAttributes } from './mcattributes';
 import { MCDefinition } from './mcdefinitions';
 import { MCIgnore } from './mcignore';
+import { MCLint } from './mclint';
 
 /**An interface that stored minecraft project data */
 export interface MCProject {
@@ -11,6 +12,8 @@ export interface MCProject {
   ignores: MCIgnore;
   /**The collection of definitions to the project*/
   definitions: MCDefinition;
+  /**The lint configuration for this project*/
+  linting: MCLint;
 }
 
 /**The namespace that provides functionality to MCProjects*/
@@ -22,6 +25,7 @@ export namespace MCProject {
       attributes: MCAttributes.createEmpty(),
       definitions: MCDefinition.createEmpty(),
       ignores: MCIgnore.createEmpty(),
+      linting: MCLint.createEmpty(),
     };
   }
 
@@ -47,8 +51,9 @@ export namespace MCProject {
     const attributes = MCAttributes.loadSync(path.join(Source, MCAttributes.filename));
     const definitions = MCDefinition.loadSync(path.join(Source, MCDefinition.filename));
     const ignores = MCIgnore.loadSync(path.join(Source, MCIgnore.filename));
+    const linting = MCLint.loadSync(path.join(Source, MCLint.filename));
 
-    return { attributes, definitions, ignores };
+    return { attributes, definitions, ignores, linting };
   }
 
   /**Loads from the given root folder the necessary project files

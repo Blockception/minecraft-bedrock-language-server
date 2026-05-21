@@ -2,6 +2,7 @@ import { Internal } from 'bc-minecraft-bedrock-project';
 import { BoneAnimation } from 'bc-minecraft-bedrock-project/src/internal/resource-pack';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json/json';
+import { lint_check_animation_naming, lint_check_bone_naming } from '../../lint';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 import { BoneUsage, model_bones_must_exist } from '../model';
 
@@ -21,6 +22,9 @@ export function diagnose_animation_document(diagnoser: DocumentDiagnosticsBuilde
         DiagnosticSeverity.error,
         'resourcepack.animation.name',
       );
+
+    // Run configurable lint checks for animation naming
+    lint_check_animation_naming(anim_id, diagnoser);
   });
 
   const bones: BoneUsage[] = [];
@@ -30,6 +34,9 @@ export function diagnose_animation_document(diagnoser: DocumentDiagnosticsBuilde
 
     Object.entries(anim.bones ?? {}).forEach(([bone_id, bone]) => {
       bones.push({ bone_id, parent_id: anim_id });
+
+      // Run configurable lint checks for bone naming
+      lint_check_bone_naming(bone_id, diagnoser);
 
       if (typeof length === 'number') {
         check_bone_time(`${anim_id}/${bone_id}`, bone, length, diagnoser);

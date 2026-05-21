@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "namespace.deny": ["error", ["minecraft"]],
+    "animation-state.naming": ["warn", "^[a-z_]+$"]
+  }
+}

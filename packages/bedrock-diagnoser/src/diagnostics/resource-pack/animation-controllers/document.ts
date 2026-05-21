@@ -1,6 +1,7 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
 import { DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json/json';
+import { lint_check_animation_state_naming } from '../../lint';
 import { general_animation_controllers } from '../../minecraft/animation-controllers';
 import { diagnose_molang_syntax_current_document } from '../../molang';
 
@@ -16,5 +17,10 @@ export function diagnose_animation_controller_document(diagnoser: DocumentDiagno
   //Transition check
   general_animation_controllers(controllers, diagnoser);
 
-  //TODO add rp animation controller diagnostics
+  // Run configurable lint checks for animation state naming
+  Object.values(controllers.animation_controllers).forEach((controller) => {
+    Object.keys(controller.states).forEach((stateId) => {
+      lint_check_animation_state_naming(stateId, diagnoser);
+    });
+  });
 }

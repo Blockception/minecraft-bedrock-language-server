@@ -27,6 +27,7 @@
     "workspaceContains:**/.mcattributes",
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore",
+    "workspaceContains:**/.mclint",
     "workspaceContains:**/.mcfunction"
   ],
   "author": {
@@ -94,6 +95,11 @@
     "webpack": "npm run webpack:client && npm run webpack:server"
   },
   "contributes": {
+    "configurationDefaults": {
+      "files.associations": {
+        "*.mclint": "jsonc"
+      }
+    },
     "configuration": [
       {
         "title": "Minecraft bedrock language configuration",
@@ -584,6 +590,13 @@
       }
     ],
     "jsonValidation": [
+      {
+        "fileMatch": [
+          "**/.mclint",
+          "*.mclint"
+        ],
+        "url": "./minecraft-project/mclint.schema.json"
+      },
       {
         "fileMatch": [
           "skin_pack/skins.{json,jsonc,json5}"

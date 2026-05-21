@@ -1,4 +1,5 @@
 import { Languages } from '@blockception/ide-shared';
+import { MCLint } from 'bc-minecraft-project';
 import { Pack } from 'bc-minecraft-bedrock-project';
 import {
   CancellationToken,
@@ -7,6 +8,7 @@ import {
   WorkspaceFolder,
   WorkspaceFoldersChangeEvent,
 } from 'vscode-languageserver';
+import { URI, Utils } from 'vscode-uri';
 import { Processor, Tokens } from '../../util';
 import { TextDocument } from '../documents/text-document';
 import { ExtensionContext } from '../extension';
@@ -45,6 +47,11 @@ export class WorkspaceProcessor extends BaseService implements IService {
     const { document } = e;
 
     if (document.languageId === Languages.McProjectIdentifier) {
+      return this.traverse();
+    }
+
+    // Re-traverse when .mclint is saved (it uses jsonc language mode in the editor)
+    if (Utils.basename(URI.parse(document.uri)) === MCLint.filename) {
       return this.traverse();
     }
   }
