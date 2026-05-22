@@ -199,6 +199,40 @@ This requires all MoLang variables to use `snake_case`.
 
 ---
 
+### `sound.extensions`
+
+Validates that sound path references in `sound_definitions.json` use only allowed file extensions. When a sound path explicitly includes a file extension, it must be one of the permitted values.
+
+Paths **without** an extension are always accepted — Minecraft Bedrock resolves the actual file at runtime, so extension-free paths are the normal and recommended pattern.
+
+**Options:** `[severity, [".ogg", ".wav"]]`
+
+- The second element is the list of allowed extensions (each must include the leading dot).
+- Defaults to `[".ogg", ".wav"]` when omitted.
+- Extension matching is **case-insensitive**.
+
+**Example — severity only (uses default allowed list):**
+```json
+{
+  "rules": {
+    "sound.extensions": "warn"
+  }
+}
+```
+
+**Example — custom allowed list:**
+```json
+{
+  "rules": {
+    "sound.extensions": ["error", [".ogg", ".wav", ".fsb"]]
+  }
+}
+```
+
+**What it checks:** Every `name` entry under `sound_definitions.json > sounds[].name`. A path like `sounds/ambient/rain.mp3` would be flagged because `.mp3` is not in the default allowed list, while `sounds/ambient/rain` (no extension) is always accepted.
+
+---
+
 ### `mcfunction.naming`
 
 Validates the name (ID) of each `.mcfunction` file against a regular expression pattern. The ID is the file path relative to the `functions/` directory, without the `.mcfunction` extension (e.g. `my_folder/my_function`).
@@ -254,6 +288,7 @@ This requires all fake player names to start with `#` followed by lowercase `sna
     "animation-state.naming": ["warn", "^[a-z_]+$"],
     "bone.naming": "off",
     "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"],
+    "sound.extensions": ["warn", [".ogg", ".wav"]],
     "mcfunction.naming": ["warn", "^[a-z][a-z0-9_/]*$"],
     "fake-player.naming": ["warn", "^#[a-z][a-z0-9_]*$"]
   }
@@ -290,6 +325,7 @@ Each lint rule produces a diagnostic with a code that can be referenced in inlin
 | `animation-state.naming` | `lint.animation-state.naming` |
 | `bone.naming` | `lint.bone.naming` |
 | `molang.variable.naming` | `lint.molang.variable.naming` |
+| `sound.extensions` | `lint.sound.extensions` |
 | `mcfunction.naming` | `lint.mcfunction.naming` |
 | `fake-player.naming` | `lint.fake-player.naming` |
 
