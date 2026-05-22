@@ -74,6 +74,28 @@ export function lint_check_namespace(id: string, diagnoser: DiagnosticsBuilder):
 }
 
 /**
+ * Checks that an identifier includes a namespace (`namespace:name` format).
+ * Reports a diagnostic if the `namespace.required` rule is enabled and the identifier has no colon separator.
+ *
+ * @param id The identifier string to validate
+ * @param diagnoser The diagnoser to report to
+ */
+export function lint_check_namespace_required(id: string, diagnoser: DiagnosticsBuilder): void {
+  const rule = diagnoser.project.linting.rules['namespace.required'];
+  if (!MCLint.isEnabled(rule)) return;
+
+  if (!id.includes(':')) {
+    const severity = getLintSeverity(MCLint.getSeverity(rule));
+    diagnoser.add(
+      id,
+      `Identifier '${id}' is missing a namespace — expected 'namespace:name' format`,
+      severity,
+      'lint.namespace.required',
+    );
+  }
+}
+
+/**
  * Converts an MCLint severity string into a DiagnosticSeverity value.
  * Defaults to `warning` when the severity cannot be resolved.
  */

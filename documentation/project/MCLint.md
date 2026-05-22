@@ -104,6 +104,27 @@ This is useful when you want to ensure your project never accidentally shadows v
 
 ---
 
+### `namespace.required`
+
+Requires that identifiers for entities, blocks, and items always include a namespace (i.e. the `namespace:name` format). Identifiers that do not contain a colon separator are flagged.
+
+**Options:** none
+
+**Example:**
+```json
+{
+  "rules": {
+    "namespace.required": "error"
+  }
+}
+```
+
+With this rule enabled, a definition such as `"identifier": "my_zombie"` is flagged because it is missing the namespace prefix. It must be written as `"my_namespace:my_zombie"`.
+
+> **Note:** This is different from `identity.format`, which validates the full `namespace:name` pattern (including character restrictions). `namespace.required` only checks that a namespace separator (`:`) is present.
+
+---
+
 ### `animation.naming`
 
 Validates animation IDs against a regular expression pattern.
@@ -212,6 +233,48 @@ Paths **without** an extension are always accepted — Minecraft Bedrock resolve
 
 ---
 
+### `mcfunction.naming`
+
+Validates the name (ID) of each `.mcfunction` file against a regular expression pattern. The ID is the file path relative to the `functions/` directory, without the `.mcfunction` extension (e.g. `my_folder/my_function`).
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "mcfunction.naming": ["warn", "^[a-z][a-z0-9_/]*$"]
+  }
+}
+```
+
+This requires all function file names to use only lowercase letters, digits, underscores, and path separators.
+
+**Diagnostic code:** `lint.mcfunction.naming`
+
+---
+
+### `fake-player.naming`
+
+Validates **fake player names** used in commands such as `scoreboard players` against a regular expression pattern. Fake players are non-selector string targets like `#myScore` or `$counter`.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "fake-player.naming": ["warn", "^#[a-z][a-z0-9_]*$"]
+  }
+}
+```
+
+This requires all fake player names to start with `#` followed by lowercase `snake_case`.
+
+**Diagnostic code:** `lint.fake-player.naming`
+
+---
+
 ## Complete Example
 
 ```json
@@ -220,11 +283,14 @@ Paths **without** an extension are always accepted — Minecraft Bedrock resolve
     "identity.format": "error",
     "namespace.allow": ["error", ["myns", "shared"]],
     "namespace.deny": "off",
+    "namespace.required": "error",
     "animation.naming": ["warn", "^animation\\.myns\\."],
     "animation-state.naming": ["warn", "^[a-z_]+$"],
     "bone.naming": "off",
     "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"],
-    "sound.extensions": ["warn", [".ogg", ".wav"]]
+    "sound.extensions": ["warn", [".ogg", ".wav"]],
+    "mcfunction.naming": ["warn", "^[a-z][a-z0-9_/]*$"],
+    "fake-player.naming": ["warn", "^#[a-z][a-z0-9_]*$"]
   }
 }
 ```
@@ -254,11 +320,14 @@ Each lint rule produces a diagnostic with a code that can be referenced in inlin
 | `identity.format` | `lint.identity.format` |
 | `namespace.allow` | `lint.namespace.allow` |
 | `namespace.deny` | `lint.namespace.deny` |
+| `namespace.required` | `lint.namespace.required` |
 | `animation.naming` | `lint.animation.naming` |
 | `animation-state.naming` | `lint.animation-state.naming` |
 | `bone.naming` | `lint.bone.naming` |
 | `molang.variable.naming` | `lint.molang.variable.naming` |
 | `sound.extensions` | `lint.sound.extensions` |
+| `mcfunction.naming` | `lint.mcfunction.naming` |
+| `fake-player.naming` | `lint.fake-player.naming` |
 
 ---
 
