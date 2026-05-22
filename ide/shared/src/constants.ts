@@ -36,6 +36,8 @@ export namespace Commands {
 
   /** */
   export const StoreProject: string = 'bc.minecraft.project.store';
+  /** */
+  export const GetWorkspaceEntities: string = 'bc.minecraft.project.entities';
 
   /** */
   export const ShowVanillaFile: string = 'bc.minecraft.vanilla.show';
