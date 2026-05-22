@@ -12,6 +12,7 @@ import { ExtensionContext } from '../extension';
 import { FormatService } from '../format/service';
 import { InlayHintService } from '../inlay-hints/service';
 import { InlineValueService } from '../inline-values/service';
+import { LanguageModelToolService } from '../language-model-tools/service';
 import { ExtendedLogger } from '../logger/logger';
 import { DocumentProcessor, PackProcessor, WorkspaceProcessor } from '../process';
 import { DefinitionService, ImplementationService, ReferenceService, TypeDefinitionService } from '../references';
@@ -61,6 +62,7 @@ export function setupServer(config: LSPConfig) {
       new InlayHintService(logger, extension),
       new ImplementationService(logger, extension),
       new InlineValueService(logger, extension),
+      new LanguageModelToolService(logger, extension),
       new ReferenceService(logger, extension),
       new SemanticsServer(logger, extension),
       new SignatureService(logger, extension),

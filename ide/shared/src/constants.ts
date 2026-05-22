@@ -205,6 +205,8 @@ export namespace Commands {
 export namespace RequestTypes {
   /** The method for requesting a dataset from the server */
   export const DataSet: string = 'bc/minecraft/dataset';
+  /** The method for requesting entity identifiers from the loaded workspace project data */
+  export const WorkspaceEntities: string = 'bc/minecraft/workspace/entities';
 }
 
 /** Dataset identifiers for use with RequestTypes.DataSet */

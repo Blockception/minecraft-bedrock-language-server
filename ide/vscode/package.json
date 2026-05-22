@@ -43,7 +43,7 @@
     "Debuggers"
   ],
   "engines": {
-    "vscode": "^1.69.2"
+    "vscode": "^1.120.0"
   },
   "extensionKind": [
     "workspace"
@@ -169,6 +169,58 @@
             "type": "boolean",
             "default": true,
             "description": "Turns on or off the comment completion for lang files ie; ### and ### (region)"
+          }
+        }
+      }
+    ],
+    "languageModelTools": [
+      {
+        "name": "blockception.minecraft.workspaceEntities",
+        "modelDescription": "Returns entity identifiers from the currently loaded Minecraft Bedrock workspace project data.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "number",
+              "minimum": 1,
+              "description": "Optional maximum number of entities to return."
+            }
+          }
+        }
+      },
+      {
+        "name": "blockception.minecraft.currentFileDiagnostics",
+        "modelDescription": "Returns diagnostics for a file URI or the active editor file in the current workspace.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "type": "string",
+              "description": "Optional file URI. Uses the active editor when omitted."
+            }
+          }
+        }
+      },
+      {
+        "name": "blockception.minecraft.scaffoldProjectFiles",
+        "modelDescription": "Scaffolds Minecraft Bedrock project files by running Blockception scaffold commands.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "required": [
+            "command"
+          ],
+          "properties": {
+            "command": {
+              "type": "string",
+              "description": "A scaffold command id. Must start with 'bc-create-' or equal 'bc.mcproject.create'."
+            },
+            "id": {
+              "type": "string",
+              "description": "Optional identifier for scaffold commands that require one."
+            }
           }
         }
       }
