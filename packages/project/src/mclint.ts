@@ -104,6 +104,25 @@ export interface MCLintRules {
    * Options: `[severity, "regexPattern"]`
    */
   'render-controller.naming'?: MCLintRuleValue;
+  /**
+   * Validate that sound file paths use only allowed file extensions.
+   * When a sound path in `sound_definitions.json` explicitly specifies an extension,
+   * it must be one of the allowed extensions.
+   * Options: `[severity, [".ogg", ".wav"]]` — defaults to `[".ogg", ".wav"]` when omitted.
+   */
+  'sound.extensions'?: MCLintRuleValue;
+  /**
+   * Validate mcfunction file names (function IDs) against a regular expression pattern.
+   * The function ID is the path relative to the `functions/` directory, without the `.mcfunction` extension.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'mcfunction.naming'?: MCLintRuleValue;
+  /**
+   * Validate fake player names against a regular expression pattern.
+   * Fake players are non-selector target values used in commands such as `scoreboard`.
+   * Options: `[severity, "regexPattern"]`
+   */
+  'fake-player.naming'?: MCLintRuleValue;
   /** Additional user-defined rules */
   [key: string]: MCLintRuleValue | undefined;
 }

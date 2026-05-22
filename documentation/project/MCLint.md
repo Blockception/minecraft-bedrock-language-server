@@ -356,6 +356,8 @@ This requires all MoLang variables to use `snake_case`.
 
 ---
 
+---
+
 ### `particle.naming`
 
 Validates particle identifiers against a regular expression pattern.
@@ -392,6 +394,82 @@ This requires all render controller IDs to begin with `controller.render.myns.`.
 
 ---
 
+### `sound.extensions`
+
+Validates that sound path references in `sound_definitions.json` use only allowed file extensions. When a sound path explicitly includes a file extension, it must be one of the permitted values.
+
+Paths **without** an extension are always accepted — Minecraft Bedrock resolves the actual file at runtime, so extension-free paths are the normal and recommended pattern.
+
+**Options:** `[severity, [".ogg", ".wav"]]`
+
+- The second element is the list of allowed extensions (each must include the leading dot).
+- Defaults to `[".ogg", ".wav"]` when omitted.
+- Extension matching is **case-insensitive**.
+
+**Example — severity only (uses default allowed list):**
+```json
+{
+  "rules": {
+    "sound.extensions": "warn"
+  }
+}
+```
+
+**Example — custom allowed list:**
+```json
+{
+  "rules": {
+    "sound.extensions": ["error", [".ogg", ".wav", ".fsb"]]
+  }
+}
+```
+
+**What it checks:** Every `name` entry under `sound_definitions.json > sounds[].name`. A path like `sounds/ambient/rain.mp3` would be flagged because `.mp3` is not in the default allowed list, while `sounds/ambient/rain` (no extension) is always accepted.
+
+---
+
+### `mcfunction.naming`
+
+Validates the name (ID) of each `.mcfunction` file against a regular expression pattern. The ID is the file path relative to the `functions/` directory, without the `.mcfunction` extension (e.g. `my_folder/my_function`).
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "mcfunction.naming": ["warn", "^[a-z][a-z0-9_/]*$"]
+  }
+}
+```
+
+This requires all function file names to use only lowercase letters, digits, underscores, and path separators.
+
+**Diagnostic code:** `lint.mcfunction.naming`
+
+---
+
+### `fake-player.naming`
+
+Validates **fake player names** used in commands such as `scoreboard players` against a regular expression pattern. Fake players are non-selector string targets like `#myScore` or `$counter`.
+
+**Options:** `[severity, "regexPattern"]`
+
+**Example:**
+```json
+{
+  "rules": {
+    "fake-player.naming": ["warn", "^#[a-z][a-z0-9_]*$"]
+  }
+}
+```
+
+This requires all fake player names to start with `#` followed by lowercase `snake_case`.
+
+**Diagnostic code:** `lint.fake-player.naming`
+
+---
+
 ## Complete Example
 
 ```json
@@ -415,7 +493,10 @@ This requires all render controller IDs to begin with `controller.render.myns.`.
     "model.naming": ["warn", "^geometry\\.myns\\."],
     "molang.variable.naming": ["warn", "^[a-z][a-z0-9_]*$"],
     "particle.naming": ["warn", "^myns:[a-z_]+$"],
-    "render-controller.naming": ["warn", "^controller\\.render\\.myns\\."]
+    "render-controller.naming": ["warn", "^controller\\.render\\.myns\\."],
+    "sound.extensions": ["warn", [".ogg", ".wav"]],
+    "mcfunction.naming": ["warn", "^[a-z][a-z0-9_/]*$"],
+    "fake-player.naming": ["warn", "^#[a-z][a-z0-9_]*$"]
   }
 }
 ```
@@ -461,6 +542,9 @@ Each lint rule produces a diagnostic with a code that can be referenced in inlin
 | `molang.variable.naming` | `lint.molang.variable.naming` |
 | `particle.naming` | `lint.particle.naming` |
 | `render-controller.naming` | `lint.render-controller.naming` |
+| `sound.extensions` | `lint.sound.extensions` |
+| `mcfunction.naming` | `lint.mcfunction.naming` |
+| `fake-player.naming` | `lint.fake-player.naming` |
 
 ---
 
