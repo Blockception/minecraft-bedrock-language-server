@@ -28,7 +28,8 @@
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore",
     "workspaceContains:**/.mclint",
-    "workspaceContains:**/.mcfunction"
+    "workspaceContains:**/.mcfunction",
+    "onChatParticipant:blockception.bedrock"
   ],
   "author": {
     "name": "Blockception Ltd",
@@ -43,7 +44,7 @@
     "Debuggers"
   ],
   "engines": {
-    "vscode": "^1.69.2"
+    "vscode": "^1.120.0"
   },
   "extensionKind": [
     "workspace"
@@ -95,6 +96,29 @@
     "webpack": "npm run webpack:client && npm run webpack:server"
   },
   "contributes": {
+    "chatParticipants": [
+      {
+        "id": "blockception.bedrock",
+        "name": "bedrock",
+        "fullName": "Bedrock Assistant",
+        "description": "Minecraft Bedrock domain assistant with explain, diagnose, and scaffold workflows.",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "explain",
+            "description": "Explain a Bedrock concept with practical examples."
+          },
+          {
+            "name": "diagnose",
+            "description": "Diagnose Bedrock errors and propose concrete fixes."
+          },
+          {
+            "name": "scaffold",
+            "description": "Scaffold starter Bedrock JSON and mcfunction templates."
+          }
+        ]
+      }
+    ],
     "configurationDefaults": {
       "files.associations": {
         "*.mclint": "jsonc"
