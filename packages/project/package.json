@@ -1,6 +1,6 @@
 {
   "name": "bc-minecraft-project",
-  "version": "1.22.2-3",
+  "version": "1.23.0-0",
   "description": "A library that provides object and handling for minecraft projects",
   "author": {
     "name": "Blockception Ltd",
