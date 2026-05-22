@@ -43,7 +43,7 @@
     "Debuggers"
   ],
   "engines": {
-    "vscode": "^1.69.2"
+    "vscode": "^1.120.0"
   },
   "extensionKind": [
     "workspace"
