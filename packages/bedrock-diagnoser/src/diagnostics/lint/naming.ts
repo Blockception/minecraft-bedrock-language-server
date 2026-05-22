@@ -97,3 +97,68 @@ export function lint_check_bone_naming(boneId: string, diagnoser: DiagnosticsBui
     // Invalid regex in user config — skip silently
   }
 }
+
+/**
+ * Validates a mcfunction ID (its file name relative to the `functions/` directory, without the
+ * `.mcfunction` extension) against the `mcfunction.naming` lint rule.
+ * If the rule is enabled and provides a regex pattern option, the function ID is
+ * tested against that pattern and flagged if it does not match.
+ *
+ * @param functionId The function identifier to validate (e.g. `my_folder/my_function`)
+ * @param diagnoser The diagnoser to report to
+ */
+export function lint_check_mcfunction_naming(functionId: string, diagnoser: DiagnosticsBuilder): void {
+  const rule = diagnoser.project.linting.rules['mcfunction.naming'];
+  if (!MCLint.isEnabled(rule)) return;
+
+  const options = MCLint.getOptions(rule);
+  const pattern = options[0];
+  if (typeof pattern !== 'string') return;
+
+  try {
+    const regex = new RegExp(pattern);
+    if (!regex.test(functionId)) {
+      const severity = getLintSeverity(MCLint.getSeverity(rule));
+      diagnoser.add(
+        0,
+        `Mcfunction '${functionId}' does not match the required naming pattern: ${pattern}`,
+        severity,
+        'lint.mcfunction.naming',
+      );
+    }
+  } catch {
+    // Invalid regex in user config — skip silently
+  }
+}
+
+/**
+ * Validates a fake player name against the `fake-player.naming` lint rule.
+ * If the rule is enabled and provides a regex pattern option, the fake player name is
+ * tested against that pattern and flagged if it does not match.
+ *
+ * @param name The fake player name to validate (e.g. `#myScore`)
+ * @param diagnoser The diagnoser to report to
+ */
+export function lint_check_fake_player_naming(name: string, diagnoser: DiagnosticsBuilder): void {
+  const rule = diagnoser.project.linting.rules['fake-player.naming'];
+  if (!MCLint.isEnabled(rule)) return;
+
+  const options = MCLint.getOptions(rule);
+  const pattern = options[0];
+  if (typeof pattern !== 'string') return;
+
+  try {
+    const regex = new RegExp(pattern);
+    if (!regex.test(name)) {
+      const severity = getLintSeverity(MCLint.getSeverity(rule));
+      diagnoser.add(
+        name,
+        `Fake player name '${name}' does not match the required naming pattern: ${pattern}`,
+        severity,
+        'lint.fake-player.naming',
+      );
+    }
+  } catch {
+    // Invalid regex in user config — skip silently
+  }
+}
