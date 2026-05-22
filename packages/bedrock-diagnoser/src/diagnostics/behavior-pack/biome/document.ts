@@ -3,6 +3,7 @@ import { getUsedComponents } from 'bc-minecraft-bedrock-types/src/minecraft/comp
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Context } from '../../../utility/components';
 import { Json } from '../../json';
+import { lint_check_biome_naming, lint_check_identity_format, lint_check_namespace } from '../../lint';
 import { no_other_duplicates } from '../../packs/duplicate-check';
 import { behaviorpack_biome_components_dependencies } from './components/dependencies';
 import { behaviorpack_diagnose_biome_components } from './components/diagnose';
@@ -23,6 +24,11 @@ export function diagnose_biome_document(diagnoser: DocumentDiagnosticsBuilder): 
 
   behaviorpack_diagnose_biome_components(biome['minecraft:biome'], context, diagnoser);
   behaviorpack_biome_components_dependencies(biome, context, diagnoser);
+
+  // Run configurable lint checks for identity format, namespace, and biome naming
+  lint_check_identity_format(identifier, diagnoser);
+  lint_check_namespace(identifier, diagnoser);
+  lint_check_biome_naming(identifier, diagnoser);
 
   // check that no other exists with this id
   no_other_duplicates(

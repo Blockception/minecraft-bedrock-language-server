@@ -5,6 +5,7 @@ import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder, Metadata } from '../../../types';
 import { behaviorpack_entityid_diagnose } from '../../behavior-pack/entity';
 import { Json } from '../../json/json';
+import { lint_check_entity_naming, lint_check_identity_format, lint_check_namespace } from '../../lint';
 import { AnimationUsage } from '../../minecraft';
 import { diagnose_script } from '../../minecraft/script';
 import { diagnose_molang_syntax_current_document, MolangMetadata } from '../../molang';
@@ -34,6 +35,11 @@ export function diagnose_entity_document(diag: DocumentDiagnosticsBuilder): void
 
   diagnose_molang_syntax_current_document(diagnoser, entity);
   behaviorpack_entityid_diagnose(description.identifier, diagnoser);
+
+  // Run configurable lint checks for identity format, namespace, and entity naming
+  lint_check_identity_format(description.identifier, diagnoser);
+  lint_check_namespace(description.identifier, diagnoser);
+  lint_check_entity_naming(description.identifier, diagnoser);
 
   if (!entityGathered) return;
   if (!entityGathered.molang) {

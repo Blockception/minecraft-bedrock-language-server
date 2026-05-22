@@ -5,6 +5,7 @@ import { harvestMolang } from 'bc-minecraft-bedrock-project/src/project/molang';
 import { DocumentDiagnosticsBuilder, Metadata } from '../../../types';
 import { behaviorpack_item_diagnose } from '../../behavior-pack/item';
 import { Json } from '../../json/json';
+import { lint_check_identity_format, lint_check_item_naming, lint_check_namespace } from '../../lint';
 import { AnimationUsage } from '../../minecraft';
 import { diagnose_script } from '../../minecraft/script';
 import { diagnose_molang_syntax_current_document, MolangMetadata } from '../../molang';
@@ -30,6 +31,11 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
 
   diagnose_molang_syntax_current_document(diagnoser, attachable);
   behaviorpack_item_diagnose(description.identifier, diagnoser);
+
+  // Run configurable lint checks for identity format, namespace, and item naming
+  lint_check_identity_format(description.identifier, diagnoser);
+  lint_check_namespace(description.identifier, diagnoser);
+  lint_check_item_naming(description.identifier, diagnoser);
 
   if (!attachableGathered) return;
   if (!attachableGathered.molang) {

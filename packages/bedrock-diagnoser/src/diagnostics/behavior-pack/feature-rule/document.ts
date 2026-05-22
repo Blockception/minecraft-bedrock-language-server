@@ -1,6 +1,7 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json';
+import { lint_check_feature_rule_naming, lint_check_identity_format, lint_check_namespace } from '../../lint';
 import { no_other_duplicates } from '../../packs/duplicate-check';
 import { behaviorpack_feature_diagnose } from '../feature/diagnose';
 import { diagnose_molang_syntax_current_document } from '../../molang';
@@ -16,6 +17,11 @@ export function diagnose_feature_rules_document(diagnoser: DocumentDiagnosticsBu
   diagnose_molang_syntax_current_document(diagnoser, featureRule);
 
   const identifier = featureRule['minecraft:feature_rules'].description.identifier;
+
+  // Run configurable lint checks for identity format, namespace, and feature rule naming
+  lint_check_identity_format(identifier, diagnoser);
+  lint_check_namespace(identifier, diagnoser);
+  lint_check_feature_rule_naming(identifier, diagnoser);
 
   // check that no other exists with this id
   no_other_duplicates(
