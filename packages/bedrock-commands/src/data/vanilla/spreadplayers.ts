@@ -14,7 +14,7 @@ export const spreadplayers: CommandInfo[] = [
       { text: 'spread distance', type: ParameterType.float, required: true },
       { text: 'max range', type: ParameterType.float, required: true },
       { text: 'victim', type: ParameterType.selector, required: true },
-      { text: 'max height', type: ParameterType.rotation, required: false },
+      { text: 'max height', type: ParameterType.coordinate, required: false },
     ],
   },
 ];
