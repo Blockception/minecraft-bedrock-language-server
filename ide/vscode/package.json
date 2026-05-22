@@ -1550,6 +1550,17 @@
             "media": {
               "markdown": "media/bc-mcignore.md"
             }
+          },
+          {
+            "id": "bc-mclint",
+            "title": "Linting with .mclint",
+            "description": "Configure project linting rules and severity levels using `.mclint`.\n[Create MCProject Files](command:bc.mcproject.create)\n[View MCLint Documentation](https://github.com/Blockception/minecraft-bedrock-language-server/blob/main/documentation/project/MCLint.md)",
+            "completionEvents": [
+              "onCommand:bc.mcproject.create"
+            ],
+            "media": {
+              "markdown": "media/bc-mclint.md"
+            }
           }
         ]
       },
