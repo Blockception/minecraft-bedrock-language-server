@@ -1,4 +1,6 @@
-import { DataSets, RequestTypes } from '@blockception/ide-shared';
+import { DataSets, McpEndpoints, RequestTypes } from '@blockception/ide-shared';
+import { CommandData } from 'bc-minecraft-bedrock-command';
+import type { ProjectData } from 'bc-minecraft-bedrock-project';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { Connection } from 'vscode-languageserver';
 import { ExtensionContext } from '../extension';
@@ -32,11 +34,43 @@ export class DataSetService extends BaseService implements IService {
 
   private onDataSetRequest(params: DataSetRequestParams): unknown {
     this.logger.debug('dataset request', params);
-    const data = getDataSet(params.datatype);
+    const data = getMcpEndpointData(params.datatype, this.extension.database.ProjectData) ?? getDataSet(params.datatype);
 
     if (params.id === undefined || data === undefined) return data;
     return filterDataSet(data, params.id);
   }
+}
+
+interface IdentifiableDataSet {
+  forEach(callbackfn: (value: { id?: unknown }) => void): void;
+}
+
+export function getMcpEndpointData(datatype: string, projectData: ProjectData): unknown {
+  switch (datatype) {
+    case McpEndpoints.ProjectEntities:
+      return collectUniqueIds(projectData.behaviorPacks.entities, projectData.resourcePacks.entities);
+
+    case McpEndpoints.ProjectBlocks:
+      return collectUniqueIds(projectData.behaviorPacks.blocks);
+
+    case McpEndpoints.VanillaCommands:
+      return CommandData.VanillaCommands;
+
+    default:
+      return undefined;
+  }
+}
+
+export function collectUniqueIds(...dataSets: IdentifiableDataSet[]): string[] {
+  const ids = new Set<string>();
+
+  dataSets.forEach((dataSet) =>
+    dataSet.forEach((value) => {
+      if (typeof value.id === 'string' && value.id.length > 0) ids.add(value.id);
+    }),
+  );
+
+  return [...ids];
 }
 
 /**

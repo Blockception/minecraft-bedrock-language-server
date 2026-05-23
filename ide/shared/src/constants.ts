@@ -207,6 +207,16 @@ export namespace RequestTypes {
   export const DataSet: string = 'bc/minecraft/dataset';
 }
 
+/** MCP-style endpoint identifiers exposed by the LSP server */
+export namespace McpEndpoints {
+  /** Project entity identifiers from loaded packs */
+  export const ProjectEntities: string = 'bedrock://project/entities';
+  /** Project block identifiers from loaded behavior packs */
+  export const ProjectBlocks: string = 'bedrock://project/blocks';
+  /** Vanilla command identifiers */
+  export const VanillaCommands: string = 'bedrock://vanilla/commands';
+}
+
 /** Dataset identifiers for use with RequestTypes.DataSet */
 export namespace DataSets {
   /** Vanilla behavior pack datasets */
