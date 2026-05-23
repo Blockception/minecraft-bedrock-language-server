@@ -214,6 +214,8 @@ export namespace RequestTypes {
   export const DataSet: string = 'bc/minecraft/dataset';
   /** The method for requesting workspace resource identifiers from the loaded workspace project data */
   export const WorkspaceEntities: string = 'bc/minecraft/workspace/entities';
+  /** The method for requesting a consolidated Bedrock project context summary from the server */
+  export const WorkspaceContext: string = 'bc/minecraft/workspace/context';
 }
 
 /** Supported workspace project resource categories for language model tools. */
@@ -263,6 +265,34 @@ export interface WorkspaceResourceSummary {
   id: string;
   source: WorkspaceResourceSource;
   type: WorkspaceResourceType;
+}
+
+/** A brief summary of a single loaded pack returned as part of {@link WorkspaceContextSummary}. */
+export interface WorkspacePackSummary {
+  /** Whether this is a behavior pack, resource pack, or world. */
+  type: 'behaviorPack' | 'resourcePack' | 'world';
+  /** The folder name (last path segment) of the pack. */
+  name: string;
+}
+
+/**
+ * A consolidated snapshot of the loaded Bedrock project returned by
+ * {@link RequestTypes.WorkspaceContext}.  Intended for use as Copilot Chat context.
+ */
+export interface WorkspaceContextSummary {
+  /** All behavior-pack and resource-pack folders currently loaded. */
+  packs: WorkspacePackSummary[];
+  /**
+   * Unique namespace prefixes found in entity, block, and item identifiers,
+   * excluding the built-in "minecraft" namespace.
+   */
+  namespaces: string[];
+  /** All entity identifiers from behavior and resource packs. */
+  entities: string[];
+  /** All block identifiers from behavior packs. */
+  blocks: string[];
+  /** All item identifiers from behavior packs. */
+  items: string[];
 }
 
 /** Dataset identifiers for use with RequestTypes.DataSet */

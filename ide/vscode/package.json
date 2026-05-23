@@ -285,6 +285,16 @@
             }
           }
         }
+      },
+      {
+        "name": "blockception.minecraft.bedrockContext",
+        "displayName": "Bedrock Context",
+        "modelDescription": "Returns a consolidated snapshot of the loaded Minecraft Bedrock project: loaded pack names, project namespaces, and lists of entity, block, and item identifiers. Use this to give Copilot project-specific context.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
       }
     ],
     "commands": [
