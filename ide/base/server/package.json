@@ -52,13 +52,13 @@
   "devDependencies": {
     "@types/adm-zip": "^0.5.8",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.8.0",
+    "@types/node": "^25.9.1",
     "json-loader": "^0.5.7",
     "ts-jest": "^29.4.10",
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "typescript": "6.0.3",
-    "webpack": "^5.107.0",
+    "webpack": "^5.107.1",
     "webpack-cli": "^7.0.2"
   }
 }
