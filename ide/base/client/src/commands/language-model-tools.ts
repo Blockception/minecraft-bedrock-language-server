@@ -1,51 +1,20 @@
-import { Commands, RequestTypes } from '@blockception/ide-shared';
+import {
+  Commands,
+  RequestTypes,
+  WorkspaceResourceSummary,
+  WorkspaceResourceType,
+  WorkspaceResourcesRequest,
+} from '@blockception/ide-shared';
 import * as vscode from 'vscode';
 import { ExecuteCommandRequest } from 'vscode-languageclient/node';
 import { Manager } from '../manager/manager';
-
-type WorkspaceEntitySummary = {
-  id: string;
-  source: 'behaviorPack' | 'resourcePack' | 'general';
-  type:
-    | 'entities'
-    | 'items'
-    | 'blocks'
-    | 'biomes'
-    | 'features'
-    | 'featureRules'
-    | 'functions'
-    | 'lootTables'
-    | 'recipes'
-    | 'trading'
-    | 'structures'
-    | 'animations'
-    | 'animationControllers'
-    | 'attachables'
-    | 'blockCullingRules'
-    | 'fogs'
-    | 'materials'
-    | 'models'
-    | 'particles'
-    | 'renderControllers'
-    | 'sounds'
-    | 'textures'
-    | 'itemTextures'
-    | 'terrainTextures'
-    | 'uiElements'
-    | 'customCommands'
-    | 'itemGroups'
-    | 'fakeEntities'
-    | 'objectives'
-    | 'tags'
-    | 'tickingAreas';
-};
 
 type DiagnosticsToolInput = {
   uri?: string;
 };
 
 type EntitiesToolInput = {
-  type?: WorkspaceEntitySummary['type'];
+  type?: WorkspaceResourceType;
   limit?: number;
 };
 
@@ -107,7 +76,10 @@ export function activate(context: vscode.ExtensionContext): void {
         }
 
         const type = options.input.type ?? 'entities';
-        const entities = await Manager.Client.sendRequest<WorkspaceEntitySummary[]>(RequestTypes.WorkspaceEntities, { type });
+        const entities = await Manager.Client.sendRequest<WorkspaceResourceSummary[]>(
+          RequestTypes.WorkspaceEntities,
+          { type } as WorkspaceResourcesRequest,
+        );
         const limit = Math.max(1, options.input.limit ?? entities.length);
         const items = entities.slice(0, limit);
 

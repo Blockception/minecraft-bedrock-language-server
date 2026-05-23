@@ -1,4 +1,10 @@
-import { RequestTypes } from '@blockception/ide-shared';
+import {
+  RequestTypes,
+  WorkspaceResourceSource,
+  WorkspaceResourceSummary,
+  WorkspaceResourceType,
+  WorkspaceResourcesRequest,
+} from '@blockception/ide-shared';
 import { Connection } from 'vscode-languageserver';
 import { ExtensionContext } from '../extension';
 import { IExtendedLogger } from '../logger/logger';
@@ -8,43 +14,6 @@ import { IService } from '../services/service';
 type CollectionWithIds = {
   forEach(callbackfn: (item: { id?: string }) => void): void;
 };
-
-export type WorkspaceResourceType =
-  | 'entities'
-  | 'items'
-  | 'blocks'
-  | 'biomes'
-  | 'features'
-  | 'featureRules'
-  | 'functions'
-  | 'lootTables'
-  | 'recipes'
-  | 'trading'
-  | 'structures'
-  | 'animations'
-  | 'animationControllers'
-  | 'attachables'
-  | 'blockCullingRules'
-  | 'fogs'
-  | 'materials'
-  | 'models'
-  | 'particles'
-  | 'renderControllers'
-  | 'sounds'
-  | 'textures'
-  | 'itemTextures'
-  | 'terrainTextures'
-  | 'uiElements'
-  | 'customCommands'
-  | 'itemGroups'
-  | 'fakeEntities'
-  | 'objectives'
-  | 'tags'
-  | 'tickingAreas';
-
-export interface WorkspaceResourcesRequest {
-  type?: WorkspaceResourceType;
-}
 
 export interface WorkspaceProjectDataCollections {
   behaviorPacks: {
@@ -90,12 +59,6 @@ export interface WorkspaceProjectDataCollections {
   };
 }
 
-export interface WorkspaceResourceSummary {
-  id: string;
-  source: 'behaviorPack' | 'resourcePack' | 'general';
-  type: WorkspaceResourceType;
-}
-
 /** Handles LSP requests backing language model tool invocations. */
 export class LanguageModelToolService extends BaseService implements IService {
   readonly name: string = 'language-model-tools';
@@ -121,11 +84,11 @@ export function getWorkspaceResourceSummaries(
   projectData: WorkspaceProjectDataCollections,
   type: WorkspaceResourceType = 'entities',
 ): WorkspaceResourceSummary[] {
-  const collections = getCollectionsByType(projectData, type);
+  const collections = resourceTypeCollections[type](projectData);
   const keys = new Set<string>();
   const result: WorkspaceResourceSummary[] = [];
 
-  const addItems = (items: CollectionWithIds, source: WorkspaceResourceSummary['source']) => {
+  const addItems = (items: CollectionWithIds, source: WorkspaceResourceSource) => {
     items.forEach((item) => {
       if (typeof item.id !== 'string' || item.id.trim() === '') return;
 
@@ -152,86 +115,81 @@ export function getWorkspaceResourceSummaries(
   });
 }
 
-function getCollectionsByType(
-  projectData: WorkspaceProjectDataCollections,
-  type: WorkspaceResourceType,
-): { source: WorkspaceResourceSummary['source']; items: CollectionWithIds }[] {
-  switch (type) {
-    case 'entities':
-      return [
-        { source: 'behaviorPack', items: projectData.behaviorPacks.entities },
-        { source: 'resourcePack', items: projectData.resourcePacks.entities },
-      ];
-    case 'items':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.items }];
-    case 'blocks':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.blocks }];
-    case 'biomes':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.biomes }];
-    case 'features':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.features }];
-    case 'featureRules':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.featuresRules }];
-    case 'functions':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.functions }];
-    case 'lootTables':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.lootTables }];
-    case 'recipes':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.recipes }];
-    case 'trading':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.trading }];
-    case 'structures':
-      return [
-        { source: 'behaviorPack', items: projectData.behaviorPacks.structures },
-        { source: 'general', items: projectData.general.structures },
-      ];
-    case 'animations':
-      return [
-        { source: 'behaviorPack', items: projectData.behaviorPacks.animations },
-        { source: 'resourcePack', items: projectData.resourcePacks.animations },
-      ];
-    case 'animationControllers':
-      return [
-        { source: 'behaviorPack', items: projectData.behaviorPacks.animationControllers },
-        { source: 'resourcePack', items: projectData.resourcePacks.animationControllers },
-      ];
-    case 'attachables':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.attachables }];
-    case 'blockCullingRules':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.blockCullingRules }];
-    case 'fogs':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.fogs }];
-    case 'materials':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.materials }];
-    case 'models':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.models }];
-    case 'particles':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.particles }];
-    case 'renderControllers':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.renderControllers }];
-    case 'sounds':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.sounds }];
-    case 'textures':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.textures }];
-    case 'itemTextures':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.itemTextures }];
-    case 'terrainTextures':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.terrainTextures }];
-    case 'uiElements':
-      return [{ source: 'resourcePack', items: projectData.resourcePacks.uiElements }];
-    case 'customCommands':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.customCommands }];
-    case 'itemGroups':
-      return [{ source: 'behaviorPack', items: projectData.behaviorPacks.itemGroups }];
-    case 'fakeEntities':
-      return [{ source: 'general', items: projectData.general.fakeEntities }];
-    case 'objectives':
-      return [{ source: 'general', items: projectData.general.objectives }];
-    case 'tags':
-      return [{ source: 'general', items: projectData.general.tags }];
-    case 'tickingAreas':
-      return [{ source: 'general', items: projectData.general.tickingAreas }];
-    default:
-      return [];
-  }
-}
+type CollectionEntry = { source: WorkspaceResourceSource; items: CollectionWithIds };
+type CollectionSelector = (projectData: WorkspaceProjectDataCollections) => CollectionEntry[];
+
+const behaviorPackCollection = <K extends keyof WorkspaceProjectDataCollections['behaviorPacks']>(
+  key: K,
+): CollectionSelector => {
+  return (projectData) => [{ source: 'behaviorPack', items: projectData.behaviorPacks[key] }];
+};
+
+const resourcePackCollection = <K extends keyof WorkspaceProjectDataCollections['resourcePacks']>(
+  key: K,
+): CollectionSelector => {
+  return (projectData) => [{ source: 'resourcePack', items: projectData.resourcePacks[key] }];
+};
+
+const generalCollection = <K extends keyof WorkspaceProjectDataCollections['general']>(key: K): CollectionSelector => {
+  return (projectData) => [{ source: 'general', items: projectData.general[key] }];
+};
+
+const behaviorAndResourceCollection = <
+  BK extends keyof WorkspaceProjectDataCollections['behaviorPacks'],
+  RK extends keyof WorkspaceProjectDataCollections['resourcePacks'],
+>(
+  behaviorPackKey: BK,
+  resourcePackKey: RK,
+): CollectionSelector => {
+  return (projectData) => [
+    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] },
+    { source: 'resourcePack', items: projectData.resourcePacks[resourcePackKey] },
+  ];
+};
+
+const behaviorAndGeneralCollection = <
+  BK extends keyof WorkspaceProjectDataCollections['behaviorPacks'],
+  GK extends keyof WorkspaceProjectDataCollections['general'],
+>(
+  behaviorPackKey: BK,
+  generalKey: GK,
+): CollectionSelector => {
+  return (projectData) => [
+    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] },
+    { source: 'general', items: projectData.general[generalKey] },
+  ];
+};
+
+const resourceTypeCollections: Record<WorkspaceResourceType, CollectionSelector> = {
+  entities: behaviorAndResourceCollection('entities', 'entities'),
+  items: behaviorPackCollection('items'),
+  blocks: behaviorPackCollection('blocks'),
+  biomes: behaviorPackCollection('biomes'),
+  features: behaviorPackCollection('features'),
+  featureRules: behaviorPackCollection('featuresRules'),
+  functions: behaviorPackCollection('functions'),
+  lootTables: behaviorPackCollection('lootTables'),
+  recipes: behaviorPackCollection('recipes'),
+  trading: behaviorPackCollection('trading'),
+  structures: behaviorAndGeneralCollection('structures', 'structures'),
+  animations: behaviorAndResourceCollection('animations', 'animations'),
+  animationControllers: behaviorAndResourceCollection('animationControllers', 'animationControllers'),
+  attachables: resourcePackCollection('attachables'),
+  blockCullingRules: resourcePackCollection('blockCullingRules'),
+  fogs: resourcePackCollection('fogs'),
+  materials: resourcePackCollection('materials'),
+  models: resourcePackCollection('models'),
+  particles: resourcePackCollection('particles'),
+  renderControllers: resourcePackCollection('renderControllers'),
+  sounds: resourcePackCollection('sounds'),
+  textures: resourcePackCollection('textures'),
+  itemTextures: resourcePackCollection('itemTextures'),
+  terrainTextures: resourcePackCollection('terrainTextures'),
+  uiElements: resourcePackCollection('uiElements'),
+  customCommands: behaviorPackCollection('customCommands'),
+  itemGroups: behaviorPackCollection('itemGroups'),
+  fakeEntities: generalCollection('fakeEntities'),
+  objectives: generalCollection('objectives'),
+  tags: generalCollection('tags'),
+  tickingAreas: generalCollection('tickingAreas'),
+};
