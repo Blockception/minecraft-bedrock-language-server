@@ -267,6 +267,23 @@ export interface WorkspaceResourceSummary {
 
 /** Dataset identifiers for use with RequestTypes.DataSet */
 export namespace DataSets {
+  /** MCP-compatible dataset endpoints */
+  export namespace MCP {
+    /** Project-scoped datasets */
+    export namespace Project {
+      /** Workspace project entities */
+      export const Entities: string = 'bedrock://project/entities';
+      /** Workspace project blocks */
+      export const Blocks: string = 'bedrock://project/blocks';
+    }
+
+    /** Vanilla scoped datasets */
+    export namespace Vanilla {
+      /** Vanilla command identifiers */
+      export const Commands: string = 'bedrock://vanilla/commands';
+    }
+  }
+
   /** Vanilla behavior pack datasets */
   export namespace Vanilla {
     /** Vanilla behavior pack datasets */

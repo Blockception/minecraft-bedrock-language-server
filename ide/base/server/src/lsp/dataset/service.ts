@@ -1,7 +1,9 @@
 import { DataSets, RequestTypes } from '@blockception/ide-shared';
+import { CommandData } from 'bc-minecraft-bedrock-command';
 import { MinecraftData } from 'bc-minecraft-bedrock-vanilla-data';
 import { Connection } from 'vscode-languageserver';
 import { ExtensionContext } from '../extension';
+import { getWorkspaceResourceSummaries, WorkspaceProjectDataCollections } from '../language-model-tools/service';
 import { IExtendedLogger } from '../logger/logger';
 import { BaseService } from '../services/base';
 import { IService } from '../services/service';
@@ -32,7 +34,7 @@ export class DataSetService extends BaseService implements IService {
 
   private onDataSetRequest(params: DataSetRequestParams): unknown {
     this.logger.debug('dataset request', params);
-    const data = getDataSet(params.datatype);
+    const data = getDataSet(params.datatype, this.extension.database.ProjectData as WorkspaceProjectDataCollections);
 
     if (params.id === undefined || data === undefined) return data;
     return filterDataSet(data, params.id);
@@ -59,8 +61,16 @@ function filterDataSet(data: unknown, id: string): unknown {
  * Returns the dataset for the given datatype identifier, or undefined if not found.
  * @param datatype The dataset type identifier (e.g. 'vanilla/behavior_pack/blocks')
  */
-function getDataSet(datatype: string): unknown {
+function getDataSet(datatype: string, projectData?: WorkspaceProjectDataCollections): unknown {
   switch (datatype) {
+    // MCP Endpoints
+    case DataSets.MCP.Project.Entities:
+      return projectData ? getWorkspaceResourceSummaries(projectData, 'entities') : undefined;
+    case DataSets.MCP.Project.Blocks:
+      return projectData ? getWorkspaceResourceSummaries(projectData, 'blocks') : undefined;
+    case DataSets.MCP.Vanilla.Commands:
+      return CommandData.VanillaCommands;
+
     // Vanilla Behavior Pack
     case DataSets.Vanilla.BehaviorPack.Biomes:
       return MinecraftData.vanilla.BehaviorPack.biomes;
