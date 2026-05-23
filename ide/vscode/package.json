@@ -198,6 +198,95 @@
         }
       }
     ],
+    "languageModelTools": [
+      {
+        "name": "blockception.minecraft.workspaceEntities",
+        "modelDescription": "Returns resource identifiers (entities, items, blocks, and more) from loaded Minecraft Bedrock workspace project data.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "entities",
+                "items",
+                "blocks",
+                "biomes",
+                "features",
+                "featureRules",
+                "functions",
+                "lootTables",
+                "recipes",
+                "trading",
+                "structures",
+                "animations",
+                "animationControllers",
+                "attachables",
+                "blockCullingRules",
+                "fogs",
+                "materials",
+                "models",
+                "particles",
+                "renderControllers",
+                "sounds",
+                "textures",
+                "itemTextures",
+                "terrainTextures",
+                "uiElements",
+                "customCommands",
+                "itemGroups",
+                "fakeEntities",
+                "objectives",
+                "tags",
+                "tickingAreas"
+              ],
+              "description": "Optional resource type to query. Defaults to 'entities'."
+            },
+            "limit": {
+              "type": "number",
+              "minimum": 1,
+              "description": "Optional maximum number of resources to return."
+            }
+          }
+        }
+      },
+      {
+        "name": "blockception.minecraft.currentFileDiagnostics",
+        "modelDescription": "Returns diagnostics for a file URI or the active editor file in the current workspace.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "type": "string",
+              "description": "Optional file URI. Uses the active editor when omitted."
+            }
+          }
+        }
+      },
+      {
+        "name": "blockception.minecraft.scaffoldProjectFiles",
+        "modelDescription": "Scaffolds Minecraft Bedrock project files by running Blockception scaffold commands.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "required": [
+            "command"
+          ],
+          "properties": {
+            "command": {
+              "type": "string",
+              "description": "A scaffold command id. Must start with 'bc-create-' or equal 'bc.mcproject.create'."
+            },
+            "id": {
+              "type": "string",
+              "description": "Optional identifier for scaffold commands that require one."
+            }
+          }
+        }
+      }
+    ],
     "commands": [
       {
         "title": "(Re) Scan the minecraft project",
