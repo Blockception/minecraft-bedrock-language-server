@@ -73,13 +73,6 @@ development.
 
 A complete list can be found [here](documentation/Commands.md). These commands provide things such as cheat sheets, diagnostics, and generations of files.
 
-## Copilot chat tools
-
-The extension also contributes language model tools for Copilot Chat:
-- `#bedrockWorkspaceEntities`: returns entities indexed from workspace project data
-- `#bedrockCurrentFileDiagnostics`: returns diagnostics for the active file (or a supplied file URI)
-- `#bedrockScaffoldProjectFiles`: scaffolds world, behavior pack, or resource pack project files
-
 ---
 
 ## Extension Settings
