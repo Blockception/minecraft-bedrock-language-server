@@ -55,6 +55,7 @@ export namespace Commands {
   /** */
   export namespace Files {
     export const Append = 'bc-files-append';
+    export const SetMCLintRule = 'bc-files-set-mclint-rule';
   }
 
   /**The namespace that stores all creation commands */
