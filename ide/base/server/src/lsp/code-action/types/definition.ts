@@ -51,7 +51,7 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
   const ws = builder.context.database.WorkspaceData.getFolder(document.uri);
   const key = diag.code ?? '';
 
-  if (typeof key === 'undefined' || key === '') return;
+  if (typeof key !== 'string' || key === '') return;
 
   if (!ws) {
     builder.context.logger.error(`Couldn't find workspace for: ${document.uri}`);
