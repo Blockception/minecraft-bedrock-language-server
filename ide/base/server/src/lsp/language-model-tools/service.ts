@@ -127,16 +127,19 @@ export function getWorkspaceResourceSummaries(
 type CollectionEntry = { source: WorkspaceResourceSource; items: CollectionWithIds };
 type CollectionSelector = (projectData: WorkspaceProjectDataCollections) => CollectionEntry[];
 
-const behaviorPackCollection = <K extends keyof WorkspaceProjectDataCollections['behaviorPacks']>(
+/** Keys of a type whose values extend CollectionWithIds */
+type CollectionKeys<T> = { [K in keyof T]: T[K] extends CollectionWithIds ? K : never }[keyof T];
+
+const behaviorPackCollection = <K extends CollectionKeys<WorkspaceProjectDataCollections['behaviorPacks']>>(
   key: K,
 ): CollectionSelector => {
-  return (projectData) => [{ source: 'behaviorPack', items: projectData.behaviorPacks[key] }];
+  return (projectData) => [{ source: 'behaviorPack', items: projectData.behaviorPacks[key] as CollectionWithIds }];
 };
 
-const resourcePackCollection = <K extends keyof WorkspaceProjectDataCollections['resourcePacks']>(
+const resourcePackCollection = <K extends CollectionKeys<WorkspaceProjectDataCollections['resourcePacks']>>(
   key: K,
 ): CollectionSelector => {
-  return (projectData) => [{ source: 'resourcePack', items: projectData.resourcePacks[key] }];
+  return (projectData) => [{ source: 'resourcePack', items: projectData.resourcePacks[key] as CollectionWithIds }];
 };
 
 const generalCollection = <K extends keyof WorkspaceProjectDataCollections['general']>(key: K): CollectionSelector => {
@@ -144,27 +147,27 @@ const generalCollection = <K extends keyof WorkspaceProjectDataCollections['gene
 };
 
 const behaviorAndResourceCollection = <
-  BK extends keyof WorkspaceProjectDataCollections['behaviorPacks'],
-  RK extends keyof WorkspaceProjectDataCollections['resourcePacks'],
+  BK extends CollectionKeys<WorkspaceProjectDataCollections['behaviorPacks']>,
+  RK extends CollectionKeys<WorkspaceProjectDataCollections['resourcePacks']>,
 >(
   behaviorPackKey: BK,
   resourcePackKey: RK,
 ): CollectionSelector => {
   return (projectData) => [
-    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] },
-    { source: 'resourcePack', items: projectData.resourcePacks[resourcePackKey] },
+    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] as CollectionWithIds },
+    { source: 'resourcePack', items: projectData.resourcePacks[resourcePackKey] as CollectionWithIds },
   ];
 };
 
 const behaviorAndGeneralCollection = <
-  BK extends keyof WorkspaceProjectDataCollections['behaviorPacks'],
+  BK extends CollectionKeys<WorkspaceProjectDataCollections['behaviorPacks']>,
   GK extends keyof WorkspaceProjectDataCollections['general'],
 >(
   behaviorPackKey: BK,
   generalKey: GK,
 ): CollectionSelector => {
   return (projectData) => [
-    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] },
+    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] as CollectionWithIds },
     { source: 'general', items: projectData.general[generalKey] },
   ];
 };
