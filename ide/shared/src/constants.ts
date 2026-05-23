@@ -36,8 +36,6 @@ export namespace Commands {
 
   /** */
   export const StoreProject: string = 'bc.minecraft.project.store';
-  /** */
-  export const GetWorkspaceEntities: string = 'bc.minecraft.project.entities';
 
   /** */
   export const ShowVanillaFile: string = 'bc.minecraft.vanilla.show';
@@ -214,6 +212,57 @@ export namespace Commands {
 export namespace RequestTypes {
   /** The method for requesting a dataset from the server */
   export const DataSet: string = 'bc/minecraft/dataset';
+  /** The method for requesting workspace resource identifiers from the loaded workspace project data */
+  export const WorkspaceEntities: string = 'bc/minecraft/workspace/entities';
+}
+
+/** Supported workspace project resource categories for language model tools. */
+export const WorkspaceResourceTypes = [
+  'entities',
+  'items',
+  'blocks',
+  'biomes',
+  'features',
+  'featureRules',
+  'functions',
+  'lootTables',
+  'recipes',
+  'trading',
+  'structures',
+  'animations',
+  'animationControllers',
+  'attachables',
+  'blockCullingRules',
+  'fogs',
+  'materials',
+  'models',
+  'particles',
+  'renderControllers',
+  'sounds',
+  'textures',
+  'itemTextures',
+  'terrainTextures',
+  'uiElements',
+  'customCommands',
+  'itemGroups',
+  'fakeEntities',
+  'objectives',
+  'tags',
+  'tickingAreas',
+] as const;
+
+export type WorkspaceResourceType = (typeof WorkspaceResourceTypes)[number];
+
+export type WorkspaceResourceSource = 'behaviorPack' | 'resourcePack' | 'general';
+
+export interface WorkspaceResourcesRequest {
+  type?: WorkspaceResourceType;
+}
+
+export interface WorkspaceResourceSummary {
+  id: string;
+  source: WorkspaceResourceSource;
+  type: WorkspaceResourceType;
 }
 
 /** Dataset identifiers for use with RequestTypes.DataSet */

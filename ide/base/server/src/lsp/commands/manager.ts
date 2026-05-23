@@ -5,7 +5,6 @@ import { exportAsAddon, exportAsPack } from './commands/export-pack';
 import { appendToFile, setMCLintRule } from './commands/files';
 import { addAllItems } from './commands/language';
 import { createMcProject } from './commands/mcproject';
-import { getWorkspaceEntities } from './commands/project-data';
 import { storeProject } from './commands/store-project';
 import { setupTemplates } from './commands/templates';
 import { setupCreate } from './commands/templates-specalized';
@@ -82,7 +81,6 @@ export class CommandManager implements ICommand {
       .add(Commands.AddLanguageFile, addAllItems)
       .add(Commands.ScanProjects, rescanProject, true)
       .add(Commands.StoreProject, storeProject, true)
-      .add(Commands.GetWorkspaceEntities, getWorkspaceEntities, true)
       .add(Commands.Files.Append, appendToFile, true)
       .add(Commands.Files.SetMCLintRule, setMCLintRule, true)
       .add(Commands.MCProject.Create, createMcProject)

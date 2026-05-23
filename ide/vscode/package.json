@@ -25,9 +25,6 @@
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
     "onCommand:bc-create-project-resource-pack",
-    "onLanguageModelTool:bc-minecraft_getWorkspaceEntities",
-    "onLanguageModelTool:bc-minecraft_getCurrentFileDiagnostics",
-    "onLanguageModelTool:bc-minecraft_scaffoldProjectFiles",
     "workspaceContains:**/.mcattributes",
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore",
@@ -100,64 +97,6 @@
     "webpack": "npm run webpack:client && npm run webpack:server"
   },
   "contributes": {
-    "languageModelTools": [
-      {
-        "name": "bc-minecraft_getWorkspaceEntities",
-        "tags": ["minecraft", "project", "entities"],
-        "toolReferenceName": "bedrockWorkspaceEntities",
-        "displayName": "Get Workspace Entities",
-        "modelDescription": "Get all Minecraft Bedrock entities indexed in the current workspace project data.",
-        "canBeReferencedInPrompt": true,
-        "inputSchema": {
-          "type": "object",
-          "properties": {}
-        }
-      },
-      {
-        "name": "bc-minecraft_getCurrentFileDiagnostics",
-        "tags": ["minecraft", "diagnostics", "editor"],
-        "toolReferenceName": "bedrockCurrentFileDiagnostics",
-        "displayName": "Get Current File Diagnostics",
-        "modelDescription": "Get diagnostics for a file URI or the current active editor file in the workspace.",
-        "canBeReferencedInPrompt": true,
-        "inputSchema": {
-          "type": "object",
-          "properties": {
-            "uri": {
-              "type": "string",
-              "description": "Optional file URI. If omitted, the active editor file is used."
-            }
-          }
-        }
-      },
-      {
-        "name": "bc-minecraft_scaffoldProjectFiles",
-        "tags": ["minecraft", "scaffold", "project"],
-        "toolReferenceName": "bedrockScaffoldProjectFiles",
-        "displayName": "Scaffold Bedrock Project Files",
-        "modelDescription": "Scaffold world, behavior pack, or resource pack project files in the current workspace.",
-        "canBeReferencedInPrompt": true,
-        "inputSchema": {
-          "type": "object",
-          "properties": {
-            "projectId": {
-              "type": "string",
-              "description": "Project identifier (for example: myAddon)."
-            },
-            "projectType": {
-              "type": "string",
-              "enum": ["world", "behaviorPack", "resourcePack"],
-              "description": "Type of project files to scaffold."
-            },
-            "workspaceUri": {
-              "type": "string",
-              "description": "Optional workspace URI. Defaults to the first workspace folder."
-            }
-          },
-          "required": ["projectId", "projectType"]
-        }
-      }
-    ],
     "chatParticipants": [
       {
         "id": "blockception.bedrock",
@@ -255,6 +194,95 @@
             "type": "boolean",
             "default": true,
             "description": "Turns on or off the comment completion for lang files ie; ### and ### (region)"
+          }
+        }
+      }
+    ],
+    "languageModelTools": [
+      {
+        "name": "blockception.minecraft.workspaceEntities",
+        "modelDescription": "Returns resource identifiers (entities, items, blocks, and more) from loaded Minecraft Bedrock workspace project data.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "entities",
+                "items",
+                "blocks",
+                "biomes",
+                "features",
+                "featureRules",
+                "functions",
+                "lootTables",
+                "recipes",
+                "trading",
+                "structures",
+                "animations",
+                "animationControllers",
+                "attachables",
+                "blockCullingRules",
+                "fogs",
+                "materials",
+                "models",
+                "particles",
+                "renderControllers",
+                "sounds",
+                "textures",
+                "itemTextures",
+                "terrainTextures",
+                "uiElements",
+                "customCommands",
+                "itemGroups",
+                "fakeEntities",
+                "objectives",
+                "tags",
+                "tickingAreas"
+              ],
+              "description": "Optional resource type to query. Defaults to 'entities'."
+            },
+            "limit": {
+              "type": "number",
+              "minimum": 1,
+              "description": "Optional maximum number of resources to return."
+            }
+          }
+        }
+      },
+      {
+        "name": "blockception.minecraft.currentFileDiagnostics",
+        "modelDescription": "Returns diagnostics for a file URI or the active editor file in the current workspace.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "type": "string",
+              "description": "Optional file URI. Uses the active editor when omitted."
+            }
+          }
+        }
+      },
+      {
+        "name": "blockception.minecraft.scaffoldProjectFiles",
+        "modelDescription": "Scaffolds Minecraft Bedrock project files by running Blockception scaffold commands.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "required": [
+            "command"
+          ],
+          "properties": {
+            "command": {
+              "type": "string",
+              "description": "A scaffold command id. Must start with 'bc-create-' or equal 'bc.mcproject.create'."
+            },
+            "id": {
+              "type": "string",
+              "description": "Optional identifier for scaffold commands that require one."
+            }
           }
         }
       }
