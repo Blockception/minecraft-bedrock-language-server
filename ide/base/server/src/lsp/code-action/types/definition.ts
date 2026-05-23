@@ -1,5 +1,5 @@
 import { Commands } from '@blockception/ide-shared';
-import { MCAttributes, MCDefinition } from 'bc-minecraft-project';
+import { MCAttributes, MCDefinition, MCLint } from 'bc-minecraft-project';
 import { CodeAction, CodeActionKind, Command, Diagnostic, TextEdit } from 'vscode-languageserver';
 import { CodeActionBuilder } from '../builder';
 import { Vscode } from '../../../util';
@@ -58,6 +58,11 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
     return;
   }
 
+  if (key.startsWith('lint.')) {
+    addMCLintRuleActions(builder, diag, ws, key.slice(5));
+    return;
+  }
+
   const uri = Vscode.join(ws, MCAttributes.filename);
 
   const command: Command = {
@@ -75,12 +80,34 @@ export function attributes(builder: CodeActionBuilder, diag: Diagnostic): void {
   };
 
   builder.push(action);
-  
+
   // Add quick fix to disable in current file
   addDisableInFile(builder, diag);
-  
+
   // Add quick fix to disable on next line
   addDisableNextLine(builder, diag);
+}
+
+function addMCLintRuleActions(builder: CodeActionBuilder, diag: Diagnostic, workspace: string, rule: string): void {
+  if (!rule) return;
+  const uri = Vscode.join(workspace, MCLint.filename);
+  const severities = ['off', 'warn', 'error'] as const;
+
+  severities.forEach((severity) => {
+    const command: Command = {
+      title: `Set MCLint rule '${rule}' to '${severity}'`,
+      command: Commands.Files.SetMCLintRule,
+      arguments: [uri, rule, severity],
+    };
+
+    builder.push({
+      title: command.title,
+      command,
+      diagnostics: [diag],
+      kind: CodeActionKind.QuickFix,
+      isPreferred: severity === 'off',
+    });
+  });
 }
 
 /**
@@ -98,7 +125,7 @@ function addDisableInFile(builder: CodeActionBuilder, diag: Diagnostic): void {
   // Insert at the beginning of the file
   const edit = TextEdit.insert(
     { line: 0, character: 0 },
-    `// mc-disable ${key}\n`
+    `// mc-disable ${key}\n`,
   );
 
   const action: CodeAction = {
@@ -130,19 +157,19 @@ function addDisableNextLine(builder: CodeActionBuilder, diag: Diagnostic): void 
 
   // Get the line before the diagnostic
   const line = diag.range.start.line;
-  
+
   // Get the indentation of the current line
   const currentLineText = document.getText({
     start: { line, character: 0 },
     end: { line: line + 1, character: 0 },
   }).replace(/\n$/, ''); // Remove trailing newline
-  
+
   const indent = currentLineText.match(/^(\s*)/)?.[1] ?? '';
 
   // Insert on the line before the diagnostic
   const edit = TextEdit.insert(
     { line, character: 0 },
-    `${indent}// mc-disable-next-line ${key}\n`
+    `${indent}// mc-disable-next-line ${key}\n`,
   );
 
   const action: CodeAction = {
