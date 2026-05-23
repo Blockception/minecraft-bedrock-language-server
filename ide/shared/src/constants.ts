@@ -47,6 +47,12 @@ export namespace Commands {
   export const FillIdByName: string = 'bc.minecraft.id.fill';
 
   /** */
+  export namespace AI {
+    /** Create a copilot-instructions.md for Bedrock projects */
+    export const GenerateInstructions: string = 'bc.minecraft.ai.generateInstructions';
+  }
+
+  /** */
   export namespace Files {
     export const Append = 'bc-files-append';
   }

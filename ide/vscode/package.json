@@ -20,6 +20,7 @@
     "onCommand:bc-cheat-sheet-molang",
     "onCommand:bc-cheat-sheet-behavior-filters",
     "onCommand:bc.errors.open_lastest",
+    "onCommand:bc.minecraft.ai.generateInstructions",
     "onCommand:bc.mcproject.create",
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
@@ -538,6 +539,12 @@
         "command": "bc.minecraft.export.addon",
         "category": "Blockception",
         "enablement": "ext:is_active"
+      },
+      {
+        "title": "Generate copilot-instructions.md for Bedrock project",
+        "command": "bc.minecraft.ai.generateInstructions",
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       }
     ],
     "grammars": [
