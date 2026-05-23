@@ -1,8 +1,9 @@
 import * as vscode from 'vscode';
-import { setupClient, Manager, setupCommands } from 'bc-minecraft-lsp-client';
+import { setupChatVariables, setupClient, Manager, setupCommands } from 'bc-minecraft-lsp-client';
 
 export function activate(context: vscode.ExtensionContext): void {
   setupCommands(context);
+  setupChatVariables(context);
   setupClient(context);
 }
 

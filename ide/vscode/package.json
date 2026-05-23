@@ -173,6 +173,12 @@
         }
       }
     ],
+    "chatVariableResolvers": [
+      {
+        "variable": "bedrockContext",
+        "description": "Minecraft Bedrock workspace context including pack names, namespaces, entities, blocks, and items."
+      }
+    ],
     "commands": [
       {
         "title": "(Re) Scan the minecraft project",
