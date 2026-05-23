@@ -20,6 +20,7 @@
     "onCommand:bc-cheat-sheet-molang",
     "onCommand:bc-cheat-sheet-behavior-filters",
     "onCommand:bc.errors.open_lastest",
+    "onCommand:bc.minecraft.ai.generateInstructions",
     "onCommand:bc.mcproject.create",
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
@@ -28,7 +29,8 @@
     "workspaceContains:**/.mcdefinitions",
     "workspaceContains:**/.mcignore",
     "workspaceContains:**/.mclint",
-    "workspaceContains:**/.mcfunction"
+    "workspaceContains:**/.mcfunction",
+    "onChatParticipant:blockception.bedrock"
   ],
   "author": {
     "name": "Blockception Ltd",
@@ -95,6 +97,29 @@
     "webpack": "npm run webpack:client && npm run webpack:server"
   },
   "contributes": {
+    "chatParticipants": [
+      {
+        "id": "blockception.bedrock",
+        "name": "bedrock",
+        "fullName": "Bedrock Assistant",
+        "description": "Minecraft Bedrock domain assistant with explain, diagnose, and scaffold workflows.",
+        "isSticky": true,
+        "commands": [
+          {
+            "name": "explain",
+            "description": "Explain a Bedrock concept with practical examples."
+          },
+          {
+            "name": "diagnose",
+            "description": "Diagnose Bedrock errors and propose concrete fixes."
+          },
+          {
+            "name": "scaffold",
+            "description": "Scaffold starter Bedrock JSON and mcfunction templates."
+          }
+        ]
+      }
+    ],
     "configurationDefaults": {
       "files.associations": {
         "*.mclint": "jsonc"
@@ -603,6 +628,12 @@
         "command": "bc.minecraft.export.addon",
         "category": "Blockception",
         "enablement": "ext:is_active"
+      },
+      {
+        "title": "Generate copilot-instructions.md for Bedrock project",
+        "command": "bc.minecraft.ai.generateInstructions",
+        "category": "Blockception",
+        "enablement": "workspaceFolderCount > 0"
       }
     ],
     "grammars": [

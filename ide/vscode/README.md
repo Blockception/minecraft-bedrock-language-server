@@ -6,14 +6,6 @@ best color highlighting.
 
 ![overview](documentation/resources/overview.gif)
 
-<p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension">
-  <img alt="Visual Studio Marketplace Version" src="https://img.shields.io/visual-studio-marketplace/v/BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension?style=for-the-badge">
-    <img alt="Visual Studio Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension?style=for-the-badge">
-    <img alt="Visual Studio Marketplace Downloads" src="https://img.shields.io/visual-studio-marketplace/d/BlockceptionLtd.blockceptionvscodeminecraftbedrockdevelopmentextension?style=for-the-badge">
-  </a>
-</p>
-
 ## Features
 
 ### JSON

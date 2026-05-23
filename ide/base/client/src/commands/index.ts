@@ -7,6 +7,7 @@ import * as ShowVanillaFile from './show-vanilla-file';
 import * as ShowDocs from './show-docs';
 import * as FillIdByName from './fill-id-by-name';
 import * as LanguageModelTools from './language-model-tools';
+import * as GenerateAIInstructions from './generate-ai-instructions';
 
 export function setupCommands(context: ExtensionContext): void {
   Create.activate(context);
@@ -17,4 +18,5 @@ export function setupCommands(context: ExtensionContext): void {
   ShowDocs.activate(context);
   FillIdByName.activate(context);
   LanguageModelTools.activate(context);
+  GenerateAIInstructions.activate(context);
 }
