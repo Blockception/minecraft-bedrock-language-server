@@ -30,6 +30,10 @@ interface BedrockContextData {
   items: string[];
 }
 
+/**
+ * Registers the `#bedrockContext` chat variable when the current VS Code build
+ * exposes the chat variable resolver API.
+ */
 export function setupChatVariables(context: vscode.ExtensionContext): void {
   const chat = (vscode as typeof vscode & { chat?: ChatApi }).chat;
   if (!chat) return;
@@ -42,6 +46,10 @@ export function setupChatVariables(context: vscode.ExtensionContext): void {
   );
 }
 
+/**
+ * Scans the open workspace for Bedrock project files and returns a formatted
+ * summary that Copilot Chat can inject into prompts.
+ */
 export async function resolveBedrockContext(workspace: WorkspaceLike): Promise<string> {
   const [
     manifestUris,
@@ -80,6 +88,10 @@ export async function resolveBedrockContext(workspace: WorkspaceLike): Promise<s
   });
 }
 
+/**
+ * Formats the collected Bedrock project data into a compact, readable block of
+ * text for chat variable expansion.
+ */
 export function formatBedrockContext(data: BedrockContextData): string {
   const namespaceLabel = data.namespaces.length > 1 ? 'Project namespaces' : 'Project namespace';
 
@@ -94,6 +106,10 @@ export function formatBedrockContext(data: BedrockContextData): string {
   ].join('\n');
 }
 
+/**
+ * Reads the display name from a pack manifest, falling back to the pack folder
+ * name when the manifest is missing or malformed.
+ */
 export function parseManifestName(content: string, fallback: string): string | undefined {
   const manifest = parseJson(content);
   const name = manifest && getStringAtPath(manifest, ['header', 'name']);
@@ -102,6 +118,9 @@ export function parseManifestName(content: string, fallback: string): string | u
   return normalizeValue(name) ?? normalizedFallback;
 }
 
+/**
+ * Extracts all `namespace=...` declarations from a `.mcattributes` file.
+ */
 export function parseNamespaces(content: string): string[] {
   const namespaces: string[] = [];
 
@@ -123,6 +142,10 @@ export function parseNamespaces(content: string): string[] {
   return uniqueSorted(namespaces);
 }
 
+/**
+ * Tries a list of JSON paths and returns the first normalized identifier found
+ * in a Bedrock content file.
+ */
 export function parseIdentifier(content: string, paths: readonly string[][]): string | undefined {
   const document = parseJson(content);
   if (!document) return undefined;
@@ -136,6 +159,10 @@ export function parseIdentifier(content: string, paths: readonly string[][]): st
   return undefined;
 }
 
+/**
+ * Infers namespace candidates from discovered identifiers when `.mcattributes`
+ * does not define one.
+ */
 function deriveNamespaces(...identifierLists: string[][]): string[] {
   return uniqueSorted(
     identifierLists
@@ -145,6 +172,7 @@ function deriveNamespaces(...identifierLists: string[][]): string[] {
   );
 }
 
+/** Loads and normalizes pack names from each discovered manifest. */
 async function readPackNames(uris: readonly vscode.Uri[], fs: WorkspaceFileSystemLike): Promise<string[]> {
   const names = await Promise.all(
     uris.map(async (uri) => {
@@ -156,11 +184,13 @@ async function readPackNames(uris: readonly vscode.Uri[], fs: WorkspaceFileSyste
   return uniqueSorted(names);
 }
 
+/** Loads and merges namespace declarations from each discovered `.mcattributes` file. */
 async function readNamespaces(uris: readonly vscode.Uri[], fs: WorkspaceFileSystemLike): Promise<string[]> {
   const namespaces = await Promise.all(uris.map(async (uri) => parseNamespaces(await readText(uri, fs))));
   return uniqueSorted(namespaces.flat());
 }
 
+/** Loads identifiers from a set of discovered Bedrock JSON files. */
 async function readIdentifiers(
   uris: readonly vscode.Uri[],
   fs: WorkspaceFileSystemLike,
@@ -170,11 +200,13 @@ async function readIdentifiers(
   return uniqueSorted(identifiers);
 }
 
+/** Reads a VS Code workspace file as UTF-8 text. */
 async function readText(uri: vscode.Uri, fs: WorkspaceFileSystemLike): Promise<string> {
   const content = await fs.readFile(uri);
   return Buffer.from(content).toString('utf8');
 }
 
+/** Parses JSON content safely and returns `undefined` for malformed documents. */
 function parseJson(content: string): Record<string, unknown> | undefined {
   try {
     const parsed = JSON.parse(content);
@@ -186,6 +218,7 @@ function parseJson(content: string): Record<string, unknown> | undefined {
   return undefined;
 }
 
+/** Resolves a nested string property from a parsed JSON object. */
 function getStringAtPath(value: Record<string, unknown>, parts: readonly string[]): string | undefined {
   let current: unknown = value;
 
@@ -197,6 +230,7 @@ function getStringAtPath(value: Record<string, unknown>, parts: readonly string[
   return typeof current === 'string' ? current : undefined;
 }
 
+/** Formats a value list while keeping the output size bounded for chat prompts. */
 function formatList(label: string, values: readonly string[]): string {
   if (values.length === 0) return `- ${label}: none found`;
 
@@ -207,10 +241,12 @@ function formatList(label: string, values: readonly string[]): string {
   return `- ${label} (${values.length}): ${visibleValues.join(', ')}${suffix}`;
 }
 
+/** Normalizes the file-system path representation for a VS Code URI. */
 function getUriPath(uri: vscode.Uri): string {
   return uri.fsPath || uri.path;
 }
 
+/** Trims string values and drops empty results. */
 function normalizeValue(value: unknown): string | undefined {
   if (typeof value !== 'string') return undefined;
 
@@ -218,6 +254,7 @@ function normalizeValue(value: unknown): string | undefined {
   return trimmed === '' ? undefined : trimmed;
 }
 
+/** De-duplicates and alphabetically sorts a string collection. */
 function uniqueSorted(values: Iterable<string | undefined>): string[] {
   return Array.from(new Set(Array.from(values).filter((value): value is string => Boolean(value)))).sort((left, right) =>
     left.localeCompare(right),
