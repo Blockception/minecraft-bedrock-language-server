@@ -176,15 +176,52 @@
     "languageModelTools": [
       {
         "name": "blockception.minecraft.workspaceEntities",
-        "modelDescription": "Returns entity identifiers from the currently loaded Minecraft Bedrock workspace project data.",
+        "modelDescription": "Returns resource identifiers (entities, items, blocks, and more) from loaded Minecraft Bedrock workspace project data.",
         "canBeReferencedInPrompt": true,
         "inputSchema": {
           "type": "object",
           "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "entities",
+                "items",
+                "blocks",
+                "biomes",
+                "features",
+                "featureRules",
+                "functions",
+                "lootTables",
+                "recipes",
+                "trading",
+                "structures",
+                "animations",
+                "animationControllers",
+                "attachables",
+                "blockCullingRules",
+                "fogs",
+                "materials",
+                "models",
+                "particles",
+                "renderControllers",
+                "sounds",
+                "textures",
+                "itemTextures",
+                "terrainTextures",
+                "uiElements",
+                "customCommands",
+                "itemGroups",
+                "fakeEntities",
+                "objectives",
+                "tags",
+                "tickingAreas"
+              ],
+              "description": "Optional resource type to query. Defaults to 'entities'."
+            },
             "limit": {
               "type": "number",
               "minimum": 1,
-              "description": "Optional maximum number of entities to return."
+              "description": "Optional maximum number of resources to return."
             }
           }
         }

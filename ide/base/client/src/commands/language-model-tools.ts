@@ -5,7 +5,39 @@ import { Manager } from '../manager/manager';
 
 type WorkspaceEntitySummary = {
   id: string;
-  source: 'behaviorPack' | 'resourcePack';
+  source: 'behaviorPack' | 'resourcePack' | 'general';
+  type:
+    | 'entities'
+    | 'items'
+    | 'blocks'
+    | 'biomes'
+    | 'features'
+    | 'featureRules'
+    | 'functions'
+    | 'lootTables'
+    | 'recipes'
+    | 'trading'
+    | 'structures'
+    | 'animations'
+    | 'animationControllers'
+    | 'attachables'
+    | 'blockCullingRules'
+    | 'fogs'
+    | 'materials'
+    | 'models'
+    | 'particles'
+    | 'renderControllers'
+    | 'sounds'
+    | 'textures'
+    | 'itemTextures'
+    | 'terrainTextures'
+    | 'uiElements'
+    | 'customCommands'
+    | 'itemGroups'
+    | 'fakeEntities'
+    | 'objectives'
+    | 'tags'
+    | 'tickingAreas';
 };
 
 type DiagnosticsToolInput = {
@@ -13,6 +45,7 @@ type DiagnosticsToolInput = {
 };
 
 type EntitiesToolInput = {
+  type?: WorkspaceEntitySummary['type'];
   limit?: number;
 };
 
@@ -73,14 +106,16 @@ export function activate(context: vscode.ExtensionContext): void {
           return toToolResult({ error: 'Minecraft language client is not available yet.' });
         }
 
-        const entities = await Manager.Client.sendRequest<WorkspaceEntitySummary[]>(RequestTypes.WorkspaceEntities);
+        const type = options.input.type ?? 'entities';
+        const entities = await Manager.Client.sendRequest<WorkspaceEntitySummary[]>(RequestTypes.WorkspaceEntities, { type });
         const limit = Math.max(1, options.input.limit ?? entities.length);
         const items = entities.slice(0, limit);
 
         return toToolResult({
+          type,
           total: entities.length,
           returned: items.length,
-          entities: items,
+          resources: items,
         });
       },
     }),
