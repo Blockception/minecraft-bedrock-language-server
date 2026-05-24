@@ -24,6 +24,7 @@
     "onLanguageModelTool:blockception.minecraft.workspaceEntities",
     "onLanguageModelTool:blockception.minecraft.currentFileDiagnostics",
     "onLanguageModelTool:blockception.minecraft.scaffoldProjectFiles",
+    "onLanguageModelTool:blockception.minecraft.bedrockContext",
     "onCommand:bc.mcproject.create",
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
