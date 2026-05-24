@@ -211,40 +211,33 @@ const resourceTypeCollections: Record<WorkspaceResourceType, CollectionSelector>
  * Includes pack names, derived namespaces, and entity/block/item identifier lists.
  */
 export function getWorkspaceContextSummary(projectData: WorkspaceProjectDataCollections): WorkspaceContextSummary {
-  const packs: WorkspacePackSummary[] = [];
-
-  for (const pack of projectData.behaviorPacks.packs) {
-    packs.push({ type: 'behaviorPack', name: folderName(pack.folder) });
-  }
-
-  for (const pack of projectData.resourcePacks.packs) {
-    packs.push({ type: 'resourcePack', name: folderName(pack.folder) });
-  }
+  const packs: WorkspacePackSummary[] = [
+    ...projectData.behaviorPacks.packs.map((p) => ({ type: 'behaviorPack' as const, name: folderName(p.folder) })),
+    ...projectData.resourcePacks.packs.map((p) => ({ type: 'resourcePack' as const, name: folderName(p.folder) })),
+  ];
 
   const entities = collectUniqueIds(projectData.behaviorPacks.entities, projectData.resourcePacks.entities);
   const blocks = collectUniqueIds(projectData.behaviorPacks.blocks);
   const items = collectUniqueIds(projectData.behaviorPacks.items);
+  const namespaces = extractNamespaces([...entities, ...blocks, ...items]);
 
-  const namespaceSet = new Set<string>();
-  for (const id of [...entities, ...blocks, ...items]) {
-    const colon = id.indexOf(':');
-    if (colon > 0) {
-      const ns = id.substring(0, colon);
-      if (ns !== 'minecraft') namespaceSet.add(ns);
-    }
-  }
-
-  return {
-    packs,
-    namespaces: Array.from(namespaceSet).sort(),
-    entities,
-    blocks,
-    items,
-  };
+  return { packs, namespaces, entities, blocks, items };
 }
 
 function folderName(folder: string): string {
   return folder.replace(/[/\\]+$/, '').split(/[/\\]/).pop() ?? folder;
+}
+
+function extractNamespaces(ids: string[]): string[] {
+  const seen = new Set<string>();
+  for (const id of ids) {
+    const colon = id.indexOf(':');
+    if (colon > 0) {
+      const ns = id.substring(0, colon);
+      if (ns !== 'minecraft') seen.add(ns);
+    }
+  }
+  return Array.from(seen).sort();
 }
 
 function collectUniqueIds(...collections: CollectionWithIds[]): string[] {
