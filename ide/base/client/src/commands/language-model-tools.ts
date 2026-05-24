@@ -2,6 +2,7 @@ import {
   Commands,
   RequestTypes,
   WorkspaceContextSummary,
+  WorkspacePackSummary,
   WorkspaceResourceSummary,
   WorkspaceResourceType,
   WorkspaceResourcesRequest,
@@ -67,36 +68,36 @@ function isScaffoldCommand(command: string): boolean {
   return command.startsWith(Commands.Create.Base) || AllowedScaffoldCommands.has(command);
 }
 
+function packTypeLabel(type: WorkspacePackSummary['type']): string {
+  switch (type) {
+    case 'behaviorPack':
+      return 'Behavior Pack';
+    case 'resourcePack':
+      return 'Resource Pack';
+    default:
+      return 'World';
+  }
+}
+
+function appendListSection(lines: string[], header: string, items: string[]): void {
+  if (items.length === 0) return;
+  lines.push(header, items.join(', '));
+}
+
 function formatBedrockContext(ctx: WorkspaceContextSummary): string {
   const lines: string[] = ['## Bedrock Project Context'];
 
   if (ctx.packs.length > 0) {
     lines.push('\n### Packs');
     for (const pack of ctx.packs) {
-      const label = pack.type === 'behaviorPack' ? 'Behavior Pack' : pack.type === 'resourcePack' ? 'Resource Pack' : 'World';
-      lines.push(`- ${pack.name} (${label})`);
+      lines.push(`- ${pack.name} (${packTypeLabel(pack.type)})`);
     }
   }
 
-  if (ctx.namespaces.length > 0) {
-    lines.push('\n### Project Namespaces');
-    lines.push(ctx.namespaces.join(', '));
-  }
-
-  if (ctx.entities.length > 0) {
-    lines.push(`\n### Entities (${ctx.entities.length})`);
-    lines.push(ctx.entities.join(', '));
-  }
-
-  if (ctx.blocks.length > 0) {
-    lines.push(`\n### Blocks (${ctx.blocks.length})`);
-    lines.push(ctx.blocks.join(', '));
-  }
-
-  if (ctx.items.length > 0) {
-    lines.push(`\n### Items (${ctx.items.length})`);
-    lines.push(ctx.items.join(', '));
-  }
+  appendListSection(lines, '\n### Project Namespaces', ctx.namespaces);
+  appendListSection(lines, `\n### Entities (${ctx.entities.length})`, ctx.entities);
+  appendListSection(lines, `\n### Blocks (${ctx.blocks.length})`, ctx.blocks);
+  appendListSection(lines, `\n### Items (${ctx.items.length})`, ctx.items);
 
   return lines.join('\n');
 }
