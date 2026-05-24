@@ -21,6 +21,9 @@
     "onCommand:bc-cheat-sheet-behavior-filters",
     "onCommand:bc.errors.open_lastest",
     "onCommand:bc.minecraft.ai.generateInstructions",
+    "onLanguageModelTool:blockception.minecraft.workspaceEntities",
+    "onLanguageModelTool:blockception.minecraft.currentFileDiagnostics",
+    "onLanguageModelTool:blockception.minecraft.scaffoldProjectFiles",
     "onCommand:bc.mcproject.create",
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
@@ -52,17 +55,17 @@
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^25.8.0",
+    "@types/node": "^25.9.1",
     "@vscode/vsce": "^3.9.1",
     "cpx": "^1.5.0",
     "eslint": "^10.4.0",
     "eslint-plugin-jest": "^29.15.2",
     "globals": "^17.6.0",
-    "ts-jest": "^29.4.10",
+    "ts-jest": "^29.4.11",
     "ts-loader": "^9.5.4",
     "typescript": "6.0.3",
     "typescript-eslint": "^8.59.4",
-    "webpack": "^5.107.0"
+    "webpack": "^5.107.1"
   },
   "dependencies": {
     "bc-minecraft-lsp": "*",
