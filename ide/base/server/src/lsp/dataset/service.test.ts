@@ -11,6 +11,7 @@ const emptyCollection: { forEach(callbackfn: (item: { id?: string }) => void): v
 function createProjectData(): WorkspaceProjectDataCollections {
   return {
     behaviorPacks: {
+      packs: [],
       entities: emptyCollection,
       items: emptyCollection,
       blocks: emptyCollection,
@@ -28,6 +29,7 @@ function createProjectData(): WorkspaceProjectDataCollections {
       itemGroups: emptyCollection,
     },
     resourcePacks: {
+      packs: [],
       entities: emptyCollection,
       animations: emptyCollection,
       animationControllers: emptyCollection,

@@ -1,6 +1,7 @@
 import {
   Commands,
   RequestTypes,
+  WorkspaceContextSummary,
   WorkspaceResourceSummary,
   WorkspaceResourceType,
   WorkspaceResourcesRequest,
@@ -27,6 +28,7 @@ const ToolNames = {
   workspaceEntities: 'blockception.minecraft.workspaceEntities',
   currentFileDiagnostics: 'blockception.minecraft.currentFileDiagnostics',
   scaffoldProjectFiles: 'blockception.minecraft.scaffoldProjectFiles',
+  bedrockContext: 'blockception.minecraft.bedrockContext',
 } as const;
 
 const AllowedScaffoldCommands = new Set<string>([Commands.MCProject.Create]);
@@ -63,6 +65,40 @@ function mapSeverity(severity: vscode.DiagnosticSeverity): 'error' | 'warning' |
 
 function isScaffoldCommand(command: string): boolean {
   return command.startsWith(Commands.Create.Base) || AllowedScaffoldCommands.has(command);
+}
+
+function formatBedrockContext(ctx: WorkspaceContextSummary): string {
+  const lines: string[] = ['## Bedrock Project Context'];
+
+  if (ctx.packs.length > 0) {
+    lines.push('\n### Packs');
+    for (const pack of ctx.packs) {
+      const label = pack.type === 'behaviorPack' ? 'Behavior Pack' : pack.type === 'resourcePack' ? 'Resource Pack' : 'World';
+      lines.push(`- ${pack.name} (${label})`);
+    }
+  }
+
+  if (ctx.namespaces.length > 0) {
+    lines.push('\n### Project Namespaces');
+    lines.push(ctx.namespaces.join(', '));
+  }
+
+  if (ctx.entities.length > 0) {
+    lines.push(`\n### Entities (${ctx.entities.length})`);
+    lines.push(ctx.entities.join(', '));
+  }
+
+  if (ctx.blocks.length > 0) {
+    lines.push(`\n### Blocks (${ctx.blocks.length})`);
+    lines.push(ctx.blocks.join(', '));
+  }
+
+  if (ctx.items.length > 0) {
+    lines.push(`\n### Items (${ctx.items.length})`);
+    lines.push(ctx.items.join(', '));
+  }
+
+  return lines.join('\n');
 }
 
 export function activate(context: vscode.ExtensionContext): void {
@@ -166,6 +202,17 @@ export function activate(context: vscode.ExtensionContext): void {
           command: input.command,
           id: input.id,
         });
+      },
+    }),
+    vscode.lm.registerTool(ToolNames.bedrockContext, {
+      async invoke() {
+        if (!Manager.Client) {
+          return toToolResult({ error: 'Minecraft language client is not available yet.' });
+        }
+
+        const ctx = await Manager.Client.sendRequest<WorkspaceContextSummary>(RequestTypes.WorkspaceContext);
+
+        return new vscode.LanguageModelToolResult([new vscode.LanguageModelTextPart(formatBedrockContext(ctx))]);
       },
     }),
   );

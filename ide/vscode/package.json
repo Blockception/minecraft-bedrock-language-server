@@ -24,6 +24,7 @@
     "onLanguageModelTool:blockception.minecraft.workspaceEntities",
     "onLanguageModelTool:blockception.minecraft.currentFileDiagnostics",
     "onLanguageModelTool:blockception.minecraft.scaffoldProjectFiles",
+    "onLanguageModelTool:blockception.minecraft.bedrockContext",
     "onCommand:bc.mcproject.create",
     "onCommand:bc-create-project-world",
     "onCommand:bc-create-project-behavior-pack",
@@ -287,6 +288,16 @@
               "description": "Optional identifier for scaffold commands that require one."
             }
           }
+        }
+      },
+      {
+        "name": "blockception.minecraft.bedrockContext",
+        "displayName": "Bedrock Context",
+        "modelDescription": "Returns a consolidated snapshot of the loaded Minecraft Bedrock project: loaded pack names, project namespaces, and lists of entity, block, and item identifiers. Use this to give Copilot project-specific context.",
+        "canBeReferencedInPrompt": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
         }
       }
     ],

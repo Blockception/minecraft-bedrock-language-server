@@ -1,5 +1,7 @@
 import {
   RequestTypes,
+  WorkspaceContextSummary,
+  WorkspacePackSummary,
   WorkspaceResourceSource,
   WorkspaceResourceSummary,
   WorkspaceResourceType,
@@ -15,8 +17,11 @@ type CollectionWithIds = {
   forEach(callbackfn: (item: { id?: string }) => void): void;
 };
 
+type PackEntry = { readonly folder: string };
+
 export interface WorkspaceProjectDataCollections {
   behaviorPacks: {
+    packs: ReadonlyArray<PackEntry>;
     entities: CollectionWithIds;
     items: CollectionWithIds;
     blocks: CollectionWithIds;
@@ -34,6 +39,7 @@ export interface WorkspaceProjectDataCollections {
     itemGroups: CollectionWithIds;
   };
   resourcePacks: {
+    packs: ReadonlyArray<PackEntry>;
     entities: CollectionWithIds;
     animations: CollectionWithIds;
     animationControllers: CollectionWithIds;
@@ -71,6 +77,9 @@ export class LanguageModelToolService extends BaseService implements IService {
     this.addDisposable(
       connection.onRequest(RequestTypes.WorkspaceEntities, (params: WorkspaceResourcesRequest | undefined) =>
         this.onWorkspaceResourcesRequest(params),
+      ),
+      connection.onRequest(RequestTypes.WorkspaceContext, () =>
+        getWorkspaceContextSummary(this.extension.database.ProjectData),
       ),
     );
   }
@@ -118,16 +127,19 @@ export function getWorkspaceResourceSummaries(
 type CollectionEntry = { source: WorkspaceResourceSource; items: CollectionWithIds };
 type CollectionSelector = (projectData: WorkspaceProjectDataCollections) => CollectionEntry[];
 
-const behaviorPackCollection = <K extends keyof WorkspaceProjectDataCollections['behaviorPacks']>(
+/** Keys of a type whose values extend CollectionWithIds */
+type CollectionKeys<T> = { [K in keyof T]: T[K] extends CollectionWithIds ? K : never }[keyof T];
+
+const behaviorPackCollection = <K extends CollectionKeys<WorkspaceProjectDataCollections['behaviorPacks']>>(
   key: K,
 ): CollectionSelector => {
-  return (projectData) => [{ source: 'behaviorPack', items: projectData.behaviorPacks[key] }];
+  return (projectData) => [{ source: 'behaviorPack', items: projectData.behaviorPacks[key] as CollectionWithIds }];
 };
 
-const resourcePackCollection = <K extends keyof WorkspaceProjectDataCollections['resourcePacks']>(
+const resourcePackCollection = <K extends CollectionKeys<WorkspaceProjectDataCollections['resourcePacks']>>(
   key: K,
 ): CollectionSelector => {
-  return (projectData) => [{ source: 'resourcePack', items: projectData.resourcePacks[key] }];
+  return (projectData) => [{ source: 'resourcePack', items: projectData.resourcePacks[key] as CollectionWithIds }];
 };
 
 const generalCollection = <K extends keyof WorkspaceProjectDataCollections['general']>(key: K): CollectionSelector => {
@@ -135,27 +147,27 @@ const generalCollection = <K extends keyof WorkspaceProjectDataCollections['gene
 };
 
 const behaviorAndResourceCollection = <
-  BK extends keyof WorkspaceProjectDataCollections['behaviorPacks'],
-  RK extends keyof WorkspaceProjectDataCollections['resourcePacks'],
+  BK extends CollectionKeys<WorkspaceProjectDataCollections['behaviorPacks']>,
+  RK extends CollectionKeys<WorkspaceProjectDataCollections['resourcePacks']>,
 >(
   behaviorPackKey: BK,
   resourcePackKey: RK,
 ): CollectionSelector => {
   return (projectData) => [
-    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] },
-    { source: 'resourcePack', items: projectData.resourcePacks[resourcePackKey] },
+    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] as CollectionWithIds },
+    { source: 'resourcePack', items: projectData.resourcePacks[resourcePackKey] as CollectionWithIds },
   ];
 };
 
 const behaviorAndGeneralCollection = <
-  BK extends keyof WorkspaceProjectDataCollections['behaviorPacks'],
+  BK extends CollectionKeys<WorkspaceProjectDataCollections['behaviorPacks']>,
   GK extends keyof WorkspaceProjectDataCollections['general'],
 >(
   behaviorPackKey: BK,
   generalKey: GK,
 ): CollectionSelector => {
   return (projectData) => [
-    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] },
+    { source: 'behaviorPack', items: projectData.behaviorPacks[behaviorPackKey] as CollectionWithIds },
     { source: 'general', items: projectData.general[generalKey] },
   ];
 };
@@ -193,3 +205,54 @@ const resourceTypeCollections: Record<WorkspaceResourceType, CollectionSelector>
   tags: generalCollection('tags'),
   tickingAreas: generalCollection('tickingAreas'),
 };
+
+/**
+ * Returns a consolidated Bedrock project context summary from loaded project data.
+ * Includes pack names, derived namespaces, and entity/block/item identifier lists.
+ */
+export function getWorkspaceContextSummary(projectData: WorkspaceProjectDataCollections): WorkspaceContextSummary {
+  const packs: WorkspacePackSummary[] = [];
+
+  for (const pack of projectData.behaviorPacks.packs) {
+    packs.push({ type: 'behaviorPack', name: folderName(pack.folder) });
+  }
+
+  for (const pack of projectData.resourcePacks.packs) {
+    packs.push({ type: 'resourcePack', name: folderName(pack.folder) });
+  }
+
+  const entities = collectUniqueIds(projectData.behaviorPacks.entities, projectData.resourcePacks.entities);
+  const blocks = collectUniqueIds(projectData.behaviorPacks.blocks);
+  const items = collectUniqueIds(projectData.behaviorPacks.items);
+
+  const namespaceSet = new Set<string>();
+  for (const id of [...entities, ...blocks, ...items]) {
+    const colon = id.indexOf(':');
+    if (colon > 0) {
+      const ns = id.substring(0, colon);
+      if (ns !== 'minecraft') namespaceSet.add(ns);
+    }
+  }
+
+  return {
+    packs,
+    namespaces: Array.from(namespaceSet).sort(),
+    entities,
+    blocks,
+    items,
+  };
+}
+
+function folderName(folder: string): string {
+  return folder.replace(/[/\\]+$/, '').split(/[/\\]/).pop() ?? folder;
+}
+
+function collectUniqueIds(...collections: CollectionWithIds[]): string[] {
+  const seen = new Set<string>();
+  for (const collection of collections) {
+    collection.forEach((item) => {
+      if (typeof item.id === 'string' && item.id.trim() !== '') seen.add(item.id);
+    });
+  }
+  return Array.from(seen).sort();
+}
