@@ -43,6 +43,8 @@ export namespace MolangFunction {
 export interface MolangParameter extends Identifiable, Documentated {
   /** */
   range?: { min: number; max: number };
+  /**If true, this parameter may be omitted.*/
+  optional?: boolean;
   /**
    *
    */

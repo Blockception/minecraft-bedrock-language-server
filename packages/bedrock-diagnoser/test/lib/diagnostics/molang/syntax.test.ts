@@ -65,6 +65,14 @@ describe("Molang Syntax", () => {
       name: "Variable parameters: block_has_all_tags with 5 args",
       data: "q.block_has_all_tags(0, 0, 0, 'tag1', 'tag2')",
     },
+    {
+      name: "Optional parameters: is_item_name_any without slot_index",
+      data: "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:apple')",
+    },
+    {
+      name: "Optional parameters: is_item_name_any with slot_index",
+      data: "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:apple')",
+    },
   ];
 
   for (const test of no_errors_tests) {
@@ -96,6 +104,10 @@ describe("Molang Syntax", () => {
     {
       name: "Variable parameters: block_has_all_tags with 3 args (needs at least 4)",
       data: "q.block_has_all_tags(0, 0, 0)",
+    },
+    {
+      name: "Optional parameters: is_item_name_any with 1 arg (needs at least 2)",
+      data: "q.is_item_name_any('slot.weapon.mainhand')",
     },
     {
       name: "Type validation: block_has_all_tags with wrong type for tag (number instead of string)",

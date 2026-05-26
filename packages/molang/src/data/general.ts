@@ -1193,7 +1193,7 @@ export namespace General {
         "Takes an equipment slot name (see the replaceitem command) and an optional slot index value. After that, takes one or more full name (with 'namespace:') strings to check for. Returns 1.0 if an item in the specified slot has any of the specified names, otherwise returns 0.0. An empty string '' can be specified to check for an empty slot. Note that querying slot.enderchest, slot.saddle, slot.armor, or slot.chest will only work in behavior packs. A preferred query to query.get_equipped_item_name, as it can be adjusted by Mojang to avoid breaking content if names are changed.",
       parameters: [
         { id: 'slot_name', documentation: 'equipment slot name', type: 'string' },
-        { id: 'slot_index', documentation: 'optional slot index value', type: 'float' },
+        { id: 'slot_index', documentation: 'optional slot index value', type: 'float', optional: true },
         { id: 'item', documentation: 'item name to check', type: 'string', repeatable: true },
       ],
     },
