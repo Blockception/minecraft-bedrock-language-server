@@ -151,7 +151,8 @@ export function diagnose_molang_syntax(expression: ExpressionNode, diagnoser: Di
         // TODO check operator
         break;
       case NodeType.Conditional:
-        objs.push(n.condition, n.falseExpression, n.trueExpression);
+        objs.push(n.condition, n.trueExpression);
+        if (n.falseExpression) objs.push(n.falseExpression);
         break;
       case NodeType.FunctionCall:
         objs.push(...n.arguments);

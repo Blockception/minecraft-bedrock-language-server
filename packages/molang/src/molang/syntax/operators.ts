@@ -140,7 +140,7 @@ function processTernaryOperators(builder: SyntaxBuilder) {
     // Find the colon marker and expressions
     let colonIndex = -1;
     let trueExpr: ExpressionNode | null = null;
-    let falseExpr: ExpressionNode | null = null;
+    let falseExpr: ExpressionNode | undefined;
 
     // Look for the pattern: condition ? trueExpr : falseExpr
     for (let j = i + 1; j < statements.length; j++) {
@@ -153,24 +153,24 @@ function processTernaryOperators(builder: SyntaxBuilder) {
     }
 
     if (colonIndex === -1) {
-      throw new MolangSyntaxError('Ternary operator missing colon', current.position, '?');
-    }
-
-    // Extract true and false expressions
-    if (i + 1 < colonIndex) {
-      // If there are statements between ? and :, they form the true expression
-      trueExpr = wrapIf(statements.slice(i + 1, colonIndex));
-    }
-    if (colonIndex + 1 < statements.length) {
-      falseExpr = statements[colonIndex + 1];
-      endIndex = Math.max(endIndex, colonIndex + 1);
+      if (i + 1 < statements.length) {
+        trueExpr = wrapIf(statements.slice(i + 1));
+        endIndex = statements.length - 1;
+      }
+    } else {
+      // Extract true and false expressions
+      if (i + 1 < colonIndex) {
+        // If there are statements between ? and :, they form the true expression
+        trueExpr = wrapIf(statements.slice(i + 1, colonIndex));
+      }
+      if (colonIndex + 1 < statements.length) {
+        falseExpr = statements[colonIndex + 1];
+        endIndex = Math.max(endIndex, colonIndex + 1);
+      }
     }
 
     if (!trueExpr) {
       throw new MolangSyntaxError('Ternary operator missing true expression', current.position, '?');
-    }
-    if (!falseExpr) {
-      throw new MolangSyntaxError('Ternary operator missing false expression', current.position, '?');
     }
 
     // Update the conditional expression node

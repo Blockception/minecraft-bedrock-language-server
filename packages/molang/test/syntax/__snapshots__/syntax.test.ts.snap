@@ -4953,3 +4953,40 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 97. v.a ? { v.b=1; } 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "names": [
+        "a",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "falseExpression": undefined,
+    "position": 4,
+    "trueExpression": {
+      "_processed": true,
+      "left": {
+        "names": [
+          "b",
+        ],
+        "position": 8,
+        "scope": "v",
+        "type": "Variable",
+      },
+      "position": 11,
+      "right": {
+        "position": 12,
+        "type": "Literal",
+        "value": "1",
+      },
+      "type": "Assignment",
+    },
+    "type": "Conditional",
+  },
+]
+`;

@@ -94,7 +94,7 @@ export interface ConditionalExpressionNode extends SyntaxNode {
   type: NodeType.Conditional;
   condition: ExpressionNode;
   trueExpression: ExpressionNode;
-  falseExpression: ExpressionNode;
+  falseExpression?: ExpressionNode;
 }
 
 export namespace ConditionalExpressionNode {
@@ -180,7 +180,7 @@ export interface ConditionalNode extends SyntaxNode {
   type: NodeType.Conditional;
   condition: ExpressionNode;
   trueExpression: ExpressionNode;
-  falseExpression: ExpressionNode;
+  falseExpression?: ExpressionNode;
 }
 
 export namespace ConditionalNode {
@@ -244,7 +244,9 @@ export namespace ExpressionNode {
       case NodeType.NullishCoalescing:
         return [node.left, node.right];
       case NodeType.Conditional:
-        return [node.condition, node.trueExpression, node.falseExpression];
+        return [node.condition, node.trueExpression, node.falseExpression].filter(
+          (item): item is ExpressionNode => item !== undefined,
+        );
       case NodeType.FunctionCall:
         return [...node.arguments];
       case NodeType.Literal:
@@ -308,7 +310,9 @@ export namespace ExpressionNode {
           stats.forEach((arg) => (node = max(node, arg)));
           break;
         case NodeType.Conditional:
-          node = max(node.condition, max(node.falseExpression, node.trueExpression));
+          node = node.falseExpression
+            ? max(node.condition, max(node.falseExpression, node.trueExpression))
+            : max(node.condition, node.trueExpression);
           break;
         default:
           return (node as ExpressionNode)?.position ?? 0;
