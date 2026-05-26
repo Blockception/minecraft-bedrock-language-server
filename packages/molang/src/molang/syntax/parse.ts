@@ -294,7 +294,6 @@ function convertToken(token: Token) {
       return ConditionalExpressionNode.create({
         position: token.position,
         condition: {} as ExpressionNode,
-        falseExpression: {} as ExpressionNode,
         trueExpression: {} as ExpressionNode,
       });
     case TokenType.Colon:

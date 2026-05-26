@@ -9174,6 +9174,70 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 97. v.a ? { v.b=1; } 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "b",
+      ],
+      "position": 55,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.a ? { v.b=1; }" => [
+        {
+          "_processed": true,
+          "condition": {
+            "names": [
+              "a",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "falseExpression": undefined,
+          "position": 51,
+          "trueExpression": {
+            "_processed": true,
+            "left": {
+              "names": [
+                "b",
+              ],
+              "position": 55,
+              "scope": "v",
+              "type": 12,
+            },
+            "position": 58,
+            "right": {
+              "position": 59,
+              "type": 5,
+              "value": "1",
+            },
+            "type": 1,
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {
+    {
+      "names": [
+        "a",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {

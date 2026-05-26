@@ -122,4 +122,5 @@ export const valid_syntaxes = [
   // Ternary expressions without string literals (e.g. 1 ? 1 : 0)
   '1 ? 1 : 0',
   '0 ? 0 : 1',
+  'v.a ? { v.b=1; }',
 ];

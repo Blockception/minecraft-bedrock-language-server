@@ -1538,3 +1538,17 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 97. v.a ? { v.b=1; } 1`] = `
+[
+  "v.a NamespacedIdentifier",
+  "? QuestionMark",
+  "{ OpenBrace",
+  "v.b NamespacedIdentifier",
+  "= Assignment",
+  "1 Number",
+  "; Semicolon",
+  "} CloseBrace",
+  "  EOF",
+]
+`;

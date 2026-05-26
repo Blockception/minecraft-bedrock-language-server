@@ -9,7 +9,9 @@ export function nodesToString(node: ExpressionNode): string {
     case NodeType.BinaryOperation:
       return `(${nodesToString(node.left)} ${node.operator} ${nodesToString(node.right)})`;
     case NodeType.Conditional:
-      return `(${nodesToString(node.condition)} ? ${nodesToString(node.trueExpression)} : ${nodesToString(node.falseExpression!)})`;
+      return node.falseExpression
+        ? `(${nodesToString(node.condition)} ? ${nodesToString(node.trueExpression)} : ${nodesToString(node.falseExpression)})`
+        : `(${nodesToString(node.condition)} ? ${nodesToString(node.trueExpression)})`;
     case NodeType.FunctionCall:
       const id = ExpressionNode.getIdentifier(node);
       if (node.arguments.length === 0) return id;
