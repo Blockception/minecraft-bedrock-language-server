@@ -84,7 +84,24 @@ export function tokenize(input: string): Token[] {
         pos++;
       }
 
-      if (input[pos] === 'f') {
+      // Scientific notation: e.g. 1e3, 1e+3, 1e-3, 1E10
+      if (pos < input.length && (input[pos] === 'e' || input[pos] === 'E')) {
+        const nextPos = pos + 1;
+        if (nextPos < input.length && (isDigit(input[nextPos]) || input[nextPos] === '+' || input[nextPos] === '-')) {
+          value += input[pos]; // 'e' or 'E'
+          pos++;
+          if (input[pos] === '+' || input[pos] === '-') {
+            value += input[pos];
+            pos++;
+          }
+          while (pos < input.length && isDigit(input[pos])) {
+            value += input[pos];
+            pos++;
+          }
+        }
+      }
+
+      if (pos < input.length && input[pos] === 'f') {
         value += input[pos];
         pos++;
       }
@@ -207,6 +224,22 @@ export function tokenize(input: string): Token[] {
           while (pos < input.length && isDigit(input[pos])) {
             numValue += input[pos];
             pos++;
+          }
+          // Scientific notation: e.g. .5e3, .25E-10
+          if (pos < input.length && (input[pos] === 'e' || input[pos] === 'E')) {
+            const nextPos = pos + 1;
+            if (nextPos < input.length && (isDigit(input[nextPos]) || input[nextPos] === '+' || input[nextPos] === '-')) {
+              numValue += input[pos]; // 'e' or 'E'
+              pos++;
+              if (input[pos] === '+' || input[pos] === '-') {
+                numValue += input[pos];
+                pos++;
+              }
+              while (pos < input.length && isDigit(input[pos])) {
+                numValue += input[pos];
+                pos++;
+              }
+            }
           }
           if (pos < input.length && input[pos] === 'f') {
             numValue += input[pos];

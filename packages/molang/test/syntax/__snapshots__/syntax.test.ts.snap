@@ -5156,3 +5156,164 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 103. v.test=1e3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": "1e3",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 104. v.test=1e+3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": "1e+3",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 105. v.test=1e-3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": "1e-3",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 106. v.test=1E3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": "1E3",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 107. v.test=1.5e10; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": "1.5e10",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 108. v.test=.5e3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": ".5e3",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 109. v.test=1.5e-10; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": "1.5e-10",
+    },
+    "type": "Assignment",
+  },
+]
+`;

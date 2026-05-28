@@ -130,4 +130,13 @@ export const valid_syntaxes = [
   'v.test=.3; v.test2=-.3;',
   '.5 * math.sin(v.anim_time)',
   'math.clamp(v.value, .0, 1.0)',
+
+  // Issue: Scientific notation in molang numbers (e.g. 1e3)
+  'v.test=1e3;',
+  'v.test=1e+3;',
+  'v.test=1e-3;',
+  'v.test=1E3;',
+  'v.test=1.5e10;',
+  'v.test=.5e3;',
+  'v.test=1.5e-10;',
 ];

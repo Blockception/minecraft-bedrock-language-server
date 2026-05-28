@@ -2467,3 +2467,108 @@ flowchart TD
     node0 -->|arg1| node2
     node0 -->|arg2| node3"
 `;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 103. v.test=1e3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2["1e3@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 104. v.test=1e+3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2["1e+3@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 105. v.test=1e-3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2["1e-3@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 106. v.test=1E3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2["1E3@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 107. v.test=1.5e10; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2["1.5e10@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 108. v.test=.5e3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2[".5e3@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 109. v.test=1.5e-10; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2["1.5e-10@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
