@@ -9238,6 +9238,318 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 98. v.test=.3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=.3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": ".3",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 99. v.test=-.3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=-.3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "_processed": true,
+            "operand": {
+              "position": 55,
+              "type": 5,
+              "value": ".3",
+            },
+            "operator": "-",
+            "position": 54,
+            "type": 11,
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 100. v.test=.3; v.test2=-.3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+    {
+      "names": [
+        "test2",
+      ],
+      "position": 58,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=.3; v.test2=-.3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": ".3",
+          },
+          "type": 1,
+        },
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test2",
+            ],
+            "position": 58,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 65,
+          "right": {
+            "_processed": true,
+            "operand": {
+              "position": 67,
+              "type": 5,
+              "value": ".3",
+            },
+            "operator": "-",
+            "position": 66,
+            "type": 11,
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 101. .5 * math.sin(v.anim_time) 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      ".5 * math.sin(v.anim_time)" => [
+        {
+          "_processed": true,
+          "left": {
+            "position": 47,
+            "type": 5,
+            "value": ".5",
+          },
+          "operator": "*",
+          "position": 50,
+          "right": {
+            "arguments": [
+              {
+                "names": [
+                  "anim_time",
+                ],
+                "position": 61,
+                "scope": "v",
+                "type": 12,
+              },
+            ],
+            "names": [
+              "sin",
+            ],
+            "position": 52,
+            "scope": "math",
+            "type": 4,
+          },
+          "type": 2,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [
+        {
+          "names": [
+            "anim_time",
+          ],
+          "position": 61,
+          "scope": "v",
+          "type": 12,
+        },
+      ],
+      "names": [
+        "sin",
+      ],
+      "position": 52,
+      "scope": "math",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "anim_time",
+      ],
+      "position": 61,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 102. math.clamp(v.value, .0, 1.0) 1`] = `
+MolangSet {
+  "assigned": Set {},
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "math.clamp(v.value, .0, 1.0)" => [
+        {
+          "arguments": [
+            {
+              "names": [
+                "value",
+              ],
+              "position": 58,
+              "scope": "v",
+              "type": 12,
+            },
+            {
+              "position": 67,
+              "type": 5,
+              "value": ".0",
+            },
+            {
+              "position": 71,
+              "type": 5,
+              "value": "1.0",
+            },
+          ],
+          "names": [
+            "clamp",
+          ],
+          "position": 47,
+          "scope": "math",
+          "type": 4,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [
+        {
+          "names": [
+            "value",
+          ],
+          "position": 58,
+          "scope": "v",
+          "type": 12,
+        },
+        {
+          "position": 67,
+          "type": 5,
+          "value": ".0",
+        },
+        {
+          "position": 71,
+          "type": 5,
+          "value": "1.0",
+        },
+      ],
+      "names": [
+        "clamp",
+      ],
+      "position": 47,
+      "scope": "math",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "value",
+      ],
+      "position": 58,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {
