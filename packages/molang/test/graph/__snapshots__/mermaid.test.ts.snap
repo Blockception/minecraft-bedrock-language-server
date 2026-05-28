@@ -2369,3 +2369,101 @@ flowchart TD
     node2 -->|value| node4
     node0 -->|true| node2"
 `;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 98. v.test=.3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2[".3@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 99. v.test=-.3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2{"-@7"}
+    node3[".3@8"]
+    start-->node0
+    node0 -->|target| node1
+    node2 -->|operand| node3
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 100. v.test=.3; v.test2=-.3; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@6"}
+    node1[["v.test@0"]]
+    node2[".3@7"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 100. v.test=.3; v.test2=-.3; 2`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@18"}
+    node1[["v.test2@11"]]
+    node2{"-@19"}
+    node3[".3@20"]
+    start-->node0
+    node0 -->|target| node1
+    node2 -->|operand| node3
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 101. .5 * math.sin(v.anim_time) 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"\\*@3"}
+    node1[".5@0"]
+    node2{{"math.sin()@5"}}
+    node3[["v.anim_time@14"]]
+    start-->node0
+    node0 -->|left| node1
+    node2 -->|arg0| node3
+    node0 -->|right| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 102. math.clamp(v.value, .0, 1.0) 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{{"math.clamp()@0"}}
+    node1[["v.value@11"]]
+    node2[".0@20"]
+    node3["1.0@24"]
+    start-->node0
+    node0 -->|arg0| node1
+    node0 -->|arg1| node2
+    node0 -->|arg2| node3"
+`;

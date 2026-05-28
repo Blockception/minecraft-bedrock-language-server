@@ -4990,3 +4990,169 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 98. v.test=.3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": ".3",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 99. v.test=-.3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "_processed": true,
+      "operand": {
+        "position": 8,
+        "type": "Literal",
+        "value": ".3",
+      },
+      "operator": "-",
+      "position": 7,
+      "type": "UnaryOperation",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 100. v.test=.3; v.test2=-.3; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 6,
+    "right": {
+      "position": 7,
+      "type": "Literal",
+      "value": ".3",
+    },
+    "type": "Assignment",
+  },
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "test2",
+      ],
+      "position": 11,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 18,
+    "right": {
+      "_processed": true,
+      "operand": {
+        "position": 20,
+        "type": "Literal",
+        "value": ".3",
+      },
+      "operator": "-",
+      "position": 19,
+      "type": "UnaryOperation",
+    },
+    "type": "Assignment",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 101. .5 * math.sin(v.anim_time) 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "position": 0,
+      "type": "Literal",
+      "value": ".5",
+    },
+    "operator": "*",
+    "position": 3,
+    "right": {
+      "arguments": [
+        {
+          "names": [
+            "anim_time",
+          ],
+          "position": 14,
+          "scope": "v",
+          "type": "Variable",
+        },
+      ],
+      "names": [
+        "sin",
+      ],
+      "position": 5,
+      "scope": "math",
+      "type": "FunctionCall",
+    },
+    "type": "BinaryOperation",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 102. math.clamp(v.value, .0, 1.0) 1`] = `
+[
+  {
+    "arguments": [
+      {
+        "names": [
+          "value",
+        ],
+        "position": 11,
+        "scope": "v",
+        "type": "Variable",
+      },
+      {
+        "position": 20,
+        "type": "Literal",
+        "value": ".0",
+      },
+      {
+        "position": 24,
+        "type": "Literal",
+        "value": "1.0",
+      },
+    ],
+    "names": [
+      "clamp",
+    ],
+    "position": 0,
+    "scope": "math",
+    "type": "FunctionCall",
+  },
+]
+`;

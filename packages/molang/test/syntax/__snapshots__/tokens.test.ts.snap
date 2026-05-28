@@ -1552,3 +1552,65 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 98. v.test=.3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  ".3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 99. v.test=-.3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  "- UnaryOperator",
+  ".3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 100. v.test=.3; v.test2=-.3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  ".3 Number",
+  "; Semicolon",
+  "v.test2 NamespacedIdentifier",
+  "= Assignment",
+  "- UnaryOperator",
+  ".3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 101. .5 * math.sin(v.anim_time) 1`] = `
+[
+  ".5 Number",
+  "* Operator",
+  "math.sin NamespacedIdentifier",
+  "( OpenParen",
+  "v.anim_time NamespacedIdentifier",
+  ") CloseParen",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 102. math.clamp(v.value, .0, 1.0) 1`] = `
+[
+  "math.clamp NamespacedIdentifier",
+  "( OpenParen",
+  "v.value NamespacedIdentifier",
+  ", Comma",
+  ".0 Number",
+  ", Comma",
+  "1.0 Number",
+  ") CloseParen",
+  "  EOF",
+]
+`;

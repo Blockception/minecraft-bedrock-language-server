@@ -123,4 +123,11 @@ export const valid_syntaxes = [
   '1 ? 1 : 0',
   '0 ? 0 : 1',
   'v.a ? { v.b=1; }',
+
+  // Issue: Molang numbers that start with a point (no leading zero)
+  'v.test=.3;',
+  'v.test=-.3;',
+  'v.test=.3; v.test2=-.3;',
+  '.5 * math.sin(v.anim_time)',
+  'math.clamp(v.value, .0, 1.0)',
 ];

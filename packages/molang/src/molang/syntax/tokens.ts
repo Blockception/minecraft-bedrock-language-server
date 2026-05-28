@@ -199,6 +199,22 @@ export function tokenize(input: string): Token[] {
         tokens.push({ type: TokenType.Colon, value: char, position: pos });
         break;
       case '.':
+        // A dot followed by a digit is a number literal without a leading zero (e.g. .3, .25f)
+        if (pos + 1 < input.length && isDigit(input[pos + 1])) {
+          let numValue = '.';
+          const numStart = pos;
+          pos++;
+          while (pos < input.length && isDigit(input[pos])) {
+            numValue += input[pos];
+            pos++;
+          }
+          if (pos < input.length && input[pos] === 'f') {
+            numValue += input[pos];
+            pos++;
+          }
+          tokens.push({ type: TokenType.Number, value: numValue, position: numStart });
+          continue;
+        }
         tokens.push({ type: TokenType.Dot, value: char, position: pos });
         break;
       case '=':
