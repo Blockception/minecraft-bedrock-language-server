@@ -9550,6 +9550,293 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 103. v.test=1e3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=1e3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": "1e3",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 104. v.test=1e+3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=1e+3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": "1e+3",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 105. v.test=1e-3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=1e-3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": "1e-3",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 106. v.test=1E3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=1E3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": "1E3",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 107. v.test=1.5e10; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=1.5e10;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": "1.5e10",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 108. v.test=.5e3; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=.5e3;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": ".5e3",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
+exports[`MolangSet - harvest 109. v.test=1.5e-10; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "test",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.test=1.5e-10;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "test",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 53,
+          "right": {
+            "position": 54,
+            "type": 5,
+            "value": "1.5e-10",
+          },
+          "type": 1,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {},
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {

@@ -1614,3 +1614,73 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   "  EOF",
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 103. v.test=1e3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  "1e3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 104. v.test=1e+3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  "1e+3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 105. v.test=1e-3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  "1e-3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 106. v.test=1E3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  "1E3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 107. v.test=1.5e10; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  "1.5e10 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 108. v.test=.5e3; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  ".5e3 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 109. v.test=1.5e-10; 1`] = `
+[
+  "v.test NamespacedIdentifier",
+  "= Assignment",
+  "1.5e-10 Number",
+  "; Semicolon",
+  "  EOF",
+]
+`;
