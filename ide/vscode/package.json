@@ -204,6 +204,12 @@
             "type": "boolean",
             "default": false,
             "description": "Turns on or off inlay hints (parameter name labels) for mcfunction commands"
+          },
+          "BC-MC.InlineValues.Enable": {
+            "scope": "resource",
+            "type": "boolean",
+            "default": false,
+            "description": "Turns on or off inline values (variable lookups) for mcfunction and molang files"
           }
         }
       }

@@ -32,6 +32,8 @@ export class InlineValueService extends BaseService implements IService {
   }
 
   private async onInlineValue(params: InlineValueParams): Promise<InlineValue[]> {
+    if (!this.extension.settings.InlineValues.Enable) return [];
+
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return [];
 

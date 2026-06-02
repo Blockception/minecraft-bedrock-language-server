@@ -39,6 +39,11 @@ export interface Settings {
     /** */
     Enable: boolean;
   };
+  /** */
+  InlineValues: {
+    /** */
+    Enable: boolean;
+  };
 }
 
 /**
@@ -73,6 +78,7 @@ export namespace Settings {
       if (typeof temp.Completion.Lang.Dynamic !== 'boolean') return false;
 
       if (typeof temp.InlayHints?.Enable !== 'boolean') return false;
+      if (typeof temp.InlineValues?.Enable !== 'boolean') return false;
 
       return true;
     }
@@ -117,6 +123,9 @@ export namespace Settings {
         },
       },
       InlayHints: {
+        Enable: false,
+      },
+      InlineValues: {
         Enable: false,
       },
     };
