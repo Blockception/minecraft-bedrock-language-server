@@ -85,6 +85,12 @@ A complete list can be found [here](documentation/Commands.md). These commands p
 | **Use Diagnostics Json**           | Turn on or off the diagnostics for json files                                                                                                        |
 | **Use Diagnostics For Objectives** | Turn on or off the diagnostics for scoreboard objectives                                                                                             |
 | **Use Diagnostics For Tags**       | Turn on or off the diagnostics for tags                                                                                                              |
+| **Plugin: Code Lens**              | Turn on or off code lens annotations                                                                                                                 |
+| **Completion: JSON**               | Turn on or off dynamic completion for JSON files                                                                                                     |
+| **Completion: Lang Dynamic**       | Turn on or off dynamic completion for lang files                                                                                                     |
+| **Completion: Lang Comments**      | Turn on or off comment completion for lang files (e.g. `###` regions)                                                                               |
+| **Inlay Hints: Enable**            | Turn on or off inlay hints (parameter name labels) for mcfunction commands. Off by default.                                                          |
+| **Inline Values: Enable**          | Turn on or off inline values (variable lookups) for mcfunction and molang files during debugging. Off by default.                                    |
 
 ---
 

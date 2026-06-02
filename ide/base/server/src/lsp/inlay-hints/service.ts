@@ -33,6 +33,8 @@ export class InlayHintService extends BaseService implements IService {
   }
 
   private onInlayHint(params: InlayHintParams, _token: CancellationToken): InlayHint[] {
+    if (!this.extension.settings.InlayHints.Enable) return [];
+
     const document = this.extension.documents.get(params.textDocument.uri);
     if (!document) return [];
     if (document.languageId !== Languages.McFunctionIdentifier) return [];

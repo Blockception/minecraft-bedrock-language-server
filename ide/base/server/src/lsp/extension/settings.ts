@@ -34,6 +34,16 @@ export interface Settings {
       Comments: boolean;
     };
   };
+  /** */
+  InlayHints: {
+    /** */
+    Enable: boolean;
+  };
+  /** */
+  InlineValues: {
+    /** */
+    Enable: boolean;
+  };
 }
 
 /**
@@ -66,6 +76,9 @@ export namespace Settings {
       if (typeof temp.Completion.JSON !== 'boolean') return false;
       if (typeof temp.Completion.Lang.Comments !== 'boolean') return false;
       if (typeof temp.Completion.Lang.Dynamic !== 'boolean') return false;
+
+      if (typeof temp.InlayHints?.Enable !== 'boolean') return false;
+      if (typeof temp.InlineValues?.Enable !== 'boolean') return false;
 
       return true;
     }
@@ -108,6 +121,12 @@ export namespace Settings {
           Comments: true,
           Dynamic: true,
         },
+      },
+      InlayHints: {
+        Enable: false,
+      },
+      InlineValues: {
+        Enable: false,
       },
     };
 
