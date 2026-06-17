@@ -24,22 +24,6 @@ export function diagnose_feature_document(diagnoser: DocumentDiagnosticsBuilder)
   lint_check_namespace(identifier, diagnoser);
   lint_check_feature_naming(identifier, diagnoser);
 
-  const path = diagnoser.document.uri.split('/');
-  if (
-    !identifier.endsWith(
-      path
-        .slice(path.findIndex((v) => v == 'features') + 1)
-        .join('/')
-        .replace('.json', ''),
-    )
-  )
-    diagnoser.add(
-      identifier,
-      `Feature identifier must match the relative path to the components up to and including the file name`,
-      DiagnosticSeverity.error,
-      'behaviorpack.components.identifier',
-    );
-
   // check that no other exists with this id
   no_other_duplicates(
     'behaviorpack.components',
