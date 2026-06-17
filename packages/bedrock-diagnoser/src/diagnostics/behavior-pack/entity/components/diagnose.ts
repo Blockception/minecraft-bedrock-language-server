@@ -878,7 +878,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
     }
   },
   'minecraft:pushable': (name, component, context, diagnoser) => {
-    if (FormatVersion.isGreaterThan(context.source.format_version, [1, 26, 0])) deprecated_component('minecraft:pushable_by_entity & minecraft:pushable_by_block')
+    if (FormatVersion.isGreaterThan(context.source.format_version, [1, 26, 10])) deprecated_component('minecraft:pushable_by_entity & minecraft:pushable_by_block')
   },
   'minecraft:rail_sensor': (name, component, context, diagnoser) => {
     diagnose_event_trigger(
