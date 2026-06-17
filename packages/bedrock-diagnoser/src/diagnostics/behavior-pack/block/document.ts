@@ -82,4 +82,22 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
   } catch (err) {
     // Leaving empty as the base diagnoser should flag an invalid format version
   }
+
+  const traits = (block['minecraft:block'].description as any).traits;
+  if (typeof traits == 'object') Object.entries(traits).forEach(([key, value]: [string, any]) => {
+    diagnose_block_trait(key, value, context, diagnoser);
+  });
+}
+
+function diagnose_block_trait(name: string, trait: any, context: Context<Internal.BehaviorPack.Block>, diagnoser: DocumentDiagnosticsBuilder) {
+  switch (name) {
+    case 'minecraft:placement_direction':
+      if (trait.blocks_to_corner_with !== undefined && !trait.enabled_states.includes('"minecraft:corner_and_cardinal_direction"')) diagnoser.add(
+        name,
+        `"blocks_to_corner_with" now requires "minecraft:corner_and_cardinal_direction" to be one of the "enabled_states"`,
+        DiagnosticSeverity.error,
+        'behaviorpack.block.traits.blocks_to_corner_with'
+      )
+      break;
+  }
 }
