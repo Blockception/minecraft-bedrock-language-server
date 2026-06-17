@@ -57,6 +57,9 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   'minecraft:unwalkable': deprecated_component(),
 
   // General
+  'minecraft:chest_obstruction': (name, component, context, diagnoser) => {
+    minimum_version_required(context.source, name, [1, 26, 20], diagnoser);
+  },
   'minecraft:destructible_by_mining': (name, component, context, diagnoser) => {
     const destroyTime = component.seconds_to_destroy;
     if (!destroyTime) return;
@@ -203,6 +206,9 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   },
   'minecraft:leashable': (name, component, context, diagnoser) => {
     minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
+  },
+  'minecraft:precipitation_interactions': (name, component, context, diagnoser) => {
+    minimum_version_required(context.source, name, [1, 21, 120], diagnoser);
   },
 };
 
