@@ -849,6 +849,10 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       minecraft_diagnose_filters(entry.on_named?.filters, diagnoser);
     });
   },
+  'minecraft:offspring': (name, component, context, diagnoser) => {
+    if (!component.offspring_pairs || typeof component.offspring_pairs != 'object') return;
+    Object.keys(component.offspring_pairs).forEach(key => behaviorpack_entityid_diagnose(key, diagnoser))
+  },
   'minecraft:peek': (name, component, context, diagnoser) => {
     const identifier = context.source['minecraft:entity'].description.identifier;
     diagnose_event_trigger(name, component.on_close, identifier, diagnoser);
