@@ -8,7 +8,7 @@ import { lint_check_block_naming, lint_check_identity_format, lint_check_namespa
 import { diagnose_molang_syntax_current_document } from '../../molang';
 import { no_other_duplicates } from '../../packs/duplicate-check';
 import { behaviorpack_block_components_dependencies } from './components/dependencies';
-import { behaviorpack_diagnose_block_components } from './components/diagnose';
+import { behaviorpack_diagnose_block_components, minimum_version_required } from './components/diagnose';
 
 /**Diagnoses the given document as an bp block
  * @param doc The text document to diagnose
@@ -91,13 +91,21 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
 
 function diagnose_block_trait(name: string, trait: any, context: Context<Internal.BehaviorPack.Block>, diagnoser: DocumentDiagnosticsBuilder) {
   switch (name) {
+    case 'minecraft:connection':
+      minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
+      break;
     case 'minecraft:placement_direction':
+      minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
+
       if (trait.blocks_to_corner_with !== undefined && !trait.enabled_states.includes('"minecraft:corner_and_cardinal_direction"')) diagnoser.add(
         name,
         `"blocks_to_corner_with" now requires "minecraft:corner_and_cardinal_direction" to be one of the "enabled_states"`,
         DiagnosticSeverity.error,
         'behaviorpack.block.traits.blocks_to_corner_with'
       )
+      break;
+    case 'minecraft:placement_position':
+      minimum_version_required(context.source, name, [1, 20, 20], diagnoser);
       break;
   }
 }

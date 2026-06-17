@@ -212,7 +212,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   },
 };
 
-function minimum_version_required(
+export function minimum_version_required(
   block: Internal.BehaviorPack.Block,
   name: string,
   version: [number, number, number],
