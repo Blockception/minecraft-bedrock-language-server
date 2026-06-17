@@ -807,6 +807,13 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       context.source['minecraft:entity'].description.identifier,
       diagnoser,
     );
+
+    if (FormatVersion.isGreaterOrEqualThan(context.source.format_version, [1, 21, 80]) && Object.keys(component).some(key => key.endsWith('_distance'))) diagnoser.add(
+      name,
+      `"${name}"'s format has been updated as of 1.21.80. Please refer to the documentation`,
+      DiagnosticSeverity.error,
+      `behaviorpack.entity.component.leashable.new_format`,
+    );
   },
   'minecraft:looked_at': (name, component, context, diagnoser) => {
     minecraft_diagnose_filters(component.filters, diagnoser);
@@ -860,6 +867,9 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
     if (typeof component.on_hit?.spawn_chance?.spawn_definition == 'string') {
       behaviorpack_entityid_diagnose(component.on_hit.spawn_chance.spawn_definition, diagnoser);
     }
+  },
+  'minecraft:pushable': (name, component, context, diagnoser) => {
+    deprecated_component('minecraft:pushable_by_entity & minecraft:pushable_by_block')
   },
   'minecraft:rail_sensor': (name, component, context, diagnoser) => {
     diagnose_event_trigger(
