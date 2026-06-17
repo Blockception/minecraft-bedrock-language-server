@@ -82,6 +82,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
           if (typeof block == 'string') is_block_defined(block, diagnoser);
         });
     }
+    if (context.isPermutation) non_permutation_component();
   },
   'minecraft:geometry': (name, component, context, diagnoser) => {
     try {
@@ -189,6 +190,7 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   },
   'minecraft:movable': (name, component, context, diagnoser) => {
     minimum_version_required(context.source, name, [1, 21, 100], diagnoser);
+    if (context.isPermutation) non_permutation_component();
   },
   'minecraft:redstone_consumer': (name, component, context, diagnoser) => {
     minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
@@ -229,5 +231,12 @@ function deprecated_component(replacement?: string) {
   return component_error(
     'This component is no longer supported' + str + '. You are recommended to use the latest format version.',
     'behaviorpack.block.components.deprecated',
+  );
+}
+
+function non_permutation_component() {
+  return component_error(
+    'This component cannot be defined in permutations.',
+    'behaviorpack.block.components.non_permutation_component',
   );
 }
