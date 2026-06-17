@@ -629,6 +629,22 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       minecraft_diagnose_filters(entry?.breed_event?.filters, diagnoser);
     });
 
+    // New syntax
+    const text = diagnoser.document.getText();
+    if (typeof component.breeds_with == 'object' && !Array.isArray(component.breeds_with) && component.breeds_with.baby_type === undefined && component.breeds_with.mate_type === undefined) {
+      Object.keys(component.breeds_with).forEach(key => {
+        behaviorpack_entityid_diagnose(key, diagnoser);
+      })
+
+      // Applicable if causes_pregnancy is undefiend too hence ==
+      if (component.causes_pregnancy == false && !text.includes('minecraft:offspring')) diagnoser.add(
+        name + '/causes_pregnancy',
+        `Component: '${name}' requires a 'minecraft:offspring' component to be present when 'causes_pregnancy != true'`,
+        DiagnosticSeverity.info,
+        'behaviorpack.entity.components.breedable_pregnancy',
+      );
+    }
+
     if (Array.isArray(component.breed_items)) {
       component.breed_items
         ?.filter((item: any) => typeof item === 'string')
@@ -639,7 +655,6 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
     if (typeof component.transform_to_item === 'string') {
       behaviorpack_item_diagnose(minecraft_get_item(component.transform_to_item, diagnoser.document), diagnoser);
     }
-    const text = diagnoser.document.getText();
     if (component.require_tame && !text.includes('minecraft:tameable') && !text.includes('minecraft:tamemount')) {
       diagnoser.add(
         name + '/require_tame',
@@ -649,7 +664,6 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       );
     }
 
-    //TODO: minecraft:breedable/property_inheritance
   },
   'minecraft:bribeable': (name, component, context, diagnoser) => {
     component.bribe_items?.forEach((item: string) => {
