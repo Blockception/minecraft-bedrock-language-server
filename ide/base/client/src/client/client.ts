@@ -57,6 +57,10 @@ export function setupClient(context: vscode.ExtensionContext) {
     clientOptions,
   );
 
+  // Enable proposed protocol features (e.g. inline completion) so the matching
+  // server capabilities are negotiated.
+  Manager.Client.registerProposedFeatures();
+
   // Start the client. This will also launch the server
   Manager.Client.start().then(() => {
     vscode.commands.executeCommand('setContext', 'ext:is_active', true);

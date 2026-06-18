@@ -7,10 +7,13 @@ import { CompletionService } from '../completion/service';
 import { ConfigurationService } from '../configuration/service';
 import { Database } from '../database/database';
 import { DiagnoserService } from '../diagnostics/service';
+import { DocumentHighlightService } from '../document-highlight/service';
 import { DocumentManager, IDocumentManager } from '../documents/manager';
 import { ExtensionContext } from '../extension';
+import { FoldingService } from '../folding/service';
 import { FormatService } from '../format/service';
 import { InlayHintService } from '../inlay-hints/service';
+import { InlineCompletionService } from '../inline-completion/service';
 import { InlineValueService } from '../inline-values/service';
 import { LanguageModelToolService } from '../language-model-tools/service';
 import { ExtendedLogger } from '../logger/logger';
@@ -22,6 +25,7 @@ import { ServiceManager } from '../services/collection';
 import { SignatureService } from '../signatures/service';
 import { DocumentSymbolService } from '../symbols/document-service';
 import { WorkspaceSymbolService } from '../symbols/workspace-service';
+import { RenameService } from '../rename/service';
 import { LSPConfig } from '../config/config';
 
 export function setupServer(config: LSPConfig) {
@@ -57,13 +61,17 @@ export function setupServer(config: LSPConfig) {
       new DataSetService(logger, extension),
       new CompletionService(logger, extension),
       new DefinitionService(logger, extension),
+      new DocumentHighlightService(logger, extension),
       new DocumentSymbolService(logger, extension),
+      new FoldingService(logger, extension),
       new FormatService(logger, extension),
       new InlayHintService(logger, extension),
+      new InlineCompletionService(logger, extension),
       new ImplementationService(logger, extension),
       new InlineValueService(logger, extension),
       new LanguageModelToolService(logger, extension),
       new ReferenceService(logger, extension),
+      new RenameService(logger, extension),
       new SemanticsServer(logger, extension),
       new SignatureService(logger, extension),
       new TypeDefinitionService(logger, extension),
