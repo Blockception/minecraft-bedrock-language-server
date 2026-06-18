@@ -629,6 +629,27 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       minecraft_diagnose_filters(entry?.breed_event?.filters, diagnoser);
     });
 
+    // New syntax
+    const text = diagnoser.document.getText();
+    const isNewSyntax = typeof component.breeds_with == 'object' && !Array.isArray(component.breeds_with) && component.breeds_with.baby_type === undefined && component.breeds_with.mate_type === undefined
+    if (isNewSyntax) {
+      Object.keys(component.breeds_with).forEach(key => {
+        behaviorpack_entityid_diagnose(key, diagnoser);
+      })
+
+      if (!component.causes_pregnancy && !context.components.includes('minecraft:offspring')) diagnoser.add(
+        name + '/causes_pregnancy',
+        `Component: '${name}' requires a 'minecraft:offspring' component to be present when 'causes_pregnancy != true'`,
+        DiagnosticSeverity.error,
+        'behaviorpack.entity.components.breedable_pregnancy',
+      );
+    } else if (FormatVersion.isGreaterOrEqualThan(context.source.format_version, [1, 26, 0])) diagnoser.add(
+      name,
+      `"${name}"'s format has been updated as of 1.26.0. Please refer to the documentation`,
+      DiagnosticSeverity.error,
+      'behaviorpack.entity.components.breedable.new_format',
+    );
+
     if (Array.isArray(component.breed_items)) {
       component.breed_items
         ?.filter((item: any) => typeof item === 'string')
@@ -639,7 +660,6 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
     if (typeof component.transform_to_item === 'string') {
       behaviorpack_item_diagnose(minecraft_get_item(component.transform_to_item, diagnoser.document), diagnoser);
     }
-    const text = diagnoser.document.getText();
     if (component.require_tame && !text.includes('minecraft:tameable') && !text.includes('minecraft:tamemount')) {
       diagnoser.add(
         name + '/require_tame',
@@ -649,7 +669,6 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       );
     }
 
-    //TODO: minecraft:breedable/property_inheritance
   },
   'minecraft:bribeable': (name, component, context, diagnoser) => {
     component.bribe_items?.forEach((item: string) => {
@@ -793,6 +812,13 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       context.source['minecraft:entity'].description.identifier,
       diagnoser,
     );
+
+    if (FormatVersion.isGreaterOrEqualThan(context.source.format_version, [1, 21, 80]) && Object.keys(component).some(key => key.endsWith('_distance'))) diagnoser.add(
+      name,
+      `"${name}"'s format has been updated as of 1.21.80. Please refer to the documentation`,
+      DiagnosticSeverity.error,
+      `behaviorpack.entity.component.leashable.new_format`,
+    );
   },
   'minecraft:looked_at': (name, component, context, diagnoser) => {
     minecraft_diagnose_filters(component.filters, diagnoser);
@@ -823,6 +849,10 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
       minecraft_diagnose_filters(entry.on_named?.filters, diagnoser);
     });
   },
+  'minecraft:offspring': (name, component, context, diagnoser) => {
+    if (!component.offspring_pairs || typeof component.offspring_pairs != 'object') return;
+    Object.keys(component.offspring_pairs).forEach(key => behaviorpack_entityid_diagnose(key, diagnoser))
+  },
   'minecraft:peek': (name, component, context, diagnoser) => {
     const identifier = context.source['minecraft:entity'].description.identifier;
     diagnose_event_trigger(name, component.on_close, identifier, diagnoser);
@@ -846,6 +876,9 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
     if (typeof component.on_hit?.spawn_chance?.spawn_definition == 'string') {
       behaviorpack_entityid_diagnose(component.on_hit.spawn_chance.spawn_definition, diagnoser);
     }
+  },
+  'minecraft:pushable': (name, component, context, diagnoser) => {
+    if (FormatVersion.isGreaterThan(context.source.format_version, [1, 26, 10])) deprecated_component('minecraft:pushable_by_entity & minecraft:pushable_by_block')
   },
   'minecraft:rail_sensor': (name, component, context, diagnoser) => {
     diagnose_event_trigger(

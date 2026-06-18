@@ -58,6 +58,13 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Biome>
     properties.forEach((key) => {
       if (typeof builder[key] === 'string') is_block_defined(builder[key], diagnoser);
     });
+
+    const builderType = builder.type as string;
+    const netherAllowedBuilders = ["minecraft:overworld", "minecraft:frozen_ocean", "minecraft:capped", "minecraft:the_end"]
+    const replaceBiomesComponent = context.source['minecraft:biome'].components['minecraft:replace_biomes']
+    if (!replaceBiomesComponent || 'replacements' in replaceBiomesComponent || !Array.isArray(replaceBiomesComponent.replacements)) return;
+    
+    if (replaceBiomesComponent.replacements.some((entry: any) => entry.dimension == 'minecraft:nether') && !netherAllowedBuilders.includes(builderType)) diagnoser.add(builderType, 'Biome Replacement in Nether can only be used with minecraft:surface_builder of types: minecraft:overworld, minecraft:frozen_ocean, minecraft:capped, minecraft:the_end', DiagnosticSeverity.error, 'behaviorpack.biome.components.replace_biomes.limited_nether_surface_builders')
   },
   'minecraft:replace_biomes': (name, component, context, diagnoser) => {
     if (!Array.isArray(component.replacements)) return;

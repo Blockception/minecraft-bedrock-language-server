@@ -1,5 +1,5 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
-import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json';
 import { lint_check_feature_naming, lint_check_identity_format, lint_check_namespace } from '../../lint';
 import { no_other_duplicates } from '../../packs/duplicate-check';
@@ -23,22 +23,6 @@ export function diagnose_feature_document(diagnoser: DocumentDiagnosticsBuilder)
   lint_check_identity_format(identifier, diagnoser);
   lint_check_namespace(identifier, diagnoser);
   lint_check_feature_naming(identifier, diagnoser);
-
-  const path = diagnoser.document.uri.split('/');
-  if (
-    !identifier.endsWith(
-      path
-        .slice(path.findIndex((v) => v == 'features') + 1)
-        .join('/')
-        .replace('.json', ''),
-    )
-  )
-    diagnoser.add(
-      identifier,
-      `Feature identifier must match the relative path to the components up to and including the file name`,
-      DiagnosticSeverity.error,
-      'behaviorpack.components.identifier',
-    );
 
   // check that no other exists with this id
   no_other_duplicates(

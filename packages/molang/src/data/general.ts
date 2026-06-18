@@ -815,6 +815,10 @@ export namespace General {
       documentation: 'Returns the ratio (from 0 to 1) of how much between AI ticks this frame is being rendered',
     },
     {
+      id: 'query.fuse_time',
+      documentation: 'Returns the remaining fuse time of the entity. Returns -1 if the entity doesn\'t have a "minecraft:explode" component.'
+    },
+    {
       id: 'get_actor_info_id',
       documentation: 'Returns the integer id of an actor by its string name',
     },
