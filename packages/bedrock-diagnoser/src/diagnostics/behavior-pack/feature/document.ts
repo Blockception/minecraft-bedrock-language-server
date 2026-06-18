@@ -1,5 +1,5 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
-import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
+import { DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json';
 import { lint_check_feature_naming, lint_check_identity_format, lint_check_namespace } from '../../lint';
 import { no_other_duplicates } from '../../packs/duplicate-check';
