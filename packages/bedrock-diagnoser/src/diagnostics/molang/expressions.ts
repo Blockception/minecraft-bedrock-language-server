@@ -173,8 +173,12 @@ export function diagnose_molang_syntax(expression: ExpressionNode, diagnoser: Di
 
       case NodeType.Marker:
       default:
+        // A degenerate node (e.g. an empty `{}` produced by the parser) can have an
+        // undefined position. Falling through to diagnoser.add with `undefined` makes
+        // the range resolve to a NaN character, which serializes to `null` over
+        // JSON-RPC and causes the client to drop the whole diagnostic batch.
         diagnoser.add(
-          n.position,
+          n.position ?? 0,
           `unknown piece of molang syntax: ${JSON.stringify(n)}`,
           DiagnosticSeverity.error,
           'molang.diagnoser.syntax',
