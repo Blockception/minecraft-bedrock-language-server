@@ -162,6 +162,8 @@ export const RenderControllers: string[] = [
   "controller.render.stray_clothes",
   "controller.render.strider",
   "controller.render.strider.v2",
+  "controller.render.sulfur_cube",
+  "controller.render.sulfur_cube_outer",
   "controller.render.tadpole",
   "controller.render.tripod_camera",
   "controller.render.tropicalfish",

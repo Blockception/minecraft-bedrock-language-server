@@ -70,6 +70,7 @@ export const Fogs: string[] = [
   "minecraft:fog_semi_humid",
   "minecraft:fog_soulsand_valley",
   "minecraft:fog_stone_beach",
+  "minecraft:fog_sulfur_caves",
   "minecraft:fog_sunflower_plains",
   "minecraft:fog_swampland",
   "minecraft:fog_swampland_mutated",

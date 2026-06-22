@@ -3941,6 +3941,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:music_disc_bounce",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:music_disc_cat",
     "max_damage": 0
   },
@@ -5958,6 +5962,10 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:sulfur_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:sulfur_spike",
     "max_damage": 0
   },
   {

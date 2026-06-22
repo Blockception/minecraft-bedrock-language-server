@@ -5466,6 +5466,23 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
+    "id": "animation.sulfur_cube.offset",
+    "bones": [
+      "sulfur_cube",
+      "rightItem"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.sulfur_cube.swelling",
+    "bones": [
+      "sulfur_cube"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "animation.tadpole.swim",
     "bones": [
       "tail"

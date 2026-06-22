@@ -156,6 +156,8 @@ export const Entities: Entity[] = [
       "be_sheared",
       "minecraft:melee_mode",
       "minecraft:entity_spawned",
+      "minecraft:switch_to_hard_ranged",
+      "minecraft:switch_to_normal_ranged",
       "minecraft:ranged_mode"
     ],
     "families": [
@@ -1008,6 +1010,8 @@ export const Entities: Entity[] = [
     "events": [
       "minecraft:melee_mode",
       "minecraft:entity_spawned",
+      "minecraft:switch_to_hard_ranged",
+      "minecraft:switch_to_normal_ranged",
       "minecraft:ranged_mode"
     ],
     "families": [
@@ -1299,6 +1303,8 @@ export const Entities: Entity[] = [
     "id": "minecraft:skeleton",
     "events": [
       "become_stray_event",
+      "minecraft:switch_to_hard_ranged",
+      "minecraft:switch_to_normal_ranged",
       "got_in_powder_snow",
       "got_out_of_powder_snow",
       "minecraft:melee_mode",
@@ -1428,6 +1434,8 @@ export const Entities: Entity[] = [
       "change_to_skeleton",
       "minecraft:melee_mode",
       "minecraft:entity_spawned",
+      "minecraft:switch_to_hard_ranged",
+      "minecraft:switch_to_normal_ranged",
       "minecraft:ranged_mode"
     ],
     "families": [
@@ -1464,8 +1472,38 @@ export const Entities: Entity[] = [
   },
   {
     "id": "minecraft:sulfur_cube",
-    "events": [],
-    "families": []
+    "events": [
+      "minecraft:entity_spawned",
+      "minecraft:entity_born",
+      "minecraft:spawn_small",
+      "minecraft:spawn_medium",
+      "minecraft:ageable_grow_up",
+      "minecraft:on_lose_target",
+      "minecraft:on_gain_target",
+      "minecraft:on_sheared",
+      "minecraft:on_pickup_timeout",
+      "minecraft:on_block_absorbed",
+      "minecraft:on_block_ejected",
+      "minecraft:try_priming",
+      "minecraft:try_priming_on_explosion",
+      "minecraft:become_bouncy",
+      "minecraft:become_regular",
+      "minecraft:become_slow_bouncy",
+      "minecraft:become_slow_flat",
+      "minecraft:become_fast_flat",
+      "minecraft:become_light",
+      "minecraft:become_fast_sliding",
+      "minecraft:become_slow_sliding",
+      "minecraft:become_sticky",
+      "minecraft:become_high_resistance",
+      "minecraft:become_explosive",
+      "minecraft:become_hot"
+    ],
+    "families": [
+      "sulfur_cube",
+      "animal",
+      "mob"
+    ]
   },
   {
     "id": "minecraft:tadpole",

@@ -2479,6 +2479,19 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.sulfur_cube",
+    "bones": [
+      "rightItem",
+      "sulfur_cube"
+    ]
+  },
+  {
+    "id": "geometry.sulfur_cube.small",
+    "bones": [
+      "sulfur_cube"
+    ]
+  },
+  {
     "id": "geometry.tadpole",
     "bones": [
       "root",
