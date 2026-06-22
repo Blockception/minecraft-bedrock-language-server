@@ -18,12 +18,12 @@ export function process(doc: TextDocument): FeatureRule | undefined {
 
   const description = imp['minecraft:feature_rules'].description;
   const id = description.identifier;
-  const feature_used = description.places_feature;
+  const featureUsed = description.places_feature;
 
   return {
     id: id,
     documentation: Documentation.getDoc(doc, () => `Feature Rule: ${id}`),
-    feature_used: feature_used,
+    feature_used: featureUsed,
     location: Location.create(uri, content.indexOf(id)),
   };
 }

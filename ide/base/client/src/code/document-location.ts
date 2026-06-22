@@ -36,10 +36,10 @@ export function GetRange(position: string | number | Position, doc: TextDocument
 
     //Dashes and underscore are to be respected
     switch (c) {
-      case Character.Character_dash:
-      case Character.Character_underscore:
-      case Character.Character_forwardslash:
-      case Character.Character_column:
+      case Character.CharacterDash:
+      case Character.CharacterUnderscore:
+      case Character.CharacterForwardslash:
+      case Character.CharacterColumn:
         continue;
     }
 

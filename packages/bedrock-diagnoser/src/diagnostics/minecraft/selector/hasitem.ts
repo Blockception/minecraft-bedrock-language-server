@@ -4,7 +4,7 @@ import { CompactJson, CompactJsonReader } from 'bc-minecraft-bedrock-types/src/m
 import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../types';
 import { behaviorpack_item_diagnose } from '../../behavior-pack/item/diagnose';
 import { general_integer_diagnose, general_range_integer_diagnose } from '../../general';
-import { mode_slot_type_diagnose, mode_slotid_diagnose } from '../../mode/diagnose';
+import { modeSlotTypeDiagnose, mode_slotid_diagnose } from '../../mode/diagnose';
 import { selectorattributes_no_duplicate as no_duplicate } from './checks';
 import {
   selectorattribute_no_negatives as no_negatives,
@@ -19,12 +19,12 @@ function range_integer_diagnose(range?: { min: number; max: number }): diagnoseA
   return must_offset_word((value, diagnoser) => general_range_integer_diagnose(value, diagnoser, range));
 }
 
-export const attribute_hasitem_diagnostics: Record<string, diagnoseAttributes> = {
+export const attributeHasitemDiagnostics: Record<string, diagnoseAttributes> = {
   item: all(no_duplicate, no_negatives, must_offset_word(behaviorpack_item_diagnose)),
   //Has extra checks down below
   data: all(no_duplicate, no_negatives, integer_diagnose({ min: -1, max: 32767 })),
   quantity: all(one_positive_all_negatives, range_integer_diagnose({ min: 0, max: 32767 })),
-  location: all(no_duplicate, one_positive_all_negatives, must_offset_word(mode_slot_type_diagnose)),
+  location: all(no_duplicate, one_positive_all_negatives, must_offset_word(modeSlotTypeDiagnose)),
   //Has extra checks down below
   slot: all(no_duplicate, one_positive_all_negatives, range_integer_diagnose({ min: 0, max: 53 })),
 };
@@ -102,7 +102,7 @@ function diagnose_hasitem_object(
 
   const names = reader.names();
   for (const name of names) {
-    const checks = attribute_hasitem_diagnostics[name];
+    const checks = attributeHasitemDiagnostics[name];
     const attrs = reader.get(name) as CompactJson.IKeyNode[];
 
     if (checks) {

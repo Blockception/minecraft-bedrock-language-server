@@ -3,7 +3,7 @@ import { DiagnosticsBuilder, DiagnosticSeverity } from '../../../../types';
 import { Internal } from 'bc-minecraft-bedrock-project';
 
 //Map of components that are depended on all other specified components
-const component_dependents_all: DependedMap = {
+const componentDependentsAll: DependedMap = {
   'minecraft:addrider': ['minecraft:rideable'],
   'minecraft:boostable': ['minecraft:rideable'],
   'minecraft:behavior.admire_item': ['minecraft:admire_item'],
@@ -40,7 +40,7 @@ const component_dependents_all: DependedMap = {
 };
 
 //Map of components that are depended on one of the other specified components
-const component_dependents_any: DependedMap = {
+const componentDependentsAny: DependedMap = {
   'minecraft:behavior.slime_attack': [
     'minecraft:behavior.nearest_attackable_target',
     'minecraft:behavior.hurt_by_target',
@@ -67,7 +67,7 @@ export function behaviorpack_entity_components_dependencies(
 
   checkMovements(diagnoser, components, entity);
 
-  components_dependencies('entity', context, diagnoser, component_dependents_all, component_dependents_any);
+  components_dependencies('entity', context, diagnoser, componentDependentsAll, componentDependentsAny);
 }
 
 export function checkMovements(

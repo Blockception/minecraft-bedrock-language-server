@@ -45,21 +45,21 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
 
   //#region animations
   //Check animations / animation controllers
-  const anim_data: AnimationUsage = {
+  const animData: AnimationUsage = {
     animationControllers: {},
     animations: description.animations ?? {},
     script: description.scripts ?? {},
   };
   description.animation_controllers?.forEach((controller) => {
     if (typeof controller === 'string') {
-      anim_data.animationControllers[controller] = controller;
+      animData.animationControllers[controller] = controller;
       return;
     }
 
-    Definition.forEach(controller, (ref, anim_id) => (anim_data.animationControllers[ref] = anim_id));
+    Definition.forEach(controller, (ref, anim_id) => (animData.animationControllers[ref] = anim_id));
   });
 
-  Definition.forEach(anim_data.animations, (reference, anim_id) =>
+  Definition.forEach(animData.animations, (reference, anim_id) =>
     animation_or_controller_diagnose_implementation(
       anim_id,
       attachableGathered,
@@ -68,7 +68,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
       description.sound_effects,
     ),
   );
-  Definition.forEach(anim_data.animationControllers, (ref, anim_id) =>
+  Definition.forEach(animData.animationControllers, (ref, anim_id) =>
     animation_or_controller_diagnose_implementation(
       anim_id,
       attachableGathered,
@@ -78,7 +78,7 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
     ),
   );
   //Check used animations
-  resourcepack_animation_used(anim_data, diagnoser);
+  resourcepack_animation_used(animData, diagnoser);
   //#endregion
 
   //Check render controllers
@@ -97,13 +97,13 @@ export function diagnose_attachable_document(diag: DocumentDiagnosticsBuilder): 
   const pack = diagnoser.context.getProjectData().projectData.resourcePacks.get(diagnoser.document.uri);
   if (pack === undefined) return;
 
-  const rp_files = diagnoser.context
+  const rpFiles = diagnoser.context
     .getFiles(pack.folder, ['**/textures/**/*.{tga,png,jpg,jpeg}'], pack.context.ignores)
     .map((item) => item.replace(/\\/gi, '/'));
 
   //Check if attachable has textures defined
   Definition.forEach(description.textures, (ref, id) => {
-    texture_files_diagnose(description.identifier, id, rp_files, diagnoser);
+    texture_files_diagnose(description.identifier, id, rpFiles, diagnoser);
   });
 
   //Check if attachable has sounds defined

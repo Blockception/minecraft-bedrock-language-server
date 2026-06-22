@@ -28,8 +28,8 @@ export function provideHoverAt(
   for (; startIndex >= 0; startIndex--) {
     const c = currentText.charCodeAt(startIndex);
 
-    if (Character.IsLetterCode(c) || Character.IsNumberCode(c) || c === Character.Character_underscore) continue;
-    if (c === Character.Character_dot) {
+    if (Character.IsLetterCode(c) || Character.IsNumberCode(c) || c === Character.CharacterUnderscore) continue;
+    if (c === Character.CharacterDot) {
       dotIndex = startIndex;
       continue;
     }
@@ -45,7 +45,7 @@ export function provideHoverAt(
   for (; endIndex < currentText.length; endIndex++) {
     const c = currentText.charCodeAt(endIndex);
 
-    if (Character.IsLetterCode(c) || Character.IsNumberCode(c) || c === Character.Character_underscore) continue;
+    if (Character.IsLetterCode(c) || Character.IsNumberCode(c) || c === Character.CharacterUnderscore) continue;
 
     break;
   }

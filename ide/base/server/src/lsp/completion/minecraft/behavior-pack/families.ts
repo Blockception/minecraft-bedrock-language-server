@@ -72,8 +72,8 @@ export function provideCompletionTest(context: Context<CommandCompletionContext>
       const entity = context.database.ProjectData.behaviorPacks.entities.get(type);
       if (entity) convertTestEntity(entity, builder);
 
-      const vanilla_entity = MinecraftData.BehaviorPack.getEntity(type, edu);
-      if (vanilla_entity) convertTestEntity(vanilla_entity, builder);
+      const vanillaEntity = MinecraftData.BehaviorPack.getEntity(type, edu);
+      if (vanillaEntity) convertTestEntity(vanillaEntity, builder);
     });
   }
 }

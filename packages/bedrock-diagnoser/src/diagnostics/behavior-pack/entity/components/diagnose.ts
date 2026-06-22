@@ -28,12 +28,12 @@ export function behaviorpack_diagnose_entity_components(
   context: Context<Internal.BehaviorPack.Entity>,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
-  components_check(container, context, diagnoser, component_test);
+  components_check(container, context, diagnoser, componentTest);
 
   behaviorpack_entity_components_filters(container, diagnoser);
 }
 
-const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity>> = {
+const componentTest: Record<string, ComponentCheck<Internal.BehaviorPack.Entity>> = {
   // Deprecated
   'minecraft:behavior.enderman_leave_block': deprecated_component('minecraft:behavior.place_block'),
   'minecraft:behavior.enderman_take_block': deprecated_component('minecraft:behavior.take_block'),
@@ -1106,8 +1106,8 @@ function can_only_be_used_by_specific_mob(
   diagnoser: DocumentDiagnosticsBuilder,
   ...id: string[]
 ) {
-  const { identifier, runtime_identifier } = context.source['minecraft:entity']?.description ?? {};
-  if (id.includes(identifier) || id.includes(runtime_identifier)) return;
+  const { identifier, runtime_identifier: runtimeIdentifier } = context.source['minecraft:entity']?.description ?? {};
+  if (id.includes(identifier) || id.includes(runtimeIdentifier)) return;
 
   const code = 'behaviorpack.entity.components.' + id.map((x) => x.slice(10)).join('_') + '_component';
 

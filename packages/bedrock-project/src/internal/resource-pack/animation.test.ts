@@ -2,7 +2,7 @@ import { Json } from '../json';
 import { Internal } from '../..';
 
 describe('RP Animation', () => {
-  const correct_animations: string[] = [
+  const correctAnimations: string[] = [
     '{}',
     `{
       "loop": true,
@@ -14,7 +14,7 @@ describe('RP Animation', () => {
     }`,
   ];
 
-  correct_animations.forEach((anim, index) => {
+  correctAnimations.forEach((anim, index) => {
     describe('correct ' + index, () => {
       const obj = Json.To<Internal.ResourcePack.Animation>(anim);
 

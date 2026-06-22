@@ -14,7 +14,7 @@ export function DiagnoseFlipbook(diagnoser: DocumentDiagnosticsBuilder): void {
   const pack = diagnoser.context.getProjectData().projectData.resourcePacks.get(diagnoser.document.uri);
   if (pack === undefined) return;
 
-  const texture_files = diagnoser.context
+  const textureFiles = diagnoser.context
     .getFiles(pack.folder, ['**/textures/**/*.{tga,png,jpg,jpeg}'], pack.context.ignores)
     .map((item) => item.replace(/\\/gi, '/'));
 
@@ -22,7 +22,7 @@ export function DiagnoseFlipbook(diagnoser: DocumentDiagnosticsBuilder): void {
     const flipbook = flipbooks[I];
 
     if (isFlipbook(flipbook)) {
-      texture_files_diagnose('flipbook_texture', flipbook.flipbook_texture, texture_files, diagnoser);
+      texture_files_diagnose('flipbook_texture', flipbook.flipbook_texture, textureFiles, diagnoser);
     }
   }
 }

@@ -3,7 +3,7 @@ import path from 'path';
 import { ResourcePack } from "../../../../src/diagnostics/resource-pack/resource-pack";
 import { TestDiagnoser } from "../../../diagnoser";
 
-const example_data = {
+const exampleData = {
   num_mip_levels: 4,
   padding: 8,
   resource_pack_name: "vanilla",
@@ -39,7 +39,7 @@ describe("ResourcePack", () => {
     it("no errors", () => {
       const doc: TextDocument = {
         uri: path.join("resource_pack", "textures", "terrain_texture.json"),
-        getText: () => JSON.stringify(example_data, undefined, 2),
+        getText: () => JSON.stringify(exampleData, undefined, 2),
       };
 
       const diagnoser = TestDiagnoser.createDocument(undefined, doc);

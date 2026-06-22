@@ -22,10 +22,10 @@ export function behaviorpack_diagnose_block_components(
   context: Context<Internal.BehaviorPack.Block>,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
-  components_check(container, context, diagnoser, component_test);
+  components_check(container, context, diagnoser, componentTest);
 }
 
-const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>> = {
+const componentTest: Record<string, ComponentCheck<Internal.BehaviorPack.Block>> = {
   // deprecated
   'minecraft:aim_collision': deprecated_component('minecraft:selection_box'),
   'minecraft:block_collision': deprecated_component('minecraft:selection_box'),

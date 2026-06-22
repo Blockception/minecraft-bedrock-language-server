@@ -2,7 +2,7 @@ import { Json } from '../json';
 import { Animation } from './animation';
 
 describe('BP Animation', () => {
-  const correct_animations: string[] = [
+  const correctAnimations: string[] = [
     '{}',
     `{
       "animation_length": 3.0,
@@ -13,7 +13,7 @@ describe('BP Animation', () => {
     }`,
   ];
 
-  correct_animations.forEach((anim, index) => {
+  correctAnimations.forEach((anim, index) => {
     describe('correct ' + index, () => {
       const obj = Json.To<Animation>(anim);
 

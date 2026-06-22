@@ -3,21 +3,21 @@ import { process } from './process';
 
 describe('Models', () => {
   test('can process old format', () => {
-    const doc = TestTextDocument.create('foo.json', old_format);
+    const doc = TestTextDocument.create('foo.json', oldFormat);
     const result = process(doc);
 
     expect(result).toMatchSnapshot();
   });
 
   test('can process new format', () => {
-    const doc = TestTextDocument.create('foo.json', new_format);
+    const doc = TestTextDocument.create('foo.json', newFormat);
     const result = process(doc);
 
     expect(result).toMatchSnapshot();
   });
 });
 
-const old_format = `{
+const oldFormat = `{
   "format_version": "1.8.0",
   "geometry.example.v1.8": {
     "visible_bounds_width": 5,
@@ -42,7 +42,7 @@ const old_format = `{
   }
 }`;
 
-const new_format = `{
+const newFormat = `{
   "format_version": "1.12.0",
   "minecraft:geometry": [
     {

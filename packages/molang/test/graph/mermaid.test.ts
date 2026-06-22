@@ -1,12 +1,12 @@
 
 import { parseMolang } from '../../src/molang/syntax/parse';
-import { valid_syntaxes } from '../data/dataset-valid';
+import { validSyntaxes } from '../data/dataset-valid';
 import { generateMermaidDiagram } from '../../src/graph/mermaid';
 import { OffsetWord } from "bc-minecraft-bedrock-shared";
 
 describe('molang - mermaid - graphs', () => {
   describe('should be able to generate stage diagrams', () => {
-    test.each(valid_syntaxes)('%#. %s', (s) => {
+    test.each(validSyntaxes)('%#. %s', (s) => {
       const n = parseMolang(OffsetWord.create(s, 0));
 
       n.forEach((item) => {

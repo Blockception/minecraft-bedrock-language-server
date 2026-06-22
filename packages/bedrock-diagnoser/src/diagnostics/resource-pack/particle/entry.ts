@@ -43,9 +43,9 @@ export function diagnose_particle_document(diagnoser: DocumentDiagnosticsBuilder
 
   if (MinecraftData.ResourcePack.hasTexture(texture, education_enabled(diagnoser))) return;
 
-  const rp_files = diagnoser.context
+  const rpFiles = diagnoser.context
     .getFiles(pack.folder, ['**/textures/**/*.{tga,png,jpg,jpeg}'], pack.context.ignores)
     .map((item) => item.replace(/\\/gi, '/'));
 
-  texture_files_diagnose('texture', texture, rp_files, diagnoser);
+  texture_files_diagnose('texture', texture, rpFiles, diagnoser);
 }

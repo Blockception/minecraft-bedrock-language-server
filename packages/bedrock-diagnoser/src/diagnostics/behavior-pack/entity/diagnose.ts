@@ -88,11 +88,11 @@ export function command_entity_event_diagnose(
 
   if (matches.length !== 1) return;
 
-  const entityid_index = matches[0].parameters.findIndex((p) => p.type === ParameterType.entity);
+  const entityidIndex = matches[0].parameters.findIndex((p) => p.type === ParameterType.entity);
   let entityid: string | undefined = undefined;
 
-  if (entityid_index >= 0) {
-    entityid = Com.parameters[entityid_index]?.text;
+  if (entityidIndex >= 0) {
+    entityid = Com.parameters[entityidIndex]?.text;
   } else {
     //TODO selector parsing?
   }

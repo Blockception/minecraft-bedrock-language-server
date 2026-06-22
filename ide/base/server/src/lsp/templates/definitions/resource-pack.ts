@@ -1,4 +1,4 @@
-export const animation_controller: string = `{
+export const animationController: string = `{
   "format_version": "1.20.41",
   "animation_controllers" : {
     "controller.animation.$\{{id}}" : {
@@ -60,7 +60,7 @@ export const blocks: string = `{
   }
 }`;
 
-export const block_culling: string = `{
+export const blockCulling: string = `{
   "format_version": "1.20.60",
   "minecraft:block_culling_rules": {
     "description": {
@@ -78,7 +78,7 @@ export const block_culling: string = `{
   }
 }`;
 
-export const biomes_client: string = `{
+export const biomesClient: string = `{
   "biomes" : {
 
   }
@@ -128,7 +128,7 @@ export const fog: string = `{
   }
 }`;
 
-export const flipbook_textures: string = `[
+export const flipbookTextures: string = `[
   {
     "flipbook_texture": "textures/example",
     "atlas_tile": "example",
@@ -136,7 +136,7 @@ export const flipbook_textures: string = `[
   }
 ]`;
 
-export const item_texture: string = `{
+export const itemTexture: string = `{
   "resource_pack_name": "vanilla",
   "texture_data": {
     "example": {
@@ -195,7 +195,7 @@ export const model: string = `{
   ]
 }`;
 
-export const music_definitions: string = `{
+export const musicDefinitions: string = `{
   "creative" : {
      "event_name" : "music.game.creative",
      "max_delay" : 180,
@@ -268,7 +268,7 @@ export const particle: string = `{
   }
 }`;
 
-export const render_controller: string = `{
+export const renderController: string = `{
   "format_version": "1.20.41",
   "render_controllers": {
     "controller.render.$\{{id}}": {
@@ -303,7 +303,7 @@ export const sounds: string = `{
   }
 }`;
 
-export const sound_definitions: string = `{
+export const soundDefinitions: string = `{
   "format_version": "1.20.41",
   "sound_definitions" : {
      "example" : {
@@ -318,7 +318,7 @@ export const sound_definitions: string = `{
   }
 }`;
 
-export const terrain_texture: string = `{
+export const terrainTexture: string = `{
   "num_mip_levels": 4,
   "padding": 8,
   "resource_pack_name": "vanilla",

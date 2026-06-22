@@ -17,10 +17,10 @@ export function resourcepack_diagnose_biome_components(
   context: Context<Internal.ResourcePack.Biome>,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
-  components_check(container, context, diagnoser, component_test);
+  components_check(container, context, diagnoser, componentTest);
 }
 
-const component_test: Record<string, ComponentCheck<Internal.ResourcePack.Biome>> = {
+const componentTest: Record<string, ComponentCheck<Internal.ResourcePack.Biome>> = {
   'minecraft:ambient_sounds': (name, component, context, diagnoser) => {
     if (typeof component.addition === 'string') diagnose_resourcepack_sound(component.addition, diagnoser);
     if (typeof component.loop === 'string') diagnose_resourcepack_sound(component.loop, diagnoser);

@@ -23,10 +23,10 @@ export function behaviorpack_diagnose_item_components(
   context: Context<Internal.BehaviorPack.Item>,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
-  components_check(container, context, diagnoser, component_test);
+  components_check(container, context, diagnoser, componentTest);
 }
 
-const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Item>> = {
+const componentTest: Record<string, ComponentCheck<Internal.BehaviorPack.Item>> = {
   'minecraft:armor': deprecated_component('minecraft:wearable'),
   'minecraft:chargeable': deprecated_component('minecraft:custom_components'),
   'minecraft:creative_category': deprecated_component('description.menu_category'),

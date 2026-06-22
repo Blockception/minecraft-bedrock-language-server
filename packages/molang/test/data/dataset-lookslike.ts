@@ -1,4 +1,4 @@
-export const looks_like_molang: string[] = [
+export const looksLikeMolang: string[] = [
   '1.10.0',
   'minecraft:player',
   'minecraft:geometry.full_block',

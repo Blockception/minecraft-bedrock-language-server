@@ -97,13 +97,13 @@ export function diagnose_entity_document(diag: DocumentDiagnosticsBuilder): void
   }
 
   //Check used animations
-  const anim_data: AnimationUsage = {
+  const animData: AnimationUsage = {
     animationControllers: {},
     animations: container.description.animations ?? {},
     script: container.description.scripts ?? {},
   };
 
-  behaviorpack_animation_used(anim_data, diagnoser);
+  behaviorpack_animation_used(animData, diagnoser);
   diagnose_entity_properties_definition(properties, diagnoser, diagnoser.document.getText());
 
   //Check events

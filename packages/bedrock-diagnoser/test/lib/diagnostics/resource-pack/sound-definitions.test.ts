@@ -3,7 +3,7 @@ import path from 'path';
 import { ResourcePack } from "../../../../src/diagnostics/resource-pack/resource-pack";
 import { TestDiagnoser } from "../../../diagnoser";
 
-const example_data = {
+const exampleData = {
   format_version: "1.20.20",
   sound_definitions: {
     "ambient.basalt_deltas.additions": {
@@ -225,7 +225,7 @@ const example_data = {
 describe("sound definitions", () => {
   const doc: TextDocument = {
     uri: path.join("resource_pack", "sounds", "sound_definitions.json"),
-    getText: () => JSON.stringify(example_data, undefined, 2),
+    getText: () => JSON.stringify(exampleData, undefined, 2),
   };
 
   test("Vanilla files and custom definition should be valid", () => {

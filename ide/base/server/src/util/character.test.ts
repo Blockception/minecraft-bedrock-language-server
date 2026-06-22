@@ -2,13 +2,13 @@ import { Character } from './character';
 
 describe('Character', () => {
   const letters = ['a', 'A', 'z', 'Z'];
-  const not_letters = ['0', '5', '$', '%'];
+  const notLetters = ['0', '5', '$', '%'];
 
   test.each(letters)(`IsLetter($letter)`, (letter) => {
     expect(Character.IsLetter(letter)).toBeTruthy();
   });
 
-  test.each(not_letters)(`IsLetter($letter)`, (letter) => {
+  test.each(notLetters)(`IsLetter($letter)`, (letter) => {
     expect(Character.IsLetter(letter)).toBeFalsy();
   });
 

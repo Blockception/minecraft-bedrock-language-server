@@ -145,7 +145,7 @@ export function activate(context: ExtensionContext): void {
 
   createCommandWithID(
     context,
-    Commands.Create.Behaviorpack.Animation_Controller,
+    Commands.Create.Behaviorpack.AnimationController,
     'Create animation controller',
     AnimationControllerID,
   );
@@ -154,31 +154,31 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.Behaviorpack.Dialogue, 'Create dialogue', DialogueID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Entity, 'Create entity', EntityID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Item, 'Create item', ItemID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Loot_Table, 'Create loot table', LootTableID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.LootTable, 'Create loot table', LootTableID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Recipe, 'Create recipe', RecipeID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Spawn_Rule, 'Create spawn rule', SpawnRuleID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.SpawnRule, 'Create spawn rule', SpawnRuleID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Trading, 'Create trading', TradingID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Volume, 'Create volume', VolumeID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Item_Catalog, 'Create item catalog', ItemCatalogID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.ItemCatalog, 'Create item catalog', ItemCatalogID);
   createCommandWithID(context, Commands.Create.Behaviorpack.Feature, 'Create feature', FeatureID);
-  createCommandWithID(context, Commands.Create.Behaviorpack.Feature_Rule, 'Create feature rule', FeatureRuleID);
+  createCommandWithID(context, Commands.Create.Behaviorpack.FeatureRule, 'Create feature rule', FeatureRuleID);
 
   //Resource pack
-  createCommand(context, Commands.Create.Resourcepack.Biomes_Client);
+  createCommand(context, Commands.Create.Resourcepack.BiomesClient);
   createCommand(context, Commands.Create.Resourcepack.Blocks);
-  createCommand(context, Commands.Create.Resourcepack.Flipbook_Textures);
-  createCommand(context, Commands.Create.Resourcepack.Item_Texture);
+  createCommand(context, Commands.Create.Resourcepack.FlipbookTextures);
+  createCommand(context, Commands.Create.Resourcepack.ItemTexture);
   createCommand(context, Commands.Create.Resourcepack.Languages);
   createCommand(context, Commands.Create.Resourcepack.Manifests);
-  createCommand(context, Commands.Create.Resourcepack.Music_Definitions);
-  createCommand(context, Commands.Create.Resourcepack.Sound_Definitions);
+  createCommand(context, Commands.Create.Resourcepack.MusicDefinitions);
+  createCommand(context, Commands.Create.Resourcepack.SoundDefinitions);
   createCommand(context, Commands.Create.Resourcepack.Sounds);
-  createCommand(context, Commands.Create.Resourcepack.Terrain_Texture);
-  createCommand(context, Commands.Create.Resourcepack.Texture_List);
+  createCommand(context, Commands.Create.Resourcepack.TerrainTexture);
+  createCommand(context, Commands.Create.Resourcepack.TextureList);
 
   createCommandWithID(
     context,
-    Commands.Create.Resourcepack.Animation_Controller,
+    Commands.Create.Resourcepack.AnimationController,
     'Create animation controllers files',
     AnimationControllerID,
   );
@@ -196,7 +196,7 @@ export function activate(context: ExtensionContext): void {
   createCommandWithID(context, Commands.Create.Resourcepack.Particle, 'Create particle file', ParticleID);
   createCommandWithID(
     context,
-    Commands.Create.Resourcepack.Render_Controller,
+    Commands.Create.Resourcepack.RenderController,
     'Create render_controller file',
     RenderControllerID,
   );

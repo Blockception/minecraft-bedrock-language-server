@@ -7,8 +7,8 @@ import path from 'path';
 export function activate(context: ExtensionContext): void {
   async function showDocs() {
     const base = context.storageUri || context.globalStorageUri;
-    const storage_path = path.join(base.fsPath, 'docs');
-    const command = new ShowDocsCommand(storage_path);
+    const storagePath = path.join(base.fsPath, 'docs');
+    const command = new ShowDocsCommand(storagePath);
 
     const sidebar = await command.getSidebar();
 
@@ -37,11 +37,11 @@ export function activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.ShowDocs, showDocs));
 }
 
-const day_diff_2 = 1000 * 60 * 60 * 24 * 2;
+const dayDiff2 = 1000 * 60 * 60 * 24 * 2;
 // URL with the list of all docs
-const sidebar_url = 'https://learn.microsoft.com/en-us/minecraft/creator/toc.json';
+const sidebarUrl = 'https://learn.microsoft.com/en-us/minecraft/creator/toc.json';
 // URL to the docs, that will be prepended to the href
-const html_url = 'https://learn.microsoft.com/en-us/minecraft/creator/';
+const htmlUrl = 'https://learn.microsoft.com/en-us/minecraft/creator/';
 
 /**
  * Represents a command to show documentation.
@@ -68,7 +68,7 @@ class ShowDocsCommand {
     if (this.sidebar.length > 0) {
       return this.sidebar;
     }
-    const data = await fetch(sidebar_url);
+    const data = await fetch(sidebarUrl);
 
     if (!data.ok) {
       window.showErrorMessage('Failed to download docs sidebar');
@@ -139,7 +139,7 @@ class ShowDocsCommand {
       const file = new Date(stat.mtime);
       const diff = now.getTime() - file.getTime();
 
-      return diff <= day_diff_2;
+      return diff <= dayDiff2;
     } catch (err) {
       Console.errror(`Failed to read file ${filepath}`, err);
     }
@@ -225,8 +225,8 @@ class ShowDocsCommand {
 
     const canRead = await this.canRead(filepath);
     if (!canRead) {
-      const html_uri = html_url + item.href!;
-      await this.download(html_uri, filepath);
+      const htmlUri = htmlUrl + item.href!;
+      await this.download(htmlUri, filepath);
     }
 
     try {

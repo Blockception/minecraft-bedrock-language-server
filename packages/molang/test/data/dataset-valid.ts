@@ -1,4 +1,4 @@
-export const valid_syntaxes = [
+export const validSyntaxes = [
   // Transitions checks
   '!v.swaying && q.all_animations_finished',
   '!variable.swaying && query.all_animations_finished',

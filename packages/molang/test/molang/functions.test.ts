@@ -1,6 +1,6 @@
 import { getEvent, isMolang, isMolangType, isValidMolang, MolangType } from '../../src/molang';
-import { looks_like_molang } from '../data/dataset-lookslike';
-import { valid_syntaxes } from '../data/dataset-valid';
+import { looksLikeMolang } from '../data/dataset-lookslike';
+import { validSyntaxes } from '../data/dataset-valid';
 
 describe('Functions', () => {
   describe('IsMolangType', () => {
@@ -31,10 +31,10 @@ describe('Functions', () => {
   });
 
   describe('isMolang', () => {
-    test.each(valid_syntaxes)('should be valid: %#. %s', (item) => {
+    test.each(validSyntaxes)('should be valid: %#. %s', (item) => {
       expect(isMolang(item)).toBeTruthy();
     });
-    test.each(looks_like_molang)('should not be valid: %#. %s', (item) => {
+    test.each(looksLikeMolang)('should not be valid: %#. %s', (item) => {
       expect(isMolang(item)).toBeFalsy();
     });
   });
@@ -46,7 +46,7 @@ describe('Functions', () => {
   });
 
   describe('isValidMolang', () => {
-    test.each(valid_syntaxes)('isValidMolang should be valid: %#. %s', (item) => {
+    test.each(validSyntaxes)('isValidMolang should be valid: %#. %s', (item) => {
       expect(isValidMolang(item)).toBeTruthy();
     });
   });
