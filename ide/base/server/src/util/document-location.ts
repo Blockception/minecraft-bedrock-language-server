@@ -4,6 +4,24 @@ import * as vstd from 'vscode-languageserver-textdocument';
 import { Character } from './character';
 
 /**
+ * Clamps an offset into the valid `[0, text.length]` range for the given document.
+ *
+ * A non-finite offset (`undefined`, `NaN`, `Infinity`) would otherwise flow into
+ * `doc.positionAt(...)` and produce a `character: NaN`, which serializes to `null`
+ * over JSON-RPC and makes the client reject the entire diagnostic batch.
+ * @param offset The raw offset to clamp
+ * @param doc The document the offset refers to
+ * @returns A finite offset within the document's bounds
+ */
+function clampOffset(offset: number, doc: vstd.TextDocument): number {
+  if (!Number.isFinite(offset)) return 0;
+  const max = doc.getText().length;
+  if (offset < 0) return 0;
+  if (offset > max) return max;
+  return offset;
+}
+
+/**
  *
  * @param position
  * @param doc
@@ -23,11 +41,14 @@ export function GetRange(position: DocumentLocation, doc: vstd.TextDocument): Ra
     position = doc.offsetAt(position);
     //If document location is already an offset, then grab the start position
   } else if (OffsetWord.is(position)) {
-    Start = doc.positionAt(position.offset);
-    End = doc.positionAt(position.text.length + position.offset);
+    const offset = clampOffset(position.offset, doc);
+    const length = Number.isFinite(position.text.length) ? Math.max(0, position.text.length) : 0;
+    Start = doc.positionAt(offset);
+    End = doc.positionAt(clampOffset(offset + length, doc));
 
     return { start: Start, end: End };
   } else {
+    position = clampOffset(position, doc);
     Start = doc.positionAt(position);
   }
 
@@ -64,9 +85,9 @@ export function GetRange(position: DocumentLocation, doc: vstd.TextDocument): Ra
 export function GetPosition(position: DocumentLocation, doc: vstd.TextDocument): vstd.Position {
   if (Position.is(position)) return position;
   if (JsonPath.is(position)) return resolveJsonPath(position, doc).start;
-  if (OffsetWord.is(position)) return doc.positionAt(position.offset);
+  if (OffsetWord.is(position)) return doc.positionAt(clampOffset(position.offset, doc));
 
-  return doc.positionAt(position);
+  return doc.positionAt(clampOffset(position, doc));
 }
 
 /**Resolves a json path to a range
