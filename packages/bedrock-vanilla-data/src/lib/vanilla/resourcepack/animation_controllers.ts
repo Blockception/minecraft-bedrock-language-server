@@ -1386,6 +1386,22 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
+    "id": "controller.animation.sulfur_cube.offset",
+    "animations": [
+      "sulfur_cube_offset"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "controller.animation.sulfur_cube.swelling",
+    "animations": [
+      "sulfur_cube_swelling"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
     "id": "controller.animation.tadpole.general",
     "animations": [
       "swim"

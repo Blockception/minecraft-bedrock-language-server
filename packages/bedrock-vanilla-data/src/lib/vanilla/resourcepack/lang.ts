@@ -53,10 +53,6 @@ export const Langs: Lang[] = [
     "value": "close"
   },
   {
-    "id": "accessibility.button.creative.layout",
-    "value": "Recipe book view"
-  },
-  {
     "id": "accessibility.button.exit",
     "value": "Exit"
   },
@@ -543,6 +539,18 @@ export const Langs: Lang[] = [
   {
     "id": "accessibility.screenName.howToPlay",
     "value": "How To Play Screen"
+  },
+  {
+    "id": "accessibility.screenName.inventory",
+    "value": "Inventory"
+  },
+  {
+    "id": "accessibility.screenName.inventory.creative",
+    "value": "Creative Inventory"
+  },
+  {
+    "id": "accessibility.screenName.inventory.workbench",
+    "value": "Crafting Table"
   },
   {
     "id": "accessibility.screenName.inviteToGame",
@@ -1537,6 +1545,10 @@ export const Langs: Lang[] = [
     "value": "Fish"
   },
   {
+    "id": "action.interact.give_sulfur_cube",
+    "value": "Give Block"
+  },
+  {
     "id": "action.interact.leash",
     "value": "Leash"
   },
@@ -1663,6 +1675,10 @@ export const Langs: Lang[] = [
   {
     "id": "action.interact.stand",
     "value": "Stand"
+  },
+  {
+    "id": "action.interact.take_sulfur_cube",
+    "value": "Remove Block"
   },
   {
     "id": "action.interact.takepicture",
@@ -2393,6 +2409,10 @@ export const Langs: Lang[] = [
     "value": "Never open links from people that you don't trust!"
   },
   {
+    "id": "chat.logging.warning.messageFiltered",
+    "value": "WARNING! Message was filtered - Original Message: %s"
+  },
+  {
     "id": "chat.mentions.autocomplete.allPlayers",
     "value": "mention all players"
   },
@@ -2527,6 +2547,34 @@ export const Langs: Lang[] = [
   {
     "id": "chat.type.text",
     "value": "<%s> %s"
+  },
+  {
+    "id": "chat.type.title",
+    "value": "<%s> sent %s message to <%s>: %s"
+  },
+  {
+    "id": "chat.type.title.actionbar",
+    "value": "Actionbar"
+  },
+  {
+    "id": "chat.type.title.subtitle",
+    "value": "Subtitle"
+  },
+  {
+    "id": "chat.type.title.title",
+    "value": "Title"
+  },
+  {
+    "id": "chat.type.whisper",
+    "value": "<%s> whispered to <%s>: %s"
+  },
+  {
+    "id": "chatlogging.description",
+    "value": "Chat messages may be monitored or reviewed by your school or organization. Be respectful, be helpful, and have fun building!"
+  },
+  {
+    "id": "chatlogging.title",
+    "value": "Chat Logging"
   },
   {
     "id": "chestScreen.header.large",
@@ -3969,6 +4017,10 @@ export const Langs: Lang[] = [
     "value": "Sets a player's game mode."
   },
   {
+    "id": "commands.gamemode.fail.editorPlayer",
+    "value": "Cannot change game mode of editor player(s): %s"
+  },
+  {
     "id": "commands.gamemode.fail.invalid",
     "value": "Game mode '%1$s' is invalid"
   },
@@ -3991,6 +4043,10 @@ export const Langs: Lang[] = [
   {
     "id": "commands.gamerule.norule",
     "value": "No game rule called '%1$s' is available"
+  },
+  {
+    "id": "commands.gamerule.playerwaypoints.invalid",
+    "value": "Invalid value for playerWaypoints."
   },
   {
     "id": "commands.gamerule.success",
@@ -4051,6 +4107,10 @@ export const Langs: Lang[] = [
   {
     "id": "commands.generic.boolean.invalid",
     "value": "'%1$s' is not true or false"
+  },
+  {
+    "id": "commands.generic.canceled",
+    "value": "Command was canceled"
   },
   {
     "id": "commands.generic.chunk.notFound",
@@ -4913,11 +4973,23 @@ export const Langs: Lang[] = [
     "value": "Plays a sound."
   },
   {
+    "id": "commands.playsound.failed",
+    "value": "The sound is too far away to be heard"
+  },
+  {
     "id": "commands.playsound.playerTooFar",
     "value": "Player %1$s is too far away to hear the sound"
   },
   {
     "id": "commands.playsound.success",
+    "value": "Played sound '%1$s' to %2$s"
+  },
+  {
+    "id": "commands.playsound.success.multiple",
+    "value": "Played sound '%1$s' to %2$s players"
+  },
+  {
+    "id": "commands.playsound.success.single",
     "value": "Played sound '%1$s' to %2$s"
   },
   {
@@ -5730,11 +5802,19 @@ export const Langs: Lang[] = [
   },
   {
     "id": "commands.stopsound.success",
-    "value": "Stopped sound %s for %s"
+    "value": "Stopped sound '%1$s'"
   },
   {
     "id": "commands.stopsound.success.all",
+    "value": "Stopped all sounds"
+  },
+  {
+    "id": "commands.stopsound.success.all.preOutputFix",
     "value": "Stopped all sounds for %s"
+  },
+  {
+    "id": "commands.stopsound.success.preOutputFix",
+    "value": "Stopped sound %s for %s"
   },
   {
     "id": "commands.structure.delete.success",
@@ -6769,6 +6849,10 @@ export const Langs: Lang[] = [
     "value": "Delete Now"
   },
   {
+    "id": "contentlog.delete.done",
+    "value": "Content logs deleted"
+  },
+  {
     "id": "contentlog.delete.progress",
     "value": "Deleting Content Logs"
   },
@@ -7389,6 +7473,10 @@ export const Langs: Lang[] = [
     "value": "You need to collect blocks to craft!"
   },
   {
+    "id": "craftingScreen.tab.allItems",
+    "value": "All items"
+  },
+  {
     "id": "craftingScreen.tab.allRecipes",
     "value": "All recipes"
   },
@@ -7399,6 +7487,10 @@ export const Langs: Lang[] = [
   {
     "id": "craftingScreen.tab.construction",
     "value": "Construction"
+  },
+  {
+    "id": "craftingScreen.tab.craftableItems",
+    "value": "Craftable items"
   },
   {
     "id": "craftingScreen.tab.craftableRecipes",
@@ -7417,16 +7509,52 @@ export const Langs: Lang[] = [
     "value": "Nature"
   },
   {
-    "id": "craftingScreen.tab.search",
-    "value": "All"
-  },
-  {
-    "id": "craftingScreen.tab.search.filter",
-    "value": "Craftable"
-  },
-  {
     "id": "craftingScreen.tab.survival",
     "value": "Inventory"
+  },
+  {
+    "id": "craftingScreen.tts.button.howtoplay",
+    "value": "How to Play"
+  },
+  {
+    "id": "craftingScreen.tts.tab.crafting.big",
+    "value": "Crafting Grid"
+  },
+  {
+    "id": "craftingScreen.tts.tab.crafting.small",
+    "value": "Small Crafting Grid"
+  },
+  {
+    "id": "craftingScreen.tts.tab.fullscreen",
+    "value": "Extra wide item list"
+  },
+  {
+    "id": "craftingScreen.tts.tab.inventory",
+    "value": "Inventory"
+  },
+  {
+    "id": "craftingScreen.tts.toggle.creative.inventory.layout",
+    "value": "Inventory Only view"
+  },
+  {
+    "id": "craftingScreen.tts.toggle.creative.recipebook.layout",
+    "value": "Item list & Crafting Grid view"
+  },
+  {
+    "id": "craftingScreen.tts.toggle.creative.widelist.layout",
+    "value": "Wide Item list view"
+  },
+  {
+    "id": "craftingScreen.tts.toggle.filter",
+    "value": "Craftable filter"
+  },
+  {
+    "id": "craftingScreen.tts.toggle.inventory.layout",
+    "value": "Inventory view"
+  },
+  {
+    "id": "craftingScreen.tts.toggle.recipebook.layout",
+    "value": "Recipe book and inventory view"
   },
   {
     "id": "createWorld.customize.custom.baseSize",
@@ -7981,14 +8109,6 @@ export const Langs: Lang[] = [
     "value": "Enable the deferred rendering pipeline. Requires a PBR-enabled resource pack and compatible hardware."
   },
   {
-    "id": "createWorldScreen.experimentalFurnaceRecipeBook",
-    "value": "Furnace Recipe Book"
-  },
-  {
-    "id": "createWorldScreen.experimentalFurnaceRecipeBookDescription",
-    "value": "Add a recipe book in the furnace screen, similar to the one in the crafting table"
-  },
-  {
     "id": "createWorldScreen.experimentalgameplay",
     "value": "Experiments"
   },
@@ -8019,14 +8139,6 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.experimentalVoxelShapeFeaturesDescription",
     "value": "Enables the use of voxel shapes for some vanilla and custom blocks"
-  },
-  {
-    "id": "createWorldScreen.experimentalY2026Drop2",
-    "value": "Drop 2 of 2026"
-  },
-  {
-    "id": "createWorldScreen.experimentalY2026Drop2Description",
-    "value": "Explore a new underground biome where you can find a bouncy friend to play with"
   },
   {
     "id": "createWorldScreen.fireSpreads",
@@ -8221,14 +8333,6 @@ export const Langs: Lang[] = [
     "value": "Copied to clipboard"
   },
   {
-    "id": "createWorldScreen.locatorBar",
-    "value": "Locator bar"
-  },
-  {
-    "id": "createWorldScreen.locatorBar.description",
-    "value": "Shows the direction of nearby players in the world"
-  },
-  {
     "id": "createWorldScreen.mobgriefing",
     "value": "Mob Griefing"
   },
@@ -8311,6 +8415,26 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.playerSleepPercentageFormat",
     "value": "%s%%"
+  },
+  {
+    "id": "createWorldScreen.playerWaypoints",
+    "value": "Player waypoints"
+  },
+  {
+    "id": "createWorldScreen.playerWaypointsEveryone",
+    "value": "Everyone"
+  },
+  {
+    "id": "createWorldScreen.playerWaypointsEveryone.description",
+    "value": "Adds all other players as waypoints to the locator bar"
+  },
+  {
+    "id": "createWorldScreen.playerWaypointsOff",
+    "value": "Off"
+  },
+  {
+    "id": "createWorldScreen.playerWaypointsOff.description",
+    "value": "No player waypoints are added to the locator bar"
   },
   {
     "id": "createWorldScreen.progress.local",
@@ -8506,7 +8630,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "createWorldUpsell.button.trialText",
-    "value": "Start 30 day free trial"
+    "value": "Start 30-day free trial"
+  },
+  {
+    "id": "createWorldUpsell.button.trialText.nx",
+    "value": "Start 28-day free trial"
   },
   {
     "id": "createWorldUpsell.button.world",
@@ -9153,6 +9281,10 @@ export const Langs: Lang[] = [
     "value": "%1$s starved to death"
   },
   {
+    "id": "death.attack.sulfurCube.hot",
+    "value": "%1$s died because not just the floor is lava"
+  },
+  {
     "id": "death.attack.sweetBerry",
     "value": "%1$s was poked to death by a sweet berry bush"
   },
@@ -9683,6 +9815,10 @@ export const Langs: Lang[] = [
   {
     "id": "disconnectionScreen.editor.cannotUseRayTracing",
     "value": "Ray Tracing enabled resource packs are not yet compatible with Editor projects."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure",
+    "value": "Server policy forbids client join."
   },
   {
     "id": "disconnectionScreen.editor.mismatchEditorToVanilla",
@@ -10375,6 +10511,10 @@ export const Langs: Lang[] = [
   {
     "id": "dr.classic_skins.invalidCustomSkin",
     "value": "Please import a .png file of dimensions 64x64, 64x32, or 128x128"
+  },
+  {
+    "id": "dr.classic_skins.invalidCustomSkinFile",
+    "value": "Something went wrong. This may be due to insufficient storage space. Please check your available storage and try again."
   },
   {
     "id": "dr.classic_skins.owned",
@@ -12353,6 +12493,10 @@ export const Langs: Lang[] = [
     "value": "Strider"
   },
   {
+    "id": "entity.sulfur_cube.name",
+    "value": "Sulfur Cube"
+  },
+  {
     "id": "entity.tadpole.name",
     "value": "Tadpole"
   },
@@ -12935,6 +13079,34 @@ export const Langs: Lang[] = [
   {
     "id": "furnaceScreen.result",
     "value": "Result"
+  },
+  {
+    "id": "furnaceScreen.tab.blocks",
+    "value": "Blocks"
+  },
+  {
+    "id": "furnaceScreen.tab.food",
+    "value": "Food"
+  },
+  {
+    "id": "furnaceScreen.tab.inventory",
+    "value": "Inventory"
+  },
+  {
+    "id": "furnaceScreen.tab.items",
+    "value": "Items"
+  },
+  {
+    "id": "furnaceScreen.tab.search",
+    "value": "All"
+  },
+  {
+    "id": "furnaceScreen.tab.search.filterFurnace",
+    "value": "Smeltable"
+  },
+  {
+    "id": "furnaceScreen.tab.search.filterSmoker",
+    "value": "Smokable"
   },
   {
     "id": "gameArgument.featureUnsupported",
@@ -13719,6 +13891,10 @@ export const Langs: Lang[] = [
   {
     "id": "gui.editor.exportProject",
     "value": "Export Project"
+  },
+  {
+    "id": "gui.editor.exportWorldDisabledHint",
+    "value": "To export the world, enter the Project, go to File -> Export, and select \"Shareable World\" from the dropdown"
   },
   {
     "id": "gui.editor.minecraftProject",
@@ -15746,11 +15922,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "howtoplay.minecoins.text.2",
-    "value": "Once redeemed, your Minecoins are linked to your Microsoft account, so you can access your coins and purchases on other supported devices, too!"
-  },
-  {
-    "id": "howtoplay.minecoins.text.3",
-    "value": "*Minecoins require a version of Minecraft: Bedrock Edition with Minecraft Marketplace. Minecoins are not compatible on PlayStation®. For compatibility information see minecraft.net/minecoins"
+    "value": "*Minecoins require a version of Minecraft: Bedrock Edition with Minecraft Marketplace."
   },
   {
     "id": "howtoplay.mining",
@@ -16267,6 +16439,10 @@ export const Langs: Lang[] = [
   {
     "id": "howtoplay.playingTogether.text.8",
     "value": "All you need is a paid Realms subscription. Why not try a free 30-day trial?"
+  },
+  {
+    "id": "howtoplay.playingTogether.text.8.nx",
+    "value": "All you need is a paid Realms subscription. Why not try a free 28-day trial?"
   },
   {
     "id": "howtoplay.playingTogether.text.9",
@@ -20797,6 +20973,14 @@ export const Langs: Lang[] = [
     "value": "Bucket of Salmon"
   },
   {
+    "id": "item.bucketSulfurCube.contains",
+    "value": "Contains:"
+  },
+  {
+    "id": "item.bucketSulfurCube.name",
+    "value": "Bucket of Sulfur Cube"
+  },
+  {
     "id": "item.bucketTadpole.name",
     "value": "Bucket of Tadpole"
   },
@@ -22245,6 +22429,10 @@ export const Langs: Lang[] = [
     "value": "C418 - blocks"
   },
   {
+    "id": "item.record_bounce.desc",
+    "value": "fingerspit - Bounce"
+  },
+  {
     "id": "item.record_cat.desc",
     "value": "C418 - cat"
   },
@@ -22835,6 +23023,10 @@ export const Langs: Lang[] = [
   {
     "id": "item.spawn_egg.entity.strider.name",
     "value": "Strider Spawn Egg"
+  },
+  {
+    "id": "item.spawn_egg.entity.sulfur_cube.name",
+    "value": "Sulfur Cube Spawn Egg"
   },
   {
     "id": "item.spawn_egg.entity.tadpole.name",
@@ -23895,6 +24087,10 @@ export const Langs: Lang[] = [
   {
     "id": "joincode.error.message.not_available",
     "value": "Join codes are not available right now. Ask your host for their Connection ID to join their game."
+  },
+  {
+    "id": "joincode.error.message.outdated_server",
+    "value": "The host is using an older version of Minecraft. Everyone should update to the latest version of Minecraft and try again."
   },
   {
     "id": "joincode.error.message.service_error",
@@ -25681,6 +25877,14 @@ export const Langs: Lang[] = [
     "value": "Go Back"
   },
   {
+    "id": "menu.creator.contentLog.delete.progress.description",
+    "value": "This may take a few minutes"
+  },
+  {
+    "id": "menu.creator.contentLog.delete.progress.title",
+    "value": "Deleting content log files"
+  },
+  {
     "id": "menu.creator.contentLog.delete.title",
     "value": "Delete old logs"
   },
@@ -25743,6 +25947,14 @@ export const Langs: Lang[] = [
   {
     "id": "menu.creator.scriptDiagnostic.delete.goBack",
     "value": "Go Back"
+  },
+  {
+    "id": "menu.creator.scriptDiagnostic.delete.progress.description",
+    "value": "This may take a few minutes"
+  },
+  {
+    "id": "menu.creator.scriptDiagnostic.delete.progress.title",
+    "value": "Deleting diagnostics and profiler captures"
   },
   {
     "id": "menu.creator.scriptDiagnostic.delete.title",
@@ -28941,6 +29153,10 @@ export const Langs: Lang[] = [
     "value": "Show build info"
   },
   {
+    "id": "options.dev_showChatMessageAttribution",
+    "value": "Show chat message attribution tags"
+  },
+  {
     "id": "options.dev_showChunkMap",
     "value": "Show chunk map"
   },
@@ -29593,6 +29809,14 @@ export const Langs: Lang[] = [
     "value": "Graphics Mode"
   },
   {
+    "id": "options.graphicsMode.combined.tooltip",
+    "value": "Vibrant Visuals & Ray Tracing requires a supported device and compatible Marketplace content."
+  },
+  {
+    "id": "options.graphicsMode.combined.tooltip.splitscreen",
+    "value": "Vibrant Visuals & Ray Tracing not supported while in split-screen."
+  },
+  {
     "id": "options.graphicsMode.deferred",
     "value": "Vibrant Visuals"
   },
@@ -29631,6 +29855,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.graphicsMode.rayTraced.description",
     "value": "Advanced real-time lighting and reflections"
+  },
+  {
+    "id": "options.graphicsMode.rayTraced.tooltip",
+    "value": "Ray Tracing requires a supported device and compatible Marketplace content."
+  },
+  {
+    "id": "options.graphicsMode.rayTraced.tooltip.splitscreen",
+    "value": "Ray Tracing not supported while in split-screen."
   },
   {
     "id": "options.graphicsMode.simple",
@@ -29854,7 +30086,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.hideEndFlash.description",
-    "value": "Prevents environmental effects in the End from making the sky flash"
+    "value": "Prevents environmental effects in the End and lightning from making the sky flash"
   },
   {
     "id": "options.hidegamepadcursor",
@@ -30411,6 +30643,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.openPage.continue",
     "value": "More Info"
+  },
+  {
+    "id": "options.panoramaSpeed",
+    "value": "Panorama Scroll Speed"
+  },
+  {
+    "id": "options.panoramaSpeed.description",
+    "value": "Controls the rotation speed of the panorama background on the main menu"
   },
   {
     "id": "options.particles",
@@ -31945,6 +32185,22 @@ export const Langs: Lang[] = [
     "value": "Visible to Xbox network Players"
   },
   {
+    "id": "oreui.gameplay.anvil.cost",
+    "value": "Enchantment cost: %1$d"
+  },
+  {
+    "id": "oreui.gameplay.anvil.incompatible",
+    "value": "Items incompatible"
+  },
+  {
+    "id": "oreui.gameplay.anvil.overworked",
+    "value": "Item overworked"
+  },
+  {
+    "id": "oreui.gameplay.anvil.repair",
+    "value": "Repair, Name & Enchant"
+  },
+  {
     "id": "pack.authors.label",
     "value": "Author: %s"
   },
@@ -32079,6 +32335,14 @@ export const Langs: Lang[] = [
   {
     "id": "packupgradewarning.required_manifest_property_missing",
     "value": "Missing '%s' element in pack manifest; Defaulting to '%s'."
+  },
+  {
+    "id": "parties.chat.command.description",
+    "value": "Sends a message in the party chat"
+  },
+  {
+    "id": "parties.chat.command.unavailable",
+    "value": "You are not currently in a party"
   },
   {
     "id": "parties.chat.joinedParty",
@@ -32951,6 +33215,10 @@ export const Langs: Lang[] = [
   {
     "id": "playscreen.realmsTrialWorld",
     "value": "Try Realms Plus free for 30 days"
+  },
+  {
+    "id": "playscreen.realmsTrialWorld.nx",
+    "value": "Try Realms Plus free for 28 days"
   },
   {
     "id": "playscreen.realmsWarning.moreinfo",
@@ -34569,6 +34837,10 @@ export const Langs: Lang[] = [
     "value": "You are currently not allowed to do this action."
   },
   {
+    "id": "realmsInvitationScreen.sendingInvitesFailed.generic",
+    "value": "Something went wrong. Please try again later."
+  },
+  {
     "id": "realmsInvitationScreen.setDefaultPermissionFail",
     "value": "Failed to set default permissions."
   },
@@ -34610,6 +34882,10 @@ export const Langs: Lang[] = [
   },
   {
     "id": "realmsInvitationScreen.unableToChangePlayers.forbidden",
+    "value": "Failed to update players"
+  },
+  {
+    "id": "realmsInvitationScreen.unableToChangePlayers.generic",
     "value": "Failed to update players"
   },
   {
@@ -36038,15 +36314,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "recipeToast.newUnlock.descriptionCraftingTable",
-    "value": "View in crafting table :crafting_table:"
+    "value": "View in crafting table"
   },
   {
     "id": "recipeToast.newUnlock.descriptionFurnace",
-    "value": "View in furnace :furnace:"
-  },
-  {
-    "id": "recipeToast.newUnlock.descriptionRecipeBook",
-    "value": "Check your recipe book"
+    "value": "View in furnace"
   },
   {
     "id": "recipeToast.newUnlock.descriptionSmithingTable",
@@ -36223,6 +36495,10 @@ export const Langs: Lang[] = [
   {
     "id": "resourcePack.editPackDone",
     "value": "Done"
+  },
+  {
+    "id": "resourcePack.education.gametest.name",
+    "value": "Education Edition GameTest Pack"
   },
   {
     "id": "resourcePack.error.enteringgame.button",
@@ -36513,8 +36789,28 @@ export const Langs: Lang[] = [
     "value": "%s Deactivated"
   },
   {
+    "id": "resourcePack.vanilla_base.description",
+    "value": "The base Minecraft textures"
+  },
+  {
+    "id": "resourcePack.vanilla_base.name",
+    "value": "Minecraft Base Texture Pack"
+  },
+  {
+    "id": "resourcePack.vanilla_trial.description",
+    "value": "Trial textures for Minecraft"
+  },
+  {
+    "id": "resourcePack.vanilla_trial.name",
+    "value": "Minecraft Trial Texture Pack"
+  },
+  {
     "id": "resourcePack.vanilla.description",
     "value": "The default Minecraft graphics, now updated with stylish new textures!"
+  },
+  {
+    "id": "resourcePack.vanilla.music",
+    "value": "Minecraft Music Pack"
   },
   {
     "id": "resourcePack.vanilla.name",
@@ -36767,6 +37063,10 @@ export const Langs: Lang[] = [
   {
     "id": "script.success.profilerStopped",
     "value": "Profiler stopped. Profile saved to '%s'"
+  },
+  {
+    "id": "scriptDiagnostic.delete.done",
+    "value": "Diagnostic and profiler captures deleted"
   },
   {
     "id": "seargeSays.searge",
@@ -37305,6 +37605,14 @@ export const Langs: Lang[] = [
     "value": "Hardcore"
   },
   {
+    "id": "server.starting",
+    "value": "Starting Server"
+  },
+  {
+    "id": "server.stopping",
+    "value": "Stopping Server"
+  },
+  {
     "id": "serverUI.errorDescription",
     "value": "Received invalid form json. Error:%s"
   },
@@ -37511,6 +37819,10 @@ export const Langs: Lang[] = [
   {
     "id": "skins.information.invalidCustomSkin",
     "value": "That's not a Minecraft skin, silly."
+  },
+  {
+    "id": "skins.information.invalidCustomSkinFile",
+    "value": "Something went wrong. This may be due to insufficient storage space. Please check your available storage and try again."
   },
   {
     "id": "skins.information.selectSkin",
@@ -38357,6 +38669,10 @@ export const Langs: Lang[] = [
     "value": "Type"
   },
   {
+    "id": "storageManager.localStorage",
+    "value": "Local storage"
+  },
+  {
     "id": "storageManager.mainSizeLabel",
     "value": "%s - 1 Item"
   },
@@ -38421,6 +38737,14 @@ export const Langs: Lang[] = [
     "value": "Size - Largest First"
   },
   {
+    "id": "storageManager.storageLocation.cloud",
+    "value": "Cloud"
+  },
+  {
+    "id": "storageManager.storageLocation.local",
+    "value": "Local"
+  },
+  {
     "id": "storageManager.sync_legacy_worlds",
     "value": "Sync Old Worlds"
   },
@@ -38473,6 +38797,10 @@ export const Langs: Lang[] = [
     "value": "Success!"
   },
   {
+    "id": "storageManager.sync_legacy_worlds.name",
+    "value": "Old Worlds"
+  },
+  {
     "id": "storageManager.sync_retailtopreview_worlds",
     "value": "Sync Retail Worlds"
   },
@@ -38491,6 +38819,10 @@ export const Langs: Lang[] = [
   {
     "id": "storageManager.sync_retailtopreview_worlds.fetch_complete.title",
     "value": "Success!"
+  },
+  {
+    "id": "storageManager.sync_retailtopreview_worlds.name",
+    "value": "Retail Worlds"
   },
   {
     "id": "storageManager.title.allScreenshots",
@@ -38582,10 +38914,6 @@ export const Langs: Lang[] = [
   },
   {
     "id": "store.addon.update.local.body1",
-    "value": "The world may not look or behave in the same way as non-modified worlds and you can't earn achievements."
-  },
-  {
-    "id": "store.addon.update.local.body2",
     "value": "You may want to save a copy of your world before continuing."
   },
   {
@@ -38602,10 +38930,6 @@ export const Langs: Lang[] = [
   },
   {
     "id": "store.addon.update.realms.body1",
-    "value": "This world may not look or behave in the same way as non-modified worlds and you can't earn achievements."
-  },
-  {
-    "id": "store.addon.update.realms.body2",
     "value": "A backup of your Realm is saved automatically, but to retain the backup indefinitely, download it locally to your device."
   },
   {
@@ -38749,6 +39073,10 @@ export const Langs: Lang[] = [
     "value": "Download"
   },
   {
+    "id": "store.content.freeWeekend",
+    "value": "Free Weekend!"
+  },
+  {
     "id": "store.content.requireXbl.notSignedIn",
     "value": "Sign in to a Microsoft account to unlock."
   },
@@ -38790,7 +39118,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "store.csb.banner.offer.nx",
-    "value": "Free 28-day trial available now!"
+    "value": "Start your free 28-day trial now!"
   },
   {
     "id": "store.csb.brand.1",
@@ -38975,10 +39303,6 @@ export const Langs: Lang[] = [
   {
     "id": "store.csb.freeTrial",
     "value": "START FREE TRIAL"
-  },
-  {
-    "id": "store.csb.freeTrial.nx",
-    "value": "FREE 28-DAY TRIAL AVAILABLE NOW"
   },
   {
     "id": "store.csb.includedWithRealmsPlus",
@@ -39321,16 +39645,8 @@ export const Langs: Lang[] = [
     "value": "Couldn’t access the Marketplace. Try again in a few minutes."
   },
   {
-    "id": "store.loading.error.failureRetry",
-    "value": "Couldn’t access the Marketplace. Try again."
-  },
-  {
     "id": "store.loading.error.internetDown",
     "value": "Couldn’t access the Marketplace. Check your internet connection and try again."
-  },
-  {
-    "id": "store.loading.error.issues",
-    "value": "Couldn’t access the Marketplace. Try again later."
   },
   {
     "id": "store.loading.error.trying",
@@ -39343,10 +39659,6 @@ export const Langs: Lang[] = [
   {
     "id": "store.loading.error.unavailable",
     "value": "The Marketplace is not available in this version of the game."
-  },
-  {
-    "id": "store.marketplaceDisabledWin32",
-    "value": "Marketplace is unavailable on Win32 builds. Consider building the UWP version of the game instead."
   },
   {
     "id": "store.mashup.bundle",
@@ -41289,10 +41601,6 @@ export const Langs: Lang[] = [
     "value": "Chest closes"
   },
   {
-    "id": "subtitles.block.chest.locked",
-    "value": "Chest locked"
-  },
-  {
     "id": "subtitles.block.chest.open",
     "value": "Chest opens"
   },
@@ -41429,7 +41737,7 @@ export const Langs: Lang[] = [
     "value": "Windy sounds"
   },
   {
-    "id": "subtitles.block.enchantment_table.use",
+    "id": "subtitles.block.enchanting_table.use",
     "value": "Enchanting Table used"
   },
   {
@@ -41575,6 +41883,14 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.block.portal.trigger",
     "value": "Portal noise intensifies"
+  },
+  {
+    "id": "subtitles.block.potent_sulfur.geyser_eruption_start",
+    "value": "Sulfur Spring bursts"
+  },
+  {
+    "id": "subtitles.block.potent_sulfur.noxious_gas",
+    "value": "Noxious gas appears"
   },
   {
     "id": "subtitles.block.pressure_plate.click",
@@ -43113,34 +43429,6 @@ export const Langs: Lang[] = [
     "value": "Husk hurts"
   },
   {
-    "id": "subtitles.entity.illusioner.ambient",
-    "value": "Illusioner murmurs"
-  },
-  {
-    "id": "subtitles.entity.illusioner.cast_spell",
-    "value": "Illusioner casts spell"
-  },
-  {
-    "id": "subtitles.entity.illusioner.death",
-    "value": "Illusioner dies"
-  },
-  {
-    "id": "subtitles.entity.illusioner.hurt",
-    "value": "Illusioner hurts"
-  },
-  {
-    "id": "subtitles.entity.illusioner.mirror_move",
-    "value": "Illusioner displaces"
-  },
-  {
-    "id": "subtitles.entity.illusioner.prepare_blindness",
-    "value": "Illusioner prepares blindness"
-  },
-  {
-    "id": "subtitles.entity.illusioner.prepare_mirror",
-    "value": "Illusioner prepares mirror image"
-  },
-  {
     "id": "subtitles.entity.iron_golem.attack",
     "value": "Iron Golem attacks"
   },
@@ -44137,6 +44425,38 @@ export const Langs: Lang[] = [
     "value": "Strider retreats"
   },
   {
+    "id": "subtitles.entity.sulfur_cube.absorb",
+    "value": "Sulfur Cube full"
+  },
+  {
+    "id": "subtitles.entity.sulfur_cube.bounce",
+    "value": "Sulfur Cube bounces"
+  },
+  {
+    "id": "subtitles.entity.sulfur_cube.death",
+    "value": "Sulfur Cube dies"
+  },
+  {
+    "id": "subtitles.entity.sulfur_cube.eject",
+    "value": "Block Removed"
+  },
+  {
+    "id": "subtitles.entity.sulfur_cube.hit",
+    "value": "Sulfur Cube hit"
+  },
+  {
+    "id": "subtitles.entity.sulfur_cube.hurt",
+    "value": "Sulfur Cube hurts"
+  },
+  {
+    "id": "subtitles.entity.sulfur_cube.push",
+    "value": "Sulfur Cube pushed"
+  },
+  {
+    "id": "subtitles.entity.sulfur_cube.squish",
+    "value": "Sulfur Cube bounces"
+  },
+  {
     "id": "subtitles.entity.tadpole.death",
     "value": "Tadpole dies"
   },
@@ -44625,6 +44945,10 @@ export const Langs: Lang[] = [
     "value": "Zombie Nautilus hurts"
   },
   {
+    "id": "subtitles.entity.zombie_nautilus.swim",
+    "value": "Zombie Nautilus swims"
+  },
+  {
     "id": "subtitles.entity.zombie_villager.ambient",
     "value": "Zombie Villager groans"
   },
@@ -44831,6 +45155,10 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.item.bucket.fill_fish",
     "value": "Fish captured"
+  },
+  {
+    "id": "subtitles.item.bucket.fill_sulfur_cube",
+    "value": "Sulfur Cube scooped"
   },
   {
     "id": "subtitles.item.bucket.fill_tadpole",
@@ -45897,6 +46225,10 @@ export const Langs: Lang[] = [
     "value": "Chiseled Bookshelf"
   },
   {
+    "id": "tile.chiseled_cinnabar.name",
+    "value": "Chiseled Cinnabar"
+  },
+  {
     "id": "tile.chiseled_copper.name",
     "value": "Chiseled Copper"
   },
@@ -45917,6 +46249,10 @@ export const Langs: Lang[] = [
     "value": "Chiseled Resin Bricks"
   },
   {
+    "id": "tile.chiseled_sulfur.name",
+    "value": "Chiseled Sulfur"
+  },
+  {
     "id": "tile.chiseled_tuff_bricks.name",
     "value": "Chiseled Tuff Bricks"
   },
@@ -45931,6 +46267,46 @@ export const Langs: Lang[] = [
   {
     "id": "tile.chorus_plant.name",
     "value": "Chorus Plant"
+  },
+  {
+    "id": "tile.cinnabar_brick_double_slab.name",
+    "value": "Cinnabar Brick Double Slab"
+  },
+  {
+    "id": "tile.cinnabar_brick_slab.name",
+    "value": "Cinnabar Brick Slab"
+  },
+  {
+    "id": "tile.cinnabar_brick_stairs.name",
+    "value": "Cinnabar Brick Stairs"
+  },
+  {
+    "id": "tile.cinnabar_brick_wall.name",
+    "value": "Cinnabar Brick Wall"
+  },
+  {
+    "id": "tile.cinnabar_bricks.name",
+    "value": "Cinnabar Bricks"
+  },
+  {
+    "id": "tile.cinnabar_double_slab.name",
+    "value": "Cinnabar Double Slab"
+  },
+  {
+    "id": "tile.cinnabar_slab.name",
+    "value": "Cinnabar Slab"
+  },
+  {
+    "id": "tile.cinnabar_stairs.name",
+    "value": "Cinnabar Stairs"
+  },
+  {
+    "id": "tile.cinnabar_wall.name",
+    "value": "Cinnabar Wall"
+  },
+  {
+    "id": "tile.cinnabar.name",
+    "value": "Cinnabar"
   },
   {
     "id": "tile.clay.name",
@@ -48133,6 +48509,26 @@ export const Langs: Lang[] = [
     "value": "Polished Blackstone"
   },
   {
+    "id": "tile.polished_cinnabar_double_slab.name",
+    "value": "Polished Cinnabar Double Slab"
+  },
+  {
+    "id": "tile.polished_cinnabar_slab.name",
+    "value": "Polished Cinnabar Slab"
+  },
+  {
+    "id": "tile.polished_cinnabar_stairs.name",
+    "value": "Polished Cinnabar Stairs"
+  },
+  {
+    "id": "tile.polished_cinnabar_wall.name",
+    "value": "Polished Cinnabar Wall"
+  },
+  {
+    "id": "tile.polished_cinnabar.name",
+    "value": "Polished Cinnabar"
+  },
+  {
     "id": "tile.polished_deepslate_double_slab.name",
     "value": "Polished Deepslate Double Slab"
   },
@@ -48161,6 +48557,26 @@ export const Langs: Lang[] = [
     "value": "Polished Granite Stairs"
   },
   {
+    "id": "tile.polished_sulfur_double_slab.name",
+    "value": "Polished Sulfur Double Slab"
+  },
+  {
+    "id": "tile.polished_sulfur_slab.name",
+    "value": "Polished Sulfur Slab"
+  },
+  {
+    "id": "tile.polished_sulfur_stairs.name",
+    "value": "Polished Sulfur Stairs"
+  },
+  {
+    "id": "tile.polished_sulfur_wall.name",
+    "value": "Polished Sulfur Wall"
+  },
+  {
+    "id": "tile.polished_sulfur.name",
+    "value": "Polished Sulfur"
+  },
+  {
     "id": "tile.polished_tuff_double_slab.name",
     "value": "Polished Tuff Double Slab"
   },
@@ -48187,6 +48603,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.potatoes.name",
     "value": "Potatoes"
+  },
+  {
+    "id": "tile.potent_sulfur.name",
+    "value": "Potent Sulfur"
   },
   {
     "id": "tile.powder_snow.name",
@@ -49319,6 +49739,50 @@ export const Langs: Lang[] = [
   {
     "id": "tile.structure_void.name",
     "value": "Structure Void"
+  },
+  {
+    "id": "tile.sulfur_brick_double_slab.name",
+    "value": "Sulfur Brick Double Slab"
+  },
+  {
+    "id": "tile.sulfur_brick_slab.name",
+    "value": "Sulfur Brick Slab"
+  },
+  {
+    "id": "tile.sulfur_brick_stairs.name",
+    "value": "Sulfur Brick Stairs"
+  },
+  {
+    "id": "tile.sulfur_brick_wall.name",
+    "value": "Sulfur Brick Wall"
+  },
+  {
+    "id": "tile.sulfur_bricks.name",
+    "value": "Sulfur Bricks"
+  },
+  {
+    "id": "tile.sulfur_double_slab.name",
+    "value": "Sulfur Double Slab"
+  },
+  {
+    "id": "tile.sulfur_slab.name",
+    "value": "Sulfur Slab"
+  },
+  {
+    "id": "tile.sulfur_spike.name",
+    "value": "Sulfur Spike"
+  },
+  {
+    "id": "tile.sulfur_stairs.name",
+    "value": "Sulfur Stairs"
+  },
+  {
+    "id": "tile.sulfur_wall.name",
+    "value": "Sulfur Wall"
+  },
+  {
+    "id": "tile.sulfur.name",
+    "value": "Sulfur"
   },
   {
     "id": "tile.suspicious_gravel.name",
@@ -50499,10 +50963,6 @@ export const Langs: Lang[] = [
   {
     "id": "trade.levelPrefixAndName.max",
     "value": "Max Level - %s"
-  },
-  {
-    "id": "trade.mysteriousText",
-    "value": "dab"
   },
   {
     "id": "trade.nameAndLevel",

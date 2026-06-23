@@ -1115,6 +1115,15 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:sulfur_cube",
+    "animations": [
+      "sulfur_cube_offset",
+      "sulfur_cube_offset_controller",
+      "sulfur_cube_swelling",
+      "sulfur_cube_swelling_controller"
+    ]
+  },
+  {
     "id": "minecraft:tadpole",
     "animations": [
       "swim"

@@ -938,6 +938,15 @@ export const Biomes: Biome[] = [
     ]
   },
   {
+    "id": "minecraft:sulfur_caves",
+    "tags": [
+      "caves",
+      "sulfur_caves",
+      "overworld",
+      "monster"
+    ]
+  },
+  {
     "id": "minecraft:sunflower_plains",
     "tags": [
       "animal",

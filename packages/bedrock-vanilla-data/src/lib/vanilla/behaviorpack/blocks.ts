@@ -4657,7 +4657,9 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:potent_sulfur",
-    "properties": []
+    "properties": [
+      "potent_sulfur_state"
+    ]
   },
   {
     "id": "minecraft:powder_snow",
@@ -5808,6 +5810,13 @@ export const Blocks: Block[] = [
     "id": "minecraft:sulfur_slab",
     "properties": [
       "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:sulfur_spike",
+    "properties": [
+      "dripstone_thickness",
+      "hanging"
     ]
   },
   {
