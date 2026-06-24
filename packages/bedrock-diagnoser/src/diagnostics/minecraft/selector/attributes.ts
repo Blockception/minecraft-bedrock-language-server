@@ -3,7 +3,7 @@ import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
 import { behaviorpack_entityid_diagnose } from '../../behavior-pack/entity';
 import { general_float_diagnose, general_integer_diagnose, general_positive_float_diagnose } from '../../general';
-import { mode_gamemode_diagnose } from '../../mode';
+import { modeGamemodeDiagnose } from '../../mode';
 import { minecraft_family_diagnose } from '../family';
 import { minecraft_name_diagnose } from '../name';
 import { minecraft_tag_diagnose } from '../tag';
@@ -22,7 +22,7 @@ function float_diagnose(range?: { min: number; max: number }): diagnoseAttribute
   return must_offset_word((value, diagnoser) => general_float_diagnose(value, diagnoser, range));
 }
 
-export const attribute_diagnostics: Record<string, diagnoseAttributes> = {
+export const attributeDiagnostics: Record<string, diagnoseAttributes> = {
   c: all(no_duplicate, must_offset_word(general_integer_diagnose)),
   dx: all(no_duplicate, must_offset_word(coordinate)),
   dy: all(no_duplicate, must_offset_word(coordinate)),
@@ -32,7 +32,7 @@ export const attribute_diagnostics: Record<string, diagnoseAttributes> = {
   hasitem: all(no_duplicate, forEach(minecraft_selector_hasitem_diagnose)),
   l: all(duplicate_check, must_offset_word(general_integer_diagnose)),
   lm: all(duplicate_check, must_offset_word(general_integer_diagnose)),
-  m: all(one_positive_all_negatives, must_offset_word(mode_gamemode_diagnose)),
+  m: all(one_positive_all_negatives, must_offset_word(modeGamemodeDiagnose)),
   name: all(one_positive_all_negatives, must_offset_word(minecraft_name_diagnose)),
   r: all(no_duplicate, must_offset_word(general_positive_float_diagnose)),
   rm: all(no_duplicate, must_offset_word(general_positive_float_diagnose)),
@@ -55,7 +55,7 @@ export namespace Attribute {
     sel: Minecraft.Selector.Selector,
     diagnoser: DiagnosticsBuilder,
   ): boolean {
-    const fn = attribute_diagnostics[attribute];
+    const fn = attributeDiagnostics[attribute];
 
     if (typeof fn === 'function') {
       return fn(attributes, sel, diagnoser);

@@ -1,9 +1,9 @@
 import { MolangSet } from '../../src/molang';
-import { valid_syntaxes } from '../data/dataset-valid';
+import { validSyntaxes } from '../data/dataset-valid';
 import { VanillaPlayer } from '../vanilla-player';
 
 describe('MolangSet - harvest', () => {
-  test.each(valid_syntaxes)(
+  test.each(validSyntaxes)(
     '%#. %s',
     (synt) => {
       const data = toMolangSet(synt);

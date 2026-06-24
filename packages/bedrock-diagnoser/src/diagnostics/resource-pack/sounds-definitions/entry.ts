@@ -18,7 +18,7 @@ export function diagnose_sound_definitions_document(diagnoser: DocumentDiagnosti
   if (pack === undefined) return;
 
   const sounds = definitions.sound_definitions;
-  const sound_files = diagnoser.context
+  const soundFiles = diagnoser.context
     .getFiles(pack.folder, ['**/sounds/**/*.{fsb,wav,ogg}'], pack.context.ignores)
     .map((item) => item.replace(/\\/gi, '/'));
 
@@ -27,11 +27,11 @@ export function diagnose_sound_definitions_document(diagnoser: DocumentDiagnosti
     //For each file reference
     sound.sounds.forEach((soundSpec) => {
       if (typeof soundSpec === 'string') {
-        sound_files_diagnose(sound_id, soundSpec, sound_files, diagnoser);
+        sound_files_diagnose(sound_id, soundSpec, soundFiles, diagnoser);
       } else {
         const name = soundSpec.name;
         if (typeof name === 'string') {
-          sound_files_diagnose(sound_id, name, sound_files, diagnoser);
+          sound_files_diagnose(sound_id, name, soundFiles, diagnoser);
         }
       }
     });

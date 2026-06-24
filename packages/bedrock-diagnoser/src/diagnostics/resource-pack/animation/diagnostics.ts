@@ -22,14 +22,14 @@ export function diagnose_animation_implementation(
   sounds?: Definition,
 ): void {
   //Project has animation
-  const anim_item = diagnoser.context.getProjectData().resources.animations.get(id, diagnoser.project);
-  if (anim_item === undefined) {
+  const animItem = diagnoser.context.getProjectData().resources.animations.get(id, diagnoser.project);
+  if (animItem === undefined) {
     return Errors.missing('behaviors', 'animations', id, diagnoser);
   }
-  if (!ProjectItem.is(anim_item)) {
+  if (!ProjectItem.is(animItem)) {
     return; // Skip anything but a project defined item
   }
-  const anim = anim_item.item;
+  const anim = animItem.item;
 
   diagnose_molang_implementation(user, anim, diagnoser);
 

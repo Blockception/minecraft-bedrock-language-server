@@ -7,8 +7,8 @@ import path from 'path';
 export function activate(context: ExtensionContext): void {
   async function FillIdByName() {
     const base = context.storageUri || context.globalStorageUri;
-    const storage_path = path.join(base.fsPath, 'vanilla');
-    const command = new FillIdByNameCommand(storage_path);
+    const storagePath = path.join(base.fsPath, 'vanilla');
+    const command = new FillIdByNameCommand(storagePath);
 
     return command.process('resource_pack/texts/en_US.lang', Vanilla.GithubFiles.source);
   }
@@ -16,7 +16,7 @@ export function activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.FillIdByName, FillIdByName));
 }
 
-const day_diff_2 = 1000 * 60 * 60 * 24 * 2;
+const dayDiff2 = 1000 * 60 * 60 * 24 * 2;
 
 class FillIdByNameCommand {
   private storage: string;
@@ -41,7 +41,7 @@ class FillIdByNameCommand {
 
       const diff = now.getTime() - file.getTime();
 
-      return diff <= day_diff_2;
+      return diff <= dayDiff2;
     } catch (err) {
       console.log('trouble during checking of file', err);
       return false;

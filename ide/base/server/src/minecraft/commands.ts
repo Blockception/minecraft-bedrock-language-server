@@ -12,11 +12,11 @@ export function GetPossibleEntityTypes(command: Command, maxIndex: number): stri
   const out: string[] = [];
 
   for (let I = 0; I < data.length; I++) {
-    const data_item = data[I];
+    const dataItem = data[I];
 
-    const max = Math.min(data_item.parameters.length, maxIndex);
+    const max = Math.min(dataItem.parameters.length, maxIndex);
     for (let J = 0; J < max; J++) {
-      const p = data_item.parameters[J];
+      const p = dataItem.parameters[J];
 
       switch (p.type) {
         case ParameterType.entity:
@@ -39,11 +39,11 @@ export function GetPossibleBlockID(command: Command, maxIndex: number): string |
   const data = command.getBestMatch();
 
   for (let I = 0; I < data.length; I++) {
-    const data_item = data[I];
+    const dataItem = data[I];
 
-    const max = Math.min(data_item.parameters.length, maxIndex);
+    const max = Math.min(dataItem.parameters.length, maxIndex);
     for (let J = 0; J < max; J++) {
-      const p = data_item.parameters[J];
+      const p = dataItem.parameters[J];
 
       switch (p.type) {
         case ParameterType.block:

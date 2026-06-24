@@ -37,6 +37,12 @@ export default defineConfig([
       '@typescript-eslint/naming-convention': [
         'warn',
         {
+          selector: 'variable',
+          format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+          leadingUnderscore: 'allow',
+          trailingUnderscore: 'allow',
+        },
+        {
           selector: 'classProperty',
           format: ['camelCase'],
           leadingUnderscore: 'allow',

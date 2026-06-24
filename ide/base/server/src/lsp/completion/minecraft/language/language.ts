@@ -37,7 +37,7 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   const pack = context.document.pack();
   if (!pack) return;
 
-  const check_receiver = {
+  const checkReceiver = {
     add(item: CompletionItem): CompletionItem {
       if (context.document.getText().includes(item.insertText ?? item.label)) {
         return {} as any;
@@ -50,9 +50,9 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   if (!context.settings.Completion.Lang.Dynamic) return;
 
   if (BehaviorPack.BehaviorPack.is(pack)) {
-    generate_bp(pack, check_receiver);
+    generate_bp(pack, checkReceiver);
   } else if (ResourcePack.ResourcePack.is(pack)) {
-    generate_rp(pack, check_receiver);
+    generate_rp(pack, checkReceiver);
   }
 }
 

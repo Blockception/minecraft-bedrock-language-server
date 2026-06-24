@@ -6,8 +6,8 @@ import path from 'path';
 export function activate(context: ExtensionContext): void {
   async function showVanillaFile() {
     const base = context.storageUri || context.globalStorageUri;
-    const storage_path = path.join(base.fsPath, 'vanilla');
-    const command = new ShowVanillaFileCommand(storage_path);
+    const storagePath = path.join(base.fsPath, 'vanilla');
+    const command = new ShowVanillaFileCommand(storagePath);
 
     const { source, files } = Vanilla.GithubFiles;
 
@@ -27,7 +27,7 @@ export function activate(context: ExtensionContext): void {
   context.subscriptions.push(commands.registerCommand(Commands.ShowVanillaFile, showVanillaFile));
 }
 
-const day_diff_2 = 1000 * 60 * 60 * 24 * 2;
+const dayDiff2 = 1000 * 60 * 60 * 24 * 2;
 
 class ShowVanillaFileCommand {
   private storage: string;
@@ -52,7 +52,7 @@ class ShowVanillaFileCommand {
 
       const diff = now.getTime() - file.getTime();
 
-      return diff <= day_diff_2;
+      return diff <= dayDiff2;
     } catch (err) {
       console.log('trouble during checking of file', err);
       return false;

@@ -1,4 +1,4 @@
-export const animation_controller: string = `{
+export const animationController: string = `{
   "format_version": "1.20.41",
   "animation_controllers" : {
     "controller.animation.$\{{id}}" : {
@@ -96,7 +96,7 @@ export const item: string = `{
   }
 }`;
 
-export const loot_table: string = `{
+export const lootTable: string = `{
   "pools": [
     {
       "rolls": 1,
@@ -150,7 +150,7 @@ export const recipe: string = `{
   }
 }`;
 
-export const spawn_rule: string = `{
+export const spawnRule: string = `{
   "format_version": "1.20.41",
   "minecraft:spawn_rules": {
     "description": {
@@ -208,7 +208,7 @@ export const volume: string = `{
 }
 `;
 
-export const item_catalog: string = `{
+export const itemCatalog: string = `{
   "format_version": "1.21.100",
   "minecraft:crafting_items_catalog": {
     "categories": [
@@ -241,7 +241,7 @@ export const feature: string = `{
   }
 }`;
 
-export const feature_rule: string = `{
+export const featureRule: string = `{
   "format_version": "1.13.0",
   "minecraft:feature_rules": {
     "description": {

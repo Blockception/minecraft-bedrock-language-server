@@ -18,10 +18,10 @@ export function behaviorpack_diagnose_spawnrule_components(
   context: Context<Internal.BehaviorPack.SpawnRule>,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
-  components_check(container, context, diagnoser, component_test);
+  components_check(container, context, diagnoser, componentTest);
 }
 
-const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.SpawnRule>> = {
+const componentTest: Record<string, ComponentCheck<Internal.BehaviorPack.SpawnRule>> = {
   'minecraft:biome_filter': (name, component, context, diagnoser) => {
     minecraft_diagnose_filters(component, diagnoser);
   },

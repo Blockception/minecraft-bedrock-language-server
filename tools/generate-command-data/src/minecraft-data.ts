@@ -1,8 +1,8 @@
-const command_data_url =
+const commandDataUrl =
   'https://raw.githubusercontent.com/Mojang/bedrock-samples/refs/heads/main/metadata/command_modules/mojang-commands.json';
 
 export async function get(): Promise<MinecraftCommandData> {
-  return fetch(command_data_url)
+  return fetch(commandDataUrl)
     .then((response) => response.json())
     .then((data) => {
       if (!MinecraftCommandData.is(data)) {

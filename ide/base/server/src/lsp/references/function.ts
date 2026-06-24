@@ -29,7 +29,7 @@ function wordCharacter(text: string, index: number): boolean {
   if (Character.IsLetterCode(c) || Character.IsNumberCode(c)) {
     return true;
   }
-  if (c === Character.Character_underscore || c === Character.Character_dash || c === Character.Character_column) {
+  if (c === Character.CharacterUnderscore || c === Character.CharacterDash || c === Character.CharacterColumn) {
     return true;
   }
 

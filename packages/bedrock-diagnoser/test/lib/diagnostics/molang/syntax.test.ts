@@ -9,7 +9,7 @@ interface TestCase {
 }
 
 describe("Molang Syntax", () => {
-  const no_errors_tests: TestCase[] = [
+  const noErrorsTests: TestCase[] = [
     {
       name: "Command with selector",
       data: {
@@ -75,7 +75,7 @@ describe("Molang Syntax", () => {
     },
   ];
 
-  for (const test of no_errors_tests) {
+  for (const test of noErrorsTests) {
     it(`no errors test: ${test.name}`, () => {
       const diagnoser = new TestDiagnoser();
       diagnose_molang_syntax_text("", diagnoser, test.data);
@@ -88,7 +88,7 @@ describe("Molang Syntax", () => {
     });
   }
 
-  const error_tests: TestCase[] = [
+  const errorTests: TestCase[] = [
     {
       name: "Variable parameters: is_owner_identifier_any with 0 args",
       data: "q.is_owner_identifier_any()",
@@ -123,7 +123,7 @@ describe("Molang Syntax", () => {
     },
   ];
 
-  for (const test of error_tests) {
+  for (const test of errorTests) {
     it(`error test: ${test.name}`, () => {
       const diagnoser = new TestDiagnoser();
       diagnose_molang_syntax_text("", diagnoser, test.data);

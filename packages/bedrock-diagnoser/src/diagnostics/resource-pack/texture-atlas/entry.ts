@@ -15,42 +15,42 @@ export function diagnose_atlas_document(diagnoser: DocumentDiagnosticsBuilder): 
   const pack = diagnoser.context.getProjectData().projectData.resourcePacks.get(diagnoser.document.uri);
   if (pack === undefined) return;
 
-  const texture_data = definitions.texture_data;
-  const texture_files = diagnoser.context
+  const textureData = definitions.texture_data;
+  const textureFiles = diagnoser.context
     .getFiles(pack.folder, ['**/textures/**/*.{tga,png,jpg,jpeg}'], pack.context.ignores)
     .map((item) => item.replace(/\\/gi, '/'));
 
   //Check if files exists
-  const check_file_spec: (texture_id: string, item: DetailedTextureSpec) => void = (texture_id, item) => {
+  const checkFileSpec: (texture_id: string, item: DetailedTextureSpec) => void = (texture_id, item) => {
     if (typeof item.path === 'string') {
-      texture_files_diagnose(texture_id, item.path, texture_files, diagnoser);
+      texture_files_diagnose(texture_id, item.path, textureFiles, diagnoser);
     }
 
     if (item.variations) {
       item.variations.forEach((subitem) => {
         if (typeof subitem.path === 'string') {
-          texture_files_diagnose(texture_id, subitem.path, texture_files, diagnoser);
+          texture_files_diagnose(texture_id, subitem.path, textureFiles, diagnoser);
         }
       });
     }
   };
 
-  Object.entries(texture_data).forEach(([texture_id, data]) => {
+  Object.entries(textureData).forEach(([texture_id, data]) => {
     const textures = data.textures;
     //If texture
     if (typeof textures === 'string') {
-      texture_files_diagnose(texture_id, textures, texture_files, diagnoser);
+      texture_files_diagnose(texture_id, textures, textureFiles, diagnoser);
       //If array of items
     } else if (Array.isArray(textures)) {
       textures.forEach((texture) => {
         if (typeof texture === 'string') {
-          texture_files_diagnose(texture_id, texture, texture_files, diagnoser);
+          texture_files_diagnose(texture_id, texture, textureFiles, diagnoser);
         } else {
-          check_file_spec(texture_id, texture);
+          checkFileSpec(texture_id, texture);
         }
       });
     } else {
-      check_file_spec(texture_id, data.textures);
+      checkFileSpec(texture_id, data.textures);
     }
   });
 }

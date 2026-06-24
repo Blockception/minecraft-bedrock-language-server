@@ -3,10 +3,10 @@ import { DiagnosticsBuilder } from '../../../../types';
 import { components_dependencies, Context, DependedMap } from '../../../../utility/components';
 
 //Map of components that are depended on all other specified components
-const component_dependents_all: DependedMap = {};
+const componentDependentsAll: DependedMap = {};
 
 //Map of components that are depended on one of the other specified components
-const component_dependents_any: DependedMap = {};
+const componentDependentsAny: DependedMap = {};
 
 /**
  * Checks if components dependencies are present, a component might need others to be present
@@ -17,5 +17,5 @@ export function resourcepack_biome_components_dependencies(
   context: Context<Internal.ResourcePack.Biome>,
   diagnoser: DiagnosticsBuilder,
 ): void {
-  components_dependencies('biome', context, diagnoser, component_dependents_all, component_dependents_any);
+  components_dependencies('biome', context, diagnoser, componentDependentsAll, componentDependentsAny);
 }

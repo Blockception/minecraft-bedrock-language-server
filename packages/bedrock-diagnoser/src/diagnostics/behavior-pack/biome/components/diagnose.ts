@@ -17,10 +17,10 @@ export function behaviorpack_diagnose_biome_components(
   context: Context<Internal.BehaviorPack.Biome>,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
-  components_check(container, context, diagnoser, component_test);
+  components_check(container, context, diagnoser, componentTest);
 }
 
-const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Biome>> = {
+const componentTest: Record<string, ComponentCheck<Internal.BehaviorPack.Biome>> = {
   'minecraft:surface_parameters': deprecated_component('minecraft:surface_builder'),
   'minecraft:frozen_ocean_surface': deprecated_component('minecraft:surface_builder'),
   'minecraft:mesa_surface': deprecated_component('minecraft:surface_builder'),

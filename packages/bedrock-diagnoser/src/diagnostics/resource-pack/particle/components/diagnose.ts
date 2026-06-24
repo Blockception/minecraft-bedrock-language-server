@@ -16,10 +16,10 @@ export function resourcepack_diagnose_particle_components(
   context: Context<Internal.ResourcePack.Particle>,
   diagnoser: DocumentDiagnosticsBuilder,
 ): void {
-  components_check(container, context, diagnoser, component_test);
+  components_check(container, context, diagnoser, componentTest);
 }
 
-const component_test: Record<string, ComponentCheck<Internal.ResourcePack.Particle>> = {
+const componentTest: Record<string, ComponentCheck<Internal.ResourcePack.Particle>> = {
   'minecraft:particle_appearance_billboard': (name, component, context, diagnoser) => {
     const flipbook = component['uv']?.['flipbook'];
     if (!flipbook) return;

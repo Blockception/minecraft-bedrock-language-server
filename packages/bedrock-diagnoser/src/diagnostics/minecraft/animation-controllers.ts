@@ -35,11 +35,11 @@ export function general_animation_controller(
 ): void {
   //Check if initial_state points to existing state
   if (controller.initial_state) {
-    const initial_state = controller.initial_state;
+    const initialState = controller.initial_state;
 
-    if (controller.states[initial_state] === undefined) {
+    if (controller.states[initialState] === undefined) {
       diagnoser.add(
-        `${controller_id}/initial_state/${initial_state}`,
+        `${controller_id}/initial_state/${initialState}`,
         'Cannot find initial state, minecraft will revert to state at 0 index',
         DiagnosticSeverity.warning,
         'minecraft.animation_controller.state.missing',
