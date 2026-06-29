@@ -79,7 +79,7 @@
     }
   ],
   "repository": {
-    "url": "https://github.com/Blockception/minecraft-bedrock-language-server",
+    "url": "git+https://github.com/Blockception/minecraft-bedrock-language-server.git",
     "type": "git",
     "directory": "ide/vscode"
   },
