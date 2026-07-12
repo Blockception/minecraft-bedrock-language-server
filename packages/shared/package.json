@@ -35,7 +35,7 @@
     "picomatch": "^4.0.4"
   },
   "devDependencies": {
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "@types/node": "^26.1.0",
     "@types/picomatch": "^4.0.3",
     "@types/jest": "^30.0.0"
