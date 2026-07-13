@@ -56,7 +56,7 @@
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/node": "^26.1.0",
+    "@types/node": "^26.1.1",
     "@vscode/vsce": "^3.9.2",
     "cpx": "^1.5.0",
     "eslint": "^10.7.0",
