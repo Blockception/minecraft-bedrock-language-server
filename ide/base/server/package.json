@@ -45,7 +45,7 @@
     "fastest-levenshtein": "^1.0.16",
     "jsonc-parser": "^3.3.1",
     "node": "^26.5.0",
-    "vscode-languageserver": "^10.0.0",
+    "vscode-languageserver": "^10.1.0",
     "vscode-languageserver-textdocument": "^1.0.12",
     "vscode-uri": "^3.1.0"
   },
