@@ -1,3 +1,5 @@
+import { MolangSyntaxError } from './errors';
+
 /** Represents a token in the Molang code */
 export interface Token {
   type: TokenType;
@@ -280,7 +282,11 @@ export function tokenize(input: string): Token[] {
           pos++;
         }
         if (pos >= input.length) {
-          throw new Error(`Unterminated string literal starting at position ${start}`);
+          throw new MolangSyntaxError(
+            `Missing closing ${quote === '"' ? 'double' : 'single'} quotation mark (${quote}) for the string starting at position ${start}`,
+            start,
+            'error.string.unterminated',
+          );
         }
         pos++; // Skip closing quote
         tokens.push({
@@ -290,7 +296,7 @@ export function tokenize(input: string): Token[] {
         });
         continue; // Use continue instead of break to avoid the pos++ at the end of switch
       default:
-        throw new Error(`Unexpected character at position ${pos}: ${char}`);
+        throw new MolangSyntaxError(`Unexpected character '${char}' at position ${pos}`, pos, 'error.character.unexpected');
     }
     pos++;
     continue;
