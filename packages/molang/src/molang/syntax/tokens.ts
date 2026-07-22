@@ -1,5 +1,12 @@
 import { MolangSyntaxError } from './errors';
 
+/** Builds a short, readable preview of a snippet of source for use in error messages. */
+function previewSnippet(text: string, maxLength = 20): string {
+  const singleLine = text.replace(/\s+/g, ' ').trim();
+  if (singleLine.length <= maxLength) return singleLine;
+  return `${singleLine.slice(0, maxLength)}…`;
+}
+
 /** Represents a token in the Molang code */
 export interface Token {
   type: TokenType;
@@ -282,8 +289,11 @@ export function tokenize(input: string): Token[] {
           pos++;
         }
         if (pos >= input.length) {
+          const quoteName = quote === '"' ? 'double' : 'single';
+          const preview = previewSnippet(value);
+          const preamble = preview.length > 0 ? `The text ${quote}${preview}${quote}` : 'This string';
           throw new MolangSyntaxError(
-            `Missing closing ${quote === '"' ? 'double' : 'single'} quotation mark (${quote}) for the string starting at position ${start}`,
+            `${preamble} is missing its closing ${quoteName} quote (${quote}). Add a ${quote} where the text should end.`,
             start,
             'error.string.unterminated',
           );
@@ -296,7 +306,11 @@ export function tokenize(input: string): Token[] {
         });
         continue; // Use continue instead of break to avoid the pos++ at the end of switch
       default:
-        throw new MolangSyntaxError(`Unexpected character '${char}' at position ${pos}`, pos, 'error.character.unexpected');
+        throw new MolangSyntaxError(
+          `Molang doesn't recognize the character '${char}' here. Check for a typo or a missing quote around text values.`,
+          pos,
+          'error.character.unexpected',
+        );
     }
     pos++;
     continue;

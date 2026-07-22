@@ -20,8 +20,9 @@ describe('molang - syntax', () => {
         expect(err).toBeInstanceOf(MolangSyntaxError);
         const syntaxError = err as MolangSyntaxError;
         expect(syntaxError.code).toBe('error.string.unterminated');
-        expect(syntaxError.message).toContain('Missing closing');
-        expect(syntaxError.message).toContain("single quotation mark (')");
+        expect(syntaxError.message).toContain('missing its closing single quote');
+        expect(syntaxError.message).toContain("Add a ' where the text should end");
+        // Points at the start of the unterminated string, not the end of input.
         expect(syntaxError.position).toBe(input.indexOf("'minecraft:is_pickaxe"));
       }
     });
@@ -34,7 +35,7 @@ describe('molang - syntax', () => {
       } catch (err) {
         const syntaxError = err as MolangSyntaxError;
         expect(syntaxError.code).toBe('error.string.unterminated');
-        expect(syntaxError.message).toContain('double quotation mark (")');
+        expect(syntaxError.message).toContain('missing its closing double quote');
       }
     });
 
@@ -47,7 +48,7 @@ describe('molang - syntax', () => {
         const syntaxError = err as MolangSyntaxError;
         expect(syntaxError).toBeInstanceOf(MolangSyntaxError);
         expect(syntaxError.code).toBe('error.character.unexpected');
-        expect(syntaxError.message).toContain("Unexpected character '@'");
+        expect(syntaxError.message).toContain("doesn't recognize the character '@'");
       }
     });
   });
