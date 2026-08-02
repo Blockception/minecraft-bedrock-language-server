@@ -309,9 +309,9 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Entity
         is_block_defined(entry.name, diagnoser);
       }
     });
-    component?.randomly_placeable_blocks?.forEach((entry: [any, number]) => {
-      if (typeof entry[0] == 'string') is_block_defined(entry[0], diagnoser);
-      else if (typeof entry[0].name == 'string') is_block_defined(entry[0].name, diagnoser);
+    component?.randomly_placeable_blocks?.forEach((entry: { block: any, weight: undefined | number}) => {
+      if (typeof entry.block == 'string') is_block_defined(entry.block, diagnoser);
+      else if (typeof entry.block.name == 'string') is_block_defined(entry.block.name, diagnoser);
     });
   },
   'minecraft:behavior.play_dead': (name, component, context, diagnoser) => {
