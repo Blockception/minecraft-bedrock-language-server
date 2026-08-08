@@ -114,6 +114,7 @@ export const RenderControllers: string[] = [
   "controller.render.persona_animated_32x32.third_person",
   "controller.render.persona_animated_face.first_person",
   "controller.render.persona_animated_face.third_person",
+  "controller.render.persona_lod.third_person",
   "controller.render.phantom",
   "controller.render.pig",
   "controller.render.pig.v3",

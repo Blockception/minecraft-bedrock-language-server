@@ -596,6 +596,25 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:black_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:black_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:black_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
     "id": "minecraft:blackstone",
     "properties": []
   },
@@ -692,6 +711,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:blue_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:blue_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:blue_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:blue_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:bone_block",
@@ -835,6 +873,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:brown_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:brown_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:brown_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:brown_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:bubble_column",
@@ -1707,6 +1764,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:cyan_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:cyan_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:cyan_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:cyan_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:damaged_anvil",
@@ -2607,6 +2683,25 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:gray_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:gray_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:gray_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
     "id": "minecraft:green_candle",
     "properties": [
       "candles",
@@ -2656,6 +2751,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:green_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:green_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:green_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:green_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:grindstone",
@@ -3246,6 +3360,25 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:light_blue_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:light_blue_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:light_blue_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
     "id": "minecraft:light_gray_candle",
     "properties": [
       "candles",
@@ -3289,6 +3422,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:light_gray_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:light_gray_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:light_gray_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:light_gray_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:light_weighted_pressure_plate",
@@ -3363,6 +3515,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:lime_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:lime_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:lime_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:lime_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:lit_blast_furnace",
@@ -3460,6 +3631,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:magenta_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:magenta_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:magenta_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:magenta_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:magma",
@@ -3951,6 +4141,13 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:orange_poplar_leaves",
+    "properties": [
+      "persistent_bit",
+      "update_bit"
+    ]
+  },
+  {
     "id": "minecraft:orange_shulker_box",
     "properties": []
   },
@@ -3973,6 +4170,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:orange_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:orange_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:orange_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:orange_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:oxeye_daisy",
@@ -4312,6 +4528,25 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:pink_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:pink_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:pink_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
     "id": "minecraft:piston",
     "properties": [
       "facing_direction"
@@ -4640,6 +4875,118 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:poplar_button",
+    "properties": [
+      "button_pressed_bit",
+      "facing_direction"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_door",
+    "properties": [
+      "door_hinge_bit",
+      "minecraft:cardinal_direction",
+      "open_bit",
+      "upper_block_bit"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_fence",
+    "properties": []
+  },
+  {
+    "id": "minecraft:poplar_fence_gate",
+    "properties": [
+      "in_wall_bit",
+      "minecraft:cardinal_direction",
+      "open_bit"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_hanging_sign",
+    "properties": [
+      "attached_bit",
+      "facing_direction",
+      "ground_sign_direction",
+      "hanging"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_log",
+    "properties": [
+      "pillar_axis"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_planks",
+    "properties": []
+  },
+  {
+    "id": "minecraft:poplar_pressure_plate",
+    "properties": [
+      "redstone_signal"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_sapling",
+    "properties": [
+      "age_bit"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_shelf",
+    "properties": [
+      "minecraft:cardinal_direction",
+      "powered_bit",
+      "powered_shelf_type"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_standing_sign",
+    "properties": [
+      "ground_sign_direction"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_trapdoor",
+    "properties": [
+      "direction",
+      "open_bit",
+      "upside_down_bit"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_wall_sign",
+    "properties": [
+      "facing_direction"
+    ]
+  },
+  {
+    "id": "minecraft:poplar_wood",
+    "properties": [
+      "pillar_axis"
+    ]
+  },
+  {
     "id": "minecraft:poppy",
     "properties": []
   },
@@ -4799,6 +5146,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:purple_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:purple_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:purple_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:purple_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:purpur_block",
@@ -4963,6 +5329,13 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:red_poplar_leaves",
+    "properties": [
+      "persistent_bit",
+      "update_bit"
+    ]
+  },
+  {
     "id": "minecraft:red_sand",
     "properties": []
   },
@@ -5000,6 +5373,10 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:red_shrub",
+    "properties": []
+  },
+  {
     "id": "minecraft:red_shulker_box",
     "properties": []
   },
@@ -5022,6 +5399,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:red_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:red_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:red_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:red_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:redstone_block",
@@ -5207,6 +5603,13 @@ export const Blocks: Block[] = [
     "id": "minecraft:seagrass",
     "properties": [
       "sea_grass_type"
+    ]
+  },
+  {
+    "id": "minecraft:shelf_mushroom",
+    "properties": [
+      "growth",
+      "minecraft:cardinal_direction"
     ]
   },
   {
@@ -5616,6 +6019,14 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:straw_bed",
+    "properties": [
+      "head_piece_bit",
+      "minecraft:cardinal_direction",
+      "occupied_bit"
+    ]
+  },
+  {
     "id": "minecraft:stripped_acacia_log",
     "properties": [
       "pillar_axis"
@@ -5725,6 +6136,18 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:stripped_pale_oak_wood",
+    "properties": [
+      "pillar_axis"
+    ]
+  },
+  {
+    "id": "minecraft:stripped_poplar_log",
+    "properties": [
+      "pillar_axis"
+    ]
+  },
+  {
+    "id": "minecraft:stripped_poplar_wood",
     "properties": [
       "pillar_axis"
     ]
@@ -6778,6 +7201,25 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:white_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:white_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:white_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
+  },
+  {
     "id": "minecraft:wildflowers",
     "properties": [
       "growth",
@@ -6848,6 +7290,13 @@ export const Blocks: Block[] = [
     ]
   },
   {
+    "id": "minecraft:yellow_poplar_leaves",
+    "properties": [
+      "persistent_bit",
+      "update_bit"
+    ]
+  },
+  {
     "id": "minecraft:yellow_shulker_box",
     "properties": []
   },
@@ -6866,6 +7315,25 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:yellow_wool",
     "properties": []
+  },
+  {
+    "id": "minecraft:yellow_wool_double_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:yellow_wool_slab",
+    "properties": [
+      "minecraft:vertical_half"
+    ]
+  },
+  {
+    "id": "minecraft:yellow_wool_stairs",
+    "properties": [
+      "upside_down_bit",
+      "weirdo_direction"
+    ]
   },
   {
     "id": "minecraft:zombie_head",
