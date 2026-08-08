@@ -412,6 +412,11 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:cushion",
+    "events": [],
+    "families": []
+  },
+  {
     "id": "minecraft:dolphin",
     "events": [
       "minecraft:entity_spawned",
