@@ -1,6 +1,5 @@
-import { Identifiable } from 'bc-minecraft-bedrock-shared';
 import { Defined } from 'bc-minecraft-bedrock-project';
-import { Documentated } from 'bc-minecraft-bedrock-shared';
+import { Documentated, Identifiable } from 'bc-minecraft-bedrock-shared';
 import { CancellationToken, CompletionItem, CompletionItemKind, WorkDoneProgressReporter } from 'vscode-languageserver';
 
 export type GenerateFunction<T> = (item: T) => string;
@@ -186,10 +185,12 @@ export class WrappedBuilder implements CompletionBuilder {
     query: string | undefined = undefined,
   ): CompletionItem[] {
     const out: CompletionItem[] = [];
-    if (dataset === undefined) return out;
+
+    const source = resolveForEach<T | string>(dataset);
+    if (source === undefined) return out;
 
     const filterFn = this.createFilter(query);
-    dataset.forEach((item) => {
+    source.forEach((item) => {
       if (this.builder.isCancelled()) return;
       if (filterFn(item) === false) return;
 
@@ -239,4 +240,24 @@ export class WrappedBuilder implements CompletionBuilder {
 
 function noop() {
   return;
+}
+
+
+/**
+ * Normalizes the various shapes accepted by {@link CompletionBuilder.generate}
+ * into something that exposes a `forEach` method.
+ *
+ * - `undefined` -> `undefined`
+ * - anything with its own `forEach` (arrays, Sets, DataSet, DataSetConnector) -> itself
+ * - a `Defined` / `References` object -> its inner `defined` Set
+ *
+ * @param dataset The dataset to resolve
+ * @returns An iterable with a `forEach` method, or `undefined`
+ */
+function resolveForEach<T>(dataset: IForEach<T> | Defined | undefined): IForEach<T> | undefined {
+  if (dataset === undefined || dataset === null) return undefined;
+  if (typeof (dataset as IForEach<T>).forEach === 'function') return dataset as IForEach<T>;
+  if (Defined.is(dataset)) return dataset.defined as unknown as IForEach<T>;
+
+  return undefined;
 }
