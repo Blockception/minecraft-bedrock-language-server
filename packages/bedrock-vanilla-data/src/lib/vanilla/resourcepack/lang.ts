@@ -893,6 +893,30 @@ export const Langs: Lang[] = [
     "value": "Toggle"
   },
   {
+    "id": "accessibility.toggle.view.tts.title",
+    "value": "View"
+  },
+  {
+    "id": "accessibility.tts.button.howtoplay",
+    "value": "How to Play"
+  },
+  {
+    "id": "accessibility.tts.searchbar",
+    "value": "Search bar"
+  },
+  {
+    "id": "accessibility.tts.toggle.filter",
+    "value": "Recipe Filter"
+  },
+  {
+    "id": "accessibility.tts.toggle.inventory.layout",
+    "value": "Inventory"
+  },
+  {
+    "id": "accessibility.tts.toggle.recipebook.layout",
+    "value": "Recipe book and inventory"
+  },
+  {
     "id": "accessibility.worldTemplates.help",
     "value": "Help"
   },
@@ -2265,6 +2289,26 @@ export const Langs: Lang[] = [
     "value": "Beds are great! Craft one to quickly pass the night and set your respawn point."
   },
   {
+    "id": "betaFeedback.qr.body.line1",
+    "value": "Share your feedback by scanning the QR code with your device."
+  },
+  {
+    "id": "betaFeedback.qr.body.line2",
+    "value": "Thanks for helping us improve Minecraft for everyone."
+  },
+  {
+    "id": "betaFeedback.qr.close",
+    "value": "Close"
+  },
+  {
+    "id": "betaFeedback.qr.header",
+    "value": "Your opinions matter!"
+  },
+  {
+    "id": "betaFeedback.qr.title",
+    "value": "Beta Feedback"
+  },
+  {
     "id": "book.byAuthor",
     "value": "by"
   },
@@ -2570,7 +2614,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "chatlogging.description",
-    "value": "Chat messages may be monitored or reviewed by your school or organization. Be respectful, be helpful, and have fun building!"
+    "value": "Chat messages may be monitored or reviewed by your school or organization, or their service providers. Chat is here to help you work together and learn.  Be respectful, be helpful, and have fun building!"
   },
   {
     "id": "chatlogging.title",
@@ -3767,6 +3811,10 @@ export const Langs: Lang[] = [
   {
     "id": "commands.downfall.success",
     "value": "Toggled downfall"
+  },
+  {
+    "id": "commands.editor-allowlist.description",
+    "value": "Manages the editor allowlist."
   },
   {
     "id": "commands.educlientinfo.description",
@@ -7225,16 +7273,20 @@ export const Langs: Lang[] = [
     "value": "You can share the Connection I D if others have problems joining your world using the Join Code or shared link."
   },
   {
+    "id": "course.edu.conInfoJoinerTooltipText",
+    "value": "The host can find the Connection ID on the multiplayer tab of their world's Game Menu. Connection ID accepts digits 0-9 and letters A-F."
+  },
+  {
+    "id": "course.edu.conInfoJoinerTooltipTextScreenReader",
+    "value": "The host can find the Connection I D on the multiplayer tab of their world's Game Menu. Connection I D accepts digits 0-9 and letters A to F"
+  },
+  {
     "id": "course.edu.conInfoPlaceholder",
     "value": "Please enter the Connection ID"
   },
   {
-    "id": "course.edu.conInfoTooltipText",
-    "value": "The host can find the Connection ID on the multiplayer tab of their world's Game Menu."
-  },
-  {
-    "id": "course.edu.conInfoTooltipTextScreenReader",
-    "value": "The host can find the Connection ID on the multiplayer tab of their world's Game Menu."
+    "id": "course.edu.conInfoPlaceholder.tts",
+    "value": "Please enter the Connection I D"
   },
   {
     "id": "course.edu.connectionFailed",
@@ -7513,10 +7565,6 @@ export const Langs: Lang[] = [
     "value": "Inventory"
   },
   {
-    "id": "craftingScreen.tts.button.howtoplay",
-    "value": "How to Play"
-  },
-  {
     "id": "craftingScreen.tts.tab.crafting.big",
     "value": "Crafting Grid"
   },
@@ -7534,27 +7582,15 @@ export const Langs: Lang[] = [
   },
   {
     "id": "craftingScreen.tts.toggle.creative.inventory.layout",
-    "value": "Inventory Only view"
+    "value": "Inventory Only"
   },
   {
     "id": "craftingScreen.tts.toggle.creative.recipebook.layout",
-    "value": "Item list & Crafting Grid view"
+    "value": "Item list & Crafting Grid"
   },
   {
     "id": "craftingScreen.tts.toggle.creative.widelist.layout",
-    "value": "Wide Item list view"
-  },
-  {
-    "id": "craftingScreen.tts.toggle.filter",
-    "value": "Craftable filter"
-  },
-  {
-    "id": "craftingScreen.tts.toggle.inventory.layout",
-    "value": "Inventory view"
-  },
-  {
-    "id": "craftingScreen.tts.toggle.recipebook.layout",
-    "value": "Recipe book and inventory view"
+    "value": "Wide Item list"
   },
   {
     "id": "createWorld.customize.custom.baseSize",
@@ -8139,6 +8175,14 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.experimentalVoxelShapeFeaturesDescription",
     "value": "Enables the use of voxel shapes for some vanilla and custom blocks"
+  },
+  {
+    "id": "createWorldScreen.experimentalY2026Drop3",
+    "value": "Drop 3 of 2026"
+  },
+  {
+    "id": "createWorldScreen.experimentalY2026Drop3Description",
+    "value": "Explore a new surface biome and find the abandoned camps spread throughout the world"
   },
   {
     "id": "createWorldScreen.fireSpreads",
@@ -9669,6 +9713,10 @@ export const Langs: Lang[] = [
     "value": "Your discovery environment does not match the host's."
   },
   {
+    "id": "disconnectionScreen.body.expiredToken",
+    "value": "Make sure your system clock is set correctly and try again."
+  },
+  {
     "id": "disconnectionScreen.body.gameOutOfDate",
     "value": "The game version you are using is out of date. Update your game to the latest version and try again."
   },
@@ -9837,6 +9885,10 @@ export const Langs: Lang[] = [
     "value": "This world is a not in Editor Mode. It cannot be loaded."
   },
   {
+    "id": "disconnectionScreen.editor.notAllowed",
+    "value": "You aren't allowed to join this server as an Editor."
+  },
+  {
     "id": "disconnectionScreen.errorCode",
     "value": "Error Code:"
   },
@@ -9970,7 +10022,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "disconnectionScreen.nowifi",
-    "value": "It appears you are unable to connect to your network, please connect to a Wi-Fi network or enable 'Use Mobile Data' in profile settings."
+    "value": "It appears you are unable to connect to your network, please connect to a Wi-Fi network or enable 'Use Mobile Data' in general settings."
   },
   {
     "id": "disconnectionScreen.outdatedClient",
@@ -11261,6 +11313,10 @@ export const Langs: Lang[] = [
     "value": "The Character has been deleted"
   },
   {
+    "id": "dr.notification.persona_initalize_failed_start",
+    "value": "Failed to initialize persona. Proceeding with default skin."
+  },
+  {
     "id": "dr.notification.persona_save",
     "value": "The Character has been saved"
   },
@@ -11399,6 +11455,14 @@ export const Langs: Lang[] = [
   {
     "id": "edu.pause.nethernetLabel",
     "value": "CONNECTION ID"
+  },
+  {
+    "id": "edu.pause.nethernetLabel.copyToast.title",
+    "value": "Copied Connection ID to clipboard!"
+  },
+  {
+    "id": "edu.pause.nethernetLabel.tts",
+    "value": "CONNECTION I D"
   },
   {
     "id": "edu.pause.port",
@@ -11615,6 +11679,22 @@ export const Langs: Lang[] = [
   {
     "id": "edu.servers_screen.server_id_tooltip_tts",
     "value": "The Server I D is the unique identification of the server that you are trying to add."
+  },
+  {
+    "id": "edu.servers_screen.server_removed_notification.body_1",
+    "value": "You no longer have access to one or more servers that you had previously added to your servers list."
+  },
+  {
+    "id": "edu.servers_screen.server_removed_notification.body_2",
+    "value": "The server(s) below have been removed from your servers list:"
+  },
+  {
+    "id": "edu.servers_screen.server_removed_notification.title",
+    "value": "Server(s) Removed"
+  },
+  {
+    "id": "edu.servers_screen.server_removed_notification.title_tts",
+    "value": "Servers Removed"
   },
   {
     "id": "edu.servers_screen.share",
@@ -13097,16 +13177,56 @@ export const Langs: Lang[] = [
     "value": "Items"
   },
   {
-    "id": "furnaceScreen.tab.search",
-    "value": "All"
-  },
-  {
     "id": "furnaceScreen.tab.search.filterFurnace",
-    "value": "Smeltable"
+    "value": "Smeltable recipes"
   },
   {
     "id": "furnaceScreen.tab.search.filterSmoker",
-    "value": "Smokable"
+    "value": "Smokable recipes"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.cookingAction",
+    "value": "Cooking %1$s into %2$s"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.empty",
+    "value": "Empty"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.fuel.burning",
+    "value": "Burning"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.fuel.title",
+    "value": "Fuel slot, %s"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.ingredient.cooking",
+    "value": "Cooking"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.ingredient.recipe",
+    "value": "Material needed"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.ingredient.smelting",
+    "value": "Smelting"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.ingredient.title",
+    "value": "Input slot, %s"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.result.recipe",
+    "value": "Input will become"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.result.title",
+    "value": "Result slot, %s"
+  },
+  {
+    "id": "furnaceScreen.tts.slot.smeltingAction",
+    "value": "Smelting %1$s into %2$s"
   },
   {
     "id": "gameArgument.featureUnsupported",
@@ -13637,18 +13757,6 @@ export const Langs: Lang[] = [
     "value": "Hold :_input_key.sneak: to sneak!~LINEBREAK~Can't fall off edges now"
   },
   {
-    "id": "gathering.activation.warning",
-    "value": "Unable to find Gathering"
-  },
-  {
-    "id": "gathering.activation.warning.signIn",
-    "value": "Unable to find Gathering. Please sign in before trying again."
-  },
-  {
-    "id": "gathering.activation.warning.title",
-    "value": "Oh no!"
-  },
-  {
     "id": "gathering.button.join.liveEventFallback",
     "value": "Join Event"
   },
@@ -13657,88 +13765,16 @@ export const Langs: Lang[] = [
     "value": "Join Game"
   },
   {
-    "id": "gathering.button.updateRequired",
-    "value": "Update Required"
-  },
-  {
     "id": "gathering.caption.alternateFallback",
     "value": "Play Now!"
-  },
-  {
-    "id": "gathering.caption.endsIn",
-    "value": "Ends in %s"
   },
   {
     "id": "gathering.caption.liveEventFallback",
     "value": "Check it out!"
   },
   {
-    "id": "gathering.caption.startsIn",
-    "value": "Starts in %s"
-  },
-  {
     "id": "gathering.caption.vote",
     "value": "Vote Now!"
-  },
-  {
-    "id": "gathering.connect.title",
-    "value": "Connecting..."
-  },
-  {
-    "id": "gathering.info.body.liveEventFallback",
-    "value": "Encountered an issue retrieving Live Event information."
-  },
-  {
-    "id": "gathering.info.button.readMore",
-    "value": "Read More..."
-  },
-  {
-    "id": "gathering.info.header.liveEventFallback",
-    "value": "Live Event"
-  },
-  {
-    "id": "gathering.info.modal.body.connectFail",
-    "value": "Unfortunately we could not connect. Please try again later."
-  },
-  {
-    "id": "gathering.info.modal.title.connectFail",
-    "value": "Failed to connect"
-  },
-  {
-    "id": "gathering.info.qr.body.childAccount",
-    "value": "Your current parental controls limit you from playing online."
-  },
-  {
-    "id": "gathering.info.qr.body.console",
-    "value": "Scan to join our Live Event Stream"
-  },
-  {
-    "id": "gathering.info.qr.body.onlineService",
-    "value": "You need to be signed-in to join an event in Minecraft."
-  },
-  {
-    "id": "gathering.info.qr.title.childAccount",
-    "value": "Online Play Not Allowed"
-  },
-  {
-    "id": "gathering.info.qr.title.console",
-    "value": "Live Event Stream"
-  },
-  {
-    "id": "gathering.info.qr.title.onlineService",
-    "value": "Learn More"
-  },
-  {
-    "id": "gathering.info.signIn.body",
-    "value": "Please sign in to your Microsoft account to take part in this event."
-  },
-  {
-    "id": "gathering.info.signIn.title",
-    "value": "Sign in to join this Experience"
-  },
-  {
-    "id": "gathering.info.title.liveEventFallback",
-    "value": "Live Event"
   },
   {
     "id": "generator.amplified",
@@ -25901,8 +25937,16 @@ export const Langs: Lang[] = [
     "value": "Content log history"
   },
   {
+    "id": "menu.creator.contentLog.location.copyPath",
+    "value": "Copy"
+  },
+  {
     "id": "menu.creator.contentLog.location.title",
     "value": "Content Log Location:"
+  },
+  {
+    "id": "menu.creator.contentLog.location.toast",
+    "value": "Copied data to clipboard"
   },
   {
     "id": "menu.creator.group.contentLog",
@@ -26097,8 +26141,24 @@ export const Langs: Lang[] = [
     "value": "Nintendo Properties: © Nintendo"
   },
   {
+    "id": "menu.general.tab.pause.description",
+    "value": "Take a break while playing on your own"
+  },
+  {
+    "id": "menu.general.tab.pause.title",
+    "value": "Pause"
+  },
+  {
     "id": "menu.general.tab.title",
     "value": "General"
+  },
+  {
+    "id": "menu.general.tab.tutorial.description",
+    "value": "Help learning the game"
+  },
+  {
+    "id": "menu.general.tab.tutorial.title",
+    "value": "Tutorial"
   },
   {
     "id": "menu.generatingLevel",
@@ -26511,6 +26571,14 @@ export const Langs: Lang[] = [
   {
     "id": "menu.video.group.customization.description",
     "value": "Build, stream, or take screenshots without distractions"
+  },
+  {
+    "id": "menu.video.group.general",
+    "value": "General"
+  },
+  {
+    "id": "menu.video.group.general.description",
+    "value": "Common video settings"
   },
   {
     "id": "menu.video.group.performance",
@@ -27969,6 +28037,10 @@ export const Langs: Lang[] = [
     "value": "Copy and paste your relative in-world coordinates"
   },
   {
+    "id": "options.copyCoordinateUI.name",
+    "value": "Enable Copy Coordinate"
+  },
+  {
     "id": "options.creativeDelayedBlockBreaking",
     "value": "Delayed Block Breaking (Creative Only)"
   },
@@ -28837,36 +28909,16 @@ export const Langs: Lang[] = [
     "value": "Gameplay Tips"
   },
   {
-    "id": "options.dev_gatherings_active_gathering",
-    "value": "Active: %s"
-  },
-  {
-    "id": "options.dev_gatherings_available_gatherings",
-    "value": "Available Gatherings"
-  },
-  {
-    "id": "options.dev_gatherings_clear_system_service_pack",
-    "value": "Clear System Service Pack Cache"
-  },
-  {
-    "id": "options.dev_gatherings_filter",
-    "value": "Filter Gatherings"
-  },
-  {
-    "id": "options.dev_gatherings_refresh_gatherings",
-    "value": "Refresh Gatherings"
-  },
-  {
-    "id": "options.dev_gatherings_section",
-    "value": "Gatherings"
-  },
-  {
     "id": "options.dev_importPacksAsZip",
     "value": "Import Packs as Zip"
   },
   {
     "id": "options.dev_loadOverrideDate",
     "value": "Load Override Date At Launch"
+  },
+  {
+    "id": "options.dev_loadUnitTestAutocomplete",
+    "value": "Load Unit Test Command Autocomplete"
   },
   {
     "id": "options.dev_multithreadedRendering",
@@ -28907,6 +28959,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.dev_newParticleSystem",
     "value": "Enable New Particle System"
+  },
+  {
+    "id": "options.dev_openDevConsoleOnAppLaunch",
+    "value": "Open Dev Console Automatically On App Launch"
   },
   {
     "id": "options.dev_overrideDateDay",
@@ -29591,6 +29647,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.filelocation.title.edu",
     "value": "Local Storage Location"
+  },
+  {
+    "id": "options.fileLocation.title.name",
+    "value": "File storage location"
   },
   {
     "id": "options.filterProfanity",
@@ -30557,6 +30617,10 @@ export const Langs: Lang[] = [
     "value": "Switch to the new UI"
   },
   {
+    "id": "options.nonOperatorOptions",
+    "value": "Some settings are disabled for you. To use all settings, ask an Operator to make you an Operator."
+  },
+  {
     "id": "options.notificationDuration.Chat",
     "value": "Chat message duration"
   },
@@ -30725,10 +30789,6 @@ export const Langs: Lang[] = [
     "value": "Patch Notes"
   },
   {
-    "id": "options.pauseHeader",
-    "value": "Pause"
-  },
-  {
     "id": "options.pauseHint",
     "value": "Enable Game Pause"
   },
@@ -30786,34 +30846,6 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.pointLightLODingQuality.ultra",
-    "value": "Ultra"
-  },
-  {
-    "id": "options.pointLightShadowQuality",
-    "value": "Point Light Shadow Quality"
-  },
-  {
-    "id": "options.pointLightShadowQuality.description",
-    "value": "Adjust level of detail for point light shadows"
-  },
-  {
-    "id": "options.pointLightShadowQuality.high",
-    "value": "High"
-  },
-  {
-    "id": "options.pointLightShadowQuality.low",
-    "value": "Low"
-  },
-  {
-    "id": "options.pointLightShadowQuality.medium",
-    "value": "Medium"
-  },
-  {
-    "id": "options.pointLightShadowQuality.off",
-    "value": "Off"
-  },
-  {
-    "id": "options.pointLightShadowQuality.ultra",
     "value": "Ultra"
   },
   {
@@ -31013,6 +31045,10 @@ export const Langs: Lang[] = [
     "value": "Restarts the tutorial in case you missed something"
   },
   {
+    "id": "options.restartTutorial.notification",
+    "value": "Tutorial has been reset"
+  },
+  {
     "id": "options.safeZone",
     "value": "Safe Area"
   },
@@ -31043,6 +31079,18 @@ export const Langs: Lang[] = [
   {
     "id": "options.screenAnimations.description",
     "value": "Subtle HUD animations to help transition from one screen to another"
+  },
+  {
+    "id": "options.screenDistortion",
+    "value": "Screen distortion"
+  },
+  {
+    "id": "options.screenDistortion.description",
+    "value": "Controls how much the screen warps when affected by nausea or when going through Nether portals"
+  },
+  {
+    "id": "options.screenDistortion.message",
+    "value": "Adjust how much the screen is distorted by the nausea effect and when going through Nether portals"
   },
   {
     "id": "options.screenPositionX",
@@ -32018,7 +32066,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.viewSubscriptions.noActiveSubscriptions",
-    "value": "You have no active subscriptions"
+    "value": "You don't have an active Marketplace Pass subscription. Realms subscriptions can be found in the Realm hub."
   },
   {
     "id": "options.viewSubscriptions.prereleaseMessage",
@@ -32398,7 +32446,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "parties.toast.leaderTravelsToUnreachableServer",
-    "value": "Party leader is in an unreachable server"
+    "value": "Party went to an unreachable server"
   },
   {
     "id": "parties.toast.leaveFailed",
@@ -32861,6 +32909,22 @@ export const Langs: Lang[] = [
     "value": "Remove Player Confirmation"
   },
   {
+    "id": "permissions.servertrust.button.doNotTrust",
+    "value": "Don't Trust"
+  },
+  {
+    "id": "permissions.servertrust.button.trust",
+    "value": "Trust and Join"
+  },
+  {
+    "id": "permissions.servertrust.message",
+    "value": "You are connecting to %1$s for the first time. Only trust servers you recognize."
+  },
+  {
+    "id": "permissions.servertrust.title",
+    "value": "Trust this server?"
+  },
+  {
     "id": "permissions.title",
     "value": "Player Permissions"
   },
@@ -32895,6 +32959,14 @@ export const Langs: Lang[] = [
   {
     "id": "persona.csb.savings",
     "value": "You save %s minecoins with your Marketplace Pass subscription!"
+  },
+  {
+    "id": "persona.csb.see.hasTrial",
+    "value": "Try Free"
+  },
+  {
+    "id": "persona.csb.see.noTrial",
+    "value": "Free with Pass"
   },
   {
     "id": "persona.csb.see.subscription",
@@ -33202,7 +33274,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "playscreen.realmsPreProdNotAuthorized",
-    "value": "You do not have access to Realms in pre-production. To get access, reach out in"
+    "value": "You do not have access to Realms in pre-production. To get access, reach out in #ask-Realms-preprod-access or see the guide at aka.ms/Realms-preprod-access."
   },
   {
     "id": "playscreen.realmsSignIn",
@@ -35813,6 +35885,10 @@ export const Langs: Lang[] = [
     "value": "Washington, USA"
   },
   {
+    "id": "realmsSettingsScreen.preferredRegions.WestUs3",
+    "value": "Arizona, USA"
+  },
+  {
     "id": "realmsSettingsScreen.realmCloseError",
     "value": "Failed to close Realm."
   },
@@ -37978,11 +38054,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "soundCategory.player",
-    "value": "Other players"
+    "value": "Players"
   },
   {
     "id": "soundCategory.player.description",
-    "value": "Sounds made by other nearby players"
+    "value": "Sounds made by you and other nearby players"
   },
   {
     "id": "soundCategory.record",
@@ -38026,11 +38102,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "splitscreen.unavailable.toastBodyInfo",
-    "value": "Tap for more information."
+    "value": "Connect your controllers and try again."
   },
   {
     "id": "splitscreen.unavailable.toastHeader",
-    "value": "Split Screen Is Unavailable"
+    "value": "Split screen is unavailable"
   },
   {
     "id": "splitscreen.unavailable.toastMessage",
@@ -38517,6 +38593,10 @@ export const Langs: Lang[] = [
     "value": "Behavior Packs"
   },
   {
+    "id": "storageManager.contentType.behaviorPacks.name",
+    "value": "Behavior packs"
+  },
+  {
     "id": "storageManager.contentType.cachedData",
     "value": "Cached Data"
   },
@@ -38529,6 +38609,10 @@ export const Langs: Lang[] = [
     "value": "Old Worlds"
   },
   {
+    "id": "storageManager.contentType.legacy_worlds.name",
+    "value": "Old worlds"
+  },
+  {
     "id": "storageManager.contentType.resourcePack",
     "value": "Resource"
   },
@@ -38537,8 +38621,16 @@ export const Langs: Lang[] = [
     "value": "Resource Packs"
   },
   {
+    "id": "storageManager.contentType.resourcePacks.name",
+    "value": "Resource packs"
+  },
+  {
     "id": "storageManager.contentType.retailtopreview_worlds",
     "value": "Retail Worlds"
+  },
+  {
+    "id": "storageManager.contentType.retailtopreview_worlds.name",
+    "value": "Old Retail worlds"
   },
   {
     "id": "storageManager.contentType.skinPack",
@@ -38563,6 +38655,10 @@ export const Langs: Lang[] = [
   {
     "id": "storageManager.contentType.worldTemplates",
     "value": "World Templates"
+  },
+  {
+    "id": "storageManager.convertWorld.complete",
+    "value": "Success! Your world was converted to a copy"
   },
   {
     "id": "storageManager.delete",
@@ -38661,6 +38757,22 @@ export const Langs: Lang[] = [
     "value": "Would you like to download %s ( %s )?"
   },
   {
+    "id": "storageManager.fetchWorlds.complete",
+    "value": "%s worlds found!"
+  },
+  {
+    "id": "storageManager.fetchWorlds.failed",
+    "value": "No worlds found... yet"
+  },
+  {
+    "id": "storageManager.fetchWorlds.progress.description",
+    "value": "Looking for old worlds..."
+  },
+  {
+    "id": "storageManager.fetchWorlds.progress.name",
+    "value": "Sync in progress"
+  },
+  {
     "id": "storageManager.groupPack",
     "value": "Add-On"
   },
@@ -38713,6 +38825,30 @@ export const Langs: Lang[] = [
     "value": "Share"
   },
   {
+    "id": "storageManager.progress.cache.description",
+    "value": "This may take a few minutes"
+  },
+  {
+    "id": "storageManager.progress.cache.done",
+    "value": "Cache cleared!"
+  },
+  {
+    "id": "storageManager.progress.cache.title",
+    "value": "Clearing storage cache"
+  },
+  {
+    "id": "storageManager.progress.content.description",
+    "value": "This may take a few minutes"
+  },
+  {
+    "id": "storageManager.progress.content.done",
+    "value": "Content deleted!"
+  },
+  {
+    "id": "storageManager.progress.content.title",
+    "value": "Deleting content"
+  },
+  {
     "id": "storageManager.share.compress",
     "value": "Compressing the selected resources..."
   },
@@ -38743,6 +38879,10 @@ export const Langs: Lang[] = [
   {
     "id": "storageManager.storageLocation.local",
     "value": "Local"
+  },
+  {
+    "id": "storageManager.sync",
+    "value": "Sync"
   },
   {
     "id": "storageManager.sync_legacy_worlds",
@@ -38823,6 +38963,10 @@ export const Langs: Lang[] = [
   {
     "id": "storageManager.sync_retailtopreview_worlds.name",
     "value": "Retail Worlds"
+  },
+  {
+    "id": "storageManager.sync.description",
+    "value": "Sync to look for old worlds"
   },
   {
     "id": "storageManager.title.allScreenshots",
@@ -39077,6 +39221,10 @@ export const Langs: Lang[] = [
     "value": "Free Weekend!"
   },
   {
+    "id": "store.content.mpp.download",
+    "value": "Play with Pass"
+  },
+  {
     "id": "store.content.requireXbl.notSignedIn",
     "value": "Sign in to a Microsoft account to unlock."
   },
@@ -39099,6 +39247,26 @@ export const Langs: Lang[] = [
   {
     "id": "store.createdBy",
     "value": "By %s"
+  },
+  {
+    "id": "store.creator.follow",
+    "value": "Follow"
+  },
+  {
+    "id": "store.creator.following",
+    "value": "Following"
+  },
+  {
+    "id": "store.creator.toast.failed",
+    "value": "Creator %s cannot be followed/unfollowed at this time"
+  },
+  {
+    "id": "store.creator.toast.followed",
+    "value": "You are now following creator %s"
+  },
+  {
+    "id": "store.creator.toast.unfollowed",
+    "value": "You have unfollowed creator %s"
   },
   {
     "id": "store.csb",
@@ -39170,15 +39338,15 @@ export const Langs: Lang[] = [
   },
   {
     "id": "store.csb.content.popularPacks",
-    "value": "Discover Marketplace Pass"
+    "value": "Included in Marketplace Pass"
   },
   {
     "id": "store.csb.content.viewAllPacks",
-    "value": "VIEW ALL PACKS"
+    "value": "All Included Content"
   },
   {
     "id": "store.csb.content.viewCharacterCreatorItems",
-    "value": "VIEW CHARACTER CREATOR ITEMS"
+    "value": "CHARACTER CREATOR SET"
   },
   {
     "id": "store.csb.contentPacks.mashupDescription",
@@ -39533,6 +39701,10 @@ export const Langs: Lang[] = [
     "value": "Downloading: %s"
   },
   {
+    "id": "store.editorial.starter.bundle.description",
+    "value": "*You'll buy %s Minecoins for %s and get all listed packs in the bundle (worth %s Minecoins) for free."
+  },
+  {
     "id": "store.equipped",
     "value": "Claimed"
   },
@@ -39559,6 +39731,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.free",
     "value": "Free"
+  },
+  {
+    "id": "store.gift.button.text",
+    "value": "Gift"
   },
   {
     "id": "store.giftPromo.day",
@@ -39591,6 +39767,14 @@ export const Langs: Lang[] = [
   {
     "id": "store.inCsb",
     "value": "In Marketplace Pass"
+  },
+  {
+    "id": "store.inCsb.hasTrial",
+    "value": "Try Free"
+  },
+  {
+    "id": "store.inCsb.noTrial",
+    "value": "Free with Pass"
   },
   {
     "id": "store.inRealmsPlus",
@@ -50878,7 +51062,15 @@ export const Langs: Lang[] = [
   },
   {
     "id": "tips.realms.1",
-    "value": "Take a screenshot using the Game menu."
+    "value": "Take a screenshot using the In-Game menu."
+  },
+  {
+    "id": "tips.realms.10",
+    "value": "The Realm render distance can be adjusted in the Realm Hub."
+  },
+  {
+    "id": "tips.realms.11",
+    "value": "Realms Plus owners get access to new Marketplace Pass content every month!"
   },
   {
     "id": "tips.realms.2",
@@ -50886,7 +51078,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "tips.realms.3",
-    "value": "Keep up to date with what's going on in your Realm by checking the Story Feed in Realms Stories."
+    "value": "Keep up to date with what's going on in your Realm by checking the Story Feed in Realms Hub."
   },
   {
     "id": "tips.realms.4",
@@ -50894,19 +51086,23 @@ export const Langs: Lang[] = [
   },
   {
     "id": "tips.realms.5",
-    "value": "Check the Timeline in Realms Stories to find out when others are playing."
+    "value": "Check the Timeline in the Realms Hub to find out when others are playing."
   },
   {
     "id": "tips.realms.6",
-    "value": "Access Realms Stories from the game menu while playing on the Realm."
+    "value": "Access the Realms Hub from the game menu while playing on the Realm."
   },
   {
     "id": "tips.realms.7",
-    "value": "Get to know your Realm's community on the Members tab in Realms Stories."
+    "value": "Get to know your Realm's community on the Members tab in the Realms Hub."
   },
   {
     "id": "tips.realms.8",
-    "value": "Use Realms Stories to get social, keep up with your friends' progress, and organize playtime."
+    "value": "Use Realms Hub to get social, keep up with your friends' progress, and organize playtime."
+  },
+  {
+    "id": "tips.realms.9",
+    "value": "Realm owners can give trusted members Administrator permissions by editing their role."
   },
   {
     "id": "title.oldgl1",
