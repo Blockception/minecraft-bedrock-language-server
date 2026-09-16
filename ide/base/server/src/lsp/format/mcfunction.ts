@@ -4,7 +4,7 @@ import {
   FormattingOptions,
   TextEdit,
 } from 'vscode-languageserver';
-import { Replace, TrimEndFromLine, TrimStartFromLine } from '../../util';
+import { Replace, ReplaceRegex, TrimEndFromLine, TrimStartFromLine } from '../../util';
 import { Context } from '../context/context';
 import { TextDocument } from '../documents/text-document';
 import { FormatContext } from './context';
@@ -59,9 +59,11 @@ class MCFunctionFormatter {
         TrimEndFromLine(line, index, result, [' ', '\t']);
 
         Replace(line, '~+', '~', index, result);
-        Replace(line, '~0', '~', index, result);
         Replace(line, '^+', '^', index, result);
-        Replace(line, '^0', '^', index, result);
+        // Only strip a redundant "0" offset (e.g. "~0" -> "~"), never a decimal
+        // value like "~0.5" or a multi-digit offset like "~05".
+        ReplaceRegex(line, /~0(?![.0-9])/g, '~', index, result);
+        ReplaceRegex(line, /\^0(?![.0-9])/g, '^', index, result);
         Replace(line, ' ##', ' \t##', index, result);
       }
     }

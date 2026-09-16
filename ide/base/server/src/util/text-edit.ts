@@ -20,6 +20,22 @@ export function Replace(line: string, oldText: string, newText: string, lineInde
 }
 
 /**
+ * Replaces every match of the given regular expression in the line with newText
+ * @param line The line to edit
+ * @param regex A global regular expression to search with
+ * @param newText The text to replace a match with
+ * @param lineIndex The index of the line
+ * @param receiver
+ */
+export function ReplaceRegex(line: string, regex: RegExp, newText: string, lineIndex: number, receiver: TextEdit[]) {
+  for (const match of line.matchAll(regex)) {
+    const start = match.index ?? 0;
+    const range = Range.create(lineIndex, start, lineIndex, start + match[0].length);
+    receiver.push(TextEdit.replace(range, newText));
+  }
+}
+
+/**
  * Loop through starting character to filters out empty characters and slashes
  * @param line The line to edit
  * @param index The index of the line
