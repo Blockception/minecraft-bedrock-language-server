@@ -22,6 +22,10 @@ export interface Manifest {
    *
    */
   metadata?: ManifestMetadata;
+  /**Custom UI options shown on the world creation/selection screen (Manifest V3+). When present, translation
+   * keys referenced by these settings must live inside this pack's own language files, since the engine cannot
+   * yet access the global resource pack's language files at that point.*/
+  settings?: unknown[];
 }
 
 /**
