@@ -89,6 +89,16 @@ export class WrappedTextDocument implements TextDocument, MCProjectprovider {
   }
 
   /** @inheritdoc */
+  getLineRange(line: number): Range {
+    return this._document.getLineRange(line);
+  }
+
+  /** @inheritdoc */
+  getEOLCharacters(line: number): string {
+    return this._document.getEOLCharacters(line);
+  }
+
+  /** @inheritdoc */
   pack(): mcbe.Pack | undefined {
     if (this._pack) return this._pack;
 
