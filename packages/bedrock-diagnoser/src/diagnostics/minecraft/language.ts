@@ -1,18 +1,30 @@
-import { PackType } from 'bc-minecraft-bedrock-project';
+import { Pack, PackType } from 'bc-minecraft-bedrock-project';
+import { Manifest } from 'bc-minecraft-bedrock-project/src/internal/types';
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../types';
 
-export function diagnose_language_document(diagnoser: DocumentDiagnosticsBuilder, packType: PackType): void {
+/**Behavior packs targeting Manifest V3+ that declare custom UI `settings` load their translation keys from their
+ * own language files, since the engine cannot access the global resource pack's language files while the world
+ * creation/selection screen is showing those settings. In that case the "unnecessary" hint does not apply.*/
+function behavior_pack_needs_own_keys(manifest: Manifest | undefined): boolean {
+  if (!manifest) return false;
+  if (Number(manifest.format_version) < 3) return false;
+
+  return Array.isArray(manifest.settings) && manifest.settings.length > 0;
+}
+
+export function diagnose_language_document(diagnoser: DocumentDiagnosticsBuilder, pack: Pack): void {
   const keys = new Map<string, number>();
   let lastOffset = 0;
   const text = diagnoser.document.getText();
   const lines = text.split('\n');
+  const flagUnnecessaryKeys = pack.type === PackType.behavior_pack && !behavior_pack_needs_own_keys(pack.manifest);
 
   for (let I = 0; I < lines.length; I++) {
     const line = lines[I].trim();
     const offset = text.indexOf(line, lastOffset);
 
-    minecraft_language_line_diagnose(OffsetWord.create(line, offset), keys, diagnoser, packType);
+    minecraft_language_line_diagnose(OffsetWord.create(line, offset), keys, diagnoser, flagUnnecessaryKeys);
 
     lastOffset = offset + 1;
   }
@@ -24,13 +36,14 @@ export function diagnose_language_document(diagnoser: DocumentDiagnosticsBuilder
  * @param index The line index
  * @param keys
  * @param diagnoser
+ * @param flagUnnecessaryKeys Whether behavior pack keys other than pack.name/pack.description should be flagged as unnecessary
  * @returns
  */
 export function minecraft_language_line_diagnose(
   line: OffsetWord,
   keys: Map<string, number>,
   diagnoser: DiagnosticsBuilder,
-  packType: PackType,
+  flagUnnecessaryKeys: boolean,
 ): void {
   //Find comment on line
   let text = line.text;
@@ -96,7 +109,7 @@ export function minecraft_language_line_diagnose(
       diagnoser.add(existingKey, 'Duplicate key found', DiagnosticSeverity.error, 'minecraft.language.duplicate');
     } else {
       keys.set(key, line.offset);
-      if (packType == PackType.behavior_pack && key != 'pack.name' && key != 'pack.description')
+      if (flagUnnecessaryKeys && key != 'pack.name' && key != 'pack.description')
         diagnoser.add(
           key,
           `"key" does not function in the BP and is therefore unnecessary.`,

@@ -70,7 +70,7 @@ export class Diagnoser<T extends TextDocument = TextDocument> {
 
       //Language file?
       if (doc.uri.endsWith('.lang')) {
-        diagnose_language_document(diagnoser, pack.type);
+        diagnose_language_document(diagnoser, pack);
       } else {
         //Check per pack
         switch (pack.type) {
