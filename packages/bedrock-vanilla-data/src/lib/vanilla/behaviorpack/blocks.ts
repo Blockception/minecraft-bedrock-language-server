@@ -28,7 +28,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:acacia_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:acacia_fence_gate",
@@ -93,6 +98,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:acacia_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -175,6 +181,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:andesite_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -255,7 +262,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:bamboo_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:bamboo_fence_gate",
@@ -293,6 +305,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:bamboo_mosaic_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -330,6 +343,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:bamboo_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -449,7 +463,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:birch_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:birch_fence_gate",
@@ -514,6 +533,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:birch_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -566,7 +586,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:black_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:black_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:black_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:black_concrete_stairs",
     "properties": []
   },
   {
@@ -585,7 +617,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:black_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:black_terracotta",
@@ -597,22 +634,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:black_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:black_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:black_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:blackstone",
@@ -633,6 +663,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:blackstone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -675,7 +706,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:blue_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:blue_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:blue_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:blue_concrete_stairs",
     "properties": []
   },
   {
@@ -702,7 +745,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:blue_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:blue_terracotta",
@@ -714,22 +762,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:blue_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:blue_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:blue_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:bone_block",
@@ -799,6 +840,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -835,7 +877,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:brown_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:brown_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:brown_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:brown_concrete_stairs",
     "properties": []
   },
   {
@@ -864,7 +918,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:brown_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:brown_terracotta",
@@ -876,22 +935,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:brown_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:brown_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:brown_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:bubble_column",
@@ -1046,7 +1098,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:cherry_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:cherry_fence_gate",
@@ -1111,6 +1168,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:cherry_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -1243,6 +1301,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:cinnabar_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -1276,6 +1335,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:cinnabar_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -1329,6 +1389,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:cobbled_deepslate_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -1425,7 +1486,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:copper_block",
@@ -1567,7 +1633,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:crimson_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:crimson_fence_gate",
@@ -1631,6 +1702,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:crimson_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -1678,6 +1750,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -1736,7 +1809,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:cyan_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:cyan_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:cyan_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:cyan_concrete_stairs",
     "properties": []
   },
   {
@@ -1755,7 +1840,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:cyan_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:cyan_terracotta",
@@ -1767,22 +1857,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:cyan_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:cyan_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:cyan_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:damaged_anvil",
@@ -1818,7 +1901,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:dark_oak_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:dark_oak_fence_gate",
@@ -1883,6 +1971,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:dark_oak_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -1920,6 +2009,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:dark_prismarine_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -2079,6 +2169,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:deepslate_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -2144,6 +2235,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:deepslate_tile_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -2200,6 +2292,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:diorite_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -2288,6 +2381,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:end_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -2355,7 +2449,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:exposed_copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:exposed_copper_bulb",
@@ -2422,6 +2521,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:exposed_cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -2547,7 +2647,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:glow_frame",
@@ -2605,6 +2710,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:granite_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -2653,7 +2759,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:gray_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:gray_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:gray_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:gray_concrete_stairs",
     "properties": []
   },
   {
@@ -2672,7 +2790,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:gray_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:gray_terracotta",
@@ -2684,22 +2807,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:gray_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:gray_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:gray_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:green_candle",
@@ -2723,7 +2839,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:green_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:green_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:green_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:green_concrete_stairs",
     "properties": []
   },
   {
@@ -2742,7 +2870,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:green_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:green_terracotta",
@@ -2754,22 +2887,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:green_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:green_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:green_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:grindstone",
@@ -2788,7 +2914,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_black_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_blue_stained_glass",
@@ -2796,7 +2927,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_blue_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_brown_stained_glass",
@@ -2804,7 +2940,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_brown_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_cyan_stained_glass",
@@ -2812,7 +2953,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_cyan_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_glass",
@@ -2820,7 +2966,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_gray_stained_glass",
@@ -2828,7 +2979,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_gray_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_green_stained_glass",
@@ -2836,7 +2992,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_green_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_light_blue_stained_glass",
@@ -2844,7 +3005,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_light_blue_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_light_gray_stained_glass",
@@ -2852,7 +3018,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_light_gray_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_lime_stained_glass",
@@ -2860,7 +3031,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_lime_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_magenta_stained_glass",
@@ -2868,7 +3044,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_magenta_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_orange_stained_glass",
@@ -2876,7 +3057,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_orange_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_pink_stained_glass",
@@ -2884,7 +3070,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_pink_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_purple_stained_glass",
@@ -2892,7 +3083,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_purple_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_red_stained_glass",
@@ -2900,7 +3096,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_red_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_white_stained_glass",
@@ -2908,7 +3109,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_white_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hard_yellow_stained_glass",
@@ -2916,7 +3122,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:hard_yellow_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:hardened_clay",
@@ -3010,7 +3221,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:iron_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:iron_block",
@@ -3078,7 +3294,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:jungle_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:jungle_fence_gate",
@@ -3143,6 +3364,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:jungle_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -3330,7 +3552,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:light_blue_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:light_blue_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:light_blue_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:light_blue_concrete_stairs",
     "properties": []
   },
   {
@@ -3349,7 +3583,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:light_blue_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:light_blue_terracotta",
@@ -3361,22 +3600,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:light_blue_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:light_blue_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:light_blue_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:light_gray_candle",
@@ -3400,7 +3632,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:light_gray_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:light_gray_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:light_gray_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:light_gray_concrete_stairs",
     "properties": []
   },
   {
@@ -3413,7 +3657,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:light_gray_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:light_gray_terracotta",
@@ -3425,22 +3674,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:light_gray_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:light_gray_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:light_gray_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:light_weighted_pressure_plate",
@@ -3487,7 +3729,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:lime_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:lime_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:lime_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:lime_concrete_stairs",
     "properties": []
   },
   {
@@ -3506,7 +3760,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:lime_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:lime_terracotta",
@@ -3518,22 +3777,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:lime_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:lime_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:lime_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:lit_blast_furnace",
@@ -3603,7 +3855,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:magenta_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:magenta_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:magenta_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:magenta_concrete_stairs",
     "properties": []
   },
   {
@@ -3622,7 +3886,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:magenta_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:magenta_terracotta",
@@ -3634,22 +3903,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:magenta_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:magenta_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:magenta_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:magma",
@@ -3679,7 +3941,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:mangrove_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:mangrove_fence_gate",
@@ -3749,6 +4016,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:mangrove_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -3833,6 +4101,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:mossy_cobblestone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -3862,6 +4131,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:mossy_stone_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -3899,6 +4169,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:mud_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -3945,7 +4216,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:nether_brick_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:nether_brick_slab",
@@ -3956,6 +4232,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:nether_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4011,6 +4288,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:normal_stone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4027,7 +4305,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:oak_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:oak_hanging_sign",
@@ -4078,6 +4361,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:oak_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4131,7 +4415,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:orange_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:orange_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:orange_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:orange_concrete_stairs",
     "properties": []
   },
   {
@@ -4157,7 +4453,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:orange_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:orange_terracotta",
@@ -4173,22 +4474,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:orange_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:orange_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:orange_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:oxeye_daisy",
@@ -4204,7 +4498,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:oxidized_copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:oxidized_copper_bulb",
@@ -4271,6 +4570,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:oxidized_cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4340,7 +4640,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:pale_oak_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:pale_oak_fence_gate",
@@ -4405,6 +4710,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:pale_oak_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4487,7 +4793,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:pink_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:pink_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:pink_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:pink_concrete_stairs",
     "properties": []
   },
   {
@@ -4513,7 +4831,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:pink_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:pink_terracotta",
@@ -4529,22 +4852,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:pink_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:pink_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:pink_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:piston",
@@ -4607,6 +4923,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_andesite_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4636,6 +4953,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_blackstone_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4682,6 +5000,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_blackstone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4715,6 +5034,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_cinnabar_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4748,6 +5068,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_deepslate_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4781,6 +5102,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_diorite_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4804,6 +5126,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_granite_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4827,6 +5150,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_sulfur_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4860,6 +5184,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:polished_tuff_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -4898,7 +5223,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:poplar_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:poplar_fence_gate",
@@ -4956,6 +5286,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:poplar_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5050,6 +5381,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:prismarine_bricks_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5069,6 +5401,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:prismarine_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5118,7 +5451,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:purple_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:purple_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:purple_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:purple_concrete_stairs",
     "properties": []
   },
   {
@@ -5137,7 +5482,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:purple_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:purple_terracotta",
@@ -5149,22 +5499,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:purple_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:purple_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:purple_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:purpur_block",
@@ -5193,6 +5536,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:purpur_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5232,6 +5576,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:quartz_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5276,7 +5621,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:red_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:red_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:red_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:red_concrete_stairs",
     "properties": []
   },
   {
@@ -5314,6 +5671,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:red_nether_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5358,6 +5716,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:red_sandstone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5386,7 +5745,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:red_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:red_terracotta",
@@ -5402,22 +5766,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:red_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:red_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:red_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:redstone_block",
@@ -5479,6 +5836,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:resin_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5538,6 +5896,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:sandstone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5607,10 +5966,7 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:shelf_mushroom",
-    "properties": [
-      "growth",
-      "minecraft:cardinal_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:short_dry_grass",
@@ -5688,6 +6044,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:smooth_quartz_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5711,6 +6068,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:smooth_red_sandstone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5734,6 +6092,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:smooth_sandstone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5836,7 +6195,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:spruce_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:spruce_fence_gate",
@@ -5901,6 +6265,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:spruce_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -5974,6 +6339,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:stone_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6008,6 +6374,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:stone_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6205,6 +6572,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:sulfur_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6245,6 +6613,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:sulfur_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6351,6 +6720,10 @@ export const Blocks: Block[] = [
     "properties": [
       "attached_bit",
       "disarmed_bit",
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west",
       "powered_bit",
       "suspended_bit"
     ]
@@ -6402,6 +6775,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:tuff_brick_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6435,6 +6809,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:tuff_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6547,7 +6922,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:warped_fence",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:warped_fence_gate",
@@ -6611,6 +6991,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:warped_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6665,7 +7046,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:waxed_copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:waxed_copper_bulb",
@@ -6732,6 +7118,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:waxed_cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6752,7 +7139,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:waxed_exposed_copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:waxed_exposed_copper_bulb",
@@ -6819,6 +7211,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:waxed_exposed_cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6853,7 +7246,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:waxed_oxidized_copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:waxed_oxidized_copper_bulb",
@@ -6920,6 +7318,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:waxed_oxidized_cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -6947,7 +7346,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:waxed_weathered_copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:waxed_weathered_copper_bulb",
@@ -7014,6 +7418,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:waxed_weathered_cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -7041,7 +7446,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:weathered_copper_bars",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:weathered_copper_bulb",
@@ -7108,6 +7518,7 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:weathered_cut_copper_stairs",
     "properties": [
+      "minecraft:corner",
       "upside_down_bit",
       "weirdo_direction"
     ]
@@ -7167,7 +7578,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:white_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:white_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:white_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:white_concrete_stairs",
     "properties": []
   },
   {
@@ -7186,7 +7609,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:white_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:white_terracotta",
@@ -7202,22 +7630,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:white_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:white_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:white_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:wildflowers",
@@ -7280,7 +7701,19 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:yellow_concrete_double_slab",
+    "properties": []
+  },
+  {
     "id": "minecraft:yellow_concrete_powder",
+    "properties": []
+  },
+  {
+    "id": "minecraft:yellow_concrete_slab",
+    "properties": []
+  },
+  {
+    "id": "minecraft:yellow_concrete_stairs",
     "properties": []
   },
   {
@@ -7306,7 +7739,12 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:yellow_stained_glass_pane",
-    "properties": []
+    "properties": [
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:yellow_terracotta",
@@ -7318,22 +7756,15 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:yellow_wool_double_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:yellow_wool_slab",
-    "properties": [
-      "minecraft:vertical_half"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:yellow_wool_stairs",
-    "properties": [
-      "upside_down_bit",
-      "weirdo_direction"
-    ]
+    "properties": []
   },
   {
     "id": "minecraft:zombie_head",

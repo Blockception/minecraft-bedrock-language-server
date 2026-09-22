@@ -688,6 +688,12 @@ export const Models: Model[] = [
     ]
   },
   {
+    "id": "geometry.cushion",
+    "bones": [
+      "cushion_bone"
+    ]
+  },
+  {
     "id": "geometry.dolphin",
     "bones": [
       "body",
@@ -2962,5 +2968,45 @@ export const Models: Model[] = [
   {
     "id": "minecraft:geometry.full_block",
     "bones": []
+  },
+  {
+    "id": "minecraft:geometry.shelf_mushroom_large",
+    "bones": [
+      "mushroom_top",
+      "mushroom_bottom"
+    ]
+  },
+  {
+    "id": "minecraft:geometry.shelf_mushroom_small",
+    "bones": [
+      "mushroom_top",
+      "mushroom_bottom"
+    ]
+  },
+  {
+    "id": "minecraft:geometry.straw_bed_foot",
+    "bones": [
+      "base",
+      "frills_03",
+      "frills_04",
+      "frills_05"
+    ]
+  },
+  {
+    "id": "minecraft:geometry.straw_bed_head",
+    "bones": [
+      "base",
+      "pillow_frills_01",
+      "pillow_frills_02",
+      "pillow_frills_03",
+      "pillow_frills_04",
+      "pillow_frills_05",
+      "pillow_frills_06",
+      "pillow_frills_07",
+      "pillow_frills_08",
+      "pillow",
+      "frills_02",
+      "frills_03"
+    ]
   }
 ];

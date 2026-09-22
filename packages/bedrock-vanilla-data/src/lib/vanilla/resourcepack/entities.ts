@@ -305,6 +305,10 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:cushion",
+    "animations": []
+  },
+  {
     "id": "minecraft:decorated_pot",
     "animations": []
   },

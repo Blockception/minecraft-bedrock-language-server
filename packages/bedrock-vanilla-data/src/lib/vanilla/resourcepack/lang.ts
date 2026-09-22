@@ -1313,6 +1313,10 @@ export const Langs: Lang[] = [
     "value": "Press :_input_key.jump: to exit the boat"
   },
   {
+    "id": "action.hint.exit.console.cushion",
+    "value": "Press :_input_key.sneak: to get up"
+  },
+  {
     "id": "action.hint.exit.console.donkey",
     "value": "Press :_input_key.sneak: to dismount"
   },
@@ -1407,6 +1411,10 @@ export const Langs: Lang[] = [
   {
     "id": "action.hint.exit.scheme.camel_husk",
     "value": "Tap dismount to dismount"
+  },
+  {
+    "id": "action.hint.exit.scheme.cushion",
+    "value": "Get Up"
   },
   {
     "id": "action.hint.exit.scheme.donkey",
@@ -1569,6 +1577,10 @@ export const Langs: Lang[] = [
     "value": "Fish"
   },
   {
+    "id": "action.interact.give",
+    "value": "Give"
+  },
+  {
     "id": "action.interact.give_sulfur_cube",
     "value": "Give Block"
   },
@@ -1651,6 +1663,10 @@ export const Langs: Lang[] = [
   {
     "id": "action.interact.ride.boat.touch",
     "value": ":boat_ride: Board"
+  },
+  {
+    "id": "action.interact.ride.cushion",
+    "value": "Sit"
   },
   {
     "id": "action.interact.ride.horse",
@@ -1958,11 +1974,19 @@ export const Langs: Lang[] = [
   },
   {
     "id": "attribute.name.generic.armorToughness",
-    "value": "Armor Toughness"
+    "value": "Toughness"
   },
   {
     "id": "attribute.name.generic.attackDamage",
     "value": "Attack Damage"
+  },
+  {
+    "id": "attribute.name.generic.chopEfficiency",
+    "value": "Chop Efficiency"
+  },
+  {
+    "id": "attribute.name.generic.digEfficiency",
+    "value": "Dig Efficiency"
   },
   {
     "id": "attribute.name.generic.knockbackResistance",
@@ -1971,6 +1995,10 @@ export const Langs: Lang[] = [
   {
     "id": "attribute.name.generic.maxHealth",
     "value": "Max Health"
+  },
+  {
+    "id": "attribute.name.generic.miningEfficiency",
+    "value": "Mining Efficiency"
   },
   {
     "id": "attribute.name.horse.jumpStrength",
@@ -2003,10 +2031,6 @@ export const Langs: Lang[] = [
   {
     "id": "attribution.viewAttribution",
     "value": "To view attributions, please visit https://minecraft.net/attribution in any web browser."
-  },
-  {
-    "id": "authentication.adalException",
-    "value": "We can't connect to the service you need right now. Please check your internet connection and try again."
   },
   {
     "id": "authentication.buyMinecraft",
@@ -2047,6 +2071,10 @@ export const Langs: Lang[] = [
   {
     "id": "authentication.educationOnly",
     "value": "If you are not an education user, go to the app store to download the standard version."
+  },
+  {
+    "id": "authentication.entraException",
+    "value": "We can't connect to the service you need right now. Please check your internet connection and try again."
   },
   {
     "id": "authentication.error.accountType.body",
@@ -5661,6 +5689,10 @@ export const Langs: Lang[] = [
     "value": "Only one entity is allowed, but the provided selector allows more than one"
   },
   {
+    "id": "commands.serveridentity.description",
+    "value": "Manages the server identity key. Use save, delete, or status."
+  },
+  {
     "id": "commands.setblock.description",
     "value": "Changes a block to another block."
   },
@@ -6247,6 +6279,42 @@ export const Langs: Lang[] = [
   {
     "id": "commands.time.added",
     "value": "Added %1$d to the time"
+  },
+  {
+    "id": "commands.time.clock.added",
+    "value": "Added %1$d time to '%2$s'. Time is now %3$d"
+  },
+  {
+    "id": "commands.time.clock.failed",
+    "value": "Cannot find clock '%1$s'"
+  },
+  {
+    "id": "commands.time.clock.num.tooSmall",
+    "value": "Cannot set time to before 0 ticks, the number must be at least %1$d"
+  },
+  {
+    "id": "commands.time.clock.paused",
+    "value": "Paused '%1$s' at %2$d"
+  },
+  {
+    "id": "commands.time.clock.query.time",
+    "value": "Time of '%1$s' is %2$d"
+  },
+  {
+    "id": "commands.time.clock.resumed",
+    "value": "Resumed '%1$s' at %2$d"
+  },
+  {
+    "id": "commands.time.clock.set",
+    "value": "Set the time of '%1$s' to %2$d"
+  },
+  {
+    "id": "commands.time.clock.timemarker.failed",
+    "value": "Cannot find time marker '%1$s' on '%2$s'"
+  },
+  {
+    "id": "commands.time.clock.timemarker.previous.failed",
+    "value": "No previous occurrence of '%1$s' on '%2$s'"
   },
   {
     "id": "commands.time.description",
@@ -8129,6 +8197,14 @@ export const Langs: Lang[] = [
     "value": "Includes actor properties and adjustable fog parameters"
   },
   {
+    "id": "createWorldScreen.experimentalCreatorWorldClocksFeatures",
+    "value": "Creator World Clocks Features"
+  },
+  {
+    "id": "createWorldScreen.experimentalCreatorWorldClocksFeaturesDescription",
+    "value": "Enables the use of world clocks for creators"
+  },
+  {
     "id": "createWorldScreen.experimentalCustomProjectiles",
     "value": "Experimental Custom Projectile Features"
   },
@@ -8161,6 +8237,14 @@ export const Langs: Lang[] = [
     "value": "Use \"-beta\" versions of API modules in add-on packs"
   },
   {
+    "id": "createWorldScreen.experimentalPoi",
+    "value": "Points of Interest (POI)"
+  },
+  {
+    "id": "createWorldScreen.experimentalPoiDescription",
+    "value": "Adds poi to locate command and Script API"
+  },
+  {
     "id": "createWorldScreen.experimentalVillagerTradesRebalance",
     "value": "Villager Trade Rebalancing"
   },
@@ -8175,14 +8259,6 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.experimentalVoxelShapeFeaturesDescription",
     "value": "Enables the use of voxel shapes for some vanilla and custom blocks"
-  },
-  {
-    "id": "createWorldScreen.experimentalY2026Drop3",
-    "value": "Drop 3 of 2026"
-  },
-  {
-    "id": "createWorldScreen.experimentalY2026Drop3Description",
-    "value": "Explore a new surface biome and find the abandoned camps spread throughout the world"
   },
   {
     "id": "createWorldScreen.fireSpreads",
@@ -9991,6 +10067,10 @@ export const Langs: Lang[] = [
   {
     "id": "disconnectionScreen.loggedinOtherLocation",
     "value": "Logged in from other location"
+  },
+  {
+    "id": "disconnectionScreen.missingStructureData",
+    "value": "Missing structure data from server."
   },
   {
     "id": "disconnectionScreen.multiplayerDisabled",
@@ -12261,6 +12341,10 @@ export const Langs: Lang[] = [
     "value": "Creeper"
   },
   {
+    "id": "entity.cushion.name",
+    "value": "Cushion"
+  },
+  {
     "id": "entity.dolphin.name",
     "value": "Dolphin"
   },
@@ -14126,11 +14210,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "gui.submitFeedback.failure.status.other",
-    "value": "Cannot submit your review at this time, please try again later. (Error Code: %d)"
+    "value": "Cannot submit your feedback at this time, please try again later. (Error Code: %d)"
   },
   {
     "id": "gui.submitFeedback.failure.status.tooManyRequests",
-    "value": "Oh no! You have sent too many reviews, please try again later. (Error Code: %d)"
+    "value": "Oh no! You've submitted feedback too many times in a short period. Please wait a few minutes and try again. (Error Code: %d)"
   },
   {
     "id": "gui.submitFeedback.failure.status.unprocessableEntity",
@@ -14142,7 +14226,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "gui.submitFeedback.success",
-    "value": "Thank you for sharing your review!"
+    "value": "Thank you for sharing your feedback!"
   },
   {
     "id": "gui.submitFeedback.text",
@@ -17889,10 +17973,6 @@ export const Langs: Lang[] = [
     "value": "Armor Stand"
   },
   {
-    "id": "item.armor.upgrade",
-    "value": "Upgrade:"
-  },
-  {
     "id": "item.arms_up_pottery_sherd.name",
     "value": "Arms Up Pottery Sherd"
   },
@@ -20913,6 +20993,10 @@ export const Langs: Lang[] = [
     "value": "Pale Oak Boat"
   },
   {
+    "id": "item.boat.poplar.name",
+    "value": "Poplar Boat"
+  },
+  {
     "id": "item.boat.spruce.name",
     "value": "Spruce Boat"
   },
@@ -21149,6 +21233,10 @@ export const Langs: Lang[] = [
     "value": "Pale Oak Boat with Chest"
   },
   {
+    "id": "item.chest_boat.poplar.name",
+    "value": "Poplar Boat with Chest"
+  },
+  {
     "id": "item.chest_boat.spruce.name",
     "value": "Spruce Boat with Chest"
   },
@@ -21194,7 +21282,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "item.comparator.name",
-    "value": "Redstone Comparator"
+    "value": "Comparator"
   },
   {
     "id": "item.compass.name",
@@ -21307,6 +21395,70 @@ export const Langs: Lang[] = [
   {
     "id": "item.crossbow.name",
     "value": "Crossbow"
+  },
+  {
+    "id": "item.cushion.black.name",
+    "value": "Black Cushion"
+  },
+  {
+    "id": "item.cushion.blue.name",
+    "value": "Blue Cushion"
+  },
+  {
+    "id": "item.cushion.brown.name",
+    "value": "Brown Cushion"
+  },
+  {
+    "id": "item.cushion.cyan.name",
+    "value": "Cyan Cushion"
+  },
+  {
+    "id": "item.cushion.gray.name",
+    "value": "Gray Cushion"
+  },
+  {
+    "id": "item.cushion.green.name",
+    "value": "Green Cushion"
+  },
+  {
+    "id": "item.cushion.lightBlue.name",
+    "value": "Light Blue Cushion"
+  },
+  {
+    "id": "item.cushion.lime.name",
+    "value": "Lime Cushion"
+  },
+  {
+    "id": "item.cushion.magenta.name",
+    "value": "Magenta Cushion"
+  },
+  {
+    "id": "item.cushion.orange.name",
+    "value": "Orange Cushion"
+  },
+  {
+    "id": "item.cushion.pink.name",
+    "value": "Pink Cushion"
+  },
+  {
+    "id": "item.cushion.purple.name",
+    "value": "Purple Cushion"
+  },
+  {
+    "id": "item.cushion.red.name",
+    "value": "Red Cushion"
+  },
+  {
+    "id": "item.cushion.silver.name",
+    "value": "Light Gray Cushion"
+  },
+  {
+    "id": "item.cushion.white.name",
+    "value": "White Cushion"
+  },
+  {
+    "id": "item.cushion.yellow.name",
+    "value": "Yellow Cushion"
   },
   {
     "id": "item.customProperties",
@@ -21646,27 +21798,27 @@ export const Langs: Lang[] = [
   },
   {
     "id": "item.fireworksCharge.type",
-    "value": "Unknown Shape"
+    "value": "Unknown shape explosion"
   },
   {
     "id": "item.fireworksCharge.type.0",
-    "value": "Small Ball"
+    "value": "Small ball explosion"
   },
   {
     "id": "item.fireworksCharge.type.1",
-    "value": "Large Ball"
+    "value": "Large ball explosion"
   },
   {
     "id": "item.fireworksCharge.type.2",
-    "value": "Star-shaped"
+    "value": "Star-shaped explosion"
   },
   {
     "id": "item.fireworksCharge.type.3",
-    "value": "Creeper-shaped"
+    "value": "Creeper-shaped explosion"
   },
   {
     "id": "item.fireworksCharge.type.4",
-    "value": "Burst"
+    "value": "Burst explosion"
   },
   {
     "id": "item.fireworksCharge.white",
@@ -22081,8 +22233,52 @@ export const Langs: Lang[] = [
     "value": "Mangrove Sign"
   },
   {
+    "id": "item.map.exploration.abandoned_camp_bamboo_jungle.name",
+    "value": "Bamboo Camp Map"
+  },
+  {
+    "id": "item.map.exploration.abandoned_camp_birch_forest.name",
+    "value": "Birch Forest Camp Map"
+  },
+  {
+    "id": "item.map.exploration.abandoned_camp_cherry_grove.name",
+    "value": "Cherry Grove Camp Map"
+  },
+  {
+    "id": "item.map.exploration.abandoned_camp_dappled_forest.name",
+    "value": "Dappled Forest Camp Map"
+  },
+  {
+    "id": "item.map.exploration.abandoned_camp_extreme_hills_plus_trees.name",
+    "value": "Windswept Forest Camp Map"
+  },
+  {
+    "id": "item.map.exploration.abandoned_camp_flower_forest.name",
+    "value": "Flower Forest Camp Map"
+  },
+  {
+    "id": "item.map.exploration.abandoned_camp_pale_garden.name",
+    "value": "Pale Garden Camp Map"
+  },
+  {
+    "id": "item.map.exploration.abandoned_camp_swampland.name",
+    "value": "Swamp Camp Map"
+  },
+  {
+    "id": "item.map.exploration.buried_ancient_city.name",
+    "value": "Buried Ancient City Map"
+  },
+  {
+    "id": "item.map.exploration.buried_mineshaft.name",
+    "value": "Buried Mineshaft Map"
+  },
+  {
     "id": "item.map.exploration.buried_treasure.name",
     "value": "Treasure Map"
+  },
+  {
+    "id": "item.map.exploration.desert_pyramid.name",
+    "value": "Desert Pyramid Map"
   },
   {
     "id": "item.map.exploration.jungle_temple.name",
@@ -22127,6 +22323,10 @@ export const Langs: Lang[] = [
   {
     "id": "item.map.exploration.village_taiga.name",
     "value": "Taiga Village Map"
+  },
+  {
+    "id": "item.map.exploration.warm_ocean_ruins.name",
+    "value": "Warm Ocean Ruins Map"
   },
   {
     "id": "item.map.name",
@@ -22363,6 +22563,18 @@ export const Langs: Lang[] = [
   {
     "id": "item.poisonous_potato.name",
     "value": "Poisonous Potato"
+  },
+  {
+    "id": "item.poplar_door.name",
+    "value": "Poplar Door"
+  },
+  {
+    "id": "item.poplar_hanging_sign.name",
+    "value": "Poplar Hanging Sign"
+  },
+  {
+    "id": "item.poplar_sign.name",
+    "value": "Poplar Sign"
   },
   {
     "id": "item.porkchop_cooked.name",
@@ -23213,6 +23425,10 @@ export const Langs: Lang[] = [
     "value": "Stone Sword"
   },
   {
+    "id": "item.straw_bed.name",
+    "value": "Straw Bed"
+  },
+  {
     "id": "item.string.name",
     "value": "String"
   },
@@ -23739,6 +23955,10 @@ export const Langs: Lang[] = [
   {
     "id": "itemGroup.name.crop",
     "value": "Crops"
+  },
+  {
+    "id": "itemGroup.name.cushion",
+    "value": "Cushions"
   },
   {
     "id": "itemGroup.name.door",
@@ -27146,7 +27366,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "networkWorld.multiplayerPrivilegesBlockedOnConsole",
-    "value": "You cannot play online multiplayer because of how your Microsoft account is set up. Please ensure you have an active Xbox Live Gold subscription and your online safety settings allow Multiplayer. See instructions for changing these settings at aka.ms/MCMultiplayerHelp."
+    "value": "You cannot play online multiplayer because of how your Microsoft account is set up. Please ensure you have an active Xbox Game Pass Core subscription and your online safety settings allow Multiplayer. See instructions for changing these settings at aka.ms/MCMultiplayerHelp."
   },
   {
     "id": "networkWorld.multiplayerPrivilegesBlockedOnConsoleGamecore",
@@ -27661,6 +27881,34 @@ export const Langs: Lang[] = [
     "value": "Alternate Blocks"
   },
   {
+    "id": "options.blockLightQuality",
+    "value": "Block Light Quality"
+  },
+  {
+    "id": "options.blockLightQuality.description",
+    "value": "Adjust the quality of block lighting"
+  },
+  {
+    "id": "options.blockLightQuality.high",
+    "value": "Point Lights+"
+  },
+  {
+    "id": "options.blockLightQuality.low",
+    "value": "Volumetric Lights"
+  },
+  {
+    "id": "options.blockLightQuality.medium",
+    "value": "Point Lights"
+  },
+  {
+    "id": "options.blockLightQuality.off",
+    "value": "Standard"
+  },
+  {
+    "id": "options.blockLightQuality.ultra",
+    "value": "Point Lights++"
+  },
+  {
     "id": "options.bloomStrengthSlider",
     "value": "Bloom intensity"
   },
@@ -27815,6 +28063,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.clearhotbar.description",
     "value": "Turns on the option to remove all items from your hotbar while in the inventory menu"
+  },
+  {
+    "id": "options.clearLayoutCache",
+    "value": "Clear Layout Cache"
   },
   {
     "id": "options.cloudQuality",
@@ -28525,24 +28777,20 @@ export const Langs: Lang[] = [
     "value": "Render Attach Positions"
   },
   {
-    "id": "options.dev_chunk_map_mode_client",
-    "value": "Client"
+    "id": "options.dev_chunk_map_mode_full",
+    "value": "Full"
   },
   {
-    "id": "options.dev_chunk_map_mode_client_main_chunksource",
-    "value": "Client (MainChunkSource)"
+    "id": "options.dev_chunk_map_mode_legend",
+    "value": "Legend"
+  },
+  {
+    "id": "options.dev_chunk_map_mode_limited",
+    "value": "Limited"
   },
   {
     "id": "options.dev_chunk_map_mode_off",
     "value": "Off"
-  },
-  {
-    "id": "options.dev_chunk_map_mode_server_chunk_debug_display_state",
-    "value": "Server (DB State)"
-  },
-  {
-    "id": "options.dev_chunk_map_mode_server_chunk_state",
-    "value": "Server"
   },
   {
     "id": "options.dev_chunkMapMode",
@@ -28635,10 +28883,6 @@ export const Langs: Lang[] = [
   {
     "id": "options.dev_connectionQuality",
     "value": "Connection Quality"
-  },
-  {
-    "id": "options.dev_controltower_override_transport_layer",
-    "value": "Override MUTS Transport Layer Locally"
   },
   {
     "id": "options.dev_createRealmWithoutPurchase",
@@ -29213,10 +29457,6 @@ export const Langs: Lang[] = [
     "value": "Show chat message attribution tags"
   },
   {
-    "id": "options.dev_showChunkMap",
-    "value": "Show chunk map"
-  },
-  {
     "id": "options.dev_showDevConsoleButton",
     "value": "Show dev console button"
   },
@@ -29489,6 +29729,14 @@ export const Langs: Lang[] = [
     "value": "Edit Settings"
   },
   {
+    "id": "options.enableAdvancedSaveSettings",
+    "value": "Enable advanced save settings"
+  },
+  {
+    "id": "options.enableAdvancedSaveSettings.description",
+    "value": "Decide if worlds are saved locally or to the cloud"
+  },
+  {
     "id": "options.enableAutoPlatformTextToSpeech",
     "value": "Text To Speech with Device Settings"
   },
@@ -29551,6 +29799,14 @@ export const Langs: Lang[] = [
   {
     "id": "options.enableGameplaySubtitles.description",
     "value": "Add subtitles for all sounds in Minecraft"
+  },
+  {
+    "id": "options.enableGlobalCloudSave",
+    "value": "Enable global cloud save"
+  },
+  {
+    "id": "options.enableGlobalCloudSave.description",
+    "value": "All worlds are automatically saved to the cloud"
   },
   {
     "id": "options.enableNewTouchControlSchemes",
@@ -30821,34 +31077,6 @@ export const Langs: Lang[] = [
     "value": "Video Performance Settings"
   },
   {
-    "id": "options.pointLightLODingQuality",
-    "value": "Point Light Quality"
-  },
-  {
-    "id": "options.pointLightLODingQuality.description",
-    "value": "Adjust level of detail for point light"
-  },
-  {
-    "id": "options.pointLightLODingQuality.high",
-    "value": "High"
-  },
-  {
-    "id": "options.pointLightLODingQuality.low",
-    "value": "Low"
-  },
-  {
-    "id": "options.pointLightLODingQuality.medium",
-    "value": "Medium"
-  },
-  {
-    "id": "options.pointLightLODingQuality.off",
-    "value": "Off"
-  },
-  {
-    "id": "options.pointLightLODingQuality.ultra",
-    "value": "Ultra"
-  },
-  {
     "id": "options.postButton",
     "value": "Post-Processing Settings..."
   },
@@ -32078,7 +32306,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.viewSubscriptions.realmsPlusSubscriptionForRealm",
-    "value": "Realms plus subscription for Realm %s."
+    "value": "Realms Plus subscription for Realm %s."
   },
   {
     "id": "options.viewSubscriptions.realmsServer",
@@ -32834,7 +33062,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "permissions.MultiplayerSessionsOnConsole",
-    "value": "You cannot play on Realms because of how your Microsoft account is set up. Please ensure your online safety settings allow Multiplayer and you have an active Xbox Live Gold subscription. See instructions for changing these settings at aka.ms/MCMultiplayerHelp."
+    "value": "You cannot play on Realms because of how your Microsoft account is set up. Please ensure your online safety settings allow Multiplayer and you have an active Xbox Game Pass Core subscription. See instructions for changing these settings at aka.ms/MCMultiplayerHelp."
   },
   {
     "id": "permissions.MultiplayerSessionsOnConsoleGamecore",
@@ -33409,10 +33637,6 @@ export const Langs: Lang[] = [
     "value": "Haste"
   },
   {
-    "id": "potion.effects.whenDrank",
-    "value": "When Applied:"
-  },
-  {
     "id": "potion.empty",
     "value": "No Effects"
   },
@@ -33642,7 +33866,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "potion.potency.0",
-    "value": ""
+    "value": "I"
   },
   {
     "id": "potion.potency.1",
@@ -34335,6 +34559,10 @@ export const Langs: Lang[] = [
   {
     "id": "progressScreen.title.deleteDownloadContent",
     "value": "Clearing Download Cache"
+  },
+  {
+    "id": "progressScreen.title.deleteLayoutCache",
+    "value": "Clearing Layout Cache"
   },
   {
     "id": "progressScreen.title.deleteLocalScreenshots",
@@ -37985,26 +38213,6 @@ export const Langs: Lang[] = [
     "value": "Skins"
   },
   {
-    "id": "slot.armor.body.when_equipped",
-    "value": "When equipped:"
-  },
-  {
-    "id": "slot.armor.chest.when_equipped",
-    "value": "When on Chest:"
-  },
-  {
-    "id": "slot.armor.feet.when_equipped",
-    "value": "When on Feet:"
-  },
-  {
-    "id": "slot.armor.head.when_equipped",
-    "value": "When on Head:"
-  },
-  {
-    "id": "slot.armor.legs.when_equipped",
-    "value": "When on Legs:"
-  },
-  {
     "id": "soundCategory.ambient",
     "value": "Environmental audio"
   },
@@ -38969,6 +39177,10 @@ export const Langs: Lang[] = [
     "value": "Sync to look for old worlds"
   },
   {
+    "id": "storageManager.sync.noWorlds.description",
+    "value": "No old worlds found"
+  },
+  {
     "id": "storageManager.title.allScreenshots",
     "value": "all screenshots"
   },
@@ -39823,6 +40035,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.loading.error.account.banned",
     "value": "You aren’t able to access the Marketplace until your suspension expires."
+  },
+  {
+    "id": "store.loading.error.edu",
+    "value": "Oops! Something went wrong. If the problem persists, please contact support"
   },
   {
     "id": "store.loading.error.failure",
@@ -42057,6 +42273,18 @@ export const Langs: Lang[] = [
     "value": "Stalactite crashes down"
   },
   {
+    "id": "subtitles.block.poplar_leaves.ambient",
+    "value": "Leaves rustle"
+  },
+  {
+    "id": "subtitles.block.poplar_leaves.jump",
+    "value": "Jumping on Poplar Leaves"
+  },
+  {
+    "id": "subtitles.block.poplar_leaves.land",
+    "value": "Landing on Poplar Leaves"
+  },
+  {
     "id": "subtitles.block.portal.ambient",
     "value": "Portal whooshes"
   },
@@ -42195,6 +42423,10 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.block.sponge.absorb",
     "value": "Sponge sucks"
+  },
+  {
+    "id": "subtitles.block.straw_bed.break_leave",
+    "value": "Straw Bed breaks"
   },
   {
     "id": "subtitles.block.sweet_berry_bush.pick_berries",
@@ -42979,6 +43211,22 @@ export const Langs: Lang[] = [
   {
     "id": "subtitles.entity.creeper.primed",
     "value": "Creeper hisses"
+  },
+  {
+    "id": "subtitles.entity.cushion.break",
+    "value": "Cushion breaks"
+  },
+  {
+    "id": "subtitles.entity.cushion.get_up",
+    "value": "Gets up from Cushion"
+  },
+  {
+    "id": "subtitles.entity.cushion.place",
+    "value": "Cushion placed"
+  },
+  {
+    "id": "subtitles.entity.cushion.sit",
+    "value": "Sits on Cushion"
   },
   {
     "id": "subtitles.entity.dolphin.ambient",
@@ -45833,6 +46081,10 @@ export const Langs: Lang[] = [
     "value": "Chipped Anvil"
   },
   {
+    "id": "tile.anvil.tooltip",
+    "value": "Repair & enchant tools"
+  },
+  {
     "id": "tile.anvil.veryDamaged.name",
     "value": "Damaged Anvil"
   },
@@ -46073,6 +46325,30 @@ export const Langs: Lang[] = [
     "value": "Black Candle"
   },
   {
+    "id": "tile.black_concrete_double_slab.name",
+    "value": "Black Concrete Double Slab"
+  },
+  {
+    "id": "tile.black_concrete_slab.name",
+    "value": "Black Concrete Slab"
+  },
+  {
+    "id": "tile.black_concrete_stairs.name",
+    "value": "Black Concrete Stairs"
+  },
+  {
+    "id": "tile.black_wool_double_slab.name",
+    "value": "Black Wool Double Slab"
+  },
+  {
+    "id": "tile.black_wool_slab.name",
+    "value": "Black Wool Slab"
+  },
+  {
+    "id": "tile.black_wool_stairs.name",
+    "value": "Black Wool Stairs"
+  },
+  {
     "id": "tile.blackstone_double_slab.name",
     "value": "Blackstone Double Slab"
   },
@@ -46097,6 +46373,10 @@ export const Langs: Lang[] = [
     "value": "Blast Furnace"
   },
   {
+    "id": "tile.blast_furnace.tooltip",
+    "value": "Smelt metal faster"
+  },
+  {
     "id": "tile.blue_candle_cake.name",
     "value": "Cake with Blue Candle"
   },
@@ -46105,8 +46385,32 @@ export const Langs: Lang[] = [
     "value": "Blue Candle"
   },
   {
+    "id": "tile.blue_concrete_double_slab.name",
+    "value": "Blue Concrete Double Slab"
+  },
+  {
+    "id": "tile.blue_concrete_slab.name",
+    "value": "Blue Concrete Slab"
+  },
+  {
+    "id": "tile.blue_concrete_stairs.name",
+    "value": "Blue Concrete Stairs"
+  },
+  {
     "id": "tile.blue_ice.name",
     "value": "Blue Ice"
+  },
+  {
+    "id": "tile.blue_wool_double_slab.name",
+    "value": "Blue Wool Double Slab"
+  },
+  {
+    "id": "tile.blue_wool_slab.name",
+    "value": "Blue Wool Slab"
+  },
+  {
+    "id": "tile.blue_wool_stairs.name",
+    "value": "Blue Wool Stairs"
   },
   {
     "id": "tile.bone_block.name",
@@ -46125,6 +46429,10 @@ export const Langs: Lang[] = [
     "value": "Brain Coral Wall Fan"
   },
   {
+    "id": "tile.brewing_stand.tooltip",
+    "value": "Brew potions"
+  },
+  {
     "id": "tile.brick_block.name",
     "value": "Bricks"
   },
@@ -46141,6 +46449,18 @@ export const Langs: Lang[] = [
     "value": "Brown Candle"
   },
   {
+    "id": "tile.brown_concrete_double_slab.name",
+    "value": "Brown Concrete Double Slab"
+  },
+  {
+    "id": "tile.brown_concrete_slab.name",
+    "value": "Brown Concrete Slab"
+  },
+  {
+    "id": "tile.brown_concrete_stairs.name",
+    "value": "Brown Concrete Stairs"
+  },
+  {
     "id": "tile.brown_mushroom_block.cap.name",
     "value": "Brown Mushroom Block"
   },
@@ -46155,6 +46475,22 @@ export const Langs: Lang[] = [
   {
     "id": "tile.brown_mushroom.name",
     "value": "Brown Mushroom"
+  },
+  {
+    "id": "tile.brown_wool_double_slab.name",
+    "value": "Brown Wool Double Slab"
+  },
+  {
+    "id": "tile.brown_wool_slab.name",
+    "value": "Brown Wool Slab"
+  },
+  {
+    "id": "tile.brown_wool_stairs.name",
+    "value": "Brown Wool Stairs"
+  },
+  {
+    "id": "tile.brush.tooltip",
+    "value": "Excavate & brush"
   },
   {
     "id": "tile.bubble_column.name",
@@ -46285,12 +46621,20 @@ export const Langs: Lang[] = [
     "value": "Cartography Table"
   },
   {
+    "id": "tile.cartography_table.tooltip",
+    "value": "Modify Maps"
+  },
+  {
     "id": "tile.carved_pumpkin.name",
     "value": "Carved Pumpkin"
   },
   {
     "id": "tile.cauldron.name",
     "value": "Cauldron"
+  },
+  {
+    "id": "tile.cauldron.tooltip",
+    "value": "Holds liquids & potions"
   },
   {
     "id": "tile.cave_vines_body_with_berries.name",
@@ -46597,8 +46941,20 @@ export const Langs: Lang[] = [
     "value": "Command Block"
   },
   {
+    "id": "tile.comparator.tooltip",
+    "value": "Reads signal strength"
+  },
+  {
+    "id": "tile.compass.tooltip",
+    "value": "Points to world spawn"
+  },
+  {
     "id": "tile.composter.name",
     "value": "Composter"
+  },
+  {
+    "id": "tile.composter.tooltip",
+    "value": "Make bone meal"
   },
   {
     "id": "tile.concrete.black.name",
@@ -46921,8 +47277,16 @@ export const Langs: Lang[] = [
     "value": "Crafter"
   },
   {
+    "id": "tile.crafter.tooltip",
+    "value": "Automate crafting"
+  },
+  {
     "id": "tile.crafting_table.name",
     "value": "Crafting Table"
+  },
+  {
+    "id": "tile.crafting_table.tooltip",
+    "value": "Make stuff"
   },
   {
     "id": "tile.creaking_heart.name",
@@ -47027,6 +47391,30 @@ export const Langs: Lang[] = [
   {
     "id": "tile.cyan_candle.name",
     "value": "Cyan Candle"
+  },
+  {
+    "id": "tile.cyan_concrete_double_slab.name",
+    "value": "Cyan Concrete Double Slab"
+  },
+  {
+    "id": "tile.cyan_concrete_slab.name",
+    "value": "Cyan Concrete Slab"
+  },
+  {
+    "id": "tile.cyan_concrete_stairs.name",
+    "value": "Cyan Concrete Stairs"
+  },
+  {
+    "id": "tile.cyan_wool_double_slab.name",
+    "value": "Cyan Wool Double Slab"
+  },
+  {
+    "id": "tile.cyan_wool_slab.name",
+    "value": "Cyan Wool Slab"
+  },
+  {
+    "id": "tile.cyan_wool_stairs.name",
+    "value": "Cyan Wool Stairs"
   },
   {
     "id": "tile.dark_oak_button.name",
@@ -47229,6 +47617,10 @@ export const Langs: Lang[] = [
     "value": "Dispenser"
   },
   {
+    "id": "tile.dispenser.tooltip",
+    "value": "Automate actions"
+  },
+  {
     "id": "tile.doorWood.name",
     "value": "Wooden Door"
   },
@@ -47429,6 +47821,10 @@ export const Langs: Lang[] = [
     "value": "Dropper"
   },
   {
+    "id": "tile.dropper.tooltip",
+    "value": "Eject items"
+  },
+  {
     "id": "tile.emerald_block.name",
     "value": "Block of Emerald"
   },
@@ -47439,6 +47835,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.enchanting_table.name",
     "value": "Enchanting Table"
+  },
+  {
+    "id": "tile.enchanting_table.tooltip",
+    "value": "Enchant tools & books"
   },
   {
     "id": "tile.end_brick_stairs.name",
@@ -47569,6 +47969,10 @@ export const Langs: Lang[] = [
     "value": "Fletching Table"
   },
   {
+    "id": "tile.flint_and_steel.tooltip",
+    "value": "Make fire"
+  },
+  {
     "id": "tile.flower_pot.name",
     "value": "Flower Pot"
   },
@@ -47599,6 +48003,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.furnace.name",
     "value": "Furnace"
+  },
+  {
+    "id": "tile.furnace.tooltip",
+    "value": "Smelt & cook"
   },
   {
     "id": "tile.gilded_blackstone.name",
@@ -47797,6 +48205,30 @@ export const Langs: Lang[] = [
     "value": "Gray Candle"
   },
   {
+    "id": "tile.gray_concrete_double_slab.name",
+    "value": "Gray Concrete Double Slab"
+  },
+  {
+    "id": "tile.gray_concrete_slab.name",
+    "value": "Gray Concrete Slab"
+  },
+  {
+    "id": "tile.gray_concrete_stairs.name",
+    "value": "Gray Concrete Stairs"
+  },
+  {
+    "id": "tile.gray_wool_double_slab.name",
+    "value": "Gray Wool Double Slab"
+  },
+  {
+    "id": "tile.gray_wool_slab.name",
+    "value": "Gray Wool Slab"
+  },
+  {
+    "id": "tile.gray_wool_stairs.name",
+    "value": "Gray Wool Stairs"
+  },
+  {
     "id": "tile.green_candle_cake.name",
     "value": "Cake with Green Candle"
   },
@@ -47805,8 +48237,36 @@ export const Langs: Lang[] = [
     "value": "Green Candle"
   },
   {
+    "id": "tile.green_concrete_double_slab.name",
+    "value": "Green Concrete Double Slab"
+  },
+  {
+    "id": "tile.green_concrete_slab.name",
+    "value": "Green Concrete Slab"
+  },
+  {
+    "id": "tile.green_concrete_stairs.name",
+    "value": "Green Concrete Stairs"
+  },
+  {
+    "id": "tile.green_wool_double_slab.name",
+    "value": "Green Wool Double Slab"
+  },
+  {
+    "id": "tile.green_wool_slab.name",
+    "value": "Green Wool Slab"
+  },
+  {
+    "id": "tile.green_wool_stairs.name",
+    "value": "Green Wool Stairs"
+  },
+  {
     "id": "tile.grindstone.name",
     "value": "Grindstone"
+  },
+  {
+    "id": "tile.grindstone.tooltip",
+    "value": "Remove enchantments"
   },
   {
     "id": "tile.hanging_roots.name",
@@ -47829,6 +48289,10 @@ export const Langs: Lang[] = [
     "value": "Heavy Weighted Pressure Plate"
   },
   {
+    "id": "tile.hoe.tooltip",
+    "value": "Farming"
+  },
+  {
     "id": "tile.honey_block.name",
     "value": "Honey Block"
   },
@@ -47839,6 +48303,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.hopper.name",
     "value": "Hopper"
+  },
+  {
+    "id": "tile.hopper.tooltip",
+    "value": "Add items to chest"
   },
   {
     "id": "tile.horn_coral_wall_fan.name",
@@ -48005,6 +48473,10 @@ export const Langs: Lang[] = [
     "value": "Lectern"
   },
   {
+    "id": "tile.lectern.tooltip",
+    "value": "Display books"
+  },
+  {
     "id": "tile.lever.name",
     "value": "Lever"
   },
@@ -48021,12 +48493,60 @@ export const Langs: Lang[] = [
     "value": "Light Blue Candle"
   },
   {
+    "id": "tile.light_blue_concrete_double_slab.name",
+    "value": "Light Blue Concrete Double Slab"
+  },
+  {
+    "id": "tile.light_blue_concrete_slab.name",
+    "value": "Light Blue Concrete Slab"
+  },
+  {
+    "id": "tile.light_blue_concrete_stairs.name",
+    "value": "Light Blue Concrete Stairs"
+  },
+  {
+    "id": "tile.light_blue_wool_double_slab.name",
+    "value": "Light Blue Wool Double Slab"
+  },
+  {
+    "id": "tile.light_blue_wool_slab.name",
+    "value": "Light Blue Wool Slab"
+  },
+  {
+    "id": "tile.light_blue_wool_stairs.name",
+    "value": "Light Blue Wool Stairs"
+  },
+  {
     "id": "tile.light_gray_candle_cake.name",
     "value": "Cake with Light Gray Candle"
   },
   {
     "id": "tile.light_gray_candle.name",
     "value": "Light Gray Candle"
+  },
+  {
+    "id": "tile.light_gray_concrete_double_slab.name",
+    "value": "Light Gray Concrete Double Slab"
+  },
+  {
+    "id": "tile.light_gray_concrete_slab.name",
+    "value": "Light Gray Concrete Slab"
+  },
+  {
+    "id": "tile.light_gray_concrete_stairs.name",
+    "value": "Light Gray Concrete Stairs"
+  },
+  {
+    "id": "tile.light_gray_wool_double_slab.name",
+    "value": "Light Gray Wool Double Slab"
+  },
+  {
+    "id": "tile.light_gray_wool_slab.name",
+    "value": "Light Gray Wool Slab"
+  },
+  {
+    "id": "tile.light_gray_wool_stairs.name",
+    "value": "Light Gray Wool Stairs"
   },
   {
     "id": "tile.light_weighted_pressure_plate.name",
@@ -48043,6 +48563,30 @@ export const Langs: Lang[] = [
   {
     "id": "tile.lime_candle.name",
     "value": "Lime Candle"
+  },
+  {
+    "id": "tile.lime_concrete_double_slab.name",
+    "value": "Lime Concrete Double Slab"
+  },
+  {
+    "id": "tile.lime_concrete_slab.name",
+    "value": "Lime Concrete Slab"
+  },
+  {
+    "id": "tile.lime_concrete_stairs.name",
+    "value": "Lime Concrete Stairs"
+  },
+  {
+    "id": "tile.lime_wool_double_slab.name",
+    "value": "Lime Wool Double Slab"
+  },
+  {
+    "id": "tile.lime_wool_slab.name",
+    "value": "Lime Wool Slab"
+  },
+  {
+    "id": "tile.lime_wool_stairs.name",
+    "value": "Lime Wool Stairs"
   },
   {
     "id": "tile.lit_blast_furnace.name",
@@ -48081,6 +48625,10 @@ export const Langs: Lang[] = [
     "value": "Lodestone"
   },
   {
+    "id": "tile.lodestonecompass.tooltip",
+    "value": "Points to lodestone"
+  },
+  {
     "id": "tile.log.acacia.name",
     "value": "Acacia Log"
   },
@@ -48113,12 +48661,40 @@ export const Langs: Lang[] = [
     "value": "Loom"
   },
   {
+    "id": "tile.loom.tooltip",
+    "value": "Decorate banners"
+  },
+  {
     "id": "tile.magenta_candle_cake.name",
     "value": "Cake with Magenta Candle"
   },
   {
     "id": "tile.magenta_candle.name",
     "value": "Magenta Candle"
+  },
+  {
+    "id": "tile.magenta_concrete_double_slab.name",
+    "value": "Magenta Concrete Double Slab"
+  },
+  {
+    "id": "tile.magenta_concrete_slab.name",
+    "value": "Magenta Concrete Slab"
+  },
+  {
+    "id": "tile.magenta_concrete_stairs.name",
+    "value": "Magenta Concrete Stairs"
+  },
+  {
+    "id": "tile.magenta_wool_double_slab.name",
+    "value": "Magenta Wool Double Slab"
+  },
+  {
+    "id": "tile.magenta_wool_slab.name",
+    "value": "Magenta Wool Slab"
+  },
+  {
+    "id": "tile.magenta_wool_stairs.name",
+    "value": "Magenta Wool Stairs"
   },
   {
     "id": "tile.magma.name",
@@ -48389,6 +48965,10 @@ export const Langs: Lang[] = [
     "value": "Observer"
   },
   {
+    "id": "tile.observer.tooltip",
+    "value": "Detects change"
+  },
+  {
     "id": "tile.obsidian.name",
     "value": "Obsidian"
   },
@@ -48407,6 +48987,34 @@ export const Langs: Lang[] = [
   {
     "id": "tile.orange_candle.name",
     "value": "Orange Candle"
+  },
+  {
+    "id": "tile.orange_concrete_double_slab.name",
+    "value": "Orange Concrete Double Slab"
+  },
+  {
+    "id": "tile.orange_concrete_slab.name",
+    "value": "Orange Concrete Slab"
+  },
+  {
+    "id": "tile.orange_concrete_stairs.name",
+    "value": "Orange Concrete Stairs"
+  },
+  {
+    "id": "tile.orange_poplar_leaves.name",
+    "value": "Orange Poplar Leaves"
+  },
+  {
+    "id": "tile.orange_wool_double_slab.name",
+    "value": "Orange Wool Double Slab"
+  },
+  {
+    "id": "tile.orange_wool_slab.name",
+    "value": "Orange Wool Slab"
+  },
+  {
+    "id": "tile.orange_wool_stairs.name",
+    "value": "Orange Wool Stairs"
   },
   {
     "id": "tile.oreRuby.name",
@@ -48581,8 +49189,32 @@ export const Langs: Lang[] = [
     "value": "Pink Candle"
   },
   {
+    "id": "tile.pink_concrete_double_slab.name",
+    "value": "Pink Concrete Double Slab"
+  },
+  {
+    "id": "tile.pink_concrete_slab.name",
+    "value": "Pink Concrete Slab"
+  },
+  {
+    "id": "tile.pink_concrete_stairs.name",
+    "value": "Pink Concrete Stairs"
+  },
+  {
     "id": "tile.pink_petals.name",
     "value": "Pink Petals"
+  },
+  {
+    "id": "tile.pink_wool_double_slab.name",
+    "value": "Pink Wool Double Slab"
+  },
+  {
+    "id": "tile.pink_wool_slab.name",
+    "value": "Pink Wool Slab"
+  },
+  {
+    "id": "tile.pink_wool_stairs.name",
+    "value": "Pink Wool Stairs"
   },
   {
     "id": "tile.piston_arm_collision.name",
@@ -48591,6 +49223,10 @@ export const Langs: Lang[] = [
   {
     "id": "tile.piston.name",
     "value": "Piston"
+  },
+  {
+    "id": "tile.piston.tooltip",
+    "value": "Push blocks"
   },
   {
     "id": "tile.pitcher_crop.name",
@@ -48781,6 +49417,74 @@ export const Langs: Lang[] = [
     "value": "Polished Tuff"
   },
   {
+    "id": "tile.poplar_button.name",
+    "value": "Poplar Button"
+  },
+  {
+    "id": "tile.poplar_door.name",
+    "value": "Poplar Door"
+  },
+  {
+    "id": "tile.poplar_double_slab.name",
+    "value": "Poplar Double Slab"
+  },
+  {
+    "id": "tile.poplar_fence_gate.name",
+    "value": "Poplar Fence Gate"
+  },
+  {
+    "id": "tile.poplar_fence.name",
+    "value": "Poplar Fence"
+  },
+  {
+    "id": "tile.poplar_hanging_sign.name",
+    "value": "Poplar Hanging Sign"
+  },
+  {
+    "id": "tile.poplar_log.name",
+    "value": "Poplar Log"
+  },
+  {
+    "id": "tile.poplar_planks.name",
+    "value": "Poplar Planks"
+  },
+  {
+    "id": "tile.poplar_pressure_plate.name",
+    "value": "Poplar Pressure Plate"
+  },
+  {
+    "id": "tile.poplar_sapling.name",
+    "value": "Poplar Sapling"
+  },
+  {
+    "id": "tile.poplar_shelf.name",
+    "value": "Poplar Shelf"
+  },
+  {
+    "id": "tile.poplar_slab.name",
+    "value": "Poplar Slab"
+  },
+  {
+    "id": "tile.poplar_stairs.name",
+    "value": "Poplar Stairs"
+  },
+  {
+    "id": "tile.poplar_standing_sign.name",
+    "value": "Poplar Sign"
+  },
+  {
+    "id": "tile.poplar_trapdoor.name",
+    "value": "Poplar Trapdoor"
+  },
+  {
+    "id": "tile.poplar_wall_sign.name",
+    "value": "Poplar Wall Sign"
+  },
+  {
+    "id": "tile.poplar_wood.name",
+    "value": "Poplar Wood"
+  },
+  {
     "id": "tile.portal.name",
     "value": "Portal"
   },
@@ -48839,6 +49543,30 @@ export const Langs: Lang[] = [
   {
     "id": "tile.purple_candle.name",
     "value": "Purple Candle"
+  },
+  {
+    "id": "tile.purple_concrete_double_slab.name",
+    "value": "Purple Concrete Double Slab"
+  },
+  {
+    "id": "tile.purple_concrete_slab.name",
+    "value": "Purple Concrete Slab"
+  },
+  {
+    "id": "tile.purple_concrete_stairs.name",
+    "value": "Purple Concrete Stairs"
+  },
+  {
+    "id": "tile.purple_wool_double_slab.name",
+    "value": "Purple Wool Double Slab"
+  },
+  {
+    "id": "tile.purple_wool_slab.name",
+    "value": "Purple Wool Slab"
+  },
+  {
+    "id": "tile.purple_wool_stairs.name",
+    "value": "Purple Wool Stairs"
   },
   {
     "id": "tile.purpur_block.chiseled.name",
@@ -48905,12 +49633,28 @@ export const Langs: Lang[] = [
     "value": "Block of Raw Iron"
   },
   {
+    "id": "tile.recovery_compass.tooltip",
+    "value": "See where you died"
+  },
+  {
     "id": "tile.red_candle_cake.name",
     "value": "Cake with Red Candle"
   },
   {
     "id": "tile.red_candle.name",
     "value": "Red Candle"
+  },
+  {
+    "id": "tile.red_concrete_double_slab.name",
+    "value": "Red Concrete Double Slab"
+  },
+  {
+    "id": "tile.red_concrete_slab.name",
+    "value": "Red Concrete Slab"
+  },
+  {
+    "id": "tile.red_concrete_stairs.name",
+    "value": "Red Concrete Stairs"
   },
   {
     "id": "tile.red_flower.allium.name",
@@ -48977,6 +49721,10 @@ export const Langs: Lang[] = [
     "value": "Red Nether Bricks"
   },
   {
+    "id": "tile.red_poplar_leaves.name",
+    "value": "Red Poplar Leaves"
+  },
+  {
     "id": "tile.red_sandstone_stairs.name",
     "value": "Red Sandstone Stairs"
   },
@@ -49001,6 +49749,22 @@ export const Langs: Lang[] = [
     "value": "Smooth Red Sandstone"
   },
   {
+    "id": "tile.red_shrub.name",
+    "value": "Red Shrub"
+  },
+  {
+    "id": "tile.red_wool_double_slab.name",
+    "value": "Red Wool Double Slab"
+  },
+  {
+    "id": "tile.red_wool_slab.name",
+    "value": "Red Wool Slab"
+  },
+  {
+    "id": "tile.red_wool_stairs.name",
+    "value": "Red Wool Stairs"
+  },
+  {
     "id": "tile.redstone_block.name",
     "value": "Block of Redstone"
   },
@@ -49019,6 +49783,18 @@ export const Langs: Lang[] = [
   {
     "id": "tile.redstone_wire.name",
     "value": "Redstone Dust"
+  },
+  {
+    "id": "tile.redstone.tag.conductor",
+    "value": "Redstone conductor"
+  },
+  {
+    "id": "tile.redstone.tag.powered",
+    "value": "Redstone powered"
+  },
+  {
+    "id": "tile.redstone.tag.source",
+    "value": "Redstone power source"
   },
   {
     "id": "tile.reeds.name",
@@ -49169,6 +49945,14 @@ export const Langs: Lang[] = [
     "value": "Sea Lantern"
   },
   {
+    "id": "tile.shears.tooltip",
+    "value": "Cut & trim"
+  },
+  {
+    "id": "tile.shelf_mushroom.name",
+    "value": "Shelf Mushroom"
+  },
+  {
     "id": "tile.short_dry_grass.name",
     "value": "Short Dry Grass"
   },
@@ -49261,8 +50045,16 @@ export const Langs: Lang[] = [
     "value": "Smithing Table"
   },
   {
+    "id": "tile.smithing_table.tooltip",
+    "value": "Upgrade tools & armor"
+  },
+  {
     "id": "tile.smoker.name",
     "value": "Smoker"
+  },
+  {
+    "id": "tile.smoker.tooltip",
+    "value": "Cook food faster"
   },
   {
     "id": "tile.smooth_basalt.name",
@@ -49653,6 +50445,10 @@ export const Langs: Lang[] = [
     "value": "Sticky Piston"
   },
   {
+    "id": "tile.sticky_piston.tooltip",
+    "value": "Pull blocks"
+  },
+  {
     "id": "tile.stone_brick_stairs.name",
     "value": "Stone Brick Stairs"
   },
@@ -49845,8 +50641,20 @@ export const Langs: Lang[] = [
     "value": "Stonecutter"
   },
   {
+    "id": "tile.stonecutter_block.tooltip",
+    "value": "Cut stone & copper"
+  },
+  {
     "id": "tile.stonecutter.name",
     "value": "Stonecutter"
+  },
+  {
+    "id": "tile.storage.tooltip",
+    "value": "Storage"
+  },
+  {
+    "id": "tile.straw_bed.name",
+    "value": "Straw Bed"
   },
   {
     "id": "tile.stripped_acacia_log.name",
@@ -49903,6 +50711,14 @@ export const Langs: Lang[] = [
   {
     "id": "tile.stripped_pale_oak_wood.name",
     "value": "Stripped Pale Oak Wood"
+  },
+  {
+    "id": "tile.stripped_poplar_log.name",
+    "value": "Stripped Poplar Log"
+  },
+  {
+    "id": "tile.stripped_poplar_wood.name",
+    "value": "Stripped Poplar Wood"
   },
   {
     "id": "tile.stripped_spruce_log.name",
@@ -50561,6 +51377,30 @@ export const Langs: Lang[] = [
     "value": "White Candle"
   },
   {
+    "id": "tile.white_concrete_double_slab.name",
+    "value": "White Concrete Double Slab"
+  },
+  {
+    "id": "tile.white_concrete_slab.name",
+    "value": "White Concrete Slab"
+  },
+  {
+    "id": "tile.white_concrete_stairs.name",
+    "value": "White Concrete Stairs"
+  },
+  {
+    "id": "tile.white_wool_double_slab.name",
+    "value": "White Wool Double Slab"
+  },
+  {
+    "id": "tile.white_wool_slab.name",
+    "value": "White Wool Slab"
+  },
+  {
+    "id": "tile.white_wool_stairs.name",
+    "value": "White Wool Stairs"
+  },
+  {
     "id": "tile.wildflowers.name",
     "value": "Wildflowers"
   },
@@ -50733,12 +51573,40 @@ export const Langs: Lang[] = [
     "value": "Yellow Candle"
   },
   {
+    "id": "tile.yellow_concrete_double_slab.name",
+    "value": "Yellow Concrete Double Slab"
+  },
+  {
+    "id": "tile.yellow_concrete_slab.name",
+    "value": "Yellow Concrete Slab"
+  },
+  {
+    "id": "tile.yellow_concrete_stairs.name",
+    "value": "Yellow Concrete Stairs"
+  },
+  {
     "id": "tile.yellow_flower.dandelion.name",
     "value": "Dandelion"
   },
   {
     "id": "tile.yellow_flower.name",
     "value": "Flower"
+  },
+  {
+    "id": "tile.yellow_poplar_leaves.name",
+    "value": "Yellow Poplar Leaves"
+  },
+  {
+    "id": "tile.yellow_wool_double_slab.name",
+    "value": "Yellow Wool Double Slab"
+  },
+  {
+    "id": "tile.yellow_wool_slab.name",
+    "value": "Yellow Wool Slab"
+  },
+  {
+    "id": "tile.yellow_wool_stairs.name",
+    "value": "Yellow Wool Stairs"
   },
   {
     "id": "tipped_arrow.effect.awkward",
@@ -51630,119 +52498,119 @@ export const Langs: Lang[] = [
   },
   {
     "id": "trim_material.amethyst.name",
-    "value": "Amethyst Material"
+    "value": "Amethyst"
   },
   {
     "id": "trim_material.copper.name",
-    "value": "Copper Material"
+    "value": "Copper"
   },
   {
     "id": "trim_material.diamond.name",
-    "value": "Diamond Material"
+    "value": "Diamond"
   },
   {
     "id": "trim_material.emerald.name",
-    "value": "Emerald Material"
+    "value": "Emerald"
   },
   {
     "id": "trim_material.gold.name",
-    "value": "Gold Material"
+    "value": "Gold"
   },
   {
     "id": "trim_material.iron.name",
-    "value": "Iron Material"
+    "value": "Iron"
   },
   {
     "id": "trim_material.lapis.name",
-    "value": "Lapis Material"
+    "value": "Lapis"
   },
   {
     "id": "trim_material.netherite.name",
-    "value": "Netherite Material"
+    "value": "Netherite"
   },
   {
     "id": "trim_material.quartz.name",
-    "value": "Quartz Material"
+    "value": "Quartz"
   },
   {
     "id": "trim_material.redstone.name",
-    "value": "Redstone Material"
+    "value": "Redstone"
   },
   {
     "id": "trim_material.resin.name",
-    "value": "Resin Material"
+    "value": "Resin"
   },
   {
     "id": "trim_pattern.bolt.name",
-    "value": "Bolt Armor Trim"
+    "value": "Bolt Trim"
   },
   {
     "id": "trim_pattern.coast.name",
-    "value": "Coast Armor Trim"
+    "value": "Coast Trim"
   },
   {
     "id": "trim_pattern.dune.name",
-    "value": "Dune Armor Trim"
+    "value": "Dune Trim"
   },
   {
     "id": "trim_pattern.eye.name",
-    "value": "Eye Armor Trim"
+    "value": "Eye Trim"
   },
   {
     "id": "trim_pattern.flow.name",
-    "value": "Flow Armor Trim"
+    "value": "Flow Trim"
   },
   {
     "id": "trim_pattern.host.name",
-    "value": "Host Armor Trim"
+    "value": "Host Trim"
   },
   {
     "id": "trim_pattern.raiser.name",
-    "value": "Raiser Armor Trim"
+    "value": "Raiser Trim"
   },
   {
     "id": "trim_pattern.rib.name",
-    "value": "Rib Armor Trim"
+    "value": "Rib Trim"
   },
   {
     "id": "trim_pattern.sentry.name",
-    "value": "Sentry Armor Trim"
+    "value": "Sentry Trim"
   },
   {
     "id": "trim_pattern.shaper.name",
-    "value": "Shaper Armor Trim"
+    "value": "Shaper Trim"
   },
   {
     "id": "trim_pattern.silence.name",
-    "value": "Silence Armor Trim"
+    "value": "Silence Trim"
   },
   {
     "id": "trim_pattern.snout.name",
-    "value": "Snout Armor Trim"
+    "value": "Snout Trim"
   },
   {
     "id": "trim_pattern.spire.name",
-    "value": "Spire Armor Trim"
+    "value": "Spire Trim"
   },
   {
     "id": "trim_pattern.tide.name",
-    "value": "Tide Armor Trim"
+    "value": "Tide Trim"
   },
   {
     "id": "trim_pattern.vex.name",
-    "value": "Vex Armor Trim"
+    "value": "Vex Trim"
   },
   {
     "id": "trim_pattern.ward.name",
-    "value": "Ward Armor Trim"
+    "value": "Ward Trim"
   },
   {
     "id": "trim_pattern.wayfinder.name",
-    "value": "Wayfinder Armor Trim"
+    "value": "Wayfinder Trim"
   },
   {
     "id": "trim_pattern.wild.name",
-    "value": "Wild Armor Trim"
+    "value": "Wild Trim"
   },
   {
     "id": "tutorial.edu.menuTitle",
@@ -51923,6 +52791,10 @@ export const Langs: Lang[] = [
   {
     "id": "worldConversionErrorPrompt.message",
     "value": "Oops, something went wrong during world conversion. Try again later."
+  },
+  {
+    "id": "worldConversionErrorPrompt.messageNoSpace",
+    "value": "You don't have enough free storage space to import this world. Free up some space and try again."
   },
   {
     "id": "worldConversionErrorPrompt.title",
