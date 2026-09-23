@@ -13,7 +13,8 @@ export const Biomes: Biome[] = [
       "monster",
       "overworld",
       "spawns_jungle_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -56,7 +57,8 @@ export const Biomes: Biome[] = [
       "forest",
       "monster",
       "overworld",
-      "bee_habitat"
+      "bee_habitat",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -93,7 +95,8 @@ export const Biomes: Biome[] = [
       "mutated",
       "bee_habitat",
       "overworld_generation",
-      "has_structure_trail_ruins"
+      "has_structure_trail_ruins",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -103,7 +106,8 @@ export const Biomes: Biome[] = [
       "monster",
       "overworld",
       "cherry_grove",
-      "bee_habitat"
+      "bee_habitat",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -141,7 +145,8 @@ export const Biomes: Biome[] = [
       "overworld",
       "taiga",
       "has_structure_trail_ruins",
-      "spawns_cold_variant_farm_animals"
+      "spawns_cold_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -181,6 +186,18 @@ export const Biomes: Biome[] = [
       "spawn_few_zombified_piglins",
       "spawn_piglin",
       "spawns_warm_variant_farm_animals"
+    ]
+  },
+  {
+    "id": "minecraft:dappled_forest",
+    "tags": [
+      "animal",
+      "dappled_forest",
+      "monster",
+      "forest",
+      "overworld",
+      "spawns_cold_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -231,7 +248,8 @@ export const Biomes: Biome[] = [
       "overworld",
       "spawns_warm_variant_farm_animals",
       "fast_fishing",
-      "high_seas"
+      "high_seas",
+      "temperate_ocean"
     ]
   },
   {
@@ -256,7 +274,8 @@ export const Biomes: Biome[] = [
       "warm",
       "spawns_warm_variant_farm_animals",
       "fast_fishing",
-      "high_seas"
+      "high_seas",
+      "temperate_ocean"
     ]
   },
   {
@@ -343,7 +362,8 @@ export const Biomes: Biome[] = [
       "monster",
       "mountain",
       "overworld",
-      "spawns_cold_variant_farm_animals"
+      "spawns_cold_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -366,7 +386,8 @@ export const Biomes: Biome[] = [
       "monster",
       "mutated",
       "overworld",
-      "bee_habitat"
+      "bee_habitat",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -376,7 +397,9 @@ export const Biomes: Biome[] = [
       "forest",
       "monster",
       "overworld",
-      "bee_habitat"
+      "bee_habitat",
+      "has_structure_abandoned_camp",
+      "oak_forest"
     ]
   },
   {
@@ -536,7 +559,8 @@ export const Biomes: Biome[] = [
       "monster",
       "overworld",
       "spawns_jungle_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -597,7 +621,8 @@ export const Biomes: Biome[] = [
       "overworld",
       "spawns_warm_variant_farm_animals",
       "fast_fishing",
-      "high_seas"
+      "high_seas",
+      "temperate_ocean"
     ]
   },
   {
@@ -629,7 +654,8 @@ export const Biomes: Biome[] = [
       "monster",
       "overworld",
       "meadow",
-      "bee_habitat"
+      "bee_habitat",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -643,7 +669,8 @@ export const Biomes: Biome[] = [
       "rare",
       "taiga",
       "has_structure_trail_ruins",
-      "spawns_cold_variant_farm_animals"
+      "spawns_cold_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -725,7 +752,8 @@ export const Biomes: Biome[] = [
       "stone",
       "spawns_mesa_mobs",
       "spawns_warm_variant_farm_animals",
-      "surface_mineshaft"
+      "surface_mineshaft",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -774,7 +802,8 @@ export const Biomes: Biome[] = [
     "tags": [
       "monster",
       "overworld",
-      "pale_garden"
+      "pale_garden",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -812,7 +841,8 @@ export const Biomes: Biome[] = [
       "overworld",
       "taiga",
       "has_structure_trail_ruins",
-      "spawns_cold_variant_farm_animals"
+      "spawns_cold_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -855,7 +885,8 @@ export const Biomes: Biome[] = [
       "overworld",
       "savanna",
       "spawns_savanna_mobs",
-      "spawns_warm_variant_farm_animals"
+      "spawns_warm_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -966,7 +997,8 @@ export const Biomes: Biome[] = [
       "swamp",
       "spawns_slimes_on_surface",
       "slime",
-      "swamp_water_huge_mushroom"
+      "swamp_water_huge_mushroom",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -991,7 +1023,8 @@ export const Biomes: Biome[] = [
       "overworld",
       "taiga",
       "has_structure_trail_ruins",
-      "spawns_cold_variant_farm_animals"
+      "spawns_cold_variant_farm_animals",
+      "has_structure_abandoned_camp"
     ]
   },
   {
@@ -1036,7 +1069,8 @@ export const Biomes: Biome[] = [
       "spawns_warm_variant_farm_animals",
       "spawns_warm_variant_frogs",
       "fast_fishing",
-      "high_seas"
+      "high_seas",
+      "temperate_ocean"
     ]
   },
   {

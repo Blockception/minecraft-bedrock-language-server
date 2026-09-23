@@ -469,6 +469,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:black_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:black_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:black_cushion",
     "max_damage": 0
   },
@@ -502,10 +510,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:black_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:black_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -585,6 +589,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:blue_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:blue_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:blue_cushion",
     "max_damage": 0
   },
@@ -630,10 +642,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:blue_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:blue_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -769,6 +777,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:brown_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:brown_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:brown_cushion",
     "max_damage": 0
   },
@@ -814,10 +830,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:brown_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:brown_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -1701,6 +1713,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:cyan_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:cyan_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:cyan_cushion",
     "max_damage": 0
   },
@@ -1734,10 +1754,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:cyan_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:cyan_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -2733,6 +2749,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:gray_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:gray_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:gray_cushion",
     "max_damage": 0
   },
@@ -2769,10 +2793,6 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
-    "id": "minecraft:gray_wool_double_slab",
-    "max_damage": 0
-  },
-  {
     "id": "minecraft:gray_wool_slab",
     "max_damage": 0
   },
@@ -2802,6 +2822,14 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:green_concrete_powder",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:green_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:green_concrete_stairs",
     "max_damage": 0
   },
   {
@@ -2838,10 +2866,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:green_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:green_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -3505,6 +3529,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:light_blue_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:light_blue_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:light_blue_cushion",
     "max_damage": 0
   },
@@ -3541,10 +3573,6 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
-    "id": "minecraft:light_blue_wool_double_slab",
-    "max_damage": 0
-  },
-  {
     "id": "minecraft:light_blue_wool_slab",
     "max_damage": 0
   },
@@ -3577,6 +3605,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:light_gray_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:light_gray_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:light_gray_cushion",
     "max_damage": 0
   },
@@ -3606,10 +3642,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:light_gray_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:light_gray_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -3661,6 +3693,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:lime_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:lime_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:lime_cushion",
     "max_damage": 0
   },
@@ -3694,10 +3734,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:lime_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:lime_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -3793,6 +3829,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:magenta_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:magenta_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:magenta_cushion",
     "max_damage": 0
   },
@@ -3826,10 +3870,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:magenta_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:magenta_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -4437,6 +4477,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:orange_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:orange_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:orange_cushion",
     "max_damage": 0
   },
@@ -4478,10 +4526,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:orange_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:orange_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -4741,6 +4785,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:pink_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:pink_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:pink_cushion",
     "max_damage": 0
   },
@@ -4782,10 +4834,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:pink_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:pink_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -5205,6 +5253,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:purple_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:purple_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:purple_cushion",
     "max_damage": 0
   },
@@ -5238,10 +5294,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:purple_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:purple_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -5385,6 +5437,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:red_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:red_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:red_cushion",
     "max_damage": 0
   },
@@ -5478,10 +5538,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:red_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:red_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -7025,6 +7081,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:white_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:white_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:white_cushion",
     "max_damage": 0
   },
@@ -7062,10 +7126,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:white_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:white_wool_double_slab",
     "max_damage": 0
   },
   {
@@ -7197,6 +7257,14 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:yellow_concrete_slab",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:yellow_concrete_stairs",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:yellow_cushion",
     "max_damage": 0
   },
@@ -7238,10 +7306,6 @@ export const Items: Item[] = [
   },
   {
     "id": "minecraft:yellow_wool",
-    "max_damage": 0
-  },
-  {
-    "id": "minecraft:yellow_wool_double_slab",
     "max_damage": 0
   },
   {

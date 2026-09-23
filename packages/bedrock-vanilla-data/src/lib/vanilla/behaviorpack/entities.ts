@@ -56,7 +56,10 @@ export const Entities: Entity[] = [
     "events": [
       "minecraft:entity_spawned"
     ],
-    "families": []
+    "families": [
+      "projectile",
+      "arrow"
+    ]
   },
   {
     "id": "minecraft:axolotl",
@@ -184,8 +187,10 @@ export const Entities: Entity[] = [
     "id": "minecraft:breeze_wind_charge_projectile",
     "events": [],
     "families": [
+      "projectile",
       "wind_charge",
-      "wind_charge_projectile"
+      "wind_charge_projectile",
+      "breeze_wind_charge_projectile"
     ]
   },
   {
@@ -414,7 +419,11 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:cushion",
     "events": [],
-    "families": []
+    "families": [
+      "cushion",
+      "inanimate",
+      "actor"
+    ]
   },
   {
     "id": "minecraft:dolphin",
@@ -458,7 +467,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:dragon_fireball",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "dragon_fireball"
+    ]
   },
   {
     "id": "minecraft:drowned",
@@ -493,7 +505,10 @@ export const Entities: Entity[] = [
       "minecraft:spawn_temperate",
       "minecraft:spawn_warm"
     ],
-    "families": []
+    "families": [
+      "projectile",
+      "egg"
+    ]
   },
   {
     "id": "minecraft:elder_guardian",
@@ -530,7 +545,10 @@ export const Entities: Entity[] = [
     "events": [
       "minecraft:entity_spawned"
     ],
-    "families": []
+    "families": [
+      "projectile",
+      "ender_pearl"
+    ]
   },
   {
     "id": "minecraft:enderman",
@@ -554,7 +572,6 @@ export const Entities: Entity[] = [
       "endermite",
       "arthropod",
       "monster",
-      "lightweight",
       "mob"
     ]
   },
@@ -588,19 +605,28 @@ export const Entities: Entity[] = [
     "events": [
       "minecraft:explode"
     ],
-    "families": []
+    "families": [
+      "projectile",
+      "fireball"
+    ]
   },
   {
     "id": "minecraft:fireworks_rocket",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "fireworks_rocket"
+    ]
   },
   {
     "id": "minecraft:fishing_hook",
     "events": [
       "minecraft:entity_spawned"
     ],
-    "families": []
+    "families": [
+      "projectile",
+      "fishing_hook"
+    ]
   },
   {
     "id": "minecraft:fox",
@@ -620,7 +646,6 @@ export const Entities: Entity[] = [
     ],
     "families": [
       "fox",
-      "lightweight",
       "mob"
     ]
   },
@@ -778,16 +803,16 @@ export const Entities: Entity[] = [
     "id": "minecraft:husk",
     "events": [
       "minecraft:entity_born",
-      "minecraft:spawn_as_rider",
+      "minecraft:entity_spawned",
       "minecraft:as_adult",
-      "minecraft:stop_transforming",
-      "minecraft:on_stop_riding_camel_husk",
       "minecraft:as_baby_jockey",
       "minecraft:as_baby",
-      "minecraft:convert_to_zombie",
-      "minecraft:entity_spawned",
+      "minecraft:spawn_as_rider",
       "minecraft:on_start_riding_camel_husk",
-      "minecraft:start_transforming"
+      "minecraft:on_stop_riding_camel_husk",
+      "minecraft:start_transforming_into_zombie",
+      "minecraft:stop_transforming",
+      "minecraft:convert_to_zombie"
     ],
     "families": [
       "husk",
@@ -825,7 +850,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:lingering_potion",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "lingering_potion"
+    ]
   },
   {
     "id": "minecraft:llama",
@@ -855,7 +883,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:llama_spit",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "llama_spit"
+    ]
   },
   {
     "id": "minecraft:magma_cube",
@@ -1198,7 +1229,6 @@ export const Entities: Entity[] = [
     ],
     "families": [
       "rabbit",
-      "lightweight",
       "mob"
     ]
   },
@@ -1287,7 +1317,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:shulker_bullet",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "shulker_bullet"
+    ]
   },
   {
     "id": "minecraft:silverfish",
@@ -1299,7 +1332,6 @@ export const Entities: Entity[] = [
     "families": [
       "silverfish",
       "monster",
-      "lightweight",
       "mob",
       "arthropod"
     ]
@@ -1357,7 +1389,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:small_fireball",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "small_fireball"
+    ]
   },
   {
     "id": "minecraft:sniffer",
@@ -1395,7 +1430,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:snowball",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "snowball"
+    ]
   },
   {
     "id": "minecraft:spider",
@@ -1418,7 +1456,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:splash_potion",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "splash_potion"
+    ]
   },
   {
     "id": "minecraft:squid",
@@ -1524,7 +1565,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:thrown_trident",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "thrown_trident"
+    ]
   },
   {
     "id": "minecraft:tnt",
@@ -1799,6 +1843,7 @@ export const Entities: Entity[] = [
     "id": "minecraft:wind_charge_projectile",
     "events": [],
     "families": [
+      "projectile",
       "wind_charge",
       "wind_charge_projectile"
     ]
@@ -1848,14 +1893,20 @@ export const Entities: Entity[] = [
     "events": [
       "minecraft:explode"
     ],
-    "families": []
+    "families": [
+      "projectile",
+      "wither_skull"
+    ]
   },
   {
     "id": "minecraft:wither_skull_dangerous",
     "events": [
       "minecraft:explode"
     ],
-    "families": []
+    "families": [
+      "projectile",
+      "wither_skull_dangerous"
+    ]
   },
   {
     "id": "minecraft:wolf",
@@ -1894,7 +1945,10 @@ export const Entities: Entity[] = [
   {
     "id": "minecraft:xp_bottle",
     "events": [],
-    "families": []
+    "families": [
+      "projectile",
+      "xp_bottle"
+    ]
   },
   {
     "id": "minecraft:xp_orb",
@@ -1927,16 +1981,16 @@ export const Entities: Entity[] = [
     "id": "minecraft:zombie",
     "events": [
       "minecraft:entity_born",
-      "minecraft:on_stop_riding_zombie_horse",
-      "minecraft:spawn_as_rider",
+      "minecraft:entity_spawned",
       "minecraft:as_adult",
       "minecraft:as_baby_jockey",
       "minecraft:as_baby",
-      "minecraft:convert_to_drowned",
-      "minecraft:entity_spawned",
+      "minecraft:spawn_as_rider",
       "minecraft:on_start_riding_zombie_horse",
-      "minecraft:start_transforming",
-      "minecraft:stop_transforming"
+      "minecraft:on_stop_riding_zombie_horse",
+      "minecraft:start_transforming_into_drowned",
+      "minecraft:stop_transforming",
+      "minecraft:convert_to_drowned"
     ],
     "families": [
       "zombie",
