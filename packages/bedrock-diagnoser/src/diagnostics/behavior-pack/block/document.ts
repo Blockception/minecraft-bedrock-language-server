@@ -98,7 +98,7 @@ function diagnose_block_trait(name: string, trait: any, context: Context<Interna
 
       if (trait.blocks_to_corner_with !== undefined || trait.enabled_states.includes('minecraft:corner_and_cardinal_direction')) minimum_version_required(context.source, name, [1, 26, 0], diagnoser);
 
-      if (trait.blocks_to_corner_with !== undefined && !trait.enabled_states.includes('"minecraft:corner_and_cardinal_direction"')) diagnoser.add(
+      if (trait.blocks_to_corner_with !== undefined && !trait.enabled_states.includes('minecraft:corner_and_cardinal_direction')) diagnoser.add(
         name,
         `"blocks_to_corner_with" now requires "minecraft:corner_and_cardinal_direction" to be one of the "enabled_states"`,
         DiagnosticSeverity.error,
