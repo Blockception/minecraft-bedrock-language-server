@@ -52,7 +52,7 @@
   "devDependencies": {
     "@types/adm-zip": "^0.5.8",
     "@types/jest": "^30.0.0",
-    "@types/node": "^26.6.3",
+    "@types/node": "^26.6.4",
     "json-loader": "^0.5.7",
     "ts-jest": "^29.4.14",
     "ts-loader": "^9.6.2",
