@@ -342,6 +342,22 @@ describe("Molang", () => {
       diagnoser.expectEmpty();
     });
 
+    it("built-in context.owning_entity should not require definition for Attachables", () => {
+      const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Attachables" } as MolangMetadata);
+      const entity = new MolangSet();
+      const attachable = new MolangSet();
+      attachable.add(OffsetWord.create('context.owning_entity', 0));
+      attachable.add(OffsetWord.create('c.owning_entity', 0));
+
+      diagnose_molang_implementation(
+        { id: "minecraft:test_entity", molang: entity },
+        { id: "attachable.test", molang: attachable },
+        diagnoser
+      );
+
+      diagnoser.expectEmpty();
+    });
+
     it("texture references should require definition", () => {
       const diagnoser = Metadata.withMetadata(TestDiagnoser.create(), { userType: "Entities" } as MolangMetadata);
 
