@@ -866,6 +866,22 @@ export namespace General {
       packType: 'behavior',
     },
     {
+      id: 'has_all_biome_tags',
+      documentation: 'Returns 1.0 if the biome at the current placement position has all of the specified tags, else 0.0.',
+      parameters: [
+        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
+      ],
+      packType: 'behavior'
+    },
+    {
+      id: 'has_any_biome_tags',
+      documentation: 'Returns 1.0 if the biome at the current placement position has at least one of the specified tags, else 0.0.',
+      parameters: [
+        { id: 'tag', documentation: 'biome tag name to check', type: 'string', repeatable: true },
+      ],
+      packType: 'behavior'
+    },
+    {
       id: 'has_any_family',
       documentation: 'Returns 1 if the entity has any of the specified families, else 0.',
     },
@@ -928,6 +944,10 @@ export namespace General {
     {
       id: 'has_target',
       documentation: 'Returns 1.0 if the entity has a target, else it returns 0.0.',
+    },
+    {
+      id: 'head_is_in_water',
+      documentation: 'Returns 1.0 if the entity\'s head is in water, else it returns 0.0.'
     },
     {
       id: 'head_roll_angle',
