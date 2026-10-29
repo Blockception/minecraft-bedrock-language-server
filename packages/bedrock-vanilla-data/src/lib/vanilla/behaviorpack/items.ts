@@ -2529,6 +2529,10 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:frostbite_spawn_egg",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:frosted_ice",
     "max_damage": 0
   },
@@ -3009,7 +3013,19 @@ export const Items: Item[] = [
     "max_damage": 0
   },
   {
+    "id": "minecraft:ice_ball",
+    "max_damage": 0
+  },
+  {
     "id": "minecraft:ice_bomb",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:ice_crystal",
+    "max_damage": 0
+  },
+  {
+    "id": "minecraft:icicle",
     "max_damage": 0
   },
   {

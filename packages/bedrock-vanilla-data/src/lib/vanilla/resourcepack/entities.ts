@@ -210,7 +210,10 @@ export const Entities: Entity[] = [
       "baby_transform",
       "lie_down",
       "baby_lie_down",
-      "baby_sit"
+      "baby_sit",
+      "baby_walk",
+      "baby_sprint",
+      "baby_sneak"
     ]
   },
   {

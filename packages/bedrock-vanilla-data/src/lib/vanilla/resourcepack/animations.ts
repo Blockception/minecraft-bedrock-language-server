@@ -1157,7 +1157,6 @@ export const Animations: Animation[] = [
       "frontLegR",
       "head",
       "tail1",
-      "tail2",
       "belly"
     ],
     "particles": [],
@@ -1172,7 +1171,6 @@ export const Animations: Animation[] = [
       "frontLegL",
       "frontLegR",
       "tail1",
-      "tail2",
       "head",
       "belly"
     ],
@@ -1180,9 +1178,39 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.cat.baby_transform",
+    "id": "animation.cat.baby_sneak",
     "bones": [
-      "head"
+      "backlegl",
+      "backlegr",
+      "body",
+      "frontlegl",
+      "frontlegr",
+      "head",
+      "tail1"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.cat.baby_sprint",
+    "bones": [
+      "backlegl",
+      "backlegr",
+      "frontlegl",
+      "frontlegr",
+      "tail1"
+    ],
+    "particles": [],
+    "sounds": []
+  },
+  {
+    "id": "animation.cat.baby_walk",
+    "bones": [
+      "backlegl",
+      "backlegr",
+      "frontlegl",
+      "frontlegr",
+      "tail1"
     ],
     "particles": [],
     "sounds": []
@@ -5024,7 +5052,7 @@ export const Animations: Animation[] = [
     "sounds": []
   },
   {
-    "id": "animation.sheep.baby_transform",
+    "id": "animation.sheep.baby_grazing",
     "bones": [
       "head"
     ],
@@ -5034,15 +5062,6 @@ export const Animations: Animation[] = [
   {
     "id": "animation.sheep.grazing.v2",
     "bones": [
-      "head"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
-    "id": "animation.sheep.setup.v2",
-    "bones": [
-      "body",
       "head"
     ],
     "particles": [],

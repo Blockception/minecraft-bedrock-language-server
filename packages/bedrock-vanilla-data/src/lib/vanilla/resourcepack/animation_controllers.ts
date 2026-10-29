@@ -293,14 +293,6 @@ export const AnimationControllers: AnimationController[] = [
     "sounds": []
   },
   {
-    "id": "controller.animation.cat.baby",
-    "animations": [
-      "baby_transform"
-    ],
-    "particles": [],
-    "sounds": []
-  },
-  {
     "id": "controller.animation.cat.look_at_target",
     "animations": [
       "look_at_target"
@@ -316,8 +308,11 @@ export const AnimationControllers: AnimationController[] = [
       "sit",
       "baby_sit",
       "sneak",
+      "baby_sneak",
       "sprint",
-      "walk"
+      "baby_sprint",
+      "walk",
+      "baby_walk"
     ],
     "particles": [],
     "sounds": []
@@ -1217,7 +1212,8 @@ export const AnimationControllers: AnimationController[] = [
     "id": "controller.animation.sheep.move",
     "animations": [
       "walk",
-      "grazing"
+      "grazing",
+      "baby_grazing"
     ],
     "particles": [],
     "sounds": []

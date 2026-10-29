@@ -1280,7 +1280,14 @@ export const Blocks: Block[] = [
   },
   {
     "id": "minecraft:chorus_plant",
-    "properties": []
+    "properties": [
+      "minecraft:connection_down",
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_up",
+      "minecraft:connection_west"
+    ]
   },
   {
     "id": "minecraft:cinnabar",
@@ -2316,6 +2323,12 @@ export const Blocks: Block[] = [
     "properties": []
   },
   {
+    "id": "minecraft:disc_press",
+    "properties": [
+      "minecraft:cardinal_direction"
+    ]
+  },
+  {
     "id": "minecraft:dispenser",
     "properties": [
       "facing_direction",
@@ -2560,7 +2573,12 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:fire",
     "properties": [
-      "age"
+      "age",
+      "minecraft:connection_east",
+      "minecraft:connection_north",
+      "minecraft:connection_south",
+      "minecraft:connection_up",
+      "minecraft:connection_west"
     ]
   },
   {
@@ -3188,6 +3206,20 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:ice",
     "properties": []
+  },
+  {
+    "id": "minecraft:ice_crystal",
+    "properties": [
+      "minecraft:block_face"
+    ]
+  },
+  {
+    "id": "minecraft:icicle",
+    "properties": [
+      "attached_bit",
+      "dripstone_thickness",
+      "hanging"
+    ]
   },
   {
     "id": "minecraft:infested_chiseled_stone_bricks",
@@ -5797,7 +5829,11 @@ export const Blocks: Block[] = [
   {
     "id": "minecraft:redstone_wire",
     "properties": [
-      "redstone_signal"
+      "redstone_east",
+      "redstone_north",
+      "redstone_signal",
+      "redstone_south",
+      "redstone_west"
     ]
   },
   {
