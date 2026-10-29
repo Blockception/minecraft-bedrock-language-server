@@ -709,6 +709,10 @@ export const Langs: Lang[] = [
     "value": "Share"
   },
   {
+    "id": "accessibility.store.redeem5x5.button",
+    "value": "Redeem code or gift card"
+  },
+  {
     "id": "accessibility.store.tag",
     "value": "Tag"
   },
@@ -3774,7 +3778,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "commands.deop.failed",
-    "value": "Could not de-op (permission level too high): %s"
+    "value": "Could not de-op: %s"
   },
   {
     "id": "commands.deop.message",
@@ -4894,7 +4898,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "commands.op.failed",
-    "value": "Could not op (already op or higher): %s"
+    "value": "Could not op: %s"
   },
   {
     "id": "commands.op.message",
@@ -8197,14 +8201,6 @@ export const Langs: Lang[] = [
     "value": "Includes actor properties and adjustable fog parameters"
   },
   {
-    "id": "createWorldScreen.experimentalCreatorWorldClocksFeatures",
-    "value": "Creator World Clocks Features"
-  },
-  {
-    "id": "createWorldScreen.experimentalCreatorWorldClocksFeaturesDescription",
-    "value": "Enables the use of world clocks for creators"
-  },
-  {
     "id": "createWorldScreen.experimentalCustomProjectiles",
     "value": "Experimental Custom Projectile Features"
   },
@@ -8259,6 +8255,14 @@ export const Langs: Lang[] = [
   {
     "id": "createWorldScreen.experimentalVoxelShapeFeaturesDescription",
     "value": "Enables the use of voxel shapes for some vanilla and custom blocks"
+  },
+  {
+    "id": "createWorldScreen.experimentalY2026Drop4",
+    "value": "Drop 4 of 2026"
+  },
+  {
+    "id": "createWorldScreen.experimentalY2026Drop4Description",
+    "value": "Venture into a frozen new cave and brave its icy hazards"
   },
   {
     "id": "createWorldScreen.fireSpreads",
@@ -9943,6 +9947,34 @@ export const Langs: Lang[] = [
   {
     "id": "disconnectionScreen.editor.joinIntentPolicyFailure",
     "value": "Server policy forbids client join."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure.editorClientRequired",
+    "value": "Client is not Editor-capable."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure.editorClientWithEditorIntentRequired",
+    "value": "Editor world only accepts Editor clients with EditorIntent."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure.editorWorldRequired",
+    "value": "World is not an Editor Project."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure.unknownError",
+    "value": "Unknown connection join error."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure.unknownServerPolicy",
+    "value": "Unknown server policy."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure.vanillaClientRequired",
+    "value": "Server only accepts vanilla connections."
+  },
+  {
+    "id": "disconnectionScreen.editor.joinIntentPolicyFailure.vanillaConnectionRequired",
+    "value": "Non-Editor world only accepts vanilla connections."
   },
   {
     "id": "disconnectionScreen.editor.mismatchEditorToVanilla",
@@ -22282,19 +22314,19 @@ export const Langs: Lang[] = [
   },
   {
     "id": "item.map.exploration.jungle_temple.name",
-    "value": "Jungle Explorer Map"
+    "value": "Jungle Pyramid Map"
   },
   {
     "id": "item.map.exploration.mansion.name",
-    "value": "Woodland Explorer Map"
+    "value": "Woodland Mansion Map"
   },
   {
     "id": "item.map.exploration.monument.name",
-    "value": "Ocean Explorer Map"
+    "value": "Ocean Monument Map"
   },
   {
     "id": "item.map.exploration.swamp_hut.name",
-    "value": "Swamp Explorer Map"
+    "value": "Swamp Hut Map"
   },
   {
     "id": "item.map.exploration.treasure.name",
@@ -22302,7 +22334,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "item.map.exploration.trial_chambers.name",
-    "value": "Trial Explorer Map"
+    "value": "Buried Trial Chambers Map"
   },
   {
     "id": "item.map.exploration.village_desert.name",
@@ -25865,6 +25897,86 @@ export const Langs: Lang[] = [
     "value": "Unknown Map"
   },
   {
+    "id": "matchmaking.leaveExperience.confirm",
+    "value": "Leave"
+  },
+  {
+    "id": "matchmaking.leaveExperience.message",
+    "value": "Are you sure you want to leave the experience?"
+  },
+  {
+    "id": "matchmaking.leaveExperience.title",
+    "value": "Leave experience?"
+  },
+  {
+    "id": "matchmaking.leaveExperience.tts",
+    "value": "Are you sure you want to leave the experience? Doing so will cause your entire party to leave the queue."
+  },
+  {
+    "id": "matchmaking.leaveExperience.warning",
+    "value": "Doing so will cause your entire party to leave the queue."
+  },
+  {
+    "id": "matchmaking.modal.goBack",
+    "value": "Go back"
+  },
+  {
+    "id": "matchmaking.toast.canceled",
+    "value": "The queue was canceled"
+  },
+  {
+    "id": "matchmaking.toast.canceledByPlayer",
+    "value": "%s canceled the queue"
+  },
+  {
+    "id": "matchmaking.toast.exitQueue",
+    "value": "Exit Queue"
+  },
+  {
+    "id": "matchmaking.toast.inQueue",
+    "value": "In queue: %s"
+  },
+  {
+    "id": "matchmaking.toast.inQueueLabel",
+    "value": "In Queue"
+  },
+  {
+    "id": "matchmaking.toast.leftExperience",
+    "value": "You left the experience, the queue is canceled"
+  },
+  {
+    "id": "matchmaking.toast.loading",
+    "value": "Loading %s!"
+  },
+  {
+    "id": "matchmaking.toast.localPlayerLeftServer",
+    "value": "You left the server, the queue is canceled"
+  },
+  {
+    "id": "matchmaking.toast.partyLeftQueue",
+    "value": "The party has left the queue"
+  },
+  {
+    "id": "matchmaking.toast.playerLeftServer",
+    "value": "%s left the server, the queue is canceled"
+  },
+  {
+    "id": "matchmaking.toast.queueCanceled",
+    "value": "You left the queue"
+  },
+  {
+    "id": "matchmaking.toast.requeueAsParty",
+    "value": "Rejoining the queue with your party"
+  },
+  {
+    "id": "matchmaking.toast.serverShutdown",
+    "value": "The server shut down, the queue is canceled"
+  },
+  {
+    "id": "matchmaking.toast.timedOut",
+    "value": "The queue timed out"
+  },
+  {
     "id": "mcoServer.title",
     "value": "Minecraft Online World"
   },
@@ -26587,6 +26699,34 @@ export const Langs: Lang[] = [
   {
     "id": "menu.options",
     "value": "Options"
+  },
+  {
+    "id": "menu.party.group.accountSettings.description",
+    "value": "To adjust these settings, you'll need to visit the Microsoft privacy & online safety website"
+  },
+  {
+    "id": "menu.party.group.accountSettings.title",
+    "value": "Microsoft Account settings"
+  },
+  {
+    "id": "menu.party.privacyAndSafety.buttonLabel",
+    "value": "Open"
+  },
+  {
+    "id": "menu.party.privacyAndSafety.description",
+    "value": "Worth a read"
+  },
+  {
+    "id": "menu.party.privacyAndSafety.title",
+    "value": "Privacy & online safety"
+  },
+  {
+    "id": "menu.party.tab.description",
+    "value": "It's your party. You make the rules."
+  },
+  {
+    "id": "menu.party.tab.title",
+    "value": "Party"
   },
   {
     "id": "menu.play",
@@ -27722,7 +27862,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.actionBarTextBackgroundOpacity.description",
-    "value": "How much you can see-through the action bar"
+    "value": "Adjust background darkness for temporary messages displayed above the hotbar"
+  },
+  {
+    "id": "options.actionBarTextBackgroundOpacity.name",
+    "value": "Action bar opacity"
   },
   {
     "id": "options.activateExperimentalGameplay",
@@ -28046,7 +28190,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.chatBackgroundOpacity.description",
-    "value": "Controls backgrounds for chat messages"
+    "value": "Adjust background darkness for chat messages and closed captions"
+  },
+  {
+    "id": "options.chatBackgroundOpacity.name",
+    "value": "Background opacity (chat & captions)"
   },
   {
     "id": "options.classic_box_selection",
@@ -30498,7 +30646,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.hudTextBackgroundOpacity.description",
-    "value": "Controls backgrounds for tooltips and text from the /title command"
+    "value": "Adjust background darkness for /title commands and contextual tips"
+  },
+  {
+    "id": "options.hudTextBackgroundOpacity.name",
+    "value": "Background opacity (text & tooltips)"
   },
   {
     "id": "options.improvedInputResponsePlaceholder",
@@ -30507,6 +30659,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.improvedInputResponsePlaceholder.description",
     "value": "Makes the game react faster when you press buttons or move. May increase power consumption"
+  },
+  {
+    "id": "options.improvedInputResponsePlaceholder.info_banner",
+    "value": "Improved Input Response is not used when V-Sync is off or when using Vibrant Visuals or Ray Tracing."
   },
   {
     "id": "options.improvedInputResponsePlaceholder.name",
@@ -30993,36 +31149,68 @@ export const Langs: Lang[] = [
     "value": "Party"
   },
   {
+    "id": "options.party.resetSettings",
+    "value": "Reset to default"
+  },
+  {
+    "id": "options.party.resetSettings.buttonLabel",
+    "value": "Reset"
+  },
+  {
+    "id": "options.party.resetSettings.description",
+    "value": "Set all options to their original values"
+  },
+  {
     "id": "options.partyInviteReceivedFilter",
-    "value": "Receive party invites from"
+    "value": "You can receive invites from"
   },
   {
     "id": "options.partyInviteReceivedFilter.everyone",
     "value": "Everyone"
   },
   {
+    "id": "options.partyInviteReceivedFilter.everyone.description",
+    "value": "Everyone on the same server as you"
+  },
+  {
     "id": "options.partyInviteReceivedFilter.friendsOnly",
     "value": "Friends only"
   },
   {
+    "id": "options.partyInviteReceivedFilter.friendsOnly.description",
+    "value": "Players you know and trust"
+  },
+  {
     "id": "options.partyInviteSendPrivileges",
-    "value": "Who can send party invites in your party"
+    "value": "Who can send invites"
   },
   {
     "id": "options.partyInviteSendPrivileges.partyLeaderOnly",
-    "value": "Party leader only"
+    "value": "Party leader"
+  },
+  {
+    "id": "options.partyInviteSendPrivileges.partyLeaderOnly.description",
+    "value": "Only the party leader can invite others"
   },
   {
     "id": "options.partyInviteSendPrivileges.partyMembers",
     "value": "Party leader & members"
   },
   {
+    "id": "options.partyInviteSendPrivileges.partyMembers.description",
+    "value": "All players in the party can invite others"
+  },
+  {
     "id": "options.partyPrivacy",
-    "value": "Default party privacy"
+    "value": "Default party mode"
   },
   {
     "id": "options.partyPrivacy.inviteOnly",
-    "value": "Invite Only"
+    "value": "Private"
+  },
+  {
+    "id": "options.partyPrivacy.inviteOnly.description",
+    "value": "Invite only"
   },
   {
     "id": "options.partyPrivacy.inviteOnly.label",
@@ -31030,7 +31218,11 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.partyPrivacy.open",
-    "value": "Open"
+    "value": "Public"
+  },
+  {
+    "id": "options.partyPrivacy.open.description",
+    "value": "Open to everyone"
   },
   {
     "id": "options.partyPrivacy.open.label",
@@ -31334,7 +31526,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.screenShake.description",
-    "value": "Set up camera shake using macros or chat"
+    "value": "Allow effects triggered by the /camerashake command"
   },
   {
     "id": "options.sensitivity",
@@ -31526,7 +31718,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "options.sneakOption.name",
-    "value": "Sneak button behaviour"
+    "value": "Sneak button behavior"
   },
   {
     "id": "options.sneakOption.toggle",
@@ -32139,6 +32331,10 @@ export const Langs: Lang[] = [
   {
     "id": "options.upscalingPercentage",
     "value": "Resolution"
+  },
+  {
+    "id": "options.upscalingPercentage.automaticPresetOnly",
+    "value": "Automatic resolution is only valid for presets"
   },
   {
     "id": "options.upscalingPercentage.description",
@@ -33201,6 +33397,38 @@ export const Langs: Lang[] = [
     "value": "In Pass"
   },
   {
+    "id": "persona.customskins.error.communitystandardsviolation",
+    "value": "The uploaded skin was flagged as violating community standards."
+  },
+  {
+    "id": "persona.customskins.error.failedloadingpng",
+    "value": "The decoded bytes could not be loaded as a PNG image."
+  },
+  {
+    "id": "persona.customskins.error.imagetoolarge",
+    "value": "The uploaded PNG exceeds the configured maximum size in bytes."
+  },
+  {
+    "id": "persona.customskins.error.invalidbase64",
+    "value": "The supplied string is not valid Base64."
+  },
+  {
+    "id": "persona.customskins.error.invaliddimensions",
+    "value": "The uploaded PNG's width/height combination is not in the allowed set."
+  },
+  {
+    "id": "persona.customskins.error.recordnotfound",
+    "value": "No Skin exists in storage for the requested SkinId."
+  },
+  {
+    "id": "persona.customskins.error.title",
+    "value": "Skin Upload Error"
+  },
+  {
+    "id": "persona.customskins.error.unexpectederror",
+    "value": "Unexpected error during Custom Skin upload."
+  },
+  {
     "id": "persona.medium.title",
     "value": "medium"
   },
@@ -34149,14 +34377,6 @@ export const Langs: Lang[] = [
     "value": "Wait"
   },
   {
-    "id": "progressScreen.dialog.message.partyNotEligible",
-    "value": "Your party does not have permission to play content exclusive to this world."
-  },
-  {
-    "id": "progressScreen.dialog.message.partyPartiallyEligible",
-    "value": "Some party members don't have permission to play content exclusive to this world. If you choose to join this world, they won't be able to join you."
-  },
-  {
     "id": "progressScreen.dialog.message.resourcePack.noRayTracingSupport.optional",
     "value": "Some optional resource packs applied to this world include ray tracing. Your device is not compatible with advanced lighting and texture features so you will see the world without these advanced effects."
   },
@@ -34207,14 +34427,6 @@ export const Langs: Lang[] = [
   {
     "id": "progressScreen.dialog.message.worldCorrupted",
     "value": "The world has been corrupted. Please report this at bugs.mojang.com"
-  },
-  {
-    "id": "progressScreen.dialog.title.exclusiveContent",
-    "value": "Exclusive content"
-  },
-  {
-    "id": "progressScreen.dialog.title.partyEligibilityCheck",
-    "value": "Checking Party Eligibility"
   },
   {
     "id": "progressScreen.dialog.title.resourcePack",
@@ -34469,6 +34681,14 @@ export const Langs: Lang[] = [
     "value": "Your upload succeeded, but refreshing world data failed. Your changes may not be shown immediately."
   },
   {
+    "id": "progressScreen.message.processing",
+    "value": "Processing..."
+  },
+  {
+    "id": "progressScreen.message.refreshUploadSessionFailed",
+    "value": "We couldn't renew your upload information."
+  },
+  {
     "id": "progressScreen.message.resourceLoading",
     "value": "Loading Resources"
   },
@@ -34491,6 +34711,22 @@ export const Langs: Lang[] = [
   {
     "id": "progressScreen.message.updatingContent",
     "value": "Updating %1 of %2 Packs"
+  },
+  {
+    "id": "progressScreen.message.uploadingFailedCompletion",
+    "value": "We couldn't complete the upload process."
+  },
+  {
+    "id": "progressScreen.message.uploadingFailedMulti",
+    "value": "The server failed to receive a part of your world."
+  },
+  {
+    "id": "progressScreen.message.uploadingFailedSingle",
+    "value": "The server failed to receive your world."
+  },
+  {
+    "id": "progressScreen.message.uploadingProcessingFailed",
+    "value": "The server failed while processing your world."
   },
   {
     "id": "progressScreen.message.uploadingWorld",
@@ -36273,10 +36509,6 @@ export const Langs: Lang[] = [
     "value": "Search..."
   },
   {
-    "id": "realmsSettingsScreen.selectorSectionLabel",
-    "value": "Edit \"%s\""
-  },
-  {
     "id": "realmsSettingsScreen.selectorSectionLabel.manage",
     "value": "Manage \"%s\""
   },
@@ -36374,7 +36606,7 @@ export const Langs: Lang[] = [
   },
   {
     "id": "realmsSettingsScreen.upload.worldtoobig",
-    "value": "Upload failed. The world size exceeds the maximum uploadable limit of %s."
+    "value": "Upload failed. The world size exceeds the maximum uploadable limit."
   },
   {
     "id": "realmsSettingsScreen.uploadConfirmationMessage",
@@ -36983,6 +37215,10 @@ export const Langs: Lang[] = [
   {
     "id": "resourcePack.openFolder",
     "value": "Open resource pack folder"
+  },
+  {
+    "id": "resourcePack.packSettingsMultiselectNoneSelected",
+    "value": "(none selected)"
   },
   {
     "id": "resourcePack.packSettingsTitle",
@@ -38833,6 +39069,10 @@ export const Langs: Lang[] = [
     "value": "Resource packs"
   },
   {
+    "id": "storageManager.contentType.retaillocaltopreview_worlds.name",
+    "value": "Retail worlds"
+  },
+  {
     "id": "storageManager.contentType.retailtopreview_worlds",
     "value": "Retail Worlds"
   },
@@ -39829,6 +40069,10 @@ export const Langs: Lang[] = [
     "value": "Marketplace Pass is a subscription for content to be used with supported versions of Minecraft (game sold separately) on Windows and other supported platforms on which you own the game (Minecraft Java & Amazon Kindle Fire Editions not supported); an active subscription is required to use Marketplace Pass content. Content varies over time and may not be available in all countries. After the free trial period, subscription continues to be charged at the then-current regular price (subject to change) plus applicable taxes unless cancelled. You can cancel your subscription by accessing Services & subscriptions in your Microsoft account. If your subscription terminates or a content item is removed from the catalog, you must reactivate your subscription or buy the content separately to continue using it. ISP fees may apply. We may occasionally provide content that remains available to you even after the end of your subscription, in which case we reserve the right to take down such content if it becomes incompatible or if our rights to the content expire. Subscription subject to change and/or retirement. Subject to the Microsoft Services Agreement (www.microsoft.com/msa) and the Minecraft EULA (https://www.minecraft.net/eula). Any translations of these terms are done for your convenience only, and in the event of a dispute between the English and any non-English versions, the English version of these terms shall govern."
   },
   {
+    "id": "store.csb.upsell.availableNow",
+    "value": "Available Now"
+  },
+  {
     "id": "store.csb.upsell.bestValue",
     "value": "BEST VALUE"
   },
@@ -39879,6 +40123,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.csb.upsell.rightBullet.3",
     "value": "Includes"
+  },
+  {
+    "id": "store.csb.upsell.tryFree",
+    "value": "Try Free"
   },
   {
     "id": "store.csb.viewAllPacksTitle",
@@ -39947,6 +40195,22 @@ export const Langs: Lang[] = [
   {
     "id": "store.gift.button.text",
     "value": "Gift"
+  },
+  {
+    "id": "store.gifting.limitReached.goBack",
+    "value": "Go Back"
+  },
+  {
+    "id": "store.gifting.limitReached.learnMore",
+    "value": "Learn More"
+  },
+  {
+    "id": "store.gifting.limitReached.message",
+    "value": "%s"
+  },
+  {
+    "id": "store.gifting.limitReached.title",
+    "value": "Gifting Limit Reached"
   },
   {
     "id": "store.giftPromo.day",
@@ -40081,6 +40345,10 @@ export const Langs: Lang[] = [
     "value": "%s Add-Ons"
   },
   {
+    "id": "store.mashup.count.audio",
+    "value": "%s Audio"
+  },
+  {
     "id": "store.mashup.count.mashup",
     "value": "Mash-Up"
   },
@@ -40135,6 +40403,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.mashup.hover.label.addonPack",
     "value": "Add-Ons can be applied to any world."
+  },
+  {
+    "id": "store.mashup.hover.label.audio",
+    "value": "Add new sounds and music to your world."
   },
   {
     "id": "store.mashup.hover.label.mashup.lineOne",
@@ -40387,6 +40659,22 @@ export const Langs: Lang[] = [
   {
     "id": "store.popup.download.unOwned.msg",
     "value": "Would you like to purchase the packs used by this world?"
+  },
+  {
+    "id": "store.popup.download.unOwned.notAvailable.msg",
+    "value": "We couldn't find a Marketplace offer for the pack this world uses. It may not be available for purchase on this platform."
+  },
+  {
+    "id": "store.popup.download.unOwned.notAvailable.title",
+    "value": "Pack Unavailable"
+  },
+  {
+    "id": "store.popup.download.unOwned.storeUnavailable.msg",
+    "value": "We couldn't reach the Marketplace to look up the pack this world uses. Check your connection and try again later."
+  },
+  {
+    "id": "store.popup.download.unOwned.storeUnavailable.title",
+    "value": "Marketplace Unavailable"
   },
   {
     "id": "store.popup.download.unOwned.title",
@@ -40979,6 +41267,10 @@ export const Langs: Lang[] = [
   {
     "id": "store.search.filter.andSelectedText",
     "value": "and %s"
+  },
+  {
+    "id": "store.search.filter.audio",
+    "value": "Audio"
   },
   {
     "id": "store.search.filter.clear.creator",

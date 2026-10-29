@@ -666,6 +666,11 @@ export const Entities: Entity[] = [
     ]
   },
   {
+    "id": "minecraft:frostbite",
+    "events": [],
+    "families": []
+  },
+  {
     "id": "minecraft:ghast",
     "events": [],
     "families": [
@@ -823,6 +828,11 @@ export const Entities: Entity[] = [
       "baby_undead",
       "husk_rider"
     ]
+  },
+  {
+    "id": "minecraft:ice_ball",
+    "events": [],
+    "families": []
   },
   {
     "id": "minecraft:iron_golem",
