@@ -60,6 +60,20 @@ const component_test: Record<string, ComponentCheck<Internal.BehaviorPack.Block>
   'minecraft:chest_obstruction': (name, component, context, diagnoser) => {
     minimum_version_required(context.source, name, [1, 26, 20], diagnoser);
   },
+  "minecraft:collision_box": (name, component, context, diagnoser) => {
+    try {
+      if (FormatVersion.isGreaterOrEqualThan(context.source.format_version, [1, 26, 60]) && !Array.isArray(component)) {
+        diagnoser.add(
+          name,
+          `${name} no longer accepts single box objects from v1.26.60 onwards in favor of only using arrays.`,
+          DiagnosticSeverity.error,
+          'behaviorpack.block.components.collision_box.array',
+        );
+      }
+    } catch (err) {
+      // Leaving empty as the base diagnoser should flag an invalid format version
+    }
+  },
   'minecraft:destructible_by_mining': (name, component, context, diagnoser) => {
     const destroyTime = component.seconds_to_destroy;
     if (!destroyTime) return;
