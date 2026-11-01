@@ -30,7 +30,7 @@
   "dependencies": {
     "@blockception/ide-shared": "*",
     "@types/vscode": "^1.140.0",
-    "vscode-languageclient": "^10.1.2"
+    "vscode-languageclient": "^11.0.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.4"
