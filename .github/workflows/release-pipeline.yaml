@@ -12,6 +12,9 @@ jobs:
     name: 🖥️ Release VSCode
     uses: Blockception/minecraft-bedrock-language-server/.github/workflows/release-ide.yaml@main
     secrets: inherit
+    permissions:
+      id-token: write # Required for OIDC
+      contents: read
 
   release-npm:
     name: 📦 Release NPM
