@@ -30,6 +30,7 @@ const config = {
   output: {
     // the bundle is stored in the 'dist' folder (check package.json), 📖 -> https://webpack.js.org/configuration/output/
     path: path.resolve(__dirname, "lsp"),
+    clean: true, // the client is bundled before the server, so this empties 'lsp' for both
     filename: "client.js",
     libraryTarget: "commonjs2",
     devtoolModuleFilenameTemplate: "../[resource-path]",

@@ -45,9 +45,6 @@
     "test:all": "npx jest --coverage",
     "clean": "npm run clean --workspaces"
   },
-  "dependencies": {
-    "rimraf": "^6.1.3"
-  },
   "version": "0.0.1",
   "overrides": {
     "picomatch": "^4.0.4",

@@ -25,7 +25,7 @@
     "compile": "tsc -b --pretty ./tsconfig.json",
     "test": "jest --config ../../../jest.config.ts",
     "lint": "eslint --config ../../../eslint.config.mjs .",
-    "clean": "rimraf ./dist tsconfig.tsbuildinfo"
+    "clean": "tsc -b --clean ./tsconfig.json"
   },
   "dependencies": {
     "@blockception/ide-shared": "*",

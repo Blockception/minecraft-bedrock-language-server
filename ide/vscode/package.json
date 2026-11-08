@@ -88,7 +88,7 @@
     "url": "https://github.com/Blockception/minecraft-bedrock-language-server/issues"
   },
   "scripts": {
-    "clean": "rimraf ./dist ./lsp tsconfig.tsbuildinfo",
+    "clean": "tsc -b --clean ./tsconfig.json",
     "lint": "eslint --config ../../eslint.config.mjs .",
     "test": "jest --config ../../jest.config.ts",
     "vscode:prepublish": "npm run webpack",
