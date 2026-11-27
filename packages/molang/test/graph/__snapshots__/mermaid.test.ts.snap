@@ -2572,3 +2572,85 @@ flowchart TD
     node0 -->|target| node1
     node0 -->|value| node2"
 `;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 110. v.a ? { v.b=1; v.c=2; } 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@4"}
+    node1[["v.a@0"]]
+    node2[";@11"]
+    node3{"=@11"}
+    node4[["v.b@8"]]
+    node5["1@12"]
+    node6{"=@18"}
+    node7[["v.c@15"]]
+    node8["2@19"]
+    start-->node0
+    node0 -->|condition| node1
+    node3 -->|target| node4
+    node3 -->|value| node5
+    node2 -->|stmt0| node3
+    node6 -->|target| node7
+    node6 -->|value| node8
+    node2 -->|stmt1| node6
+    node0 -->|true| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 111. v.enabled = 1; v.enabled ? { v.first = 1; v.second = 2; }; return q.anim_time; 1`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"=@10"}
+    node1[["v.enabled@0"]]
+    node2["1@12"]
+    start-->node0
+    node0 -->|target| node1
+    node0 -->|value| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 111. v.enabled = 1; v.enabled ? { v.first = 1; v.second = 2; }; return q.anim_time; 2`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"?:@25"}
+    node1[["v.enabled@15"]]
+    node2[";@37"]
+    node3{"=@37"}
+    node4[["v.first@29"]]
+    node5["1@39"]
+    node6{"=@51"}
+    node7[["v.second@42"]]
+    node8["2@53"]
+    start-->node0
+    node0 -->|condition| node1
+    node3 -->|target| node4
+    node3 -->|value| node5
+    node2 -->|stmt0| node3
+    node6 -->|target| node7
+    node6 -->|value| node8
+    node2 -->|stmt1| node6
+    node0 -->|true| node2"
+`;
+
+exports[`molang - mermaid - graphs should be able to generate stage diagrams 111. v.enabled = 1; v.enabled ? { v.first = 1; v.second = 2; }; return q.anim_time; 3`] = `
+"---
+config:
+    theme: redux
+---
+flowchart TD
+    start@{ shape: sm-circ, label: "Small start" }
+    node0{"return@59"}
+    node1{{"q.anim_time()@66"}}
+    start-->node0
+    node0 -->|operand| node1"
+`;

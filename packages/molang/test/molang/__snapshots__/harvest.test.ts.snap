@@ -9837,6 +9837,249 @@ MolangSet {
 }
 `;
 
+exports[`MolangSet - harvest 110. v.a ? { v.b=1; v.c=2; } 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "b",
+      ],
+      "position": 55,
+      "scope": "v",
+      "type": 12,
+    },
+    {
+      "names": [
+        "c",
+      ],
+      "position": 62,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.a ? { v.b=1; v.c=2; }" => [
+        {
+          "_processed": true,
+          "condition": {
+            "names": [
+              "a",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "falseExpression": undefined,
+          "position": 51,
+          "trueExpression": {
+            "position": 58,
+            "statements": [
+              {
+                "_processed": true,
+                "left": {
+                  "names": [
+                    "b",
+                  ],
+                  "position": 55,
+                  "scope": "v",
+                  "type": 12,
+                },
+                "position": 58,
+                "right": {
+                  "position": 59,
+                  "type": 5,
+                  "value": "1",
+                },
+                "type": 1,
+              },
+              {
+                "_processed": true,
+                "left": {
+                  "names": [
+                    "c",
+                  ],
+                  "position": 62,
+                  "scope": "v",
+                  "type": 12,
+                },
+                "position": 65,
+                "right": {
+                  "position": 66,
+                  "type": 5,
+                  "value": "2",
+                },
+                "type": 1,
+              },
+            ],
+            "type": 9,
+          },
+          "type": 3,
+        },
+      ],
+    },
+  },
+  "functions": Set {},
+  "using": Set {
+    {
+      "names": [
+        "a",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+}
+`;
+
+exports[`MolangSet - harvest 111. v.enabled = 1; v.enabled ? { v.first = 1; v.second = 2; }; return q.anim_time; 1`] = `
+MolangSet {
+  "assigned": Set {
+    {
+      "names": [
+        "enabled",
+      ],
+      "position": 47,
+      "scope": "v",
+      "type": 12,
+    },
+    {
+      "names": [
+        "first",
+      ],
+      "position": 76,
+      "scope": "v",
+      "type": 12,
+    },
+    {
+      "names": [
+        "second",
+      ],
+      "position": 89,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+  "cache": MolangSyntaxCache {
+    "_data": Map {
+      "v.enabled = 1; v.enabled ? { v.first = 1; v.second = 2; }; return q.anim_time;" => [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "enabled",
+            ],
+            "position": 47,
+            "scope": "v",
+            "type": 12,
+          },
+          "position": 57,
+          "right": {
+            "position": 59,
+            "type": 5,
+            "value": "1",
+          },
+          "type": 1,
+        },
+        {
+          "_processed": true,
+          "condition": {
+            "names": [
+              "enabled",
+            ],
+            "position": 62,
+            "scope": "v",
+            "type": 12,
+          },
+          "falseExpression": undefined,
+          "position": 72,
+          "trueExpression": {
+            "position": 84,
+            "statements": [
+              {
+                "_processed": true,
+                "left": {
+                  "names": [
+                    "first",
+                  ],
+                  "position": 76,
+                  "scope": "v",
+                  "type": 12,
+                },
+                "position": 84,
+                "right": {
+                  "position": 86,
+                  "type": 5,
+                  "value": "1",
+                },
+                "type": 1,
+              },
+              {
+                "_processed": true,
+                "left": {
+                  "names": [
+                    "second",
+                  ],
+                  "position": 89,
+                  "scope": "v",
+                  "type": 12,
+                },
+                "position": 98,
+                "right": {
+                  "position": 100,
+                  "type": 5,
+                  "value": "2",
+                },
+                "type": 1,
+              },
+            ],
+            "type": 9,
+          },
+          "type": 3,
+        },
+        {
+          "_processed": true,
+          "operand": {
+            "arguments": [],
+            "names": [
+              "anim_time",
+            ],
+            "position": 113,
+            "scope": "q",
+            "type": 4,
+          },
+          "operator": "return",
+          "position": 106,
+          "type": 11,
+        },
+      ],
+    },
+  },
+  "functions": Set {
+    {
+      "arguments": [],
+      "names": [
+        "anim_time",
+      ],
+      "position": 113,
+      "scope": "q",
+      "type": 4,
+    },
+  },
+  "using": Set {
+    {
+      "names": [
+        "enabled",
+      ],
+      "position": 62,
+      "scope": "v",
+      "type": 12,
+    },
+  },
+}
+`;
+
 exports[`MolangSet - harvest vanilla-player 1`] = `
 MolangSet {
   "assigned": Set {

@@ -13,6 +13,7 @@ import {
   NodeType,
   NullishCoalescingNode,
   ResourceReferenceNode,
+  StatementSequenceNode,
   StringLiteralNode,
   UnaryOperationNode,
   VariableNode,
@@ -321,7 +322,28 @@ function costlyConvertToken(tokens: Token[], startIndex: number): { node: Expres
   const current = tokens[startIndex];
 
   switch (current.type) {
-    case TokenType.OpenBrace:
+    case TokenType.OpenBrace: {
+      // A `{ ... }` scope may contain multiple `;`-separated statements
+      const code = getMatchingTokenSlice(tokens, startIndex);
+      const inner = trimBraces(code);
+      const nodes = splitTokens(inner, (item) => item.type === TokenType.Semicolon)
+        .map(trimEnding)
+        .filter((item) => item.length > 0 && item[0].type !== TokenType.EOF)
+        .map(parseTokens);
+
+      const node =
+        nodes.length === 1
+          ? nodes[0]
+          : StatementSequenceNode.create({
+              position: nodes[0]?.position ?? current.position,
+              statements: nodes,
+            });
+
+      return {
+        node,
+        startIndex: startIndex + code.length,
+      };
+    }
     case TokenType.OpenBracket:
     case TokenType.OpenParen:
       const code = getMatchingTokenSlice(tokens, startIndex);

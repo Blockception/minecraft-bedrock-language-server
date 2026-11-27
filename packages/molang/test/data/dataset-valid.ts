@@ -139,4 +139,8 @@ export const valid_syntaxes = [
   'v.test=1.5e10;',
   'v.test=.5e3;',
   'v.test=1.5e-10;',
+
+  // Issue: scope should accept multiple semicolon-separated statements
+  'v.a ? { v.b=1; v.c=2; }',
+  'v.enabled = 1; v.enabled ? { v.first = 1; v.second = 2; }; return q.anim_time;',
 ];
