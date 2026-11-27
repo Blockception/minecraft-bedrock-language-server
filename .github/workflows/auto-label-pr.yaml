@@ -2,7 +2,7 @@ name: 🏷️ Labels
 
 on:
   pull_request_target:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, edited]
 
 jobs:
   labeler:
@@ -13,5 +13,7 @@ jobs:
       issues: write
     runs-on: ubuntu-latest
     steps:
+      # Area labels from changed files and change-type labels from the PR title,
+      # configured in the autolabeler section of .github/release-drafter.yml
       - name: Label PR
-        uses: actions/labeler@v7
+        uses: release-drafter/release-drafter/autolabeler@v7

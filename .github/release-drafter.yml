@@ -1,62 +1,193 @@
 name-template: "v$RESOLVED_VERSION 🌈"
 tag-template: "v$RESOLVED_VERSION"
+
+# Changes are categorized by their conventional commit title (feat:, fix:, ...) or by label.
+# Categories are evaluated in order and are exclusive, so each PR shows up in exactly one section.
 categories:
-  - title: "🚀 Features"
+  - type: "pre-exclude"
     when:
       labels:
-        - "feature"
-        - "enhancement"
-  - title: "🐛 Bug Fixes"
-    when:
-      labels:
-        - "fix"
-        - "bugfix"
-        - "bug"
-  - title: "🧰 Maintenance"
-    when:
-      labels:
-        - "chore"
-        - "dependencies"
-  - title: "📱 Client"
-    when:
-      labels:
-        - "client"
-  - title: "🖥️ Server"
-    when:
-      labels:
-        - "server"
-  - title: "🔬 integration tests"
-    when:
-      labels:
-        - integration-tests
-  - title: "🏗️ CI/CD"
-    when:
-      labels:
-        - "CI/CD"
-  - title: "📚 Documentation"
-    when:
-      labels:
-        - "documentation"
-  - type: "version-resolver"
+        - "skip-changelog"
+        - "version-bump"
+  - title: "💥 Breaking Changes"
+    exclusive: true
     semver-increment: "major"
     when:
-      labels:
-        - "major"
+      - conventional:
+          breaking: true
+      - labels:
+          - "breaking"
+          - "major"
+  - title: "🚀 Features"
+    exclusive: true
+    when:
+      - conventional:
+          type: "feat"
+      - labels:
+          - "feature"
+          - "enhancement"
+  - title: "🐛 Bug Fixes"
+    exclusive: true
+    when:
+      - conventional:
+          type: "fix"
+      - labels:
+          - "bug"
+          - "fix"
+          - "bugfix"
+  - title: "⚡ Performance"
+    exclusive: true
+    when:
+      - conventional:
+          type: "perf"
+      - label: "performance"
+  - title: "♻️ Refactoring"
+    exclusive: true
+    when:
+      - conventional:
+          type: "refactor"
+      - label: "refactor"
+  - title: "📚 Documentation"
+    exclusive: true
+    when:
+      - conventional:
+          type: "docs"
+      - label: "documentation"
+  - title: "🧪 Tests"
+    exclusive: true
+    when:
+      - conventional:
+          type: "test"
+      - labels:
+          - "testing"
+          - "integration-tests"
+  - title: "⬆️ Dependencies"
+    exclusive: true
+    collapse-after: 5
+    when:
+      - conventional:
+          scopes:
+            - "deps"
+            - "deps-dev"
+      - labels:
+          - "dependencies"
+          - "submodules"
+  - title: "🏗️ CI/CD"
+    exclusive: true
+    when:
+      - conventional:
+          types:
+            - "ci"
+            - "build"
+      - labels:
+          - "CI/CD"
+          - "github_actions"
+  - title: "🧰 Maintenance"
+    exclusive: true
+    when:
+      - conventional:
+          types:
+            - "chore"
+            - "style"
+            - "revert"
+      - label: "chore"
+  - title: "📝 Other Changes"
   - type: "version-resolver"
     semver-increment: "minor"
     when:
-      labels:
-        - "minor"
+      label: "minor"
   - type: "version-resolver"
     semver-increment: "patch"
     when:
-      labels:
-        - "patch"
+      label: "patch"
+  # Fallback when nothing else resolves a version
+  - type: "version-resolver"
+    semver-increment: "patch"
+
+# The section header already conveys the change type, so strip the conventional prefix:
+# "fix: foo" -> "Foo", "fix(molang): foo" -> "molang: Foo"
+replacers:
+  - target: change-title
+    search: '/^(?:feat|fix|perf|refactor|docs|test|ci|build|chore|style|revert)!?:\s*(.+)$/'
+    replace: '\u$1'
+  - target: change-title
+    search: '/^(?:feat|fix|perf|refactor|docs|test|ci|build|chore|style|revert)\(([^)]+)\)!?:\s*(.+)$/'
+    replace: '$1: \u$2'
+
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
-version-resolver:
-  default: patch
+exclude-contributors:
+  - "dependabot[bot]"
+  - "github-actions[bot]"
+  - "Copilot"
 template: |
   ## Changes
 
   $CHANGES
+
+  ## Contributors
+
+  $CONTRIBUTORS
+
+  **Full Changelog**: https://github.com/$OWNER/$REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_TAG
+
+# Used by release-drafter/release-drafter/autolabeler (see .github/workflows/auto-label-pr.yaml).
+autolabeler:
+  # Area labels, from changed files
+  - labels: ["vscode"]
+    files:
+      - "ide/vscode/**"
+  - labels: ["ide"]
+    files:
+      - "ide/**"
+  - labels: ["packages"]
+    files:
+      - "packages/**"
+  - labels: ["tools"]
+    files:
+      - "tools/**"
+  - labels: ["submodules"]
+    files:
+      - "json-schemas"
+  - labels: ["github_actions"]
+    files:
+      - ".github/workflows/**"
+      - ".github/actions/**"
+  # Change-type labels, from the conventional commit PR title (or branch name)
+  - labels: ["breaking"]
+    title:
+      - '/^[a-z]+(\([^)]*\))?!:/'
+  - labels: ["feature"]
+    title:
+      - '/^feat(\([^)]*\))?!?:/'
+    branch:
+      - '/^feature/'
+      - '/^copilot\/add/'
+  - labels: ["bug"]
+    title:
+      - '/^fix(\([^)]*\))?!?:/i'
+    branch:
+      - '/^(bug|fix)/'
+      - '/^copilot\/fix/'
+  - labels: ["performance"]
+    title:
+      - '/^perf(\([^)]*\))?!?:/'
+  - labels: ["refactor"]
+    title:
+      - '/^refactor(\([^)]*\))?!?:/'
+  - labels: ["documentation"]
+    title:
+      - '/^docs(\([^)]*\))?!?:/'
+  - labels: ["testing"]
+    title:
+      - '/^test(\([^)]*\))?!?:/'
+  - labels: ["dependencies"]
+    stop-on-match: true
+    title:
+      - '/^[a-z]+\(deps(-dev)?\)!?:/'
+  - labels: ["CI/CD"]
+    title:
+      - '/^(ci|build)(\([^)]*\))?!?:/'
+  - labels: ["chore"]
+    title:
+      - '/^(chore|style|revert)(\([^)]*\))?!?:/'

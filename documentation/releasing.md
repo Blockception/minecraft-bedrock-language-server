@@ -13,9 +13,14 @@ Below is the end-to-end guide for each, plus how the CI workflows wire it all to
 - A Release Drafter workflow runs on every push to `main` and updates a draft release with grouped changes.
 	- Workflow: `.github/workflows/release-drafter.yaml`
 	- Config: `.github/release-drafter.yml`
-- Labels drive both the section grouping and the version bump:
-	- Categories: feature/enhancement, bug/fix, documentation, CI/CD, etc.
-	- Version resolver: add label `major`, `minor`, or `patch` on a PR to influence the next version; default is patch.
+- PR titles (conventional commits) and labels drive both the section grouping and the version bump:
+	- Categories: `feat:` → Features, `fix:` → Bug Fixes, `perf:`, `refactor:`, `docs:`, `test:`, `ci:`/`build:`, `chore(deps):` → Dependencies, other `chore:` → Maintenance. The matching labels (`feature`, `bug`, `documentation`, ...) work too. Each PR lands in exactly one section; anything unmatched goes to "Other Changes".
+	- The conventional prefix is stripped from the entry title (`fix(molang): foo` → `molang: Foo`).
+	- Version resolver: a breaking change (`feat!:`) or the `breaking`/`major` label bumps major; add `minor` or `patch` to influence the next version; default is patch.
+	- PRs labelled `skip-changelog` or `version-bump` are left out of the notes.
+- Labels are applied automatically by `.github/workflows/auto-label-pr.yaml` (Release Drafter's autolabeler, configured in the `autolabeler` section of `.github/release-drafter.yml`):
+	- Change-type labels (`feature`, `bug`, `documentation`, ...) from the PR title.
+	- Area labels (`ide`, `vscode`, `packages`, `tools`, ...) from changed files.
 - When you’re ready to ship, publish the drafted release on GitHub. That event can kick off further automation (see Release pipeline below).
 
 Quick links:
@@ -177,7 +182,7 @@ Workflow: `.github/workflows/release-pipeline.yaml`
 - Prefer Semantic Versioning for libraries unless a package explicitly uses a game-aligned scheme.
 - Use PR labels to signal the intended bump in Release Drafter:
 	- `major`, `minor`, `patch` — influences the next drafted version
-	- Functional labels (feature, fix, documentation) improve the generated changelog sections.
+	- Conventional commit PR titles (`feat:`, `fix:`, `docs:`, ...) or functional labels (feature, bug, documentation) place the PR in the right changelog section.
 
 ## Quick checklists
 
