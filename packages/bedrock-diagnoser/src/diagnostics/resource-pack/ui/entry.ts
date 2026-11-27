@@ -1,4 +1,5 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
+import path from 'path';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json/json';
 
@@ -47,7 +48,7 @@ const GLOBAL_VARIABLES_PATTERNS = ['**/ui/_global_variables.json', 'ui/_global_v
  * @param uri The document uri to test
  */
 function is_ui_defs_file(uri: string): boolean {
-  return /(^|[\\/])_ui_defs\.json$/i.test(uri);
+  return path.basename(uri) === '_ui_defs.json';
 }
 
 /** A reference to a `$variable` usage site, for deferred undefined-variable reporting. */
