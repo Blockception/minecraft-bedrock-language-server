@@ -10,7 +10,7 @@ exports[`Files test testing file: {/test-bp/dialogue/test.dialogue.json} expect 
     "code": "minecraft.commands.invalid",
     "message": "Command does not exist: totally_invalid_dialogue_command_xyz",
     "position": {
-      "offset": 262,
+      "offset": 253,
       "text": "totally_invalid_dialogue_command_xyz",
     },
     "severity": 3,
@@ -35,7 +35,7 @@ exports[`Files test testing file: {/test-bp/functions/execute_score.mcfunction} 
     "code": "minecraft.fakeentity.missing",
     "message": "Cannot find fake entity definition or name for: #fakeplayer",
     "position": {
-      "offset": 533,
+      "offset": 523,
       "text": "#fakeplayer",
     },
     "severity": 2,
@@ -44,7 +44,7 @@ exports[`Files test testing file: {/test-bp/functions/execute_score.mcfunction} 
     "code": "minecraft.fakeentity.missing",
     "message": "Cannot find fake entity definition or name for: #fakeplayer",
     "position": {
-      "offset": 612,
+      "offset": 601,
       "text": "#fakeplayer",
     },
     "severity": 2,
@@ -53,7 +53,7 @@ exports[`Files test testing file: {/test-bp/functions/execute_score.mcfunction} 
     "code": "minecraft.fakeentity.missing",
     "message": "Cannot find fake entity definition or name for: #fakeplayer",
     "position": {
-      "offset": 667,
+      "offset": 655,
       "text": "#fakeplayer",
     },
     "severity": 2,
@@ -62,7 +62,7 @@ exports[`Files test testing file: {/test-bp/functions/execute_score.mcfunction} 
     "code": "minecraft.fakeentity.missing",
     "message": "Cannot find fake entity definition or name for: $myvar",
     "position": {
-      "offset": 736,
+      "offset": 723,
       "text": "$myvar",
     },
     "severity": 2,
@@ -71,7 +71,7 @@ exports[`Files test testing file: {/test-bp/functions/execute_score.mcfunction} 
     "code": "minecraft.mode.scorecomparator.invalid",
     "message": "value: '%=' is not defined in mode: 'scorecomparator'",
     "position": {
-      "offset": 890,
+      "offset": 874,
       "text": "%=",
     },
     "severity": 3,
@@ -85,7 +85,7 @@ exports[`Files test testing file: {/test-bp/functions/missing_function_call.mcfu
     "code": "behaviorpack.functions.missing",
     "message": "Cannot find behaviorpack functions definition: "absolutely_missing_function_for_regression_test"",
     "position": {
-      "offset": 168,
+      "offset": 166,
       "text": "absolutely_missing_function_for_regression_test",
     },
     "severity": 3,
@@ -103,7 +103,7 @@ exports[`Files test testing file: {/test-bp/functions/unknown_commands.mcfunctio
     "code": "minecraft.commands.invalid",
     "message": "Command does not exist: totally_unknown_command_for_regression_test",
     "position": {
-      "offset": 135,
+      "offset": 133,
       "text": "totally_unknown_command_for_regression_test",
     },
     "severity": 3,
