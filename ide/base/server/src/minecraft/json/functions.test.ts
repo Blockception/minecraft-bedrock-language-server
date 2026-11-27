@@ -47,5 +47,13 @@ describe('Json Functions', () => {
         expect(text).toEqual('/example foo');
       });
     }
+
+    test('Should return undefined when the cursor is not inside a string value', () => {
+      const data2 = `{ "textures": {} }`;
+      const cursor = data2.indexOf('{}') + 1;
+
+      const range = getCurrentStringValue(data2, 'textures', cursor);
+      expect(range).toBeUndefined();
+    });
   });
 });
