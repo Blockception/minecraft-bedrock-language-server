@@ -29,7 +29,7 @@
     "clean": "tsc -b --clean ./tsconfig.json"
   },
   "devDependencies": {
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.6"
   }
