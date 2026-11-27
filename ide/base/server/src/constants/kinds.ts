@@ -61,6 +61,7 @@ export namespace Kinds {
     export const Tickingarea: CompletionItemKind = CompletionItemKind.Module;
 
     //BP
+    export const BiomeTag: CompletionItemKind = CompletionItemKind.EnumMember;
     export const Event: CompletionItemKind = CompletionItemKind.Event;
     export const Family: CompletionItemKind = CompletionItemKind.EnumMember;
     export const Functions: CompletionItemKind = CompletionItemKind.Class;

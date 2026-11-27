@@ -7,6 +7,7 @@ import * as AnimationControllers from './animation-controllers';
 import * as Animations from './animations';
 import * as Blocks from './blocks';
 import * as Entities from './entity/main';
+import * as FeatureRules from './feature-rule';
 import * as Items from './items';
 import * as LootTables from './loot-tables';
 import * as Trading from './trading';
@@ -21,6 +22,8 @@ export function provideJsonCompletion(context: Context<JsonCompletionContext>) {
       return Blocks.provideJsonCompletion(context);
     case FileType.entity:
       return Entities.provideJsonCompletion(context);
+    case FileType.feature_rule:
+      return FeatureRules.provideJsonCompletion(context);
     case FileType.item:
       return Items.provideJsonCompletion(context);
     case FileType.loot_table:
