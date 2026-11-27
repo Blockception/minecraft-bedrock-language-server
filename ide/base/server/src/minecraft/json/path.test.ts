@@ -1,4 +1,4 @@
-import { getJsonPath } from './path';
+import { getJsonPath, getSiblingPropertyValue } from './path';
 
 interface TestCase {
   element: string;
@@ -70,5 +70,47 @@ describe('JsonPath', () => {
       expect(expectedPath).toContain(result.path);
       expect(result.isProperty).toBeFalsy();
     });
+  });
+});
+
+describe('getSiblingPropertyValue', () => {
+  const json = `{
+    "minecraft:feature_rules": {
+      "conditions": {
+        "minecraft:biome_filter": [
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "overworld"
+          }
+        ]
+      }
+    }
+  }`;
+
+  test('finds the sibling value next to the cursor', () => {
+    const cursor = json.indexOf('"overworld"') + 2;
+
+    expect(getSiblingPropertyValue(cursor, json, 'test')).toEqual('has_biome_tag');
+  });
+
+  test('finds the sibling value while the value is still being typed', () => {
+    const incomplete = `{
+      "test": "has_biome_tag",
+      "operator": "==",
+      "value": "ov`;
+    const cursor = incomplete.length;
+
+    expect(getSiblingPropertyValue(cursor, incomplete, 'test')).toEqual('has_biome_tag');
+  });
+
+  test('returns undefined if the sibling property does not exist', () => {
+    const cursor = json.indexOf('"overworld"') + 2;
+
+    expect(getSiblingPropertyValue(cursor, json, 'domain')).toBeUndefined();
+  });
+
+  test('returns undefined if the cursor is not inside an object', () => {
+    expect(getSiblingPropertyValue(0, '[]', 'test')).toBeUndefined();
   });
 });
