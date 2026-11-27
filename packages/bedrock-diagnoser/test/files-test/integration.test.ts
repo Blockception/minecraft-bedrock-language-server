@@ -83,6 +83,29 @@ const RP_ENTITY_CONTENT = JSON.stringify({
   },
 });
 
+/**
+ * Regression coverage for https://github.com/Blockception/minecraft-bedrock-language-server/issues/22:
+ * file-type detection is folder-based (see `FileType.detect`), so a non-`.json` file such as a JSONte
+ * `.templ` source sitting inside an `entities/` folder is still picked up and fully diagnosed, including
+ * its Molang expressions. `diagnostic.<ext>=false` (see `Diagnoser.process`) lets a project opt such an
+ * extension out entirely.
+ */
+const TEMPL_ENTITY_ID = 'test:templ_entity';
+const TEMPL_ENTITY_URI = `${BP_FOLDER}/entities/templ_entity.templ`;
+const TEMPL_ENTITY_CONTENT = JSON.stringify({
+  format_version: '1.21.0',
+  'minecraft:entity': {
+    description: {
+      identifier: TEMPL_ENTITY_ID,
+      is_spawnable: true,
+      is_summonable: true,
+      // Invalid Molang: is_owner_identifier_any requires at least 1 argument.
+      invalid_molang_field: 'q.is_owner_identifier_any()',
+    },
+    components: {},
+  },
+});
+
 // ---------------------------------------------------------------------------
 // In-memory DiagnoserContext implementation
 // ---------------------------------------------------------------------------
@@ -226,6 +249,46 @@ describe('Integration – multi-pack workspace diagnostic pipeline', () => {
       expect(allRpDiags).toHaveLength(2);
       const secondDiag = allRpDiags[1];
       expect(secondDiag.items.filter((i) => i.code === 'behaviorpack.entities.missing')).toHaveLength(1);
+    });
+  });
+
+  describe('extension-agnostic diagnostics (issue #22)', () => {
+    const files = new Map<string, string>([
+      [BP_MANIFEST_URI, BP_MANIFEST_CONTENT],
+      [RP_MANIFEST_URI, RP_MANIFEST_CONTENT],
+      [TEMPL_ENTITY_URI, TEMPL_ENTITY_CONTENT],
+    ]);
+
+    it('diagnoses Molang errors in a non-.json file placed inside an entities/ folder', () => {
+      const { context, diagnoser } = buildWorkspace(files);
+
+      diagnoser.process(TEMPL_ENTITY_URI);
+
+      const diag = context.diagnosers.find((d) => d.document.uri === TEMPL_ENTITY_URI);
+      expect(diag).toBeDefined();
+      expect(diag!.items.some((i) => i.code === 'molang.function.arguments')).toBe(true);
+    });
+
+    it('suppresses all diagnostics for an extension when diagnostic.<ext>=false is set', () => {
+      const mcproject = MCProject.createEmpty();
+      mcproject.attributes['diagnostic.templ'] = 'false';
+
+      const context = new InMemoryContext(files);
+      const projectData = context.getProjectData().projectData;
+      const diagnoser = new Diagnoser(context);
+
+      projectData.addPack(BP_MANIFEST_URI, mcproject);
+      projectData.addPack(RP_MANIFEST_URI, mcproject);
+
+      for (const uri of files.keys()) {
+        const doc = context.getDocument(uri);
+        if (doc) projectData.process(doc);
+      }
+
+      diagnoser.process(TEMPL_ENTITY_URI);
+
+      const diag = context.diagnosers.find((d) => d.document.uri === TEMPL_ENTITY_URI);
+      expect(diag).toBeUndefined();
     });
   });
 });
