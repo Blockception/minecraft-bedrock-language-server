@@ -85,7 +85,9 @@ export function provideCompletionCommand(context: Context<CompletionContext>, co
   }
 
   const eduEnabled = IsEducationEnabled(document);
-  const matches = command.getBestMatch(eduEnabled, custom);
+  //While the command is still being typed, don't let the required-parameter-length filter discard overloads
+  //that still need more of their required parameters typed out (eg. `gamerule ` should still suggest all rule names).
+  const matches = command.getBestMatch(eduEnabled, custom, false);
   if (matches.length === 0) {
     if (cursor < 10) CCommand.provideCompletion(context);
 
