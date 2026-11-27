@@ -3,7 +3,6 @@ import { BaseObject } from 'bc-minecraft-bedrock-types';
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../internal/types';
 import { PackType } from '../project/pack-type';
-import { DataSetBase } from './data-set';
 import { TextDocument } from './text-document';
 
 /** */
@@ -18,10 +17,12 @@ export interface Pack {
   readonly manifest: Manifest;
 
   /**
-   *
-   * @param doc
+   * Processes the given document into this pack's data.
+   * @param doc The document to process
+   * @returns The uris of other documents whose identifier got overwritten
+   * by this document (same id, different location)
    */
-  process(doc: TextDocument): DataSetBase | undefined;
+  process(doc: TextDocument): string[];
 
   /**
    *

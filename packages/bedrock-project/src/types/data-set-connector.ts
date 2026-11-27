@@ -55,4 +55,14 @@ export class DataSetConnector<T extends Identifiable & Locatable, U extends Pack
 
     return findInPacks(packs, (p) => this._getDataset(p)?.find(predicate));
   }
+
+  /** @inheritdoc */
+  swap(value: T): T | undefined {
+    const packs = this._collection.packs;
+    if (!packs) return undefined;
+
+    const pack = findInPacks(packs, (p) => (value.location.uri.startsWith(p.folder) ? p : undefined));
+
+    return pack ? this._getDataset(pack)?.swap(value) : undefined;
+  }
 }

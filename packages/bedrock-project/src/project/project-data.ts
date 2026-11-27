@@ -1,7 +1,7 @@
 
 import { MCProject } from 'bc-minecraft-project';
 import { Manifest } from '../internal/types/manifest';
-import { DataSetBase, Documents, Pack, TextDocument } from '../types';
+import { Documents, Pack, TextDocument } from '../types';
 import { BehaviorPack, BehaviorPackCollection, FileType } from './behavior-pack';
 import { GeneralCollection } from './general/general';
 import {
@@ -39,8 +39,8 @@ export class ProjectData {
 
   /**Processes the given textdocument into the bacp
    * @param doc The document to process
-   * @returns Returns the possible data the document was added to*/
-  process(doc: TextDocument): DataSetBase | undefined {
+   * @returns The uris of other documents whose identifier got overwritten by this document*/
+  process(doc: TextDocument): string[] {
     const type = PackType.detect(doc.uri);
 
     switch (type) {
@@ -75,7 +75,7 @@ export class ProjectData {
         return this.worlds.process(doc);
     }
 
-    return undefined;
+    return [];
   }
 
   /**Returns the specific pack that belongs the document, returns undefined if nothing is found

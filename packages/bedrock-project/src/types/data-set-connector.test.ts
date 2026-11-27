@@ -48,8 +48,8 @@ class TestPack implements Pack {
     };
   }
 
-  process(_doc: TextDocument) {
-    return undefined;
+  process(_doc: TextDocument): string[] {
+    return [];
   }
   deleteFile(_uri: string): boolean {
     return false;
@@ -217,5 +217,32 @@ describe('DataSetConnector', () => {
     // The first pack's item must win.
     expect(result).toEqual(itemFromPack1);
     expect(result?.location.uri).toEqual('c:\\pack1\\shared.json');
+  });
+
+  it('swap() delegates to the pack whose folder owns the item and returns the previous value', () => {
+    const collection = new TestPackCollection();
+    const pack1 = new TestPack('c:\\pack1');
+    const pack2 = new TestPack('c:\\pack2');
+    collection.packs.push(pack1, pack2);
+
+    const original = TestObject.create('shared', 'c:\\pack1\\shared.json');
+    pack1.data.set(original);
+
+    const connector = makeConnector(collection);
+    const replacement = TestObject.create('shared', 'c:\\pack1\\shared-renamed.json');
+
+    expect(connector.swap(replacement)).toEqual(original);
+    expect(pack1.data.get('shared')).toEqual(replacement);
+    expect(pack2.data.has('shared')).toBe(false);
+  });
+
+  it('swap() returns undefined when no pack owns the item\'s folder', () => {
+    const collection = new TestPackCollection();
+    collection.packs.push(new TestPack('c:\\pack1'));
+
+    const connector = makeConnector(collection);
+    const orphan = TestObject.create('orphan', 'c:\\elsewhere\\orphan.json');
+
+    expect(connector.swap(orphan)).toBeUndefined();
   });
 });

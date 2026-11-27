@@ -40,10 +40,10 @@ class TestPack implements Pack {
     this.docs = [];
   }
 
-  process(doc: TextDocument) {
+  process(doc: TextDocument): string[] {
     if (this.docFilter?.test(doc.uri) ?? true) this.docs.push(doc);
 
-    return undefined;
+    return [];
   }
 
   deleteFile(uri: string): boolean {

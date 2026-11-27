@@ -1,5 +1,4 @@
 import { BaseObject } from 'bc-minecraft-bedrock-types';
-import { DataSetBase } from './data-set';
 import { findInPacks } from './find-in-packs';
 import { Pack } from './pack';
 import { TextDocument } from './text-document';
@@ -15,17 +14,18 @@ export class PackCollection<T extends Pack> {
   }
 
   /**
-   *
-   * @param doc
+   * Processes the given document into the pack that owns it.
+   * @param doc The document to process
+   * @returns The uris of other documents whose identifier got overwritten by this document
    */
-  process(doc: TextDocument): DataSetBase | undefined {
+  process(doc: TextDocument): string[] {
     const pack = this.get(doc);
 
     if (pack) {
       return pack.process(doc);
     }
 
-    return undefined;
+    return [];
   }
 
   /** */

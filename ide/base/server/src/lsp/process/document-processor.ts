@@ -6,6 +6,7 @@ import {
   TextDocumentChangeEvent,
 } from 'vscode-languageserver';
 import { Glob } from '../../files/glob';
+import { Processor } from '../../util';
 import { DiagnoserService } from '../diagnostics/service';
 import { ContentType } from '../documents/manager';
 import { TextDocument } from '../documents/text-document';
@@ -62,18 +63,35 @@ export class DocumentProcessor extends BaseService implements IService {
    *
    * @param document
    */
-  process(document: TextDocument): void {
+  process(document: TextDocument): void | Promise<void> {
     const conf = document.configuration();
 
     try {
       if (conf.ignores.patterns.length == 0 || !Glob.isMatch(document.uri, conf.ignores.patterns)) {
-        this.extension.database.ProjectData.process(document);
+        const conflicts = this.extension.database.ProjectData.process(document);
+
+        return this.revalidateConflicts(conflicts);
       } else {
         this.logger.info(`ignoring file ${document.uri}`);
       }
     } catch (error) {
       this.logger.recordError(error, document);
     }
+  }
+
+  /**
+   * Re-runs diagnostics for documents that lost an identifier to the document
+   * that was just processed, so a now-stale "duplicate identifier" diagnostic
+   * doesn't linger, and the file that now holds the duplicate gets flagged.
+   * Goes through the queue processor so a large batch of conflicts yields to
+   * the event loop instead of diagnosing every document in one go.
+   * @param uris The uris of the documents that got overwritten
+   */
+  private revalidateConflicts(uris: string[]): Promise<void> {
+    return Processor.forEach(uris, (uri) => {
+      const doc = this.extension.documents.get(uri);
+      if (doc) return this.diagnose(doc);
+    });
   }
 
   diagnose(doc: TextDocument): void | Promise<void> {
