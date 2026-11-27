@@ -1,5 +1,6 @@
 import { OffsetWord } from 'bc-minecraft-bedrock-shared';
 import { Entity } from 'bc-minecraft-bedrock-project/src/project/behavior-pack';
+import { Text } from 'bc-minecraft-bedrock-project';
 import { Minecraft } from 'bc-minecraft-bedrock-types';
 import { CompactJson } from 'bc-minecraft-bedrock-types/src/minecraft/json';
 import { DiagnosticSeverity, DiagnosticsBuilder } from '../../../types';
@@ -95,7 +96,7 @@ function entity_has_property(attr: CompactJson.IKeyNode, diagnoser: DiagnosticsB
           return general_range_integer_diagnose(value, new NoopDiagnoser(diagnoser), irange);
         }
         case 'enum':
-          return item.values.includes(value.text);
+          return item.values.includes(Text.UnQuote(value.text));
       }
     }),
   );

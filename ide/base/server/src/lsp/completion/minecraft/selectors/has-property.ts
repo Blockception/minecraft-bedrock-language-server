@@ -61,7 +61,9 @@ export function provideCompletion(context: Context<CompletionContext>, selector:
             Float.provideCreateCompletion(ncontext.builder, property.range[0], property.range[1]);
             break;
           case 'enum':
-            property.values.forEach((item) => ncontext.builder.add({ label: item, kind: Kinds.Completion.Property }));
+            property.values.forEach((item) =>
+              ncontext.builder.add({ label: `"${item}"`, kind: Kinds.Completion.Property }),
+            );
             break;
         }
       });
