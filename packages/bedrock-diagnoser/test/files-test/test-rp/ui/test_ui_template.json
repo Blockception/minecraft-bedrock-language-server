@@ -1,0 +1,18 @@
+{
+  "namespace": "templates",
+  "label_template": {
+    "type": "panel",
+    "controls": [
+      {
+        "label": {
+          "type": "label",
+          "$label_text": "Default text"
+        }
+      }
+    ]
+  },
+  "templated_instance@templates.label_template": {
+    "type": "panel",
+    "text": "$label_text"
+  }
+}

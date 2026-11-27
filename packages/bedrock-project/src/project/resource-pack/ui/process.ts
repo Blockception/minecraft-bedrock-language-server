@@ -38,13 +38,11 @@ export function process(doc: TextDocument): UIElement[] | undefined {
 
     const id = namespace ? `${namespace}.${elementName}` : elementName;
 
-    // Extract variables ($-prefixed keys from the element definition)
+    // Extract variables ($-prefixed keys), including ones declared on nested `controls` and
+    // conditional entries in a `variables` array — the common template/instance pattern, where
+    // a control elsewhere in the tree declares a $variable that only its own nested controls use.
     const variables = new Set<string>();
-    for (const prop of Object.keys(elementDef as object)) {
-      if (prop.startsWith('$')) {
-        variables.add(prop);
-      }
-    }
+    collect_variable_keys(elementDef as Record<string, unknown>, variables);
 
     // Extract binding names from the bindings array
     const bindings = new Set<string>();
@@ -71,4 +69,57 @@ export function process(doc: TextDocument): UIElement[] | undefined {
   }
 
   return results.length > 0 ? results : undefined;
+}
+
+/**
+ * Strips an optional `|default` suffix from a `$`-prefixed key (e.g. `$icon_texture|default_steve_icon`),
+ * so the stored variable name matches how it's referenced elsewhere ($icon_texture).
+ * @param key The raw `$`-prefixed key
+ * @returns The variable name without its default-value suffix
+ */
+function normalize_variable_key(key: string): string {
+  const pipe = key.indexOf('|');
+  return pipe === -1 ? key : key.substring(0, pipe);
+}
+
+/**
+ * Recursively collects every `$`-prefixed key declared anywhere within an element definition —
+ * on the element itself, on nested `controls`, and in conditional `variables` array entries —
+ * into `into`.
+ * @param node The element or control definition to scan
+ * @param into The set to add every found variable name to
+ */
+function collect_variable_keys(node: Record<string, unknown>, into: Set<string>): void {
+  for (const [prop, value] of Object.entries(node)) {
+    if (prop.startsWith('$')) {
+      into.add(normalize_variable_key(prop));
+      continue;
+    }
+
+    if (prop === 'controls' && Array.isArray(value)) {
+      for (const wrapper of value) {
+        if (typeof wrapper !== 'object' || wrapper === null) continue;
+
+        for (const controlDef of Object.values(wrapper as Record<string, unknown>)) {
+          if (typeof controlDef === 'object' && controlDef !== null) {
+            collect_variable_keys(controlDef as Record<string, unknown>, into);
+          }
+        }
+      }
+      continue;
+    }
+
+    if (prop === 'variables' && Array.isArray(value)) {
+      // Conditional variable declarations: [{ "requires": "$cond", "$name": "value" }, ...]
+      for (const variant of value) {
+        if (typeof variant !== 'object' || variant === null) continue;
+
+        for (const variantKey of Object.keys(variant as Record<string, unknown>)) {
+          if (variantKey.startsWith('$')) {
+            into.add(normalize_variable_key(variantKey));
+          }
+        }
+      }
+    }
+  }
 }
