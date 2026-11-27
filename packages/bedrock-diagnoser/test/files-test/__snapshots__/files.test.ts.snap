@@ -235,5 +235,31 @@ exports[`Files test testing file: {/test-rp/ui/test_ui.json} expect specific err
     "position": "broken_ref@missing_ns.missing_element",
     "severity": 2,
   },
+  {
+    "code": "resourcepack.ui.type.invalid",
+    "message": "UI element type "pannel" is not a recognized control type",
+    "position": "bad_type_panel",
+    "severity": 2,
+  },
+  {
+    "code": "resourcepack.ui.binding.type.invalid",
+    "message": "Binding type "collecton" is not a recognized binding type",
+    "position": "bad_binding_panel",
+    "severity": 2,
+  },
+  {
+    "code": "resourcepack.ui.binding.collection_name.missing",
+    "message": "Binding of type "collection" requires a "binding_collection_name"",
+    "position": "bad_binding_panel",
+    "severity": 2,
+  },
+  {
+    "code": "resourcepack.ui.variable.undefined",
+    "message": "Variable "$totally_undeclared_var" is not defined on this element, its inherited chain, or anywhere else in the project",
+    "position": "undefined_variable_panel",
+    "severity": 2,
+  },
 ]
 `;
+
+exports[`Files test testing file: {/test-rp/ui/test_ui_template.json} expect specific errors 1`] = `[]`;

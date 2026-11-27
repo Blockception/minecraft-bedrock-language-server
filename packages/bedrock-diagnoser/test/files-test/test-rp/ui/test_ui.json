@@ -16,5 +16,19 @@
   },
   "broken_ref@missing_ns.missing_element": {
     "type": "panel"
+  },
+  "bad_type_panel": {
+    "type": "pannel"
+  },
+  "bad_binding_panel": {
+    "type": "panel",
+    "bindings": [
+      { "binding_type": "collecton" },
+      { "binding_type": "collection" }
+    ]
+  },
+  "undefined_variable_panel": {
+    "type": "panel",
+    "visible": "$totally_undeclared_var"
   }
 }
