@@ -42,19 +42,14 @@ function forEach<T extends BaseObject>(config: LensConfig<T>, doc: TextDocument,
     if (item.location.uri === doc.uri) return;
 
     const regex = config.regex!(item.id, doc);
-    const matches = regex.exec(text);
+    let match: RegExpExecArray | null;
 
-    if (!matches) return;
-    let index = matches.index;
+    while ((match = regex.exec(text))) {
+      builder.push({ range: createRange(match.index, doc, match[0].length), data: item });
 
-    matches.forEach((match) => {
-      index = text.indexOf(match, index);
-      if (index < 0) return;
-
-      builder.push({ range: createRange(index, doc, match.length), data: item });
-
-      index += match.length;
-    });
+      // Avoid an infinite loop if the regex can match an empty string.
+      if (match[0].length === 0) regex.lastIndex++;
+    }
   });
 }
 
