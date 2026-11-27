@@ -165,6 +165,25 @@ describe("Selector", () => {
 
       diagnoser.expectEmpty();
     });
+
+    it("quoted valid value should not produce errors", () => {
+      const diagnoser = TestDiagnoser.create();
+      makeEntity(diagnoser, "test:entity1", "test:val1", ["a", "b", "c"]);
+      makeEntity(diagnoser, "test:entity2", "test:val2", ["d", "e", "f"]);
+
+      minecraft_selector_diagnose(pi, OffsetWord.create('@e[has_property={test:val1="a"}]'), diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+
+    it("quoted invalid value should produce an error", () => {
+      const diagnoser = TestDiagnoser.create();
+      makeEntity(diagnoser, "test:entity1", "test:val1", ["a", "b", "c"]);
+
+      minecraft_selector_diagnose(pi, OffsetWord.create('@e[has_property={test:val1="q"}]'), diagnoser);
+
+      diagnoser.expectAny();
+    });
   });
 
   describe("Expecting no errors", () => {
