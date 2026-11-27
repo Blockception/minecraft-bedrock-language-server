@@ -11,3 +11,4 @@ export * from "./render_controller";
 export * from "./resourcepack";
 export * from "./sound";
 export * from "./texture";
+export * from "./texture_atlas";
