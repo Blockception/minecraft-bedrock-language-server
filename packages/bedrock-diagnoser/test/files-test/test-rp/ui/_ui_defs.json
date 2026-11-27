@@ -1,0 +1,3 @@
+{
+  "ui_defs": ["ui/test_ui.json", "ui/test_ui_template.json", "ui/missing_screen.json"]
+}

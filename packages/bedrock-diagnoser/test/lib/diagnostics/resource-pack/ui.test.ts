@@ -10,6 +10,13 @@ function createDoc(content: unknown): TextDocument {
   };
 }
 
+function createUiDefsDoc(content: unknown): TextDocument {
+  return {
+    uri: path.join('resource_pack', 'ui', '_ui_defs.json'),
+    getText: () => JSON.stringify(content, undefined, 2),
+  };
+}
+
 describe('ResourcePack', () => {
   describe('UI', () => {
     it('emits no diagnostics for a well-formed element', () => {
@@ -358,6 +365,46 @@ describe('ResourcePack', () => {
         bindings: new Set(),
         extends: 'missing.el',
       });
+
+      diagnose_ui_document(diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+  });
+
+  describe('_ui_defs.json', () => {
+    it('emits no diagnostics when every listed file exists', () => {
+      const diagnoser = TestDiagnoser.createDocument(undefined, createUiDefsDoc({ ui_defs: ['ui/test_ui.json'] }));
+      diagnoser.context.getFiles = () => ['resource_pack/ui/test_ui.json'];
+
+      diagnose_ui_document(diagnoser);
+
+      diagnoser.expectEmpty();
+    });
+
+    it('emits resourcepack.ui.defs.missing_file for a listed file that does not exist', () => {
+      const diagnoser = TestDiagnoser.createDocument(undefined, createUiDefsDoc({ ui_defs: ['ui/does_not_exist.json'] }));
+      diagnoser.context.getFiles = () => [];
+
+      diagnose_ui_document(diagnoser);
+
+      diagnoser.expectAmount(1);
+      expect(diagnoser.hasCode('resourcepack.ui.defs.missing_file')).toBe(true);
+    });
+
+    it('emits resourcepack.ui.defs.entry.invalid for a non-string entry', () => {
+      const diagnoser = TestDiagnoser.createDocument(undefined, createUiDefsDoc({ ui_defs: [42] }));
+      diagnoser.context.getFiles = () => [];
+
+      diagnose_ui_document(diagnoser);
+
+      diagnoser.expectAmount(1);
+      expect(diagnoser.hasCode('resourcepack.ui.defs.entry.invalid')).toBe(true);
+    });
+
+    it('does nothing for a _ui_defs.json without a ui_defs array', () => {
+      const diagnoser = TestDiagnoser.createDocument(undefined, createUiDefsDoc({ some_other_field: true }));
+      diagnoser.context.getFiles = () => [];
 
       diagnose_ui_document(diagnoser);
 
