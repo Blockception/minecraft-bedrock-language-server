@@ -21,7 +21,7 @@ Below is the end-to-end guide for each, plus how the CI workflows wire it all to
 Quick links:
 
 - Config categories and labels: `.github/release-drafter.yml`
-- Action used: `release-drafter/release-drafter@v6`
+- Action used: `release-drafter/release-drafter@v7`
 
 ## Releasing the VS Code extension
 
