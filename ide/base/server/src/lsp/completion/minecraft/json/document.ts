@@ -23,8 +23,12 @@ export function provideCompletionDocument(context: Context<CompletionContext>): 
     return;
   }
 
-  //If start has not been found or not a property
-  const range = getCurrentStringValue(text, p.property, cursor) ?? { start: cursor, end: cursor };
+  //Only provide completions when the cursor is actually inside a string value
+  const range = getCurrentStringValue(text, p.property, cursor);
+  if (!range) {
+    return;
+  }
+
   const currentText = text.substring(range.start, range.end);
   const jsonContext: Context<JsonCompletionContext> = Context.modify(context, {
     builder: jsonBuilder(cursor, range, currentText, document, context.builder),
