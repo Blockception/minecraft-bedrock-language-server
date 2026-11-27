@@ -5317,3 +5317,158 @@ exports[`molang - syntax should be able to parse and match the syntax tree gener
   },
 ]
 `;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 110. v.a ? { v.b=1; v.c=2; } 1`] = `
+[
+  {
+    "_processed": true,
+    "condition": {
+      "names": [
+        "a",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "falseExpression": undefined,
+    "position": 4,
+    "trueExpression": {
+      "position": 11,
+      "statements": [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "b",
+            ],
+            "position": 8,
+            "scope": "v",
+            "type": "Variable",
+          },
+          "position": 11,
+          "right": {
+            "position": 12,
+            "type": "Literal",
+            "value": "1",
+          },
+          "type": "Assignment",
+        },
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "c",
+            ],
+            "position": 15,
+            "scope": "v",
+            "type": "Variable",
+          },
+          "position": 18,
+          "right": {
+            "position": 19,
+            "type": "Literal",
+            "value": "2",
+          },
+          "type": "Assignment",
+        },
+      ],
+      "type": "StatementSequence",
+    },
+    "type": "Conditional",
+  },
+]
+`;
+
+exports[`molang - syntax should be able to parse and match the syntax tree generated 111. v.enabled = 1; v.enabled ? { v.first = 1; v.second = 2; }; return q.anim_time; 1`] = `
+[
+  {
+    "_processed": true,
+    "left": {
+      "names": [
+        "enabled",
+      ],
+      "position": 0,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "position": 10,
+    "right": {
+      "position": 12,
+      "type": "Literal",
+      "value": "1",
+    },
+    "type": "Assignment",
+  },
+  {
+    "_processed": true,
+    "condition": {
+      "names": [
+        "enabled",
+      ],
+      "position": 15,
+      "scope": "v",
+      "type": "Variable",
+    },
+    "falseExpression": undefined,
+    "position": 25,
+    "trueExpression": {
+      "position": 37,
+      "statements": [
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "first",
+            ],
+            "position": 29,
+            "scope": "v",
+            "type": "Variable",
+          },
+          "position": 37,
+          "right": {
+            "position": 39,
+            "type": "Literal",
+            "value": "1",
+          },
+          "type": "Assignment",
+        },
+        {
+          "_processed": true,
+          "left": {
+            "names": [
+              "second",
+            ],
+            "position": 42,
+            "scope": "v",
+            "type": "Variable",
+          },
+          "position": 51,
+          "right": {
+            "position": 53,
+            "type": "Literal",
+            "value": "2",
+          },
+          "type": "Assignment",
+        },
+      ],
+      "type": "StatementSequence",
+    },
+    "type": "Conditional",
+  },
+  {
+    "_processed": true,
+    "operand": {
+      "arguments": [],
+      "names": [
+        "anim_time",
+      ],
+      "position": 66,
+      "scope": "q",
+      "type": "FunctionCall",
+    },
+    "operator": "return",
+    "position": 59,
+    "type": "UnaryOperation",
+  },
+]
+`;
