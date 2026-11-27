@@ -1,4 +1,4 @@
-import { MCProject } from 'bc-minecraft-project';
+import { MCIgnore, MCProject } from 'bc-minecraft-project';
 import { IExtendedLogger } from '../logger/logger';
 import { IDocumentManager } from '../documents/manager';
 import { TextDocument } from '../documents/text-document';
@@ -71,6 +71,50 @@ describe('InternalContext.getDiagnoser', () => {
     const project = MCProject.createEmpty();
     project.attributes['diagnostic.templ'] = 'false';
     const doc = createDocument('file:///workspace/behavior_pack/entities/foo.json');
+
+    expect(context.getDiagnoser(doc, project)).toBeDefined();
+  });
+
+  /**
+   * Regression coverage: the 80 character path-length check (`format_diagnose_path`) was
+   * flagging files that live inside vendored/VCS folders such as `node_modules` and `.git`,
+   * which a project never authors itself. These folders should be ignored by default,
+   * without requiring the user to add them to their own `.mcignore`.
+   */
+  it('skips files inside node_modules by default', () => {
+    const context = createContext();
+    const project = MCProject.createEmpty();
+    project.ignores = MCIgnore.createDefault();
+    const doc = createDocument(
+      'file:///workspace/behavior_pack/scripts/node_modules/@minecraft/server/package.json',
+    );
+
+    expect(context.getDiagnoser(doc, project)).toBeUndefined();
+  });
+
+  it('skips files inside .git by default', () => {
+    const context = createContext();
+    const project = MCProject.createEmpty();
+    project.ignores = MCIgnore.createDefault();
+    const doc = createDocument('file:///workspace/.git/config');
+
+    expect(context.getDiagnoser(doc, project)).toBeUndefined();
+  });
+
+  it('still diagnoses normal pack files when default ignores are present', () => {
+    const context = createContext();
+    const project = MCProject.createEmpty();
+    project.ignores = MCIgnore.createDefault();
+    const doc = createDocument('file:///workspace/behavior_pack/entities/foo.json');
+
+    expect(context.getDiagnoser(doc, project)).toBeDefined();
+  });
+
+  it('does not treat .github as a match for the .git default pattern', () => {
+    const context = createContext();
+    const project = MCProject.createEmpty();
+    project.ignores = MCIgnore.createDefault();
+    const doc = createDocument('file:///workspace/.github/workflows/build.json');
 
     expect(context.getDiagnoser(doc, project)).toBeDefined();
   });

@@ -15,6 +15,39 @@ describe('MCIgnore', () => {
     });
   });
 
+  describe('createDefault', () => {
+    it('returns the default patterns', () => {
+      const result = MCIgnore.createDefault();
+      expect(result.patterns).toEqual(['**/node_modules/**', '**/.git/**']);
+    });
+  });
+
+  describe('withoutDefaults', () => {
+    it('removes a leading default-patterns prefix', () => {
+      const data: MCIgnore = { patterns: ['**/node_modules/**', '**/.git/**', 'Temp', 'Build'] };
+      const result = MCIgnore.withoutDefaults(data);
+      expect(result.patterns).toEqual(['Temp', 'Build']);
+    });
+
+    it('does not mutate the source object', () => {
+      const data: MCIgnore = { patterns: ['**/node_modules/**', '**/.git/**', 'Temp'] };
+      MCIgnore.withoutDefaults(data);
+      expect(data.patterns).toEqual(['**/node_modules/**', '**/.git/**', 'Temp']);
+    });
+
+    it('is a no-op when there is no default-patterns prefix', () => {
+      const data: MCIgnore = { patterns: ['Temp', 'Build'] };
+      const result = MCIgnore.withoutDefaults(data);
+      expect(result.patterns).toEqual(['Temp', 'Build']);
+    });
+
+    it('keeps a pattern that merely looks like a default when it is not a leading prefix', () => {
+      const data: MCIgnore = { patterns: ['Temp', '**/node_modules/**', '**/.git/**'] };
+      const result = MCIgnore.withoutDefaults(data);
+      expect(result.patterns).toEqual(['Temp', '**/node_modules/**', '**/.git/**']);
+    });
+  });
+
   describe('merge', () => {
     it('merges patterns from two MCIgnore objects', () => {
       const a: MCIgnore = { patterns: ['OutputFolder', 'Temp'] };

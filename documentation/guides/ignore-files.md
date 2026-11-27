@@ -15,7 +15,7 @@ This guide covers everything you need to know about using ignore files in Minecr
 
 ## Overview
 
-The language server scans your entire project folder to provide diagnostics, autocomplete, and validation. By default it processes every file it finds — including third-party content, generated output, and temporary files that are not part of your actual source. This can cause:
+The language server scans your entire project folder to provide diagnostics, autocomplete, and validation. It always skips a small set of well known folders, such as `node_modules` and `.git`, but otherwise processes every file it finds — including third-party content, generated output, and temporary files that are not part of your actual source. This can cause:
 
 - **False positives** — errors reported for files you do not own or maintain
 - **Slow scans** — large vendored or generated folders increase scan time noticeably
