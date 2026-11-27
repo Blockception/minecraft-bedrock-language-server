@@ -11,10 +11,35 @@ export namespace MCIgnore {
   /**The default filename of a MCIgnore filename*/
   export const filename = '.mcignore';
 
+  /**Glob patterns that are ignored by default, regardless of the project's own `.mcignore`.
+   * These are well known folders that are never part of a project's own authored content,
+   * such as package manager and version control folders. The patterns are scoped to the
+   * folder itself (e.g. `node_modules/`), so that they do not accidentally match unrelated
+   * paths that merely contain the same text, such as `.github` or `my_node_modules_cache`.*/
+  export const defaultPatterns: readonly string[] = ['**/node_modules/**', '**/.git/**'];
+
   /**Creates an empty version of MCIgnore
    * @returns An empty MCIgnore object*/
   export function createEmpty(): MCIgnore {
     return { patterns: [] };
+  }
+
+  /**Creates a MCIgnore that contains only the {@link defaultPatterns}
+   * @returns A MCIgnore object with the default patterns*/
+  export function createDefault(): MCIgnore {
+    return { patterns: [...defaultPatterns] };
+  }
+
+  /**Removes the {@link defaultPatterns} from the given MCIgnore, so that they are not
+   * persisted back into a project's own `.mcignore` file. Since {@link merge} always places
+   * the defaults at the start, only that exact prefix is stripped, so that a user's own
+   * pattern is never removed just because it happens to match the text of a default.
+   * @param data The MCIgnore to strip the default patterns from
+   * @returns A new MCIgnore without the leading default patterns*/
+  export function withoutDefaults(data: MCIgnore): MCIgnore {
+    const hasDefaultPrefix = defaultPatterns.every((pattern, index) => data.patterns[index] === pattern);
+
+    return { patterns: hasDefaultPrefix ? data.patterns.slice(defaultPatterns.length) : [...data.patterns] };
   }
 
   /** Merges the two given objects into a new MCIgnore.

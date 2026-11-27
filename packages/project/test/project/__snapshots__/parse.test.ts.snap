@@ -47,6 +47,8 @@ exports[`MCProject load file2 1`] = `
   },
   "ignores": {
     "patterns": [
+      "**/node_modules/**",
+      "**/.git/**",
       "OutputFolder",
       "Temp",
       "Template/something",
@@ -64,7 +66,10 @@ exports[`MCProject load not existing 1`] = `
   "attributes": {},
   "definitions": {},
   "ignores": {
-    "patterns": [],
+    "patterns": [
+      "**/node_modules/**",
+      "**/.git/**",
+    ],
   },
   "linting": {
     "rules": {},
@@ -77,7 +82,10 @@ exports[`MCProject loadSync not existing 1`] = `
   "attributes": {},
   "definitions": {},
   "ignores": {
-    "patterns": [],
+    "patterns": [
+      "**/node_modules/**",
+      "**/.git/**",
+    ],
   },
   "linting": {
     "rules": {},
@@ -132,6 +140,8 @@ exports[`MCProject loadSync p1 1`] = `
   },
   "ignores": {
     "patterns": [
+      "**/node_modules/**",
+      "**/.git/**",
       "OutputFolder",
       "Temp",
       "Template/something",

@@ -50,7 +50,7 @@ export namespace MCProject {
   export function loadSync(Source: string): MCProject {
     const attributes = MCAttributes.loadSync(path.join(Source, MCAttributes.filename));
     const definitions = MCDefinition.loadSync(path.join(Source, MCDefinition.filename));
-    const ignores = MCIgnore.loadSync(path.join(Source, MCIgnore.filename));
+    const ignores = MCIgnore.merge(MCIgnore.createDefault(), MCIgnore.loadSync(path.join(Source, MCIgnore.filename)));
     const linting = MCLint.loadSync(path.join(Source, MCLint.filename));
 
     return { attributes, definitions, ignores, linting };
@@ -67,7 +67,7 @@ export namespace MCProject {
    * @param project The data to save*/
   export function saveSync(Folder: string, project: MCProject): void {
     MCAttributes.saveSync(project.attributes, path.join(Folder, MCAttributes.filename));
-    MCIgnore.saveSync(project.ignores, path.join(Folder, MCIgnore.filename));
+    MCIgnore.saveSync(MCIgnore.withoutDefaults(project.ignores), path.join(Folder, MCIgnore.filename));
     MCDefinition.saveSync(project.definitions, path.join(Folder, MCDefinition.filename));
   }
 
@@ -78,7 +78,7 @@ export namespace MCProject {
   export async function save(Folder: string, project: MCProject): Promise<void[]> {
     const P: Promise<void>[] = [
       MCAttributes.save(project.attributes, path.join(Folder, MCAttributes.filename)),
-      MCIgnore.save(project.ignores, path.join(Folder, MCIgnore.filename)),
+      MCIgnore.save(MCIgnore.withoutDefaults(project.ignores), path.join(Folder, MCIgnore.filename)),
       MCDefinition.save(project.definitions, path.join(Folder, MCDefinition.filename)),
     ];
 

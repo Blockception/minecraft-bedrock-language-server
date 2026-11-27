@@ -47,6 +47,8 @@ exports[`MCProject is async p1 1`] = `
   },
   "ignores": {
     "patterns": [
+      "**/node_modules/**",
+      "**/.git/**",
       "OutputFolder",
       "Temp",
       "Template/something",
@@ -119,6 +121,8 @@ exports[`MCProject is p1 1`] = `
   },
   "ignores": {
     "patterns": [
+      "**/node_modules/**",
+      "**/.git/**",
       "OutputFolder",
       "Temp",
       "Template/something",
