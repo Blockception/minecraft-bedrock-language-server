@@ -24,8 +24,6 @@ export function getBestMatches(
 ): CommandInfo[] {
   let m = command.getCommandData(edu, custom);
 
-  if (m.length === 1) return m;
-
   m = m.filter((x) => isMatch(command, x, edu, custom));
 
   if (useRequiredParameterLengthFilter && m.length > 1) {

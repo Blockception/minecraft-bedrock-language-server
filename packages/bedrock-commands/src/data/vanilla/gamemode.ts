@@ -13,14 +13,4 @@ export const gamemode: CommandInfo[] = [
       { text: 'player', type: ParameterType.selector, required: false },
     ],
   },
-  {
-    name: 'gamemode',
-    documentation: "Sets a player's game mode.",
-    permission_level: 1,
-    parameters: [
-      { text: 'gamemode', type: ParameterType.keyword, required: true },
-      { text: 'game mode', type: ParameterType.integer, required: true },
-      { text: 'player', type: ParameterType.selector, required: false },
-    ],
-  },
 ];
