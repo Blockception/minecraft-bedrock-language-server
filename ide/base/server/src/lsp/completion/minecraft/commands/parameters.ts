@@ -91,6 +91,7 @@ const DataMap: Record<number, functionCall> = {
   //General
   [ParameterType.boolean]: General.Boolean.provideCompletion,
   [ParameterType.coordinate]: General.Coordinate.provideCompletion,
+  [ParameterType.enchant]: General.Enchant.provideCompletion,
   [ParameterType.float]: General.Float.provideCompletion,
   [ParameterType.integer]: General.Integer.provideCompletion,
   [ParameterType.integer_range]: General.Integer.provideRangeCompletion,

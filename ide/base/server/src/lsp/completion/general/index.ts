@@ -1,6 +1,7 @@
 export * as Boolean from './boolean';
 export * as Coordinate from './coordinate';
 export * as Effect from './effect';
+export * as Enchant from './enchant';
 export * as Fake from './fake-entity';
 export * as Float from './float';
 export * as Integer from './integer';
