@@ -57,4 +57,37 @@ CustomCommandRegistry.registerCommand(definition, () => {});
     expect(hasCommandData('example:bye', false, secondContainer)).toBeFalsy();
     expect(hasCommandData('example:new', false, secondContainer)).toBeTruthy();
   });
+
+  it('parses registration via the real system.beforeEvents.startup.subscribe shape', () => {
+    const commands = process({
+      uri: 'c:\\bp\\scripts\\main.js',
+      getText: () => `
+import { system } from "@minecraft/server";
+
+system.beforeEvents.startup.subscribe((init) => {
+  init.customCommandRegistry.registerCommand({
+    name: "example:greet",
+    description: "Says hi",
+  }, () => {});
+});
+`,
+    });
+    const container = toCommandContainer({ forEach: (callbackfn) => commands.forEach(callbackfn) });
+
+    expect(hasCommandData('example:greet', false, container)).toBeTruthy();
+  });
+
+  it('parses registration via a destructured customCommandRegistry', () => {
+    const commands = process({
+      uri: 'c:\\bp\\scripts\\main.js',
+      getText: () => `
+system.beforeEvents.startup.subscribe(({ customCommandRegistry }) => {
+  customCommandRegistry.registerCommand({ name: "example:wave" }, () => {});
+});
+`,
+    });
+    const container = toCommandContainer({ forEach: (callbackfn) => commands.forEach(callbackfn) });
+
+    expect(hasCommandData('example:wave', false, container)).toBeTruthy();
+  });
 });
