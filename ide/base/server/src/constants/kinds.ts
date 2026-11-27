@@ -8,6 +8,7 @@ export namespace Kinds {
     export const BlockCulling: SymbolKind = SymbolKind.Function;
     export const Block: SymbolKind = SymbolKind.Class;
     export const Effect: SymbolKind = SymbolKind.Class;
+    export const Enchant: SymbolKind = SymbolKind.Class;
     export const Entity: SymbolKind = SymbolKind.Class;
     export const FakeEntity: SymbolKind = SymbolKind.Interface;
     export const Gamemode: SymbolKind = SymbolKind.Constant;
@@ -51,6 +52,7 @@ export namespace Kinds {
     export const Animation: CompletionItemKind = CompletionItemKind.Method;
     export const Block: CompletionItemKind = CompletionItemKind.Class;
     export const Effect: CompletionItemKind = CompletionItemKind.Class;
+    export const Enchant: CompletionItemKind = CompletionItemKind.EnumMember;
     export const Entity: CompletionItemKind = CompletionItemKind.Class;
     export const FakeEntity: CompletionItemKind = CompletionItemKind.Interface;
     export const Gamemode: CompletionItemKind = CompletionItemKind.Constant;
