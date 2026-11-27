@@ -58,15 +58,24 @@ function isCustomCommandRegisterCall(node: ts.CallExpression): boolean {
   if (node.expression.name.text !== 'registerCommand') return false;
 
   const object = node.expression.expression;
-  if (ts.isIdentifier(object) && object.text === 'CustomCommandRegistry') {
-    return true;
+  if (ts.isIdentifier(object)) {
+    return isCustomCommandRegistryName(object.text);
   }
 
-  if (ts.isPropertyAccessExpression(object) && ts.isIdentifier(object.name)) {
-    return object.name.text === 'CustomCommandRegistry';
+  if (ts.isPropertyAccessExpression(object)) {
+    return isCustomCommandRegistryName(object.name.text);
   }
 
   return false;
+}
+
+/**
+ * Matches the registry name either as it's exposed by the real scripting API
+ * (`customCommandRegistry`, e.g. via `system.beforeEvents.startup.subscribe((init) => init.customCommandRegistry...)`)
+ * or as a `CustomCommandRegistry`-styled identifier some code/docs use.
+ */
+function isCustomCommandRegistryName(name: string): boolean {
+  return name.toLowerCase() === 'customcommandregistry';
 }
 
 function parseRegisterCall(
