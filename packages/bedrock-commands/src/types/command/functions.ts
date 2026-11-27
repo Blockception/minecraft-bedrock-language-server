@@ -10,15 +10,25 @@ export type CustomCommandLookup = CommandContainer | CustomCommandGetter;
 /**Gets the best matching commandInfo data, if multiple are returned, it unclear or somewhere not fully specified
  * @param command The command to search through
  * @param edu Whether or not to include education data
+ * @param custom The custom command lookup
+ * @param useRequiredParameterLengthFilter Whether to narrow down matches to the ones whose required parameters are
+ * already fully typed. This is useful to pick a single, fully specified match (eg. for diagnostics), but it should
+ * be disabled while the command is still being typed (eg. for completion), since it would otherwise incorrectly
+ * discard overloads that still need more of their required parameters typed out.
  * @returns An array with commands info*/
-export function getBestMatches(command: Command, edu: boolean = false, custom?: CustomCommandLookup): CommandInfo[] {
+export function getBestMatches(
+  command: Command,
+  edu: boolean = false,
+  custom?: CustomCommandLookup,
+  useRequiredParameterLengthFilter: boolean = true,
+): CommandInfo[] {
   let m = command.getCommandData(edu, custom);
 
   if (m.length === 1) return m;
 
   m = m.filter((x) => isMatch(command, x, edu, custom));
 
-  if (m.length > 1) {
+  if (useRequiredParameterLengthFilter && m.length > 1) {
     const n = m.filter((x) => checkRequiredParameterLength(command, x));
     if (n.length === 0) return m;
 

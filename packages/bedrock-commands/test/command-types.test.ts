@@ -125,4 +125,24 @@ describe('Command', () => {
 
     expect(comm.findCursorIndex(5)).toEqual(0);
   });
+
+  it('getBestMatch collapses to the bare overload by default while typing "gamerule "', () => {
+    const comm = Command.parse('gamerule', 0);
+
+    const matches = comm.getBestMatch(false);
+
+    //Only the bare `gamerule` overload has its required parameters fully typed so far.
+    expect(matches).toHaveLength(1);
+    expect(matches[0].parameters).toHaveLength(1);
+  });
+
+  it('getBestMatch keeps every rule overload when the required parameter length filter is disabled', () => {
+    const comm = Command.parse('gamerule', 0);
+
+    const matches = comm.getBestMatch(false, undefined, false);
+
+    //Every gamerule overload (the bare one and all ~38 rule name overloads) should still be suggested.
+    expect(matches.length).toBeGreaterThan(1);
+    expect(matches.some((m) => m.parameters.length > 1)).toBe(true);
+  });
 });

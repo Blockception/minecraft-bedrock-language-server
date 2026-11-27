@@ -33,9 +33,12 @@ export class Command {
 
   /**Gets the best matching commandInfo data, if multiple are returned, it unclear or somewhere not fully specified
    * @param edu Whether or not to include education data
+   * @param custom The custom command lookup
+   * @param useRequiredParameterLengthFilter Whether to narrow down matches to the ones whose required parameters
+   * are already fully typed. Disable this while the command is still being typed (eg. for completion).
    * @returns An array with commands info*/
-  getBestMatch(edu: boolean = false, custom?: CustomCommandLookup): CommandInfo[] {
-    return getBestMatches(this, edu, custom);
+  getBestMatch(edu: boolean = false, custom?: CustomCommandLookup, useRequiredParameterLengthFilter: boolean = true): CommandInfo[] {
+    return getBestMatches(this, edu, custom, useRequiredParameterLengthFilter);
   }
 
   /**Gets the subcommand if there is any present
