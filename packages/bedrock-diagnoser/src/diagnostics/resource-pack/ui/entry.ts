@@ -1,4 +1,5 @@
 import { Internal } from 'bc-minecraft-bedrock-project';
+import path from 'path';
 import { DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { Json } from '../../json/json';
 
@@ -41,6 +42,15 @@ const MAX_INHERITANCE_DEPTH = 16;
 /** The name a global variables file may use inside a resource pack's `ui` folder. */
 const GLOBAL_VARIABLES_PATTERNS = ['**/ui/_global_variables.json', 'ui/_global_variables.json', '_global_variables.json'];
 
+/**
+ * Matches a resource pack's `ui/_ui_defs.json` registry file by name, regardless of its exact
+ * folder depth. This file lists every UI file Minecraft actually loads for the pack.
+ * @param uri The document uri to test
+ */
+function is_ui_defs_file(uri: string): boolean {
+  return path.basename(uri) === '_ui_defs.json';
+}
+
 /** A reference to a `$variable` usage site, for deferred undefined-variable reporting. */
 interface VariableUsage {
   name: string;
@@ -66,6 +76,11 @@ interface WalkState {
  * @param diagnoser The diagnoser builder to receive the errors
  */
 export function diagnose_ui_document(diagnoser: DocumentDiagnosticsBuilder): void {
+  if (is_ui_defs_file(diagnoser.document.uri)) {
+    diagnose_ui_defs_document(diagnoser);
+    return;
+  }
+
   const imp = Json.LoadReport<Internal.ResourcePack.UI>(diagnoser);
   if (!Internal.ResourcePack.UI.is(imp)) return;
 
@@ -99,6 +114,42 @@ export function diagnose_ui_document(diagnoser: DocumentDiagnosticsBuilder): voi
         `Variable "${usage.name}" is not defined on this element, its inherited chain, or anywhere else in the project`,
         DiagnosticSeverity.warning,
         'resourcepack.ui.variable.undefined',
+      );
+    }
+  }
+}
+
+/**
+ * Diagnoses a resource pack's `ui/_ui_defs.json` registry file: the explicit list of UI files
+ * Minecraft loads for the pack. Gathers each listed entry and validates it resolves to a real
+ * file within the resource pack.
+ * @param diagnoser The diagnoser builder to receive the errors
+ */
+function diagnose_ui_defs_document(diagnoser: DocumentDiagnosticsBuilder): void {
+  const imp = Json.LoadReport<{ ui_defs?: unknown }>(diagnoser);
+  if (typeof imp !== 'object' || imp === null || !Array.isArray(imp.ui_defs)) return;
+
+  const pack = diagnoser.context.getProjectData().projectData.resourcePacks.get(diagnoser.document.uri);
+  if (!pack) return;
+
+  for (const entry of imp.ui_defs) {
+    if (typeof entry !== 'string') {
+      diagnoser.add(
+        'ui_defs',
+        `Entry "${JSON.stringify(entry)}" in "ui_defs" is not a file path string`,
+        DiagnosticSeverity.warning,
+        'resourcepack.ui.defs.entry.invalid',
+      );
+      continue;
+    }
+
+    const found = diagnoser.context.getFiles(pack.folder, [entry], pack.context.ignores);
+    if (found.length === 0) {
+      diagnoser.add(
+        entry,
+        `UI file "${entry}" listed in "ui_defs" does not exist in this resource pack`,
+        DiagnosticSeverity.warning,
+        'resourcepack.ui.defs.missing_file',
       );
     }
   }

@@ -227,6 +227,17 @@ exports[`Files test testing file: {/test-rp/models/root_model.geo.json} expect s
 
 exports[`Files test testing file: {/test-rp/render_controllers/sample.render_controllers.json} expect specific errors 1`] = `[]`;
 
+exports[`Files test testing file: {/test-rp/ui/_ui_defs.json} expect specific errors 1`] = `
+[
+  {
+    "code": "resourcepack.ui.defs.missing_file",
+    "message": "UI file "ui/missing_screen.json" listed in "ui_defs" does not exist in this resource pack",
+    "position": "ui/missing_screen.json",
+    "severity": 2,
+  },
+]
+`;
+
 exports[`Files test testing file: {/test-rp/ui/test_ui.json} expect specific errors 1`] = `
 [
   {
