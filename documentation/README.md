@@ -30,6 +30,7 @@ Step-by-step guides for implementing features.
 - [Creating Diagnostics](./guides/creating-diagnostics.md) - How to add diagnostic error codes
 - [Project Templates and Recommended Practices](./guides/project-templates.md) - How to find, use, adapt, and maintain project templates
 - [Molang Language Support](./guides/molang.md) - Guide to Molang scripting assistance, completions, diagnostics, and debugging
+- [UI Support](./guides/ui.md) - Diagnostics for `resource_pack/ui` files: control types, `@` inheritance, `$variables`, bindings, and `_ui_defs.json`
 - [Working with Ignore Files](./guides/ignore-files.md) - Using `.mcignore` to control which files are validated
 
 #### [Project Configuration](./project/)
