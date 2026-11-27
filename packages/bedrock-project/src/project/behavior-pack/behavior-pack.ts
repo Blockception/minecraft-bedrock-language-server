@@ -105,10 +105,12 @@ export class BehaviorPack implements Container, Pack {
   }
 
   /**
-   *
-   * @param doc
+   * Processes the given document into this pack's data.
+   * @param doc The document to process
+   * @returns The uris of other documents whose identifier got overwritten
+   * by this document (same id, different location)
    */
-  process(doc: TextDocument): DataSetTypes | undefined {
+  process(doc: TextDocument): string[] {
     this.deleteFile(doc.uri);
     const Type = FileType.detect(doc.uri);
 
@@ -163,7 +165,7 @@ export class BehaviorPack implements Container, Pack {
         return this.customCommands.set(Script.process(doc));
     }
 
-    return undefined;
+    return [];
   }
 
   /**

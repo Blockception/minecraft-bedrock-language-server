@@ -25,11 +25,11 @@ export class WorldPack implements Container, Pack {
   /**
    * Processes the given document and adds it to the world pack data.
    * @param doc The document to process
-   * @returns The dataset the document was added to, or undefined
+   * @returns The uris of other documents whose identifier got overwritten by this document
    * TODO: Implement indexing of world-pack embedded files (behavior_packs / resource_packs sub-folders).
    */
-  process(doc: TextDocument): DataSetBase | undefined {
-    return undefined;
+  process(doc: TextDocument): string[] {
+    return [];
   }
 
   /**

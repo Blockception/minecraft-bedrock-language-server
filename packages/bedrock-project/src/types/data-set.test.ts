@@ -151,6 +151,31 @@ describe('DataSet', () => {
     expect(set.has(dataItem)).toBeFalsy();
   });
 
+  it('swap returns the previous item', () => {
+    const set = new DataSet<TestObject>();
+
+    expect(set.swap(dataItem)).toBeUndefined();
+
+    const replacement = TestObject.create(dataID, 'I am different', 0);
+    expect(set.swap(replacement)).toEqual(dataItem);
+    expect(set.get(dataID)).toEqual(replacement);
+  });
+
+  it('set returns the uris of documents whose identifier got overwritten', () => {
+    const set = new DataSet<TestObject>();
+
+    expect(set.set(dataItem)).toEqual([]);
+    expect(set.set(TestObject.create(dataID, 'I am different', 0))).toEqual([dataUri]);
+  });
+
+  it('set does not report a conflict for the same document', () => {
+    const set = new DataSet<TestObject>();
+
+    set.set(dataItem);
+
+    expect(set.set(TestObject.create(dataID, dataUri, 1))).toEqual([]);
+  });
+
   it('foreach', () => {
     const set = new DataSet<TestObject>();
 

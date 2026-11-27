@@ -119,20 +119,30 @@ export class DataSet<T extends Identifiable & Locatable> implements DataSetBase,
     return this._data.has(Identifiable.getId(key));
   }
 
-  /**
-   *
-   * @param value
-   * @returns
-   */
-  set(value: T | T[] | undefined): this {
-    if (value) {
-      if (Array.isArray(value)) {
-        value.forEach((i) => this._data.set(i.id, i));
-      } else {
-        this._data.set(value.id, value);
-      }
-    }
+  /** @inheritdoc */
+  swap(value: T): T | undefined {
+    const previous = this._data.get(value.id);
+    this._data.set(value.id, value);
 
-    return this;
+    return previous;
+  }
+
+  /**
+   * Stores the given item(s), returning the uris of any documents whose
+   * identifier got overwritten in the process (same id, different location).
+   * @param value The item, items, or `undefined` to store
+   * @returns The uris of the documents that lost an identifier to this call
+   */
+  set(value: T | T[] | undefined): string[] {
+    const conflicts: string[] = [];
+    if (!value) return conflicts;
+
+    const items = Array.isArray(value) ? value : [value];
+    items.forEach((item) => {
+      const previous = this.swap(item);
+      if (previous && previous.location.uri !== item.location.uri) conflicts.push(previous.location.uri);
+    });
+
+    return conflicts;
   }
 }

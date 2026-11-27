@@ -25,4 +25,12 @@ export interface IDataSet<T extends Identifiable> {
    * @param predicate The function to determine if the item is found
    */
   find(predicate: (value: T, key: string) => boolean): T | undefined;
+
+  /**
+   * Stores the given item under its id, returning whichever item previously
+   * occupied that id (from the same or a different document), or `undefined`
+   * if the id was not in use yet.
+   * @param value The item to store
+   */
+  swap(value: T): T | undefined;
 }

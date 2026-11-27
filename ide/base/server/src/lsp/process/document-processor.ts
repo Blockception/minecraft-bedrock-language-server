@@ -67,13 +67,28 @@ export class DocumentProcessor extends BaseService implements IService {
 
     try {
       if (conf.ignores.patterns.length == 0 || !Glob.isMatch(document.uri, conf.ignores.patterns)) {
-        this.extension.database.ProjectData.process(document);
+        const conflicts = this.extension.database.ProjectData.process(document);
+
+        this.revalidateConflicts(conflicts);
       } else {
         this.logger.info(`ignoring file ${document.uri}`);
       }
     } catch (error) {
       this.logger.recordError(error, document);
     }
+  }
+
+  /**
+   * Re-runs diagnostics for documents that lost an identifier to the document
+   * that was just processed, so a now-stale "duplicate identifier" diagnostic
+   * doesn't linger, and the file that now holds the duplicate gets flagged.
+   * @param uris The uris of the documents that got overwritten
+   */
+  private revalidateConflicts(uris: string[]): void {
+    uris.forEach((uri) => {
+      const doc = this.extension.documents.get(uri);
+      if (doc) this.diagnose(doc);
+    });
   }
 
   diagnose(doc: TextDocument): void | Promise<void> {
