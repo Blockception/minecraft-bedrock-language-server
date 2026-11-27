@@ -1,5 +1,5 @@
 import { CompletionItemKind } from 'vscode-languageserver';
-import { CompletionContext } from '../../context';
+import { CommandCompletionContext } from '../../context';
 import { Context } from '../../../context/context';
 import {
   CanDestroyComponent,
@@ -10,8 +10,12 @@ import {
   LockInSlotComponent,
 } from '../../../../minecraft/json/item-components/constants';
 
-export function provideCompletion(context: Context<CompletionContext>): void {
+export function provideCompletion(context: Context<CommandCompletionContext>): void {
   const builder = context.builder.withDefaults({ kind: CompletionItemKind.Snippet });
+
+  //When no opening brace has been typed yet, the components need to be wrapped in a json object or bedrock rejects them
+  const hasOpeningBrace = context.current?.text.trimStart().startsWith('{') ?? false;
+  const wrap = (snippet: string): string => (hasOpeningBrace ? snippet : `{ ${snippet} }`);
 
   builder.add({
     label: 'Json Item Components Example',
@@ -20,27 +24,27 @@ export function provideCompletion(context: Context<CompletionContext>): void {
   });
   builder.add({
     label: 'Can destroy component',
-    documentation: CanDestroyComponent,
-    insertText: CanDestroyComponent,
+    documentation: wrap(CanDestroyComponent),
+    insertText: wrap(CanDestroyComponent),
   });
   builder.add({
     label: 'Can place on component',
-    documentation: CanPlaceOnComponent,
-    insertText: CanPlaceOnComponent,
+    documentation: wrap(CanPlaceOnComponent),
+    insertText: wrap(CanPlaceOnComponent),
   });
   builder.add({
     label: 'Lock in inventory component',
-    documentation: LockInInventoryComponent,
-    insertText: LockInInventoryComponent,
+    documentation: wrap(LockInInventoryComponent),
+    insertText: wrap(LockInInventoryComponent),
   });
   builder.add({
     label: 'Keep on death component',
-    documentation: KeepOnDeathComponent,
-    insertText: KeepOnDeathComponent,
+    documentation: wrap(KeepOnDeathComponent),
+    insertText: wrap(KeepOnDeathComponent),
   });
   builder.add({
     label: 'Lock in slot component',
-    documentation: LockInSlotComponent,
-    insertText: LockInSlotComponent,
+    documentation: wrap(LockInSlotComponent),
+    insertText: wrap(LockInSlotComponent),
   });
 }
