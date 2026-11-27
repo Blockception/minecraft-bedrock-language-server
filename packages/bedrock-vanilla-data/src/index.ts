@@ -325,6 +325,19 @@ export namespace MinecraftData {
       return getStr(id, edu, MinecraftData.vanilla.ResourcePack.textures, MinecraftData.edu.ResourcePack.textures);
     }
 
+    /**Gets the terrain texture (terrain_texture.json entry) by the given identification
+     * @param id The identification of the object to find
+     * @param edu Whether or not to include education data
+     * @returns A object with the specified id or undefined if nothing was found*/
+    export function getTerrainTexture(id: string, edu: boolean = false): Types.ResourcePack.TextureAtlas | undefined {
+      return getStr(
+        id,
+        edu,
+        MinecraftData.vanilla.ResourcePack.textureAtlasTerrain,
+        MinecraftData.edu.ResourcePack.textureAtlasTerrain,
+      );
+    }
+
     /**Returns true or false if the given identification exists
      * @param id The identification of the object to find
      * @param edu Whether or not to include education data
@@ -411,6 +424,14 @@ export namespace MinecraftData {
      * @returns A object with the specified id or undefined if nothing was found*/
     export function hasTexture(id: string, edu: boolean = false): boolean {
       return getTexture(id, edu) !== undefined;
+    }
+
+    /**Returns true or false if the given identification exists
+     * @param id The identification of the object to find
+     * @param edu Whether or not to include education data
+     * @returns A object with the specified id or undefined if nothing was found*/
+    export function hasTerrainTexture(id: string, edu: boolean = false): boolean {
+      return getTerrainTexture(id, edu) !== undefined;
     }
   }
 }

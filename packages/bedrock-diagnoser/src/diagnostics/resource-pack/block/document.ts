@@ -1,4 +1,3 @@
-import { ResourcePack } from 'bc-minecraft-bedrock-project';
 import { DiagnosticsBuilder, DiagnosticSeverity, DocumentDiagnosticsBuilder } from '../../../types';
 import { is_block_defined } from '../../behavior-pack/block';
 import { Json } from '../../json/json';
@@ -16,7 +15,6 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
   diagnose_molang_syntax_current_document(diagnoser, blocks);
 
   const keys = Object.keys(blocks);
-  const rp = diagnoser.context.getProjectData().projectData.resourcePacks;
 
   for (let I = 0; I < keys.length; I++) {
     const key = keys[I];
@@ -40,16 +38,16 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
       if (!texture) return;
 
       if (typeof texture === 'string') {
-        hasDefinition(key, texture, rp, diagnoser);
+        hasDefinition(key, texture, diagnoser);
       } else if (texture) {
-        if (texture.down) hasDefinition(key, texture.down, rp, diagnoser);
-        if (texture.up) hasDefinition(key, texture.up, rp, diagnoser);
-        if (texture.side) hasDefinition(key, texture.side, rp, diagnoser);
+        if (texture.down) hasDefinition(key, texture.down, diagnoser);
+        if (texture.up) hasDefinition(key, texture.up, diagnoser);
+        if (texture.side) hasDefinition(key, texture.side, diagnoser);
 
-        if (texture.north) hasDefinition(key, texture.north, rp, diagnoser);
-        if (texture.south) hasDefinition(key, texture.south, rp, diagnoser);
-        if (texture.west) hasDefinition(key, texture.west, rp, diagnoser);
-        if (texture.east) hasDefinition(key, texture.east, rp, diagnoser);
+        if (texture.north) hasDefinition(key, texture.north, diagnoser);
+        if (texture.south) hasDefinition(key, texture.south, diagnoser);
+        if (texture.west) hasDefinition(key, texture.west, diagnoser);
+        if (texture.east) hasDefinition(key, texture.east, diagnoser);
       }
 
       is_block_defined(key, diagnoser);
@@ -68,13 +66,8 @@ export function diagnose_block_document(diagnoser: DocumentDiagnosticsBuilder): 
   }
 }
 
-function hasDefinition(
-  block: string,
-  value: string,
-  rp: ResourcePack.ResourcePackCollection,
-  diagnoser: DiagnosticsBuilder,
-): void {
-  if (rp.terrainTextures.has(value)) return;
+function hasDefinition(block: string, value: string, diagnoser: DiagnosticsBuilder): void {
+  if (diagnoser.context.getProjectData().resources.terrainTextures.has(value, diagnoser.project)) return;
 
   diagnoser.add(
     `${block}/${value}`,

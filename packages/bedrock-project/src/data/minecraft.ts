@@ -226,7 +226,7 @@ export class ResourceData {
   terrainTextures = firstReturn(
     fromDefinition('terrain_texture'),
     fromProject(() => this._resourcepacks.terrainTextures),
-    // No Vanilla
+    fromVanilla(VanillaData.ResourcePack.getTerrainTexture),
   );
 }
 
